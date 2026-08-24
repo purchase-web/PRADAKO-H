@@ -1,0 +1,388 @@
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link rel="stylesheet" href="/assets/css/cookies-consent.css">
+
+
+
+<!-- =========================================================
+    PMEW PREMIUM COOKIE CONSENT
+========================================================== -->
+
+<div
+    class="pmew-cookie-banner"
+    id="pmewCookieBanner"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="pmewCookieBannerTitle"
+    aria-describedby="pmewCookieBannerDescription"
+    aria-hidden="true"
+>
+    <div class="pmew-cookie-banner__accent"></div>
+
+    <div class="pmew-cookie-banner__inner">
+
+        <div class="pmew-cookie-banner__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12 2a10 10 0 1 0 10 10c0-.45-.03-.89-.09-1.32a4.5 4.5 0 0 1-5.59-5.59A9.94 9.94 0 0 0 12 2Z"
+                ></path>
+                <circle cx="8.1" cy="9" r="1.1"></circle>
+                <circle cx="11.2" cy="15.2" r="1.1"></circle>
+                <circle cx="16.4" cy="13" r="1.1"></circle>
+            </svg>
+        </div>
+
+        <div class="pmew-cookie-banner__content">
+
+            <span class="pmew-cookie-banner__eyebrow">
+                Your privacy matters
+            </span>
+
+            <h2 id="pmewCookieBannerTitle">
+                Privacy, with precision.
+            </h2>
+
+            <p id="pmewCookieBannerDescription">
+                We use essential cookies to keep our website secure and
+                functional. With your permission, optional cookies help us
+                understand website performance, remember preferences and
+                improve your experience.
+            </p>
+
+            <div class="pmew-cookie-banner__links">
+
+                <button
+                    type="button"
+                    class="pmew-cookie-text-button"
+                    id="pmewManageCookies"
+                >
+                    Manage preferences
+                </button>
+
+                <a href="/pages/legal/cookies.html">
+                    Cookie policy
+                </a>
+
+                <a href="/pages/legal/privacy.html">
+                    Privacy policy
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="pmew-cookie-banner__actions">
+
+            <button
+                type="button"
+                class="pmew-cookie-button pmew-cookie-button--secondary"
+                id="pmewRejectCookies"
+            >
+                Reject all optional
+            </button>
+
+            <button
+                type="button"
+                class="pmew-cookie-button pmew-cookie-button--primary"
+                id="pmewAcceptCookies"
+            >
+                Accept all
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- COOKIE PREFERENCES OVERLAY -->
+
+<div
+    class="pmew-cookie-overlay"
+    id="pmewCookieOverlay"
+    aria-hidden="true"
+></div>
+
+
+<!-- COOKIE PREFERENCES PANEL -->
+
+<aside
+    class="pmew-cookie-panel"
+    id="pmewCookiePanel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pmewCookiePanelTitle"
+    aria-describedby="pmewCookiePanelDescription"
+    aria-hidden="true"
+>
+    <div class="pmew-cookie-panel__header">
+
+        <div>
+
+            <span class="pmew-cookie-panel__eyebrow">
+                PMEW privacy centre
+            </span>
+
+            <h2 id="pmewCookiePanelTitle">
+                Cookie preferences
+            </h2>
+
+            <p id="pmewCookiePanelDescription">
+                Select which optional cookies you permit. Essential cookies
+                remain active because they are required for security and core
+                website functions.
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="pmew-cookie-panel__close"
+            id="pmewCloseCookiePanel"
+            aria-label="Close cookie preferences"
+        >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18"></path>
+            </svg>
+        </button>
+
+    </div>
+
+
+    <div class="pmew-cookie-panel__body">
+
+        <!-- STRICTLY NECESSARY -->
+
+        <div class="pmew-cookie-category">
+
+            <div class="pmew-cookie-category__top">
+
+                <div class="pmew-cookie-category__title">
+
+                    <span class="pmew-cookie-category__number">
+                        01
+                    </span>
+
+                    <div>
+                        <h3>Strictly necessary</h3>
+
+                        <span class="pmew-cookie-category__status">
+                            Always active
+                        </span>
+                    </div>
+
+                </div>
+
+                <label class="pmew-cookie-switch">
+
+                    <input
+                        type="checkbox"
+                        id="pmewNecessaryCookies"
+                        checked
+                        disabled
+                    >
+
+                    <span class="pmew-cookie-switch__slider"></span>
+
+                </label>
+
+            </div>
+
+            <p>
+                Required for website security, navigation, forms, saved
+                consent choices and essential functionality. These cookies
+                cannot be disabled.
+            </p>
+
+        </div>
+
+
+        <!-- PREFERENCES -->
+
+        <div class="pmew-cookie-category">
+
+            <div class="pmew-cookie-category__top">
+
+                <div class="pmew-cookie-category__title">
+
+                    <span class="pmew-cookie-category__number">
+                        02
+                    </span>
+
+                    <div>
+                        <h3>Preferences</h3>
+
+                        <span class="pmew-cookie-category__status">
+                            Optional
+                        </span>
+                    </div>
+
+                </div>
+
+                <label class="pmew-cookie-switch">
+
+                    <input
+                        type="checkbox"
+                        id="pmewPreferenceCookies"
+                    >
+
+                    <span class="pmew-cookie-switch__slider"></span>
+
+                </label>
+
+            </div>
+
+            <p>
+                Remembers choices such as language, region, display settings
+                and other personalisation preferences.
+            </p>
+
+        </div>
+
+
+        <!-- ANALYTICS -->
+
+        <div class="pmew-cookie-category">
+
+            <div class="pmew-cookie-category__top">
+
+                <div class="pmew-cookie-category__title">
+
+                    <span class="pmew-cookie-category__number">
+                        03
+                    </span>
+
+                    <div>
+                        <h3>Analytics</h3>
+
+                        <span class="pmew-cookie-category__status">
+                            Optional
+                        </span>
+                    </div>
+
+                </div>
+
+                <label class="pmew-cookie-switch">
+
+                    <input
+                        type="checkbox"
+                        id="pmewAnalyticsCookies"
+                    >
+
+                    <span class="pmew-cookie-switch__slider"></span>
+
+                </label>
+
+            </div>
+
+            <p>
+                Helps us understand how visitors interact with our website,
+                which pages are useful and where the experience can improve.
+            </p>
+
+        </div>
+
+
+        <!-- MARKETING -->
+
+        <div class="pmew-cookie-category">
+
+            <div class="pmew-cookie-category__top">
+
+                <div class="pmew-cookie-category__title">
+
+                    <span class="pmew-cookie-category__number">
+                        04
+                    </span>
+
+                    <div>
+                        <h3>Marketing</h3>
+
+                        <span class="pmew-cookie-category__status">
+                            Optional
+                        </span>
+                    </div>
+
+                </div>
+
+                <label class="pmew-cookie-switch">
+
+                    <input
+                        type="checkbox"
+                        id="pmewMarketingCookies"
+                    >
+
+                    <span class="pmew-cookie-switch__slider"></span>
+
+                </label>
+
+            </div>
+
+            <p>
+                May be used for campaign measurement, embedded media,
+                remarketing and relevant promotional communications.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="pmew-cookie-panel__footer">
+
+        <button
+            type="button"
+            class="pmew-cookie-button pmew-cookie-button--secondary"
+            id="pmewPanelRejectCookies"
+        >
+            Reject all optional
+        </button>
+
+        <button
+            type="button"
+            class="pmew-cookie-button pmew-cookie-button--dark"
+            id="pmewSaveCookiePreferences"
+        >
+            Save preferences
+        </button>
+
+        <button
+            type="button"
+            class="pmew-cookie-button pmew-cookie-button--primary"
+            id="pmewPanelAcceptCookies"
+        >
+            Accept all
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- PERMANENT COOKIE SETTINGS BUTTON -->
+
+<button
+    type="button"
+    class="pmew-cookie-settings-button"
+    id="pmewCookieSettingsButton"
+    aria-label="Open cookie settings"
+    title="Cookie settings"
+>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+        <path
+            d="M12 2a10 10 0 1 0 10 10c0-.45-.03-.89-.09-1.32a4.5 4.5 0 0 1-5.59-5.59A9.94 9.94 0 0 0 12 2Z"
+        ></path>
+
+        <circle cx="8.1" cy="9" r="1.1"></circle>
+        <circle cx="11.2" cy="15.2" r="1.1"></circle>
+        <circle cx="16.4" cy="13" r="1.1"></circle>
+
+    </svg>
+
+    <span>Cookie settings</span>
+
+</button>

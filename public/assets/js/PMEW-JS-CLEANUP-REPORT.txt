@@ -1,0 +1,212 @@
+PMEW JAVASCRIPT CLEANUP + PATH AUDIT
+Date: 21 August 2026
+
+STATUS
+------
+Completed all requested cleanup stages on the supplied JavaScript archive.
+Original archive: 54 JavaScript files.
+Cleaned package: 55 JavaScript files because one new shared file, leadership.js, replaces three duplicated leadership implementations.
+22 files were changed or added.
+All 55 JavaScript files pass `node --check` syntax validation after cleanup.
+
+1. PERMANENT SITE-SHELL LOADER
+------------------------------
+Permanent owner: pradako-site-shell.js
+
+Why this file was selected:
+- It uses the real shared HTML components instead of generating a second navbar/footer in JavaScript.
+- It now checks HTTP status before injecting HTML.
+- It centralises the shared component paths.
+- It dispatches one `pmew:shell-loaded` event after the shell has finished loading.
+- It exposes a shared site-root helper through `window.PMEW_SITE`.
+
+Canonical components:
+- components/navbar.html
+- components/footer.html
+
+The old pmew-site-shell.js is now only a compatibility alias. It no longer creates or fetches navbar/footer markup.
+
+2. NAVBAR/FOOTER OWNERSHIP REMOVED FROM COMPETING FILES
+-------------------------------------------------------
+Removed direct shared-component fetching from:
+- scripts.js
+- main.js
+- astm-specifications.js
+- pmew-site-shell.js
+
+Only pradako-site-shell.js now contains the canonical components/navbar.html and components/footer.html paths.
+
+Backward compatibility:
+- scripts.js can bootstrap pradako-site-shell.js if an old page has shell containers but forgot to include the permanent shell script.
+- main.js can also bootstrap the permanent shell for legacy pages and only applies its old navbar interactions when scripts.js is not present.
+- pmew-site-shell.js delegates to pradako-site-shell.js from the same JavaScript folder.
+
+3. WEB-ROOT / PATH STRATEGY
+---------------------------
+pradako-site-shell.js derives the website root from its own resolved script URL.
+
+This supports BOTH environments without changing component URLs:
+
+A. Current Live Server setup
+   Browser page:
+     /public/pages/about-us/philosophy.html
+   Shell script:
+     /public/assets/js/pradako-site-shell.js
+   Automatically resolves:
+     /public/components/navbar.html
+     /public/components/footer.html
+
+B. Production / public-as-web-root setup
+   Browser page:
+     /pages/about-us/philosophy.html
+   Shell script:
+     /assets/js/pradako-site-shell.js
+   Automatically resolves:
+     /components/navbar.html
+     /components/footer.html
+
+No page-depth-specific ../../components/... calculations are required for the shared shell.
+
+Optional override:
+  window.PMEW_SITE_ROOT = "/your-root";
+
+Shared helper now available:
+  window.PMEW_SITE.root
+  window.PMEW_SITE.path("assets/...")
+  window.PMEW_SITE.components.navbar
+  window.PMEW_SITE.components.footer
+
+4. scripts.js DUPLICATE CLEANUP
+-------------------------------
+Removed the direct loadComponents() navbar/footer fetcher.
+Removed the duplicate global-presence implementation from scripts.js.
+Removed the two duplicated APPLICATION NAVBAR ACTIVE + SECTION HASH SCROLL IIFEs.
+
+Application logic is now owned by one:
+- initApplicationNavigation()
+- initApplicationScrollSpy()
+
+The scrollspy is requestAnimationFrame-throttled to avoid performing the full section scan repeatedly within the same browser frame.
+
+Global-presence page behaviour is now owned by global-presence.js.
+Its extra reveal observer was removed because generic reveal work is already owned by pradako-global-animations.js.
+
+5. LEADERSHIP JS CONSOLIDATION
+------------------------------
+New shared file:
+- leadership.js
+
+It owns the common Founder / Chairman / Chairwoman behaviour:
+- CTA scroll
+- collaboration form validation
+- collaboration form submission
+- field-error reset
+
+Existing filenames remain valid as lightweight compatibility aliases:
+- founder.js
+- chairman.js
+- chairwoman.js
+
+This means old HTML references do not need to be changed immediately. Each alias loads leadership.js from the same JavaScript directory.
+
+6. COOKIE CONSENT CONSOLIDATION
+-------------------------------
+Canonical consent core:
+- cookie-consent-init.js
+
+UI only:
+- cookies.js
+
+The previous conflict was removed: one file used a browser cookie while the other used localStorage under the same name.
+
+New behaviour:
+- canonical persistence is the pmew_cookie_consent browser cookie
+- 180-day consent duration
+- cookie-consent-init.js owns reading, writing, normalisation, expiry, Consent Mode and state
+- cookies.js only owns banner/panel interaction
+- old valid localStorage consent is automatically migrated once into the canonical cookie
+- optional DOM elements are checked before listeners are attached, preventing null.addEventListener runtime errors
+- Consent Mode updates when a visitor changes preferences
+
+7. DEAD CODE + PERFORMANCE CLEANUP
+---------------------------------
+Removed confirmed unused code from:
+- customised-products.js
+  - MATRIX_PREVIEW
+  - MATRIX_PREVIEW_SEARCH
+  - showCatalogue()
+
+- featured-spotlight-products.js
+  - abandoned standalone enquiry storage/drawing constants and state
+
+- pradako-pdp.js
+  - normaliseKey()
+  - candidateCartId()
+  - unused needsReview variable
+
+- pmew-individual-product.js
+  - configurationSignature()
+
+- pradako-product-ui-consistency.js
+  - unused array()
+  - unused escapeHtml()
+
+- threading-theory.js
+  - unused ULT lookup
+
+- iso-standards.js
+  - unused initializeData()
+  - unused clearAllFilters()
+
+- products.js
+  - unused pradakoStandardProductCardHTML()
+
+- standard-products.js
+  - unused pradakoStandardProductCardHTML()
+
+Other performance / maintenance changes:
+- duplicate global-presence reveal observer removed
+- duplicate application scroll/hash observers removed
+- application scrollspy throttled with requestAnimationFrame
+- site-shell external component scripts are not re-injected if the same external script is already loaded
+- site-shell uses no-store while developing on localhost/127.0.0.1, but normal browser caching in production
+- shell height is observed with ResizeObserver when supported instead of relying only on resize events
+
+INTENTIONALLY NOT COLLAPSED
+---------------------------
+products.js and standard-products.js still contain a large amount of related catalogue code, but they also contain real route, image-fallback and page-behaviour differences. They were not replaced by one another because doing so would be a high-risk functional change without the associated HTML pages in this archive. Confirmed dead code inside both was still removed.
+
+Likewise, large generated data files such as customised-products-data.js and threading-data.js were left structurally intact. Reformatting generated data would increase package size and does not improve browser execution.
+
+RECOMMENDED SCRIPT ORDER ON NORMAL PAGES
+----------------------------------------
+Use the permanent shell first, then the global script:
+
+  <script src="[path-to-js]/pradako-site-shell.js" defer></script>
+  <script src="[path-to-js]/scripts.js" defer></script>
+
+The page itself should contain:
+
+  <div id="navbar-container"></div>
+  ... page content ...
+  <div id="footer-container"></div>
+
+Do not add page-specific fetch("components/navbar.html") or fetch("components/footer.html") code again.
+
+LEGACY FILES
+------------
+These can remain during migration but should not be used for new pages:
+- main.js
+- pmew-site-shell.js
+
+They are compatibility delegates, not shell owners.
+
+VALIDATION
+----------
+- JavaScript files checked: 55
+- Syntax failures: 0
+- Files containing canonical components/navbar.html or components/footer.html paths: pradako-site-shell.js only
+- initApplicationNavigation() definitions in scripts.js: 1
+- initApplicationScrollSpy() definitions in scripts.js: 1
+- initPradakoGlobalPresence() definitions across cleaned package: global-presence.js only
+- Files owning pmew_cookie_consent storage: cookie-consent-init.js only

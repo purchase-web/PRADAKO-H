@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Pradako Mechanical</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/products.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/cross-reference-guide.css">
+
+
+    <style id="pradako-grid-search-styles">
+        .pradako-custom-grid-search-panel {
+            margin: 26px 0 34px;
+            padding: 22px;
+            border: 1px solid #dfe8f1;
+            border-radius: 22px;
+            background: #ffffff;
+        }
+
+        .pradako-custom-grid-search-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #0A3D62;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .pradako-custom-grid-search-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .pradako-custom-grid-search-field {
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 14px 0 17px;
+            border: 1px solid #cfdbe7;
+            border-radius: 15px;
+            background: #f9fbfd;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .pradako-custom-grid-search-field:focus-within {
+            border-color: #0A3D62;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(10, 61, 98, 0.10);
+        }
+
+        .pradako-custom-grid-search-field > i {
+            flex: 0 0 auto;
+            color: #6b7f92;
+            font-size: 16px;
+        }
+
+        #customGridSearch {
+            width: 100%;
+            min-width: 0;
+            height: 50px;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #122b40;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        #customGridSearch::placeholder {
+            color: #8092a3;
+        }
+
+        #customGridSearch::-webkit-search-cancel-button {
+            display: none;
+        }
+
+        .pradako-custom-grid-clear {
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 50%;
+            background: #edf3f8;
+            color: #456075;
+            cursor: pointer;
+        }
+
+        .pradako-custom-grid-clear:hover,
+        .pradako-custom-grid-clear:focus-visible {
+            background: #dfeaf3;
+            color: #0A3D62;
+        }
+
+        .pradako-custom-grid-clear.is-hidden {
+            display: none;
+        }
+
+        .pradako-custom-grid-search-btn {
+            min-width: 132px;
+            padding: 0 25px;
+            border: 1px solid #0A3D62;
+            border-radius: 15px;
+            background: #0A3D62;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pradako-custom-grid-search-btn:hover,
+        .pradako-custom-grid-search-btn:focus-visible {
+            transform: translateY(-1px);
+            background: #082f4b;
+            box-shadow: 0 10px 22px rgba(10, 61, 98, 0.16);
+        }
+
+        .pradako-custom-grid-search-status {
+            margin: 12px 2px 0;
+            color: #607487;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .pradako-products-card-link.custom-grid-card-hidden {
+            display: none !important;
+        }
+
+        .pradako-custom-grid-match-badge {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            margin: 9px 0 2px;
+            padding: 6px 10px;
+            border: 1px solid rgba(242, 140, 40, 0.32);
+            border-radius: 999px;
+            background: rgba(242, 140, 40, 0.10);
+            color: #b65d08;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .pradako-custom-grid-empty-result {
+            margin: 24px 0 10px;
+            padding: 34px 22px;
+            border: 1px dashed #c9d6e2;
+            border-radius: 20px;
+            background: #f8fafc;
+            color: #4f6578;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .pradako-custom-grid-empty-result strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #0A3D62;
+            font-size: 17px;
+        }
+
+        /* Product-level cards displayed after a Grid search. */
+        .pradako-custom-grid-product-results[hidden],
+        .pradako-custom-grid-view.custom-grid-family-results-hidden {
+            display: none !important;
+        }
+
+        .pradako-custom-search-product-card {
+            min-height: 390px !important;
+            height: 100% !important;
+        }
+
+        .pradako-custom-search-product-card .pradako-products-image-box {
+            height: 230px;
+            min-height: 230px;
+            background: #ffffff;
+        }
+
+        .pradako-custom-search-product-card .pradako-products-image-box img {
+            transform: scale(1.02);
+            padding: 10px;
+        }
+
+        .pradako-custom-search-product-link:hover
+        .pradako-custom-search-product-card
+        .pradako-products-image-box img {
+            transform: scale(1.08);
+        }
+
+        .pradako-custom-search-product-meta {
+            width: 100%;
+            margin: 0 0 8px;
+            color: #6a7f92;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1.4;
+            letter-spacing: 0.65px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .pradako-custom-search-product-card .pradako-products-card-title {
+            margin-bottom: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(18px, 1.25vw, 22px);
+            line-height: 1.3;
+        }
+
+        .pradako-custom-search-product-image-fallback {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            padding: 22px;
+            color: rgba(10, 61, 98, 0.52);
+            background: linear-gradient(135deg, #f8fafc, #eef3f8);
+            text-align: center;
+        }
+
+        .pradako-custom-search-product-image-fallback i {
+            font-size: 38px;
+        }
+
+        .pradako-custom-search-product-image-fallback span {
+            max-width: 92%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.4;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .pradako-products-image-box.image-missing
+        .pradako-custom-search-product-image-fallback {
+            display: flex;
+        }
+
+        .pradako-custom-search-highlight {
+            border-radius: 4px;
+            background: rgba(242, 140, 40, 0.18);
+            color: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .pradako-custom-grid-search-panel {
+                padding: 17px;
+                border-radius: 17px;
+            }
+
+            .pradako-custom-grid-search-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pradako-custom-grid-search-btn {
+                min-height: 48px;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Explore Products from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry support.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/products/products.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Products | Pradako Mechanical">
+    <meta property="og:description" content="Explore Products from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry support.">
+    <meta property="og:url" content="https://www.pradako.co/pages/products/products.html">
+    <meta property="og:type" content="product">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Products | Pradako Mechanical">
+    <meta name="twitter:description" content="Explore Products from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry support.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Products | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/products/products.html",
+  "description": "Explore Products from Pradako Mechanical & Engineering Works, including precision fastener capabilities, product options and enquiry support.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+
+<!-- HEADER -->
+<section class="pradako-products-hero">
+
+    <div class="pradako-products-hero-overlay">
+
+        <div class="container pradako-products-hero-content">
+
+            <h1>
+                ENGINEERED FASTENERS FOR 
+                INDUSTRY
+            </h1>
+
+            <div class="pradako-products-hero-spacer"></div>
+
+            <div class="pradako-products-hero-bottom">
+
+                <p>
+                    Fasteners are specified in different ways by application sector,
+                    international standards, product families, or technical charts. 
+                    
+                    Our portfolio is structured accordingly to support efficient
+                    product discovery. Explore the sections below to locate the
+                    fasteners suited to your requirements.
+                </p>
+
+                <a href="#product-type-enquiry" class="pradako-products-hero-cta">
+                    DISCUSS PRODUCT REQUIREMENT
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STICKY NAVIGATION -->
+
+<div class="pradako-products-nav">
+    <ul>
+
+        <li>
+            <a href="#customized_products" class="nav-card">
+                <span class="nav-small">Customized</span>
+                <span class="nav-big">PRODUCTS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#standards" class="nav-card">
+                <span class="nav-small">Some of our</span>
+                <span class="nav-big">STANDARD PRODUCTS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#international_fasteners_standards" class="nav-card">
+                <span class="nav-small">International Standards</span>
+                <span class="nav-big">CROSS-REFERENCE GUIDE</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#pmew-cross-reference-section-loader" class="nav-card">
+                <span class="nav-small">Cross-Reference</span>
+                <span class="nav-big">FOR ALL STANDARDS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#hot-products" class="nav-card">
+                <span class="nav-small">Featured</span>
+                <span class="nav-big">HOT PRODUCTS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#sectors" class="nav-card">
+                <span class="nav-small">Industry</span>
+                <span class="nav-big">SECTORS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#chart" class="nav-card">
+                <span class="nav-small">Technical</span>
+                <span class="nav-big">CHARTS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#list" class="nav-card">
+                <span class="nav-small">List of</span>
+                <span class="nav-big">STANDARDS</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#product-glance" class="nav-card">
+                <span class="nav-small">Product At</span>
+                <span class="nav-big">GLANCE</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/pages/products/2d-drawing.html" class="nav-card">
+                <span class="nav-small">Engineering</span>
+                <span class="nav-big">2D DRAWING</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+<!-- PRODUCT SECTION -->
+
+<section id="customized_products" class="pradako-products-section pradako-customised-products-section">
+
+    <div class="container">
+
+        <div class="pradako-custom-section-head pradako-custom-section-head-centered">
+
+            <div class="pradako-custom-heading-copy">
+                <!-- <span class="pradako-custom-kicker">Customized fastener families</span> -->
+
+                <h2 class="pradako-products-section-title">
+                    PRADAKO PRODUCTS GALLERY FOR CUSTOMISED PARTS
+                </h2>
+
+                <!-- <p>
+                    Browse product families as compact cards. Matrix and Chart views now read the exact categories and product names directly from every linked product HTML page.
+                </p> -->
+            </div>
+
+        </div>
+
+        <div class="pradako-custom-toolbar-row">
+
+            <nav id="customDynamicBreadcrumb"
+                class="pradako-custom-breadcrumb"
+                aria-label="Customised products breadcrumb">
+
+                <button type="button"
+                        class="pmew-breadcrumb-item pradako-custom-breadcrumb-link"
+                        data-custom-breadcrumb-action="root">
+                    Customized Products
+                </button>
+
+                <strong class="pmew-breadcrumb-item">
+                    Product Families
+                </strong>
+
+            </nav>
+
+            <div class="pradako-custom-view-toggle"
+                role="group"
+                aria-label="Customised products view switcher">
+
+                <button type="button"
+                        id="customGridViewBtn"
+                        class="pradako-custom-view-btn active"
+                        aria-pressed="true">
+                    <i class="fa-solid fa-grip"></i>
+                    Grid
+                </button>
+
+                <button type="button"
+                        id="customMatrixViewBtn"
+                        class="pradako-custom-view-btn"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-table-cells-large"></i>
+                    Matrix
+                </button>
+
+                <button type="button"
+                        id="customChartViewBtn"
+                        class="pradako-custom-view-btn"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Chart
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="pradako-custom-view-note">
+            <p>
+                Grid view shows the linked product families. Matrix and Chart views automatically fetch the same categories and product names from each family’s HTML page, so separate product lists are no longer maintained here.
+            </p>
+            <span id="customProductStatus">Ready to explore customised products</span>
+        </div>
+
+        <!-- GRID SEARCH -->
+        <div id="customGridSearchPanel" class="pradako-custom-grid-search-panel">
+            <label class="pradako-custom-grid-search-label" for="customGridSearch">
+                Search Grid View
+            </label>
+
+            <div class="pradako-custom-grid-search-row">
+                <div class="pradako-custom-grid-search-field">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                    <input
+                        type="search"
+                        id="customGridSearch"
+                        placeholder="Search family, category or product name..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+
+                    <button
+                        type="button"
+                        id="customGridClearSearch"
+                        class="pradako-custom-grid-clear is-hidden"
+                        aria-label="Clear Grid search"
+                    >
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <button
+                    type="button"
+                    id="customGridSearchBtn"
+                    class="pradako-custom-grid-search-btn"
+                >
+                    Search
+                </button>
+            </div>
+
+            <p id="customGridSearchStatus"
+               class="pradako-custom-grid-search-status"
+               aria-live="polite">
+                Search all product families, categories and product names.
+            </p>
+        </div>
+
+        <!-- GRID VIEW -->
+        <div id="customGridView" class="pradako-products-grid pradako-custom-grid-view">
+            <a href="/pages/products/screws/index.html" class="pradako-products-card-link" data-custom-family="Screws">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/socket-screw.png" alt="Screws" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Screws</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/bolts/index.html" class="pradako-products-card-link" data-custom-family="Bolts">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/hex-bolt.png" alt="Bolts" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Bolts</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/nuts/index.html" class="pradako-products-card-link" data-custom-family="Nuts">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/nut.png" alt="Nuts" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Nuts</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/washers/index.html" class="pradako-products-card-link" data-custom-family="Washers">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/washer.png" alt="Washers" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Washers</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/threaded-rods/index.html" class="pradako-products-card-link" data-custom-family="Threaded Rods">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/threaded-rod.png" alt="Threaded Rods" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Threaded Rods</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/studs/index.html" class="pradako-products-card-link" data-custom-family="Studs">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/stud.png" alt="Studs" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Studs</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/rivets/index.html" class="pradako-products-card-link" data-custom-family="Rivets">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/rivet.png" alt="Rivets" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Rivets</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/pins/index.html" class="pradako-products-card-link" data-custom-family="Pins">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/pin.png" alt="Pins" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Pins</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/bushes/index.html" class="pradako-products-card-link" data-custom-family="Bushes">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/bush.png" alt="Bushes" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Bushes</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/plugs/index.html" class="pradako-products-card-link" data-custom-family="Plugs">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/plug.png" alt="Plugs" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Plugs</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/stainless-steel/index.html" class="pradako-products-card-link" data-custom-family="Stainless Steel">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/stainless-steel.png" alt="Stainless Steel Products" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">Stainless Steel</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+            <a href="/pages/products/high-tensile/index.html" class="pradako-products-card-link" data-custom-family="High Tensile">
+                <article class="pradako-products-card">
+                    <div class="pradako-products-image-box">
+                        <img src="/assets/images/products/catalogue/high-tensile.png" alt="High Tensile Fasteners" loading="lazy">
+                    </div>
+
+                    <div class="pradako-products-card-body">
+                        <h3 class="pradako-products-card-title">High Tensile</h3>
+
+                        <span class="pradako-products-card-btn">
+                            View Product
+                            <span><i class="fa-solid fa-angle-right"></i></span>
+                        </span>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <!-- PRODUCT CARDS GENERATED FROM SEARCH MATCHES -->
+        <div id="customGridProductResults"
+             class="pradako-products-grid pradako-custom-grid-product-results"
+             hidden
+             aria-live="polite"></div>
+
+        <div id="customGridEmptyResult"
+             class="pradako-custom-grid-empty-result"
+             hidden
+             aria-live="polite">
+            <strong>No matching product card found.</strong>
+            Try another product, category or family name.
+        </div>
+
+        <!-- MATRIX VIEW -->
+        <div id="customMatrixView" class="pradako-custom-matrix-view custom-products-hidden">
+            <div class="pradako-custom-matrix-panel">
+                <div class="pradako-custom-matrix-topbar">
+                    <div class="pradako-custom-matrix-title-wrap">
+                        <span class="pradako-custom-matrix-eyebrow">Type-wise product chart</span>
+                        <h3>Customised products matrix</h3>
+                        <p>Select a family, then expand only the type you want to view. This keeps the chart clean and easy to understand.</p>
+                    </div>
+
+                    <div class="pradako-custom-matrix-actions">
+                        <label class="pradako-custom-search-box" for="customMatrixSearch">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search" id="customMatrixSearch" placeholder="Search product or type...">
+                            <button type="button" id="customMatrixClearSearch" aria-label="Clear search">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </label>
+
+                        <div class="pradako-custom-total-pill" aria-label="Visible product names">
+                            <strong id="customProductTotal">0</strong>
+                            <span>Names</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="customFamilyTabs" class="pradako-custom-family-tabs" aria-label="Product family filters"></div>
+
+                <div id="customMatrixContent" class="pradako-custom-matrix-content" aria-live="polite"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STANDARD SECTION -->
+<section id="standards" class="pradako-products-info-section">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            SOME OF OUR STANDARD PRODUCTS
+        </h2>
+
+        <div class="pradako-products-controls">
+
+            <div class="pradako-products-filter-toggle">
+
+                <button class="pradako-products-toggle-btn active"
+                        id="typeViewBtn">
+                    By Standard (Type)
+                </button>
+
+                <button class="pradako-products-toggle-btn"
+                        id="standardViewBtn">
+                    By Standard (Number)
+                </button>
+
+            </div>
+
+            <div class="pradako-products-search-box">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                <input
+                    type="search"
+                    id="productSearch"
+                    placeholder="Search product or type..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    class="pradako-products-search-clear"
+                    id="productSearchClear"
+                    aria-label="Clear search"
+                >
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+
+            <div class="pradako-products-view-actions">
+                <button type="button" class="pradako-products-action-btn active" data-view="grid">
+                    <i class="fa-solid fa-grip"></i>
+                    <span>Grid</span>
+                </button>
+
+                <button type="button" class="pradako-products-action-btn" data-view="list">
+                    <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+                    <span>List</span>
+                </button>
+
+                <button type="button" class="pradako-products-action-btn export" data-export="true">
+                    <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+                    <span>Export</span>
+                </button>
+            </div>
+
+        </div>
+
+        
+
+        <nav id="catalogueBreadcrumb"
+            class="pradako-catalogue-breadcrumb"
+            aria-label="Standard products breadcrumb">
+
+            <button type="button"
+                    class="pmew-breadcrumb-item"
+                    data-breadcrumb-action="mode-type">
+                Home
+            </button>
+
+            <strong class="pmew-breadcrumb-item">
+                By Standard (Type)
+            </strong>
+
+        </nav>
+
+        <div class="pradako-catalogue-head">
+            <div>
+                <h3 id="catalogueTitle">Browse by Type</h3>
+                <p id="catalogueSubtitle">
+                    Select Screws, Socket Screws, Nuts, Washers, Bolts, Threaded Rods / Studs, Structural Bolts or Rivets.
+                </p>
+            </div>
+
+            <span class="pradako-catalogue-count">
+                <i></i>
+                <span id="catalogueCount">0 entries</span>
+            </span>
+        </div>
+
+        <div id="catalogueContent" class="pradako-products-standards-grid grid-view">
+            
+        </div>
+
+        <div id="catalogueEmpty" class="pradako-catalogue-empty">
+            No matching products found.
+        </div>
+
+        <div id="catalogueDetail" class="pradako-catalogue-detail-shell">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTERNATIONAL FASTENERS STANDARDS / EQUIVALENT STANDARDS -->
+
+<section id="international_fasteners_standards"
+         class="pradako-products-info-section">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            INTERNATIONAL FASTENER STANDARDS CROSS-REFERENCE GUIDE
+        </h2>
+
+        <div class="pradako-products-tabs-wrapper">
+
+            <div class="pradako-products-tabs">
+
+                <button class="pradako-products-tab-btn active"
+                        data-category="screws">
+                    Screws
+                </button>
+
+                <button class="pradako-products-tab-btn"
+                        data-category="socket_screws">
+                    Socket Screws
+                </button>
+
+                <button class="pradako-products-tab-btn"
+                        data-category="bolts">
+                    Bolts
+                </button>
+
+                <button class="pradako-products-tab-btn"
+                        data-category="threaded_rods_studs">
+                    Threaded Rods/Studs
+                </button>
+
+                <button class="pradako-products-tab-btn"
+                        data-category="nuts">
+                    Nuts
+                </button>
+
+                <button class="pradako-products-tab-btn"
+                        data-category="washers">
+                    Washers
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="panel-screws"
+             class="pradako-products-category-panel pradako-products-active-panel">
+
+            <div class="pradako-products-accordion"
+                 id="screwsAccordion"></div>
+
+        </div>
+
+        <div id="panel-socket_screws"
+             class="pradako-products-category-panel">
+
+            <div class="pradako-products-accordion"
+                 id="socket_screwsAccordion"></div>
+
+        </div>
+
+        <div id="panel-bolts"
+             class="pradako-products-category-panel">
+
+            <div class="pradako-products-accordion"
+                 id="boltsAccordion"></div>
+
+        </div>
+
+        <div id="panel-threaded_rods_studs"
+             class="pradako-products-category-panel">
+
+            <div class="pradako-products-accordion"
+                 id="threaded_rods_studsAccordion"></div>
+
+        </div>
+
+        <div id="panel-nuts"
+             class="pradako-products-category-panel">
+
+            <div class="pradako-products-accordion"
+                 id="nutsAccordion"></div>
+
+        </div>
+
+        <div id="panel-washers"
+             class="pradako-products-category-panel">
+
+            <div class="pradako-products-accordion"
+                 id="washersAccordion"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CROSS REFERENCE GUIDE SECTION LOADS HERE -->
+<div id="pmew-cross-reference-section-loader"></div>
+
+<!-- HOT PRODUCTS SECTION -->
+
+<section id="hot-products" class="pradako-products-hot-products">
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            Hot Products
+        </h2>
+
+        <div class="pradako-products-hot-grid">
+
+            <!-- DIN 912 -->
+            <article class="pradako-products-hot-card">
+                <div class="pradako-products-hot-media">
+                    <img
+                        src="/assets/images/watermarked-images/customised-fasteners/1-screws/type-1-universal-screws/4-socket-screw.jpg"
+                        alt="DIN 912 Socket Head Cap Screw"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+
+                <div class="pradako-products-hot-info">
+                    <h4>DIN 912</h4>
+                    <p>Socket Head Cap Screw</p>
+                </div>
+            </article>
+
+            <!-- DIN 933 -->
+            <article class="pradako-products-hot-card">
+                <div class="pradako-products-hot-media">
+                    <img
+                        src="/assets/images/watermarked-images/standard-fasteners/screws/10-hex-cap-screws/din-933-fully-threaded-hexagon-head-screw.png"
+                        alt="DIN 933 Fully Threaded Hexagon Head Screw"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+
+                <div class="pradako-products-hot-info">
+                    <h4>DIN 933</h4>
+                    <p>Hexagon Head Screw – Full Thread</p>
+                </div>
+            </article>
+
+            <!-- DIN 7991 -->
+            <article class="pradako-products-hot-card">
+                <div class="pradako-products-hot-media">
+                    <img
+                        src="/assets/images/watermarked-images/standard-fasteners/screws/11-countersunk-screws/din-7991-hexagon-socket-countersunk-head-screw.png"
+                        alt="DIN 7991 Hexagon Socket Countersunk Head Screw"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+
+                <div class="pradako-products-hot-info">
+                    <h4>DIN 7991</h4>
+                    <p>Countersunk Socket Screw</p>
+                </div>
+            </article>
+
+            <!-- DIN 7380 -->
+            <article class="pradako-products-hot-card">
+                <div class="pradako-products-hot-media">
+                    <img
+                        src="/assets/images/watermarked-images/customised-fasteners/1-screws/type-4-threading-head-types/10-button-head-socket-screw.png"
+                        alt="DIN 7380 Button Head Socket Screw"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+
+                <div class="pradako-products-hot-info">
+                    <h4>DIN 7380</h4>
+                    <p>Button Head Socket Screw</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTORS SECTION -->
+<section id="sectors" class="pradako-products-info-section">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            Sectors
+        </h2>
+
+        <p style="text-align:center;">
+            Industries served:
+            Automotive |
+            Aerospace |
+            Construction |
+            Infrastructure |
+            Renewable Energy |
+            Railways |
+            Heavy Machinery |
+            Defence
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CHART SECTION -->
+<section id="chart" class="pradako-products-info-section">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            Chart
+        </h2>
+
+        <p style="text-align:center;">
+            Technical charts and dimensional specifications
+            available upon request.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PRODUCT LIST -->
+<section id="list" class="pradako-products-info-section">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            LIST OF STANDARDS
+        </h2>
+
+        <div class="pradako-products-standards-grid">
+
+            <a href="/pages/standards/ansi-asme-astm-ifi-sae/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EANSI%3C/text%3E%3C/svg%3E"
+                            alt="ANSI">
+                    </div>
+
+                    <p>ANSI</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/australia/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3EAS/NZS%3C/text%3E%3C/svg%3E"
+                            alt="AS/NZS">
+                    </div>
+
+                    <p>AS / AS / NZS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/asme/index.html"
+            target="_blank"
+            class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EASME%3C/text%3E%3C/svg%3E"
+                            alt="ASME">
+                    </div>
+
+                    <p>ASME</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/astm/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EASTM%3C/text%3E%3C/svg%3E"
+                            alt="ASTM">
+                    </div>
+
+                    <p>ASTM</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/bds/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EBDS%3C/text%3E%3C/svg%3E"
+                            alt="BDS">
+                    </div>
+
+                    <p>BDS</p>
+
+                </div>
+
+            </a>
+
+
+            <a href="/pages/standards/bsi/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EBSI%3C/text%3E%3C/svg%3E"
+                            alt="BSI">
+                    </div>
+
+                    <p>BSI</p>
+
+                </div>
+
+            </a>
+            
+            <a href="/pages/standard-products/cen.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ECEN%3C/text%3E%3C/svg%3E"
+                            alt="CEN">
+                    </div>
+
+                    <p>CEN</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/csn/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ECSN%3C/text%3E%3C/svg%3E"
+                            alt="CSN">
+                    </div>
+
+                    <p>CSN</p>
+
+                </div>
+
+            </a>
+    
+            <a href="/pages/standards/dast/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EDASt%3C/text%3E%3C/svg%3E"
+                            alt="DASt">
+                    </div>
+
+                    <p>DASt</p>
+
+                </div>
+
+            </a>
+
+            
+            <a href="/pages/standards/din/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EDIN%3C/text%3E%3C/svg%3E"
+                            alt="DIN">
+                    </div>
+
+                    <p>DIN</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/ds/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EDS%3C/text%3E%3C/svg%3E"
+                            alt="DS">
+                    </div>
+
+                    <p>DS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/gost/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='11' font-weight='bold'%3EGOST%3C/text%3E%3C/svg%3E"
+                            alt="GOST/GO">
+                    </div>
+
+                    <p>GOST / GOST R</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/gso/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EGSO%3C/text%3E%3C/svg%3E"
+                            alt="GSC">
+                    </div>
+
+                    <p>GSO</p>
+
+                </div>
+
+            </a>    
+
+
+            <a href="/pages/standards/is/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EIS%3C/text%3E%3C/svg%3E"
+                            alt="IS">
+                    </div>
+
+                    <p>IS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/iso/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EISO%3C/text%3E%3C/svg%3E"
+                            alt="ISO">
+                    </div>
+
+                    <p>ISO</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/jis/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EJIS%3C/text%3E%3C/svg%3E"
+                            alt="JIS">
+                    </div>
+
+                    <p>JIS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/mil-ms-fed/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EMIL/MS%3C/text%3E%3C/svg%3E"
+                            alt="NAS">
+                    </div>
+
+                    <p>MIL / MS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/aia-nas/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ENAS%3C/text%3E%3C/svg%3E"
+                            alt="NAS">
+                    </div>
+
+                    <p>NAS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/nen/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ENEN%3C/text%3E%3C/svg%3E"
+                            alt="NEN">
+                    </div>
+
+                    <p>NEN</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/nf/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ENF%3C/text%3E%3C/svg%3E"
+                            alt="NF">
+                    </div>
+
+                    <p>NF</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/pn/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EPN%3C/text%3E%3C/svg%3E"
+                            alt="PN">
+                    </div>
+
+                    <p>PN</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/sae/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+            <div class="pradako-products-standard-card">
+
+                <div class="pradako-products-standard-img">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ESAE%3C/text%3E%3C/svg%3E"
+                        alt="SAE">
+                </div>
+
+                <p>SAE</p>
+
+            </div>
+
+            </a>
+
+
+            <a href="/pages/standards/sfs/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ESFS%3C/text%3E%3C/svg%3E"
+                            alt="SFS">
+                    </div>
+
+                    <p>SFS</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/sn-snv/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3ESN/SNV%3C/text%3E%3C/svg%3E"
+                            alt="SN/SNV">
+                    </div>
+
+                    <p>SN / SNV</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/une/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EUNE%3C/text%3E%3C/svg%3E"
+                            alt="UNE">
+                    </div>
+
+                    <p>UNE</p>
+
+                </div>
+
+            </a>
+
+            <a href="/pages/standards/uni/index.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%231f3c54'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EUNI%3C/text%3E%3C/svg%3E"
+                            alt="UNI">
+                    </div>
+
+                    <p>UNI</p>
+
+                </div>
+
+            </a>
+
+
+            <a href="/pages/standards/list-of-standards.html"
+               target="_blank"
+               class="pradako-products-standard-card-link">
+
+                <div class="pradako-products-standard-card">
+
+                    <div class="pradako-products-standard-img">
+                        <img src="//assets/images/brand/pradako-logo.png"
+                            alt="UNI">
+                    </div>
+
+                    <p>PRADAKO STANDARDS</p>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCT AT GLANCE -->
+<section id="product-glance"
+         class="pradako-products-overview">
+
+    <div class="container">
+
+        <h2 class="pradako-products-section-title">
+            Product At Glance
+        </h2>
+
+        <div class="pradako-products-info-grid">
+
+            <!-- COLUMN 1 -->
+
+            <div class="pradako-products-info-card">
+
+                <h3>A. General Types</h3>
+
+                <ul>
+                    <li>Screws</li>
+                    <li>Bolts</li>
+                    <li>Nuts</li>
+                    <li>Studs</li>
+                    <li>Threaded Rods</li>
+                    <li>Rivets (Pop Colour)</li>
+                    <li>Washers</li>
+                    <li>Pins / Dowel Pins</li>
+                    <li>Bushes</li>
+                    <li>Plugs</li>
+                    <li>Others</li>
+                </ul>
+
+                <h4>Fasteners by Standards</h4>
+
+                <ul>
+                    <li>ASTM Fasteners</li>
+                    <li>ASME (ANSI-Approved) Fasteners</li>
+                    <li>DIN Fasteners</li>
+                    <li>ISO / EN Fasteners</li>
+                    <li>AS / BS Fasteners</li>
+                </ul>
+
+            </div>
+
+            <!-- COLUMN 2 -->
+
+            <div class="pradako-products-info-card">
+
+                <h3>B. Special Types</h3>
+
+                <ul>
+
+                    <li>
+                        <strong>Structural Fasteners</strong>
+                        - EN 14399, EN 15048
+                    </li>
+
+                    <li>
+                        <strong>Application-Specific Fasteners</strong>
+                        - EN 14566 (Drywall),
+                        EN 14592 (Timber),
+                        AS 3566 (Self-Drilling)
+                    </li>
+
+                    <li>Tower & Transmission Line Bolts</li>
+
+                    <li>Foundation & Anchor Bolts</li>
+
+                    <li>Socket Screws (Complete Range)</li>
+
+                    <li>Shoulder Bolts / Stripper Bolts</li>
+
+                    <li>Step Bolts</li>
+
+                    <li>12 Point Bolts (Bi-Hex)</li>
+
+                    <li>CNC Machining & Engineered Components</li>
+
+                </ul>
+
+            </div>
+
+            <!-- COLUMN 3 -->
+
+            <div class="pradako-products-info-card">
+
+                <h3>C. Fasteners By Measurement</h3>
+
+                <h4>Metric Fasteners</h4>
+
+                <ul>
+                    <li>Metric Fasteners</li>
+                    <li>Inch (Imperial / SAE) Fasteners</li>
+                </ul>
+
+                <h4>Fasteners by Strength / Property Class</h4>
+
+                <ul>
+                    <li>8.8, 10.9, 12.9</li>
+                    <li>Grade 2, Grade 5, Grade 8</li>
+                </ul>
+
+                <h4>Fasteners by Steel Material Grades</h4>
+
+                <ul>
+                    <li>10B21, 15B25</li>
+                    <li>Medium & High Carbon Steel</li>
+                    <li>Alloy Steels</li>
+                </ul>
+
+                <h4>Fasteners by Material Type</h4>
+
+                <ul>
+                    <li>Stainless Steel Fasteners</li>
+                    <li>Brass & Copper Alloy Fasteners</li>
+                </ul>
+
+                <h4>Fasteners by Thread Type</h4>
+
+                <ul>
+                    <li>Metric Coarse & Fine Threads</li>
+                    <li>UNC / UNF Threads</li>
+                    <li>BSW / BSF Threads</li>
+                    <li>Special & Custom Threads</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCT TYPE CTA FOOTER -->
+<section class="pradako-producttype-premium-footer" id="product-type-enquiry">
+
+  <div class="pradako-producttype-premium-inner">
+
+    <!-- LEFT CONTENT -->
+    <div class="pradako-producttype-premium-content">
+
+      <div class="pradako-producttype-premium-kicker">
+        PRODUCT TYPE SELECTION SUPPORT
+      </div>
+
+      <h2>
+        NOT SURE WHICH<br>
+        FASTENER TYPE<br>
+        IS RIGHT?
+      </h2>
+
+      <p>
+        Share your drawing, standard, size, material, coating, sample or annual requirement.
+        Our technical team will help you identify the correct product family, standard,
+        material grade, finish and documentation route.
+      </p>
+
+      <div class="pradako-producttype-premium-actions">
+        <a href="#product-type-form" class="pradako-producttype-premium-btn pradako-producttype-premium-btn-gold">
+          DISCUSS REQUIREMENT
+        </a>
+
+        <a href="#upload-drawing" class="pradako-producttype-premium-btn pradako-producttype-premium-btn-outline">
+          UPLOAD DRAWING
+        </a>
+      </div>
+
+      <div class="pradako-producttype-premium-help-grid">
+
+        <div class="pradako-producttype-premium-help-card">
+          <strong>Know the product?</strong>
+          <span>Tell us whether you need screws, bolts, nuts, washers, studs, rivets or custom fasteners.</span>
+        </div>
+
+        <div class="pradako-producttype-premium-help-card">
+          <strong>Know the standard?</strong>
+          <span>Share DIN, ISO, ASME, ASTM, BS, IS, EN, JIS, UNI, CSN or customer standard details.</span>
+        </div>
+
+        <div class="pradako-producttype-premium-help-card">
+          <strong>Have a drawing?</strong>
+          <span>Upload your drawing, sample photo, CAD file or technical specification for review.</span>
+        </div>
+
+        <div class="pradako-producttype-premium-help-card">
+          <strong>Need bulk supply?</strong>
+          <span>Share quantity, annual requirement, packing, testing and certification requirements.</span>
+        </div>
+
+      </div>
+
+      <div class="pradako-producttype-premium-contact">
+
+        <div class="pradako-producttype-premium-contact-line">
+          <span>EMAIL :</span>
+          <a href="mailto:info@pradakomechanicals.com">INFO@PRADAKOMECHANICALS.COM</a>
+        </div>
+
+        <div class="pradako-producttype-premium-contact-line">
+          <span>CALL 24 × 7 × 365 :</span>
+          <a href="tel:+917045000507">+91 7045000507</a>
+        </div>
+
+        <div class="pradako-producttype-premium-contact-line">
+          <span>DROP A MESSAGE / TEXT / WHATSAPP :</span>
+          <a href="https://wa.me/917045000507" target="_blank" rel="noopener">+91 7045000507</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="pradako-producttype-premium-form-card" id="product-type-form">
+      <span id="upload-drawing" class="pradako-producttype-anchor" aria-hidden="true"></span>
+
+      <div class="pradako-producttype-form-label">
+        FASTENER SELECTION FORM
+      </div>
+
+      <h3>
+        LET US HELP YOU<br>
+        SELECT THE RIGHT TYPE.
+      </h3>
+
+      <p>
+        Ideal when you know the requirement but are not fully sure which fastener type,
+        standard, material or coating should be selected.
+      </p>
+
+      <form class="pradako-producttype-premium-form" id="productTypeEnquiryForm" action="/submit-product-type-enquiry" method="POST">
+
+        <select name="product_type" required>
+          <option value="">Select Product Type</option>
+          <option>Screws</option>
+          <option>Bolts</option>
+          <option>Nuts</option>
+          <option>Washers</option>
+          <option>Studs / Threaded Rods</option>
+          <option>Rivets</option>
+          <option>Pins / Keys</option>
+          <option>Inserts</option>
+          <option>Construction Fasteners</option>
+          <option>Custom Fasteners</option>
+        </select>
+
+        <input type="text" name="known_standard" placeholder="Known Standard e.g. DIN 912 / ISO 4762 / ASME B18.2.1">
+
+        <input type="text" name="size_thread_length" placeholder="Size / Thread / Length e.g. M6 × 20, UNC 1/4-20">
+
+        <input type="text" name="material_grade_finish" placeholder="Material / Grade / Finish e.g. 12.9 Black Oxide, A2 Stainless">
+
+        <input type="text" name="quantity_annual_requirement" placeholder="Quantity / Annual Requirement e.g. 50,000 pcs / month">
+
+        <textarea name="requirement_details" placeholder="Drawing notes, sample details, packing, testing, PPAP, IMDS, RoHS, REACH, coating or export requirement" required></textarea>
+
+        <input type="hidden" name="source_page" value="products">
+
+        <button type="submit">
+          SUBMIT PRODUCT TYPE ENQUIRY
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- QUICK PRODUCT TYPE BAR -->
+  <!-- <div class="pradako-producttype-premium-mini-grid">
+
+    <div class="pradako-producttype-premium-mini-card">
+      <strong>Screws</strong>
+      <span>Machine, socket, self-tapping, self-drilling, wood, chipboard and custom screws.</span>
+    </div>
+
+    <div class="pradako-producttype-premium-mini-card">
+      <strong>Bolts</strong>
+      <span>Hex, flange, carriage, structural, anchor, foundation and special bolts.</span>
+    </div>
+
+    <div class="pradako-producttype-premium-mini-card">
+      <strong>Nuts</strong>
+      <span>Hex, lock, flange, weld, nylock, castle, square and custom nuts.</span>
+    </div>
+
+    <div class="pradako-producttype-premium-mini-card">
+      <strong>Washers</strong>
+      <span>Plain, spring, structural, serrated, square, DTI and special washers.</span>
+    </div>
+
+  </div> -->
+
+
+</section>
+
+<div id="footer-container"></div>
+
+
+<script src="/assets/js/cross-reference-guide.js"></script>
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+<script src="/assets/js/standard-route-resolver.js" defer></script>
+<script src="/assets/js/products.js?v=20260731-1625" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+    <script src="/assets/js/standard-navigation.js" defer></script>
+</body>
+</html>
+
+
+<!-- /images/product/catalogue/
+    screws.png
+    socket-screws.png
+    nuts.png
+    washers.png
+    bolts.png
+    threaded-rods-studs.png
+    structural-bolts.png
+    rivets.png
+
+/images/product/subtypes/
+    self-tapping-screws.png
+    machine-screws.png
+    sheetmetal-screws.png
+    countersunk-screws.png
+    socket-screws.png
+    shoulder-screws.png
+    hex-cap-screws.png
+    set-screws.png
+    grub-screws.png
+
+/images/product/standards-products/
+    din-7981.png
+    din-7982.png
+    iso-7049.png
+    asme-b18-6-4.png
+    din-912.png
+    iso-4762.png
+    asme-b18-3.png -->

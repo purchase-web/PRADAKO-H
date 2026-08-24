@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="A comprehensive technical guide to coefficient of friction in fasteners, torque–tension behaviour, preload, coatings, testing and friction control." name="description"/>
+<title>Coefficient of Friction in Fasteners | PMEW Technical Guide</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- PMEW SHARED WEBSITE SHELL -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="/assets/css/page-style.css" rel="stylesheet"/>
+<link href="/assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    /* ==========================================================
+       PAGE-SCOPED TEXT COLOUR CONTRACT
+       ----------------------------------------------------------
+       These variables/classes belong ONLY to this technical page.
+       They intentionally define black/white text without touching
+       PMEW navbar/footer typography.
+    ========================================================== */
+    .pmew-friction-guide{--frx-text-black:#0b1220;--frx-text-white:#ffffff;}
+    .pmew-friction-guide .frx-text-black{color:var(--frx-text-black)!important;}
+    .pmew-friction-guide .frx-text-white{color:var(--frx-text-white)!important;}
+
+    .pmew-friction-guide{
+      --white:#ffffff;
+      --paper:#fbfcff;
+      --ink:#0b1220;
+      --muted:#596273;
+      --line:#e7eaf0;
+      --line-strong:#d9dee8;
+      --accent:#3157d5;
+      --accent-2:#1b8b79;
+      --accent-soft:#f2f5ff;
+      --success:#147d64;
+      --warning:#b26b00;
+      --danger:#b43b3b;
+      --shadow:0 18px 60px rgba(15,23,42,.08);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1480px;
+    }
+
+    .pmew-friction-guide, .pmew-friction-guide *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    .pmew-friction-guide{
+      margin:0;
+      background:var(--white);
+      color:var(--ink);
+      font-family:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.72;
+      text-rendering:optimizeLegibility;
+    }
+
+    .pmew-friction-guide ::selection{background:#dfe6ff;color:#0b1220}
+
+    .pmew-friction-guide .frx-reading-progress{
+      position:fixed; inset:0 auto auto 0; z-index:9999;
+      height:3px; width:0; background:var(--accent);
+      transition:width .08s linear;
+    }
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    .pmew-friction-guide .frx-top-actions{display:flex;align-items:center;gap:8px}
+    .pmew-friction-guide .frx-icon-btn,.pmew-friction-guide .frx-text-btn{
+      appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);
+      border-radius:999px;cursor:pointer;transition:.2s ease;
+      font:600 13px/1 "Space Grotesk";display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    }
+    .pmew-friction-guide .frx-icon-btn{width:40px;height:40px;padding:0}
+    .pmew-friction-guide .frx-text-btn{height:40px;padding:0 15px}
+    .pmew-friction-guide .frx-icon-btn:hover,.pmew-friction-guide .frx-text-btn:hover{border-color:#bec7da;transform:translateY(-1px);box-shadow:0 8px 20px rgba(15,23,42,.08)}
+    .pmew-friction-guide .frx-icon-btn svg,.pmew-friction-guide .frx-text-btn svg{width:17px;height:17px}
+
+    .pmew-friction-guide .frx-hero{
+      position:relative; overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(circle at 78% 16%, rgba(49,87,213,.09), transparent 28%),
+        radial-gradient(circle at 16% 78%, rgba(27,139,121,.06), transparent 26%),
+        linear-gradient(#fff,#fff);
+    }
+
+    .pmew-friction-guide .frx-hero:before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.36;
+      background-image:
+        linear-gradient(to right, rgba(15,23,42,.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15,23,42,.025) 1px, transparent 1px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom,#000,transparent 86%);
+    }
+
+    .pmew-friction-guide .frx-hero-inner{max-width:var(--max);margin:auto;padding:86px 28px 68px;position:relative}
+    .pmew-friction-guide .frx-eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--accent);font:700 11px/1 "Space Mono";
+      letter-spacing:.14em;text-transform:uppercase;
+      padding:9px 12px;border:1px solid #dfe5f7;border-radius:999px;background:rgba(255,255,255,.78)
+    }
+    .pmew-friction-guide .frx-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(49,87,213,.08)}
+    .pmew-friction-guide h1{
+      margin:24px 0 18px;max-width:1040px;
+      font-size:clamp(46px,6.4vw,96px);line-height:.96;letter-spacing:-.055em;
+      font-weight:700;
+    }
+    .pmew-friction-guide .frx-hero-lead{
+      margin:0;max-width:890px;color:#394254;
+      font-size:clamp(19px,2vw,26px);line-height:1.55;
+    }
+
+    .pmew-friction-guide .frx-hero-meta{
+      margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;
+    }
+    .pmew-friction-guide .frx-chip{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid var(--line);background:#fff;border-radius:999px;
+      padding:9px 13px;color:#3e4758;font-size:13px;font-weight:600;
+      box-shadow:0 8px 22px rgba(15,23,42,.04);
+    }
+    .pmew-friction-guide .frx-chip svg{width:16px;height:16px;color:var(--accent)}
+
+    .pmew-friction-guide .frx-principle{
+      margin-top:56px;max-width:1120px;
+      display:grid;grid-template-columns:7px 1fr auto;gap:22px;align-items:start;
+      background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:28px;
+      padding:28px 28px 28px 24px;box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+    .pmew-friction-guide .frx-principle-bar{width:7px;height:100%;min-height:118px;border-radius:20px;background:linear-gradient(180deg,var(--accent),var(--accent-2))}
+    .pmew-friction-guide .frx-principle-label{font:700 10px/1 "Space Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:2px 0 10px}
+    .pmew-friction-guide .frx-principle blockquote{margin:0;font-size:clamp(25px,2.8vw,42px);line-height:1.25;letter-spacing:-.03em;font-weight:700}
+    .pmew-friction-guide .frx-principle .frx-copy-principle{margin-top:2px}
+
+    .pmew-friction-guide .frx-hero-facts{
+      margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    }
+    .pmew-friction-guide .frx-fact{padding:22px 20px 22px 0}
+    .pmew-friction-guide .frx-fact + .frx-fact{padding-left:24px;border-left:1px solid var(--line)}
+    .pmew-friction-guide .frx-fact b{display:block;font-size:28px;line-height:1.1;letter-spacing:-.03em}
+    .pmew-friction-guide .frx-fact span{display:block;color:var(--muted);font-size:12px;margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+
+    .pmew-friction-guide .frx-mobile-jump{display:none;max-width:var(--max);margin:18px auto 0;padding:0 20px}
+    .pmew-friction-guide .frx-mobile-jump select{
+      width:100%;height:48px;border:1px solid var(--line-strong);border-radius:14px;background:#fff;
+      padding:0 14px;font:600 14px "Space Grotesk";color:var(--ink)
+    }
+
+    .pmew-friction-guide .frx-layout{
+      max-width:var(--max); margin:auto; padding:48px 28px 100px;
+      display:grid;grid-template-columns:260px minmax(0,1fr);gap:54px;
+    }
+
+    .pmew-friction-guide .frx-toc{
+      position:sticky;top:92px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;padding-right:8px;
+    }
+    .pmew-friction-guide .frx-toc::-webkit-scrollbar{width:4px}.pmew-friction-guide .frx-toc::-webkit-scrollbar-thumb{background:#d9deea;border-radius:99px}
+    .pmew-friction-guide .frx-toc-title{font:700 10px/1 "Space Mono";letter-spacing:.13em;text-transform:uppercase;color:#7b8494;margin-bottom:12px}
+    .pmew-friction-guide .frx-toc a{
+      display:block;text-decoration:none;color:#667082;
+      padding:7px 10px;border-left:2px solid #eef1f5;font-size:13px;line-height:1.3;
+      transition:.18s ease;
+    }
+    .pmew-friction-guide .frx-toc a:hover{color:var(--ink);border-left-color:#b9c4e8}
+    .pmew-friction-guide .frx-toc a.frx-active{color:var(--accent);border-left-color:var(--accent);font-weight:700;background:linear-gradient(90deg,#f6f8ff,transparent)}
+    .pmew-friction-guide .frx-toc-tools{margin-top:18px;display:grid;gap:8px}
+    .pmew-friction-guide .frx-toc-tools button{width:100%;justify-content:flex-start;border-radius:12px}
+
+    .pmew-friction-guide .frx-article{min-width:0}
+    .pmew-friction-guide .frx-chapter{scroll-margin-top:88px;margin-bottom:74px}
+    .pmew-friction-guide .frx-chapter-kicker{font:700 10px/1 "Space Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .pmew-friction-guide .frx-chapter h2{
+      font-size:clamp(34px,4vw,56px);line-height:1.02;letter-spacing:-.045em;margin:0 0 16px;font-weight:700
+    }
+    .pmew-friction-guide .frx-chapter-intro{max-width:900px;color:#505a6b;font-size:18px;margin:0 0 28px}
+
+    .pmew-friction-guide .frx-section-card{
+      border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+      padding:28px;margin:18px 0;box-shadow:0 12px 42px rgba(15,23,42,.035);
+      scroll-margin-top:90px;
+    }
+    .pmew-friction-guide .frx-section-card h3{margin:0 0 10px;font-size:24px;letter-spacing:-.025em;line-height:1.2}
+    .pmew-friction-guide .frx-section-card h4{margin:24px 0 8px;font-size:16px;letter-spacing:-.01em}
+    .pmew-friction-guide .frx-section-card p{margin:10px 0;color:#30394a}
+    .pmew-friction-guide .frx-section-card ul,.pmew-friction-guide .frx-section-card ol{margin:12px 0 0;padding-left:20px}
+    .pmew-friction-guide .frx-section-card li{margin:6px 0;color:#30394a}
+
+    .pmew-friction-guide .frx-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .pmew-friction-guide .frx-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .pmew-friction-guide .frx-mini-card{
+      border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--paper)
+    }
+    .pmew-friction-guide .frx-mini-card b{display:block;margin-bottom:6px}
+    .pmew-friction-guide .frx-mini-card p{margin:0;font-size:14px;color:#566071}
+
+    .pmew-friction-guide .frx-formula{
+      margin:18px 0;padding:22px;border:1px solid #dfe5f3;border-radius:18px;
+      background:linear-gradient(135deg,#fbfcff,#f5f7ff);overflow:auto;
+    }
+    .pmew-friction-guide .frx-formula code{
+      white-space:nowrap;font:700 18px/1.8 "Space Mono";color:#132046;
+    }
+    .pmew-friction-guide .frx-formula .frx-legend{margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}
+    .pmew-friction-guide .frx-formula .frx-legend span{font-size:13px;color:#586274}
+    .pmew-friction-guide .frx-formula .frx-legend b{font-family:"Space Mono";color:#172036}
+
+    .pmew-friction-guide .frx-callout{
+      border-radius:20px;padding:20px 22px;margin:18px 0;border:1px solid;
+      display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start
+    }
+    .pmew-friction-guide .frx-callout svg{width:21px;height:21px;margin-top:2px}
+    .pmew-friction-guide .frx-callout strong{display:block;margin-bottom:4px}
+    .pmew-friction-guide .frx-callout p{margin:0;font-size:14px}
+    .pmew-friction-guide .frx-callout.frx-info{background:#f5f7ff;border-color:#dfe5fb;color:#263555}
+    .pmew-friction-guide .frx-callout.frx-warn{background:#fff9ef;border-color:#f1dfbe;color:#6f4c13}
+    .pmew-friction-guide .frx-callout.frx-success{background:#f2fbf8;border-color:#cfece4;color:#225d51}
+
+    .pmew-friction-guide .frx-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin:16px 0}
+    .pmew-friction-guide table{width:100%;border-collapse:collapse;min-width:640px;background:#fff}
+    .pmew-friction-guide th,.pmew-friction-guide td{padding:14px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+    .pmew-friction-guide th{font:700 11px/1.3 "Space Mono";letter-spacing:.06em;text-transform:uppercase;background:#f8f9fc;color:#4b5566}
+    .pmew-friction-guide td{font-size:14px;color:#333c4d}
+    .pmew-friction-guide tr:last-child td{border-bottom:none}
+
+    .pmew-friction-guide .frx-deep{
+      border:1px solid var(--line);border-radius:20px;margin:12px 0;background:#fff;overflow:hidden;
+    }
+    .pmew-friction-guide .frx-deep summary{
+      list-style:none;cursor:pointer;padding:19px 54px 19px 20px;font-weight:700;position:relative;
+      transition:background .2s ease;
+    }
+    .pmew-friction-guide .frx-deep summary::-webkit-details-marker{display:none}
+    .pmew-friction-guide .frx-deep summary:hover{background:#fafbfe}
+    .pmew-friction-guide .frx-deep summary:after{
+      content:"+";position:absolute;right:20px;top:15px;width:28px;height:28px;border-radius:50%;
+      display:grid;place-items:center;border:1px solid var(--line);font:500 20px/1 "Space Grotesk";color:#4b5566
+    }
+    .pmew-friction-guide .frx-deep[open] summary:after{content:"–"}
+    .pmew-friction-guide .frx-deep-body{padding:0 20px 20px;border-top:1px solid var(--line)}
+    .pmew-friction-guide .frx-deep-body p:first-child{margin-top:18px}
+
+    .pmew-friction-guide .frx-friction-explorer{
+      border:1px solid var(--line);border-radius:26px;padding:24px;background:linear-gradient(145deg,#fff,#fafbff);
+    }
+    .pmew-friction-guide .frx-friction-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+    .pmew-friction-guide .frx-friction-tabs button{
+      border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;cursor:pointer;font:700 13px "Space Grotesk";
+    }
+    .pmew-friction-guide .frx-friction-tabs button.frx-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .pmew-friction-guide .frx-friction-panel{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center}
+    .pmew-friction-guide .frx-meter{
+      position:relative;height:10px;border-radius:999px;
+      background:linear-gradient(90deg,#efd9d9 0 32%,#cfe8df 32% 68%,#f3dfb9 68% 100%);
+    }
+    .pmew-friction-guide .frx-meter-dot{
+      position:absolute;top:50%;width:18px;height:18px;border:4px solid #fff;border-radius:50%;
+      background:var(--ink);box-shadow:0 3px 12px rgba(15,23,42,.22);transform:translate(-50%,-50%);left:50%;transition:left .3s ease
+    }
+    .pmew-friction-guide .frx-explore-output h4{margin:0 0 7px;font-size:22px}
+    .pmew-friction-guide .frx-explore-output p{margin:0;color:#596273}
+
+    .pmew-friction-guide .frx-spec-clause{
+      border:1px solid #d9e2ff;border-radius:22px;background:#f7f9ff;padding:24px;position:relative;
+    }
+    .pmew-friction-guide .frx-spec-clause pre{
+      white-space:pre-wrap;margin:0;font:500 14px/1.8 "Space Grotesk";color:#23304d;padding-right:44px
+    }
+    .pmew-friction-guide .frx-copy-float{
+      position:absolute;right:14px;top:14px;width:38px;height:38px;border:1px solid #d8deee;border-radius:12px;background:#fff;cursor:pointer;
+      display:grid;place-items:center;
+    }
+    .pmew-friction-guide .frx-copy-float svg{width:16px;height:16px}
+
+    .pmew-friction-guide .frx-standards-table td:first-child{font-family:"Space Mono";font-weight:700;color:#18213b;white-space:nowrap}
+
+    .pmew-friction-guide .frx-footer-note{
+      margin-top:42px;border-top:1px solid var(--line);padding-top:24px;color:#687184;font-size:13px
+    }
+
+    .pmew-friction-guide .frx-backtop{
+      position:fixed;right:22px;bottom:22px;width:48px;height:48px;border:1px solid var(--line);
+      background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:50%;display:grid;place-items:center;
+      box-shadow:0 10px 34px rgba(15,23,42,.13);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s ease;z-index:500
+    }
+    .pmew-friction-guide .frx-backtop.frx-show{opacity:1;pointer-events:auto;transform:none}
+    .pmew-friction-guide .frx-backtop svg{width:18px;height:18px}
+
+    .pmew-friction-guide .frx-toast{
+      position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);
+      background:#0b1220;color:#fff;padding:11px 15px;border-radius:999px;
+      font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.2s ease;z-index:3000;
+      box-shadow:0 10px 30px rgba(15,23,42,.22)
+    }
+    .pmew-friction-guide .frx-toast.frx-show{opacity:1;transform:translate(-50%,0)}
+
+    @media (max-width:1080px){
+      .pmew-friction-guide .frx-hero-facts{grid-template-columns:repeat(2,1fr)}
+      .pmew-friction-guide .frx-fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}
+      .pmew-friction-guide .frx-fact:nth-child(4){border-top:1px solid var(--line)}
+      .pmew-friction-guide .frx-layout{grid-template-columns:220px minmax(0,1fr);gap:34px}
+    }
+
+    @media (max-width:820px){
+      
+      
+      .pmew-friction-guide .frx-hero-inner{padding:62px 20px 52px}
+      .pmew-friction-guide h1{font-size:clamp(46px,14vw,72px)}
+      .pmew-friction-guide .frx-principle{grid-template-columns:6px 1fr;padding:22px 20px 22px 16px}
+      .pmew-friction-guide .frx-principle .frx-copy-principle{grid-column:2}
+      .pmew-friction-guide .frx-hero-facts{grid-template-columns:1fr 1fr}
+      .pmew-friction-guide .frx-fact{padding:18px 12px 18px 0}
+      .pmew-friction-guide .frx-fact + .frx-fact{padding-left:16px}
+      .pmew-friction-guide .frx-mobile-jump{display:block}
+      .pmew-friction-guide .frx-layout{display:block;padding:34px 18px 80px}
+      .pmew-friction-guide .frx-toc{display:none}
+      .pmew-friction-guide .frx-grid-2,.pmew-friction-guide .frx-grid-3{grid-template-columns:1fr}
+      .pmew-friction-guide .frx-formula .frx-legend{grid-template-columns:1fr}
+      .pmew-friction-guide .frx-friction-panel{grid-template-columns:1fr}
+      .pmew-friction-guide .frx-section-card{padding:22px 18px;border-radius:20px}
+      .pmew-friction-guide .frx-chapter{margin-bottom:56px}
+      .pmew-friction-guide .frx-top-actions .frx-text-btn{display:none}
+    }
+
+    @media (max-width:520px){
+      .pmew-friction-guide .frx-hero-inner{padding-top:48px}
+      .pmew-friction-guide .frx-hero-lead{font-size:18px}
+      .pmew-friction-guide .frx-principle blockquote{font-size:25px}
+      .pmew-friction-guide .frx-hero-facts{grid-template-columns:1fr}
+      .pmew-friction-guide .frx-fact,.pmew-friction-guide .frx-fact + .frx-fact{padding:15px 0;border-left:0;border-top:1px solid var(--line)}
+      .pmew-friction-guide .frx-fact:first-child{border-top:0}
+      .pmew-friction-guide .frx-chapter h2{font-size:38px}
+      .pmew-friction-guide .frx-table-wrap{margin-left:-4px;margin-right:-4px}
+    }
+
+    @media print{
+      
+      .pmew-friction-guide .frx-hero{border:0}.pmew-friction-guide .frx-hero-inner{padding:28px 0}.pmew-friction-guide .frx-layout{display:block;padding:0}.pmew-friction-guide .frx-section-card,.pmew-friction-guide .frx-deep{break-inside:avoid;box-shadow:none}
+      .pmew-friction-guide details.frx-deep{display:block}.pmew-friction-guide details.frx-deep>.frx-deep-body{display:block}
+      .pmew-friction-guide{font-size:11pt}.pmew-friction-guide .frx-chapter{margin-bottom:30px}
+    }
+  
+/* PMEW integration + responsive hardening */
+.pmew-friction-guide .pmew-main{position:relative;z-index:1}
+.pmew-friction-guide img,.pmew-friction-guide svg{max-width:100%}
+@media (max-width:820px){
+  .pmew-friction-guide .frx-grid-2,.pmew-friction-guide .frx-grid-3{grid-template-columns:1fr}
+  .pmew-friction-guide .frx-friction-panel{grid-template-columns:1fr;align-items:start}
+  .pmew-friction-guide .frx-formula .frx-legend{grid-template-columns:1fr}
+  .pmew-friction-guide .frx-section-card{padding:22px}
+  .pmew-friction-guide .frx-layout{padding-left:18px;padding-right:18px;padding-bottom:76px}
+  .pmew-friction-guide .frx-mobile-jump{display:block}
+}
+@media (max-width:520px){
+  .pmew-friction-guide .frx-hero-inner{padding-left:16px;padding-right:16px}
+  .pmew-friction-guide h1{font-size:clamp(42px,13vw,58px)}
+  .pmew-friction-guide .frx-chapter h2{font-size:clamp(34px,10vw,42px)}
+  .pmew-friction-guide .frx-section-card{padding:18px;border-radius:18px}
+  .pmew-friction-guide .frx-mini-card{padding:16px}
+  .pmew-friction-guide .frx-callout{grid-template-columns:1fr;padding:18px}
+  .pmew-friction-guide .frx-friction-tabs button{flex:1 1 100%}
+  .pmew-friction-guide .frx-principle{margin-top:38px;gap:15px}
+  .pmew-friction-guide .frx-hero-meta{gap:8px}.pmew-friction-guide .frx-chip{font-size:12px}
+  .pmew-friction-guide .frx-formula{padding:16px}.pmew-friction-guide .frx-formula code{font-size:15px}
+  .pmew-friction-guide .frx-text-btn{white-space:normal;height:auto;min-height:40px;padding:10px 13px}
+}
+@media (max-width:390px){
+  .pmew-friction-guide .frx-layout{padding-left:14px;padding-right:14px}
+  .pmew-friction-guide .frx-hero-inner{padding-left:14px;padding-right:14px}
+  .pmew-friction-guide .frx-hero-facts{grid-template-columns:1fr}
+}
+.pmew-friction-guide .frx-page-utility{display:flex;justify-content:flex-end;gap:8px;margin-bottom:20px}.pmew-friction-guide .frx-page-utility .frx-text-btn,.pmew-friction-guide .frx-page-utility .frx-icon-btn{background:#fff}@media(max-width:520px){.pmew-friction-guide .frx-page-utility{justify-content:flex-start;flex-wrap:wrap}}
+
+/* ==========================================================
+   PMEW TECHNICAL PAGE — HARD TEXT COLOUR ISOLATION
+   ----------------------------------------------------------
+   Prevents global PMEW .page-technical heading/link colours
+   from leaking into this page. Light surfaces use ink/black;
+   dark controls use white; intentional accent text is kept.
+========================================================== */
+.pmew-friction-guide{
+  --frx-text-black:#0b1220;
+  --frx-text-white:#ffffff;
+}
+
+/* Default technical-page typography on light surfaces */
+.pmew-friction-guide h1,
+.pmew-friction-guide h2,
+.pmew-friction-guide h3,
+.pmew-friction-guide h4,
+.pmew-friction-guide h5,
+.pmew-friction-guide h6{
+  color:var(--frx-text-black) !important;
+}
+.pmew-friction-guide strong,
+.pmew-friction-guide b{
+  color:inherit;
+}
+.pmew-friction-guide a:not(.frx-btn):not(.frx-icon-btn):not(.frx-text-btn){
+  color:inherit !important;
+}
+
+/* Explicit colour helpers */
+.pmew-friction-guide .frx-text-black{color:var(--frx-text-black) !important;}
+.pmew-friction-guide .frx-text-white{color:var(--frx-text-white) !important;}
+.pmew-friction-guide .frx-text-accent{color:var(--accent) !important;}
+
+/* Intentional accent typography */
+.pmew-friction-guide .frx-eyebrow,
+.pmew-friction-guide .frx-chapter-kicker,
+.pmew-friction-guide .frx-principle-label,
+.pmew-friction-guide .frx-toc a.frx-active{
+  color:var(--accent) !important;
+}
+
+/* Dark / selected UI states */
+.pmew-friction-guide .frx-friction-tabs button.frx-active,
+.pmew-friction-guide .frx-friction-tabs button.frx-active *,
+.pmew-friction-guide .frx-toast,
+.pmew-friction-guide .frx-toast *{
+  color:var(--frx-text-white) !important;
+}
+
+/* White buttons / cards retain ink text */
+.pmew-friction-guide .frx-icon-btn,
+.pmew-friction-guide .frx-text-btn,
+.pmew-friction-guide .frx-copy-float,
+.pmew-friction-guide .frx-backtop{
+  color:var(--frx-text-black) !important;
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/coefficient-of-friction-fasteners.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Coefficient of Friction in Fasteners | PMEW Technical Guide">
+    <meta property="og:description" content="A comprehensive technical guide to coefficient of friction in fasteners, torque–tension behaviour, preload, coatings, testing and friction control.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/coefficient-of-friction-fasteners.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coefficient of Friction in Fasteners | PMEW Technical Guide">
+    <meta name="twitter:description" content="A comprehensive technical guide to coefficient of friction in fasteners, torque–tension behaviour, preload, coatings, testing and friction control.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Coefficient of Friction in Fasteners | PMEW Technical Guide",
+  "url": "https://www.pradako.co/pages/technical-information/coefficient-of-friction-fasteners.html",
+  "description": "A comprehensive technical guide to coefficient of friction in fasteners, torque–tension behaviour, preload, coatings, testing and friction control.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="page-technical"><!-- Shared PMEW navbar: /components/navbar.html -->
+<div id="navbar-container"></div><div class="pmew-friction-guide pmew-friction-guide--friction">
+<div class="frx-reading-progress" id="readingProgress"></div>
+
+<main class="pmew-main" id="top">
+<section class="frx-hero">
+<div class="frx-hero-inner"><div aria-label="Technical page tools" class="frx-page-utility"><button class="frx-text-btn" id="expandAll"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>Expand deep dives</button><button aria-label="Print" class="frx-icon-btn" onclick="window.print()" title="Print / save as PDF"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v7H6z"></path></svg></button></div>
+<div class="frx-eyebrow"><i></i> Complete Technical Engineering Guide</div>
+<h1>Coefficient of Friction in Fasteners</h1>
+<p class="frx-hero-lead">
+        From tribology and surface engineering to torque–tension behaviour, preload, coatings, lubrication, ISO 16047 testing, statistical process control and joint reliability.
+      </p>
+<div class="frx-hero-meta">
+<span class="frx-chip">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8M12 8v8"></path></svg>
+          Tribology
+        </span>
+<span class="frx-chip">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 12h18M12 3v18"></path><circle cx="12" cy="12" r="5"></circle></svg>
+          Torque–Tension
+        </span>
+<span class="frx-chip">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M5 4h14v16H5z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
+          ISO 16047
+        </span>
+<span class="frx-chip">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"></path></svg>
+          Process Control
+        </span>
+</div>
+<div class="frx-principle">
+<div class="frx-principle-bar"></div>
+<div>
+<div class="frx-principle-label">The core engineering principle</div>
+<blockquote id="principleText">The best coefficient of friction is not the lowest value. It is the value that delivers the required preload safely, consistently and repeatedly within the actual fastening system.</blockquote>
+</div>
+<button aria-label="Copy principle" class="frx-icon-btn frx-copy-principle" id="copyPrinciple" title="Copy principle">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="11" rx="2" width="11" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+</button>
+</div>
+<div class="frx-hero-facts">
+<div class="frx-fact"><b>3</b><span>Principal torque components</span></div>
+<div class="frx-fact"><b>2</b><span>Primary friction interfaces</span></div>
+<div class="frx-fact"><b>36+</b><span>Engineering topics covered</span></div>
+<div class="frx-fact"><b>1</b><span>Goal: controlled preload</span></div>
+</div>
+</div>
+</section>
+<div class="frx-mobile-jump">
+<select aria-label="Jump to chapter" id="mobileJump">
+<option value="">Jump to a chapter…</option>
+<option value="#fundamentals">01 — Fundamentals &amp; Tribology</option>
+<option value="#torque">02 — Torque, Preload &amp; Friction</option>
+<option value="#interfaces">03 — Thread &amp; Bearing Interfaces</option>
+<option value="#surface">04 — Coatings, Lubrication &amp; Surface Engineering</option>
+<option value="#failure">05 — Failure Mechanics &amp; Reliability</option>
+<option value="#special">06 — Special Fastener Systems</option>
+<option value="#tightening">07 — Tightening Methods &amp; Stress</option>
+<option value="#testing">08 — ISO 16047 Testing &amp; Curves</option>
+<option value="#quality">09 — Statistics, MSA &amp; Production Control</option>
+<option value="#specification">10 — Engineering Specification</option>
+<option value="#troubleshooting">11 — Troubleshooting &amp; Case Studies</option>
+<option value="#standards">12 — Standards &amp; Reference</option>
+</select>
+</div>
+<div class="frx-layout">
+<aside class="frx-toc">
+<div class="frx-toc-title">Contents</div>
+<a href="#fundamentals">01 · Fundamentals &amp; Tribology</a>
+<a href="#torque">02 · Torque, Preload &amp; Friction</a>
+<a href="#interfaces">03 · Thread &amp; Bearing Interfaces</a>
+<a href="#surface">04 · Coatings &amp; Lubrication</a>
+<a href="#failure">05 · Failure Mechanics</a>
+<a href="#special">06 · Special Fasteners</a>
+<a href="#tightening">07 · Tightening Methods</a>
+<a href="#testing">08 · ISO 16047 Testing</a>
+<a href="#quality">09 · Statistics &amp; Quality</a>
+<a href="#specification">10 · Specification</a>
+<a href="#troubleshooting">11 · Troubleshooting</a>
+<a href="#standards">12 · Standards</a>
+<div class="frx-toc-tools">
+<button class="frx-text-btn" onclick="window.print()">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v7H6z"></path></svg>
+          Print guide
+        </button>
+</div>
+</aside>
+<article class="frx-article">
+<!-- 01 -->
+<section class="frx-chapter" id="fundamentals">
+<div class="frx-chapter-kicker">Chapter 01</div>
+<h2>Fundamentals &amp; Tribology</h2>
+<p class="frx-chapter-intro">
+          Fastener friction is not a decorative surface characteristic. It is a functional engineering property that governs how much of the applied tightening torque becomes useful clamp load.
+        </p>
+<div class="frx-section-card">
+<h3>What is the coefficient of friction?</h3>
+<p>
+            The coefficient of friction, represented by <strong>μ</strong>, is a dimensionless value describing resistance to sliding between contacting surfaces. In a bolted joint, friction is normally considered at two principal interfaces: the mating thread flanks and the rotating bearing surface beneath the bolt head, screw head, nut or washer.
+          </p>
+<div class="frx-grid-3">
+<div class="frx-mini-card"><b>μ<sub>th</sub> — thread friction</b><p>Sliding resistance between external and internal thread flanks.</p></div>
+<div class="frx-mini-card"><b>μ<sub>b</sub> — bearing friction</b><p>Sliding resistance beneath the rotating head, nut or washer.</p></div>
+<div class="frx-mini-card"><b>μ<sub>tot</sub> — total friction</b><p>An equivalent value representing the complete defined test arrangement.</p></div>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Fastener friction is a tribology problem</h3>
+<p>
+            Tribology deals with friction, lubrication, wear and the interaction of surfaces in relative motion. A machined or coated surface that appears smooth is actually made of microscopic high points called <strong>asperities</strong>. During tightening, those asperities contact, deform, shear, polish, tear or weld locally as the thread flanks and bearing surfaces slide.
+          </p>
+<ol>
+<li>Asperities first contact one another.</li>
+<li>Local contact pressure becomes extremely high.</li>
+<li>Oxides, topcoats and lubricant films deform or break.</li>
+<li>Microscopic junctions can form between surfaces.</li>
+<li>Sliding redistributes lubricant and coating material.</li>
+<li>Heat and wear particles may be generated.</li>
+<li>The resulting friction changes the torque required to produce preload.</li>
+</ol>
+<p>
+            The measured friction value is therefore not a material constant of the steel alone. It belongs to the <strong>complete surface and assembly system</strong>.
+          </p>
+</div>
+<details class="frx-deep" open="">
+<summary>Static, kinetic and apparent engineering friction</summary>
+<div class="frx-deep-body">
+<h4>Static friction</h4>
+<p>Static friction is the resistance that must be overcome before relative movement begins. It influences breakaway torque, restart torque after a pause, removal torque and some forms of stick-slip behaviour.</p>
+<h4>Kinetic or sliding friction</h4>
+<p>Once motion begins, kinetic friction governs sliding. During continuous tightening, thread and bearing friction are predominantly sliding-friction phenomena.</p>
+<h4>Apparent engineering coefficient</h4>
+<p>Fastener torque–clamp-force testing generally produces an effective or apparent friction value calculated from measured torque, clamp force and defined geometry. It should not be treated as universal. The same coated bolt may produce different results when tested against coated steel, bare steel, aluminium, a hardened washer or a painted production surface.</p>
+</div>
+</details>
+<div class="frx-callout frx-success">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg>
+<div><strong>The practical objective</strong><p>Do not chase the lowest friction number. Engineer a stable friction window that repeatedly produces the required preload without exceeding the permissible load of the bolt, threads, washer or joint.</p></div>
+</div>
+</section>
+<!-- 02 -->
+<section class="frx-chapter" id="torque">
+<div class="frx-chapter-kicker">Chapter 02</div>
+<h2>Torque, Preload &amp; Friction</h2>
+<p class="frx-chapter-intro">
+          Tightening torque is only an indirect method of controlling bolt tension. The applied torque is divided between thread geometry, thread friction and bearing friction.
+        </p>
+<div class="frx-section-card">
+<h3>Preload is the real objective</h3>
+<p>
+            When a bolt or screw is tightened, it elongates and develops tensile load. The clamped parts are compressed by an approximately corresponding force. This initial force is called <strong>preload</strong> or <strong>clamp force</strong>.
+          </p>
+<p>
+            A substantial proportion of tightening torque is consumed in overcoming friction. Only the remaining portion contributes to the mechanical work required to advance the thread and stretch the fastener.
+          </p>
+<div class="frx-formula">
+<code>M<sub>A</sub> = M<sub>pitch</sub> + M<sub>thread friction</sub> + M<sub>bearing friction</sub></code>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Engineering torque–preload relationship</h3>
+<p>For a conventional metric fastener without a prevailing-torque feature, an engineering form of the relationship can be expressed as:</p>
+<div class="frx-formula">
+<code>M<sub>A</sub> = F<sub>M</sub> [ P/(2π) + μ<sub>th</sub>d<sub>2</sub>/(2 cos(α/2)) + μ<sub>b</sub>D<sub>bm</sub>/2 ]</code>
+<div class="frx-legend">
+<span><b>M<sub>A</sub></b> applied tightening torque</span>
+<span><b>F<sub>M</sub></b> assembly preload</span>
+<span><b>P</b> thread pitch</span>
+<span><b>d<sub>2</sub></b> thread pitch diameter</span>
+<span><b>α</b> included thread angle</span>
+<span><b>D<sub>bm</sub></b> effective bearing friction diameter</span>
+<span><b>μ<sub>th</sub></b> thread coefficient of friction</span>
+<span><b>μ<sub>b</sub></b> bearing coefficient of friction</span>
+</div>
+</div>
+<p>For a standard ISO metric thread, the included thread angle is 60°. This relationship demonstrates why identical nominal friction cannot automatically produce identical tightening behaviour across different pitches, head diameters, flange diameters, washers or bearing geometries.</p>
+</div>
+<div class="frx-section-card">
+<h3>Coefficient of friction versus nut factor</h3>
+<p>A simplified tightening relationship frequently used for quick estimates is:</p>
+<div class="frx-formula"><code>M<sub>A</sub> = K F<sub>M</sub> d</code></div>
+<p>Here <strong>K</strong> is the nut factor or torque coefficient. It is <strong>not</strong> the same as coefficient of friction μ.</p>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Parameter</th><th>Meaning</th><th>What it contains</th></tr></thead>
+<tbody>
+<tr><td>μ</td><td>Coefficient of friction</td><td>Sliding behaviour at a defined interface under defined conditions.</td></tr>
+<tr><td>K</td><td>Nut factor / torque coefficient</td><td>Combined empirical influence of pitch, thread geometry, friction, bearing diameter and test configuration.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="frx-callout frx-warn">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 3 2.7 20h18.6L12 3Z"></path><path d="M12 9v5M12 17.5v.5"></path></svg>
+<div><strong>K ≠ μ</strong><p>A nut factor established for one bolt–nut–washer system should not be transferred to another geometry without validation.</p></div>
+</div>
+</div>
+<div class="frx-friction-explorer">
+<div class="frx-chapter-kicker">Interactive concept explorer</div>
+<h3 style="margin:0">What happens when friction changes at the same tightening torque?</h3>
+<div class="frx-friction-tabs">
+<button data-state="low">Too low</button>
+<button class="frx-active" data-state="controlled">Controlled window</button>
+<button data-state="high">Too high</button>
+</div>
+<div class="frx-friction-panel">
+<div class="frx-meter"><span class="frx-meter-dot" id="meterDot"></span></div>
+<div class="frx-explore-output">
+<h4 id="exploreTitle">Controlled friction</h4>
+<p id="exploreText">Torque is converted into preload within a validated, repeatable range. The design objective is predictable clamp load with low scatter.</p>
+</div>
+</div>
+</div>
+<details class="frx-deep">
+<summary>Preload window and friction scatter</summary>
+<div class="frx-deep-body">
+<p>Torque-controlled tightening should be considered statistically. The design must accommodate the minimum and maximum expected assembly preload:</p>
+<div class="frx-formula"><code>F<sub>M,min</sub> &gt; F<sub>required</sub>   and   F<sub>M,max</sub> &lt; F<sub>permissible</sub></code></div>
+<p>The lower boundary must still prevent separation, slip or leakage. The upper boundary must remain below bolt yielding, thread stripping, crushing, excessive gasket compression or other permissible limits. A wide friction range can make it impossible to satisfy both conditions with one torque value.</p>
+</div>
+</details>
+</section>
+<!-- 03 -->
+<section class="frx-chapter" id="interfaces">
+<div class="frx-chapter-kicker">Chapter 03</div>
+<h2>Thread &amp; Bearing Interfaces</h2>
+<p class="frx-chapter-intro">Thread friction and bearing friction have different geometries, different moment arms and different sensitivities. Both must be controlled.</p>
+<div class="frx-section-card">
+<h3>Thread friction in depth</h3>
+<div class="frx-grid-2">
+<div class="frx-mini-card"><b>Thread pitch</b><p>Coarse and fine threads have different helix geometry, pitch torque and sensitivity to dimensional variation.</p></div>
+<div class="frx-mini-card"><b>Pitch diameter</b><p>Changes the moment arm at which thread friction acts.</p></div>
+<div class="frx-mini-card"><b>Thread flank angle</b><p>Creates a wedging effect and affects the normal force at the engaged flanks.</p></div>
+<div class="frx-mini-card"><b>Thread tolerance</b><p>Influences clearance, coating allowance, interference risk and contact pattern.</p></div>
+<div class="frx-mini-card"><b>Thread roughness</b><p>Can increase mechanical interlocking, coating wear, friction scatter and galling tendency.</p></div>
+<div class="frx-mini-card"><b>Thread damage</b><p>Burrs, dents, laps or incomplete threads can create torque without corresponding preload.</p></div>
+</div>
+<div class="frx-callout frx-info">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6M12 7h.01"></path></svg>
+<div><strong>False torque</strong><p>A tool can indicate the specified torque even when abnormal thread interference or damage has consumed that torque instead of creating useful clamp force.</p></div>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Bearing-surface friction in depth</h3>
+<p>Bearing friction develops beneath rotating bolt heads, screw heads, nuts, washers, flanges and collars. It depends on both coefficient of friction and effective friction diameter.</p>
+<ul>
+<li>A larger flange or washer increases the effective friction radius and can change the torque required for a given preload.</li>
+<li>Soft materials such as aluminium, copper, polymers and coated sheet can deform beneath the bearing surface.</li>
+<li>Paint, e-coat, powder coat or other films may crack, creep, plough or be displaced during tightening.</li>
+<li>Washer rotation state matters: the washer may rotate with the nut, remain fixed, polish the substrate or deform.</li>
+</ul>
+<p>For these reasons, a friction test against a polished laboratory washer may not represent an actual painted, plated or soft production joint.</p>
+</div>
+<div class="frx-section-card">
+<h3>Important friction-related parameters</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Parameter</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>μ<sub>th</sub></td><td>Coefficient of friction at the thread flanks.</td></tr>
+<tr><td>μ<sub>b</sub></td><td>Coefficient of friction beneath the rotating bearing surface.</td></tr>
+<tr><td>μ<sub>tot</sub></td><td>Equivalent total friction derived from the defined complete test arrangement.</td></tr>
+<tr><td>K</td><td>Empirical torque coefficient or nut factor.</td></tr>
+<tr><td>Prevailing torque</td><td>Torque required to rotate a locking feature before seating.</td></tr>
+<tr><td>Breakaway torque</td><td>Torque required to initiate movement after rest, ageing or cure.</td></tr>
+<tr><td>Removal torque</td><td>Torque measured during disassembly.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Two fastening systems can show a similar total coefficient but divide friction differently between the threads and bearing surface. That difference becomes important when head diameter, washer size, thread pitch or lubrication location changes.</p>
+</div>
+<details class="frx-deep">
+<summary>Why the washer is an active part of the friction system</summary>
+<div class="frx-deep-body">
+<p>A washer can change effective bearing diameter, distribute pressure, prevent indentation, alter the sliding interface and modify friction scatter. It can rotate with the nut or remain stationary while the nut slides over it. Washer hardness, flatness, coating, roughness and geometry should therefore be part of the test specification.</p>
+</div>
+</details>
+</section>
+<!-- 04 -->
+<section class="frx-chapter" id="surface">
+<div class="frx-chapter-kicker">Chapter 04</div>
+<h2>Coatings, Lubrication &amp; Surface Engineering</h2>
+<p class="frx-chapter-intro">Corrosion resistance and friction performance are related, but they are not the same requirement. A coating can pass a salt-spray test and still fail the assembly friction requirement.</p>
+<div class="frx-section-card">
+<h3>Friction is a system property</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>System element</th><th>Possible influence</th></tr></thead>
+<tbody>
+<tr><td>Bolt or screw coating</td><td>Changes thread and bearing lubricity, roughness and surface-film behaviour.</td></tr>
+<tr><td>Nut / tapped-hole finish</td><td>Changes mating-thread friction and adhesion tendency.</td></tr>
+<tr><td>Washer</td><td>Changes bearing friction, effective diameter and embedment.</td></tr>
+<tr><td>Joint surface</td><td>Paint, aluminium, steel, polymer and composite surfaces behave differently.</td></tr>
+<tr><td>Lubricant</td><td>Can sharply reduce friction and change preload at a fixed torque.</td></tr>
+<tr><td>Topcoat / sealer</td><td>Can provide deliberately controlled lubricity.</td></tr>
+<tr><td>Thread-locking compound</td><td>May lubricate while uncured and resist rotation after cure.</td></tr>
+<tr><td>Tightening speed</td><td>Can change film behaviour, local temperature and stick-slip.</td></tr>
+<tr><td>Installation cycles</td><td>Can polish, remove, transfer or damage coating and lubricant.</td></tr>
+<tr><td>Storage / temperature</td><td>Can alter waxes, oils, resins, oxidation and contamination.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Coating-system architecture</h3>
+<p>Friction is often controlled by the outermost working layers, not by the metallic coating alone. A typical engineered coating system may contain:</p>
+<ol>
+<li>Steel substrate</li>
+<li>Zinc or zinc-alloy deposit</li>
+<li>Conversion coating</li>
+<li>Sealer</li>
+<li>Topcoat</li>
+<li>Integral lubricant</li>
+<li>Subsequently applied lubricant</li>
+</ol>
+<p>Each layer can influence corrosion resistance, friction, appearance, electrical behaviour, adhesion, chemical resistance, thread fit and torque–preload performance.</p>
+</div>
+<div class="frx-section-card">
+<h3>Major coating families and friction behaviour</h3>
+<div class="frx-grid-2">
+<div class="frx-mini-card"><b>Electroplated zinc</b><p>Friction can change significantly with conversion coating, sealer, wax, oil, topcoat, ageing and storage.</p></div>
+<div class="frx-mini-card"><b>Zinc-nickel</b><p>High corrosion performance does not automatically define friction; the final sealer, topcoat and lubricant remain critical.</p></div>
+<div class="frx-mini-card"><b>Zinc-iron</b><p>Surface hardness, conversion system and lubricant can produce behaviour different from conventional zinc.</p></div>
+<div class="frx-mini-card"><b>Zinc-flake</b><p>Topcoats often provide controlled friction; the complete system must be validated for both corrosion and assembly behaviour.</p></div>
+<div class="frx-mini-card"><b>Phosphate + oil</b><p>Oil retention can provide useful assembly performance, but coating weight, crystal structure, drainage and oil quantity require control.</p></div>
+<div class="frx-mini-card"><b>Black oxide</b><p>Assembly friction often depends primarily on the supplementary oil or wax rather than the oxide layer alone.</p></div>
+<div class="frx-mini-card"><b>Hot-dip galvanizing</b><p>Thick zinc, surface roughness, nut overtapping, thread allowance and lubrication strongly influence tightening.</p></div>
+<div class="frx-mini-card"><b>Stainless steel</b><p>Galling sensitivity makes lubrication, material pairing and tightening speed particularly important.</p></div>
+</div>
+</div>
+<details class="frx-deep" open="">
+<summary>Topcoats, waxes, oils, anti-seize and integral lubricants</summary>
+<div class="frx-deep-body">
+<p>A technically complete specification should distinguish among integral lubricant, lubricated topcoat, post-applied wax, oil, dry-film lubricant, anti-seize compound and customer-applied assembly lubricant.</p>
+<p>The lubricant system should identify product designation, application method, target quantity, curing or drying condition, storage limitations, reapplication policy, temperature limits and compatibility with adhesives or sealants. The word <strong>“lubricated”</strong> by itself is not an adequate engineering requirement.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Storage, ageing and environmental effects</summary>
+<div class="frx-deep-body">
+<p>Friction can change after coating because of lubricant migration, wax hardening, solvent evaporation, surface oxidation, moisture absorption, packaging interaction, contamination, temperature cycling, ultraviolet exposure and handling damage.</p>
+<p>Where the application is sensitive, testing may be required immediately after coating, after a defined conditioning period, after storage, after humidity exposure, after thermal exposure and at the actual point of assembly.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Tightening-speed and temperature effects</summary>
+<div class="frx-deep-body">
+<p>Tightening speed can affect interface temperature, lubricant-film behaviour, stick-slip, polymer topcoats, liquid adhesives and prevailing torque. A slow laboratory test may not represent a high-speed production spindle.</p>
+<p>Temperature can change lubricant viscosity, resin hardness, wax state, surface-film strength and polymer locking features. Assembly-temperature behaviour and service-temperature behaviour should be considered separately.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Reuse and repeated tightening cycles</summary>
+<div class="frx-deep-body">
+<p>Repeated assembly can polish surfaces, remove lubricant, wear through topcoats, generate debris, reduce prevailing torque or increase galling tendency. If reuse is permitted, the specification should define cycle count, relubrication policy, friction or torque limits after each cycle, visual damage criteria and replacement requirements.</p>
+</div>
+</details>
+</section>
+<!-- 05 -->
+<section class="frx-chapter" id="failure">
+<div class="frx-chapter-kicker">Chapter 05</div>
+<h2>Failure Mechanics &amp; Joint Reliability</h2>
+<p class="frx-chapter-intro">Both low and high friction can be dangerous. The failure mechanism depends on how friction changes the preload and the stresses introduced during tightening.</p>
+<div class="frx-grid-2">
+<div class="frx-section-card">
+<h3>When friction is too low</h3>
+<ul>
+<li>Excessive preload at the specified torque</li>
+<li>Bolt yielding or installation fracture</li>
+<li>Thread stripping or nut dilation</li>
+<li>Head or bearing-surface crushing</li>
+<li>Gasket over-compression</li>
+<li>Joint distortion</li>
+<li>Tapped-hole pull-out</li>
+<li>Coating extrusion or excessive embedment</li>
+</ul>
+</div>
+<div class="frx-section-card">
+<h3>When friction is too high</h3>
+<ul>
+<li>Insufficient preload</li>
+<li>Joint opening or transverse slip</li>
+<li>Self-loosening under vibration</li>
+<li>Gasket leakage</li>
+<li>Fretting and reduced fatigue life</li>
+<li>Loose electrical / thermal joints</li>
+<li>Noise, movement and misalignment</li>
+<li>Uneven multi-bolt joint loading</li>
+</ul>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Why friction scatter can be worse than an incorrect average</h3>
+<p>A batch with a wide spread can contain both low-friction fasteners at risk of overloading and high-friction fasteners at risk of under-tightening even when the average value looks acceptable.</p>
+<p>The real production objective is therefore a <strong>controlled friction window with low scatter</strong>.</p>
+</div>
+<details class="frx-deep" open="">
+<summary>Stick-slip behaviour</summary>
+<div class="frx-deep-body">
+<p>Stick-slip occurs when contact alternates between sticking and sliding. Signs include jerky tightening, fluctuating torque, squeaking, sudden torque drops, irregular torque–angle curves and unstable preload.</p>
+<p>Potential causes include inadequate lubrication, lubricant-film breakdown, rough surfaces, stainless-steel galling, damaged coatings, inappropriate tightening speed, intermittent tool operation and incompatible material combinations.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Galling and cold welding</summary>
+<div class="frx-deep-body">
+<p>Galling is severe adhesive wear in which material transfers between mating surfaces. The progression can include protective-film breakdown, local metal-to-metal adhesion, material transfer, surface tearing, rapid torque increase and eventual seizure or fracture.</p>
+<p>Controls include suitable lubrication, appropriate material pairing, hardness difference, coating selection, controlled tightening speed, clean threads and limits on repeated reuse.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Combined tensile and torsional stress</summary>
+<div class="frx-deep-body">
+<p>During tightening, a bolt experiences both axial tensile stress and torsional shear stress. A useful equivalent-stress form is:</p>
+<div class="frx-formula"><code>σ<sub>eq</sub> = √(σ<sub>t</sub><sup>2</sup> + 3τ<sup>2</sup>)</code></div>
+<p>This explains why an assembly can yield during tightening even when a calculation based only on axial tensile stress appears acceptable.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Joint stiffness, preload retention and relaxation</summary>
+<div class="frx-deep-body">
+<p>Friction controls how much preload is generated initially, but joint stiffness determines how load is distributed after assembly. Important variables include bolt stiffness, clamped-part stiffness, external-load sharing, embedment, relaxation, creep, gasket compression and differential thermal expansion.</p>
+<p>A perfectly controlled initial preload can still fall after assembly because of paint creep, soft washers, gasket relaxation, polymer deformation or microscopic surface flattening.</p>
+</div>
+</details>
+<details class="frx-deep">
+<summary>Friction, fatigue and self-loosening</summary>
+<div class="frx-deep-body">
+<p>Proper preload helps reduce the fluctuating stress experienced by a fastener. Insufficient preload can permit joint separation, transverse movement, bending and fretting, all of which can accelerate fatigue.</p>
+<p>Rotational self-loosening should not be reduced to the statement “low friction causes loosening.” It is strongly influenced by transverse movement, preload, interface slip, vibration amplitude, joint geometry and locking features. Increasing friction indiscriminately may actually reduce preload and make loosening more likely.</p>
+</div>
+</details>
+</section>
+<!-- 06 -->
+<section class="frx-chapter" id="special">
+<div class="frx-chapter-kicker">Chapter 06</div>
+<h2>Special Fastener Systems</h2>
+<p class="frx-chapter-intro">Conventional bolt–nut equations do not fully describe every fastener. Locking, forming, drilling and special bearing geometries add additional torque components.</p>
+<div class="frx-section-card">
+<h3>Prevailing-torque fasteners</h3>
+<p>All-metal locknuts, polymer-insert nuts, deformed-thread nuts, locking patches and interference-thread systems require torque before the fastener seats.</p>
+<div class="frx-formula"><code>T<sub>installation</sub> = T<sub>prevailing</sub> + T<sub>thread</sub> + T<sub>bearing</sub> + T<sub>preload</sub></code></div>
+<p>Prevailing torque does not itself create useful clamp load while the fastener is free-running. Assembly documents should state clearly whether the specified tightening value means <strong>total indicated torque</strong> or <strong>torque above prevailing torque</strong>.</p>
+</div>
+<div class="frx-section-card">
+<h3>Fastener-specific friction considerations</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Fastener system</th><th>Additional considerations</th></tr></thead>
+<tbody>
+<tr><td>Flange bolts / nuts</td><td>Larger effective bearing diameter can substantially change bearing torque.</td></tr>
+<tr><td>SEMS screws</td><td>Captive washer may rotate with the screw or slide independently against the joint.</td></tr>
+<tr><td>Countersunk screws</td><td>Conical bearing interface creates radial forces and different friction geometry.</td></tr>
+<tr><td>Self-tapping screws</td><td>Installation torque includes thread-forming or cutting torque before clamp force develops.</td></tr>
+<tr><td>Thread-forming screws</td><td>Material displacement and prevailing interaction must be separated from seating and clamp-load behaviour.</td></tr>
+<tr><td>Self-drilling screws</td><td>Drilling, thread-forming, seating and clamp-load torque occur sequentially.</td></tr>
+<tr><td>Locking patches</td><td>Patch position, length, material and cure condition influence installation and removal torque.</td></tr>
+<tr><td>Structural fasteners</td><td>Installation methods may use calibrated systems, direct tension indicators or other procedures rather than generic torque alone.</td></tr>
+<tr><td>Aerospace fasteners</td><td>Critical applications may require more direct control by elongation, tension or validated torque–angle methods.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 07 -->
+<section class="frx-chapter" id="tightening">
+<div class="frx-chapter-kicker">Chapter 07</div>
+<h2>Tightening Methods &amp; Stress Control</h2>
+<p class="frx-chapter-intro">Torque-only tightening is common because it is practical, but it is also one of the methods most sensitive to friction variation.</p>
+<div class="frx-section-card">
+<h3>Comparison of tightening methods</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Method</th><th>Main control parameter</th><th>Friction sensitivity</th></tr></thead>
+<tbody>
+<tr><td>Torque control</td><td>Final torque</td><td>High</td></tr>
+<tr><td>Torque–angle</td><td>Torque plus rotation after a defined point</td><td>Moderate after snug point</td></tr>
+<tr><td>Yield control</td><td>Change in tightening gradient</td><td>Lower, application-specific</td></tr>
+<tr><td>Direct tension</td><td>Measured bolt load</td><td>Low</td></tr>
+<tr><td>Bolt elongation</td><td>Change in bolt length</td><td>Low</td></tr>
+<tr><td>Hydraulic tensioning</td><td>Applied tensile force</td><td>Relatively low</td></tr>
+<tr><td>Tension-indicating washer</td><td>Washer deformation</td><td>System-dependent</td></tr>
+<tr><td>Ultrasonic measurement</td><td>Bolt elongation / acoustic time</td><td>Low when correctly calibrated</td></tr>
+</tbody>
+</table>
+</div>
+<p>Friction remains relevant even for more direct methods because it can influence installation torque, torsional stress, galling and surface damage. The key advantage is that the final preload is not inferred solely from torque.</p>
+</div>
+<div class="frx-section-card">
+<h3>Why generic torque tables can be misleading</h3>
+<p>Generic tables commonly assume a particular nut factor, lubrication state or surface condition. If the actual coating, topcoat, washer or lubricant differs, the resulting preload may differ substantially.</p>
+<div class="frx-callout frx-warn">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 3 2.7 20h18.6L12 3Z"></path><path d="M12 9v5M12 17.5v.5"></path></svg>
+<div><strong>Critical-joint rule</strong><p>For automotive, aerospace, defence, energy, pressure-containing and structural applications, establish tightening values from representative torque–clamp-force testing or a validated joint-calculation method rather than copying generic torque tables.</p></div>
+</div>
+</div>
+</section>
+<!-- 08 -->
+<section class="frx-chapter" id="testing">
+<div class="frx-chapter-kicker">Chapter 08</div>
+<h2>ISO 16047 Testing &amp; Curve Interpretation</h2>
+<p class="frx-chapter-intro">A meaningful friction value requires a defined test system. Changing the mating thread, washer, bearing surface, speed or lubricant can change the result.</p>
+<div class="frx-section-card">
+<h3>What torque–clamp-force testing can determine</h3>
+<div class="frx-grid-3">
+<div class="frx-mini-card"><b>Total tightening torque</b><p>Torque applied by the drive system.</p></div>
+<div class="frx-mini-card"><b>Thread torque</b><p>Torque attributable to the threaded interface.</p></div>
+<div class="frx-mini-card"><b>Bearing torque</b><p>Torque attributable to the rotating bearing interface.</p></div>
+<div class="frx-mini-card"><b>Clamp force</b><p>Axial force generated in the test assembly.</p></div>
+<div class="frx-mini-card"><b>Friction coefficients</b><p>Thread, bearing and total equivalent values where applicable.</p></div>
+<div class="frx-mini-card"><b>Torque coefficient</b><p>Empirical torque–preload parameter for the defined system.</p></div>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Test specification checklist</h3>
+<ol>
+<li>Fastener size, property class and geometry</li>
+<li>Nut, insert or tapped-hole specification</li>
+<li>Washer material, hardness, finish and dimensions</li>
+<li>Bearing-surface material and condition</li>
+<li>Coating and lubricant designation</li>
+<li>Tightening speed</li>
+<li>Target clamp force or evaluation range</li>
+<li>Test temperature</li>
+<li>Number of samples</li>
+<li>First installation or repeated installation</li>
+<li>Cleaning / conditioning procedure</li>
+<li>Whether additional lubrication is permitted</li>
+<li>Acceptance limits for average and individual results</li>
+<li>Required reporting of scatter and outliers</li>
+</ol>
+</div>
+<details class="frx-deep" open="">
+<summary>Detailed torque–clamp-force test sequence</summary>
+<div class="frx-deep-body">
+<ol>
+<li>Identify and trace the sample lot.</li>
+<li>Define the test bolt or screw.</li>
+<li>Define the mating nut or internal thread.</li>
+<li>Define the washer and bearing plate.</li>
+<li>Record all relevant surface finishes and coatings.</li>
+<li>Condition samples as specified.</li>
+<li>Set the defined tightening speed.</li>
+<li>Verify load and torque sensor calibration.</li>
+<li>Install with the specified lubrication state.</li>
+<li>Measure torque and clamp force continuously through tightening.</li>
+<li>Measure thread torque separately where the test system supports it.</li>
+<li>Determine bearing torque and friction parameters using the applicable equations.</li>
+<li>Repeat across the required sample count.</li>
+<li>Evaluate individual results, mean, scatter and abnormal curves.</li>
+<li>Report every relevant test condition so the result is reproducible.</li>
+</ol>
+</div>
+</details>
+<div class="frx-section-card">
+<h3>Reading torque–angle and torque–clamp-force curves</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Curve behaviour</th><th>Possible interpretation</th></tr></thead>
+<tbody>
+<tr><td>High running torque</td><td>Damaged threads, contamination, excessive coating, interference or locking feature.</td></tr>
+<tr><td>Sudden torque drop</td><td>Coating fracture, washer movement, surface collapse, slip or thread damage.</td></tr>
+<tr><td>Torque rises but clamp force does not</td><td>Galling, bearing ploughing, thread interference, washer deformation or bottoming.</td></tr>
+<tr><td>Clamp force drops after seating</td><td>Embedment, joint collapse, gasket compression or surface-film failure.</td></tr>
+<tr><td>Jerky curve</td><td>Stick-slip, lubricant-film instability, intermittent tool motion or adhesion.</td></tr>
+</tbody>
+</table>
+</div>
+<p>These curves can be used as diagnostic process fingerprints rather than reducing the test to one final friction number.</p>
+</div>
+</section>
+<!-- 09 -->
+<section class="frx-chapter" id="quality">
+<div class="frx-chapter-kicker">Chapter 09</div>
+<h2>Statistics, MSA &amp; Production Control</h2>
+<p class="frx-chapter-intro">Friction control is a manufacturing process-control problem as much as it is a laboratory problem.</p>
+<div class="frx-section-card">
+<h3>Statistical friction control</h3>
+<p>A batch should not be accepted solely because the average lies within the specified range. Depending on the joint risk, acceptance may need to consider:</p>
+<div class="frx-grid-3">
+<div class="frx-mini-card"><b>Central tendency</b><p>Mean and median.</p></div>
+<div class="frx-mini-card"><b>Spread</b><p>Minimum, maximum, range, standard deviation and coefficient of variation.</p></div>
+<div class="frx-mini-card"><b>Capability</b><p>Process capability and control-chart behaviour over time.</p></div>
+</div>
+<p>Individual low-friction and high-friction outliers may create assembly failures even if the overall batch average appears acceptable.</p>
+</div>
+<div class="frx-section-card">
+<h3>Measurement-system analysis</h3>
+<ul>
+<li>Torque calibration and traceability</li>
+<li>Clamp-load sensor calibration</li>
+<li>Repeatability and reproducibility</li>
+<li>Alignment and fixture compliance</li>
+<li>Sensor resolution and sampling frequency</li>
+<li>Operator influence</li>
+<li>Software calculation control</li>
+<li>Temperature stability</li>
+<li>Cross-laboratory correlation where required</li>
+</ul>
+<p>A friction process cannot be controlled reliably if a significant portion of the observed variation comes from the measurement system itself.</p>
+</div>
+<div class="frx-section-card">
+<h3>Production controls</h3>
+<div class="frx-grid-2">
+<div>
+<h4>Coating process</h4>
+<ul>
+<li>Bath or coating-material condition</li>
+<li>Coating thickness</li>
+<li>Conversion coating</li>
+<li>Sealer / topcoat concentration</li>
+<li>Lubricant concentration and quantity</li>
+<li>Cure temperature and time</li>
+<li>Spin / centrifuge parameters</li>
+<li>Post-coating handling</li>
+</ul>
+</div>
+<div>
+<h4>Fastener and verification controls</h4>
+<ul>
+<li>Thread dimensions and roughness</li>
+<li>Burrs, laps and damage</li>
+<li>Bearing-surface flatness</li>
+<li>Washer condition and hardness</li>
+<li>Cleanliness and lot traceability</li>
+<li>Regular torque–tension testing</li>
+<li>Control-chart monitoring</li>
+<li>Calibration and retained samples</li>
+</ul>
+</div>
+</div>
+</div>
+<details class="frx-deep">
+<summary>PPAP, Control Plan and change-control integration</summary>
+<div class="frx-deep-body">
+<p>For automotive and other controlled applications, friction validation can be integrated with drawing review, initial sample inspection, PPAP, Control Plan, Process FMEA, MSA, capability studies, supplier approval and lot traceability.</p>
+<p>Changes to coating supplier, lubricant, sealer, topcoat, cure cycle, washer, fastener manufacturer, raw material, thread rolling, cleaning or packaging can all require revalidation. A corrosion-equivalent coating change is not necessarily friction-equivalent.</p>
+</div>
+</details>
+</section>
+<!-- 10 -->
+<section class="frx-chapter" id="specification">
+<div class="frx-chapter-kicker">Chapter 10</div>
+<h2>Engineering Specification</h2>
+<p class="frx-chapter-intro">A friction requirement becomes useful only when the complete tested assembly, test condition and acceptance window are defined.</p>
+<div class="frx-section-card">
+<h3>What a complete specification should define</h3>
+<div class="frx-grid-2">
+<div class="frx-mini-card"><b>Product</b><p>Fastener standard, size, property class, material, thread tolerance and head geometry.</p></div>
+<div class="frx-mini-card"><b>Coating system</b><p>Coating type, thickness, conversion coating, sealer, topcoat, lubricant and colour where applicable.</p></div>
+<div class="frx-mini-card"><b>Test assembly</b><p>Mating thread, washer, bearing plate, hardness, finish and mating coating.</p></div>
+<div class="frx-mini-card"><b>Test conditions</b><p>Standard, speed, temperature, conditioning, cycle count and sample count.</p></div>
+<div class="frx-mini-card"><b>Acceptance limits</b><p>Thread, bearing and/or total friction range, individual limits, average limits and scatter limits.</p></div>
+<div class="frx-mini-card"><b>Reporting</b><p>Individual results, averages, min/max, anomalies, test configuration and conditioning.</p></div>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Recommended engineering clause</h3>
+<div class="frx-spec-clause">
+<button aria-label="Copy clause" class="frx-copy-float" id="copyClause" title="Copy clause">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="11" rx="2" width="11" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+</button>
+<pre id="specClause">The fastener coating system shall provide controlled torque–clamp-force performance when tested in accordance with ISO 16047 using the defined production-representative mating components. Testing shall be conducted on fasteners in the as-supplied condition without additional lubrication unless expressly specified. The report shall identify the bolt or screw, mating thread, washer, bearing surface, coating system, lubricant, tightening speed, temperature, test cycle and conditioning procedure. Individual and average thread, bearing and/or total coefficient-of-friction results shall be reported together with tightening torque, clamp force and any observed abnormalities. Compliance with corrosion-resistance requirements shall not by itself constitute compliance with friction requirements.</pre>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Common specification mistakes</h3>
+<ul>
+<li>“Coefficient of friction: 0.12” without a tolerance or defined test system.</li>
+<li>“Lubricated” without identifying the lubricant and application condition.</li>
+<li>“Zinc flake” without identifying the topcoat / friction modifier.</li>
+<li>“Torque as per standard” without defining the surface condition.</li>
+<li>Using the same torque for dry and lubricated fasteners.</li>
+<li>Treating K and μ as interchangeable.</li>
+<li>Ignoring under-head, washer or nut-bearing friction.</li>
+<li>Ignoring prevailing torque in locking systems.</li>
+<li>Using a laboratory mating surface unrelated to the production joint.</li>
+<li>Assuming salt-spray hours define assembly performance.</li>
+<li>Accepting only an average value while ignoring scatter and outliers.</li>
+<li>Reusing fasteners without validating the change in friction and locking behaviour.</li>
+</ul>
+</div>
+<div class="frx-callout frx-success">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg>
+<div><strong>Engineering principle</strong><p>A coating is not complete merely because it delivers colour, thickness or corrosion resistance. It must preserve thread fit, gaugeability, drive functionality, bearing condition, torque–tension behaviour, clamp-load consistency, galling resistance, assembly repeatability and compatibility throughout storage and service.</p></div>
+</div>
+</section>
+<!-- 11 -->
+<section class="frx-chapter" id="troubleshooting">
+<div class="frx-chapter-kicker">Chapter 11</div>
+<h2>Troubleshooting &amp; Case Studies</h2>
+<p class="frx-chapter-intro">Torque–tension data is especially valuable when it is used to explain failures instead of merely certifying a coating batch.</p>
+<div class="frx-section-card">
+<h3>Five common investigation patterns</h3>
+<div class="frx-table-wrap">
+<table>
+<thead><tr><th>Observed problem</th><th>Possible mechanism</th><th>What to verify</th></tr></thead>
+<tbody>
+<tr><td>Bolts break after coating change</td><td>New topcoat lowered friction; unchanged torque raised preload and combined stress.</td><td>Compare μ, torque–clamp-force curves, coating layers and lubricant.</td></tr>
+<tr><td>Gasket leaks although torque is “correct”</td><td>Friction is higher than assumed; wrench reaches torque before required clamp load.</td><td>Measure actual clamp force and production mating-surface friction.</td></tr>
+<tr><td>Stainless threads seize</td><td>Adhesive wear / galling caused by poor lubrication, speed or material pairing.</td><td>Lubricant, surface finish, hardness pairing, assembly speed and reuse.</td></tr>
+<tr><td>Lab results are good; production assembly is poor</td><td>Laboratory washer / speed / contamination state differs from production.</td><td>Recreate the actual joint and assembly process.</td></tr>
+<tr><td>Wide variation inside one lot</td><td>Non-uniform lubricant, mixed batches, variable curing, thread roughness or measurement variation.</td><td>Process traceability, application uniformity, MSA and lot stratification.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<details class="frx-deep">
+<summary>Failure analysis questions to ask before changing torque</summary>
+<div class="frx-deep-body">
+<ol>
+<li>Did the coating, topcoat, sealer or lubricant change?</li>
+<li>Did the nut, washer or bearing surface change?</li>
+<li>Did tightening speed or tool type change?</li>
+<li>Is the fastener being reused?</li>
+<li>Is there prevailing torque or a locking patch?</li>
+<li>Is the thread damaged, oversized, contaminated or over-coated?</li>
+<li>Does the torque–angle curve show abnormal running torque or stick-slip?</li>
+<li>Does the laboratory fixture represent the actual production joint?</li>
+<li>Has storage or ageing changed the surface film?</li>
+<li>Is the measurement system capable enough to distinguish process variation from test variation?</li>
+</ol>
+</div>
+</details>
+</section>
+<!-- 12 -->
+<section class="frx-chapter" id="standards">
+<div class="frx-chapter-kicker">Chapter 12</div>
+<h2>Standards &amp; Reference Framework</h2>
+<p class="frx-chapter-intro">Use the current applicable edition and verify scope, amendments and customer-specific requirements before publishing or specifying a standard.</p>
+<div class="frx-section-card">
+<h3>Key standards relevant to friction, coatings and bolted-joint behaviour</h3>
+<div class="frx-table-wrap">
+<table class="frx-standards-table">
+<thead><tr><th>Standard</th><th>Main relevance</th></tr></thead>
+<tbody>
+<tr><td>ISO 16047</td><td>Torque / clamp-force testing of threaded fasteners and related parts.</td></tr>
+<tr><td>ISO 4042</td><td>Electroplated coating systems for fasteners, including supplementary layers and lubricants within its scope.</td></tr>
+<tr><td>ISO 10683</td><td>Non-electrolytically applied zinc-flake coating systems for steel fasteners.</td></tr>
+<tr><td>ISO 10684</td><td>Hot-dip-galvanized coatings on threaded fasteners.</td></tr>
+<tr><td>ISO 2320</td><td>Functional properties of prevailing-torque steel nuts.</td></tr>
+<tr><td>ISO 898-1</td><td>Mechanical properties of bolts, screws and studs.</td></tr>
+<tr><td>ISO 898-2</td><td>Mechanical properties of nuts.</td></tr>
+<tr><td>ISO 15330</td><td>Preloading test for detection of hydrogen embrittlement in fasteners.</td></tr>
+<tr><td>VDI 2230</td><td>Systematic calculation of highly stressed bolted joints.</td></tr>
+<tr><td>ASTM F606/F606M</td><td>Mechanical testing of externally and internally threaded fasteners and related products.</td></tr>
+<tr><td>ASTM F1941/F1941M</td><td>Electrodeposited coatings on mechanical fasteners.</td></tr>
+<tr><td>ASTM F3393</td><td>Zinc-flake coating systems for fasteners.</td></tr>
+<tr><td>SAE/USCAR-11</td><td>Torque–tension testing / fastener assembly behaviour in automotive applications.</td></tr>
+<tr><td>DIN 946</td><td>Determination of friction coefficients under specified bolted-joint test conditions.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="frx-callout frx-info">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6M12 7h.01"></path></svg>
+<div><strong>Publication control</strong><p>Standards are revised, amended, withdrawn or replaced. Confirm the latest edition, status and exact applicability against the issuing body before using a standards table on a production website, drawing or purchase specification.</p></div>
+</div>
+</div>
+<div class="frx-section-card">
+<h3>Reference checklist for a final technical page</h3>
+<div class="frx-grid-2">
+<div>
+<h4>Engineering content</h4>
+<ul>
+<li>Definitions and symbols</li>
+<li>Torque decomposition</li>
+<li>Thread and bearing friction</li>
+<li>Nut factor distinction</li>
+<li>Preload window</li>
+<li>Combined stress</li>
+<li>Joint stiffness and relaxation</li>
+</ul>
+</div>
+<div>
+<h4>Manufacturing content</h4>
+<ul>
+<li>Coating architecture</li>
+<li>Lubrication and ageing</li>
+<li>Test setup and tightening speed</li>
+<li>Statistical control</li>
+<li>MSA and calibration</li>
+<li>PPAP / change control</li>
+<li>Troubleshooting and failure analysis</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="frx-principle" style="margin-top:28px">
+<div class="frx-principle-bar"></div>
+<div>
+<div class="frx-principle-label">Final design rule</div>
+<blockquote>The best coefficient of friction is not the lowest value. It is the value that delivers the required preload safely, consistently and repeatedly within the actual fastening system.</blockquote>
+</div>
+<button aria-label="Copy principle" class="frx-icon-btn frx-copy-principle" onclick="copyText(document.getElementById('principleText').innerText)" title="Copy principle">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="11" rx="2" width="11" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+</button>
+</div>
+<p class="frx-footer-note">
+          Technical note: friction and torque–preload values must be validated for the actual fastener, coating, lubricant, mating thread, washer, bearing surface, assembly equipment and service requirements. This page is an engineering reference framework, not a substitute for application-specific joint calculation and validation.
+        </p>
+</section>
+</article>
+</div>
+</main>
+<button aria-label="Back to top" class="frx-backtop" id="backTop" title="Back to top">
+<svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 14 6-6 6 6"></path></svg>
+</button>
+<div class="frx-toast" id="toast">Copied</div>
+
+</div><!-- Shared PMEW footer: /components/footer.html -->
+<div id="footer-container"></div><script>
+  const progress = document.getElementById('readingProgress');
+  const backTop = document.getElementById('backTop');
+  const tocLinks = [...document.querySelectorAll('.frx-toc a')];
+  const chapters = [...document.querySelectorAll('.frx-chapter')];
+
+  function updateScrollUI(){
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progress.style.width = pct + '%';
+    backTop.classList.toggle('frx-show', scrollTop > 700);
+
+    let current = chapters[0]?.id;
+    chapters.forEach(ch => {
+      if (ch.getBoundingClientRect().top <= 150) current = ch.id;
+    });
+    tocLinks.forEach(a => a.classList.toggle('frx-active', a.getAttribute('href') === '#' + current));
+  }
+  window.addEventListener('scroll', updateScrollUI, {passive:true});
+  updateScrollUI();
+
+  backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  const mobileJump = document.getElementById('mobileJump');
+  mobileJump.addEventListener('change', e => {
+    if(e.target.value) document.querySelector(e.target.value)?.scrollIntoView({behavior:'smooth'});
+    e.target.value = '';
+  });
+
+  const expandBtn = document.getElementById('expandAll');
+  let allOpen = false;
+  expandBtn?.addEventListener('click', ()=>{
+    allOpen = !allOpen;
+    document.querySelectorAll('details.frx-deep').forEach(d => d.open = allOpen);
+    if (expandBtn.lastChild) expandBtn.lastChild.textContent = allOpen ? ' Collapse deep dives' : ' Expand deep dives';
+  });
+
+  function toast(msg){
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('frx-show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(()=>el.classList.remove('frx-show'),1600);
+  }
+
+  async function copyText(text){
+    try{
+      await navigator.clipboard.writeText(text);
+      toast('Copied');
+    }catch(err){
+      const ta=document.createElement('textarea');
+      ta.value=text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove(); toast('Copied');
+    }
+  }
+  window.copyText = copyText;
+
+  document.getElementById('copyPrinciple').addEventListener('click',()=>{
+    copyText(document.getElementById('principleText').innerText);
+  });
+  document.getElementById('copyClause').addEventListener('click',()=>{
+    copyText(document.getElementById('specClause').innerText);
+  });
+
+  const explorer = {
+    low:{
+      title:'Too little friction',
+      text:'At the same tightening torque, more torque can become bolt tension. Preload may rise beyond the safe window, increasing the risk of yielding, thread stripping, crushing or gasket over-compression.',
+      pos:'17%'
+    },
+    controlled:{
+      title:'Controlled friction',
+      text:'Torque is converted into preload within a validated, repeatable range. The design objective is predictable clamp load with low scatter.',
+      pos:'50%'
+    },
+    high:{
+      title:'Too much friction',
+      text:'More torque is consumed at the threads and bearing surface. The wrench may reach its target while the joint remains under-preloaded, increasing the risk of leakage, slip, fretting, fatigue or loosening.',
+      pos:'84%'
+    }
+  };
+
+  document.querySelectorAll('.frx-friction-tabs button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.frx-friction-tabs button').forEach(b=>b.classList.remove('frx-active'));
+      btn.classList.add('frx-active');
+      const state = explorer[btn.dataset.state];
+      document.getElementById('exploreTitle').textContent = state.title;
+      document.getElementById('exploreText').textContent = state.text;
+      document.getElementById('meterDot').style.left = state.pos;
+    });
+  });
+</script>
+<!-- PMEW SHARED NAVBAR / FOOTER / GLOBAL BEHAVIOUR -->
+<script defer="" ></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

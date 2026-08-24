@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydrogen Embrittlement Relief — Pradako Mechanical & Engineering Works</title>
+
+<!-- GOOGLE FONTS --> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+:root{
+  --her-color-white:#ffffff;
+  --her-color-off-white:#fafafa;
+  --her-color-soft-blue:#f5fbff;
+  --her-color-soft-warm:#fff8ed;
+  --her-color-soft-green:#f0fdfa;
+
+  --her-color-navy:#0A3D62;
+  --her-color-info:#00b0f0;
+  --her-info-hover:#009bd6;
+  --her-info-soft:#eaf9ff;
+  --her-info-line:#bfeeff;
+
+  --her-risk:#f59e0b;
+  --her-risk-dark:#b45309;
+  --her-risk-soft:#fff4db;
+  --her-risk-line:#fed99b;
+
+  --her-safe:#14b8a6;
+  --her-safe-dark:#0f766e;
+  --her-safe-soft:#e8fbf8;
+  --her-safe-line:#b9f1ea;
+
+  --her-color-dark:#263238;
+  --her-color-text-secondary:#64748b;
+  --her-color-text-muted:#8a9aab;
+  --her-color-text-heading:var(--her-color-navy);
+  --her-color-border:#e2e8f0;
+  --her-color-border-light:#f0f3f7;
+  --her-color-accent-2:#4A6274;
+  --her-color-accent-3:#A0A5AD;
+
+  --her-font-primary:'Montserrat',sans-serif;
+  --her-font-display:'Space Grotesk', sans-serif;
+
+  --her-maxw:1180px;
+  --her-r:16px;
+  --her-shadow-sm:0 1px 3px rgba(10,61,98,.05),0 1px 2px rgba(10,61,98,.03);
+  --her-shadow-md:0 8px 28px rgba(10,61,98,.07);
+  --her-shadow-lg:0 18px 50px rgba(10,61,98,.09);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  
+  background:var(--her-color-white);
+  color:var(--her-color-dark);
+  font-family:var(--her-font-primary);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+::selection{
+  background:var(--her-color-info);
+  color:#fff;
+}
+
+.her-page a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.her-page b,
+.her-page strong{
+  font-weight:600;
+}
+
+#her-scrollbar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:2px;
+  width:0;
+  background:var(--her-color-info);
+  z-index:9999;
+  transition:width .1s linear;
+}
+
+.her-wrap{
+  width:min(100% - 56px,var(--her-maxw));
+  margin:0 auto;
+}
+
+.her-section{
+  padding:clamp(72px,8vw,104px) 0;
+  position:relative;
+}
+
+.her-eyebrow{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--her-color-info);
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+
+.her-eyebrow::before{
+  content:"";
+  width:24px;
+  height:1px;
+  background:var(--her-color-info);
+  display:inline-block;
+}
+
+.her-sec-index{
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:500;
+  color:var(--her-color-accent-3);
+  letter-spacing:.08em;
+}
+
+.her-page h1,.her-page h2,.her-page h3,.her-page h4{
+  font-family:var(--her-font-display);
+  color:var(--her-color-text-heading);
+  font-weight:600;
+  letter-spacing:-.01em;
+  line-height:1.12;
+}
+
+.her-h-sec{
+  font-size:clamp(30px,4vw,50px);
+  margin:18px 0 22px;
+  font-weight:600;
+}
+
+.her-lead{
+  font-size:clamp(15.5px,1.35vw,18px);
+  color:var(--her-color-text-secondary);
+  max-width:820px;
+  line-height:1.8;
+  font-family:var(--her-font-primary);
+  font-weight:400;
+}
+
+.her-band{
+  background:var(--her-color-off-white);
+  border-top:1px solid var(--her-color-border);
+  border-bottom:1px solid var(--her-color-border);
+}
+
+.her-sec-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.her-btn{
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  padding:15px 28px;
+  border-radius:44px;
+  transition:.25s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  cursor:pointer;
+}
+
+.her-btn-primary{
+  background:var(--her-color-info);
+  color:#fff;
+  border:1px solid var(--her-color-info);
+}
+
+.her-btn-primary:hover{
+  background:var(--her-info-hover);
+  transform:translateY(-2px);
+  box-shadow:var(--her-shadow-md);
+}
+
+.her-btn-ghost{
+  border:1px solid var(--her-color-border);
+  color:var(--her-color-navy);
+  background:#fff;
+}
+
+.her-btn-ghost:hover{
+  border-color:var(--her-color-info);
+  color:var(--her-color-info);
+  transform:translateY(-2px);
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.her-hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding:120px 0 80px;
+  overflow:hidden;
+  background:var(--her-color-off-white);
+}
+
+.her-hero-grid{
+  position:absolute;
+  inset:0;
+  background:rgba(10,61,98,.025);
+}
+
+.her-hero-glow{
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  right:-150px;
+  top:-120px;
+  background:var(--her-risk-soft);
+  opacity:.75;
+  pointer-events:none;
+}
+
+.her-hero .her-wrap{
+  position:relative;
+  z-index:2;
+  width:min(100% - 56px,var(--her-maxw));
+}
+
+.her-hero-ey{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--her-color-info);
+  margin-bottom:24px;
+}
+
+.her-hero h1{
+  font-size:clamp(42px,7.2vw,88px);
+  line-height:1;
+  letter-spacing:-.02em;
+  font-weight:600;
+  color:var(--her-color-navy);
+  max-width:780px;
+}
+
+.her-hero h1 .her-thin{
+  display:block;
+  font-family:var(--her-font-primary);
+  font-weight:500;
+  font-size:clamp(14px,1.4vw,18px);
+  letter-spacing:.12em;
+  color:var(--her-color-accent-2);
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.her-hero h1 .her-accent{
+  color:var(--her-risk);
+}
+
+.her-hero-sub{
+  margin-top:28px;
+  font-size:clamp(16px,1.5vw,19px);
+  color:var(--her-color-text-secondary);
+  max-width:660px;
+  line-height:1.8;
+  font-weight:400;
+}
+
+.her-hero-actions{
+  display:flex;
+  gap:14px;
+  margin-top:38px;
+  flex-wrap:wrap;
+}
+
+.her-hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(130px,1fr));
+  gap:18px;
+  margin-top:58px;
+  padding-top:32px;
+  border-top:1px solid var(--her-color-border);
+  max-width:840px;
+}
+
+.her-hero-stats .her-st{
+  background:#fff;
+  border:1px solid var(--her-color-border);
+  border-radius:14px;
+  padding:18px 16px;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-hero-stats .her-st b{
+  font-family:var(--her-font-display);
+  font-weight:600;
+  font-size:28px;
+  display:block;
+  color:var(--her-color-navy);
+  line-height:1.1;
+}
+
+.her-hero-stats .her-st span{
+  display:block;
+  margin-top:8px;
+  font-family:var(--her-font-primary);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--her-color-text-muted);
+  line-height:1.4;
+}
+
+.her-relief-motif{
+  position:absolute;
+  right:30px;
+  bottom:0;
+  top:0;
+  width:42%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1;
+  pointer-events:none;
+}
+
+.her-relief-card{
+  width:310px;
+  min-height:410px;
+  border:1px solid var(--her-color-border);
+  border-radius:24px;
+  background:#ffffff;
+  box-shadow:var(--her-shadow-lg);
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+}
+
+.her-relief-card::before{
+  content:"";
+  position:absolute;
+  right:-60px;
+  bottom:-90px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:var(--her-info-soft);
+}
+
+.her-relief-label{
+  font-family:var(--her-font-primary);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--her-color-accent-3);
+  margin-bottom:26px;
+  position:relative;
+  z-index:2;
+}
+
+.her-atom{
+  width:170px;
+  height:170px;
+  margin:0 auto 26px;
+  border-radius:50%;
+  border:1px solid var(--her-info-line);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--her-info-soft);
+  z-index:2;
+}
+
+.her-atom::before,
+.her-atom::after{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:72px;
+  border:1px solid rgba(10,61,98,.14);
+  border-radius:50%;
+}
+
+.her-atom::before{
+  transform:rotate(28deg);
+}
+
+.her-atom::after{
+  transform:rotate(-28deg);
+}
+
+.her-atom-core{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--her-risk);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--her-font-display);
+  font-weight:600;
+  font-size:28px;
+  box-shadow:0 16px 34px rgba(245,158,11,.22);
+}
+
+.her-relief-status{
+  display:grid;
+  gap:12px;
+  position:relative;
+  z-index:2;
+}
+
+.her-relief-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid var(--her-color-border-light);
+}
+
+.her-relief-row:last-child{
+  border-bottom:none;
+}
+
+.her-relief-row span{
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--her-color-text-secondary);
+}
+
+.her-relief-row b{
+  font-family:var(--her-font-display);
+  font-size:18px;
+  font-weight:600;
+  color:var(--her-color-navy);
+}
+
+.her-relief-row.her-safe b{
+  color:var(--her-safe);
+}
+
+.her-relief-row.her-warn b{
+  color:var(--her-risk);
+}
+
+/* ======================================================
+   INTRO + QUICK NAV
+====================================================== */
+
+.her-compliance-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.her-chip{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.04em;
+  padding:8px 15px;
+  border-radius:40px;
+  border:1px solid var(--her-color-border);
+  color:var(--her-color-text-secondary);
+  background:#fff;
+}
+
+.her-chip b{
+  color:var(--her-color-info);
+}
+
+.her-quick-nav{
+  background:#fff;
+  border-bottom:1px solid var(--her-color-border);
+  padding:18px 0;
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+
+.her-quick-nav-inner{
+  width:min(100% - 56px,var(--her-maxw));
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:2px;
+  scrollbar-width:thin;
+}
+
+.her-quick-nav .her-page a{
+  flex:0 0 auto;
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.04em;
+  color:var(--her-color-text-secondary);
+  background:var(--her-color-off-white);
+  border:1px solid var(--her-color-border);
+  border-radius:999px;
+  padding:9px 15px;
+  transition:.22s ease;
+}
+
+.her-quick-nav a:hover{
+  color:var(--her-color-info);
+  border-color:var(--her-info-line);
+  background:var(--her-info-soft);
+}
+
+/* ======================================================
+   RISK CARDS
+====================================================== */
+
+.her-risk-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:46px;
+}
+
+.her-risk-card{
+  background:#fff;
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  padding:26px 24px;
+  position:relative;
+  overflow:hidden;
+  transition:.3s;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-risk-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:var(--her-risk);
+  opacity:.72;
+}
+
+.her-risk-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--her-shadow-md);
+  border-color:var(--her-risk-line);
+}
+
+.her-risk-card .her-reg{
+  font-family:var(--her-font-primary);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--her-color-accent-3);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.her-risk-card .her-reg .her-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--her-risk);
+}
+
+.her-risk-card h3{
+  font-size:22px;
+  font-weight:600;
+}
+
+.her-risk-card p{
+  font-family:var(--her-font-primary);
+  font-size:13.5px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  margin-top:8px;
+  line-height:1.7;
+}
+
+/* ======================================================
+   FEATURE
+====================================================== */
+
+.her-feature{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+  gap:56px;
+  align-items:center;
+}
+
+.her-feature.her-rev .her-vis{
+  order:-1;
+}
+
+.her-feature p{
+  font-family:var(--her-font-primary);
+  font-size:15px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  margin-top:16px;
+  line-height:1.82;
+}
+
+.her-callout{
+  margin-top:24px;
+  padding:20px 22px;
+  border-radius:12px;
+  background:var(--her-risk-soft);
+  border:1px solid var(--her-risk-line);
+  font-family:var(--her-font-primary);
+  font-size:14px;
+  font-weight:400;
+  color:var(--her-color-dark);
+  line-height:1.75;
+}
+
+.her-callout b{
+  color:var(--her-risk);
+}
+
+.her-vis{
+  position:relative;
+  border:1px solid var(--her-color-border);
+  border-radius:18px;
+  background:#fff;
+  padding:34px;
+  min-height:300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-vis::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--her-color-soft-blue);
+  opacity:.55;
+  pointer-events:none;
+}
+
+.her-vis > *{
+  position:relative;
+  z-index:2;
+}
+
+.her-he-triangle{
+  display:grid;
+  gap:14px;
+}
+
+.her-he-node{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:18px;
+  border:1px solid var(--her-color-border);
+  border-radius:14px;
+  background:#fff;
+}
+
+.her-he-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--her-risk-soft);
+  color:var(--her-risk);
+  flex-shrink:0;
+}
+
+.her-he-node b{
+  display:block;
+  font-family:var(--her-font-display);
+  color:var(--her-color-navy);
+  font-size:16px;
+  font-weight:600;
+}
+
+.her-he-node span{
+  display:block;
+  font-family:var(--her-font-primary);
+  color:var(--her-color-text-secondary);
+  font-size:12.5px;
+  font-weight:400;
+  margin-top:2px;
+  line-height:1.6;
+}
+
+.her-relief-bar{
+  margin-top:20px;
+  border-radius:14px;
+  border:1px solid var(--her-safe-line);
+  background:var(--her-safe-soft);
+  padding:18px;
+  font-size:14px;
+  color:var(--her-color-text-secondary);
+}
+
+.her-relief-bar b{
+  color:var(--her-safe);
+  font-family:var(--her-font-display);
+  font-weight:600;
+}
+
+/* ======================================================
+   PROCESS OVERVIEW
+====================================================== */
+
+.her-two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:46px;
+  margin-top:46px;
+  align-items:start;
+}
+
+.her-checklist{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.her-checklist li{
+  display:flex;
+  gap:14px;
+  font-family:var(--her-font-primary);
+  font-size:14.5px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  line-height:1.7;
+}
+
+.her-checklist li .her-ck{
+  flex-shrink:0;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:var(--her-info-soft);
+  border:1px solid var(--her-info-line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--her-color-info);
+  font-size:12px;
+  margin-top:2px;
+}
+
+.her-comp-card{
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  padding:30px;
+  background:#fff;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-comp-card h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+.her-comp-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--her-color-border-light);
+}
+
+.her-comp-item:last-child{
+  border-bottom:none;
+}
+
+.her-comp-swatch{
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  flex-shrink:0;
+  box-shadow:inset 0 0 0 1px rgba(10,61,98,.08);
+}
+
+.her-sw-time{
+  background:var(--her-risk);
+}
+
+.her-sw-temp{
+  background:var(--her-color-info);
+}
+
+.her-sw-load{
+  background:var(--her-safe);
+}
+
+.her-comp-item .her-cd b{
+  font-family:var(--her-font-display);
+  font-size:14px;
+  font-weight:600;
+  display:block;
+  color:var(--her-color-navy);
+}
+
+.her-comp-item .her-cd span{
+  font-family:var(--her-font-primary);
+  font-size:12.5px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  line-height:1.6;
+}
+
+/* ======================================================
+   PERFORMANCE GRID
+====================================================== */
+
+.her-perf-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:46px;
+}
+
+.her-perf-card{
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  padding:26px;
+  background:#fff;
+  transition:.3s;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-perf-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--her-shadow-md);
+  border-color:var(--her-info-line);
+}
+
+.her-perf-card .her-pn{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  color:var(--her-color-accent-3);
+  letter-spacing:.08em;
+}
+
+.her-perf-card h4{
+  font-size:16px;
+  font-weight:600;
+  margin-top:10px;
+  line-height:1.35;
+}
+
+.her-perf-hero{
+  background:var(--her-risk);
+  border-color:var(--her-risk);
+  color:#fff;
+}
+
+.her-perf-hero b{
+  font-family:var(--her-font-display);
+  font-size:42px;
+  font-weight:600;
+  display:block;
+  color:#fff;
+}
+
+.her-perf-hero span{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#fff;
+}
+
+/* ======================================================
+   FLOW
+====================================================== */
+
+.her-flow{
+  margin-top:50px;
+}
+
+.her-flow-step{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:24px;
+  padding:26px;
+  border:1px solid var(--her-color-border);
+  border-radius:16px;
+  align-items:start;
+  background:#fff;
+  box-shadow:var(--her-shadow-sm);
+  margin-bottom:14px;
+  transition:.25s ease;
+}
+
+.her-flow-step:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--her-shadow-md);
+  border-color:var(--her-risk-line);
+}
+
+.her-flow-num{
+  font-family:var(--her-font-display);
+  font-weight:600;
+  font-size:36px;
+  color:var(--her-color-border);
+  line-height:1;
+  transition:.3s;
+}
+
+.her-flow-step:hover .her-flow-num{
+  color:var(--her-risk);
+}
+
+.her-flow-body h4{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.her-flow-body p{
+  font-family:var(--her-font-primary);
+  font-size:13.5px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  margin-bottom:12px;
+  line-height:1.75;
+}
+
+.her-params{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.her-param{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  padding:6px 11px;
+  border-radius:6px;
+  background:var(--her-color-off-white);
+  border:1px solid var(--her-color-border);
+  color:var(--her-color-text-secondary);
+}
+
+.her-param b{
+  color:var(--her-color-navy);
+}
+
+.her-param.her-warn{
+  background:var(--her-risk-soft);
+  border-color:var(--her-risk-line);
+  color:var(--her-risk-dark);
+}
+
+.her-param.her-safe{
+  background:var(--her-safe-soft);
+  border-color:var(--her-safe-line);
+  color:var(--her-safe-dark);
+}
+
+/* ======================================================
+   STANDARD TABLE
+====================================================== */
+
+.her-std-wrap{
+  margin-top:46px;
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  overflow:hidden;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-page table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+}
+
+.her-page thead th{
+  font-family:var(--her-font-primary);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--her-color-accent-3);
+  text-align:left;
+  padding:16px 24px;
+  background:var(--her-color-off-white);
+  border-bottom:1px solid var(--her-color-border);
+}
+
+.her-page tbody td{
+  padding:17px 24px;
+  border-bottom:1px solid var(--her-color-border-light);
+  font-family:var(--her-font-primary);
+  font-size:14px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  vertical-align:top;
+  line-height:1.65;
+}
+
+.her-page tbody tr:last-child td{
+  border-bottom:none;
+}
+
+.her-page tbody tr:hover td{
+  background:var(--her-info-soft);
+}
+
+.her-page tbody td:first-child{
+  font-family:var(--her-font-primary);
+  font-size:13px;
+  color:var(--her-color-navy);
+  font-weight:600;
+  white-space:nowrap;
+}
+
+/* ======================================================
+   TESTING
+====================================================== */
+
+.her-test-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:46px;
+  margin-top:46px;
+  align-items:start;
+}
+
+.her-test-list{
+  border:1px solid var(--her-color-border);
+  border-radius:16px;
+  background:#fff;
+  padding:12px 22px;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-test-list .her-ti{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  align-items:center;
+  gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid var(--her-color-border-light);
+}
+
+.her-test-list .her-ti:last-child{
+  border-bottom:none;
+}
+
+.her-test-list .her-ti .her-tn{
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  color:var(--her-color-accent-3);
+  width:28px;
+  flex-shrink:0;
+}
+
+.her-test-list .her-ti .her-tname{
+  font-family:var(--her-font-primary);
+  font-size:14.5px;
+  font-weight:400;
+  color:var(--her-color-dark);
+  line-height:1.55;
+}
+
+.her-test-list .her-ti .her-tstd{
+  margin-left:auto;
+  font-family:var(--her-font-primary);
+  font-size:11px;
+  font-weight:500;
+  color:var(--her-color-info);
+  background:var(--her-info-soft);
+  padding:4px 10px;
+  border-radius:6px;
+  white-space:nowrap;
+}
+
+.her-qa-card{
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  padding:30px;
+  background:var(--her-color-soft-blue);
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-qa-card h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+/* ======================================================
+   BENEFITS
+====================================================== */
+
+.her-ben-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:46px;
+}
+
+.her-ben-card{
+  border:1px solid var(--her-color-border);
+  border-radius:var(--her-r);
+  padding:26px 22px;
+  background:#fff;
+  transition:.3s;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-ben-card:hover{
+  border-color:var(--her-info-line);
+  transform:translateY(-3px);
+  box-shadow:var(--her-shadow-md);
+}
+
+.her-ben-card .her-bi{
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  background:var(--her-safe-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--her-safe);
+  margin-bottom:16px;
+  font-size:16px;
+}
+
+.her-ben-card p{
+  font-family:var(--her-font-primary);
+  font-size:13.5px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  line-height:1.7;
+}
+
+.her-ben-card p b{
+  color:var(--her-color-info);
+}
+
+/* ======================================================
+   INTEGRATION
+====================================================== */
+
+.her-integ{
+  background:var(--her-color-off-white);
+  border-top:1px solid var(--her-color-border);
+  border-bottom:1px solid var(--her-color-border);
+}
+
+.her-integ-flow{
+  display:flex;
+  align-items:center;
+  margin-top:44px;
+  flex-wrap:wrap;
+}
+
+.her-integ-node{
+  flex:1;
+  min-width:130px;
+  text-align:center;
+  padding:24px 14px;
+  border:1px solid var(--her-color-border);
+  border-radius:12px;
+  background:#fff;
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--her-color-text-secondary);
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-integ-node.her-hl{
+  border-color:var(--her-risk);
+  color:var(--her-risk);
+  background:var(--her-risk-soft);
+}
+
+.her-integ-arrow{
+  color:var(--her-color-accent-3);
+  padding:0 14px;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.her-integ-pills{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+
+.her-integ-pills .her-ip{
+  font-family:var(--her-font-primary);
+  font-size:12px;
+  font-weight:400;
+  color:var(--her-color-text-secondary);
+  padding:10px 16px;
+  border-radius:40px;
+  border:1px solid var(--her-color-border);
+  background:#fff;
+}
+
+.her-integ-pills .her-ip b{
+  color:var(--her-risk);
+}
+
+/* ======================================================
+   CTA
+====================================================== */
+
+.her-cta{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  text-align:center;
+  padding:120px 0;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(0,176,240,.24), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(245,158,11,.13), transparent 30%),
+    linear-gradient(145deg, #0A3D62 0%, #0b3555 48%, #08283f 100%);
+  border-top:0;
+  border-bottom:0;
+}
+
+.her-cta::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  opacity:.42;
+  pointer-events:none;
+}
+
+.her-cta::after{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-210px;
+  top:-190px;
+  z-index:0;
+  border-radius:50%;
+  background:rgba(255,244,219,.16);
+  border:1px solid rgba(255,255,255,.12);
+  pointer-events:none;
+}
+
+.her-cta .her-wrap{
+  position:relative;
+  z-index:2;
+}
+
+.her-cta .her-eyebrow{
+  color:#7fd6f4;
+  justify-content:center;
+}
+
+.her-cta .her-eyebrow::before{
+  background:#7fd6f4;
+}
+
+.her-cta h2{
+  max-width:980px;
+  margin:24px auto 0;
+  font-family:var(--her-font-display);
+  font-size:clamp(34px,5.2vw,64px);
+  font-weight:600;
+  line-height:1.04;
+  letter-spacing:-.02em;
+  color:#fff;
+  position:relative;
+}
+
+.her-cta p{
+  max-width:780px;
+  margin:26px auto 0;
+  font-family:var(--her-font-primary);
+  font-size:clamp(15.5px,1.45vw,18px);
+  font-weight:400;
+  color:rgba(255,255,255,.82);
+  line-height:1.8;
+  position:relative;
+}
+
+.her-cta-actions{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin-top:42px;
+  flex-wrap:wrap;
+  position:relative;
+}
+
+.her-cta .her-btn-primary{
+  background:var(--her-color-info);
+  border-color:var(--her-color-info);
+  color:#fff;
+}
+
+.her-cta .her-btn-primary:hover{
+  background:#fff;
+  border-color:#fff;
+  color:var(--her-color-navy);
+}
+
+.her-cta .her-btn-ghost{
+  background:transparent;
+  border-color:rgba(255,255,255,.36);
+  color:#fff;
+}
+
+.her-cta .her-btn-ghost:hover{
+  border-color:#7fd6f4;
+  color:#7fd6f4;
+  background:rgba(255,255,255,.04);
+}
+
+@media(max-width:640px){
+  .her-cta{
+    padding:86px 0;
+  }
+}
+
+/* ======================================================
+   REVEAL
+====================================================== */
+
+.her-reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:
+    opacity .7s cubic-bezier(.2,.7,.2,1),
+    transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.her-reveal.her-in{
+  opacity:1;
+  transform:none;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .her-reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:1100px){
+  .her-relief-motif{
+    opacity:.35;
+    right:-40px;
+  }
+
+  .her-hero h1,
+  .her-hero-sub{
+    max-width:680px;
+  }
+
+  .her-risk-grid,
+  .her-perf-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .her-ben-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:980px){
+  .her-hero{
+    min-height:auto;
+    padding:130px 0 80px;
+  }
+
+  .her-relief-motif{
+    display:none;
+  }
+
+  .her-hero h1,
+  .her-hero-sub{
+    max-width:none;
+  }
+
+  .her-hero-stats{
+    grid-template-columns:repeat(2,1fr);
+    max-width:none;
+  }
+
+  .her-feature,
+  .her-two-col,
+  .her-test-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .her-feature.her-rev .her-vis{
+    order:0;
+  }
+
+  .her-vis{
+    min-height:auto;
+  }
+}
+
+@media(max-width:760px){
+  .her-quick-nav{
+    top:0;
+  }
+
+  .her-quick-nav-inner{
+    width:min(100% - 32px,var(--her-maxw));
+  }
+
+  .her-section{
+    padding:72px 0;
+  }
+
+  .her-sec-head{
+    display:block;
+  }
+
+  .her-sec-index{
+    display:inline-block;
+    margin-top:6px;
+  }
+
+  .her-risk-grid,
+  .her-perf-grid,
+  .her-ben-grid{
+    grid-template-columns:1fr;
+  }
+
+  .her-std-wrap{
+    border:none;
+    box-shadow:none;
+    overflow:visible;
+    background:transparent;
+  }
+
+  .her-page table,
+  .her-page thead,
+  .her-page tbody,
+  .her-page th,
+  .her-page td,
+  .her-page tr{
+    display:block;
+    width:100%;
+  }
+
+  .her-page thead{
+    display:none;
+  }
+
+  .her-page tbody tr{
+    background:#fff;
+    border:1px solid var(--her-color-border);
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:var(--her-shadow-sm);
+  }
+
+  .her-page tbody td{
+    border-bottom:1px solid var(--her-color-border-light);
+    padding:12px 0;
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:14px;
+    font-size:13.5px;
+  }
+
+  .her-page tbody td:last-child{
+    border-bottom:none;
+  }
+
+  .her-page tbody td::before{
+    content:attr(data-label);
+    font-family:var(--her-font-primary);
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    color:var(--her-color-accent-3);
+  }
+
+  .her-page tbody td:first-child{
+    white-space:normal;
+  }
+
+  .her-page tbody tr:hover td{
+    background:transparent;
+  }
+
+  .her-integ-flow{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .her-integ-node{
+    width:100%;
+  }
+
+  .her-integ-arrow{
+    padding:0;
+    text-align:center;
+    transform:rotate(90deg);
+  }
+}
+
+@media(max-width:640px){
+  .her-wrap{
+    width:min(100% - 36px,var(--her-maxw));
+  }
+
+  .her-hero .her-wrap{
+    width:min(100% - 36px,var(--her-maxw));
+  }
+
+  .her-hero{
+    padding:118px 0 72px;
+  }
+
+  .her-hero h1{
+    font-size:clamp(38px,13vw,56px);
+  }
+
+  .her-hero-actions,
+  .her-cta-actions{
+    align-items:stretch;
+  }
+
+  .her-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .her-hero-stats{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:42px;
+  }
+
+  .her-hero-stats .her-st{
+    padding:16px;
+  }
+
+  .her-hero-stats .her-st b{
+    font-size:25px;
+  }
+
+  .her-eyebrow{
+    letter-spacing:.16em;
+    font-size:10px;
+  }
+
+  .her-eyebrow::before{
+    width:18px;
+  }
+
+  .her-h-sec{
+    font-size:clamp(29px,10vw,40px);
+  }
+
+  .her-lead{
+    font-size:15.5px;
+  }
+
+  .her-risk-card,
+  .her-perf-card,
+  .her-ben-card,
+  .her-comp-card,
+  .her-qa-card,
+  .her-vis{
+    padding:22px;
+  }
+
+  .her-flow-step{
+    grid-template-columns:1fr;
+    gap:12px;
+    padding:22px;
+  }
+
+  .her-flow-num{
+    font-size:30px;
+  }
+
+  .her-test-list{
+    padding:8px 18px;
+  }
+
+  .her-test-list .her-ti{
+    grid-template-columns:28px 1fr;
+    align-items:start;
+  }
+
+  .her-test-list .her-ti .her-tstd{
+    grid-column:2;
+    margin-left:0;
+    width:max-content;
+  }
+
+  .her-page tbody td{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+}
+
+@media(max-width:420px){
+  .her-section{
+    padding:64px 0;
+  }
+
+  .her-hero{
+    padding-top:108px;
+  }
+
+  .her-compliance-row,
+  .her-params,
+  .her-integ-pills{
+    gap:8px;
+  }
+
+  .her-chip,
+  .her-param,
+  .her-integ-pills .her-ip{
+    width:100%;
+  }
+}
+
+/* ======================================================
+   REFINED HERO OVERRIDE
+   Cleaner Hydrogen Embrittlement Relief hero
+====================================================== */
+
+.her-hero-refined{
+  min-height:100vh;
+  padding:118px 0 86px;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(245,158,11,.14), transparent 32%),
+    radial-gradient(circle at 88% 86%, rgba(20,184,166,.10), transparent 30%),
+    linear-gradient(180deg,#ffffff 0%, var(--her-color-off-white) 100%);
+}
+
+.her-hero-refined .her-hero-grid{
+  background-image:
+    linear-gradient(rgba(10,61,98,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,61,98,.04) 1px, transparent 1px);
+  background-size:76px 76px;
+  opacity:.55;
+  mask-image:radial-gradient(ellipse 78% 70% at 54% 48%, #000 12%, transparent 82%);
+}
+
+.her-hero-refined .her-hero-glow{
+  width:620px;
+  height:620px;
+  right:-240px;
+  top:-170px;
+  opacity:.72;
+  background:var(--her-risk-soft);
+}
+
+.her-hero-refined-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(360px,.88fr);
+  align-items:center;
+  gap:72px;
+}
+
+.her-hero-copy{
+  max-width:760px;
+}
+
+.her-hero-refined .her-hero-ey{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:26px;
+}
+
+.her-hero-refined .her-hero-ey::before{
+  content:"";
+  width:36px;
+  height:1px;
+  background:var(--her-color-info);
+}
+
+.her-hero-refined h1{
+  max-width:780px;
+  font-size:clamp(52px,7vw,96px);
+  line-height:.94;
+  letter-spacing:-.04em;
+  font-weight:600;
+  color:var(--her-color-navy);
+}
+
+.her-hero-refined h1 .her-accent{
+  display:block;
+  color:var(--her-risk);
+}
+
+.her-hero-refined .her-hero-sub{
+  max-width:720px;
+  margin-top:30px;
+  font-size:clamp(16px,1.5vw,20px);
+  line-height:1.82;
+}
+
+.her-hero-refined .her-hero-actions{
+  margin-top:40px;
+}
+
+.her-hero-micro-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:48px;
+  padding-top:28px;
+  border-top:1px solid var(--her-color-border);
+}
+
+.her-hero-micro{
+  padding:18px;
+  border:1px solid var(--her-color-border);
+  border-radius:16px;
+  background:rgba(255,255,255,.76);
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-hero-micro span{
+  display:block;
+  margin-bottom:8px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--her-color-text-muted);
+}
+
+.her-hero-micro b{
+  display:block;
+  font-family:var(--her-font-display);
+  font-size:24px;
+  line-height:1.1;
+  color:var(--her-color-navy);
+  font-weight:600;
+}
+
+/* refined right panel */
+.her-he-panel{
+  position:relative;
+  min-height:520px;
+  padding:38px;
+  border:1px solid var(--her-color-border);
+  border-radius:30px;
+  background:#fff;
+  box-shadow:var(--her-shadow-lg);
+  overflow:hidden;
+}
+
+.her-he-panel::before{
+  content:"";
+  position:absolute;
+  inset:22px;
+  border:1px solid rgba(0,176,240,.15);
+  border-radius:22px;
+  pointer-events:none;
+}
+
+.her-he-panel::after{
+  content:"";
+  position:absolute;
+  right:-115px;
+  bottom:-130px;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:var(--her-info-soft);
+  pointer-events:none;
+}
+
+.her-he-panel-label{
+  position:relative;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--her-color-accent-3);
+}
+
+.her-he-panel-label::before{
+  content:"";
+  width:26px;
+  height:1px;
+  background:var(--her-color-accent-3);
+}
+
+.her-he-process-mini{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:34px;
+}
+
+.her-he-mini-step{
+  display:grid;
+  grid-template-columns:46px 1fr;
+  gap:14px;
+  align-items:center;
+  padding:16px;
+  border:1px solid var(--her-color-border);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:var(--her-shadow-sm);
+}
+
+.her-he-mini-step span{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+.her-he-mini-step b{
+  display:block;
+  font-family:var(--her-font-display);
+  font-size:17px;
+  line-height:1.15;
+  color:var(--her-color-navy);
+  font-weight:600;
+}
+
+.her-he-mini-step em{
+  display:block;
+  margin-top:4px;
+  font-style:normal;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--her-color-text-secondary);
+}
+
+.her-risk-step span{
+  background:var(--her-risk-soft);
+  color:var(--her-risk-dark);
+}
+
+.her-bake-step{
+  border-color:var(--her-risk-line);
+  background:var(--her-risk-soft);
+}
+
+.her-bake-step span{
+  background:var(--her-risk);
+  color:#fff;
+}
+
+.her-safe-step span{
+  background:var(--her-safe-soft);
+  color:var(--her-safe-dark);
+}
+
+.her-he-mini-arrow{
+  color:var(--her-color-accent-3);
+  text-align:center;
+  line-height:1;
+  transform:rotate(90deg);
+}
+
+.her-he-core-visual{
+  position:relative;
+  z-index:2;
+  height:150px;
+  margin-top:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.her-he-ring{
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:var(--her-info-soft);
+  border:1px solid var(--her-info-line);
+}
+
+.her-he-ring::before,
+.her-he-ring::after{
+  content:"";
+  position:absolute;
+  left:-32px;
+  right:-32px;
+  top:50%;
+  height:54px;
+  margin-top:-27px;
+  border:1px solid rgba(10,61,98,.14);
+  border-radius:50%;
+}
+
+.her-he-ring::before{
+  transform:rotate(25deg);
+}
+
+.her-he-ring::after{
+  transform:rotate(-25deg);
+}
+
+.her-he-core{
+  position:relative;
+  z-index:2;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--her-risk);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--her-font-display);
+  font-size:28px;
+  font-weight:600;
+  box-shadow:0 16px 34px rgba(245,158,11,.22);
+}
+
+.her-he-safe-badge{
+  position:absolute;
+  right:8px;
+  bottom:12px;
+  z-index:3;
+  padding:9px 12px;
+  border-radius:999px;
+  background:var(--her-safe-soft);
+  border:1px solid var(--her-safe-line);
+  color:var(--her-safe-dark);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+@media(max-width:1100px){
+  .her-hero-refined-grid{
+    grid-template-columns:1fr;
+    gap:46px;
+  }
+
+  .her-he-panel{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+  }
+}
+
+@media(max-width:760px){
+  .her-hero-refined{
+    min-height:auto;
+    padding:108px 0 72px;
+  }
+
+  .her-hero-micro-grid{
+    grid-template-columns:1fr;
+    margin-top:38px;
+  }
+
+  .her-he-panel{
+    min-height:auto;
+    padding:28px;
+    border-radius:26px;
+  }
+}
+
+@media(max-width:480px){
+  .her-hero-refined h1{
+    font-size:44px;
+  }
+
+  .her-he-mini-step{
+    grid-template-columns:1fr;
+  }
+
+  .her-he-safe-badge{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:14px;
+  }
+}
+
+
+/* ======================================================
+   RESTORED ORIGINAL RELIEF CARD IN HERO
+====================================================== */
+
+.her-hero-card-slot{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:520px;
+  pointer-events:none;
+}
+
+.her-hero-card-slot .her-relief-card{
+  width:min(390px,100%);
+  min-height:560px;
+  padding:34px;
+  border-radius:28px;
+  box-shadow:var(--her-shadow-lg);
+}
+
+.her-hero-card-slot .her-relief-label{
+  font-size:11px;
+  letter-spacing:.18em;
+  margin-bottom:32px;
+}
+
+.her-hero-card-slot .her-atom{
+  width:190px;
+  height:190px;
+  margin-bottom:34px;
+}
+
+.her-hero-card-slot .her-atom::before,
+.her-hero-card-slot .her-atom::after{
+  width:260px;
+  height:80px;
+}
+
+.her-hero-card-slot .her-relief-row{
+  padding:18px 0;
+}
+
+.her-hero-card-slot .her-relief-row span{
+  font-size:12px;
+  letter-spacing:.08em;
+}
+
+.her-hero-card-slot .her-relief-row b{
+  font-size:20px;
+}
+
+@media(max-width:1100px){
+  .her-hero-card-slot{
+    min-height:auto;
+  }
+
+  .her-hero-card-slot .her-relief-card{
+    width:min(390px,100%);
+  }
+}
+
+@media(max-width:760px){
+  .her-hero-card-slot{
+    display:none;
+  }
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Hydrogen Embrittlement Relief — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capabili.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/hydrogen.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Hydrogen Embrittlement Relief — Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Hydrogen Embrittlement Relief — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capabili.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/hydrogen.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hydrogen Embrittlement Relief — Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Hydrogen Embrittlement Relief — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capabili.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Hydrogen Embrittlement Relief — Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/hydrogen.html",
+  "description": "Hydrogen Embrittlement Relief — Pradako Mechanical & Engineering Works from Pradako Mechanical & Engineering Works — precision fasteners, engineering capabili.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ======================================================= 
+HEADER WITH PROPER LOGO & HAMBURGER 
+======================================================== --> 
+<div id="navbar-container"></div>
+
+<main class="her-page">
+
+<!-- ======================================================
+   HERO
+====================================================== -->
+<header class="her-hero her-hero-refined" id="top">
+  <div class="her-hero-grid"></div>
+  <div class="her-hero-glow"></div>
+
+  <div class="her-wrap">
+    <div class="her-hero-refined-grid">
+      <div class="her-hero-copy her-reveal">
+        <div class="her-hero-ey">Post-Plating Safety Process</div>
+
+        <h1>
+          Hydrogen Embrittlement
+          <span class="her-accent">Relief</span>
+        </h1>
+
+        <p class="her-hero-sub">
+          Controlled thermal baking for susceptible high-strength fasteners after plating, pickling, cleaning or coating — reducing diffusible hydrogen before final release.
+        </p>
+
+        <div class="her-hero-actions">
+          <a href="#rfq" class="her-btn her-btn-primary">Send RFQ →</a>
+          <a href="#process" class="her-btn her-btn-ghost">View relief process</a>
+        </div>
+
+        <div class="her-hero-micro-grid" aria-label="Hydrogen relief key controls">
+          <div class="her-hero-micro">
+            <span>Transfer</span>
+            <b>≤ 4 h</b>
+          </div>
+          <div class="her-hero-micro">
+            <span>Bake range</span>
+            <b>200–230°C</b>
+          </div>
+          <div class="her-hero-micro">
+            <span>Focus grades</span>
+            <b>10.9 / 12.9</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-hero-card-slot her-reveal" aria-hidden="true">
+        <div class="her-relief-card">
+          <div class="her-relief-label">Controlled De-Embrittlement</div>
+
+          <div class="her-atom">
+            <div class="her-atom-core">H</div>
+          </div>
+
+          <div class="her-relief-status">
+            <div class="her-relief-row her-warn">
+              <span>Risk source</span>
+              <b>Plating</b>
+            </div>
+            <div class="her-relief-row">
+              <span>Action</span>
+              <b>Bake</b>
+            </div>
+            <div class="her-relief-row her-safe">
+              <span>Result</span>
+              <b>Relief</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ======================================================
+   INTRO
+====================================================== -->
+<section class="her-section her-band her-reveal">
+  <div class="her-wrap">
+    <div class="her-eyebrow">Fastener Reliability Protection</div>
+
+    <h2 class="her-h-sec">
+      Hydrogen risk is invisible.<br>
+      Relief must be controlled.
+    </h2>
+
+    <p class="her-lead">
+      Hydrogen embrittlement is a delayed cracking risk that can affect high-strength steel fasteners when atomic hydrogen enters the material during surface preparation, acid cleaning, pickling, electroplating or certain coating processes. Relief baking is used to drive out diffusible hydrogen before the fastener enters service.
+    </p>
+
+    <div class="her-compliance-row">
+      <span class="her-chip"><b>ISO 4042</b>&nbsp;alignment</span>
+      <span class="her-chip"><b>ASTM F1940</b>&nbsp;process control</span>
+      <span class="her-chip"><b>ASTM F519</b>&nbsp;testing reference</span>
+      <span class="her-chip"><b>ISO 15330</b>&nbsp;preload test</span>
+      <span class="her-chip">Batch traceability</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   QUICK PAGE NAVIGATION
+====================================================== -->
+<!-- <nav class="her-quick-nav" aria-label="Hydrogen Embrittlement Relief page navigation">
+  <div class="her-quick-nav-inner">
+    <a href="#risk">Risk Sources</a>
+    <a href="#approach">Approach</a>
+    <a href="#scope">Application Scope</a>
+    <a href="#overview">Process Overview</a>
+    <a href="#process">Detailed Flow</a>
+    <a href="#standards">Standards</a>
+    <a href="#testing">Testing</a>
+    <a href="#quality-flow">Quality Flow</a>
+  </div>
+</nav> -->
+
+<!-- ======================================================
+   01 RISK SOURCES
+====================================================== -->
+<section class="her-section her-reveal" id="risk">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Hydrogen Entry Points</div>
+        <h2 class="her-h-sec">Where the risk begins.</h2>
+      </div>
+      <span class="her-sec-index">01 / 10</span>
+    </div>
+
+    <div class="her-risk-grid">
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Surface preparation</div>
+        <h3>Acid pickling</h3>
+        <p>Acid cleaning and pickling can introduce atomic hydrogen into steel surfaces if not controlled properly.</p>
+      </div>
+
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Coating route</div>
+        <h3>Electroplating</h3>
+        <p>Zinc and other electrolytic coating processes can generate hydrogen at the fastener surface.</p>
+      </div>
+
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Material condition</div>
+        <h3>High hardness</h3>
+        <p>Higher-strength and higher-hardness steels are generally more susceptible to hydrogen-related delayed fracture.</p>
+      </div>
+
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Assembly condition</div>
+        <h3>Tensile stress</h3>
+        <p>Preload, tightening stress and service stress can support crack initiation in susceptible parts.</p>
+      </div>
+
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Process delay</div>
+        <h3>Late baking</h3>
+        <p>Delayed transfer from plating to baking can reduce the effectiveness of hydrogen relief.</p>
+      </div>
+
+      <div class="her-risk-card">
+        <div class="her-reg"><span class="her-dot"></span>Documentation</div>
+        <h3>Weak traceability</h3>
+        <p>Missing bake logs, oven records or batch linkage reduces confidence in critical fastener release.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   02 PRADAKO APPROACH
+====================================================== -->
+<section class="her-section her-band her-reveal" id="approach">
+  <div class="her-wrap">
+    <div class="her-sec-head" style="margin-bottom:44px;">
+      <div class="her-eyebrow">The Pradako Approach</div>
+      <span class="her-sec-index">02 / 10</span>
+    </div>
+
+    <div class="her-feature">
+      <div>
+        <h2 class="her-h-sec" style="margin-top:0;">
+          Prevention first.<br>
+          Relief second.
+        </h2>
+
+        <p>
+          At Pradako Mechanical & Engineering Works, hydrogen embrittlement control is treated as a process discipline, not as a finishing afterthought. The aim is to reduce hydrogen entry wherever possible and then apply controlled thermal relief wherever the fastener, coating or customer specification requires it.
+        </p>
+
+        <p>
+          This is especially important for property class 10.9, 12.9 and other high-strength fasteners used in automotive, railway, construction, industrial and safety-critical assemblies.
+        </p>
+
+        <div class="her-callout">
+          Hydrogen embrittlement control depends on three factors: <b>susceptible material, hydrogen source and tensile stress</b>. Remove or control one of these factors and the risk is reduced.
+        </div>
+      </div>
+
+      <div class="her-vis">
+        <div class="her-he-triangle">
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <div>
+              <b>Susceptible material</b>
+              <span>High strength, high hardness or hardened steel.</span>
+            </div>
+          </div>
+
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div>
+              <b>Hydrogen source</b>
+              <span>Pickling, plating, cleaning or corrosive exposure.</span>
+            </div>
+          </div>
+
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-arrows-left-right-to-line"></i></div>
+            <div>
+              <b>Tensile stress</b>
+              <span>Preload, clamp load or service loading.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="her-relief-bar">
+          <b>Relief baking:</b> controlled heat treatment to reduce diffusible hydrogen before service loading.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   03 APPLICATION SCOPE
+====================================================== -->
+<section class="her-section her-reveal" id="scope">
+  <div class="her-wrap">
+    <div class="her-sec-head" style="margin-bottom:44px;">
+      <div class="her-eyebrow">Application Scope</div>
+      <span class="her-sec-index">03 / 10</span>
+    </div>
+
+    <div class="her-feature her-rev">
+      <div>
+        <h2 class="her-h-sec" style="margin-top:0;">
+          For fasteners where<br>
+          delayed failure is not acceptable.
+        </h2>
+
+        <p>
+          Hydrogen embrittlement relief is commonly specified for high-strength fasteners after electroplating or other hydrogen-generating operations. The process is particularly relevant for bolts, screws, studs, washers and threaded components used under clamp load or tensile stress.
+        </p>
+
+        <p>
+          The relief cycle is selected according to material grade, hardness, coating type, part geometry, customer requirement and applicable standard. For critical applications, process records and testing references are maintained as part of the release package.
+        </p>
+      </div>
+
+      <div class="her-vis">
+        <div class="her-he-triangle">
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <b>High-tensile bolts</b>
+              <span>Property class 10.9, 12.9 and similar grades.</span>
+            </div>
+          </div>
+
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-gears"></i></div>
+            <div>
+              <b>Threaded assemblies</b>
+              <span>Parts exposed to preload, clamp force or service stress.</span>
+            </div>
+          </div>
+
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <b>Electroplated fasteners</b>
+              <span>Zinc, zinc alloy and other electrolytic finishes.</span>
+            </div>
+          </div>
+
+          <div class="her-he-node">
+            <div class="her-he-icon"><i class="fa-solid fa-file-shield"></i></div>
+            <div>
+              <b>Critical documentation</b>
+              <span>Batch-wise oven records, release notes and inspection logs.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   04 PROCESS OVERVIEW
+====================================================== -->
+<section class="her-section her-band her-reveal" id="overview">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Process Overview</div>
+        <h2 class="her-h-sec">Controlled thermal relief.</h2>
+      </div>
+      <span class="her-sec-index">04 / 10</span>
+    </div>
+
+    <p class="her-lead">
+      Hydrogen embrittlement relief is generally performed by baking parts after plating or coating. The objective is to allow absorbed hydrogen to diffuse out of the material before it can contribute to delayed cracking under stress.
+    </p>
+
+    <div class="her-two-col">
+      <ul class="her-checklist">
+        <li><span class="her-ck">✓</span>Fast transfer from plating or coating operation to baking oven</li>
+        <li><span class="her-ck">✓</span>Defined oven temperature and soak duration as per specification</li>
+        <li><span class="her-ck">✓</span>Load arrangement controlled for proper heat exposure</li>
+        <li><span class="her-ck">✓</span>Oven temperature records maintained batch-wise</li>
+        <li><span class="her-ck">✓</span>Relief completion recorded before final release or dispatch</li>
+      </ul>
+
+      <div class="her-comp-card">
+        <h3>Critical process controls</h3>
+
+        <div class="her-comp-item">
+          <div class="her-comp-swatch her-sw-time"></div>
+          <div class="her-cd">
+            <b>Time to bake</b>
+            <span>Transfer quickly after plating or coating operation.</span>
+          </div>
+        </div>
+
+        <div class="her-comp-item">
+          <div class="her-comp-swatch her-sw-temp"></div>
+          <div class="her-cd">
+            <b>Temperature window</b>
+            <span>Controlled oven temperature as per standard or customer specification.</span>
+          </div>
+        </div>
+
+        <div class="her-comp-item">
+          <div class="her-comp-swatch her-sw-load"></div>
+          <div class="her-cd">
+            <b>Load discipline</b>
+            <span>Uniform load depth and part separation for consistent relief.</span>
+          </div>
+        </div>
+
+        <p style="font-family:var(--font-primary);font-size:13px;color:var(--color-text-secondary);margin-top:18px;line-height:1.7;">
+          The exact cycle should always follow the relevant coating standard, customer drawing, OEM specification or approved control plan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   05 ADVANTAGES
+====================================================== -->
+<section class="her-section her-reveal">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Engineering Advantages</div>
+        <h2 class="her-h-sec">Reliability beyond coating.</h2>
+      </div>
+      <span class="her-sec-index">05 / 10</span>
+    </div>
+
+    <div class="her-perf-grid">
+      <div class="her-perf-card her-perf-hero">
+        <b>HE</b>
+        <span>Risk-controlled process</span>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">02</div>
+        <h4>Reduces diffusible hydrogen in susceptible fasteners</h4>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">03</div>
+        <h4>Supports delayed fracture prevention after electroplating</h4>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">04</div>
+        <h4>Improves confidence in high-strength fastener assemblies</h4>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">05</div>
+        <h4>Maintains process alignment with customer control plans</h4>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">06</div>
+        <h4>Provides batch-wise traceability and release documentation</h4>
+      </div>
+
+      <div class="her-perf-card">
+        <div class="her-pn">07</div>
+        <h4>Complements plating, coating, heat treatment and inspection controls</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   06 DETAILED PROCESS FLOW
+====================================================== -->
+<section class="her-section her-band her-reveal" id="process">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Detailed Process Flow & Control Parameters</div>
+        <h2 class="her-h-sec">Seven controlled stages.</h2>
+      </div>
+      <span class="her-sec-index">06 / 10</span>
+    </div>
+
+    <div class="her-flow">
+      <div class="her-flow-step">
+        <div class="her-flow-num">01</div>
+        <div class="her-flow-body">
+          <h4>Risk review before coating</h4>
+          <p>Part grade, hardness, coating route, drawing note and customer requirements are checked before processing.</p>
+          <div class="her-params">
+            <span class="her-param">Grade <b>10.9 / 12.9</b></span>
+            <span class="her-param">Coating <b>electrolytic</b></span>
+            <span class="her-param her-warn">HE risk review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">02</div>
+        <div class="her-flow-body">
+          <h4>Controlled cleaning / preparation</h4>
+          <p>Surface preparation is controlled to minimise hydrogen generation wherever possible.</p>
+          <div class="her-params">
+            <span class="her-param">Avoid uncontrolled acid exposure</span>
+            <span class="her-param">Use approved process route</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">03</div>
+        <div class="her-flow-body">
+          <h4>Plating or coating operation</h4>
+          <p>Coating is performed as per approved bath parameters, coating thickness requirement and inspection plan.</p>
+          <div class="her-params">
+            <span class="her-param">Bath control</span>
+            <span class="her-param">Thickness control</span>
+            <span class="her-param">Lot identification</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">04</div>
+        <div class="her-flow-body">
+          <h4>Immediate transfer to baking</h4>
+          <p>Parts are transferred quickly to the relief oven to avoid delay after plating.</p>
+          <div class="her-params">
+            <span class="her-param her-safe">Prefer immediate transfer</span>
+            <span class="her-param her-warn">Do not hold unnecessarily</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">05</div>
+        <div class="her-flow-body">
+          <h4>Hydrogen relief baking</h4>
+          <p>Parts are baked using a defined temperature and duration according to the applicable standard, drawing or customer specification.</p>
+          <div class="her-params">
+            <span class="her-param">Typical <b>200–230°C</b></span>
+            <span class="her-param">Duration <b>as specified</b></span>
+            <span class="her-param">Oven record required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">06</div>
+        <div class="her-flow-body">
+          <h4>Controlled cooling & handling</h4>
+          <p>After baking, parts are cooled and handled to prevent contamination, mixing or damage to coating surface.</p>
+          <div class="her-params">
+            <span class="her-param">Lot separation</span>
+            <span class="her-param">Clean handling</span>
+            <span class="her-param">No batch mixing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="her-flow-step">
+        <div class="her-flow-num">07</div>
+        <div class="her-flow-body">
+          <h4>Inspection, documentation & release</h4>
+          <p>Relief completion is linked to inspection records before release for packing or dispatch.</p>
+          <div class="her-params">
+            <span class="her-param">Bake log</span>
+            <span class="her-param">Inspection report</span>
+            <span class="her-param her-safe">Batch release</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   07 STANDARDS
+====================================================== -->
+<section class="her-section her-reveal" id="standards">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Standards & Process Compliance</div>
+        <h2 class="her-h-sec">Built around recognised<br>fastener references.</h2>
+      </div>
+      <span class="her-sec-index">07 / 10</span>
+    </div>
+
+    <div class="her-std-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Standard</th>
+            <th>Title / Scope</th>
+            <th>Relevance to HE Relief</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td data-label="Standard">ISO 4042</td>
+            <td data-label="Title / Scope">Fasteners — Electroplated coating systems</td>
+            <td data-label="Relevance">Reference for electroplated fasteners, coating systems and hydrogen embrittlement relief considerations.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Standard">ISO 15330</td>
+            <td data-label="Title / Scope">Fasteners — Preloading test for detection of hydrogen embrittlement</td>
+            <td data-label="Relevance">Used to detect hydrogen embrittlement occurrence in fasteners under preload at room temperature.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Standard">ASTM F1940</td>
+            <td data-label="Title / Scope">Process control verification to prevent hydrogen embrittlement in plated or coated fasteners</td>
+            <td data-label="Relevance">Supports process monitoring and verification for plated/coated fasteners.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Standard">ASTM F519</td>
+            <td data-label="Title / Scope">Mechanical hydrogen embrittlement evaluation</td>
+            <td data-label="Relevance">Defines mechanical test methods and acceptance criteria for processes that can cause hydrogen embrittlement.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Standard">ASTM B633</td>
+            <td data-label="Title / Scope">Electrodeposited coatings of zinc on iron and steel</td>
+            <td data-label="Relevance">Common zinc electroplating reference where embrittlement relief may be specified for susceptible steels.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Standard">Customer / OEM Specs</td>
+            <td data-label="Title / Scope">Drawing notes, coating standards, control plans and approval requirements</td>
+            <td data-label="Relevance">Final baking cycle, documentation and testing requirements are governed by the approved customer specification.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   08 TESTING
+====================================================== -->
+<section class="her-section her-band her-reveal" id="testing">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Testing & Validation</div>
+        <h2 class="her-h-sec">Controlled release,<br>not assumed release.</h2>
+      </div>
+      <span class="her-sec-index">08 / 10</span>
+    </div>
+
+    <p class="her-lead">
+      Hydrogen embrittlement relief is supported through process validation, inspection records and testing references based on application criticality and customer specification.
+    </p>
+
+    <div class="her-test-grid">
+      <div class="her-test-list">
+        <div class="her-ti">
+          <span class="her-tn">01</span>
+          <span class="her-tname">Time from plating to baking</span>
+          <span class="her-tstd">Process log</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">02</span>
+          <span class="her-tname">Oven temperature monitoring</span>
+          <span class="her-tstd">Bake record</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">03</span>
+          <span class="her-tname">Soak duration verification</span>
+          <span class="her-tstd">Batch log</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">04</span>
+          <span class="her-tname">Coating appearance after relief</span>
+          <span class="her-tstd">Visual</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">05</span>
+          <span class="her-tname">Thread fitment / gauge check</span>
+          <span class="her-tstd">GO / NO-GO</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">06</span>
+          <span class="her-tname">Preload or sustained load testing when specified</span>
+          <span class="her-tstd">ISO / ASTM</span>
+        </div>
+
+        <div class="her-ti">
+          <span class="her-tn">07</span>
+          <span class="her-tname">Final batch release documentation</span>
+          <span class="her-tstd">QA</span>
+        </div>
+      </div>
+
+      <div class="her-qa-card">
+        <h3>Quality assurance & documentation</h3>
+
+        <ul class="her-checklist">
+          <li><span class="her-ck">✓</span>Batch-wise hydrogen relief baking records maintained</li>
+          <li><span class="her-ck">✓</span>Oven temperature and timing records linked to production lot</li>
+          <li><span class="her-ck">✓</span>Part grade, size, coating and quantity recorded</li>
+          <li><span class="her-ck">✓</span>Inspection and release status captured before packing</li>
+          <li><span class="her-ck">✓</span>Customer-specific documentation available wherever required</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   09 BENEFITS
+====================================================== -->
+<section class="her-section her-reveal">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Manufacturing & Engineering Benefits</div>
+        <h2 class="her-h-sec">Safer fasteners,<br>stronger confidence.</h2>
+      </div>
+      <span class="her-sec-index">09 / 10</span>
+    </div>
+
+    <div class="her-ben-grid">
+      <div class="her-ben-card">
+        <div class="her-bi"><i class="fa-solid fa-shield-halved"></i></div>
+        <p>Supports <b>delayed fracture prevention</b> for susceptible high-strength fasteners.</p>
+      </div>
+
+      <div class="her-ben-card">
+        <div class="her-bi"><i class="fa-solid fa-temperature-high"></i></div>
+        <p>Uses a defined thermal process to reduce diffusible hydrogen after plating.</p>
+      </div>
+
+      <div class="her-ben-card">
+        <div class="her-bi"><i class="fa-solid fa-clipboard-check"></i></div>
+        <p>Improves release confidence through traceable oven and batch records.</p>
+      </div>
+
+      <div class="her-ben-card">
+        <div class="her-bi"><i class="fa-solid fa-industry"></i></div>
+        <p>Integrates with forming, heat treatment, coating, inspection and final packing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   10 INTEGRATION
+====================================================== -->
+<section class="her-section her-integ her-reveal" id="quality-flow">
+  <div class="her-wrap">
+    <div class="her-sec-head">
+      <div>
+        <div class="her-eyebrow">Integration with PMEW Quality Flow</div>
+        <h2 class="her-h-sec">One controlled chain,<br>from steel to shipment.</h2>
+      </div>
+      <span class="her-sec-index">10 / 10</span>
+    </div>
+
+    <p class="her-lead">
+      Hydrogen embrittlement relief is integrated into the broader PMEW manufacturing and quality ecosystem — connected with material selection, heat treatment, coating, inspection and final release.
+    </p>
+
+    <div class="her-integ-flow">
+      <div class="her-integ-node">Material review</div>
+      <div class="her-integ-arrow">→</div>
+      <div class="her-integ-node">Heat treatment</div>
+      <div class="her-integ-arrow">→</div>
+      <div class="her-integ-node">Plating / coating</div>
+      <div class="her-integ-arrow">→</div>
+      <div class="her-integ-node her-hl">HE relief bake</div>
+      <div class="her-integ-arrow">→</div>
+      <div class="her-integ-node">Final release</div>
+    </div>
+
+    <div class="her-integ-pills">
+      <span class="her-ip"><b>•</b> Controlled process routing</span>
+      <span class="her-ip"><b>•</b> Batch-wise traceability</span>
+      <span class="her-ip"><b>•</b> Oven record documentation</span>
+      <span class="her-ip"><b>•</b> Customer-specific compliance</span>
+      <span class="her-ip"><b>•</b> Fastener reliability support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+   CTA
+====================================================== -->
+<section class="her-section her-cta her-reveal" id="rfq">
+  <div class="her-wrap">
+    <div class="her-eyebrow">Fastener manufacturing support</div>
+
+    <h2>
+      Need plated fasteners<br>
+      with hydrogen relief control?
+    </h2>
+
+    <p>
+      Share your drawing, standard number, grade, coating requirement, hardness range, size, quantity or customer specification. Our team supports standard fasteners, customised products and controlled documentation for critical applications.
+    </p>
+
+    <div class="her-cta-actions">
+      <a href="#" class="her-btn her-btn-primary">Send RFQ →</a>
+      <a href="#" class="her-btn her-btn-ghost">Call team</a>
+      <a href="#standards" class="her-btn her-btn-ghost">View standards</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<!-- ======================================================
+   FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+   MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+<script>
+const sb = document.getElementById('her-scrollbar');
+
+function updateScrollBar(){
+  if(!sb) return;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = h > 0 ? (window.scrollY / h) * 100 : 0;
+  sb.style.width = progress + '%';
+}
+
+window.addEventListener('scroll', updateScrollBar, { passive:true });
+window.addEventListener('resize', updateScrollBar);
+updateScrollBar();
+
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('her-in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{ threshold:.12 });
+
+document.querySelectorAll('.her-reveal').forEach(el=>revealObserver.observe(el));
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

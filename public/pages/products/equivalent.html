@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equivalent Standards Matrix | Pradako</title>
+
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- Pradako Global Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+
+    <!-- Pradako Shared Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/page-style.css" />
+    <link rel="stylesheet" href="/assets/css/global-presence.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --soft: #f7fbff;
+            --soft-blue: #eef6ff;
+            --blue: #0b5fc6;
+            --blue-dark: #063f88;
+            --nav-dark: #103a56;
+            --gold: #d9a441;
+            --text: #102033;
+            --muted: #64748b;
+            --border: #dbeafe;
+            --border-dark: #bfd7f3;
+            --green: #0f8a5f;
+            --orange: #b7791f;
+            --purple: #5b21b6;
+            --shadow: 0 18px 55px rgba(11, 95, 198, 0.10);
+            --shadow-soft: 0 10px 30px rgba(15, 42, 75, 0.08);
+            --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font);
+            font-weight: 400;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11, 95, 198, 0.10), transparent 34%),
+                radial-gradient(circle at top right, rgba(217, 164, 65, 0.12), transparent 30%),
+                linear-gradient(180deg, #ffffff 0%, #f8fbff 48%, #ffffff 100%);
+        }
+
+        .psem-page {
+            min-height: 100vh;
+            padding: 34px;
+        }
+
+        .psem-shell {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .psem-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 44px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,249,255,0.94)),
+                radial-gradient(circle at 88% 12%, rgba(11,95,198,0.14), transparent 32%);
+            box-shadow: var(--shadow);
+            isolation: isolate;
+        }
+
+        .psem-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, transparent 0 92%, rgba(11,95,198,0.06) 92% 93%, transparent 93%),
+                linear-gradient(0deg, transparent 0 92%, rgba(11,95,198,0.05) 92% 93%, transparent 93%);
+            background-size: 42px 42px;
+            opacity: 0.55;
+            z-index: -1;
+        }
+
+        .psem-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border: 1px solid var(--border-dark);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.78);
+            color: var(--blue-dark);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .psem-kicker span {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--gold);
+            box-shadow: 0 0 0 5px rgba(217,164,65,0.16);
+        }
+
+        .psem-hero h1 {
+            max-width: 1050px;
+            margin: 20px 0 12px;
+            color: #081b33;
+            font-size: clamp(36px, 5vw, 74px);
+            font-weight: 700;
+            line-height: 0.96;
+            letter-spacing: -0.065em;
+        }
+
+        .psem-hero h1 strong {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .psem-hero p {
+            max-width: 980px;
+            margin: 0;
+            color: var(--muted);
+            font-size: clamp(16px, 1.4vw, 20px);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .psem-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 34px;
+        }
+
+        .psem-stat {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: rgba(255,255,255,0.88);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .psem-stat strong {
+            display: block;
+            color: var(--blue-dark);
+            font-size: 32px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.045em;
+        }
+
+        .psem-stat span {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+        }
+
+        .psem-toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            margin: 26px 0 20px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .psem-toolbar-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 1fr) 210px 210px auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .psem-search-wrap {
+            position: relative;
+        }
+
+        .psem-search-wrap::before {
+            content: "⌕";
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--blue);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .psem-search-input,
+        .psem-filter-select,
+        .psem-button {
+            height: 52px;
+            border: 1px solid var(--border-dark);
+            border-radius: 16px;
+            outline: none;
+            background: #fff;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .psem-search-input {
+            width: 100%;
+            padding: 0 18px 0 50px;
+        }
+
+        .psem-filter-select {
+            width: 100%;
+            padding: 0 14px;
+            cursor: pointer;
+        }
+
+        .psem-search-input:focus,
+        .psem-filter-select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 5px rgba(11,95,198,0.10);
+        }
+
+        .psem-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 18px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.22s ease;
+        }
+
+        .psem-button:hover {
+            transform: translateY(-2px);
+            border-color: var(--blue);
+            box-shadow: 0 12px 26px rgba(11,95,198,0.13);
+        }
+
+        .psem-button-primary {
+            color: #fff;
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+        }
+
+        .psem-prefix-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .psem-prefix-filter {
+            padding: 10px 14px;
+            border: 1px solid var(--border-dark);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--blue-dark);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: 0.22s ease;
+        }
+
+        .psem-prefix-filter:hover,
+        .psem-prefix-filter.psem-is-active {
+            color: #fff;
+            background: var(--blue);
+            border-color: var(--blue);
+            box-shadow: 0 12px 24px rgba(11,95,198,0.18);
+        }
+
+        .psem-family-navigation {
+            margin: 0 0 22px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.72);
+            overflow-x: auto;
+            box-shadow: 0 8px 24px rgba(15, 42, 75, 0.04);
+        }
+
+        .psem-family-tabs {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            min-width: max-content;
+        }
+
+        .psem-family-tab {
+            position: relative;
+            min-height: 58px;
+            padding: 0 28px;
+            border: none;
+            background: transparent;
+            color: #102033;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: 0.22s ease;
+        }
+
+        .psem-family-tab:hover {
+            color: var(--blue-dark);
+            background: #f1f8ff;
+        }
+
+        .psem-family-tab.psem-is-active {
+            color: #ffffff;
+            background: var(--nav-dark);
+        }
+
+        .psem-family-tab.psem-is-active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .psem-column-panel {
+            margin: 0 0 24px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,251,255,0.96));
+            box-shadow: var(--shadow-soft);
+        }
+
+        .psem-column-eyebrow {
+            display: inline-flex;
+            margin-bottom: 8px;
+            color: var(--blue-dark);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .psem-column-panel h3 {
+            margin: 0;
+            color: #081b33;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .psem-column-panel p {
+            margin: 7px 0 18px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .psem-preset-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .psem-preset-button {
+            min-height: 42px;
+            padding: 9px 12px;
+            border: 1px solid var(--border-dark);
+            border-radius: 14px;
+            background: #f8fbff;
+            color: var(--blue-dark);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.18s ease;
+        }
+
+        .psem-preset-button:hover {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(11,95,198,0.14);
+        }
+
+        .psem-column-options {
+            display: grid;
+            grid-template-columns: repeat(10, minmax(95px, 1fr));
+            gap: 9px;
+        }
+
+        .psem-column-options label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 42px;
+            padding: 10px 11px;
+            border: 1px solid #e2eefc;
+            border-radius: 999px;
+            background: #fff;
+            color: #102033;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.18s ease;
+        }
+
+        .psem-column-options label:hover {
+            border-color: var(--blue);
+            background: #f1f8ff;
+        }
+
+        .psem-column-options input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--blue);
+        }
+
+        .psem-data-notice {
+            margin-bottom: 22px;
+            padding: 18px 20px;
+            border: 1px solid rgba(217,164,65,0.36);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,252,245,0.98), rgba(255,255,255,0.98));
+            color: #6f4d12;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .psem-results-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 18px;
+            margin: 20px 2px 14px;
+        }
+
+        .psem-results-header h2 {
+            margin: 0;
+            color: #081b33;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.045em;
+        }
+
+        .psem-result-count {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .psem-table-panel {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            background: rgba(255,255,255,0.94);
+            box-shadow: var(--shadow);
+        }
+
+        .psem-table-scroll {
+            overflow: auto;
+            max-height: 72vh;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1180px;
+            border-collapse: separate;
+            border-spacing: 0;
+            transition: 0.2s ease;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            padding: 16px 14px;
+            border-bottom: 1px solid var(--border-dark);
+            background: linear-gradient(180deg, #f8fbff, #eef6ff);
+            color: var(--blue-dark);
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        tbody td {
+            padding: 14px;
+            border-bottom: 1px solid #edf4fc;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tbody tr {
+            transition: 0.18s ease;
+        }
+
+        tbody tr:hover td {
+            background: #f8fbff;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .psem-standard-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 92px;
+            min-height: 34px;
+            padding: 7px 12px;
+            border: 1px solid #c7dcf5;
+            border-radius: 999px;
+            background: #f1f8ff;
+            color: var(--blue-dark);
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .psem-standard-chip.psem-chip-din {
+            background: linear-gradient(135deg, #e9f3ff, #ffffff);
+            border-color: #b9d8ff;
+            color: var(--blue-dark);
+        }
+
+        .psem-standard-chip.psem-chip-iso {
+            background: linear-gradient(135deg, #fff8e8, #ffffff);
+            border-color: rgba(217,164,65,0.48);
+            color: #704d12;
+        }
+
+        .psem-standard-chip.psem-chip-current {
+            background: linear-gradient(135deg, #e9f3ff, #ffffff);
+            border-color: #b9d8ff;
+            color: var(--blue-dark);
+        }
+
+        .psem-standard-chip.psem-chip-empty {
+            color: #94a3b8;
+            background: #f8fafc;
+            border-color: #e2e8f0;
+        }
+
+        .psem-status-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .psem-status-badge.psem-status-clean {
+            color: var(--green);
+            background: #e9fbf4;
+            border: 1px solid #b8ead6;
+        }
+
+        .psem-status-badge.psem-status-corrected {
+            color: var(--blue-dark);
+            background: #e8f3ff;
+            border: 1px solid #b9d8ff;
+        }
+
+        .psem-status-badge.psem-status-variant {
+            color: var(--purple);
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+        }
+
+        .psem-status-badge.psem-status-verify {
+            color: var(--orange);
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+        }
+
+        .psem-empty-state {
+            display: none;
+            margin-top: 18px;
+            padding: 38px;
+            border: 1px dashed var(--border-dark);
+            border-radius: 24px;
+            background: #fff;
+            color: var(--muted);
+            text-align: center;
+            font-weight: 600;
+        }
+        .psem-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 26px;
+            z-index: 70;
+            transform: translateX(-50%) translateY(20px);
+            padding: 13px 18px;
+            border-radius: 999px;
+            background: #081b33;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.25s ease;
+            box-shadow: 0 18px 45px rgba(8,27,51,0.25);
+        }
+
+        .psem-toast.psem-is-visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+
+
+        /* Preserve the full height of dynamically loaded shared components. */
+        #navbar-container,
+        #footer-container {
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+        }
+
+        @media (max-width: 1180px) {
+            .psem-toolbar-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .psem-search-wrap {
+                grid-column: 1 / -1;
+            }
+
+            .psem-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .psem-preset-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .psem-column-options {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .psem-page {
+                padding: 18px;
+            }
+
+            .psem-hero {
+                padding: 28px 20px;
+                border-radius: 24px;
+            }
+
+            .psem-toolbar {
+                position: relative;
+                top: auto;
+            }
+
+            .psem-toolbar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .psem-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .psem-family-navigation {
+                margin-left: -18px;
+                margin-right: -18px;
+                padding-left: 18px;
+            }
+
+            .psem-family-tab {
+                min-height: 54px;
+                padding: 0 20px;
+                font-size: 14px;
+            }
+
+            .psem-results-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .psem-button,
+            .psem-filter-select {
+                width: 100%;
+            }
+
+            .psem-preset-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .psem-column-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Explore Equivalent Standards Matrix from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry suppor.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/products/equivalent.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Equivalent Standards Matrix | Pradako">
+    <meta property="og:description" content="Explore Equivalent Standards Matrix from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry suppor.">
+    <meta property="og:url" content="https://www.pradako.co/pages/products/equivalent.html">
+    <meta property="og:type" content="product">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Equivalent Standards Matrix | Pradako">
+    <meta name="twitter:description" content="Explore Equivalent Standards Matrix from Pradako Mechanical &amp; Engineering Works, including precision fastener capabilities, product options and enquiry suppor.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Equivalent Standards Matrix | Pradako",
+  "url": "https://www.pradako.co/pages/products/equivalent.html",
+  "description": "Explore Equivalent Standards Matrix from Pradako Mechanical & Engineering Works, including precision fastener capabilities, product options and enquiry suppor.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+    <!-- PMEW Shared Navbar -->
+    <div id="navbar-container"></div>
+
+    <main class="psem-page" id="top">
+        <div class="psem-shell">
+
+            <section class="psem-hero">
+                <div class="psem-kicker"><span></span> Pradako Standards Intelligence</div>
+
+                <h1>Equivalent Standards <strong>Matrix</strong></h1>
+
+                <p>
+                    A clean DIN equivalent standards matrix for ISO, CSN, PN, UNI, EU / EN and current norms.
+                    Example: DIN 84 → ISO 1207 → CSN 021131 → PN 82215 → UNI 6107.
+                </p>
+
+                <div class="psem-stats">
+                    <div class="psem-stat">
+                        <strong id="totalRecords">0</strong>
+                        <span>Total Records</span>
+                    </div>
+
+                    <div class="psem-stat">
+                        <strong id="isoRecords">0</strong>
+                        <span>Rows With ISO</span>
+                    </div>
+
+                    <div class="psem-stat">
+                        <strong id="variantRecords">0</strong>
+                        <span>Variant Rows</span>
+                    </div>
+
+                    <div class="psem-stat">
+                        <strong id="verifyRecords">0</strong>
+                        <span>Needs Verification</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="psem-toolbar">
+                <div class="psem-toolbar-grid">
+                    <div class="psem-search-wrap">
+                        <input
+                            type="search"
+                            class="psem-search-input"
+                            id="searchInput"
+                            placeholder="Search DIN 84, ISO 1207, CSN 021131, PN 82215, UNI 6107..."
+                        />
+                    </div>
+
+                    <select class="psem-filter-select" id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="ok">Clean</option>
+                        <option value="corrected">Corrected</option>
+                        <option value="variant">Variant</option>
+                        <option value="verify">Needs Verification</option>
+                    </select>
+
+                    <select class="psem-filter-select" id="normFilter">
+                        <option value="all">All Current Norms</option>
+                        <option value="iso">ISO / EN ISO</option>
+                        <option value="din">DIN Active</option>
+                        <option value="blank">Blank / Verify</option>
+                    </select>
+
+                    <button class="psem-button psem-button-primary" id="exportCsvBtn">Export CSV</button>
+                </div>
+
+                <div class="psem-prefix-filters">
+                    <button class="psem-prefix-filter psem-is-active" data-prefix="all">All</button>
+                    <button class="psem-prefix-filter" data-prefix="iso">Has ISO</button>
+                    <button class="psem-prefix-filter" data-prefix="csn">Has CSN</button>
+                    <button class="psem-prefix-filter" data-prefix="pn">Has PN</button>
+                    <button class="psem-prefix-filter" data-prefix="uni">Has UNI</button>
+                    <button class="psem-prefix-filter" data-prefix="eu">Has EU / EN</button>
+                </div>
+            </section>
+
+            <section class="psem-family-navigation">
+                <div class="psem-family-tabs" id="familyTabs">
+                    <button class="psem-family-tab psem-is-active" data-family="all">All Standards</button>
+                    <button class="psem-family-tab" data-family="screws">Screws</button>
+                    <button class="psem-family-tab" data-family="socket-screws">Socket Screws</button>
+                    <button class="psem-family-tab" data-family="nuts">Nuts</button>
+                    <button class="psem-family-tab" data-family="washers">Washers</button>
+                    <button class="psem-family-tab" data-family="bolts">Bolts</button>
+                    <button class="psem-family-tab" data-family="threaded-rods-studs">Threaded Rods / Studs</button>
+                    <button class="psem-family-tab" data-family="structural-assemblies">Structural Assemblies</button>
+                    <button class="psem-family-tab" data-family="rivets">Rivets</button>
+                </div>
+            </section>
+
+            <section class="psem-column-panel">
+                <span class="psem-column-eyebrow">Column Visibility</span>
+                <h3>Select Standards You Want To Compare</h3>
+                <p>
+                    Choose only DIN + ISO, or add CSN, PN, UNI, EU / EN, Current Norm and Status as required.
+                </p>
+
+                <div class="psem-preset-grid">
+                    <button class="psem-preset-button" type="button" data-preset="dinIso">DIN + ISO</button>
+                    <button class="psem-preset-button" type="button" data-preset="dinIsoCurrent">DIN + ISO + Current</button>
+                    <button class="psem-preset-button" type="button" data-preset="fourCore">DIN + ISO + CSN + PN</button>
+                    <button class="psem-preset-button" type="button" data-preset="fiveCore">DIN + ISO + CSN + PN + UNI</button>
+                    <button class="psem-preset-button" type="button" data-preset="allStandards">All Standards</button>
+                    <button class="psem-preset-button" type="button" data-preset="showAll">Show All Columns</button>
+                </div>
+
+                <div class="psem-column-options" id="columnChecks"></div>
+            </section>
+
+            <div class="psem-data-notice">
+                Use the product-family tabs above for better browsing. Current data is strongest for
+                <strong>Screws</strong>, <strong>Socket Screws</strong>, and <strong>Bolts</strong>.
+                Other tabs are ready for future standards data.
+            </div>
+
+            <section class="psem-results-header">
+                <div>
+                    <h2>Equivalent Standards Table</h2>
+                </div>
+                <div class="psem-result-count" id="resultCount">Showing 0 records</div>
+            </section>
+
+            <section class="psem-table-panel">
+                <div class="psem-table-scroll">
+                    <table id="standardsTable">
+                        <thead>
+                            <tr>
+                                <th data-col="sr">Sr.</th>
+                                <th data-col="din">DIN</th>
+                                <th data-col="iso">ISO</th>
+                                <th data-col="csn">CSN</th>
+                                <th data-col="pn">PN</th>
+                                <th data-col="uni">UNI</th>
+                                <th data-col="eu">EU / EN</th>
+                                <th data-col="other">Other</th>
+                                <th data-col="current">Current Norm</th>
+                                <th data-col="status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="psem-empty-state" id="emptyState">
+                No equivalent standards found for this search/filter.
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PMEW Shared Footer -->
+    <div id="footer-container"></div>
+<div class="psem-toast" id="toast">Done</div>
+
+
+
+    <!-- Pradako Shared Scripts -->
+    <script ></script>
+    <script src="/assets/js/pradako-global-animations.js"></script>
+
+    <script>
+        "use strict";
+
+        const equivalentStandardsData = [
+            { sr: 1, standard: "DIN 84", equivalents: "ISO 1207; CSN 021131; PN 82215; UNI 6107", currentNorm: "DIN EN ISO 1207", status: "ok" },
+            { sr: 2, standard: "DIN 85", equivalents: "ISO 1580; CSN 021137; PN 82219; UNI 6108", currentNorm: "DIN EN ISO 1580", status: "ok" },
+            { sr: 3, standard: "DIN 95", equivalents: "CSN 021815; PN 82504; UNI 703", currentNorm: "DIN 95", status: "ok" },
+            { sr: 4, standard: "DIN 96", equivalents: "CSN 021812; PN 82505; UNI 701", currentNorm: "DIN 96", status: "ok" },
+            { sr: 5, standard: "DIN 97", equivalents: "CSN 021814; PN 82503; UNI 702", currentNorm: "DIN 97", status: "ok" },
+            { sr: 6, standard: "DIN 316 A", equivalents: "CSN 021365; UNI 5449", currentNorm: "DIN 316 A", status: "ok" },
+            { sr: 7, standard: "DIN 404", equivalents: "CSN 021128; UNI 6111", currentNorm: "DIN 404", status: "ok" },
+            { sr: 8, standard: "DIN 427", equivalents: "PN 82271", currentNorm: "DIN EN 2342", status: "ok" },
+            { sr: 9, standard: "DIN 438", equivalents: "ISO 7436; CSN 021182; PN 82274; EU 27436", currentNorm: "DIN EN 27436", status: "ok" },
+            { sr: 10, standard: "DIN 464", equivalents: "CSN 021161; PN 82456", currentNorm: "DIN 464", status: "ok" },
+            { sr: 11, standard: "DIN 551", equivalents: "ISO 4766; CSN 021181; PN 82272; UNI 4766; EU 24766", currentNorm: "DIN EN 24766", status: "ok" },
+            { sr: 12, standard: "DIN 553", equivalents: "ISO 7434; CSN 021185; PN 82273; UNI 7434; EU 27434", currentNorm: "DIN EN 27434", status: "ok" },
+            { sr: 13, standard: "DIN 558", equivalents: "ISO 4018; CSN 021303; PN 82105; EU 24018", currentNorm: "DIN EN 24018", status: "ok" },
+            { sr: 14, standard: "DIN 561 A", equivalents: "CSN 021115", currentNorm: "DIN 561 A", status: "ok" },
+            { sr: 15, standard: "DIN 571", equivalents: "CSN 021810; PN 82501; UNI 704", currentNorm: "DIN 571", status: "ok" },
+            { sr: 16, standard: "DIN 653", equivalents: "CSN 021162; PN 82457", currentNorm: "DIN 653", status: "ok" },
+            { sr: 17, standard: "DIN 906", equivalents: "CSN 021913", currentNorm: "DIN 906", status: "ok" },
+            { sr: 18, standard: "DIN 908", equivalents: "CSN 021938", currentNorm: "DIN 908", status: "ok" },
+            { sr: 19, standard: "DIN 910", equivalents: "CSN 021915", currentNorm: "DIN 910", status: "ok" },
+            { sr: 20, standard: "DIN 912", equivalents: "ISO 4762; CSN 021143; PN 82302; UNI 5931", currentNorm: "DIN EN ISO 4762", status: "ok" },
+            { sr: 21, standard: "DIN 913", equivalents: "ISO 4026; CSN 021187; PN 82314; UNI 5923; EU 24026", currentNorm: "DIN EN ISO 4026", status: "corrected" },
+            { sr: 22, standard: "DIN 914", equivalents: "ISO 4027; CSN 021191; PN 82315; UNI 5927; EU 24027", currentNorm: "DIN EN ISO 4027", status: "ok" },
+            { sr: 23, standard: "DIN 915", equivalents: "ISO 4028; CSN 021189; PN 82316; UNI 5925; EU 24028", currentNorm: "DIN EN ISO 4028", status: "ok" },
+            { sr: 24, standard: "DIN 916", equivalents: "ISO 4029; PN 82317; UNI 5929; EU 24029", currentNorm: "DIN EN ISO 4029", status: "ok" },
+            { sr: 25, standard: "DIN 920", equivalents: "CSN 021130; PN 82281", currentNorm: "DIN 920", status: "ok" },
+            { sr: 26, standard: "DIN 921", equivalents: "PN 82280", currentNorm: "DIN 921", status: "ok" },
+            { sr: 27, standard: "DIN 923", equivalents: "PN 61241", currentNorm: "DIN 923", status: "ok" },
+            { sr: 28, standard: "DIN 927", equivalents: "", currentNorm: "DIN 927", status: "ok" },
+            { sr: 29, standard: "DIN 960", equivalents: "ISO 8765; CSN 021101; PN 82101; UNI 5738; EU 28676", currentNorm: "DIN EN 28765", status: "ok" },
+            { sr: 30, standard: "DIN 961", equivalents: "ISO 8676; CSN 021103; PN 82105; UNI 5740; EU 28765", currentNorm: "DIN EN 28676", status: "ok" },
+            { sr: 31, standard: "DIN 963", equivalents: "ISO 2009; CSN 021151; PN 82207; UNI 6109", currentNorm: "DIN EN ISO 2009", status: "ok" },
+            { sr: 32, standard: "DIN 964", equivalents: "ISO 2010; CSN 021155; PN 82211; UNI 6110", currentNorm: "DIN EN ISO 2010", status: "ok" },
+            { sr: 33, standard: "DIN 965", equivalents: "ISO 7046; CSN 021152; PN 82208; UNI 7688", currentNorm: "DIN EN ISO 7046-1 / 7046-2", status: "ok" },
+            { sr: 34, standard: "DIN 966", equivalents: "ISO 7047; CSN 021156; PN 82212; UNI 7689", currentNorm: "DIN EN ISO 7047", status: "ok" },
+            { sr: 35, standard: "DIN 15237", equivalents: "CSN 021329", currentNorm: "DIN 15237", status: "ok" },
+            { sr: 36, standard: "DIN 6912", equivalents: "", currentNorm: "DIN 6912", status: "ok" },
+            { sr: 37, standard: "DIN 7500 M", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "corrected" },
+            { sr: 38, standard: "DIN 7504 K", equivalents: "UNI 8117 K", currentNorm: "DIN EN ISO 15480 / ISO 15480", status: "corrected" },
+            { sr: 39, standard: "DIN 7513 B", equivalents: "CSN 021226", currentNorm: "DIN 7513", status: "ok" },
+            { sr: 40, standard: "DIN 7513 F", equivalents: "CSN 021228", currentNorm: "DIN 7513", status: "ok" },
+            { sr: 41, standard: "DIN 7513 G", equivalents: "CSN 021229", currentNorm: "DIN 7513", status: "ok" },
+            { sr: 42, standard: "DIN 7513 A", equivalents: "", currentNorm: "DIN 7513", status: "ok" },
+            { sr: 43, standard: "DIN 7971", equivalents: "ISO 1481; CSN 021232; PN 83106; UNI 6591", currentNorm: "DIN ISO 1481", status: "ok" },
+            { sr: 44, standard: "DIN 7972", equivalents: "ISO 1482; CSN 021236; PN 83102; UNI 6592", currentNorm: "DIN ISO 1482", status: "ok" },
+            { sr: 45, standard: "DIN 7973", equivalents: "ISO 1483; CSN 021238; PN 83104; UNI 6953", currentNorm: "DIN ISO 1483", status: "ok" },
+            { sr: 46, standard: "DIN 7976", equivalents: "ISO 1479; CSN 021231; PN 83101; UNI 6949", currentNorm: "DIN ISO 1479", status: "ok" },
+            { sr: 47, standard: "DIN 7981 C", equivalents: "ISO 7049; CSN 021235; UNI 6954", currentNorm: "DIN ISO 7049", status: "ok" },
+            { sr: 48, standard: "DIN 7982 C", equivalents: "ISO 7050; CSN 021237; UNI 6955", currentNorm: "DIN ISO 7050", status: "ok" },
+            { sr: 49, standard: "DIN 7983 C", equivalents: "ISO 7051; CSN 021239; UNI 6956", currentNorm: "DIN ISO 7051", status: "ok" },
+            { sr: 50, standard: "DIN 7984", equivalents: "UNI 9327", currentNorm: "DIN 7984", status: "ok" },
+            { sr: 51, standard: "DIN 7985", equivalents: "ISO 7045; CSN 021147; PN 82202; UNI 7687", currentNorm: "DIN EN ISO 7045", status: "ok" },
+            { sr: 52, standard: "DIN 7991", equivalents: "ISO 10642; UNI 5933", currentNorm: "DIN EN ISO 10642", status: "ok" },
+            { sr: 53, standard: "DIN 7996", equivalents: "CSN 021822; PN 82505; UNI 8180", currentNorm: "DIN 7996", status: "ok" },
+            { sr: 54, standard: "DIN 316 D", equivalents: "CSN 021365", currentNorm: "DIN 316", status: "ok" },
+            { sr: 55, standard: "DIN 7500 C", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "corrected" },
+            { sr: 56, standard: "DIN 7500 E", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "corrected" },
+            { sr: 57, standard: "DIN 7500 CTX", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "variant" },
+            { sr: 58, standard: "DIN 7500 MTX", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "variant" },
+            { sr: 59, standard: "DIN 7500 D", equivalents: "CSN 021223", currentNorm: "DIN 7500-1", status: "corrected" },
+            { sr: 60, standard: "DIN 7504 N", equivalents: "UNI 8118 N", currentNorm: "DIN EN ISO 15481 / ISO 15481", status: "corrected" },
+            { sr: 61, standard: "DIN 7504 O", equivalents: "", currentNorm: "DIN EN ISO 15482 / ISO 15482", status: "corrected" },
+            { sr: 62, standard: "DIN 7504 P", equivalents: "UNI 8119 P", currentNorm: "DIN EN ISO 15482 / ISO 15482", status: "corrected" },
+            { sr: 63, standard: "DIN 7504 NTX", equivalents: "", currentNorm: "DIN EN ISO 15481 / ISO 15481", status: "variant" },
+            { sr: 64, standard: "DIN 7504 OTX", equivalents: "", currentNorm: "DIN EN ISO 15482 / ISO 15482", status: "variant" },
+            { sr: 65, standard: "DIN 7504 PTX", equivalents: "", currentNorm: "DIN EN ISO 15482 / ISO 15482", status: "variant" },
+            { sr: 66, standard: "DIN 7991 TX", equivalents: "ISO 10642; UNI 5933", currentNorm: "DIN EN ISO 10642", status: "variant" },
+            { sr: 67, standard: "DIN 561 B", equivalents: "CSN 021115", currentNorm: "DIN 561", status: "ok" },
+            { sr: 68, standard: "DIN 25193", equivalents: "", currentNorm: "DIN 25193", status: "ok" },
+            { sr: 69, standard: "DIN 32501", equivalents: "", currentNorm: "", status: "verify" },
+            { sr: 70, standard: "DIN 465", equivalents: "", currentNorm: "DIN 465", status: "ok" },
+            { sr: 71, standard: "DIN 564 A", equivalents: "", currentNorm: "DIN 564", status: "ok" },
+            { sr: 72, standard: "DIN 564 B", equivalents: "", currentNorm: "DIN 564", status: "ok" },
+            { sr: 73, standard: "DIN 6332", equivalents: "PN 61260", currentNorm: "DIN 6332", status: "ok" },
+            { sr: 74, standard: "DIN 705 A", equivalents: "", currentNorm: "DIN 705", status: "ok" },
+            { sr: 75, standard: "DIN 705 B", equivalents: "", currentNorm: "DIN 705", status: "ok" },
+            { sr: 76, standard: "DIN 7516 A", equivalents: "", currentNorm: "DIN 7516", status: "ok" },
+            { sr: 77, standard: "DIN 7516 ATX", equivalents: "", currentNorm: "DIN 7516", status: "variant" },
+            { sr: 78, standard: "DIN 7516 D", equivalents: "", currentNorm: "DIN 7516", status: "ok" },
+            { sr: 79, standard: "DIN 7516 DTX", equivalents: "", currentNorm: "DIN 7516", status: "variant" },
+            { sr: 80, standard: "DIN 7516 E", equivalents: "", currentNorm: "DIN 7516", status: "ok" },
+            { sr: 81, standard: "DIN 7516 ETX", equivalents: "", currentNorm: "DIN 7516", status: "variant" },
+            { sr: 82, standard: "DIN 7604 C", equivalents: "", currentNorm: "DIN 7604", status: "ok" },
+            { sr: 83, standard: "DIN 7981 CTX", equivalents: "UNI 6954", currentNorm: "DIN ISO 7049", status: "variant" },
+            { sr: 84, standard: "DIN 7982 CTX", equivalents: "UNI 6955", currentNorm: "DIN ISO 7050", status: "variant" },
+            { sr: 85, standard: "DIN 7983 TX", equivalents: "UNI 6956", currentNorm: "DIN ISO 7051", status: "variant" },
+            { sr: 86, standard: "DIN 7984 TX", equivalents: "UNI 9327", currentNorm: "DIN 7984", status: "variant" },
+            { sr: 87, standard: "DIN 7985 PZ", equivalents: "UNI 7687", currentNorm: "DIN EN ISO 7045", status: "variant" },
+            { sr: 88, standard: "DIN 7985 TX", equivalents: "UNI 7687", currentNorm: "DIN EN ISO 7045", status: "variant" },
+            { sr: 89, standard: "DIN 912 BL", equivalents: "UNI 5931", currentNorm: "DIN EN ISO 4762", status: "corrected" },
+            { sr: 90, standard: "DIN 912 TX", equivalents: "UNI 5931", currentNorm: "DIN EN ISO 4762", status: "corrected" },
+            { sr: 91, standard: "DIN 912 VG", equivalents: "UNI 5931", currentNorm: "DIN EN ISO 4762", status: "corrected" },
+            { sr: 92, standard: "DIN 965 TX", equivalents: "", currentNorm: "DIN EN ISO 7046-1 / 7046-2", status: "variant" },
+            { sr: 93, standard: "DIN 792", equivalents: "", currentNorm: "DIN 792", status: "ok" },
+            { sr: 94, standard: "DIN 922", equivalents: "", currentNorm: "DIN 922", status: "ok" },
+            { sr: 95, standard: "DIN 926", equivalents: "", currentNorm: "DIN 926", status: "verify" },
+            { sr: 96, standard: "DIN 7643", equivalents: "", currentNorm: "", status: "verify" },
+            { sr: 97, standard: "DIN 7981 F", equivalents: "ISO 7049; CSN 021235; UNI 6954", currentNorm: "DIN ISO 7049", status: "ok" },
+            { sr: 98, standard: "DIN 7982 F", equivalents: "ISO 7050; CSN 021237; UNI 6955", currentNorm: "DIN ISO 7050", status: "ok" },
+            { sr: 99, standard: "DIN 7983 F", equivalents: "ISO 7051; CSN 021239; UNI 6956", currentNorm: "DIN ISO 7051", status: "ok" },
+            { sr: 100, standard: "DIN 7504 PSQ", equivalents: "", currentNorm: "DIN EN ISO 15482 / ISO 15482", status: "variant" },
+            { sr: 101, standard: "DIN 7504 NSQ", equivalents: "", currentNorm: "DIN EN ISO 15481 / ISO 15481", status: "variant" },
+            { sr: 102, standard: "DIN 967", equivalents: "", currentNorm: "DIN 967", status: "ok" },
+            { sr: 103, standard: "DIN 5914", equivalents: "", currentNorm: "DIN 5914", status: "ok" }
+        ];
+
+        const columnConfig = [
+            { key: "sr", label: "Sr." },
+            { key: "din", label: "DIN" },
+            { key: "iso", label: "ISO" },
+            { key: "csn", label: "CSN" },
+            { key: "pn", label: "PN" },
+            { key: "uni", label: "UNI" },
+            { key: "eu", label: "EU / EN" },
+            { key: "other", label: "Other" },
+            { key: "current", label: "Current Norm" },
+            { key: "status", label: "Status" }
+        ];
+
+        const state = {
+            search: "",
+            status: "all",
+            norm: "all",
+            prefix: "all",
+            family: "all",
+            visibleColumns: columnConfig.map(column => column.key)
+        };
+
+        const els = {
+            table: document.getElementById("standardsTable"),
+            tableBody: document.getElementById("tableBody"),
+            searchInput: document.getElementById("searchInput"),
+            statusFilter: document.getElementById("statusFilter"),
+            normFilter: document.getElementById("normFilter"),
+            resultCount: document.getElementById("resultCount"),
+            emptyState: document.getElementById("emptyState"),
+            totalRecords: document.getElementById("totalRecords"),
+            isoRecords: document.getElementById("isoRecords"),
+            variantRecords: document.getElementById("variantRecords"),
+            verifyRecords: document.getElementById("verifyRecords"),
+            exportCsvBtn: document.getElementById("exportCsvBtn"),
+            toast: document.getElementById("toast"),
+            columnChecks: document.getElementById("columnChecks")
+        };
+
+        function escapeHtml(value) {
+            return String(value || "")
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        function cleanStandardValue(value) {
+            return String(value || "")
+                .replace(/\s*-\s*$/g, "")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function splitEquivalentItems(value) {
+            return String(value || "")
+                .split(";")
+                .map(item => cleanStandardValue(item))
+                .filter(Boolean);
+        }
+
+        function extractByPrefix(value, prefix) {
+            return splitEquivalentItems(value)
+                .filter(item => new RegExp("^" + prefix + "\\s+", "i").test(item))
+                .map(item => cleanStandardValue(item))
+                .filter(Boolean)
+                .join(" / ");
+        }
+
+        function extractEuEn(value) {
+            const eu = extractByPrefix(value, "EU");
+            const en = extractByPrefix(value, "EN");
+            return [eu, en].filter(Boolean).join(" / ");
+        }
+
+        function extractOther(value) {
+            const blocked = ["ISO", "CSN", "PN", "UNI", "EU", "EN"];
+
+            return splitEquivalentItems(value)
+                .filter(item => {
+                    return !blocked.some(prefix => new RegExp("^" + prefix + "\\s+", "i").test(item));
+                })
+                .map(item => cleanStandardValue(item))
+                .filter(Boolean)
+                .join(" / ");
+        }
+
+        function getStandardFamily(row) {
+            const standard = cleanStandardValue(row.standard).toUpperCase();
+
+            const socketScrewStandards = [
+                "DIN 912",
+                "DIN 913",
+                "DIN 914",
+                "DIN 915",
+                "DIN 916",
+                "DIN 6912",
+                "DIN 7984",
+                "DIN 7991",
+                "DIN 6332",
+                "DIN 912 BL",
+                "DIN 912 TX",
+                "DIN 912 VG",
+                "DIN 7984 TX",
+                "DIN 7991 TX"
+            ];
+
+            const boltStandards = [
+                "DIN 558",
+                "DIN 561 A",
+                "DIN 561 B",
+                "DIN 960",
+                "DIN 961",
+                "DIN 564 A",
+                "DIN 564 B"
+            ];
+
+            if (socketScrewStandards.includes(standard)) {
+                return "socket-screws";
+            }
+
+            if (boltStandards.includes(standard)) {
+                return "bolts";
+            }
+
+            return "screws";
+        }
+
+        function createMatrixRows() {
+            return equivalentStandardsData.map(row => {
+                return {
+                    sr: row.sr,
+                    din: cleanStandardValue(row.standard),
+                    iso: extractByPrefix(row.equivalents, "ISO"),
+                    csn: extractByPrefix(row.equivalents, "CSN"),
+                    pn: extractByPrefix(row.equivalents, "PN"),
+                    uni: extractByPrefix(row.equivalents, "UNI"),
+                    eu: extractEuEn(row.equivalents),
+                    other: extractOther(row.equivalents),
+                    current: cleanStandardValue(row.currentNorm),
+                    currentRaw: row.currentNorm,
+                    status: row.status,
+                    family: getStandardFamily(row)
+                };
+            });
+        }
+
+        function hasCurrentIso(row) {
+            return /iso/i.test(row.currentRaw || "");
+        }
+
+        function hasCurrentDinOnly(row) {
+            const current = String(row.currentRaw || "").trim();
+            return current && /^DIN/i.test(current) && !/ISO/i.test(current) && !/EN/i.test(current);
+        }
+
+        function chip(value, className = "") {
+            const empty = value ? "" : "psem-chip-empty";
+            const displayValue = value || "—";
+            return `<span class="psem-standard-chip ${className} ${empty}">${escapeHtml(displayValue)}</span>`;
+        }
+
+        function statusLabel(status) {
+            return {
+                ok: "Clean",
+                corrected: "Corrected",
+                variant: "Variant",
+                verify: "Verify"
+            }[status] || "Clean";
+        }
+
+        function statusBadge(status) {
+            const statusClasses = {
+                ok: "psem-status-clean",
+                corrected: "psem-status-corrected",
+                variant: "psem-status-variant",
+                verify: "psem-status-verify"
+            };
+
+            return `<span class="psem-status-badge ${statusClasses[status] || statusClasses.ok}">${statusLabel(status)}</span>`;
+        }
+
+        function getFilteredRows() {
+            let rows = createMatrixRows();
+
+            if (state.search) {
+                rows = rows.filter(row => {
+                    return Object.values(row)
+                        .join(" ")
+                        .toLowerCase()
+                        .includes(state.search.toLowerCase());
+                });
+            }
+
+            if (state.family !== "all") {
+                rows = rows.filter(row => row.family === state.family);
+            }
+
+            if (state.status !== "all") {
+                rows = rows.filter(row => row.status === state.status);
+            }
+
+            if (state.norm === "iso") {
+                rows = rows.filter(hasCurrentIso);
+            }
+
+            if (state.norm === "din") {
+                rows = rows.filter(hasCurrentDinOnly);
+            }
+
+            if (state.norm === "blank") {
+                rows = rows.filter(row => !row.current);
+            }
+
+            if (state.prefix !== "all") {
+                rows = rows.filter(row => Boolean(row[state.prefix]));
+            }
+
+            return rows;
+        }
+
+        function renderStats() {
+            const rows = createMatrixRows();
+
+            els.totalRecords.textContent = rows.length;
+            els.isoRecords.textContent = rows.filter(row => row.iso).length;
+            els.variantRecords.textContent = rows.filter(row => row.status === "variant").length;
+            els.verifyRecords.textContent = rows.filter(row => row.status === "verify").length;
+        }
+
+        function renderColumnChecks() {
+            els.columnChecks.innerHTML = columnConfig.map(column => {
+                return `
+                    <label>
+                        <input
+                            type="checkbox"
+                            data-column-check="${column.key}"
+                            ${state.visibleColumns.includes(column.key) ? "checked" : ""}
+                        />
+                        ${escapeHtml(column.label)}
+                    </label>
+                `;
+            }).join("");
+        }
+
+        function syncColumnCheckboxes() {
+            document.querySelectorAll("[data-column-check]").forEach(input => {
+                input.checked = state.visibleColumns.includes(input.dataset.columnCheck);
+            });
+        }
+
+        function showToast(message) {
+            els.toast.textContent = message;
+            els.toast.classList.add("psem-is-visible");
+
+            window.setTimeout(() => {
+                els.toast.classList.remove("psem-is-visible");
+            }, 1800);
+        }
+
+        function setVisibleColumns(columns) {
+            const cleanColumns = columns.filter(column => {
+                return columnConfig.some(item => item.key === column);
+            });
+
+            if (!cleanColumns.length) {
+                showToast("At least one column is required");
+                syncColumnCheckboxes();
+                return;
+            }
+
+            state.visibleColumns = cleanColumns;
+            syncColumnCheckboxes();
+            applyColumnVisibility();
+        }
+
+        function applyColumnVisibility() {
+            columnConfig.forEach(column => {
+                document.querySelectorAll(`[data-col="${column.key}"]`).forEach(cell => {
+                    cell.hidden = !state.visibleColumns.includes(column.key);
+                });
+            });
+
+            const count = state.visibleColumns.length;
+
+            if (count <= 2) {
+                els.table.style.minWidth = "520px";
+            } else if (count <= 4) {
+                els.table.style.minWidth = "760px";
+            } else if (count <= 6) {
+                els.table.style.minWidth = "980px";
+            } else {
+                els.table.style.minWidth = "1180px";
+            }
+        }
+
+        function renderTable() {
+            const rows = getFilteredRows();
+
+            els.tableBody.innerHTML = rows.map(row => {
+                return `
+                    <tr>
+                        <td data-col="sr">${row.sr}</td>
+                        <td data-col="din">${chip(row.din, "psem-chip-din")}</td>
+                        <td data-col="iso">${chip(row.iso, "psem-chip-iso")}</td>
+                        <td data-col="csn">${chip(row.csn)}</td>
+                        <td data-col="pn">${chip(row.pn)}</td>
+                        <td data-col="uni">${chip(row.uni)}</td>
+                        <td data-col="eu">${chip(row.eu)}</td>
+                        <td data-col="other">${chip(row.other)}</td>
+                        <td data-col="current">${chip(row.current, "psem-chip-current")}</td>
+                        <td data-col="status">${statusBadge(row.status)}</td>
+                    </tr>
+                `;
+            }).join("");
+
+            els.resultCount.textContent = `Showing ${rows.length} of ${equivalentStandardsData.length} records`;
+            els.emptyState.style.display = rows.length ? "none" : "block";
+
+            applyColumnVisibility();
+        }
+
+        function exportCsv() {
+            const rows = getFilteredRows();
+            const visibleColumns = columnConfig.filter(column => state.visibleColumns.includes(column.key));
+            const headers = visibleColumns.map(column => column.label);
+
+            const csvRows = rows.map(row => {
+                return visibleColumns.map(column => {
+                    if (column.key === "status") return statusLabel(row.status);
+                    return row[column.key] || "";
+                });
+            });
+
+            const csv = [headers, ...csvRows]
+                .map(cols => {
+                    return cols
+                        .map(value => `"${String(value || "").replaceAll('"', '""')}"`)
+                        .join(",");
+                })
+                .join("\n");
+
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+
+            link.href = url;
+            link.download = "pradako-equivalent-standards-selected-columns.csv";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            URL.revokeObjectURL(url);
+            showToast("CSV exported with selected columns");
+        }
+
+        function applyColumnPreset(preset) {
+            const presets = {
+                dinIso: ["din", "iso"],
+                dinIsoCurrent: ["din", "iso", "current"],
+                fourCore: ["din", "iso", "csn", "pn"],
+                fiveCore: ["din", "iso", "csn", "pn", "uni"],
+                allStandards: ["din", "iso", "csn", "pn", "uni", "eu", "other", "current"],
+                showAll: columnConfig.map(column => column.key)
+            };
+
+            setVisibleColumns(presets[preset] || presets.showAll);
+            renderTable();
+        }
+
+        function bindEvents() {
+            els.searchInput.addEventListener("input", event => {
+                state.search = event.target.value.trim();
+                renderTable();
+            });
+
+            els.statusFilter.addEventListener("change", event => {
+                state.status = event.target.value;
+                renderTable();
+            });
+
+            els.normFilter.addEventListener("change", event => {
+                state.norm = event.target.value;
+                renderTable();
+            });
+
+            document.querySelectorAll(".psem-prefix-filter").forEach(button => {
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".psem-prefix-filter").forEach(item => item.classList.remove("psem-is-active"));
+                    button.classList.add("psem-is-active");
+                    state.prefix = button.dataset.prefix;
+                    renderTable();
+                });
+            });
+
+            document.querySelectorAll(".psem-family-tab").forEach(button => {
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".psem-family-tab").forEach(item => {
+                        item.classList.remove("psem-is-active");
+                    });
+
+                    button.classList.add("psem-is-active");
+                    state.family = button.dataset.family;
+                    renderTable();
+                });
+            });
+
+            els.columnChecks.addEventListener("change", event => {
+                const input = event.target.closest("[data-column-check]");
+                if (!input) return;
+
+                const selected = Array.from(document.querySelectorAll("[data-column-check]:checked"))
+                    .map(item => item.dataset.columnCheck);
+
+                setVisibleColumns(selected);
+                renderTable();
+            });
+
+            document.querySelectorAll("[data-preset]").forEach(button => {
+                button.addEventListener("click", () => {
+                    applyColumnPreset(button.dataset.preset);
+                });
+            });
+
+            els.exportCsvBtn.addEventListener("click", exportCsv);
+        }
+
+        function init() {
+            renderStats();
+            renderColumnChecks();
+            renderTable();
+            bindEvents();
+            applyColumnVisibility();
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+    <script src="/assets/js/standard-navigation.js" defer></script>
+</body>
+</html>

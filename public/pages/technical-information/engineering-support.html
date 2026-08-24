@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Support Team | Pradako Mechanical and Engineering Works</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME - KEEP ONLY ONE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="/assets/css/page-style.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <style>
+    :root {
+      --est-accent: #1F7891;
+      --est-accent-dark: #0B1F3A;
+      --est-accent-mid: #155F74;
+      --est-accent-soft: #EAF6F9;
+      --est-accent-soft-2: #F5FAFC;
+
+      --est-ink: #0B1F3A;
+      --est-ink-soft: #30495A;
+      --est-muted: #667985;
+      --est-line: #D7E9EF;
+
+      --est-white: #ffffff;
+      --est-offwhite: #FBFDFE;
+      --est-panel: #F7FBFC;
+
+      --est-radius-xl: 42px;
+      --est-radius-lg: 30px;
+      --est-radius-md: 22px;
+      --est-radius-sm: 14px;
+
+      --est-shadow-soft: 0 22px 70px rgba(11, 31, 58, 0.075);
+      --est-shadow-light: 0 12px 32px rgba(31, 120, 145, 0.12);
+
+      --est-container: 1180px;
+      --est-transition: 0.28s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      background: var(--est-white);
+      color: var(--est-ink);
+      overflow-x: hidden;
+    }
+
+    .est-page-shell {
+      width: 100%;
+      background: var(--est-white);
+    }
+
+    .est-container {
+      width: min(var(--est-container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .est-section {
+      padding: 92px 0;
+      background: var(--est-white);
+    }
+
+    .est-section-soft {
+      background: var(--est-offwhite);
+      border-top: 1px solid var(--est-line);
+      border-bottom: 1px solid var(--est-line);
+    }
+
+    .est-section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .est-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--est-accent-mid);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .est-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--est-accent);
+    }
+
+    .est-section-title {
+      margin: 0;
+      color: var(--est-ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(34px, 5vw, 64px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .est-section-text {
+      margin: 0;
+      color: var(--est-ink-soft);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .est-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--est-accent);
+      background: var(--est-accent);
+      color: var(--est-white);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      text-decoration: none;
+      transition: var(--est-transition);
+    }
+
+    .est-btn:hover {
+      background: var(--est-accent-mid);
+      border-color: var(--est-accent-mid);
+      transform: translateY(-2px);
+      box-shadow: var(--est-shadow-light);
+    }
+
+    .est-btn-light {
+      background: var(--est-white);
+      color: var(--est-accent-mid);
+      border-color: rgba(31, 120, 145, 0.25);
+    }
+
+    .est-btn-light:hover {
+      background: var(--est-accent-soft);
+      color: var(--est-accent-mid);
+    }
+
+    /* HERO */
+    .est-hero {
+      position: relative;
+      padding: 112px 0 88px;
+      background: var(--est-white);
+      overflow: hidden;
+    }
+
+    .est-hero::before {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -170px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: var(--est-accent-soft);
+      z-index: 0;
+    }
+
+    .est-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .est-hero-title {
+      margin: 0;
+      max-width: 820px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.052em;
+      color: var(--est-ink);
+    }
+
+    .est-hero-title span {
+      color: var(--est-accent);
+    }
+
+    .est-hero-text {
+      max-width: 720px;
+      margin: 26px 0 0;
+      color: var(--est-ink-soft);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .est-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .est-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .est-hero-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--est-panel);
+      border: 1px solid var(--est-line);
+      color: var(--est-ink-soft);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .est-hero-tags i {
+      color: var(--est-accent);
+    }
+
+    .est-hero-panel {
+      border-radius: var(--est-radius-xl);
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+      box-shadow: var(--est-shadow-soft);
+      overflow: hidden;
+    }
+
+    .est-hero-panel-top {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 30px;
+      background: var(--est-accent);
+      color: var(--est-white);
+    }
+
+    .est-hero-panel-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--est-white);
+      font-size: 25px;
+    }
+
+    .est-hero-panel-top strong {
+      display: block;
+      color: var(--est-white);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-hero-panel-top span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .est-flow-list {
+      padding: 8px 30px 30px;
+    }
+
+    .est-flow-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--est-line);
+    }
+
+    .est-flow-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .est-flow-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--est-accent-soft);
+      color: var(--est-accent-mid);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .est-flow-item h3 {
+      margin: 0 0 6px;
+      color: var(--est-ink);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-flow-item p {
+      margin: 0;
+      color: var(--est-muted);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* DEFINITION */
+    .est-definition {
+      display: grid;
+      grid-template-columns: 0.62fr 1.38fr;
+      gap: 34px;
+      align-items: stretch;
+      padding: 38px;
+      border-radius: var(--est-radius-xl);
+      background: var(--est-accent);
+      color: var(--est-white);
+      box-shadow: var(--est-shadow-soft);
+    }
+
+    .est-definition-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      min-height: 260px;
+    }
+
+    .est-definition-label i {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--est-white);
+      font-size: 24px;
+    }
+
+    .est-definition-label span {
+      display: block;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .est-definition h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .est-definition p {
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      max-width: 920px;
+    }
+
+    /* INTRO */
+    .est-intro-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .est-intro-note {
+      padding: 28px;
+      border-radius: var(--est-radius-lg);
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+      border-left: 6px solid var(--est-accent);
+    }
+
+    .est-intro-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--est-accent-mid);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .est-intro-note p {
+      margin: 0;
+      color: var(--est-ink-soft);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .est-intro-list {
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--est-line);
+    }
+
+    .est-intro-list li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--est-line);
+      color: var(--est-ink-soft);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .est-intro-list i {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+      font-size: 14px;
+    }
+
+    /* PROCESS */
+    .est-process-lane {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--est-line);
+      border-radius: var(--est-radius-xl);
+      overflow: hidden;
+      background: var(--est-white);
+      box-shadow: var(--est-shadow-soft);
+    }
+
+    .est-process-step {
+      min-height: 250px;
+      padding: 30px 24px;
+      background: var(--est-white);
+      border-right: 1px solid var(--est-line);
+      transition: var(--est-transition);
+    }
+
+    .est-process-step:last-child {
+      border-right: 0;
+    }
+
+    .est-process-step:hover {
+      background: var(--est-accent-soft-2);
+    }
+
+    .est-process-step small {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--est-accent);
+      color: var(--est-white);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .est-process-step h3 {
+      margin: 26px 0 12px;
+      color: var(--est-ink);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-process-step p {
+      margin: 0;
+      color: var(--est-muted);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* SUPPORT */
+    .est-support-list {
+      display: grid;
+      gap: 0;
+      margin-top: 48px;
+      border-top: 1px solid var(--est-line);
+    }
+
+    .est-support-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 42px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--est-line);
+      transition: var(--est-transition);
+    }
+
+    .est-support-row:hover {
+      padding-left: 18px;
+      padding-right: 18px;
+      background: var(--est-white);
+      border-radius: var(--est-radius-lg);
+      box-shadow: var(--est-shadow-soft);
+      border-bottom-color: transparent;
+    }
+
+    .est-support-index {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .est-support-index i {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+      font-size: 21px;
+    }
+
+    .est-support-index span {
+      color: var(--est-accent-mid);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .est-support-content h3 {
+      margin: 0 0 12px;
+      color: var(--est-ink);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .est-support-content p {
+      margin: 0;
+      max-width: 860px;
+      color: var(--est-ink-soft);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .est-mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .est-mini-tags span {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+      color: var(--est-accent-mid);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    /* VALUE ENGINEERING */
+    .est-value-system {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .est-value-brief {
+      position: sticky;
+      top: 110px;
+      padding: 18px 0 18px 34px;
+      border-left: 6px solid var(--est-accent);
+    }
+
+    .est-value-brief h3 {
+      margin: 0;
+      max-width: 560px;
+      color: var(--est-ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+    }
+
+    .est-value-brief p {
+      margin: 22px 0 0;
+      max-width: 580px;
+      color: var(--est-ink-soft);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .est-value-outcomes {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .est-value-outcome {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .est-value-outcome i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+      font-size: 14px;
+    }
+
+    .est-value-outcome span {
+      color: var(--est-ink-soft);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.65;
+      padding-top: 3px;
+    }
+
+    .est-value-track {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .est-value-steps {
+      position: relative;
+    }
+
+    .est-value-steps::before {
+      content: "";
+      position: absolute;
+      left: 29px;
+      top: 28px;
+      bottom: 28px;
+      width: 1px;
+      background: var(--est-line);
+    }
+
+    .est-value-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 22px;
+      padding: 0 0 26px;
+    }
+
+    .est-value-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .est-value-number {
+      position: relative;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+      color: var(--est-accent-mid);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 10px 28px rgba(11, 31, 58, 0.06);
+    }
+
+    .est-value-step-card {
+      padding: 0 0 26px;
+      border-bottom: 1px solid var(--est-line);
+    }
+
+    .est-value-step:last-child .est-value-step-card {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .est-value-step-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .est-value-step-card h4 {
+      margin: 0;
+      color: var(--est-ink);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-value-step-card p {
+      margin: 10px 0 0;
+      color: var(--est-muted);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .est-value-chip {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--est-accent-soft);
+      color: var(--est-accent-mid);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .est-value-summary {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-top: 34px;
+      padding: 22px;
+      border-radius: 24px;
+      background: var(--est-accent);
+      color: var(--est-white);
+      box-shadow: var(--est-shadow-soft);
+    }
+
+    .est-value-summary i {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--est-white);
+    }
+
+    .est-value-summary strong {
+      display: block;
+      color: var(--est-white);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .est-value-summary span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* PROBLEM SOLVING */
+    .est-problem-board {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .est-problem-copy {
+      position: sticky;
+      top: 110px;
+      padding: 32px;
+      border-radius: var(--est-radius-lg);
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+    }
+
+    .est-problem-copy .est-section-text {
+      margin-top: 20px;
+    }
+
+    .est-diagnostic-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--est-line);
+      background: transparent;
+    }
+
+    .est-diagnostic-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--est-line);
+    }
+
+    .est-diagnostic-item i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+      font-size: 14px;
+    }
+
+    .est-diagnostic-item span {
+      color: var(--est-ink-soft);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.65;
+      padding-top: 5px;
+    }
+
+    /* INDUSTRIES */
+    .est-sector-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 54px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .est-sector-focus {
+      position: sticky;
+      top: 110px;
+      padding: 34px;
+      border-radius: var(--est-radius-lg);
+      background: var(--est-accent);
+      color: var(--est-white);
+      overflow: hidden;
+      box-shadow: var(--est-shadow-soft);
+    }
+
+    .est-sector-focus-icon {
+      position: relative;
+      z-index: 1;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--est-white);
+      font-size: 24px;
+      margin-bottom: 26px;
+    }
+
+    .est-sector-focus h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 360px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .est-sector-focus p {
+      position: relative;
+      z-index: 1;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .est-sector-metrics {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .est-sector-metric {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .est-sector-metric strong {
+      display: block;
+      color: var(--est-white);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .est-sector-metric span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.45;
+    }
+
+    .est-sector-stream {
+      display: grid;
+      gap: 0;
+      background: var(--est-white);
+      border: 1px solid var(--est-line);
+      border-radius: var(--est-radius-lg);
+      box-shadow: var(--est-shadow-soft);
+      overflow: hidden;
+    }
+
+    .est-sector-item {
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--est-line);
+      transition: var(--est-transition);
+    }
+
+    .est-sector-item:last-child {
+      border-bottom: 0;
+    }
+
+    .est-sector-item:hover {
+      background: var(--est-accent-soft-2);
+    }
+
+    .est-sector-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+      font-size: 22px;
+      transition: var(--est-transition);
+    }
+
+    .est-sector-item:hover .est-sector-icon {
+      background: var(--est-accent);
+      color: var(--est-white);
+    }
+
+    .est-sector-content h3 {
+      margin: 0;
+      color: var(--est-ink);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-sector-content p {
+      margin: 7px 0 0;
+      color: var(--est-muted);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    .est-sector-tag {
+      display: inline-flex;
+      align-items: center;
+      min-width: 92px;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--est-offwhite);
+      border: 1px solid var(--est-line);
+      color: var(--est-accent-mid);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ADVANTAGE */
+    .est-advantage-system {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 54px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .est-advantage-note {
+      padding: 34px;
+      border-radius: var(--est-radius-lg);
+      background: var(--est-accent-soft);
+      border: 1px solid var(--est-line);
+    }
+
+    .est-advantage-note i {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--est-white);
+      color: var(--est-accent);
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    .est-advantage-note h3 {
+      margin: 0;
+      color: var(--est-ink);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.28;
+      letter-spacing: -0.02em;
+    }
+
+    .est-advantage-note p {
+      margin: 14px 0 0;
+      color: var(--est-ink-soft);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .est-advantage-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 28px;
+      border-top: 1px solid var(--est-line);
+    }
+
+    .est-advantage-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--est-line);
+    }
+
+    .est-advantage-item i {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--est-accent-soft);
+      color: var(--est-accent);
+    }
+
+    .est-advantage-item h3 {
+      margin: 0 0 6px;
+      color: var(--est-ink);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .est-advantage-item p {
+      margin: 0;
+      color: var(--est-muted);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* CTA */
+    .est-cta {
+      padding: 76px 0;
+      background: var(--est-accent);
+      color: var(--est-white);
+    }
+
+    .est-cta-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .est-cta h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .est-cta p {
+      margin: 16px 0 0;
+      max-width: 790px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .est-cta .est-btn {
+      background: var(--est-white);
+      color: var(--est-accent-mid);
+      border-color: var(--est-white);
+      white-space: nowrap;
+    }
+
+    .est-cta .est-btn:hover {
+      background: var(--est-accent-soft);
+      border-color: var(--est-accent-soft);
+    }
+
+    /* REVEAL */
+    .est-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .est-reveal.est-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .est-hero-grid,
+      .est-section-head,
+      .est-definition,
+      .est-intro-grid,
+      .est-value-system,
+      .est-problem-board,
+      .est-sector-layout,
+      .est-advantage-system {
+        grid-template-columns: 1fr;
+      }
+
+      .est-process-lane {
+        grid-template-columns: 1fr;
+      }
+
+      .est-process-step {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--est-line);
+      }
+
+      .est-process-step:last-child {
+        border-bottom: 0;
+      }
+
+      .est-value-brief,
+      .est-problem-copy,
+      .est-sector-focus {
+        position: static;
+      }
+
+      .est-definition-label {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .est-container {
+        width: min(100% - 28px, var(--est-container));
+      }
+
+      .est-section {
+        padding: 66px 0;
+      }
+
+      .est-hero {
+        padding: 76px 0 58px;
+      }
+
+      .est-hero-grid {
+        gap: 34px;
+      }
+
+      .est-hero-text,
+      .est-section-text {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .est-hero-actions {
+        flex-direction: column;
+      }
+
+      .est-btn {
+        width: 100%;
+      }
+
+      .est-definition,
+      .est-sector-focus,
+      .est-advantage-note {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .est-hero-panel {
+        border-radius: 26px;
+      }
+
+      .est-hero-panel-top {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .est-flow-list {
+        padding: 6px 24px 24px;
+      }
+
+      .est-support-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .est-support-row:hover {
+        padding-left: 0;
+        padding-right: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .est-support-content h3 {
+        font-size: 22px;
+      }
+
+      .est-value-brief {
+        padding-left: 22px;
+      }
+
+      .est-value-step-top {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .est-diagnostic-list,
+      .est-advantage-list {
+        grid-template-columns: 1fr;
+      }
+
+      .est-sector-item {
+        grid-template-columns: 52px 1fr;
+      }
+
+      .est-sector-tag {
+        grid-column: 2 / 3;
+        justify-content: flex-start;
+        min-width: 0;
+        width: fit-content;
+      }
+
+      .est-sector-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .est-cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .est-cta .est-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .est-hero-title {
+        font-size: 42px;
+      }
+
+      .est-section-title {
+        font-size: 34px;
+      }
+
+      .est-flow-item,
+      .est-value-summary,
+      .est-diagnostic-item,
+      .est-advantage-item {
+        grid-template-columns: 1fr;
+      }
+
+      .est-value-step {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .est-value-steps::before {
+        display: none;
+      }
+
+      .est-sector-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 22px;
+      }
+
+      .est-sector-tag {
+        grid-column: auto;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Engineering Support Team from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/engineering-support.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Engineering Support Team | Pradako Mechanical and Engineering Works">
+    <meta property="og:description" content="Engineering Support Team from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/engineering-support.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Engineering Support Team | Pradako Mechanical and Engineering Works">
+    <meta name="twitter:description" content="Engineering Support Team from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Engineering Support Team | Pradako Mechanical and Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/engineering-support.html",
+  "description": "Engineering Support Team from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="est-page-shell">
+
+    <!-- HERO -->
+    <section class="est-hero">
+      <div class="est-container">
+        <div class="est-hero-grid">
+          <div class="est-hero-copy est-reveal">
+            <p class="est-eyebrow">Pradako Mechanical and Engineering Works</p>
+            <h1 class="est-hero-title">
+              Engineering Support Team for <span>Fastening Reliability</span>
+            </h1>
+            <p class="est-hero-text">
+              Our Engineering Support Team connects customer requirements with practical fastener manufacturing knowledge. From drawing review and material selection to coating, heat treatment, testing, and production feasibility, we help customers define fastening solutions that are technically correct, application-ready, and reliable in real-world use.
+            </p>
+
+            <div class="est-hero-actions">
+              <a href="#est-support-areas" class="est-btn">
+                Explore Support Areas <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#est-engineering-process" class="est-btn est-btn-light">
+                View Process <i class="fa-solid fa-diagram-project"></i>
+              </a>
+            </div>
+
+            <div class="est-hero-tags" aria-label="Engineering support highlights">
+              <span><i class="fa-solid fa-screwdriver-wrench"></i> Application Guidance</span>
+              <span><i class="fa-solid fa-file-lines"></i> Drawing Review</span>
+              <span><i class="fa-solid fa-flask"></i> Material & Coating</span>
+              <span><i class="fa-solid fa-shield-halved"></i> Quality Support</span>
+            </div>
+          </div>
+
+          <div class="est-hero-panel est-reveal">
+            <div class="est-hero-panel-top">
+              <div class="est-hero-panel-icon">
+                <i class="fa-solid fa-gears"></i>
+              </div>
+              <div>
+                <strong>From enquiry to production-ready fastener</strong>
+                <span>Technical Bridge</span>
+              </div>
+            </div>
+
+            <div class="est-flow-list">
+              <div class="est-flow-item">
+                <div class="est-flow-number">01</div>
+                <div>
+                  <h3>Customer Requirement</h3>
+                  <p>Application, drawing, standard, load, environment, assembly, and documentation needs are understood clearly.</p>
+                </div>
+              </div>
+
+              <div class="est-flow-item">
+                <div class="est-flow-number">02</div>
+                <div>
+                  <h3>Technical Review</h3>
+                  <p>Material, grade, thread, tolerance, heat treatment, coating, and testing requirements are reviewed before manufacturing.</p>
+                </div>
+              </div>
+
+              <div class="est-flow-item">
+                <div class="est-flow-number">03</div>
+                <div>
+                  <h3>Manufacturing Alignment</h3>
+                  <p>Engineering, production, quality, heat treatment, and coating teams work together to achieve repeatable fastener performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFINITION -->
+    <section class="est-section">
+      <div class="est-container">
+        <div class="est-definition est-reveal">
+          <div class="est-definition-label">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Engineering Support</span>
+          </div>
+
+          <div>
+            <h2>What is an Engineering Support Team in fasteners?</h2>
+            <p>
+              An Engineering Support Team in fasteners is a dedicated technical team that helps customers select, design, validate, and optimize fasteners for specific applications. The team works as a bridge between customer engineering, purchase, quality, and production requirements and the manufacturer’s capabilities in material, tooling, forging, threading, heat treatment, coating, inspection, and documentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="est-section est-section-soft">
+      <div class="est-container">
+        <div class="est-intro-grid">
+          <div class="est-intro-note est-reveal">
+            <span><i class="fa-solid fa-circle-info"></i> Why it matters</span>
+            <p>
+              Fasteners may look small, but they directly influence joint strength, assembly safety, corrosion resistance, product life, and final equipment reliability. Engineering support helps avoid wrong fastener selection, unclear specifications, manufacturing delays, rework, field failures, and unnecessary cost.
+            </p>
+          </div>
+
+          <ul class="est-intro-list est-reveal">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Helps customers select the correct fastener type, material, grade, standard, coating, and inspection requirement.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Reviews drawings and technical specifications before production to reduce errors and quality risks.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Connects application conditions with manufacturing feasibility, testing requirements, and long-term product performance.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Supports customers in solving issues related to torque failure, thread stripping, corrosion, coating failure, breakage, and assembly mismatch.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="est-section" id="est-engineering-process">
+      <div class="est-container">
+        <div class="est-section-head">
+          <div class="est-reveal">
+            <p class="est-eyebrow">Engineering Process</p>
+            <h2 class="est-section-title">How we support customer requirements</h2>
+          </div>
+          <p class="est-section-text est-reveal">
+            Our support process starts before manufacturing begins. We study the requirement, review the technical details, align the process route, define quality checks, and help deliver a fastener that is suitable for the final application.
+          </p>
+        </div>
+
+        <div class="est-process-lane est-reveal">
+          <div class="est-process-step">
+            <small>01</small>
+            <h3>Requirement Study</h3>
+            <p>Application, environment, load, assembly, service condition, and customer expectation are understood.</p>
+          </div>
+
+          <div class="est-process-step">
+            <small>02</small>
+            <h3>Drawing Review</h3>
+            <p>Dimensions, thread details, tolerances, material, coating, heat treatment, and standard references are checked.</p>
+          </div>
+
+          <div class="est-process-step">
+            <small>03</small>
+            <h3>Technical Selection</h3>
+            <p>Suitable fastener type, material grade, surface finish, testing plan, and documentation needs are finalized.</p>
+          </div>
+
+          <div class="est-process-step">
+            <small>04</small>
+            <h3>Feasibility Check</h3>
+            <p>Cold forging, hot forging, machining, thread rolling, tapping, heat treatment, and coating suitability are reviewed.</p>
+          </div>
+
+          <div class="est-process-step">
+            <small>05</small>
+            <h3>Production Support</h3>
+            <p>Engineering inputs are transferred to production and quality teams for controlled and repeatable manufacturing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT AREAS -->
+    <section class="est-section est-section-soft" id="est-support-areas">
+      <div class="est-container">
+        <div class="est-section-head">
+          <div class="est-reveal">
+            <p class="est-eyebrow">Core Support Areas</p>
+            <h2 class="est-section-title">Technical support across the complete fastener lifecycle</h2>
+          </div>
+          <p class="est-section-text est-reveal">
+            Our Engineering Support Team assists customers at every stage where technical clarity matters — from product selection and standards to manufacturing feasibility, quality checks, and problem solving.
+          </p>
+        </div>
+
+        <div class="est-support-list">
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Support 01</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Fastener Selection Support</h3>
+              <p>We help customers select the right bolt, screw, nut, washer, stud, rivet, pin, or customized fastener based on application, load condition, assembly method, environment, and performance requirement.</p>
+              <div class="est-mini-tags">
+                <span>Bolts</span><span>Screws</span><span>Nuts</span><span>Washers</span><span>Studs</span><span>Rivets</span><span>Special Fasteners</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-file-pen"></i>
+              <span>Support 02</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Drawing and Specification Review</h3>
+              <p>Before production, we review customer drawings, technical standards, thread details, tolerances, material requirements, coating thickness, heat treatment needs, inspection criteria, and documentation requirements.</p>
+              <div class="est-mini-tags">
+                <span>Drawing Review</span><span>Thread Tolerance</span><span>Dimensions</span><span>Inspection Plan</span><span>Documentation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-cubes-stacked"></i>
+              <span>Support 03</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Material and Grade Guidance</h3>
+              <p>We support customers in selecting suitable materials and property classes based on strength, corrosion resistance, temperature exposure, manufacturing route, assembly requirement, and cost efficiency.</p>
+              <div class="est-mini-tags">
+                <span>Mild Steel</span><span>Alloy Steel</span><span>Stainless Steel</span><span>Brass</span><span>8.8</span><span>10.9</span><span>12.9</span><span>A2 / A4</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-temperature-high"></i>
+              <span>Support 04</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Heat Treatment and Surface Finish Support</h3>
+              <p>Our team helps define the right heat treatment and coating process to achieve required hardness, tensile strength, corrosion resistance, surface protection, and assembly reliability.</p>
+              <div class="est-mini-tags">
+                <span>Case Hardening</span><span>Through Hardening</span><span>Tempering</span><span>Zinc Plating</span><span>Zinc-Nickel</span><span>Zinc Flake</span><span>HDG</span><span>PTFE</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span>Support 05</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Standard and Compliance Support</h3>
+              <p>We assist customers in understanding and selecting the correct fastener standards for product compatibility, interchangeability, quality consistency, and industry compliance.</p>
+              <div class="est-mini-tags">
+                <span>ISO</span><span>DIN</span><span>EN</span><span>ASTM</span><span>ASME</span><span>IS</span><span>JIS</span><span>SAE</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-industry"></i>
+              <span>Support 06</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Manufacturing Feasibility Support</h3>
+              <p>We evaluate whether the fastener can be manufactured efficiently and repeatedly using the right route such as cold forging, hot forging, machining, thread rolling, nut tapping, heat treatment, coating, and inspection.</p>
+              <div class="est-mini-tags">
+                <span>Cold Forging</span><span>Hot Forging</span><span>Machining</span><span>Thread Rolling</span><span>Tapping</span><span>Tooling</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-microscope"></i>
+              <span>Support 07</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Quality and Testing Support</h3>
+              <p>Engineering support works with quality teams to convert customer requirements into inspection plans, testing methods, traceability systems, and documentation formats.</p>
+              <div class="est-mini-tags">
+                <span>Tensile Test</span><span>Hardness</span><span>Proof Load</span><span>Torque Test</span><span>Salt Spray</span><span>Coating Thickness</span><span>PPAP</span><span>MTC</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="est-support-row est-reveal">
+            <div class="est-support-index">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>Support 08</span>
+            </div>
+            <div class="est-support-content">
+              <h3>Problem-Solving and Technical Troubleshooting</h3>
+              <p>When customers face fastening-related issues, our team helps identify possible causes and recommends corrective actions to improve selection, process control, assembly reliability, and long-term performance.</p>
+              <div class="est-mini-tags">
+                <span>Breakage</span><span>Thread Stripping</span><span>Torque Failure</span><span>Rusting</span><span>Coating Failure</span><span>Assembly Mismatch</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE ENGINEERING -->
+    <section class="est-section">
+      <div class="est-container">
+        <div class="est-value-system">
+          <div class="est-value-brief est-reveal">
+            <p class="est-eyebrow">Value Engineering</p>
+            <h3>Better fastener decisions with practical cost control.</h3>
+            <p>
+              Our Engineering Support Team reviews the fastener requirement from design, material, coating, manufacturing, and total cost perspectives. The goal is to simplify the part where possible, improve manufacturability, and maintain dependable application performance.
+            </p>
+
+            <div class="est-value-outcomes">
+              <div class="est-value-outcome">
+                <i class="fa-solid fa-check"></i>
+                <span>Suggests suitable standard alternatives where customized parts are not necessary.</span>
+              </div>
+              <div class="est-value-outcome">
+                <i class="fa-solid fa-check"></i>
+                <span>Improves availability by aligning requirements with practical manufacturing routes.</span>
+              </div>
+              <div class="est-value-outcome">
+                <i class="fa-solid fa-check"></i>
+                <span>Supports standardization across assemblies to reduce purchase and inventory complexity.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="est-value-track est-reveal">
+            <div class="est-value-steps">
+              <div class="est-value-step">
+                <div class="est-value-number">01</div>
+                <div class="est-value-step-card">
+                  <div class="est-value-step-top">
+                    <h4>Design Review</h4>
+                    <span class="est-value-chip">Geometry</span>
+                  </div>
+                  <p>Checks head style, thread length, tolerance, engagement, assembly access, and functional requirement before finalizing the part.</p>
+                </div>
+              </div>
+
+              <div class="est-value-step">
+                <div class="est-value-number">02</div>
+                <div class="est-value-step-card">
+                  <div class="est-value-step-top">
+                    <h4>Material Optimization</h4>
+                    <span class="est-value-chip">Grade</span>
+                  </div>
+                  <p>Recommends practical material and property class options based on strength, environment, manufacturing route, and service condition.</p>
+                </div>
+              </div>
+
+              <div class="est-value-step">
+                <div class="est-value-number">03</div>
+                <div class="est-value-step-card">
+                  <div class="est-value-step-top">
+                    <h4>Coating Selection</h4>
+                    <span class="est-value-chip">Surface</span>
+                  </div>
+                  <p>Matches coating or surface finish with corrosion resistance, friction requirement, assembly behavior, and long-term exposure.</p>
+                </div>
+              </div>
+
+              <div class="est-value-step">
+                <div class="est-value-number">04</div>
+                <div class="est-value-step-card">
+                  <div class="est-value-step-top">
+                    <h4>Process Route</h4>
+                    <span class="est-value-chip">Feasibility</span>
+                  </div>
+                  <p>Evaluates cold forging, hot forging, machining, threading, heat treatment, coating, and finishing route for repeatable production.</p>
+                </div>
+              </div>
+
+              <div class="est-value-step">
+                <div class="est-value-number">05</div>
+                <div class="est-value-step-card">
+                  <div class="est-value-step-top">
+                    <h4>Total Cost Control</h4>
+                    <span class="est-value-chip">Efficiency</span>
+                  </div>
+                  <p>Supports cost-effective manufacturing by reducing unnecessary complexity without compromising reliability, safety, or performance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="est-value-summary">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <div>
+                <strong>Result: technically correct, production-ready, and commercially practical fastening solutions.</strong>
+                <span>Designed to support performance, availability, quality consistency, and long-term customer value.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM SOLVING -->
+    <section class="est-section est-section-soft">
+      <div class="est-container">
+        <div class="est-problem-board">
+          <div class="est-problem-copy est-reveal">
+            <p class="est-eyebrow">Troubleshooting Support</p>
+            <h2 class="est-section-title">Issues our team helps solve</h2>
+            <p class="est-section-text">
+              Fastening issues can come from design, material, heat treatment, coating, assembly torque, environmental exposure, or incorrect product selection. Our team helps identify the technical reason and supports corrective action.
+            </p>
+          </div>
+
+          <div class="est-diagnostic-list est-reveal">
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Bolt breakage or premature fastener failure</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Thread stripping, thread mismatch, or poor engagement</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Head damage, drive failure, or tool slippage</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Torque failure or inconsistent assembly performance</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Rusting, corrosion, or coating breakdown</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Hydrogen embrittlement risk in high-strength fasteners</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Dimensional rejection or inspection non-conformance</span></div>
+            <div class="est-diagnostic-item"><i class="fa-solid fa-circle-xmark"></i><span>Assembly mismatch or unsuitable fastener selection</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="est-section">
+      <div class="est-container">
+        <div class="est-section-head">
+          <div class="est-reveal">
+            <p class="est-eyebrow">Industries We Support</p>
+            <h2 class="est-section-title">Application-focused support for critical sectors</h2>
+          </div>
+          <p class="est-section-text est-reveal">
+            Different industries demand different fastening behavior. Our Engineering Support Team helps align fastener specifications with real operating conditions, safety requirements, environmental exposure, and documentation needs.
+          </p>
+        </div>
+
+        <div class="est-sector-layout est-reveal">
+          <aside class="est-sector-focus">
+            <div class="est-sector-focus-icon">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+
+            <h3>One engineering support system for multiple application environments.</h3>
+            <p>
+              From mobility and infrastructure to renewable energy and heavy equipment, our team helps translate sector-specific requirements into practical fastener specifications.
+            </p>
+
+            <div class="est-sector-metrics">
+              <div class="est-sector-metric">
+                <strong>10</strong>
+                <span>Key industry sectors supported</span>
+              </div>
+              <div class="est-sector-metric">
+                <strong>360°</strong>
+                <span>Support from drawing to delivery</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="est-sector-stream">
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-car"></i></div>
+              <div class="est-sector-content">
+                <h3>Automotive</h3>
+                <p>Fastener selection support for controlled assembly, repeatability, strength, coating, and production consistency.</p>
+              </div>
+              <span class="est-sector-tag">Mobility</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-plane"></i></div>
+              <div class="est-sector-content">
+                <h3>Aerospace</h3>
+                <p>Technical support for high-reliability applications requiring precision, traceability, and strict documentation control.</p>
+              </div>
+              <span class="est-sector-tag">Precision</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-train"></i></div>
+              <div class="est-sector-content">
+                <h3>Railway</h3>
+                <p>Support for vibration, safety, durability, corrosion protection, and long-service fastening requirements.</p>
+              </div>
+              <span class="est-sector-tag">Durability</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-building"></i></div>
+              <div class="est-sector-content">
+                <h3>Construction</h3>
+                <p>Guidance for structural fastening, load transfer, coating selection, standards, and site performance conditions.</p>
+              </div>
+              <span class="est-sector-tag">Structural</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-solar-panel"></i></div>
+              <div class="est-sector-content">
+                <h3>Solar & Renewable Energy</h3>
+                <p>Fastener support for outdoor exposure, corrosion resistance, long-term installation reliability, and assembly speed.</p>
+              </div>
+              <span class="est-sector-tag">Outdoor</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+              <div class="est-sector-content">
+                <h3>Electrical & Electronics</h3>
+                <p>Support for compact assemblies, material compatibility, surface finish, conductivity needs, and secure fastening.</p>
+              </div>
+              <span class="est-sector-tag">Assembly</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-gears"></i></div>
+              <div class="est-sector-content">
+                <h3>Heavy Engineering</h3>
+                <p>Guidance for high-load applications, fatigue resistance, strength class, thread engagement, and process feasibility.</p>
+              </div>
+              <span class="est-sector-tag">High Load</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-oil-well"></i></div>
+              <div class="est-sector-content">
+                <h3>Oil & Gas</h3>
+                <p>Support for demanding environments involving corrosion, temperature, pressure, coating, and material selection.</p>
+              </div>
+              <span class="est-sector-tag">Harsh Use</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <div class="est-sector-content">
+                <h3>Machinery & Equipment</h3>
+                <p>Support for functional fastening, serviceability, torque control, maintenance needs, and production repeatability.</p>
+              </div>
+              <span class="est-sector-tag">Equipment</span>
+            </div>
+
+            <div class="est-sector-item">
+              <div class="est-sector-icon"><i class="fa-solid fa-bridge"></i></div>
+              <div class="est-sector-content">
+                <h3>Infrastructure Applications</h3>
+                <p>Engineering guidance for long-term reliability, structural safety, coating performance, and standard compliance.</p>
+              </div>
+              <span class="est-sector-tag">Long Life</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVANTAGE -->
+    <section class="est-section est-section-soft">
+      <div class="est-container">
+        <div class="est-section-head">
+          <div class="est-reveal">
+            <p class="est-eyebrow">Our Advantage</p>
+            <h2 class="est-section-title">Engineering confidence in every fastener</h2>
+          </div>
+          <p class="est-section-text est-reveal">
+            Engineering support at PMEW is not limited to answering technical questions. It is a complete support system that helps customers choose the right fastener, define the right specification, manufacture with confidence, and achieve reliable performance.
+          </p>
+        </div>
+
+        <div class="est-advantage-system">
+          <div class="est-advantage-note est-reveal">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Support designed for technical clarity, production confidence, and customer reliability.</h3>
+            <p>
+              We combine practical manufacturing experience with application-focused engineering support to help customers reduce risk before production begins.
+            </p>
+          </div>
+
+          <div class="est-advantage-list est-reveal">
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-compass-drafting"></i>
+              <div>
+                <h3>Application-Based Fastener Guidance</h3>
+                <p>Selection based on real use, load, environment, and assembly conditions.</p>
+              </div>
+            </div>
+
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-file-circle-check"></i>
+              <div>
+                <h3>Drawing and Specification Review</h3>
+                <p>Technical review before production to reduce errors, ambiguity, and delays.</p>
+              </div>
+            </div>
+
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-layer-group"></i>
+              <div>
+                <h3>Material, Grade, and Coating Recommendations</h3>
+                <p>Support for performance, corrosion resistance, strength, and service life.</p>
+              </div>
+            </div>
+
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-certificate"></i>
+              <div>
+                <h3>Standard and Compliance Support</h3>
+                <p>Guidance across ISO, DIN, EN, ASTM, ASME, IS, JIS, SAE, and customer standards.</p>
+              </div>
+            </div>
+
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-industry"></i>
+              <div>
+                <h3>Manufacturing Feasibility Evaluation</h3>
+                <p>Practical review of process route, tooling, production control, and repeatability.</p>
+              </div>
+            </div>
+
+            <div class="est-advantage-item">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <h3>Quality and Testing Coordination</h3>
+                <p>Alignment of technical requirements with inspection, testing, traceability, and documentation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="est-cta">
+      <div class="est-container">
+        <div class="est-cta-box">
+          <div>
+            <h2>Need technical support for your fastener requirement?</h2>
+            <p>
+              Share your drawing, standard, application, material requirement, coating need, or assembly challenge. Our Engineering Support Team can help you move from requirement to production-ready fastening solution.
+            </p>
+          </div>
+
+          <a href="#navbar-container" class="est-btn">
+            Connect With Our Team <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- GLOBAL SCRIPTS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const revealItems = document.querySelectorAll(".est-reveal");
+
+      const revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("est-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.14
+        }
+      );
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    });
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

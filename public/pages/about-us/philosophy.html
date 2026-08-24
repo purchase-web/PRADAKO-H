@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Our Organisational Ethos | Pradako Mechanical & Engineering Works</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS --> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" href="/assets/css/pmew-engineering-response-desk.css">
+
+<style>
+/* ==========================================================
+   ORGANISATIONAL ETHOS PAGE
+   Hero + Premium Pillars + Wider Statement + Wider Content
+   ========================================================== */
+
+:root {
+    --oe-black: #050505;
+    --oe-ink: #111827;
+    --oe-muted: #31506f;
+    --oe-soft-text: #475569;
+    --oe-line: rgba(10, 61, 98, 0.12);
+    --oe-card-line: rgba(10, 61, 98, 0.14);
+    --oe-gold: var(--color-gold, #C5A028);
+    --oe-navy: var(--color-navy, #0A3D62);
+    --oe-bg: #fbfdff;
+    --oe-shadow: 0 24px 60px rgba(10, 61, 98, 0.10);
+    --oe-shadow-soft: 0 16px 42px rgba(10, 61, 98, 0.07);
+    --oe-container: 1380px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    color: var(--oe-ink);
+    line-height: 1.6;
+    background:
+        radial-gradient(circle at 82% 10%, rgba(255, 191, 0, 0.10), transparent 30%),
+        radial-gradient(circle at 10% 12%, rgba(10, 61, 98, 0.08), transparent 34%),
+        linear-gradient(180deg, #fbfdff 0%, #ffffff 42%, #fbfdff 100%);
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(10, 61, 98, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 61, 98, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.full-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content-inner {
+    width: 100%;
+    max-width: var(--oe-container);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 42px);
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+
+.pmew-ethos-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: clamp(70px, 9vw, 132px) 0 clamp(58px, 7vw, 92px);
+    background:
+        radial-gradient(circle at 82% 18%, rgba(255, 191, 0, 0.10), transparent 32%),
+        radial-gradient(circle at 14% 12%, rgba(10, 61, 98, 0.08), transparent 34%),
+        linear-gradient(180deg, #fbfdff 0%, #ffffff 62%, #fbfdff 100%);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.pmew-ethos-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(10, 61, 98, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 61, 98, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+.pmew-ethos-hero::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -180px;
+    top: -160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 191, 0, 0.14), transparent 65%);
+    pointer-events: none;
+}
+
+.pmew-ethos-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 42px);
+}
+
+.pmew-ethos-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin-bottom: clamp(24px, 3vw, 34px);
+    padding: 10px 18px;
+    border: 1px solid rgba(197, 160, 40, 0.35);
+    background: rgba(255, 255, 255, 0.82);
+    color: #9a7a12;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-transform: uppercase;
+    box-shadow: 0 10px 26px rgba(10, 61, 98, 0.05);
+}
+
+.pmew-ethos-hero__badge i {
+    color: var(--oe-gold);
+    font-size: 13px;
+}
+
+.pmew-ethos-hero__title {
+    max-width: 1180px;
+    margin: 0;
+    color: var(--oe-black);
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-size: clamp(46px, 7vw, 104px);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -4px;
+}
+
+.pmew-ethos-hero__intro {
+    max-width: 900px;
+    margin-top: clamp(22px, 3vw, 30px);
+    color: var(--oe-muted);
+    font-size: clamp(15px, 1.45vw, 19px);
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.pmew-ethos-hero__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: clamp(28px, 4vw, 40px);
+}
+
+.pmew-ethos-hero__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 12px 17px;
+    border: 1px solid rgba(10, 61, 98, 0.15);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--oe-navy);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.06);
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+}
+
+.pmew-ethos-hero__link i {
+    color: var(--oe-gold);
+}
+
+.pmew-ethos-hero__link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(197, 160, 40, 0.48);
+    color: var(--oe-gold);
+    box-shadow: 0 16px 34px rgba(10, 61, 98, 0.10);
+}
+
+/* ==========================================================
+   PREMIUM PILLARS SECTION — NO ICONS / NO NUMBERS
+   ========================================================== */
+
+.pillars-section {
+    position: relative;
+    padding: clamp(70px, 8vw, 110px) 0;
+    background:
+        radial-gradient(circle at 90% 5%, rgba(255, 191, 0, 0.10), transparent 34%),
+        radial-gradient(circle at 10% 20%, rgba(10, 61, 98, 0.07), transparent 34%),
+        linear-gradient(180deg, rgba(251, 253, 255, 0.92), rgba(255, 255, 255, 0.94));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.pillars-head {
+    max-width: 860px;
+    margin: 0 auto clamp(34px, 5vw, 58px);
+    text-align: center;
+}
+
+.pillars-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 18px;
+    color: #9a7a12;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.pillars-kicker::before,
+.pillars-kicker::after {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: rgba(197, 160, 40, 0.55);
+}
+
+.pillars-title {
+    margin: 0;
+    color: var(--oe-black);
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-size: clamp(34px, 4.6vw, 64px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.pillars-subtitle {
+    max-width: 760px;
+    margin: 18px auto 0;
+    color: #31506f;
+    font-size: clamp(14px, 1.3vw, 17px);
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(18px, 2vw, 28px);
+}
+
+.pillar-card {
+    position: relative;
+    min-height: 280px;
+    padding: clamp(30px, 3.5vw, 42px);
+    border: 1px solid rgba(10, 61, 98, 0.13);
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.94));
+    box-shadow: var(--oe-shadow-soft);
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.pillar-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(255, 191, 0, 0.12), transparent 38%),
+        radial-gradient(circle at bottom left, rgba(10, 61, 98, 0.07), transparent 38%);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+}
+
+
+.pillar-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(197, 160, 40, 0.38);
+    box-shadow: var(--oe-shadow);
+}
+
+.pillar-card:hover::before {
+    opacity: 1;
+}
+
+.pillar-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--oe-black);
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.pillar-card h3::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 2px;
+    margin-top: 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--oe-gold), #FFBF00);
+}
+
+.pillar-card p {
+    position: relative;
+    z-index: 1;
+    margin: 24px 0 0;
+    color: #334155;
+    font-size: clamp(15px, 1.12vw, 17px);
+    font-weight: 400;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    max-width: 100%;
+}
+
+/* ==========================================================
+   PREMIUM STATEMENT SECTION — WIDTH MATCHED WITH 3 CARDS
+   ========================================================== */
+
+.statement-section {
+    position: relative;
+    padding: clamp(64px, 7vw, 96px) 0;
+    background:
+        radial-gradient(circle at 85% 18%, rgba(255, 191, 0, 0.12), transparent 32%),
+        radial-gradient(circle at 10% 85%, rgba(10, 61, 98, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 251, 255, 0.96));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.statement-section .content-inner {
+    max-width: var(--oe-container);
+}
+
+.statement-box {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: clamp(38px, 5.8vw, 72px) clamp(26px, 6vw, 86px);
+    border: 1px solid rgba(10, 61, 98, 0.14);
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
+    color: var(--oe-black);
+    text-align: center;
+    box-shadow: var(--oe-shadow);
+    overflow: hidden;
+}
+
+
+.statement-box::after {
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin-top: 24px;
+    border-radius: 18px;
+    background: var(--oe-navy);
+    color: #ffffff;
+    font-size: 22px;
+    box-shadow: 0 15px 30px rgba(10, 61, 98, 0.20);
+}
+
+.statement-text {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    color: var(--oe-black);
+    font-family: var(--font-display, "Playfair Display", serif);
+    font-size: clamp(30px, 3.8vw, 56px);
+    font-weight: 500;
+    line-height: 1.28;
+}
+
+/* ==========================================================
+   CONTENT SECTIONS — WIDER + BIGGER PARAGRAPH FONT
+   ========================================================== */
+
+.content-section {
+    position: relative;
+    padding: clamp(58px, 6.5vw, 92px) 0;
+    background:
+        linear-gradient(180deg, rgba(251, 253, 255, 0.88), rgba(255, 255, 255, 0.94));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.content-section:last-of-type {
+    border-bottom: none;
+}
+
+.content-section .content-inner {
+    max-width: var(--oe-container);
+}
+
+.content-section h2 {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 26px;
+    padding-bottom: 14px;
+    color: var(--oe-black);
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.content-section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--oe-navy), var(--oe-gold));
+}
+
+.content-section p {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 22px;
+    color: #24364d;
+    font-size: clamp(16px, 1.18vw, 18px);
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+}
+
+.content-section p:last-child {
+    margin-bottom: 0;
+}
+
+.content-section p strong {
+    color: var(--oe-black);
+    font-size: clamp(16px, 1.18vw, 18px);
+    font-weight: 600;
+}
+
+strong {
+    color: var(--oe-black);
+    font-weight: 600;
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9a9a9a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b6b6b;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1100px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pillar-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .pmew-ethos-hero__title {
+        letter-spacing: -2px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pmew-ethos-hero {
+        padding: 52px 0 50px;
+    }
+
+    .pmew-ethos-hero__title {
+        font-size: clamp(39px, 12vw, 62px);
+        letter-spacing: -1.8px;
+    }
+
+    .pmew-ethos-hero__intro {
+        font-size: 15px;
+    }
+
+    .pmew-ethos-hero__links {
+        flex-direction: column;
+    }
+
+    .pmew-ethos-hero__link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pillars-title {
+        letter-spacing: -1px;
+    }
+
+    .pillar-card p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .statement-text {
+        font-size: clamp(25px, 7vw, 36px);
+    }
+
+    .statement-box {
+        padding: 34px 24px;
+    }
+
+    .content-section p {
+        font-size: 15.5px;
+        line-height: 1.85;
+        text-align: left;
+        text-align-last: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .pmew-ethos-hero__inner,
+    .content-inner {
+        padding: 0 16px;
+    }
+
+    .pmew-ethos-hero__badge {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 9px 13px;
+    }
+
+    .pmew-ethos-hero__title {
+        font-size: 40px;
+        line-height: 1.08;
+        letter-spacing: -1.4px;
+    }
+
+    .pillar-card {
+        padding: 28px 24px;
+        border-radius: 24px;
+    }
+
+    .statement-box {
+        padding: 30px 22px;
+        border-radius: 24px;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Our Organisational Ethos from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/philosophy.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Our Organisational Ethos | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Our Organisational Ethos from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/philosophy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Organisational Ethos | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Our Organisational Ethos from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Our Organisational Ethos | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/about-us/philosophy.html",
+  "description": "Our Organisational Ethos from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+
+<div id="navbar-container"></div>
+
+<!-- ======================================================
+    HERO SECTION
+======================================================= -->
+<section class="pmew-ethos-hero">
+    <div class="pmew-ethos-hero__inner">
+
+        <div class="pmew-ethos-hero__badge">
+            <i class="fa-solid fa-building-shield"></i>
+            Our Organisational Ethos
+        </div>
+
+        <h1 class="pmew-ethos-hero__title">
+            Built on Philosophy.<br>
+            Led by People.<br>
+            Governed with Integrity.
+        </h1>
+
+        <p class="pmew-ethos-hero__intro">
+            Our ethos defines how Pradako Mechanical & Engineering Works thinks, leads, governs, and grows.
+            It brings together our philosophy, leadership approach, and governance framework into one clear
+            foundation for sustainable industrial excellence.
+        </p>
+
+        <div class="pmew-ethos-hero__links">
+            <a href="#our-philosophy" class="pmew-ethos-hero__link">
+                <i class="fa-solid fa-compass"></i>
+                Our Philosophy
+            </a>
+
+            <a href="#our-leadership" class="pmew-ethos-hero__link">
+                <i class="fa-solid fa-people-group"></i>
+                Leadership
+            </a>
+
+            <a href="#our-governance" class="pmew-ethos-hero__link">
+                <i class="fa-solid fa-scale-balanced"></i>
+                Governance
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================
+    PREMIUM PILLARS SECTION
+======================================================= -->
+<div class="full-section pillars-section">
+    <div class="content-inner">
+
+        <div class="pillars-head">
+            <div class="pillars-kicker">Three Core Pillars</div>
+
+            <h2 class="pillars-title">
+                The foundation of how we work
+            </h2>
+
+            <p class="pillars-subtitle">
+                Our identity is shaped by three connected pillars that guide our decisions, people, and responsibility towards stakeholders.
+            </p>
+        </div>
+
+        <div class="pillars-grid">
+
+            <div class="pillar-card">
+                <h3>Our Philosophy</h3>
+
+                <p>
+                    Our Philosophy is driven by a deep commitment to our Mission, Vision, Values, and Beliefs, serving as the guiding force behind everything we do.
+                </p>
+            </div>
+
+            <div class="pillar-card">
+                <h3>Our Leadership</h3>
+
+                <p>
+                    Our Leadership is people-centric, focused on nurturing talent, empowering teams, and steering the organisation through a forward-thinking strategic direction.
+                </p>
+            </div>
+
+            <div class="pillar-card">
+                <h3>Our Governance</h3>
+
+                <p>
+                    Our Governance upholds integrity, defined by robust structure, transparent processes, and a strong sense of accountability.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ======================================================
+    PREMIUM STATEMENT SECTION
+======================================================= -->
+<div class="full-section statement-section">
+    <div class="content-inner">
+        <div class="statement-box">
+            <div class="statement-text">
+                Together, these pillars shape our identity, drive sustainable growth, and ensure we deliver lasting value to our customers, partners, and communities.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PHILOSOPHY SECTION - FULL WIDTH -->
+<div class="full-section content-section" id="our-philosophy">
+    <div class="content-inner">
+        <h2>Our Philosophy</h2>
+
+        <p>
+            At the core of our corporate philosophy is a steadfast commitment to quality, innovation, and sustainability. Since our establishment in the 1960s, we have dedicated ourselves to manufacturing world-class fasteners that not only meet industry standards but exceed customer expectations.
+        </p>
+
+        <p>
+            We believe in building strong connections—not just in the products we make, but in the relationships we cultivate with our stakeholders.
+        </p>
+
+        <p>
+            Our philosophy emphasizes continuous improvement, environmental responsibility, and the pursuit of excellence, ensuring that every product we deliver contributes to a better and more sustainable future.
+        </p>
+
+        <p>
+            These core values guide our operations and vision, ensuring that we remain a trusted leader in the fastener manufacturing industry while staying true to our legacy of quality and innovation.
+        </p>
+    </div>
+</div>
+
+<!-- LEADERSHIP SECTION - FULL WIDTH -->
+<div class="full-section content-section" id="our-leadership">
+    <div class="content-inner">
+        <h2>Leadership</h2>
+
+        <p>
+            Our leadership is built on a foundation of visionary thinking, industry expertise, and a commitment to driving continuous growth. Since our inception in the 1960s, our leadership team has been instrumental in shaping the company's success through strategic foresight, innovation, and a relentless focus on quality.
+        </p>
+
+        <p>
+            Guided by principles of integrity, transparency, and sustainability, our leaders inspire a culture of excellence across the organization.
+        </p>
+
+        <p>
+            With decades of experience, our leadership not only steers the company towards operational efficiency and market expansion but also fosters a work environment that encourages collaboration, empowerment, and continuous learning.
+        </p>
+
+        <p>
+            Their hands-on approach ensures that we stay ahead of industry trends while maintaining our deep-rooted values and dedication to customer satisfaction.
+        </p>
+
+        <p>
+            Our leadership's commitment to long-term vision, environmental responsibility, and global outreach drives our ability to deliver superior fastener solutions that meet the ever-evolving needs of industries worldwide.
+        </p>
+
+        <p>
+            Through forward-thinking strategies and a passion for innovation, we continue to lead with purpose, ensuring sustainable success for our company, employees, customers, and the communities we serve.
+        </p>
+    </div>
+</div>
+
+<!-- GOVERNANCE SECTION - FULL WIDTH -->
+<div class="full-section content-section" id="our-governance">
+    <div class="content-inner">
+        <h2>The Governance</h2>
+
+        <p>
+            <strong>Caretakers of the Company for the next Generations to Come</strong>
+        </p>
+
+        <p>
+            As a company rooted in over six decades of excellence, we uphold the highest standards of corporate governance, ensuring transparency, accountability, and ethical conduct across all levels of our organization.
+        </p>
+
+        <p>
+            Guided by integrity and a commitment to sustainable growth, we foster trust among our stakeholders—employees, customers, partners, and the communities we serve.
+        </p>
+
+        <p>
+            Our governance framework is aligned with global best practices, ensuring compliance with industry regulations, fostering innovation, and promoting long-term value creation.
+        </p>
+
+        <p>
+            Together, these components make our company ethically driven, strategically focused, and operationally sound.
+        </p>
+    </div>
+</div>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+    <script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

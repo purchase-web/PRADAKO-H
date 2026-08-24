@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Industry professionals interested in contributing to Pradako Mechanical and Engineering Works can connect with our Board of Directors."
+    >
+
+    <title>Industry Professionals | Pradako Mechanical</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME - KEEP ONLY ONE -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/sustainability-roadmap.css">
+
+    <link
+        rel="stylesheet"
+        href="/assets/css/pmew-engineering-response-desk.css?v=18"
+    >
+
+    <style>
+        /* =========================================================
+           INDUSTRY PROFESSIONALS — SIMPLE REDESIGN
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --ip-white: #ffffff;
+            --ip-soft: #f7f9fb;
+            --ip-soft-blue: #eef4f8;
+            --ip-navy: #0a3d62;
+            --ip-navy-dark: #062c47;
+            --ip-text: #1b2530;
+            --ip-muted: #5e6b77;
+            --ip-line: #dfe7ed;
+            --ip-yellow: #ffcc29;
+
+            /* PAGE TYPOGRAPHY */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+
+            background: var(--ip-white);
+            color: var(--ip-text);
+
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================================================
+           MAIN SECTION
+        ========================================================= */
+
+        .ip-page {
+            position: relative;
+            isolation: isolate;
+
+            width: 100%;
+            padding: clamp(72px, 8vw, 118px) 24px;
+
+            background: var(--ip-white);
+        }
+
+        .ip-page::before {
+            content: "";
+
+            position: absolute;
+            z-index: -1;
+            inset: 0 0 auto 0;
+
+            height: 220px;
+
+            background: var(--ip-soft-blue);
+        }
+
+        .ip-shell {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .ip-layout {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.9fr)
+                minmax(360px, 1.1fr);
+
+            gap: clamp(48px, 7vw, 90px);
+            align-items: start;
+
+            padding: clamp(42px, 6vw, 72px);
+
+            background: var(--ip-white);
+            border: 1px solid var(--ip-line);
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 55px rgba(10, 61, 98, 0.08);
+        }
+
+        /* =========================================================
+           INTRODUCTION
+        ========================================================= */
+
+        .ip-intro {
+            position: sticky;
+            top: 30px;
+        }
+
+        .ip-title {
+            max-width: 560px;
+            margin: 0 0 22px;
+
+            color: var(--ip-navy-dark);
+
+            font-family: var(--font-display);
+            font-size: clamp(2.35rem, 5vw, 4.5rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+        }
+
+        .ip-lead {
+            max-width: 560px;
+            margin: 0;
+
+            color: var(--ip-text);
+
+            font-family: var(--font-primary);
+            font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+            font-weight: 400;
+            line-height: 1.75;
+        }
+
+        .ip-accent-line {
+            width: 72px;
+            height: 4px;
+            margin-top: 30px;
+
+            background: var(--ip-yellow);
+            border-radius: 999px;
+        }
+
+        /* =========================================================
+           ROLE INFORMATION
+        ========================================================= */
+
+        .ip-content {
+            min-width: 0;
+        }
+
+        .ip-message {
+            margin: 0 0 28px;
+
+            color: var(--ip-muted);
+
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.85;
+        }
+
+        .ip-role-list {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .ip-role-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            min-height: 76px;
+            padding: 18px 20px;
+
+            color: var(--ip-text);
+
+            font-family: var(--font-primary);
+            font-size: 0.94rem;
+            font-weight: 500;
+            line-height: 1.45;
+
+            background: var(--ip-soft);
+            border: 1px solid transparent;
+            border-radius: 12px;
+
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .ip-role-list li::before {
+            content: "";
+
+            flex: 0 0 auto;
+
+            width: 9px;
+            height: 9px;
+
+            background: var(--ip-yellow);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 5px rgba(255, 204, 41, 0.16);
+        }
+
+        .ip-role-list li:hover {
+            transform: translateY(-2px);
+
+            background: var(--ip-white);
+            border-color: var(--ip-line);
+        }
+
+        /* =========================================================
+           CONTACT STRIP
+        ========================================================= */
+
+        .ip-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
+
+            margin-top: 22px;
+            padding: clamp(24px, 4vw, 34px);
+
+            background: var(--ip-navy);
+            border-radius: 16px;
+        }
+
+        .ip-contact-text {
+            max-width: 610px;
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.84);
+
+            font-family: var(--font-primary);
+            font-size: 0.96rem;
+            font-weight: 400;
+            line-height: 1.75;
+        }
+
+        .ip-email-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            flex: 0 0 auto;
+
+            min-height: 50px;
+            padding: 13px 20px;
+
+            color: var(--ip-navy-dark);
+
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.35;
+
+            text-align: center;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+
+            background: var(--ip-white);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+
+            transition:
+                transform 0.25s ease,
+                background-color 0.25s ease;
+        }
+
+        .ip-email-link:hover {
+            transform: translateY(-2px);
+            background: #fff9df;
+        }
+
+        .ip-email-link:focus-visible {
+            outline: 3px solid var(--ip-yellow);
+            outline-offset: 4px;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .ip-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .ip-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+            .ip-page {
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+
+            .ip-page::before {
+                height: 170px;
+            }
+
+            .ip-layout {
+                grid-template-columns: 1fr;
+                gap: 36px;
+
+                padding: clamp(32px, 6vw, 52px);
+            }
+
+            .ip-intro {
+                position: static;
+            }
+
+            .ip-title,
+            .ip-lead {
+                max-width: 700px;
+            }
+
+            .ip-contact {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 620px) {
+            .ip-page {
+                padding-top: 58px;
+                padding-bottom: 72px;
+            }
+
+            .ip-layout {
+                gap: 30px;
+                padding: 30px 22px;
+
+                border-radius: 16px;
+            }
+
+            .ip-title {
+                font-size: clamp(2.2rem, 12vw, 3.3rem);
+                letter-spacing: -0.035em;
+            }
+
+            .ip-role-list {
+                grid-template-columns: 1fr;
+            }
+
+            .ip-role-list li {
+                min-height: 66px;
+            }
+
+            .ip-contact {
+                padding: 24px 20px;
+                border-radius: 13px;
+            }
+
+            .ip-email-link {
+                width: 100%;
+            }
+        }
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .ip-reveal,
+            .ip-role-list li,
+            .ip-email-link {
+                transition: none;
+            }
+
+            .ip-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/people/joinourteams.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Industry Professionals | Pradako Mechanical">
+    <meta property="og:description" content="Industry professionals interested in contributing to Pradako Mechanical and Engineering Works can connect with our Board of Directors.">
+    <meta property="og:url" content="https://www.pradako.co/pages/people/joinourteams.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Industry Professionals | Pradako Mechanical">
+    <meta name="twitter:description" content="Industry professionals interested in contributing to Pradako Mechanical and Engineering Works can connect with our Board of Directors.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Industry Professionals | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/people/joinourteams.html",
+  "description": "Industry professionals interested in contributing to Pradako Mechanical and Engineering Works can connect with our Board of Directors.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+    <div id="navbar-container"></div>
+
+    <!-- ======================================================
+         MAIN CONTENT: INDUSTRY PROFESSIONALS PAGE
+    ======================================================= -->
+
+    <main>
+        <section
+            class="ip-page"
+            aria-labelledby="industry-professionals-title"
+        >
+            <div class="ip-shell ip-reveal">
+
+                <div class="ip-layout">
+
+                    <div class="ip-intro">
+
+                        <h1
+                            class="ip-title"
+                            id="industry-professionals-title"
+                        >
+                            Industry Professionals
+                        </h1>
+
+                        <p class="ip-lead">
+                            We are happy and honoured to learn from you,
+                            and to work with you.
+                        </p>
+
+                        <div
+                            class="ip-accent-line"
+                            aria-hidden="true"
+                        ></div>
+
+                    </div>
+
+                    <div class="ip-content">
+
+                        <p class="ip-message">
+                            Professionals interested in contributing to
+                            our journey and collaborating with us at or
+                            for positions equivalent to:
+                        </p>
+
+                        <ul class="ip-role-list">
+                            <li>Executive Directors</li>
+                            <li>Part of Board of Directors</li>
+                            <li>Technical Advisors</li>
+                            <li>Technology Experts</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="ip-contact">
+
+                    <p class="ip-contact-text">
+                        You may directly share your information,
+                        presentation, or cover letter with us at:
+                    </p>
+
+                    <a
+                        href="mailto:BOD@PRADAKOMECHANICALS.COM"
+                        class="ip-email-link"
+                    >
+                        <i
+                            class="fa-regular fa-envelope"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            BOD@PRADAKOMECHANICALS.COM
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================
+         FOOTER
+    ======================================================= -->
+
+    <div id="footer-container"></div>
+
+    <!-- ======================================================
+         MAIN JS
+    ======================================================= -->
+
+    <script
+        src="/assets/js/pradako-global-animations.js"
+        defer
+    ></script>
+
+    <script>
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements =
+                document.querySelectorAll(".ip-reveal");
+
+            if (!revealElements.length) {
+                return;
+            }
+
+            if (!("IntersectionObserver" in window)) {
+                revealElements.forEach((element) => {
+                    element.classList.add("is-visible");
+                });
+
+                return;
+            }
+
+            const revealObserver =
+                new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.15,
+                        rootMargin: "0px 0px -40px 0px"
+                    }
+                );
+
+            revealElements.forEach((element) => {
+                revealObserver.observe(element);
+            });
+        });
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

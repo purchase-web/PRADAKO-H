@@ -1,0 +1,3959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>PMEW — Precision Loader</title>
+
+<style>
+
+/* =========================================================
+   PMEW — PRECISION HUMOUR PAGE LOADER
+   LAYERING MODEL
+   ---------------------------------------------------------
+   10  Rear machine housing
+   14  Rear slot
+   20  Money / value notes
+   24  Slot throat mask
+   26  Measurement scale
+   27  Scanner
+   28  Front slot lip
+   30  Machine front housing
+   34  Gauge
+   35  Machine label
+   40+ Rejection feedback
+
+   This means:
+
+   NOTE
+     ↓
+   FRONT OF MACHINE
+     ↓
+   SLOT
+     ↓
+   PHYSICALLY MASKED / SWALLOWED
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+  --white: #ffffff;
+
+  --ink: #111315;
+
+  --grey-950: #050606;
+  --grey-900: #0b0c0d;
+  --grey-850: #111315;
+  --grey-800: #1a1d1f;
+  --grey-750: #24272a;
+  --grey-700: #34383b;
+
+  --coral: #f08080;
+  --green: #28766a;
+
+  --note-dark: #52634c;
+  --note-mid: #809079;
+
+  --full-sequence: 2.38s;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+
+html {
+  background: #ffffff;
+}
+
+
+body {
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  color: var(--ink);
+
+  font-family:
+    "Montserrat",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  overflow-x: hidden;
+
+}
+
+
+body.loader-active {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   FULL SCREEN LOADER
+========================================================= */
+
+#pmew-loader {
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity .48s cubic-bezier(.22,.61,.36,1),
+    visibility .48s ease;
+
+}
+
+
+/* ULTRA-WHITE DEPTH */
+
+#pmew-loader::before {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at 50% 47%,
+      #ffffff 0%,
+      #ffffff 58%,
+      #fbfbfb 79%,
+      #f8f8f8 100%
+    );
+
+}
+
+
+/* MICRO SHADOW AROUND OBJECT */
+
+#pmew-loader::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 540px;
+  height: 540px;
+
+  transform:
+    translate(-50%, -51%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,0,0,.017),
+      transparent 67%
+    );
+
+  pointer-events: none;
+
+}
+
+
+#pmew-loader.is-leaving {
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+}
+
+
+/* =========================================================
+   SHELL
+========================================================= */
+
+.loader-shell {
+
+  position: relative;
+
+  width: min(94vw, 480px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  transform:
+    translateY(-3px);
+
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.inspection-stage {
+
+  position: relative;
+
+  width: 300px;
+  height: 204px;
+
+  margin-bottom: 4px;
+
+}
+
+
+/* =========================================================
+   FLOOR SHADOW
+========================================================= */
+
+.floor-shadow {
+
+  position: absolute;
+
+  z-index: 1;
+
+  left: 50%;
+  bottom: 10px;
+
+  width: 154px;
+  height: 15px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,0,0,.115);
+
+  filter:
+    blur(10px);
+
+  animation:
+    floorShadow
+    var(--full-sequence)
+    ease
+    both;
+
+}
+
+
+/* =========================================================
+   PRECISION MACHINE
+   ---------------------------------------------------------
+   CRITICAL FIX:
+
+   NO z-index.
+   NO transform.
+
+   Therefore this element DOES NOT create a stacking
+   context that traps all machine children above notes.
+========================================================= */
+
+.precision-machine {
+
+  position: absolute;
+
+  /*
+    194 / 2 = 97
+    This centers it without transform.
+  */
+
+  left:
+    calc(50% - 97px);
+
+  bottom: 31px;
+
+  width: 194px;
+  height: 104px;
+
+}
+
+
+/* =========================================================
+   REAR MACHINE HOUSING
+   LAYER 10
+========================================================= */
+
+.machine-back {
+
+  position: absolute;
+
+  z-index: 10;
+
+  left: 10px;
+  right: 10px;
+  top: 0;
+
+  height: 78px;
+
+  border-radius:
+    12px 12px 7px 7px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.055),
+      transparent 13%,
+      transparent 86%,
+      rgba(255,255,255,.025)
+    ),
+
+    linear-gradient(
+      145deg,
+      #34383b 0%,
+      #202326 24%,
+      #121416 59%,
+      #070808 100%
+    );
+
+  border:
+    1px solid rgba(0,0,0,.60);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -10px 22px rgba(0,0,0,.18),
+    0 9px 24px rgba(0,0,0,.07);
+
+}
+
+
+/* TOP MACHINED EDGE */
+
+.machine-back::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  right: 13px;
+  top: 8px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.24),
+      transparent
+    );
+
+}
+
+
+/* SIDE MACHINING */
+
+.machine-back::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border-left:
+    1px solid rgba(255,255,255,.025);
+
+  border-right:
+    1px solid rgba(255,255,255,.025);
+
+  border-radius: 8px;
+
+}
+
+
+/* =========================================================
+   REAR SLOT
+   LAYER 14
+
+   This is BEHIND the note.
+========================================================= */
+
+.slot-rear {
+
+  position: absolute;
+
+  z-index: 14;
+
+  left: 50%;
+  top: 8px;
+
+  width: 118px;
+  height: 13px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #010202 0%,
+      #0a0b0c 75%,
+      #141618 100%
+    );
+
+  box-shadow:
+    inset 0 4px 5px rgba(0,0,0,.95),
+    0 1px 0 rgba(255,255,255,.09);
+
+}
+
+
+/* INSIDE SLOT HIGHLIGHT */
+
+.slot-rear::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  right: 16px;
+  top: 2px;
+
+  height: 1px;
+
+  background:
+    rgba(255,255,255,.065);
+
+}
+
+
+/* =========================================================
+   NOTES
+   LAYER 20
+
+   NOTE IS ABOVE:
+   - machine rear housing
+   - rear slot
+
+   So it visibly approaches the machine instead of
+   travelling behind it.
+========================================================= */
+
+.value-note {
+
+  position: absolute;
+
+  z-index: 20;
+
+  left: 50%;
+  top: -60px;
+
+  width: 103px;
+  height: 50px;
+
+  opacity: 0;
+
+  transform-origin:
+    50% 100%;
+
+}
+
+
+/* =========================================================
+   PAPER BODY
+========================================================= */
+
+.note-paper {
+
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  border:
+    1px solid #8b9b85;
+
+  background:
+
+    radial-gradient(
+      circle at 76% 42%,
+      rgba(94,118,85,.10) 0 15px,
+      transparent 16px
+    ),
+
+    repeating-linear-gradient(
+      38deg,
+      rgba(75,96,67,.032) 0,
+      rgba(75,96,67,.032) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+
+    linear-gradient(
+      135deg,
+      #fbfdf9 0%,
+      #edf3e9 45%,
+      #d1ddcc 100%
+    );
+
+  box-shadow:
+    0 6px 15px rgba(0,0,0,.09);
+
+}
+
+
+/* PAPER REFLECTION */
+
+.note-paper::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -20px;
+  left: -35px;
+
+  width: 35px;
+  height: 90px;
+
+  transform:
+    rotate(25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.40),
+      transparent
+    );
+
+  animation:
+    paperGlint
+    var(--full-sequence)
+    linear
+    both;
+
+}
+
+
+/* NOTE BORDER */
+
+.note-paper::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid rgba(76,97,69,.24);
+
+  border-radius: 1px;
+
+}
+
+
+/* =========================================================
+   ABSTRACT MONEY PATTERN
+========================================================= */
+
+.note-pattern {
+
+  position: absolute;
+
+  z-index: 2;
+
+  inset: 8px;
+
+  border:
+    1px dashed rgba(70,91,63,.17);
+
+  border-radius: 1px;
+
+}
+
+
+.note-pattern::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 32px;
+  top: 3px;
+
+  width: 29px;
+  height: 24px;
+
+  border:
+    1px solid rgba(75,96,67,.15);
+
+  border-radius: 50%;
+
+}
+
+
+.note-pattern::after {
+
+  content: "";
+
+  position: absolute;
+
+  right: 3px;
+  top: 5px;
+
+  width: 17px;
+  height: 16px;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      rgba(70,91,63,.09) 0 1px,
+      transparent 1px 3px
+    );
+
+  border-radius: 50%;
+
+}
+
+
+/* =========================================================
+   REGISTRATION CORNERS
+========================================================= */
+
+.note-corner {
+
+  position: absolute;
+
+  z-index: 5;
+
+  width: 6px;
+  height: 6px;
+
+}
+
+
+.corner-tl {
+
+  left: 5px;
+  top: 5px;
+
+  border-top:
+    1px solid rgba(66,88,59,.61);
+
+  border-left:
+    1px solid rgba(66,88,59,.61);
+
+}
+
+
+.corner-tr {
+
+  right: 5px;
+  top: 5px;
+
+  border-top:
+    1px solid rgba(66,88,59,.61);
+
+  border-right:
+    1px solid rgba(66,88,59,.61);
+
+}
+
+
+.corner-bl {
+
+  left: 5px;
+  bottom: 5px;
+
+  border-bottom:
+    1px solid rgba(66,88,59,.61);
+
+  border-left:
+    1px solid rgba(66,88,59,.61);
+
+}
+
+
+.corner-br {
+
+  right: 5px;
+  bottom: 5px;
+
+  border-bottom:
+    1px solid rgba(66,88,59,.61);
+
+  border-right:
+    1px solid rgba(66,88,59,.61);
+
+}
+
+
+/* =========================================================
+   NOTE COPY
+========================================================= */
+
+.value-word {
+
+  position: absolute;
+
+  z-index: 6;
+
+  left: 8px;
+  top: 7px;
+
+  font-size: 5px;
+  font-weight: 800;
+
+  letter-spacing: .9px;
+
+  color:
+    var(--note-dark);
+
+}
+
+
+.value-symbol {
+
+  position: absolute;
+
+  z-index: 6;
+
+  left: 50%;
+  top: 50%;
+
+  width: 27px;
+  height: 27px;
+
+  transform:
+    translate(-50%,-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(74,96,68,.51);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.24);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color:
+    #506348;
+
+}
+
+
+.currency-strip {
+
+  position: absolute;
+
+  z-index: 6;
+
+  right: 8px;
+  bottom: 7px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 4.8px;
+  font-weight: 700;
+
+  letter-spacing: .65px;
+
+  color:
+    rgba(71,92,65,.60);
+
+}
+
+
+.note-lines {
+
+  position: absolute;
+
+  z-index: 6;
+
+  left: 8px;
+  bottom: 8px;
+
+  width: 20px;
+
+}
+
+
+.note-lines b {
+
+  display: block;
+
+  height: 1px;
+
+  margin-top: 2px;
+
+  background:
+    rgba(71,92,65,.30);
+
+}
+
+
+.note-lines b:nth-child(2) {
+  width: 14px;
+}
+
+
+.note-lines b:nth-child(3) {
+  width: 17px;
+}
+
+
+/* =========================================================
+   NOTE ANIMATIONS
+========================================================= */
+
+.note-one {
+
+  animation:
+    noteOne
+    var(--full-sequence)
+    cubic-bezier(.42,.05,.24,1)
+    both;
+
+}
+
+
+.note-two {
+
+  animation:
+    noteTwo
+    var(--full-sequence)
+    cubic-bezier(.42,.05,.24,1)
+    both;
+
+}
+
+
+.note-three {
+
+  z-index: 21;
+
+  animation:
+    noteThreeReject
+    var(--full-sequence)
+    cubic-bezier(.42,.05,.24,1)
+    both;
+
+}
+
+
+/* =========================================================
+   SLOT THROAT MASK
+   LAYER 24
+   ---------------------------------------------------------
+   THIS IS THE IMPORTANT NEW PART.
+
+   The note stays visible above the slot.
+
+   Once its lower section crosses this point,
+   this dark throat physically hides that portion.
+
+   Therefore the note looks like it is actually
+   ENTERING the machine.
+========================================================= */
+
+.slot-throat {
+
+  position: absolute;
+
+  z-index: 24;
+
+  left: 50%;
+  top: 16px;
+
+  width: 116px;
+  height: 34px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #0b0c0d 0%,
+      #111315 25%,
+      #17191b 70%,
+      #1c1f21 100%
+    );
+
+  clip-path:
+    polygon(
+      2% 0,
+      98% 0,
+      94% 100%,
+      6% 100%
+    );
+
+}
+
+
+/* SUBTLE DEPTH INSIDE THROAT */
+
+.slot-throat::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 8px;
+  right: 8px;
+  top: 0;
+
+  height: 9px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.48),
+      transparent
+    );
+
+}
+
+
+/* =========================================================
+   MEASUREMENT SCALE
+   LAYER 26
+========================================================= */
+
+.measurement-scale {
+
+  position: absolute;
+
+  z-index: 26;
+
+  left: 50%;
+  top: 25px;
+
+  width: 114px;
+  height: 9px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+
+
+.measurement-scale i {
+
+  display: block;
+
+  width: 1px;
+  height: 3px;
+
+  background:
+    rgba(255,255,255,.27);
+
+}
+
+
+.measurement-scale i:nth-child(3n) {
+
+  height: 7px;
+
+  background:
+    rgba(255,255,255,.57);
+
+}
+
+
+.measurement-scale i:nth-child(7) {
+
+  height: 9px;
+
+  background:
+    rgba(255,255,255,.75);
+
+}
+
+
+/* =========================================================
+   SCAN WINDOW
+   LAYER 27
+========================================================= */
+
+.scan-window {
+
+  position: absolute;
+
+  z-index: 27;
+
+  left: 50%;
+  top: 37px;
+
+  width: 116px;
+  height: 4px;
+
+  transform:
+    translateX(-50%);
+
+  overflow: hidden;
+
+  opacity: .50;
+
+  pointer-events: none;
+
+}
+
+
+.scan-window::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -30px;
+
+  width: 23px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(240,128,128,.72),
+      transparent
+    );
+
+  animation:
+    scannerMove
+    var(--full-sequence)
+    linear
+    both;
+
+}
+
+
+/* =========================================================
+   FRONT SLOT LIP
+   LAYER 28
+
+   This sits ABOVE the note and gives us a physical
+   slot edge.
+
+   The note therefore appears to pass BETWEEN:
+   rear slot + front lip.
+========================================================= */
+
+.slot-front-lip {
+
+  position: absolute;
+
+  z-index: 28;
+
+  left: 50%;
+  top: 13px;
+
+  width: 116px;
+  height: 9px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:
+    0 0 50% 50%;
+
+  border-bottom:
+    2px solid rgba(47,51,54,.96);
+
+  box-shadow:
+    0 2px 2px rgba(0,0,0,.38),
+    0 1px 0 rgba(255,255,255,.055);
+
+  pointer-events: none;
+
+}
+
+
+/* VERY THIN METALLIC SLOT EDGE */
+
+.slot-front-lip::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 8px;
+  right: 8px;
+  bottom: -1px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.14),
+      transparent
+    );
+
+}
+
+
+/* =========================================================
+   FRONT MACHINE
+   LAYER 30
+
+   Once the note passes deep enough into the machine,
+   this housing hides the remaining lower section.
+========================================================= */
+
+.machine-front {
+
+  position: absolute;
+
+  z-index: 30;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 63px;
+
+  border-radius:
+    8px 8px 15px 15px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025),
+      transparent 16%,
+      transparent 86%,
+      rgba(255,255,255,.015)
+    ),
+
+    linear-gradient(
+      180deg,
+      #2b2e31 0%,
+      #181a1c 41%,
+      #0d0e0f 73%,
+      #050606 100%
+    );
+
+  border:
+    1px solid rgba(255,255,255,.065);
+
+  box-shadow:
+    0 14px 29px rgba(0,0,0,.17),
+    inset 0 1px 0 rgba(255,255,255,.11);
+
+  animation:
+    machineReaction
+    var(--full-sequence)
+    cubic-bezier(.22,.61,.36,1)
+    both;
+
+}
+
+
+/* INNER BORDER */
+
+.machine-front::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border:
+    1px solid rgba(255,255,255,.05);
+
+  border-radius:
+    5px 5px 10px 10px;
+
+}
+
+
+/* CORAL PRECISION MARK */
+
+.machine-front::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 10px;
+
+  width: 27px;
+  height: 2px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 10px;
+
+  background:
+    var(--coral);
+
+}
+
+
+/* =========================================================
+   GAUGE PANEL
+   LAYER 34
+
+   Gauge is intentionally ABOVE front housing.
+========================================================= */
+
+.gauge-panel {
+
+  position: absolute;
+
+  z-index: 34;
+
+  left: 50%;
+  top: 44px;
+
+  width: 116px;
+  height: 28px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    0 9px;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #111315,
+      #08090a
+    );
+
+  border:
+    1px solid rgba(255,255,255,.075);
+
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,.65),
+    0 1px 0 rgba(255,255,255,.025);
+
+}
+
+
+/* =========================================================
+   STATUS LED
+========================================================= */
+
+.gauge-led {
+
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background:
+    var(--green);
+
+  box-shadow:
+    0 0 0 2px rgba(40,118,106,.09),
+    0 0 6px rgba(40,118,106,.42);
+
+  animation:
+    ledSequence
+    var(--full-sequence)
+    linear
+    both;
+
+}
+
+
+/* =========================================================
+   GAUGE TEXT
+========================================================= */
+
+.gauge-readout {
+
+  flex: 1;
+
+  margin-left: 8px;
+
+  text-align: left;
+
+}
+
+
+.gauge-title {
+
+  display: block;
+
+  font-size: 4.8px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1.05px;
+
+  color:
+    rgba(255,255,255,.35);
+
+  text-transform: uppercase;
+
+}
+
+
+.gauge-value {
+
+  position: relative;
+
+  display: block;
+
+  height: 11px;
+
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+  line-height: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: .35px;
+
+  color:
+    rgba(255,255,255,.82);
+
+}
+
+
+.gauge-value::before {
+
+  content: "TOL ±0.01";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  animation:
+    gaugePassText
+    var(--full-sequence)
+    linear
+    both;
+
+}
+
+
+.gauge-value::after {
+
+  content: "OUT OF TOL.";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  opacity: 0;
+
+  color:
+    #f3a0a0;
+
+  animation:
+    gaugeFailText
+    var(--full-sequence)
+    linear
+    both;
+
+}
+
+
+/* =========================================================
+   MACHINE LABEL
+   LAYER 35
+========================================================= */
+
+.machine-copy {
+
+  position: absolute;
+
+  z-index: 35;
+
+  left: 50%;
+  bottom: 17px;
+
+  transform:
+    translateX(-50%);
+
+  white-space: nowrap;
+
+  font-size: 5.8px;
+  font-weight: 650;
+
+  letter-spacing: 1.8px;
+
+  color:
+    rgba(255,255,255,.39);
+
+  text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   REJECTION FEEDBACK
+========================================================= */
+
+.reject-x {
+
+  position: absolute;
+
+  z-index: 40;
+
+  left:
+    calc(50% + 66px);
+
+  top: 95px;
+
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid #eceeee;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 13px rgba(0,0,0,.075);
+
+  color:
+    var(--coral);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  opacity: 0;
+
+  transform:
+    scale(.70);
+
+  animation:
+    rejectX
+    var(--full-sequence)
+    ease
+    both;
+
+}
+
+
+.reject-label {
+
+  position: absolute;
+
+  z-index: 41;
+
+  left:
+    calc(50% + 77px);
+
+  top: 121px;
+
+  white-space: nowrap;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 5.8px;
+  font-weight: 700;
+
+  letter-spacing: .85px;
+
+  color:
+    #8d9296;
+
+  opacity: 0;
+
+  transform:
+    translateX(-5px);
+
+  animation:
+    rejectLabel
+    var(--full-sequence)
+    ease
+    both;
+
+}
+
+
+/* =========================================================
+   PUNCHLINE
+========================================================= */
+
+.punchline {
+
+  min-height: 108px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+/* FIRST PART */
+
+.counting-line {
+
+  font-size:
+    clamp(15px, 3.5vw, 19px);
+
+  font-weight: 760;
+
+  letter-spacing: 1.55px;
+
+  color:
+    var(--ink);
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform:
+    translateY(7px);
+
+  animation:
+    textReveal
+    .32s
+    1.54s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+
+}
+
+
+/* COMEDIC PAYOFF */
+
+.not-money {
+
+  margin-top: 4px;
+
+  font-size:
+    clamp(19px, 4.5vw, 26px);
+
+  font-weight: 800;
+
+  letter-spacing: 2.35px;
+
+  color:
+    var(--ink);
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform:
+    translateY(7px);
+
+  animation:
+    textReveal
+    .31s
+    1.75s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+
+}
+
+
+.not-money em {
+
+  font-style: normal;
+
+  color:
+    var(--coral);
+
+}
+
+
+/* =========================================================
+   CORAL RULE
+========================================================= */
+
+.punchline-rule {
+
+  width: 0;
+  height: 2px;
+
+  margin-top: 10px;
+
+  border-radius: 999px;
+
+  background:
+    var(--coral);
+
+  animation:
+    ruleReveal
+    .27s
+    1.94s
+    cubic-bezier(.65,0,.35,1)
+    both;
+
+}
+
+
+/* =========================================================
+   PMEW
+========================================================= */
+
+.pmew-signature {
+
+  margin-top: 14px;
+
+  opacity: 0;
+
+  transform:
+    translateY(5px);
+
+  animation:
+    textReveal
+    .30s
+    2s
+    ease
+    both;
+
+}
+
+
+.pmew-name {
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 4.5px;
+
+  color:
+    #151719;
+
+  text-transform: uppercase;
+
+}
+
+
+.pmew-tagline {
+
+  margin-top: 5px;
+
+  font-size: 6px;
+  font-weight: 650;
+
+  letter-spacing: 1.7px;
+
+  color:
+    #969a9d;
+
+  text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   REAL WAITING STATE
+========================================================= */
+
+.loading-wait {
+
+  min-height: 12px;
+
+  margin-top: 13px;
+
+  font-size: 5.8px;
+  font-weight: 650;
+
+  letter-spacing: 1.9px;
+
+  color:
+    #a1a5a8;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform:
+    translateY(2px);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+
+}
+
+
+#pmew-loader.is-waiting
+.loading-wait {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+
+}
+
+
+#pmew-loader.is-waiting
+.gauge-led {
+
+  animation:
+    waitingLED
+    1.15s
+    ease-in-out
+    infinite;
+
+}
+
+
+/* =========================================================
+   NOTE 01
+   ---------------------------------------------------------
+   Visible in front.
+
+   At the final section its bottom passes the slot throat
+   and is therefore physically masked.
+========================================================= */
+
+@keyframes noteOne {
+
+  0%,
+  4% {
+
+    top: -60px;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      rotate(-4deg)
+      scale(.95);
+
+  }
+
+
+  7% {
+    opacity: 1;
+  }
+
+
+  18% {
+
+    top: 57px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(0)
+      scale(1);
+
+  }
+
+
+  21% {
+
+    top: 68px;
+
+    transform:
+      translateX(-50%)
+      scaleX(.988)
+      scaleY(.97);
+
+  }
+
+
+  24% {
+
+    top: 82px;
+
+    transform:
+      translateX(-50%)
+      scaleX(.97)
+      scaleY(.91);
+
+  }
+
+
+  28% {
+
+    top: 102px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(.91);
+
+  }
+
+
+  31%,
+  100% {
+
+    top: 107px;
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   NOTE 02
+========================================================= */
+
+@keyframes noteTwo {
+
+  0%,
+  23% {
+
+    top: -60px;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      rotate(4deg)
+      scale(.95);
+
+  }
+
+
+  26% {
+    opacity: 1;
+  }
+
+
+  37% {
+
+    top: 57px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(0)
+      scale(1);
+
+  }
+
+
+  40% {
+
+    top: 68px;
+
+    transform:
+      translateX(-50%)
+      scaleX(.988)
+      scaleY(.97);
+
+  }
+
+
+  43% {
+
+    top: 82px;
+
+    transform:
+      translateX(-50%)
+      scaleX(.97)
+      scaleY(.91);
+
+  }
+
+
+  47% {
+
+    top: 102px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(.91);
+
+  }
+
+
+  50%,
+  100% {
+
+    top: 107px;
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   NOTE 03 — REJECTION
+
+   The note:
+
+   1. remains fully in front
+   2. partially enters slot
+   3. lower section gets masked
+   4. gauge detects failure
+   5. note recoils
+   6. note is ejected sideways
+========================================================= */
+
+@keyframes noteThreeReject {
+
+  0%,
+  42% {
+
+    left: 50%;
+    top: -60px;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      rotate(-3deg)
+      scale(.95);
+
+  }
+
+
+  45% {
+    opacity: 1;
+  }
+
+
+  53% {
+
+    left: 50%;
+    top: 48px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(0)
+      scale(1);
+
+  }
+
+
+  /* APPROACH SLOT */
+
+  56% {
+
+    left: 50%;
+    top: 58px;
+
+    transform:
+      translateX(-50%)
+      rotate(0)
+      scale(1);
+
+  }
+
+
+  /* PARTIAL INSERTION */
+
+  58% {
+
+    left: 50%;
+    top: 65px;
+
+    transform:
+      translateX(-50%)
+      scaleX(.995)
+      scaleY(.97);
+
+  }
+
+
+  /* HARD GAUGE STOP */
+
+  60% {
+
+    left: 50%;
+    top: 68px;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.01)
+      scaleY(.985);
+
+  }
+
+
+  /* MICRO RECOIL */
+
+  62% {
+
+    left: 50%;
+    top: 58px;
+
+    transform:
+      translateX(-50%)
+      rotate(1deg)
+      scale(1);
+
+  }
+
+
+  /* EJECTION BEGINS */
+
+  65% {
+
+    left: 58%;
+    top: 37px;
+
+    transform:
+      translateX(-50%)
+      rotate(8deg)
+      scale(1);
+
+  }
+
+
+  /* CLEAN SIDE FLICK */
+
+  70% {
+
+    left: 71%;
+    top: 48px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(15deg)
+      scale(.97);
+
+  }
+
+
+  76% {
+
+    left: 82%;
+    top: 83px;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      rotate(22deg)
+      scale(.90);
+
+  }
+
+
+  100% {
+
+    left: 82%;
+    top: 83px;
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   MACHINE REACTION
+========================================================= */
+
+@keyframes machineReaction {
+
+  0%,
+  16%,
+  27%,
+  35%,
+  47%,
+  53%,
+  100% {
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+
+  /* NOTE 1 */
+
+  19% {
+
+    transform:
+      translateY(1px)
+      scaleX(1.012)
+      scaleY(.989);
+
+  }
+
+
+  22% {
+
+    transform:
+      scale(1);
+
+  }
+
+
+  /* NOTE 2 */
+
+  38% {
+
+    transform:
+      translateY(1px)
+      scaleX(1.012)
+      scaleY(.989);
+
+  }
+
+
+  41% {
+
+    transform:
+      scale(1);
+
+  }
+
+
+  /* REJECTION CONTACT */
+
+  57% {
+
+    transform:
+      translateY(1px)
+      scaleX(1.006)
+      scaleY(.994);
+
+  }
+
+
+  59% {
+
+    transform:
+      translateX(-1px);
+
+  }
+
+
+  60.5% {
+
+    transform:
+      translateX(1px);
+
+  }
+
+
+  62% {
+
+    transform:
+      translateX(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   SCANNER
+========================================================= */
+
+@keyframes scannerMove {
+
+  0%,
+  48% {
+
+    left: -30px;
+    opacity: 0;
+
+  }
+
+
+  51% {
+
+    opacity: 1;
+
+  }
+
+
+  58% {
+
+    left: 116px;
+    opacity: .9;
+
+  }
+
+
+  61%,
+  100% {
+
+    left: 116px;
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   GAUGE STATES
+========================================================= */
+
+@keyframes gaugePassText {
+
+  0%,
+  57% {
+    opacity: 1;
+  }
+
+
+  59%,
+  69% {
+    opacity: 0;
+  }
+
+
+  72%,
+  100% {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes gaugeFailText {
+
+  0%,
+  58% {
+    opacity: 0;
+  }
+
+
+  60%,
+  69% {
+    opacity: 1;
+  }
+
+
+  72%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   LED
+========================================================= */
+
+@keyframes ledSequence {
+
+  0%,
+  57% {
+
+    background:
+      var(--green);
+
+    box-shadow:
+      0 0 0 2px rgba(40,118,106,.09),
+      0 0 6px rgba(40,118,106,.42);
+
+  }
+
+
+  60%,
+  69% {
+
+    background:
+      var(--coral);
+
+    box-shadow:
+      0 0 0 2px rgba(240,128,128,.10),
+      0 0 8px rgba(240,128,128,.55);
+
+  }
+
+
+  72%,
+  100% {
+
+    background:
+      var(--green);
+
+    box-shadow:
+      0 0 0 2px rgba(40,118,106,.09),
+      0 0 6px rgba(40,118,106,.42);
+
+  }
+
+}
+
+
+/* =========================================================
+   REJECTION
+========================================================= */
+
+@keyframes rejectX {
+
+  0%,
+  58% {
+
+    opacity: 0;
+
+    transform:
+      scale(.70);
+
+  }
+
+
+  61% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.10);
+
+  }
+
+
+  64% {
+
+    transform:
+      scale(1);
+
+  }
+
+
+  69% {
+
+    opacity: 1;
+
+  }
+
+
+  74%,
+  100% {
+
+    opacity: 0;
+
+    transform:
+      scale(.87);
+
+  }
+
+}
+
+
+@keyframes rejectLabel {
+
+  0%,
+  59% {
+
+    opacity: 0;
+
+    transform:
+      translateX(-5px);
+
+  }
+
+
+  63% {
+
+    opacity: 1;
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  69% {
+
+    opacity: .90;
+
+  }
+
+
+  74%,
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translateX(3px);
+
+  }
+
+}
+
+
+/* =========================================================
+   PAPER GLINT
+========================================================= */
+
+@keyframes paperGlint {
+
+  0% {
+    left: -40px;
+  }
+
+  35% {
+    left: 115px;
+  }
+
+  100% {
+    left: 115px;
+  }
+
+}
+
+
+/* =========================================================
+   FLOOR SHADOW
+========================================================= */
+
+@keyframes floorShadow {
+
+  0%,
+  100% {
+
+    transform:
+      translateX(-50%)
+      scaleX(1);
+
+    opacity: .50;
+
+  }
+
+
+  20% {
+
+    transform:
+      translateX(-50%)
+      scaleX(.93);
+
+    opacity: .38;
+
+  }
+
+
+  40% {
+
+    transform:
+      translateX(-50%)
+      scaleX(.94);
+
+    opacity: .40;
+
+  }
+
+
+  60% {
+
+    transform:
+      translateX(-50%)
+      scaleX(1.06);
+
+    opacity: .56;
+
+  }
+
+
+  74% {
+
+    transform:
+      translateX(-50%)
+      scaleX(1);
+
+    opacity: .47;
+
+  }
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+@keyframes textReveal {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(7px);
+
+  }
+
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+@keyframes ruleReveal {
+
+  from {
+    width: 0;
+  }
+
+
+  to {
+    width: 33px;
+  }
+
+}
+
+
+/* =========================================================
+   WAITING
+========================================================= */
+
+@keyframes waitingLED {
+
+  0%,
+  100% {
+
+    opacity: .38;
+
+    box-shadow:
+      0 0 3px rgba(40,118,106,.18);
+
+  }
+
+
+  50% {
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 8px rgba(40,118,106,.48);
+
+  }
+
+}
+
+
+/* =========================================================
+   REAL SITE CONTENT
+========================================================= */
+
+#site-content {
+
+  min-height: 100vh;
+
+  opacity: 0;
+
+  transform:
+    scale(1.002);
+
+  transition:
+    opacity .48s cubic-bezier(.22,.61,.36,1),
+    transform .62s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+body.page-ready
+#site-content {
+
+  opacity: 1;
+
+  transform:
+    scale(1);
+
+}
+
+
+/* =========================================================
+   DEMO PAGE
+   Replace with actual PMEW site.
+========================================================= */
+
+.demo-page {
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    60px 24px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #ffffff 0%,
+      #ffffff 60%,
+      #f8f8f8 100%
+    );
+
+}
+
+
+.demo-eyebrow {
+
+  margin-bottom: 22px;
+
+  font-size: 9px;
+  font-weight: 750;
+
+  letter-spacing: 4px;
+
+  color:
+    var(--coral);
+
+  text-transform: uppercase;
+
+}
+
+
+.demo-page h1 {
+
+  font-size:
+    clamp(48px, 8vw, 110px);
+
+  line-height: .88;
+
+  font-weight: 780;
+
+  letter-spacing: -.055em;
+
+  color:
+    var(--ink);
+
+}
+
+
+.demo-page p {
+
+  max-width: 660px;
+
+  margin:
+    27px auto 0;
+
+  font-size:
+    clamp(10px, 1vw, 13px);
+
+  line-height: 1.7;
+
+  font-weight: 550;
+
+  letter-spacing: 2.1px;
+
+  color:
+    #777c80;
+
+  text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   QUICK MODE
+========================================================= */
+
+#pmew-loader.quick-mode
+.inspection-stage {
+
+  height: 174px;
+
+  margin-bottom: -4px;
+
+  transform:
+    scale(.89);
+
+}
+
+
+#pmew-loader.quick-mode
+.note-two,
+
+#pmew-loader.quick-mode
+.note-three,
+
+#pmew-loader.quick-mode
+.reject-x,
+
+#pmew-loader.quick-mode
+.reject-label,
+
+#pmew-loader.quick-mode
+.scan-window {
+
+  display: none;
+
+}
+
+
+#pmew-loader.quick-mode
+.note-one {
+
+  animation:
+    quickNote
+    .54s
+    cubic-bezier(.42,.05,.24,1)
+    both;
+
+}
+
+
+#pmew-loader.quick-mode
+.machine-front {
+
+  animation:
+    quickMachine
+    .54s
+    ease
+    both;
+
+}
+
+
+#pmew-loader.quick-mode
+.gauge-led {
+
+  animation:
+    quickLed
+    .54s
+    ease
+    both;
+
+}
+
+
+#pmew-loader.quick-mode
+.gauge-value::before {
+
+  animation: none;
+
+  opacity: 1;
+
+}
+
+
+#pmew-loader.quick-mode
+.gauge-value::after {
+
+  display: none;
+
+}
+
+
+#pmew-loader.quick-mode
+.counting-line,
+
+#pmew-loader.quick-mode
+.not-money,
+
+#pmew-loader.quick-mode
+.punchline-rule,
+
+#pmew-loader.quick-mode
+.pmew-signature,
+
+#pmew-loader.quick-mode
+.loading-wait {
+
+  display: none;
+
+}
+
+
+.quick-copy {
+
+  display: none;
+
+  margin-top: -2px;
+
+  font-size: 6px;
+  font-weight: 700;
+
+  letter-spacing: 2.1px;
+
+  color:
+    #8d9296;
+
+  text-transform: uppercase;
+
+}
+
+
+#pmew-loader.quick-mode
+.quick-copy {
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   QUICK ANIMATION
+========================================================= */
+
+@keyframes quickNote {
+
+  0% {
+
+    top: -58px;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      rotate(-3deg)
+      scale(.96);
+
+  }
+
+
+  10% {
+    opacity: 1;
+  }
+
+
+  63% {
+
+    top: 56px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(0)
+      scale(1);
+
+  }
+
+
+  76% {
+
+    top: 67px;
+
+    transform:
+      translateX(-50%)
+      scaleY(.96);
+
+  }
+
+
+  89% {
+
+    top: 86px;
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(.92);
+
+  }
+
+
+  100% {
+
+    top: 104px;
+
+    opacity: 0;
+
+  }
+
+}
+
+
+@keyframes quickMachine {
+
+  0%,
+  66%,
+  100% {
+
+    transform:
+      scale(1);
+
+  }
+
+
+  82% {
+
+    transform:
+      scaleX(1.012)
+      scaleY(.989);
+
+  }
+
+}
+
+
+@keyframes quickLed {
+
+  0%,
+  100% {
+    opacity: .55;
+  }
+
+
+  78% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .loader-shell {
+
+    width: 96vw;
+
+    transform:
+      translateY(-7px);
+
+  }
+
+
+  .inspection-stage {
+
+    transform:
+      scale(.87);
+
+    margin-top: -11px;
+    margin-bottom: -11px;
+
+  }
+
+
+  .counting-line {
+
+    font-size: 14px;
+
+    letter-spacing: 1.2px;
+
+  }
+
+
+  .not-money {
+
+    margin-top: 3px;
+
+    font-size: 20px;
+
+    letter-spacing: 1.8px;
+
+  }
+
+
+  .pmew-name {
+
+    font-size: 11px;
+
+  }
+
+
+  .pmew-tagline {
+
+    font-size: 5.5px;
+
+    letter-spacing: 1.3px;
+
+  }
+
+
+  .reject-label {
+
+    display: none;
+
+  }
+
+}
+
+
+/* =========================================================
+   SHORT SCREENS
+========================================================= */
+
+@media (max-height: 620px) {
+
+  .loader-shell {
+
+    transform:
+      scale(.88)
+      translateY(-5px);
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .value-note,
+  .machine-front,
+  .gauge-led,
+  .reject-x,
+  .reject-label,
+  .scan-window::after,
+  .floor-shadow,
+  .note-paper::before {
+
+    animation: none !important;
+
+  }
+
+
+  .value-note,
+  .reject-x,
+  .reject-label {
+
+    display: none;
+
+  }
+
+
+  .counting-line,
+  .not-money,
+  .pmew-signature {
+
+    animation: none !important;
+
+    opacity: 1;
+
+    transform: none;
+
+  }
+
+
+  .punchline-rule {
+
+    animation: none !important;
+
+    width: 33px;
+
+  }
+
+}
+
+</style>
+</head>
+
+
+<body class="loader-active">
+
+
+<!-- ======================================================
+     PMEW LOADER
+======================================================= -->
+
+<div
+  id="pmew-loader"
+  role="status"
+  aria-label="Loading PMEW website"
+>
+
+
+  <div class="loader-shell">
+
+
+    <!-- ==================================================
+         ANIMATION STAGE
+    =================================================== -->
+
+    <div class="inspection-stage">
+
+
+      <div class="floor-shadow"></div>
+
+
+
+      <!-- =================================================
+           NOTE 01
+      ================================================== -->
+
+      <div class="value-note note-one">
+
+        <div class="note-paper">
+
+          <div class="note-pattern"></div>
+
+          <span class="note-corner corner-tl"></span>
+          <span class="note-corner corner-tr"></span>
+          <span class="note-corner corner-bl"></span>
+          <span class="note-corner corner-br"></span>
+
+          <span class="value-word">
+            VALUE
+          </span>
+
+          <span class="value-symbol">
+            ₹
+          </span>
+
+          <span class="currency-strip">
+            ₹ · $ · € · ¥
+          </span>
+
+          <span class="note-lines">
+            <b></b>
+            <b></b>
+            <b></b>
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           NOTE 02
+      ================================================== -->
+
+      <div class="value-note note-two">
+
+        <div class="note-paper">
+
+          <div class="note-pattern"></div>
+
+          <span class="note-corner corner-tl"></span>
+          <span class="note-corner corner-tr"></span>
+          <span class="note-corner corner-bl"></span>
+          <span class="note-corner corner-br"></span>
+
+          <span class="value-word">
+            VALUE
+          </span>
+
+          <span class="value-symbol">
+            ₹
+          </span>
+
+          <span class="currency-strip">
+            ₹ · $ · € · ¥
+          </span>
+
+          <span class="note-lines">
+            <b></b>
+            <b></b>
+            <b></b>
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           NOTE 03 — REJECTED
+      ================================================== -->
+
+      <div class="value-note note-three">
+
+        <div class="note-paper">
+
+          <div class="note-pattern"></div>
+
+          <span class="note-corner corner-tl"></span>
+          <span class="note-corner corner-tr"></span>
+          <span class="note-corner corner-bl"></span>
+          <span class="note-corner corner-br"></span>
+
+          <span class="value-word">
+            VALUE
+          </span>
+
+          <span class="value-symbol">
+            ₹
+          </span>
+
+          <span class="currency-strip">
+            ₹ · $ · € · ¥
+          </span>
+
+          <span class="note-lines">
+            <b></b>
+            <b></b>
+            <b></b>
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PRECISION MACHINE
+      ================================================== -->
+
+      <div class="precision-machine">
+
+
+        <!-- REAR MACHINE -->
+
+        <div class="machine-back"></div>
+
+
+
+        <!-- REAR SLOT -->
+
+        <div class="slot-rear"></div>
+
+
+
+        <!--
+          SLOT THROAT
+
+          This overlays the lower section of each note
+          after it crosses the slot.
+        -->
+
+        <div class="slot-throat"></div>
+
+
+
+        <!-- MEASUREMENT SCALE -->
+
+        <div
+          class="measurement-scale"
+          aria-hidden="true"
+        >
+
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+
+        </div>
+
+
+
+        <!-- SCANNER -->
+
+        <div
+          class="scan-window"
+          aria-hidden="true"
+        ></div>
+
+
+
+        <!-- FRONT EDGE OF SLOT -->
+
+        <div class="slot-front-lip"></div>
+
+
+
+        <!-- FRONT MACHINE PANEL -->
+
+        <div class="machine-front"></div>
+
+
+
+        <!-- GAUGE -->
+
+        <div class="gauge-panel">
+
+
+          <span
+            class="gauge-led"
+            aria-hidden="true"
+          ></span>
+
+
+          <div class="gauge-readout">
+
+
+            <span class="gauge-title">
+              Precision Gauge
+            </span>
+
+
+            <span class="gauge-value"></span>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- LABEL -->
+
+        <div class="machine-copy">
+          Precision Inspection
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           REJECTION FEEDBACK
+      ================================================== -->
+
+      <div
+        class="reject-x"
+        aria-hidden="true"
+      >
+        ×
+      </div>
+
+
+      <div
+        class="reject-label"
+        aria-hidden="true"
+      >
+        OUT OF TOLERANCE
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         PUNCHLINE
+    =================================================== -->
+
+    <div class="punchline">
+
+
+      <div class="counting-line">
+        Counting Tolerances.
+      </div>
+
+
+      <div class="not-money">
+        Not Money<em>.</em>
+      </div>
+
+
+      <div class="punchline-rule"></div>
+
+
+
+      <!-- =================================================
+           PMEW
+      ================================================== -->
+
+      <div class="pmew-signature">
+
+
+        <div class="pmew-name">
+          PMEW
+        </div>
+
+
+        <div class="pmew-tagline">
+          Engineering Trust · Excellence Since 1960
+        </div>
+
+
+      </div>
+
+
+
+      <!-- ONLY APPEARS IF PAGE REALLY NEEDS LONGER -->
+
+      <div class="loading-wait">
+        Preparing The Next Page
+      </div>
+
+
+    </div>
+
+
+
+    <!-- QUICK MODE -->
+
+    <div class="quick-copy">
+      Engineering The Next Page
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<!-- ======================================================
+     DEMO WEBSITE
+
+     Replace this with your actual PMEW page.
+======================================================= -->
+
+<div id="site-content">
+
+
+  <main class="demo-page">
+
+
+    <div>
+
+
+      <div class="demo-eyebrow">
+        Pradako Mechanical &amp; Engineering Works
+      </div>
+
+
+      <h1>
+        ENGINEERING<br>
+        TRUST.
+      </h1>
+
+
+      <p>
+
+        Precision Fasteners · Quality Manufacturing ·
+        Engineering Excellence Since 1960
+
+      </p>
+
+
+    </div>
+
+
+  </main>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   PMEW PRODUCTION LOADER CONTROLLER
+========================================================= */
+
+(function () {
+
+  "use strict";
+
+
+  const loader =
+    document.getElementById("pmew-loader");
+
+  const body =
+    document.body;
+
+
+  if (!loader) {
+    return;
+  }
+
+
+
+  /* =======================================================
+     CONFIG
+  ======================================================= */
+
+  const CONFIG = {
+
+
+    /*
+      Production:
+      show full joke once per browsing session.
+    */
+
+    rememberDuringSession: true,
+
+
+
+    /*
+      DEVELOPMENT
+
+      true:
+      replay complete loader every refresh.
+
+      false:
+      normal production behaviour.
+    */
+
+    forceFullLoader: false,
+
+
+
+    /*
+      Full animation timing.
+    */
+
+    fullMinimumTime: 2350,
+
+
+
+    /*
+      Repeat / internal page timing.
+    */
+
+    quickMinimumTime: 580,
+
+
+
+    /*
+      Accessibility.
+    */
+
+    reducedMotionTime: 240,
+
+
+
+    /*
+      Never trap user behind loader.
+    */
+
+    absoluteMaximumWait: 6000
+
+  };
+
+
+
+  /* =======================================================
+     REDUCED MOTION
+  ======================================================= */
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+
+  /* =======================================================
+     SESSION
+  ======================================================= */
+
+  let alreadySeen = false;
+
+
+  try {
+
+    alreadySeen =
+      sessionStorage.getItem(
+        "pmew-loader-seen"
+      ) === "yes";
+
+  }
+
+  catch (error) {
+
+    alreadySeen = false;
+
+  }
+
+
+
+  const quickMode =
+
+    CONFIG.rememberDuringSession &&
+    alreadySeen &&
+    !CONFIG.forceFullLoader;
+
+
+
+  if (quickMode) {
+
+    loader.classList.add(
+      "quick-mode"
+    );
+
+  }
+
+
+
+  /* =======================================================
+     STATES
+  ======================================================= */
+
+  let minimumAnimationComplete = false;
+
+  let actualPageReady =
+    document.readyState === "complete";
+
+  let loaderClosed = false;
+
+
+
+  /* =======================================================
+     REVEAL
+  ======================================================= */
+
+  function revealPage() {
+
+
+    if (loaderClosed) {
+      return;
+    }
+
+
+    loaderClosed = true;
+
+
+
+    /*
+      Make underlying PMEW page visible while
+      loader is still covering it.
+    */
+
+    body.classList.add(
+      "page-ready"
+    );
+
+
+    body.classList.remove(
+      "loader-active"
+    );
+
+
+    loader.classList.remove(
+      "is-waiting"
+    );
+
+
+
+    /*
+      Wait two frames.
+
+      This allows browser to commit the underlying
+      page state before loader fades.
+    */
+
+    requestAnimationFrame(function () {
+
+      requestAnimationFrame(function () {
+
+        loader.classList.add(
+          "is-leaving"
+        );
+
+      });
+
+    });
+
+
+
+    /*
+      Remove loader completely.
+    */
+
+    window.setTimeout(
+      function () {
+
+        if (loader.parentNode) {
+
+          loader.remove();
+
+        }
+
+      },
+      600
+    );
+
+  }
+
+
+
+  /* =======================================================
+     CHECK
+  ======================================================= */
+
+  function evaluateLoader() {
+
+
+    /*
+      Animation done
+      +
+      webpage ready
+      =
+      reveal.
+    */
+
+    if (
+      minimumAnimationComplete &&
+      actualPageReady
+    ) {
+
+      revealPage();
+
+      return;
+
+    }
+
+
+
+    /*
+      Animation finished but real webpage still loading.
+
+      Don't restart money joke.
+      Machine simply waits.
+    */
+
+    if (
+      minimumAnimationComplete &&
+      !actualPageReady &&
+      !quickMode &&
+      !reducedMotion
+    ) {
+
+      loader.classList.add(
+        "is-waiting"
+      );
+
+    }
+
+  }
+
+
+
+  /* =======================================================
+     TRUE PAGE LOAD
+  ======================================================= */
+
+  window.addEventListener(
+    "load",
+    function () {
+
+
+      actualPageReady = true;
+
+
+      loader.classList.remove(
+        "is-waiting"
+      );
+
+
+      evaluateLoader();
+
+
+    },
+    {
+      once: true
+    }
+  );
+
+
+
+  /* =======================================================
+     MINIMUM TIME
+  ======================================================= */
+
+  let minimumTime;
+
+
+  if (reducedMotion) {
+
+    minimumTime =
+      CONFIG.reducedMotionTime;
+
+  }
+
+  else if (quickMode) {
+
+    minimumTime =
+      CONFIG.quickMinimumTime;
+
+  }
+
+  else {
+
+    minimumTime =
+      CONFIG.fullMinimumTime;
+
+  }
+
+
+
+  window.setTimeout(
+    function () {
+
+
+      minimumAnimationComplete = true;
+
+
+      evaluateLoader();
+
+
+    },
+    minimumTime
+  );
+
+
+
+  /* =======================================================
+     SAVE SESSION
+  ======================================================= */
+
+  if (
+    !quickMode &&
+    CONFIG.rememberDuringSession
+  ) {
+
+    try {
+
+      sessionStorage.setItem(
+        "pmew-loader-seen",
+        "yes"
+      );
+
+    }
+
+    catch (error) {
+
+      /*
+        Ignore storage restrictions.
+      */
+
+    }
+
+  }
+
+
+
+  /* =======================================================
+     SAFETY FALLBACK
+  ======================================================= */
+
+  window.setTimeout(
+    function () {
+
+
+      if (!loaderClosed) {
+
+        revealPage();
+
+      }
+
+
+    },
+    CONFIG.absoluteMaximumWait
+  );
+
+
+})();
+
+</script>
+
+
+</body>
+</html>

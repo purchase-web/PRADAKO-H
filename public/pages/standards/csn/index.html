@@ -1,0 +1,3553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pradako ČSN Fastener Standards Library</title>
+    <meta name="description" content="Structured ČSN fastener standards reference library covering ČSN, ČSN EN, ČSN EN ISO, ČSN ISO and mapped EN / ISO references for aerospace, defence and precision-engineering research." />
+
+    <!-- ============================================================
+    EXTERNAL RESOURCES
+    ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- ============================================================
+    INTERNAL STYLES
+    ============================================================ -->
+    <style>
+        /* ------------------------------------------------------------------
+           PRADAKO MULTI-AUTHORITY STANDARDS LIBRARY
+           DIN master-page structure. Source standard data is untouched.
+           ------------------------------------------------------------------ */
+        :root {
+            --white: #fff;
+            --navy: #24343b;
+            --blue: #28766a;
+            --gold: #f08080;
+            --line: #dde5e7;
+            --text: #26343b;
+            --muted: #6d7b82;
+            --soft-blue: #eef7f4;
+            --soft: #f7faf9;
+            --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+            --dynamic-row-height: 126px;
+            --dynamic-cell-x: 8px;
+            --dynamic-cell-y: 10px;
+            --title-clamp: 3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .top-hero {
+            padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 14px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .hero-route {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0 0 17px;
+        }
+
+        .hero-route-pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 0 11px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--muted);
+            font: 800 9.5px "Montserrat", sans-serif;
+            letter-spacing: .9px;
+            text-transform: uppercase;
+        }
+
+        .top-hero h1 {
+            margin: 0;
+            max-width: 1250px;
+            font-family: "Space Grotesk", Georgia, serif;
+            font-size: clamp(42px, 4.1vw, 72px);
+            line-height: 1;
+            letter-spacing: -1.6px;
+            color: var(--navy);
+        }
+
+        .hero-subtitle {
+            display: block;
+            margin-top: 8px;
+            font-size: clamp(17px, 1.55vw, 24px);
+            line-height: 1.25;
+            letter-spacing: -.35px;
+            color: var(--blue);
+            font-weight: 650;
+        }
+
+        .top-hero p.hero-intro {
+            max-width: 1160px;
+            margin: 18px 0 0;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .hero-trust-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 34px;
+            padding: 0 11px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--navy);
+            font: 850 10px "Montserrat", sans-serif;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+        }
+
+        .hero-trust-item i {
+            color: var(--blue);
+            font-size: 10px;
+        }
+
+        .engineering-use-note {
+            margin: 14px clamp(24px, 3.1vw, 58px) 0;
+            padding: 13px 15px;
+            border: 1px solid #d7e4e1;
+            border-left: 3px solid var(--blue);
+            border-radius: 10px;
+            background: #f8fbfa;
+            color: var(--text);
+            font-size: 11.5px;
+            line-height: 1.65;
+            font-weight: 600;
+        }
+
+        .engineering-use-note strong {
+            color: var(--navy);
+            font-weight: 900;
+        }
+
+        .engineering-use-note .note-label {
+            display: inline-flex;
+            margin-right: 8px;
+            color: var(--blue);
+            font-size: 9.5px;
+            font-weight: 900;
+            letter-spacing: .75px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CONTROLS ===== */
+        .control-zone {
+            position: relative;
+            z-index: 20;
+            padding: 12px 32px 10px;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .search-wrap,
+        .family-wrap {
+            position: relative;
+        }
+
+        .search-wrap input,
+        .family-filter {
+            width: 100%;
+            height: 40px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            outline: 0;
+            font: 700 12.5px "Montserrat", sans-serif;
+            color: var(--text);
+            transition: .2s;
+        }
+
+        .search-wrap input {
+            padding: 0 18px 0 46px;
+        }
+
+        .family-filter {
+            padding: 0 14px;
+        }
+
+        .search-wrap input:focus,
+        .family-filter:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px var(--soft-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 17px;
+            color: var(--navy);
+        }
+
+        .btn {
+            height: 40px;
+            border-radius: 12px;
+            padding: 0 14px;
+            font: 900 10.5px "Montserrat", sans-serif;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            border: 1px solid var(--navy);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .btn-soft {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--navy);
+        }
+
+        .btn-soft:hover,
+        .btn-soft.active {
+            background: var(--soft-blue);
+            border-color: var(--blue);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .stat-pills,
+        .stats-actions {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--navy);
+            font-size: 10.5px;
+            font-weight: 900;
+            background: #fff;
+        }
+
+        .duplicate-mode-pill {
+            display: none;
+        }
+
+        .duplicate-mode-pill.show {
+            display: inline-flex;
+        }
+
+        .duplicate-check-btn {
+            border-color: #f08080;
+            background: #fff2f2;
+            color: #493538;
+        }
+
+        .duplicate-check-btn.active {
+            background: #f08080;
+            color: #fff;
+            border-color: #f08080;
+        }
+
+        /* ===== VIEW PANEL ===== */
+        .view-panel {
+            display: none;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: linear-gradient(180deg, #fff, var(--soft));
+            box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+        }
+
+        .view-panel.open {
+            display: block;
+        }
+
+        .view-panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .view-panel-title {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: .6px;
+            text-transform: uppercase;
+        }
+
+        .preset-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .mini-btn {
+            height: 32px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--navy);
+            padding: 0 11px;
+            font: 900 10px "Montserrat", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .mini-btn.active,
+        .mini-btn:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+        }
+
+        .view-groups {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+        }
+
+        .view-group {
+            padding: 11px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .view-group h4 {
+            margin: 0 0 8px;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .column-checks {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .check-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 9px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text);
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .check-item:has(input:checked) {
+            border-color: #94c2b5;
+            background: var(--soft-blue);
+            color: var(--navy);
+        }
+
+        .check-item input {
+            accent-color: var(--navy);
+        }
+
+        /* ===== STICKY TABLE HEAD ===== */
+        .sticky-table-head-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 1450;
+            margin: 0;
+            background: #fff;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+        }
+
+        .sticky-table-head-scroll {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+        }
+
+        .sticky-table-head-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sticky-head-table,
+        #standardsTable {
+            width: max-content;
+            min-width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            table-layout: fixed;
+        }
+
+        .sticky-head-table thead th {
+            background: var(--navy);
+        }
+
+        #standardsTable thead {
+            display: none;
+        }
+
+        /* ===== TABLE ZONE ===== */
+        .table-zone {
+            position: relative;
+            background: #fff;
+        }
+
+        .table-scroll {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-scroll:not(.has-horizontal-scroll),
+        .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+            overflow-x: hidden;
+        }
+
+        .sticky-head-table th,
+        #standardsTable th,
+        #standardsTable td {
+            box-sizing: border-box;
+        }
+
+        thead th {
+            padding: 10px var(--dynamic-cell-x);
+            text-align: left;
+            font-size: 9.5px;
+            letter-spacing: .5px;
+            color: #fff;
+            background: var(--navy);
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            cursor: pointer;
+            user-select: none;
+            white-space: normal;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+
+        thead th.not-sortable {
+            cursor: default;
+        }
+
+        tbody tr {
+            height: var(--dynamic-row-height);
+        }
+
+        tbody td {
+            padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+            vertical-align: middle;
+            font-size: 11.5px;
+            line-height: 1.4;
+            background: #fff;
+            color: var(--text);
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        tbody tr:hover td {
+            background: #f3f9f7;
+        }
+
+        .sticky-col {
+            position: sticky !important;
+            left: var(--sticky-left, 0) !important;
+            background: #fff;
+            box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+        }
+
+        tbody tr:hover td.sticky-col {
+            background: #f3f9f7;
+        }
+
+        .sticky-head-table th.sticky-col {
+            z-index: 40;
+            background: var(--navy);
+            box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+        }
+
+        #standardsTable td.sticky-col {
+            z-index: 12;
+        }
+
+        /* ===== CELLS ===== */
+        .media-cell {
+            padding: 10px 14px !important;
+        }
+
+        .media-card {
+            width: 210px;
+            height: 104px;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+            cursor: pointer;
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            padding: 9px;
+            background: #fff;
+            transition: .22s;
+        }
+
+        .media-card:hover {
+            border-color: var(--blue);
+        }
+
+        .media-card:hover img {
+            transform: scale(1.035);
+        }
+
+        .media-empty {
+            width: 210px;
+            height: 104px;
+            border: 1px dashed #c8d5d7;
+            border-radius: 13px;
+            background: #fbfcfc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+        }
+
+        .media-empty i {
+            font-size: 17px;
+            color: #82959b;
+        }
+
+        .pradako-id {
+            display: inline-flex;
+            padding: 5px 7px;
+            border: 1px solid #cad6d8;
+            border-radius: 7px;
+            background: #f6f9f8;
+            color: var(--navy);
+            font: 900 10.5px "Montserrat", sans-serif;
+            letter-spacing: .15px;
+            white-space: nowrap;
+        }
+
+        .standard-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            background: var(--navy);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 900;
+            white-space: normal;
+        }
+
+        .standard-link:hover {
+            background: var(--blue);
+        }
+
+        .standard-link i {
+            font-size: 9px;
+        }
+
+        .body-pill {
+            display: inline-flex;
+            padding: 5px 7px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            background: var(--soft-blue);
+            color: var(--navy);
+            font-size: 10px;
+            font-weight: 850;
+        }
+
+        .title-cell {
+            font-weight: 750;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: var(--title-clamp);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .family-pill {
+            display: inline-flex;
+            font-size: 10.5px;
+            font-weight: 850;
+            line-height: 1.3;
+            color: var(--navy);
+        }
+
+        .scope-cell {
+            color: var(--text);
+        }
+
+        .density-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--soft);
+        }
+
+        .density-btn {
+            height: 30px;
+            padding: 0 9px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--muted);
+            font: 900 9.5px "Montserrat", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .density-btn.active {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .density-comfortable .media-card,
+        .density-comfortable .media-empty {
+            height: 140px;
+        }
+
+        mark {
+            background: #dcefe9;
+            color: var(--navy);
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+
+        .empty-state {
+            display: none;
+            padding: 64px 20px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .empty-state h3 {
+            margin: 0 0 8px;
+            color: var(--navy);
+        }
+
+        .footer-note {
+            padding: 16px 32px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        /* ===== MODALS ===== */
+        .modal-overlay,
+        .image-preview-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(24, 34, 39, .84);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.show,
+        .image-preview-overlay.show {
+            display: flex;
+        }
+
+        .modal-card,
+        .image-preview-card {
+            position: relative;
+            width: min(620px, 96vw);
+            max-height: 92vh;
+            overflow: auto;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+        }
+
+        .image-preview-card {
+            width: min(1000px, 96vw);
+        }
+
+        .modal-top,
+        .image-preview-head {
+            padding: 22px 26px;
+            background: var(--navy);
+            color: #fff;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .modal-top h2,
+        .image-preview-head h3 {
+            margin: 0;
+        }
+
+        .modal-top p {
+            margin: 9px 0 0;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .modal-body,
+        .image-preview-body {
+            padding: 24px;
+        }
+
+        .image-preview-body img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .modal-close,
+        .image-preview-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--navy);
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .work-message {
+            padding: 17px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        .email-line {
+            margin-top: 8px;
+            color: var(--navy);
+            font-weight: 900;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .modal-btn {
+            height: 42px;
+            padding: 0 14px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            font: 900 11px "Montserrat";
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .modal-btn-primary {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+        }
+
+        .modal-btn-soft {
+            background: #fff;
+            color: var(--navy);
+        }
+
+        .copy-status {
+            display: none;
+            margin-top: 10px;
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .copy-status.show {
+            display: block;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .pradako-back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            cursor: pointer;
+            z-index: 100000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+            transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+        }
+
+        .pradako-back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .pradako-back-to-top:hover {
+            background: var(--blue);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1350px) {
+            .controls-grid {
+                grid-template-columns: 1fr 1fr auto auto;
+            }
+            .stats-row {
+                align-items: flex-start;
+            }
+            .view-groups {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:900px) {
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            .sticky-col {
+                position: static !important;
+                left: auto !important;
+                box-shadow: none !important;
+            }
+            .sticky-head-table th.sticky-col,
+            #standardsTable td.sticky-col {
+                position: static !important;
+                left: auto !important;
+            }
+            .sticky-table-head-scroll,
+            .table-scroll {
+                overflow-x: auto !important;
+                overscroll-behavior-x: contain;
+            }
+            .top-hero {
+                padding: 28px 18px 24px;
+            }
+            .top-hero h1 {
+                font-size: clamp(34px, 10vw, 48px);
+                line-height: 1.04;
+                letter-spacing: -1px;
+            }
+            .hero-subtitle {
+                font-size: 17px;
+            }
+            .top-hero p.hero-intro {
+                font-size: 13px;
+                line-height: 1.65;
+            }
+            .engineering-use-note {
+                margin: 12px 18px 0;
+                padding: 12px;
+                font-size: 10.5px;
+            }
+            .control-zone {
+                padding: 12px;
+            }
+            .controls-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .search-wrap,
+            .family-filter,
+            #viewOptionsBtn {
+                grid-column: 1 / -1;
+            }
+            .search-wrap input,
+            .family-filter {
+                height: 42px;
+                font-size: 12px;
+            }
+            .controls-grid .btn {
+                width: 100%;
+                min-width: 0;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .stats-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .stat-pills {
+                width: 100%;
+                gap: 5px;
+            }
+            .stat-pill {
+                padding: 5px 8px;
+                font-size: 9px;
+            }
+            .stats-actions {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 7px;
+            }
+            .density-switch {
+                grid-column: 1 / -1;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .density-btn,
+            .stats-actions>.btn {
+                width: 100%;
+                min-width: 0;
+            }
+            .view-panel {
+                padding: 9px;
+                border-radius: 12px;
+            }
+            .view-panel-head {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .preset-actions {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+            }
+            .mini-btn {
+                width: 100%;
+                min-width: 0;
+                padding: 0 5px;
+                font-size: 8.5px;
+            }
+            .view-groups {
+                grid-template-columns: 1fr;
+                gap: 7px;
+            }
+            .view-group {
+                padding: 9px;
+            }
+            .check-item {
+                padding: 6px 7px;
+                font-size: 9.5px;
+            }
+            thead th {
+                padding: 8px 6px;
+                font-size: 8px;
+            }
+            tbody td {
+                padding: 8px 6px;
+                font-size: 10px;
+            }
+            .media-cell {
+                padding: 7px !important;
+            }
+            .media-card,
+            .media-empty {
+                width: 126px !important;
+                height: 88px !important;
+            }
+            .density-comfortable .media-card,
+            .density-comfortable .media-empty {
+                height: 105px !important;
+            }
+            .pradako-id {
+                font-size: 8.5px;
+                padding: 4px 5px;
+            }
+            .standard-link {
+                padding: 4px 6px;
+                font-size: 9px;
+            }
+            .family-pill,
+            .body-pill {
+                font-size: 9px;
+            }
+            .footer-note {
+                padding: 14px 16px;
+                font-size: 9.5px;
+            }
+            .pradako-back-to-top {
+                right: 14px;
+                bottom: 14px;
+                width: 44px;
+                height: 44px;
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .top-hero {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .engineering-use-note {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            .hero-route-pill {
+                font-size: 7.5px;
+                padding: 0 8px;
+            }
+            .hero-trust-item {
+                font-size: 7.8px;
+                padding: 0 8px;
+            }
+            .media-card,
+            .media-empty {
+                width: 116px !important;
+                height: 82px !important;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/csn/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako ČSN Fastener Standards Library">
+    <meta property="og:description" content="Structured ČSN fastener standards reference library covering ČSN, ČSN EN, ČSN EN ISO, ČSN ISO and mapped EN / ISO references for aerospace, defence and precision-engineering research.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/csn/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako ČSN Fastener Standards Library">
+    <meta name="twitter:description" content="Structured ČSN fastener standards reference library covering ČSN, ČSN EN, ČSN EN ISO, ČSN ISO and mapped EN / ISO references for aerospace, defence and precision-engineering research.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako ČSN Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standards/csn/index.html",
+  "description": "Structured ČSN fastener standards reference library covering ČSN, ČSN EN, ČSN EN ISO, ČSN ISO and mapped EN / ISO references for aerospace, defence and precision-engineering research.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <div id="navbar-container"></div>
+
+    <!-- ============================================================
+    PAGE
+    ============================================================ -->
+    <section class="page">
+
+        <!-- ===== HERO ===== -->
+        <header class="top-hero">
+            <div class="hero-kicker">
+                <i class="fa-solid fa-gears"></i> Pradako Standards Library · ČSN / Czech Standards
+            </div>
+            <div class="hero-route" aria-label="Standard series represented">
+                <span class="hero-route-pill">ČSN</span>
+                <span class="hero-route-pill">ČSN EN</span>
+                <span class="hero-route-pill">ČSN EN ISO</span>
+                <span class="hero-route-pill">ČSN ISO</span>
+                <span class="hero-route-pill">ČSN CEN ISO/TR</span>
+            </div>
+            <h1>
+                ČSN Fastener Standards
+                <span class="hero-subtitle">Engineering Reference Library</span>
+            </h1>
+            <p class="hero-intro">
+                A structured ČSN standards reference library for aerospace, defence and precision-engineering research.
+                Explore the supplied Czech standards and mapped EN / ISO adoptions with standard designations, supplied
+                English titles or names, product families, requested-family coverage, underlying EN / ISO references,
+                mapped issue dates and controlled Pradako standard identities through the same engineering reference
+                interface used across the standards library.
+            </p>
+            <div class="hero-trust" aria-label="Library features">
+                <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 173 Standard Records</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 173 Pradako Standard IDs</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-industry"></i> ČSN / EN / ISO Mapping</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-link"></i> Independent Standard Pages</span>
+            </div>
+        </header>
+
+        <!-- ===== ENGINEERING USE NOTE ===== -->
+        <div class="engineering-use-note" role="note">
+            <span class="note-label">Engineering Use Note</span>
+            <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+            Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements
+            should be confirmed against the governing specification and current official publication before design,
+            procurement or release.
+        </div>
+
+        <!-- ===== CONTROL ZONE ===== -->
+        <section class="control-zone">
+            <div class="controls-grid">
+                <div class="search-wrap">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input id="searchInput" type="text" placeholder="Search ČSN standard, title, Pradako ID, EN / ISO reference or product family..." />
+                </div>
+                <select id="familyFilter" class="family-filter">
+                    <option value="">All Product Families</option>
+                </select>
+                <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+                <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+                <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+                    <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+                </button>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-pills">
+                    <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+                    <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+                    <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+                    <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+                        Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+                    </div>
+                </div>
+                <div class="stats-actions">
+                    <div class="density-switch">
+                        <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+                        <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+                    </div>
+                    <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+                    <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+                        <span>⧉</span>&nbsp; Check Duplicates
+                    </button>
+                </div>
+            </div>
+
+            <!-- View Panel -->
+            <div class="view-panel open" id="viewPanel">
+                <div class="view-panel-head">
+                    <div class="view-panel-title">Choose the information you want visible</div>
+                    <div class="preset-actions">
+                        <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+                        <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+                        <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+                    </div>
+                </div>
+                <div class="view-groups" id="viewGroups"></div>
+            </div>
+        </section>
+
+        <!-- ===== STICKY TABLE HEAD ===== -->
+        <div class="sticky-table-head-wrap">
+            <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+                <table class="sticky-head-table" aria-hidden="true">
+                    <thead>
+                        <tr id="stickyTableHeadRow"></tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== TABLE ZONE ===== -->
+        <section class="table-zone">
+            <div class="table-scroll" id="tableScroll">
+                <table id="standardsTable">
+                    <thead>
+                        <tr id="tableHeadRow"></tr>
+                    </thead>
+                    <tbody id="standardsTableBody"></tbody>
+                </table>
+                <div class="empty-state" id="emptyState">
+                    <h3>No standards found</h3>
+                    <p>Try another ČSN standard, title, Pradako ID, EN / ISO reference or product family.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ============================================================
+    EXPORT MODAL
+    ============================================================ -->
+    <section class="modal-overlay" id="exportModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+            <div class="modal-top">
+                <h2>Export Request</h2>
+                <p>The export feature is currently being upgraded for the complete standards database.</p>
+            </div>
+            <div class="modal-body">
+                <div class="work-message">
+                    We are working on it.<br />Please email us on:
+                    <div class="email-line">info@pradakomechanicals.com</div>
+                </div>
+                <div class="modal-actions">
+                    <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=CSN%20Standards%20Library%20Export%20Request">Email Us</a>
+                    <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+                    <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+                </div>
+                <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    IMAGE PREVIEW MODAL
+    ============================================================ -->
+    <section class="image-preview-overlay" id="imagePreviewModal">
+        <div class="image-preview-card">
+            <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+            <div class="image-preview-head">
+                <h3 id="imagePreviewTitle">Standard Media</h3>
+            </div>
+            <div class="image-preview-body">
+                <img id="imagePreviewImg" src="" alt="" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <div id="footer-container"></div>
+
+    <!-- ============================================================
+    BACK TO TOP
+    ============================================================ -->
+    <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- ============================================================
+    EXTERNAL SCRIPTS
+    ============================================================ -->
+    <!-- ============================================================
+    APPLICATION SCRIPT
+    ============================================================ -->
+    <script>
+        // ------------------------------------------------------------------
+        // COMPONENT LOADER
+        // ------------------------------------------------------------------
+        
+        
+        
+
+        // ------------------------------------------------------------------
+        // COLUMN DEFINITIONS
+        // ------------------------------------------------------------------
+        const COLUMNS = [{
+            key: "imageSrc",
+            label: "Photo / 2D / 3D",
+            width: 240,
+            minWidth: 240,
+            maxWidth: 240,
+            fixed: true,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "media",
+            searchable: false,
+            sortable: false,
+            weight: 0
+        }, {
+            key: "pradakoId",
+            label: "Pradako Standard ID",
+            width: 145,
+            minWidth: 124,
+            maxWidth: 190,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "id",
+            searchable: true,
+            sortable: true,
+            weight: .55
+        }, {
+            key: "standardCode",
+            label: "ČSN Standard",
+            width: 235,
+            minWidth: 165,
+            maxWidth: 360,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "standard",
+            searchable: true,
+            sortable: true,
+            weight: .95
+        }, {
+            key: "title",
+            label: "Official English Title / Original Name",
+            width: 500,
+            minWidth: 270,
+            maxWidth: 820,
+            core: true,
+            group: "core",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: 2.65
+        }, {
+            key: "productFamily",
+            label: "Primary Product Family",
+            width: 220,
+            minWidth: 145,
+            maxWidth: 350,
+            core: true,
+            group: "core",
+            type: "family",
+            searchable: true,
+            sortable: true,
+            weight: 1.0
+        }, {
+            key: "requestedCoverage",
+            label: "Requested-Family Coverage",
+            width: 275,
+            minWidth: 180,
+            maxWidth: 420,
+            core: false,
+            technical: true,
+            group: "mapping",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: 1.0
+        }, {
+            key: "reference",
+            label: "Underlying EN / ISO Reference",
+            width: 245,
+            minWidth: 175,
+            maxWidth: 380,
+            core: false,
+            technical: true,
+            group: "mapping",
+            type: "standardref",
+            searchable: true,
+            sortable: true,
+            weight: .95
+        }, {
+            key: "issueDate",
+            label: "ČSN Issue Date / Mapped Date",
+            width: 220,
+            minWidth: 155,
+            maxWidth: 310,
+            core: false,
+            technical: true,
+            group: "mapping",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: .72
+        }, {
+            key: "sourceId",
+            label: "Source Record ID",
+            width: 225,
+            minWidth: 160,
+            maxWidth: 330,
+            core: false,
+            technical: false,
+            group: "source",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: .7
+        }];
+
+        const GROUP_META = {
+            core: { label: "Core Information" },
+            mapping: { label: "ČSN / EN / ISO Mapping" },
+            source: { label: "Source Record" }
+        };
+
+        // ------------------------------------------------------------------
+        // UTILITY FUNCTIONS
+        // ------------------------------------------------------------------
+        function slugify(text) {
+            return String(text || "").toLowerCase()
+                .replace(/čsn/g, "csn")
+                .replace(/&/g, "and")
+                .replace(/\+/g, "plus")
+                .replace(/,/g, " ")
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+
+        function escapeHTML(v) {
+            return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+        }
+
+        function escapeRegex(v) {
+            return v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
+
+        function highlightText(v, q) {
+            const t = escapeHTML(v);
+            if (!q.trim()) return t;
+            const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+            return t.replace(r, "<mark>$1</mark>");
+        }
+
+        function normalizeDuplicateKey(v) {
+            return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+        }
+
+        // ------------------------------------------------------------------
+        // SOURCE DATA (preserved exactly as supplied)
+        // ------------------------------------------------------------------
+        const SOURCE_STANDARDS_DATA = [{
+            "id": "sn-en-14218-001",
+            "standardCode": "ČSN EN 14218",
+            "title": "Hexagon nuts with flange - Fine pitch thread (ISO 10663:1999, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 14218:2003",
+            "issueDate": "2003-04-16"
+        }, {
+            "id": "sn-en-14219-002",
+            "standardCode": "ČSN EN 14219",
+            "title": "Hexagon bolts with flange with metric fine pitch thread - Small series (ISO 15072:1999, modified)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 14219:2003",
+            "issueDate": "2003-04-16"
+        }, {
+            "id": "sn-en-14219-ac-003",
+            "standardCode": "ČSN EN 14219/AC",
+            "title": "Hexagon bolts with flange with metric fine pitch thread - Small series (ISO 15072:1999, modified)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 14219:2003/AC:2007",
+            "issueDate": "2007-02-28"
+        }, {
+            "id": "sn-en-14399-1-004",
+            "standardCode": "ČSN EN 14399-1",
+            "title": "High-strength structural bolting assemblies for preloading - Part 1: General requirements",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-1:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-2-005",
+            "standardCode": "ČSN EN 14399-2",
+            "title": "High-strength structural bolting assemblies for preloading - Part 2: Suitability for preloading",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-2:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-3-006",
+            "standardCode": "ČSN EN 14399-3",
+            "title": "High-strength structural bolting assemblies for preloading - Part 3: System HR - Hexagon bolt and nut assemblies",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-3:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-4-007",
+            "standardCode": "ČSN EN 14399-4",
+            "title": "High-strength structural bolting assemblies for preloading - Part 4: System HV - Hexagon bolt and nut assemblies",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-4:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-5-008",
+            "standardCode": "ČSN EN 14399-5",
+            "title": "High-strength structural bolting assemblies for preloading - Part 5: Plain washers",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-5:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-6-009",
+            "standardCode": "ČSN EN 14399-6",
+            "title": "High-strength structural bolting assemblies for preloading - Part 6: Plain chamfered washers",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-6:2015",
+            "issueDate": "2015-02-18"
+        }, {
+            "id": "sn-en-14399-7-010",
+            "standardCode": "ČSN EN 14399-7",
+            "title": "High-strength structural bolting assemblies for preloading - Part 7: System HR - Countersunk head bolt and nut assemblies",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-7:2018",
+            "issueDate": "2018-07-25"
+        }, {
+            "id": "sn-en-14399-8-011",
+            "standardCode": "ČSN EN 14399-8",
+            "title": "High-strength structural bolting assemblies for preloading - Part 8: System HV - Hexagon fit bolt and nut assemblies",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-8:2018",
+            "issueDate": "2018-07-25"
+        }, {
+            "id": "sn-en-14399-9-012",
+            "standardCode": "ČSN EN 14399-9",
+            "title": "High-strength structural bolting assemblies for preloading - Part 9: System HR or HV - Direct tension indicators for bolt and nut assemblies",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-9:2018",
+            "issueDate": "2018-05-03"
+        }, {
+            "id": "sn-en-14399-10-013",
+            "standardCode": "ČSN EN 14399-10",
+            "title": "High-strength structural bolting assemblies for preloading - Part 10: System HRC - Bolt and nut assemblies with calibrated preload",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts / Washers",
+            "reference": "EN 14399-10:2018",
+            "issueDate": "2018-05-03"
+        }, {
+            "id": "sn-en-14831-014",
+            "standardCode": "ČSN EN 14831",
+            "title": "Fasteners - Tightening performance - Torque/Angle simplified test method",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Bolts / Nuts / Studs",
+            "reference": "EN 14831:2005",
+            "issueDate": "2005-04-13"
+        }, {
+            "id": "sn-en-15048-1-015",
+            "standardCode": "ČSN EN 15048-1",
+            "title": "Non-preloaded structural bolting assemblies - Part 1: General requirements",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts",
+            "reference": "EN 15048-1:2016",
+            "issueDate": "2016-07-20"
+        }, {
+            "id": "sn-en-15048-2-016",
+            "standardCode": "ČSN EN 15048-2",
+            "title": "Non-preloaded structural bolting assemblies - Part 2: Fitness for purpose",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Nuts",
+            "reference": "EN 15048-2:2016",
+            "issueDate": "2016-07-20"
+        }, {
+            "id": "sn-en-1661-017",
+            "standardCode": "ČSN EN 1661",
+            "title": "Hexagon nuts with flange (ISO/DIS 4161:1996, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1661:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-en-1661-ac-018",
+            "standardCode": "ČSN EN 1661/AC",
+            "title": "Hexagon nuts with flange (ISO/DIS 4161:1996, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1661:1997/AC:1998",
+            "issueDate": "1998-12-16"
+        }, {
+            "id": "sn-en-1662-019",
+            "standardCode": "ČSN EN 1662",
+            "title": "Hexagon bolts with flange - Small series (ISO/DIS 15071:1996, modified)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 1662:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-en-1662-ac-020",
+            "standardCode": "ČSN EN 1662/AC",
+            "title": "Hexagon bolts with flange - Small series (ISO/DIS 15071:1996, modified)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 1662:1997/AC:2007",
+            "issueDate": "2007-02-28"
+        }, {
+            "id": "sn-en-1663-021",
+            "standardCode": "ČSN EN 1663",
+            "title": "Prevailing torque type hexagon nuts with flange (with non-metallic insert) (ISO 7043:1997, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1663:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-en-1664-022",
+            "standardCode": "ČSN EN 1664",
+            "title": "Prevailing torque type all-metal hexagon nuts with flange (ISO 7044:1997, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1664:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-en-1665-023",
+            "standardCode": "ČSN EN 1665",
+            "title": "Hexagon bolts with flange - Heavy series",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 1665:1997",
+            "issueDate": "1997-05-21"
+        }, {
+            "id": "sn-en-1665-ac-024",
+            "standardCode": "ČSN EN 1665/AC",
+            "title": "Hexagon bolts with flange - Heavy series",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN 1665:1997/AC:2007",
+            "issueDate": "2007-02-28"
+        }, {
+            "id": "sn-en-1666-025",
+            "standardCode": "ČSN EN 1666",
+            "title": "Prevailing torque type hexagon nuts with flange (with non-metallic insert) with metric fine pitch thread (ISO 12125:1997, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1666:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-en-1667-026",
+            "standardCode": "ČSN EN 1667",
+            "title": "Prevailing torque type all-metal hexagon nuts with flange metric fine pitch thread (ISO 12126:1997, modified)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN 1667:1997",
+            "issueDate": "1997-12-17"
+        }, {
+            "id": "sn-cen-iso-tr-20491-027",
+            "standardCode": "ČSN CEN ISO/TR 20491",
+            "title": "Fasteners - Fundamentals of hydrogen embrittlement in steel fasteners (ISO/TR 20491:2019)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "CEN ISO/TR 20491:2021",
+            "issueDate": "2021-12-08"
+        }, {
+            "id": "sn-en-20273-028",
+            "standardCode": "ČSN EN 20273",
+            "title": "Fasteners - Clearance holes for bolts and screws (ISO 273:1979)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws",
+            "reference": "EN 20273:1991",
+            "issueDate": "1991-10-16"
+        }, {
+            "id": "sn-en-20898-7-029",
+            "standardCode": "ČSN EN 20898-7",
+            "title": "Mechanical properties of fasteners - Part 7: Torsional test and minimum torques for bolts and screws with nominal diameters 1 mm to 10 mm (ISO 898-7:1992)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws",
+            "reference": "EN 20898-7:1995",
+            "issueDate": "1995-01-10"
+        }, {
+            "id": "sn-en-26157-1-030",
+            "standardCode": "ČSN EN 26157-1",
+            "title": "Fasteners - Surface discontinuities - Part 1: Bolts, screws and studs for general requirements (ISO 6157-1:1988)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws / Studs",
+            "reference": "EN 26157-1:1991",
+            "issueDate": "1991-10-16"
+        }, {
+            "id": "sn-en-26157-3-031",
+            "standardCode": "ČSN EN 26157-3",
+            "title": "Fasteners - Surface discontinuities - Part 3: Bolts, screws and studs for special requirements (ISO 6157-3:1988)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws / Studs",
+            "reference": "EN 26157-3:1991",
+            "issueDate": "1991-10-16"
+        }, {
+            "id": "sn-en-27721-032",
+            "standardCode": "ČSN EN 27721",
+            "title": "Countersunk head screws - Head configuration and gauging (ISO 7721:1983)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN 27721:1991",
+            "issueDate": "1991-10-16"
+        }, {
+            "id": "sn-en-iso-10484-033",
+            "standardCode": "ČSN EN ISO 10484",
+            "title": "Widening test on nuts (ISO 10484:1997)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 10484:2004",
+            "issueDate": "2004-07-21"
+        }, {
+            "id": "sn-en-iso-10664-034",
+            "standardCode": "ČSN EN ISO 10664",
+            "title": "Hexalobular internal driving feature for bolts and screws (ISO 10664:2014)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws",
+            "reference": "EN ISO 10664:2014",
+            "issueDate": "2014-10-15"
+        }, {
+            "id": "sn-en-iso-10683-035",
+            "standardCode": "ČSN EN ISO 10683",
+            "title": "Fasteners - Non-electrolytically applied zinc flake coating systems (ISO 10683:2018)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 10683:2018",
+            "issueDate": "2018-09-19"
+        }, {
+            "id": "sn-en-iso-10684-036",
+            "standardCode": "ČSN EN ISO 10684",
+            "title": "Fasteners - Hot dip galvanized coatings (ISO 10684:2004)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 10684:2004",
+            "issueDate": "2004-07-15"
+        }, {
+            "id": "sn-en-iso-10684-ac-037",
+            "standardCode": "ČSN EN ISO 10684/AC",
+            "title": "Fasteners - Hot dip galvanized coatings (ISO 10684:2004/Cor 1:2008)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 10684:2004/AC:2009",
+            "issueDate": "2009-04-08"
+        }, {
+            "id": "sn-en-iso-15065-038",
+            "standardCode": "ČSN EN ISO 15065",
+            "title": "Countersinks for countersunk head screws with head configuration in accordance with ISO 7721 (ISO 15065:2005)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 15065:2005",
+            "issueDate": "2005-02-15"
+        }, {
+            "id": "sn-en-iso-15330-039",
+            "standardCode": "ČSN EN ISO 15330",
+            "title": "Fasteners - Preloading test for the detection of hydrogen embrittlement - Parallel bearing surface method (ISO 15330:1999)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Bolts / Studs / Nuts / Washers",
+            "reference": "EN ISO 15330:1999",
+            "issueDate": "1999-09-01"
+        }, {
+            "id": "sn-en-iso-16047-040",
+            "standardCode": "ČSN EN ISO 16047",
+            "title": "Fasteners - Torque/clamp force testing",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Studs",
+            "reference": "EN ISO 16047:2005",
+            "issueDate": "2005-08-01"
+        }, {
+            "id": "sn-en-iso-16047-a1-041",
+            "standardCode": "ČSN EN ISO 16047/A1",
+            "title": "Fasteners - Torque/clamp force testing (ISO 16047:2005/Amd 1:2012)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Studs",
+            "reference": "EN ISO 16047:2005/A1:2012",
+            "issueDate": "2012-09-15"
+        }, {
+            "id": "sn-en-iso-16048-042",
+            "standardCode": "ČSN EN ISO 16048",
+            "title": "Passivation of corrosion-resistant stainless-steel fasteners (ISO 16048:2003)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 16048:2003",
+            "issueDate": "2003-02-01"
+        }, {
+            "id": "sn-en-iso-16228-043",
+            "standardCode": "ČSN EN ISO 16228",
+            "title": "Fasteners - Types of inspection documents (ISO 16228:2017)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 16228:2018",
+            "issueDate": "2018-02-07"
+        }, {
+            "id": "sn-en-iso-16426-044",
+            "standardCode": "ČSN EN ISO 16426",
+            "title": "Fasteners - Quality assurance system (ISO 16426:2002)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 16426:2002",
+            "issueDate": "2002-11-15"
+        }, {
+            "id": "sn-en-iso-1891-2-045",
+            "standardCode": "ČSN EN ISO 1891-2",
+            "title": "Fasteners - Terminology - Part 2: Vocabulary and definitions for coatings (ISO 1891-2:2014)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 1891-2:2014",
+            "issueDate": "2014-10-15"
+        }, {
+            "id": "sn-en-iso-1891-2-a1-046",
+            "standardCode": "ČSN EN ISO 1891-2/A1",
+            "title": "Fasteners - Terminology - Part 2: Vocabulary and definitions for coatings - Amendment 1 (ISO 1891-2:2014/Amd 1:2020)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 1891-2:2014/A1:2021",
+            "issueDate": "2021-06-23"
+        }, {
+            "id": "sn-en-iso-1891-4-047",
+            "standardCode": "ČSN EN ISO 1891-4",
+            "title": "Fasteners - Vocabulary - Part 4: Control, inspection, delivery, acceptance and quality (ISO 1891-4:2018)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 1891-4:2018",
+            "issueDate": "2018-06-20"
+        }, {
+            "id": "sn-en-iso-225-048",
+            "standardCode": "ČSN EN ISO 225",
+            "title": "Fasteners - Bolts, screws, studs and nuts - Symbols and descriptions of dimensions (ISO 225:2010)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws / Studs / Nuts",
+            "reference": "EN ISO 225:2010",
+            "issueDate": "2010-10-01"
+        }, {
+            "id": "sn-en-iso-2320-049",
+            "standardCode": "ČSN EN ISO 2320",
+            "title": "Fasteners - Prevailing torque steel nuts - Functional properties (ISO 2320:2015)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 2320:2015",
+            "issueDate": "2015-12-23"
+        }, {
+            "id": "sn-en-iso-23429-050",
+            "standardCode": "ČSN EN ISO 23429",
+            "title": "Gauging of hexagon sockets (ISO 23429:2004)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws / Bolts",
+            "reference": "EN ISO 23429:2004",
+            "issueDate": "2004-01-15"
+        }, {
+            "id": "sn-en-iso-3269-051",
+            "standardCode": "ČSN EN ISO 3269",
+            "title": "Fasteners - Acceptance inspection (ISO 3269:2019)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 3269:2019",
+            "issueDate": "2019-09-18"
+        }, {
+            "id": "sn-en-iso-4042-052",
+            "standardCode": "ČSN EN ISO 4042",
+            "title": "Fasteners - Electroplated coating systems (ISO 4042:2022)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 4042:2022",
+            "issueDate": "2022-06-15"
+        }, {
+            "id": "sn-en-iso-4042-a1-053",
+            "standardCode": "ČSN EN ISO 4042/A1",
+            "title": "Fasteners - Electroplated coating systems - Amendment 1 (ISO 4042:2022/Amd 1:2026)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Nuts / Bolts / Washers / Studs",
+            "reference": "EN ISO 4042:2022/A1:2026",
+            "issueDate": "2026-04-08"
+        }, {
+            "id": "sn-en-iso-4753-054",
+            "standardCode": "ČSN EN ISO 4753",
+            "title": "Fasteners - Ends of parts with external ISO metric thread (ISO 4753:2011)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Screws / Bolts / Studs / Threaded rods",
+            "reference": "EN ISO 4753:2011",
+            "issueDate": "2011-11-01"
+        }, {
+            "id": "sn-en-iso-4757-055",
+            "standardCode": "ČSN EN ISO 4757",
+            "title": "Cross recesses for screws (ISO 4757:1983)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4757:1994",
+            "issueDate": "1994-07-31"
+        }, {
+            "id": "sn-en-iso-4759-1-056",
+            "standardCode": "ČSN EN ISO 4759-1",
+            "title": "Tolerances for fasteners - Part 1: Bolts, screws, studs and nuts - Product grades A, B and C (ISO 4759-1:2000)",
+            "productFamily": ["Multiple / General"],
+            "requestedCoverage": "Bolts / Screws / Studs / Nuts",
+            "reference": "EN ISO 4759-1:2000",
+            "issueDate": "2000-11-15"
+        }, {
+            "id": "sn-en-iso-4759-3-057",
+            "standardCode": "ČSN EN ISO 4759-3",
+            "title": "Tolerances for fasteners - Part 3: Washers for bolts, screws and nuts - Product grades A, C and F (ISO 4759-3:2016)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 4759-3:2016",
+            "issueDate": "2016-06-29"
+        }, {
+            "id": "sn-en-iso-6157-2-058",
+            "standardCode": "ČSN EN ISO 6157-2",
+            "title": "Fasteners - Surface discontinuities - Part 2: Nuts (ISO 6157-2:1995)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 6157-2:2004",
+            "issueDate": "2004-07-21"
+        }, {
+            "id": "sn-en-iso-887-059",
+            "standardCode": "ČSN EN ISO 887",
+            "title": "Plain washers for metric bolts, screws and nuts for general purposes - General plan (ISO 887:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers / Bolts / Screws / Nuts",
+            "reference": "EN ISO 887:2000",
+            "issueDate": "2000-06-15"
+        }, {
+            "id": "sn-en-iso-887-ac-060",
+            "standardCode": "ČSN EN ISO 887/AC",
+            "title": "Plain washers for metric bolts, screws and nuts for general purposes - General plan (ISO 887:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers / Bolts / Screws / Nuts",
+            "reference": "EN ISO 887:2000/AC:2006",
+            "issueDate": "2006-01-25"
+        }, {
+            "id": "sn-en-iso-888-061",
+            "standardCode": "ČSN EN ISO 888",
+            "title": "Fasteners - Bolts, screws and studs - Nominal lengths and thread lengths (ISO 888:2012)",
+            "productFamily": ["Studs / Threaded rods"],
+            "requestedCoverage": "Bolts / Screws / Studs / Threaded rods",
+            "reference": "EN ISO 888:2018",
+            "issueDate": "2018-06-27"
+        }, {
+            "id": "sn-en-iso-898-1-062",
+            "standardCode": "ČSN EN ISO 898-1",
+            "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Part 1: Bolts, screws and studs with specified property classes - Coarse thread and fine pitch thread (ISO 898-1:2013)",
+            "productFamily": ["Studs / Threaded rods"],
+            "requestedCoverage": "Bolts / Screws / Studs",
+            "reference": "EN ISO 898-1:2013",
+            "issueDate": "2013-01-23"
+        }, {
+            "id": "sn-en-iso-898-1-ac-063",
+            "standardCode": "ČSN EN ISO 898-1/AC",
+            "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Part 1: Bolts, screws and studs with specified property classes - Coarse thread and fine pitch thread - Technical Corrigendum 1 (ISO 898-1:2013/Cor 1:2013)",
+            "productFamily": ["Studs / Threaded rods"],
+            "requestedCoverage": "Bolts / Screws / Studs",
+            "reference": "EN ISO 898-1:2013/AC:2013",
+            "issueDate": "2013-10-09"
+        }, {
+            "id": "sn-en-iso-898-2-064",
+            "standardCode": "ČSN EN ISO 898-2",
+            "title": "Fasteners - Mechanical properties of fasteners made of carbon steel and alloy steel - Part 2: Nuts with specified property classes (ISO 898-2:2022)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 898-2:2022",
+            "issueDate": "2022-10-26"
+        }, {
+            "id": "sn-en-iso-898-3-065",
+            "standardCode": "ČSN EN ISO 898-3",
+            "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Part 3: Flat washers with specified property classes (ISO 898-3:2018)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 898-3:2018",
+            "issueDate": "2018-06-27"
+        }, {
+            "id": "sn-en-iso-898-3-a1-066",
+            "standardCode": "ČSN EN ISO 898-3/A1",
+            "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Part 3: Flat washers with specified property classes - Amendment 1 (ISO 898-3:2018/Amd 1:2020)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 898-3:2018/A1:2021",
+            "issueDate": "2021-05-19"
+        }, {
+            "id": "sn-en-iso-898-5-067",
+            "standardCode": "ČSN EN ISO 898-5",
+            "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Part 5: Set screws and similar threaded fasteners with specified hardness classes - Coarse thread and fine pitch thread (ISO 898-5:2012)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws / Studs / Threaded fasteners",
+            "reference": "EN ISO 898-5:2012",
+            "issueDate": "2012-06-01"
+        }, {
+            "id": "sn-en-iso-10510-068",
+            "standardCode": "ČSN EN ISO 10510",
+            "title": "Tapping screw and washer assemblies with plain washers (ISO 10510:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws / Washers",
+            "reference": "EN ISO 10510:2011",
+            "issueDate": "2011-04-01"
+        }, {
+            "id": "sn-en-iso-10642-069",
+            "standardCode": "ČSN EN ISO 10642",
+            "title": "Fasteners - Hexagon socket countersunk head screws with reduced loadability (ISO 10642:2026)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 10642:2026",
+            "issueDate": "2026-03-11"
+        }, {
+            "id": "sn-en-iso-10644-070",
+            "standardCode": "ČSN EN ISO 10644",
+            "title": "Screw and washer assemblies made of steel with plain washers - Washer hardness classes 200 HV and 300 HV (ISO 10644:2009)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws / Washers",
+            "reference": "EN ISO 10644:2009",
+            "issueDate": "2009-07-01"
+        }, {
+            "id": "sn-en-iso-10666-071",
+            "standardCode": "ČSN EN ISO 10666",
+            "title": "Drilling screws with tapping screw thread - Mechanical and functional properties (ISO 10666:1999)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 10666:1999",
+            "issueDate": "1999-09-01"
+        }, {
+            "id": "sn-en-iso-1207-072",
+            "standardCode": "ČSN EN ISO 1207",
+            "title": "Slotted cheese head screws - Product grade A (ISO 1207:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1207:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-12474-073",
+            "standardCode": "ČSN EN ISO 12474",
+            "title": "Hexagon socket head cap screws with metric fine pitch thread (ISO 12474:2010)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 12474:2010",
+            "issueDate": "2010-10-01"
+        }, {
+            "id": "sn-en-iso-14579-074",
+            "standardCode": "ČSN EN ISO 14579",
+            "title": "Hexalobular socket head cap screws (ISO 14579:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14579:2011",
+            "issueDate": "2011-03-15"
+        }, {
+            "id": "sn-en-iso-14580-075",
+            "standardCode": "ČSN EN ISO 14580",
+            "title": "Hexalobular socket cheese head screws (ISO 14580:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14580:2011",
+            "issueDate": "2011-03-15"
+        }, {
+            "id": "sn-en-iso-14581-076",
+            "standardCode": "ČSN EN ISO 14581",
+            "title": "Fasteners - Hexalobular socket countersunk flat head screws (common head style) with reduced loadability (ISO 14581:2022, Corrected version 2026-03)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14581:2023",
+            "issueDate": "2023-01-11"
+        }, {
+            "id": "sn-en-iso-14582-077",
+            "standardCode": "ČSN EN ISO 14582",
+            "title": "Fasteners - Hexalobular socket countersunk head screws, high head (ISO 14582:2013)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14582:2013",
+            "issueDate": "2013-09-18"
+        }, {
+            "id": "sn-en-iso-14583-078",
+            "standardCode": "ČSN EN ISO 14583",
+            "title": "Hexalobular socket pan head screws (ISO 14583:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14583:2011",
+            "issueDate": "2011-03-15"
+        }, {
+            "id": "sn-en-iso-14584-079",
+            "standardCode": "ČSN EN ISO 14584",
+            "title": "Hexalobular socket raised countersunk head screws (ISO 14584:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14584:2011",
+            "issueDate": "2011-03-15"
+        }, {
+            "id": "sn-en-iso-14585-080",
+            "standardCode": "ČSN EN ISO 14585",
+            "title": "Hexalobular socket pan head tapping screws (ISO 14585:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14585:2011",
+            "issueDate": "2011-02-15"
+        }, {
+            "id": "sn-en-iso-14586-081",
+            "standardCode": "ČSN EN ISO 14586",
+            "title": "Hexalobular socket countersunk head tapping screws (ISO 14586:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14586:2011",
+            "issueDate": "2011-02-15"
+        }, {
+            "id": "sn-en-iso-14587-082",
+            "standardCode": "ČSN EN ISO 14587",
+            "title": "Hexalobular socket raised countersunk (oval) head tapping screws (ISO 14587:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 14587:2011",
+            "issueDate": "2011-02-15"
+        }, {
+            "id": "sn-en-iso-1478-083",
+            "standardCode": "ČSN EN ISO 1478",
+            "title": "Tapping screws thread (ISO 1478:1999)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1478:1999",
+            "issueDate": "1999-08-01"
+        }, {
+            "id": "sn-en-iso-1479-084",
+            "standardCode": "ČSN EN ISO 1479",
+            "title": "Hexagon head tapping screws (ISO 1479:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1479:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-1481-085",
+            "standardCode": "ČSN EN ISO 1481",
+            "title": "Slotted pan head tapping screws (ISO 1481:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1481:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-1482-086",
+            "standardCode": "ČSN EN ISO 1482",
+            "title": "Slotted countersunk (flat) head tapping screws (ISO 1482:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1482:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-1483-087",
+            "standardCode": "ČSN EN ISO 1483",
+            "title": "Slotted raised countersunk (oval) head tapping screws (ISO 1483:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1483:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-15480-088",
+            "standardCode": "ČSN EN ISO 15480",
+            "title": "Fasteners - Hexagon washer head drilling screws with tapping screw thread (ISO 15480:2019)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 15480:2019",
+            "issueDate": "2019-07-10"
+        }, {
+            "id": "sn-en-iso-15481-089",
+            "standardCode": "ČSN EN ISO 15481",
+            "title": "Cross recessed pan head drilling screws with tapping screw thread (ISO 15481:1999)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 15481:1999",
+            "issueDate": "1999-08-01"
+        }, {
+            "id": "sn-en-iso-15482-090",
+            "standardCode": "ČSN EN ISO 15482",
+            "title": "Cross recessed countersunk head drilling screws with tapping screw thread (ISO 15482:1999)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 15482:1999",
+            "issueDate": "1999-08-01"
+        }, {
+            "id": "sn-en-iso-15483-091",
+            "standardCode": "ČSN EN ISO 15483",
+            "title": "Cross recessed raised countersunk head drilling screws with tapping screw thread (ISO 15483:1999)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 15483:1999",
+            "issueDate": "1999-08-01"
+        }, {
+            "id": "sn-en-iso-1580-092",
+            "standardCode": "ČSN EN ISO 1580",
+            "title": "Slotted pan head screws - Product grade A (ISO 1580:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 1580:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-2009-093",
+            "standardCode": "ČSN EN ISO 2009",
+            "title": "Slotted countersunk flat head screws - Product grade A (ISO 2009:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 2009:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-2010-094",
+            "standardCode": "ČSN EN ISO 2010",
+            "title": "Slotted raised countersunk head screws - Product grade A (ISO 2010:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 2010:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-2342-095",
+            "standardCode": "ČSN EN ISO 2342",
+            "title": "Slotted headless screws with shank (ISO 2342:2003)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 2342:2003",
+            "issueDate": "2003-12-01"
+        }, {
+            "id": "sn-en-iso-2702-096",
+            "standardCode": "ČSN EN ISO 2702",
+            "title": "Fasteners - Heat treated tapping screws - Mechanical and physical properties (ISO 2702:2022)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 2702:2022",
+            "issueDate": "2022-12-21"
+        }, {
+            "id": "sn-en-iso-3506-3-097",
+            "standardCode": "ČSN EN ISO 3506-3",
+            "title": "Fasteners - Mechanical properties of corrosion resistant stainless steel fasteners - Part 3: Set screws (and similar fasteners not under tensile stress) with specified grades and hardness classes",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 3506-3:2025",
+            "issueDate": "2025-06-01"
+        }, {
+            "id": "sn-en-iso-3506-4-098",
+            "standardCode": "ČSN EN ISO 3506-4",
+            "title": "Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 4: Tapping screws with specified grades and hardness classes",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 3506-4:2025",
+            "issueDate": "2025-06-01"
+        }, {
+            "id": "sn-en-iso-4017-099",
+            "standardCode": "ČSN EN ISO 4017",
+            "title": "Fasteners - Hexagon head screws - Product grades A and B (ISO 4017:2022)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4017:2022",
+            "issueDate": "2022-07-20"
+        }, {
+            "id": "sn-en-iso-4018-100",
+            "standardCode": "ČSN EN ISO 4018",
+            "title": "Fasteners - Hexagon head screws - Product grade C",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4018:2022",
+            "issueDate": "2023-01-01"
+        }, {
+            "id": "sn-en-iso-4026-101",
+            "standardCode": "ČSN EN ISO 4026",
+            "title": "Fasteners - Hexagon socket set screws with flat point (ISO 4026:2026)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4026:2026",
+            "issueDate": "2026-02-25"
+        }, {
+            "id": "sn-en-iso-4027-102",
+            "standardCode": "ČSN EN ISO 4027",
+            "title": "Fasteners - Hexagon socket set screws with truncated cone point (ISO 4027:2026, Corrected version 2026-06)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4027:2026",
+            "issueDate": "2026-02-25"
+        }, {
+            "id": "sn-en-iso-4028-103",
+            "standardCode": "ČSN EN ISO 4028",
+            "title": "Fasteners - Hexagon socket set screws with dog point (ISO 4028:2026)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4028:2026",
+            "issueDate": "2026-02-25"
+        }, {
+            "id": "sn-en-iso-4029-104",
+            "standardCode": "ČSN EN ISO 4029",
+            "title": "Fasteners - Hexagon socket set screws with cup point (ISO 4029:2026)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4029:2026",
+            "issueDate": "2026-02-25"
+        }, {
+            "id": "sn-en-iso-4762-105",
+            "standardCode": "ČSN EN ISO 4762",
+            "title": "Hexagon socket head cap screws (ISO 4762:2004, Corrected version 2024-08)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4762:2004",
+            "issueDate": "2004-03-01"
+        }, {
+            "id": "sn-en-iso-4766-106",
+            "standardCode": "ČSN EN ISO 4766",
+            "title": "Fasteners - Slotted set screws with flat point",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 4766:2024",
+            "issueDate": "2025-01-01"
+        }, {
+            "id": "sn-en-iso-7045-107",
+            "standardCode": "ČSN EN ISO 7045",
+            "title": "Pan head screws with type H or type Z cross recess - Product grade A (ISO 7045:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7045:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-7046-1-108",
+            "standardCode": "ČSN EN ISO 7046-1",
+            "title": "Countersunk flat head screws (common head style) with type H or type Z cross recess - Product grade A - Part 1: Steel screws of property class 4.8 (ISO 7046-1:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7046-1:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-7046-2-109",
+            "standardCode": "ČSN EN ISO 7046-2",
+            "title": "Countersunk flat head screws (common head style) with type H or type Z cross recess - Product grade A - Part 2: Steel screws of property class 8.8, stainless steel screws and non-ferrous metal screws (ISO 7046-2:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7046-2:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-7047-110",
+            "standardCode": "ČSN EN ISO 7047",
+            "title": "Raised countersunk head screws (common head style) with type H or type Z cross recess - Product grade A (ISO 7047:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7047:2011",
+            "issueDate": "2011-09-01"
+        }, {
+            "id": "sn-en-iso-7048-111",
+            "standardCode": "ČSN EN ISO 7048",
+            "title": "Cross-recessed cheese head screws (ISO 7048:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7048:2011",
+            "issueDate": "2011-04-01"
+        }, {
+            "id": "sn-en-iso-7049-112",
+            "standardCode": "ČSN EN ISO 7049",
+            "title": "Cross-recessed pan head tapping screws (ISO 7049:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7049:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-7050-113",
+            "standardCode": "ČSN EN ISO 7050",
+            "title": "Cross-recessed countersunk (flat) head tapping screws (ISO 7050:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7050:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-7051-114",
+            "standardCode": "ČSN EN ISO 7051",
+            "title": "Cross-recessed raised countersunk (oval) head tapping screws (ISO 7051:2011)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7051:2011",
+            "issueDate": "2011-08-01"
+        }, {
+            "id": "sn-en-iso-7053-115",
+            "standardCode": "ČSN EN ISO 7053",
+            "title": "Fasteners - Hexagon washer head tapping screws (ISO 7053:2019)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7053:2019",
+            "issueDate": "2019-07-10"
+        }, {
+            "id": "sn-en-iso-7380-1-116",
+            "standardCode": "ČSN EN ISO 7380-1",
+            "title": "Fasteners - Button head screws with reduced loadability - Part 1: Hexagon socket button head screws (ISO 7380-1:2022)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7380-1:2023",
+            "issueDate": "2023-01-11"
+        }, {
+            "id": "sn-en-iso-7380-2-117",
+            "standardCode": "ČSN EN ISO 7380-2",
+            "title": "Fasteners - Button head screws with reduced loadability - Part 2: Hexagon socket button head screws with collar (ISO 7380-2:2022)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7380-2:2023",
+            "issueDate": "2023-01-11"
+        }, {
+            "id": "sn-en-iso-7434-118",
+            "standardCode": "ČSN EN ISO 7434",
+            "title": "Fasteners - Slotted set screws with cone point (ISO 7434:2024)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7434:2024",
+            "issueDate": "2024-06-26"
+        }, {
+            "id": "sn-en-iso-7435-119",
+            "standardCode": "ČSN EN ISO 7435",
+            "title": "Fasteners - Slotted set screws with dog point (ISO 7435:2024)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7435:2024",
+            "issueDate": "2024-06-26"
+        }, {
+            "id": "sn-en-iso-7436-120",
+            "standardCode": "ČSN EN ISO 7436",
+            "title": "Fasteners - Slotted set screws with cup point",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7436:2024",
+            "issueDate": "2025-01-01"
+        }, {
+            "id": "sn-en-iso-7721-2-121",
+            "standardCode": "ČSN EN ISO 7721-2",
+            "title": "Countersunk flat head screws - Part 2: Penetration depth of cross recesses (ISO 7721-2:1990)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 7721-2:1994",
+            "issueDate": "1994-07-31"
+        }, {
+            "id": "sn-en-iso-8676-122",
+            "standardCode": "ČSN EN ISO 8676",
+            "title": "Fasteners - Hexagon head screws, with fine pitch thread - Product grades A and B (ISO 8676:2022)",
+            "productFamily": ["Screws"],
+            "requestedCoverage": "Screws",
+            "reference": "EN ISO 8676:2022",
+            "issueDate": "2022-07-20"
+        }, {
+            "id": "sn-en-iso-3506-1-123",
+            "standardCode": "ČSN EN ISO 3506-1",
+            "title": "Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 1: Bolts, screws and studs with specified grades and property classes (ISO 3506-1:2020)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts / Screws / Studs",
+            "reference": "EN ISO 3506-1:2020",
+            "issueDate": "2020-04-15"
+        }, {
+            "id": "sn-en-iso-4014-124",
+            "standardCode": "ČSN EN ISO 4014",
+            "title": "Fasteners - Hexagon head bolts - Product grades A and B",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN ISO 4014:2022",
+            "issueDate": "2023-01-01"
+        }, {
+            "id": "sn-en-iso-4015-125",
+            "standardCode": "ČSN EN ISO 4015",
+            "title": "Fasteners - Hexagon head bolts with reduced shank (shank diameter ≈ pitch diameter) - Product grade B (ISO 4015:2022)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN ISO 4015:2022",
+            "issueDate": "2022-07-20"
+        }, {
+            "id": "sn-en-iso-4016-126",
+            "standardCode": "ČSN EN ISO 4016",
+            "title": "Fasteners - Hexagon head bolts - Product grade C (ISO 4016:2022)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN ISO 4016:2022",
+            "issueDate": "2022-07-20"
+        }, {
+            "id": "sn-en-iso-8765-127",
+            "standardCode": "ČSN EN ISO 8765",
+            "title": "Fasteners - Hexagon head bolts, with fine pitch thread - Product grades A and B (ISO 8765:2022)",
+            "productFamily": ["Bolts"],
+            "requestedCoverage": "Bolts",
+            "reference": "EN ISO 8765:2022",
+            "issueDate": "2022-07-20"
+        }, {
+            "id": "sn-en-iso-10511-128",
+            "standardCode": "ČSN EN ISO 10511",
+            "title": "Fasteners - Prevailing torque hexagon nuts - Thin nuts (with non-metallic insert) (ISO 10511:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 10511:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-10512-129",
+            "standardCode": "ČSN EN ISO 10512",
+            "title": "Fasteners - Prevailing torque hexagon nuts - Regular nuts (with non-metallic insert), with fine pitch thread (ISO 10512:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 10512:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-10513-130",
+            "standardCode": "ČSN EN ISO 10513",
+            "title": "Fasteners - Prevailing torque hexagon nuts - High nuts (all metal), with fine pitch thread (ISO 10513:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 10513:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-21670-131",
+            "standardCode": "ČSN EN ISO 21670",
+            "title": "Fasteners - Hexagon weld nuts with flange (ISO 21670:2014)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 21670:2014",
+            "issueDate": "2014-05-21"
+        }, {
+            "id": "sn-en-iso-3506-2-132",
+            "standardCode": "ČSN EN ISO 3506-2",
+            "title": "Mechanical properties of corrosion-resistant stainless steel fasteners - Part 2: Nuts",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 3506-2:2020",
+            "issueDate": "2010-06-01"
+        }, {
+            "id": "sn-en-iso-4032-133",
+            "standardCode": "ČSN EN ISO 4032",
+            "title": "Hexagon regular nuts (style 1) - Product grades A and B",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 4032:2023",
+            "issueDate": "2014-05-01"
+        }, {
+            "id": "sn-en-iso-4033-134",
+            "standardCode": "ČSN EN ISO 4033",
+            "title": "Fasteners - Hexagon high nuts (style 2) (ISO 4033:2023)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 4033:2023",
+            "issueDate": "2023-09-06"
+        }, {
+            "id": "sn-en-iso-4035-135",
+            "standardCode": "ČSN EN ISO 4035",
+            "title": "Fasteners - Hexagon thin nuts (style 0) (ISO 4035:2023)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 4035:2023",
+            "issueDate": "2023-09-06"
+        }, {
+            "id": "sn-en-iso-7040-136",
+            "standardCode": "ČSN EN ISO 7040",
+            "title": "Fasteners - Prevailing torque hexagon nuts - Regular nuts (with non-metallic insert) (ISO 7040:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 7040:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-7041-137",
+            "standardCode": "ČSN EN ISO 7041",
+            "title": "Fasteners - Prevailing torque hexagon nuts - High nuts (with non-metallic insert) (ISO 7041:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 7041:2025",
+            "issueDate": "2025-06-18"
+        }, {
+            "id": "sn-en-iso-7042-138",
+            "standardCode": "ČSN EN ISO 7042",
+            "title": "Fasteners - Prevailing torque hexagon nuts - High nuts (all metal) (ISO 7042:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 7042:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-7719-139",
+            "standardCode": "ČSN EN ISO 7719",
+            "title": "Fasteners - Prevailing torque hexagon nuts - Regular nuts (all metal) (ISO 7719:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 7719:2025",
+            "issueDate": "2025-06-18"
+        }, {
+            "id": "sn-en-iso-7720-140",
+            "standardCode": "ČSN EN ISO 7720",
+            "title": "Fasteners - Prevailing torque hexagon nuts - High nuts (all metal) with slot(s) (ISO 7720:2025)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 7720:2025",
+            "issueDate": "2025-06-25"
+        }, {
+            "id": "sn-en-iso-8673-141",
+            "standardCode": "ČSN EN ISO 8673",
+            "title": "Fasteners - Hexagon regular nuts (style 1), with fine pitch thread (ISO 8673:2023)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 8673:2023",
+            "issueDate": "2023-09-06"
+        }, {
+            "id": "sn-en-iso-8674-142",
+            "standardCode": "ČSN EN ISO 8674",
+            "title": "Fasteners - Hexagon high nuts (style 2), with fine pitch thread (ISO 8674:2023)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 8674:2023",
+            "issueDate": "2023-09-06"
+        }, {
+            "id": "sn-en-iso-8675-143",
+            "standardCode": "ČSN EN ISO 8675",
+            "title": "Fasteners - Hexagon thin nuts (style 0), with fine pitch thread (ISO 8675:2023)",
+            "productFamily": ["Nuts"],
+            "requestedCoverage": "Nuts",
+            "reference": "EN ISO 8675:2023",
+            "issueDate": "2023-09-06"
+        }, {
+            "id": "sn-en-28738-144",
+            "standardCode": "ČSN EN 28738",
+            "title": "Plain washers for clevis pins - Product grade A (ISO 8738:1986)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN 28738:1992",
+            "issueDate": "1992-07-24"
+        }, {
+            "id": "sn-en-iso-10669-145",
+            "standardCode": "ČSN EN ISO 10669",
+            "title": "Plain washers for tapping screw and washer assemblies - Normal and large series - Product grade A (ISO 10669:1999)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 10669:1999",
+            "issueDate": "1999-08-01"
+        }, {
+            "id": "sn-en-iso-10673-146",
+            "standardCode": "ČSN EN ISO 10673",
+            "title": "Plain washers for screw and washer assemblies - Small, normal and large series - Product grade A (ISO 10673:2009)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 10673:2009",
+            "issueDate": "2009-07-01"
+        }, {
+            "id": "sn-en-iso-3506-7-147",
+            "standardCode": "ČSN EN ISO 3506-7",
+            "title": "Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 7: Flat washers with specified grades and property classes (ISO 3506-7:2024)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 3506-7:2025",
+            "issueDate": "2025-11-26"
+        }, {
+            "id": "sn-en-iso-7089-148",
+            "standardCode": "ČSN EN ISO 7089",
+            "title": "Plain washers - Normal series - Product grade A (ISO 7089:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7089:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7090-149",
+            "standardCode": "ČSN EN ISO 7090",
+            "title": "Plain washers, chamfered - Normal series - Product grade A (ISO 7090:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7090:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7091-150",
+            "standardCode": "ČSN EN ISO 7091",
+            "title": "Plain washers - Normal series - Product grade C (ISO 7091:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7091:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7092-151",
+            "standardCode": "ČSN EN ISO 7092",
+            "title": "Plain washers - Small series - Product grade A (ISO 7092:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7092:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7093-1-152",
+            "standardCode": "ČSN EN ISO 7093-1",
+            "title": "Plain washers - Large series - Part 1: Product grade A (ISO 7093-1:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7093-1:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7093-2-153",
+            "standardCode": "ČSN EN ISO 7093-2",
+            "title": "Plain washers - Large series - Part 2: Product grade C (ISO 7093-2:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7093-2:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7094-154",
+            "standardCode": "ČSN EN ISO 7094",
+            "title": "Plain washers - Extra large series - Product grade C (ISO 7094:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7094:2000",
+            "issueDate": "2000-06-01"
+        }, {
+            "id": "sn-en-iso-7094-ac-155",
+            "standardCode": "ČSN EN ISO 7094/AC",
+            "title": "Plain washers - Extra large series - Product grade C (ISO 7094:2000/Cor.1:2000)",
+            "productFamily": ["Washers"],
+            "requestedCoverage": "Washers",
+            "reference": "EN ISO 7094:2000/AC:2002",
+            "issueDate": "2002-07-24"
+        }, {
+            "id": "sn-en-iso-14588-156",
+            "standardCode": "ČSN EN ISO 14588",
+            "title": "Blind rivets - Terminology and definitions (ISO 14588:2000)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 14588:2000",
+            "issueDate": "2000-12-15"
+        }, {
+            "id": "sn-en-iso-14589-157",
+            "standardCode": "ČSN EN ISO 14589",
+            "title": "Blind rivets - Mechanical testing (ISO 14589:2000)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 14589:2000",
+            "issueDate": "2000-12-15"
+        }, {
+            "id": "sn-en-iso-15973-158",
+            "standardCode": "ČSN EN ISO 15973",
+            "title": "Closed end blind rivets with break pull mandrel and protruding head - AIA/St (ISO 15973:2000)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15973:2000",
+            "issueDate": "2000-12-15"
+        }, {
+            "id": "sn-en-iso-15974-159",
+            "standardCode": "ČSN EN ISO 15974",
+            "title": "Closed end blind rivets with break pull mandrel and countersunk head - AIA/St (ISO 15974:2000)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15974:2000",
+            "issueDate": "2000-12-15"
+        }, {
+            "id": "sn-en-iso-15975-160",
+            "standardCode": "ČSN EN ISO 15975",
+            "title": "Closed end blind rivets with break pull mandrel and protrudiing head - AI/AIA (ISO 15975:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15975:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15976-161",
+            "standardCode": "ČSN EN ISO 15976",
+            "title": "Closed end blind rivets with break pull mandrel and protrudiing head - St/St (ISO 15976:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15976:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15977-162",
+            "standardCode": "ČSN EN ISO 15977",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - AIA/St (ISO 15977:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15977:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15978-163",
+            "standardCode": "ČSN EN ISO 15978",
+            "title": "Open end blind rivets with break pull mandrel and countersunk head - AIA/St (ISO 15978:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15978:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15979-164",
+            "standardCode": "ČSN EN ISO 15979",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - St/St (ISO 15979:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15979:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15980-165",
+            "standardCode": "ČSN EN ISO 15980",
+            "title": "Open end blind rivets with break pull mandrel and countersunk head - St/St (ISO 15980:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15980:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15981-166",
+            "standardCode": "ČSN EN ISO 15981",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - AIA/AIA (ISO 15981:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15981:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15982-167",
+            "standardCode": "ČSN EN ISO 15982",
+            "title": "Open end blind rivets with break pull mandrel and countersunk head - AIA/AIA (ISO 15982:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15982:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15983-168",
+            "standardCode": "ČSN EN ISO 15983",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - A2/A2 (ISO 15983:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15983:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-15984-169",
+            "standardCode": "ČSN EN ISO 15984",
+            "title": "Open end blind rivets with break pull mandrel and countersunk head - A2/A2 (ISO 15984:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 15984:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-16582-170",
+            "standardCode": "ČSN EN ISO 16582",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - Cu/St or Cu/Br or Cu/SSt (ISO 16582:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 16582:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-16583-171",
+            "standardCode": "ČSN EN ISO 16583",
+            "title": "Open end blind rivets with break pull mandrel and countersunk head - Cu/St or Cu/Br or Cu/SSt (ISO 16583:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 16583:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-16584-172",
+            "standardCode": "ČSN EN ISO 16584",
+            "title": "Open end blind rivets with break pull mandrel and protruding head - NiCu/St or NiCu/SSt (ISO 16584:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 16584:2002",
+            "issueDate": "2002-11-01"
+        }, {
+            "id": "sn-en-iso-16585-173",
+            "standardCode": "ČSN EN ISO 16585",
+            "title": "Closed end blind rivets Closed end blind rivets with pull mandrel and protruding head - A2/SSt (ISO 16585:2002)with pull mandrel and protruding head - A2/SSt (ISO 16585:2002)",
+            "productFamily": ["Rivets"],
+            "requestedCoverage": "Rivets",
+            "reference": "EN ISO 16585:2002",
+            "issueDate": "2002-11-01"
+        }];
+
+        // ------------------------------------------------------------------
+        // BUILD ENRICHED DATA
+        // ------------------------------------------------------------------
+        const PAGE_SLUG_COUNTERS = {};
+        const standardsData = SOURCE_STANDARDS_DATA.map((row, index) => {
+            const base = slugify(row.standardCode);
+            PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+            const pageSlug = PAGE_SLUG_COUNTERS[base] === 1 ? base : `${base}-${String(PAGE_SLUG_COUNTERS[base]).padStart(2, "0")}`;
+            return {
+                ...row,
+                sourceId: row.id,
+                pradakoId: `PRA-STD-CSN-${String(index + 1).padStart(4, "0")}`,
+                imageSrc: `/assets/images/products/standards-products/${base}.png`,
+                imageAlt: `${row.standardCode} standard media`,
+                pageUrl: `/pages/standards/csn/${pageSlug}.html`
+            };
+        });
+
+        // ------------------------------------------------------------------
+        // DOM REFS
+        // ------------------------------------------------------------------
+        const tableHeadRow = document.getElementById("tableHeadRow");
+        const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+        const tableBody = document.getElementById("standardsTableBody");
+        const searchInput = document.getElementById("searchInput");
+        const familyFilter = document.getElementById("familyFilter");
+        const emptyState = document.getElementById("emptyState");
+        const viewPanel = document.getElementById("viewPanel");
+        const viewGroups = document.getElementById("viewGroups");
+        const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+        const exportModal = document.getElementById("exportModal");
+        const copyStatus = document.getElementById("copyStatus");
+        const imagePreviewModal = document.getElementById("imagePreviewModal");
+        const imagePreviewImg = document.getElementById("imagePreviewImg");
+        const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+        const visibleCount = document.getElementById("visibleCount");
+        const totalCount = document.getElementById("totalCount");
+        const pageCount = document.getElementById("pageCount");
+        const visibleColumnCount = document.getElementById("visibleColumnCount");
+        const duplicateModePill = document.getElementById("duplicateModePill");
+        const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+        const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+        const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+        // ------------------------------------------------------------------
+        // STATE
+        // ------------------------------------------------------------------
+        let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+        let currentFilteredData = [...standardsData];
+        let duplicateMode = false;
+        let duplicateBaseData = [];
+        let sortState = { key: null, direction: "asc" };
+        let currentDensity = "compact";
+        let searchTimer;
+
+        // ------------------------------------------------------------------
+        // HELPERS
+        // ------------------------------------------------------------------
+        function getVisibleColumns() {
+            return COLUMNS.filter(c => visibleColumns.has(c.key));
+        }
+
+        // ------------------------------------------------------------------
+        // BUILD FAMILY FILTER
+        // ------------------------------------------------------------------
+        function buildFamilyFilter() {
+            const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))].sort((a, b) =>
+                a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+            );
+            familyFilter.innerHTML = '<option value="">All Product Families</option>';
+            fs.forEach(f => {
+                const o = document.createElement("option");
+                o.value = f;
+                o.textContent = f;
+                familyFilter.appendChild(o);
+            });
+        }
+
+        // ------------------------------------------------------------------
+        // BUILD VIEW PANEL
+        // ------------------------------------------------------------------
+        function buildViewPanel() {
+            viewGroups.innerHTML = "";
+            Object.entries(GROUP_META).forEach(([key, meta]) => {
+                const cols = COLUMNS.filter(c => c.group === key);
+                if (!cols.length) return;
+                const g = document.createElement("div");
+                g.className = "view-group";
+                const h = document.createElement("h4");
+                h.textContent = meta.label;
+                const wrap = document.createElement("div");
+                wrap.className = "column-checks";
+                cols.forEach(c => {
+                    const label = document.createElement("label");
+                    label.className = "check-item";
+                    const input = document.createElement("input");
+                    input.type = "checkbox";
+                    input.checked = visibleColumns.has(c.key);
+                    input.addEventListener("change", () => {
+                        if (input.checked) {
+                            visibleColumns.add(c.key);
+                        } else {
+                            if (visibleColumns.size === 1) { input.checked = true; return; }
+                            visibleColumns.delete(c.key);
+                        }
+                        setPresetState("custom");
+                        buildViewPanel();
+                        renderTable(currentFilteredData);
+                    });
+                    const span = document.createElement("span");
+                    span.textContent = c.label;
+                    label.append(input, span);
+                    wrap.appendChild(label);
+                });
+                g.append(h, wrap);
+                viewGroups.appendChild(g);
+            });
+        }
+
+        // ------------------------------------------------------------------
+        // VIEW PANEL TOGGLE
+        // ------------------------------------------------------------------
+        function toggleViewPanel() {
+            viewPanel.classList.toggle("open");
+            const open = viewPanel.classList.contains("open");
+            viewOptionsBtn.classList.toggle("active", open);
+            viewOptionsBtn.setAttribute("aria-expanded", String(open));
+        }
+
+        function setPresetState(which) {
+            ["Core", "Technical", "All"].forEach(n =>
+                document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+            );
+        }
+
+        function applyViewPreset(which) {
+            if (which === "core") visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+            else if (which === "technical") visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c
+            .key));
+            else visibleColumns = new Set(COLUMNS.map(c => c.key));
+            setPresetState(which);
+            buildViewPanel();
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // DENSITY
+        // ------------------------------------------------------------------
+        function setDensity(mode) {
+            currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+            document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+            document.body.classList.toggle("density-compact", currentDensity === "compact");
+            document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+            document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+            try { localStorage.setItem("pradakoCsnDensity", currentDensity); } catch (_) {}
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // MEDIA CELL
+        // ------------------------------------------------------------------
+        function renderMediaCell(item) {
+            const src = item.imageSrc || "";
+            const alt = item.imageAlt || item.standardCode || "Standard media";
+            return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'">
+            </div>`;
+        }
+
+        // ------------------------------------------------------------------
+        // FIT-TO-VIEWPORT ENGINE
+        // ------------------------------------------------------------------
+        function resolveColumnWidths(list) {
+            const scroller = document.querySelector(".table-scroll");
+            const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+            if (window.innerWidth <= 900) {
+                const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, title: 315, productFamily: 190,
+                    requestedCoverage: 220, reference: 210, issueDate: 170, sourceId: 180 };
+                const widths = list.map(c => mobile[c.key] || 160);
+                const total = widths.reduce((a, b) => a + b, 0);
+                return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total >
+                        viewport };
+            }
+            const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+            const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+            let total = widths.reduce((a, b) => a + b, 0);
+            let minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+            if (total > viewport) {
+                let excess = total - viewport,
+                    guard = 0;
+                while (excess > 0 && guard++ < 20) {
+                    const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x
+                        .room > 0);
+                    if (!active.length) break;
+                    const rt = active.reduce((s, x) => s + x.room, 0);
+                    let removed = 0;
+                    active.forEach((x, idx) => {
+                        let cut = idx === active.length - 1 ? Math.min(x.room, Math.max(0, excess - removed)) :
+                            Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+                        widths[x.i] -= cut;
+                        removed += cut;
+                    });
+                    if (!removed) break;
+                    excess -= removed;
+                }
+            }
+            total = widths.reduce((a, b) => a + b, 0);
+
+            if (total < viewport) {
+                let spare = viewport - total,
+                    guard = 0;
+                while (spare > 0 && guard++ < 20) {
+                    const active = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1), room: c
+                            .fixed ? 0 : Math.max(0, c.maxWidth - widths[i]) })).filter(x => x.weight > 0 && x
+                        .room > 0);
+                    if (!active.length) break;
+                    const wt = active.reduce((s, x) => s + x.weight, 0);
+                    let added = 0;
+                    active.forEach((x, idx) => {
+                        const grow = Math.min(x.room, idx === active.length - 1 ? Math.max(0, spare - added) :
+                            Math.max(1, Math.floor(spare * (x.weight / wt))));
+                        widths[x.i] += grow;
+                        added += grow;
+                    });
+                    if (!added) break;
+                    spare -= added;
+                }
+                total = widths.reduce((a, b) => a + b, 0);
+                spare = Math.max(0, viewport - total);
+                if (spare > 0) {
+                    const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+                        .filter(x => x.weight > 0);
+                    const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+                    let added = 0;
+                    elastic.forEach((x, idx) => {
+                        const grow = idx === elastic.length - 1 ? spare - added : Math.floor(spare * (x.weight /
+                            wt));
+                        widths[x.i] += Math.max(0, grow);
+                        added += Math.max(0, grow);
+                    });
+                }
+            }
+            total = widths.reduce((a, b) => a + b, 0);
+            return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal >
+                    viewport };
+        }
+
+        function getStickyLeftOffset(list, widths, index) {
+            let left = 0;
+            for (let i = 0; i < index; i++) {
+                if (list[i].sticky) left += widths[i];
+            }
+            return left;
+        }
+
+        function applyAdaptiveRowSizing(count) {
+            let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+            let clamp = count <= 6 ? 3 : 4;
+            let x = count <= 6 ? 8 : 7;
+            let y = count <= 6 ? 10 : 11;
+            if (currentDensity === "comfortable") { row += 38;
+                clamp += 2;
+                y += 3; }
+            document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+            document.documentElement.style.setProperty("--title-clamp", String(clamp));
+            document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+            document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+        }
+
+        function applyExactColumnLayout(list) {
+            const layout = resolveColumnWidths(list);
+            const body = document.getElementById("standardsTable");
+            const head = document.querySelector(".sticky-head-table");
+            const bodyScroll = document.querySelector(".table-scroll");
+            const headScroll = document.getElementById("stickyTableHeadScroll");
+            const rendered = Math.max(layout.total, layout.viewport);
+            bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+            headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+            [body, head].forEach(t => {
+                if (!t) return;
+                t.style.width = rendered + "px";
+                t.style.minWidth = rendered + "px";
+                t.querySelector("colgroup")?.remove();
+                const cg = document.createElement("colgroup");
+                layout.widths.forEach(w => {
+                    const col = document.createElement("col");
+                    col.style.width = w + "px";
+                    cg.appendChild(col);
+                });
+                t.insertBefore(cg, t.firstChild);
+            });
+            return layout;
+        }
+
+        // ------------------------------------------------------------------
+        // RENDER TABLE
+        // ------------------------------------------------------------------
+        function renderTable(data) {
+            const q = searchInput.value.trim();
+            const list = getVisibleColumns();
+            const layout = applyExactColumnLayout(list);
+            applyAdaptiveRowSizing(list.length);
+            visibleColumnCount.textContent = list.length;
+            visibleCount.textContent = data.length;
+            tableHeadRow.innerHTML = "";
+            stickyTableHeadRow.innerHTML = "";
+            tableBody.innerHTML = "";
+
+            function thFor(c, i) {
+                const th = document.createElement("th");
+                th.textContent = sortState.key === c.key ? c.label + (sortState.direction === "asc" ? " ▲" : " ▼") : c
+                    .label;
+                th.style.width = layout.widths[i] + "px";
+                if (c.sticky && window.innerWidth > 900) {
+                    th.classList.add("sticky-col");
+                    th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+                }
+                if (c.sortable === false) th.classList.add("not-sortable");
+                else th.addEventListener("click", () => sortByColumn(c.key));
+                return th;
+            }
+            list.forEach((c, i) => {
+                tableHeadRow.appendChild(thFor(c, i));
+                stickyTableHeadRow.appendChild(thFor(c, i));
+            });
+
+            const frag = document.createDocumentFragment();
+            data.forEach(item => {
+                const tr = document.createElement("tr");
+                list.forEach((c, i) => {
+                    const td = document.createElement("td");
+                    const v = item[c.key] !== undefined ? item[c.key] : "—";
+                    td.style.width = layout.widths[i] + "px";
+                    if (c.sticky && window.innerWidth > 900) {
+                        td.classList.add("sticky-col");
+                        td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) +
+                        "px");
+                    }
+                    if (c.type === "media") {
+                        td.classList.add("media-cell");
+                        td.innerHTML = renderMediaCell(item);
+                    } else if (c.type === "id") {
+                        td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+                    } else if (c.type === "standard") {
+                        td.innerHTML =
+                            `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+                    } else if (c.type === "body") {
+                        td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+                    } else if (c.type === "family") {
+                        const a = Array.isArray(v) ? v : [v];
+                        td.innerHTML = a.map(x =>
+                            `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+                    } else if (c.type === "scope") {
+                        td.innerHTML = `<div class="title-cell scope-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+                    } else {
+                        td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+                    }
+                    tr.appendChild(td);
+                });
+                frag.appendChild(tr);
+            });
+            tableBody.appendChild(frag);
+            emptyState.style.display = data.length ? "none" : "block";
+        }
+
+        // ------------------------------------------------------------------
+        // DUPLICATE HANDLING
+        // ------------------------------------------------------------------
+        function getDuplicateGroups() {
+            const m = new Map();
+            standardsData.forEach(x => {
+                const k = normalizeDuplicateKey(x.standardCode);
+                if (!k) return;
+                if (!m.has(k)) m.set(k, []);
+                m.get(k).push(x);
+            });
+            return [...m.values()].filter(g => g.length > 1).sort((a, b) =>
+                a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true, sensitivity: "base" })
+            );
+        }
+
+        function updateDuplicateViewPill(gc, rc) {
+            if (!duplicateMode) {
+                duplicateModePill.classList.remove("show");
+                duplicateGroupsCount.textContent = "0";
+                duplicateRowsCount.textContent = "0";
+                return;
+            }
+            duplicateGroupsCount.textContent = gc;
+            duplicateRowsCount.textContent = rc;
+            duplicateModePill.classList.add("show");
+        }
+
+        function showDuplicateEntriesInTable() {
+            const groups = getDuplicateGroups();
+            const r = groups.flat();
+            duplicateMode = true;
+            duplicateBaseData = r;
+            searchInput.value = "";
+            familyFilter.value = "";
+            sortState = { key: null, direction: "asc" };
+            currentFilteredData = [...r];
+            updateDuplicateViewPill(groups.length, r.length);
+            duplicateCheckBtn.classList.add("active");
+            searchInput.placeholder = "Search within duplicate ČSN entries...";
+            renderTable(currentFilteredData);
+        }
+
+        function hideDuplicateView() {
+            duplicateMode = false;
+            duplicateBaseData = [];
+            updateDuplicateViewPill(0, 0);
+            duplicateCheckBtn.classList.remove("active");
+            searchInput.placeholder =
+                "Search ČSN standard, title, Pradako ID, EN / ISO reference or product family...";
+        }
+
+        // ------------------------------------------------------------------
+        // SEARCH / FILTER / SORT
+        // ------------------------------------------------------------------
+        function searchStandards() {
+            const q = searchInput.value.trim().toLowerCase();
+            const f = familyFilter.value;
+            const src = duplicateMode ? duplicateBaseData : standardsData;
+            currentFilteredData = src.filter(item => {
+                const ms = !q || COLUMNS.some(c => {
+                    if (c.searchable === false) return false;
+                    const v = item[c.key];
+                    if (v == null) return false;
+                    if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+                    return String(v).toLowerCase().includes(q);
+                });
+                const mf = !f || item.productFamily.includes(f);
+                return ms && mf;
+            });
+            if (sortState.key) currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+            renderTable(currentFilteredData);
+        }
+
+        function clearSearch() {
+            searchInput.value = "";
+            familyFilter.value = "";
+            sortState = { key: null, direction: "asc" };
+            hideDuplicateView();
+            currentFilteredData = [...standardsData];
+            renderTable(currentFilteredData);
+        }
+
+        function sortData(data, key, direction) {
+            return [...data].sort((a, b) => {
+                let A = a[key],
+                    B = b[key];
+                if (Array.isArray(A)) A = A.join(", ");
+                if (Array.isArray(B)) B = B.join(", ");
+                A = String(A ?? "").toLowerCase();
+                B = String(B ?? "").toLowerCase();
+                return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+            });
+        }
+
+        function sortByColumn(key) {
+            const c = COLUMNS.find(x => x.key === key);
+            if (!c || c.sortable === false) return;
+            if (sortState.key === key) {
+                sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+            } else {
+                sortState = { key, direction: "asc" };
+            }
+            currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // MODAL CONTROLS
+        // ------------------------------------------------------------------
+        function openExportPopup() {
+            exportModal.classList.add("show");
+            document.body.style.overflow = "hidden";
+            copyStatus.classList.remove("show");
+        }
+
+        function closeExportPopup() {
+            exportModal.classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+        function copyEmail() {
+            const e = "info@pradakomechanicals.com";
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+            } else {
+                const t = document.createElement("textarea");
+                t.value = e;
+                t.style.position = "fixed";
+                t.style.left = "-9999px";
+                document.body.appendChild(t);
+                t.select();
+                try {
+                    document.execCommand("copy");
+                    copyStatus.classList.add("show");
+                } catch (_) {
+                    copyStatus.textContent = "Please copy manually: " + e;
+                    copyStatus.classList.add("show");
+                }
+                t.remove();
+            }
+        }
+
+        function openImagePreview(src, alt, title) {
+            imagePreviewImg.src = src;
+            imagePreviewImg.alt = alt;
+            imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+            imagePreviewModal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeImagePreview() {
+            imagePreviewModal.classList.remove("show");
+            imagePreviewImg.src = "";
+            document.body.style.overflow = "";
+        }
+
+        // ------------------------------------------------------------------
+        // SYNC SCROLL
+        // ------------------------------------------------------------------
+        function syncScroll() {
+            const b = document.querySelector(".table-scroll");
+            const h = document.getElementById("stickyTableHeadScroll");
+            let syncing = false;
+
+            const sync = (from, to) => {
+                if (syncing) return;
+                syncing = true;
+                to.scrollLeft = from.scrollLeft;
+                syncing = false;
+            };
+            b.addEventListener("scroll", () => sync(b, h), { passive: true });
+            h.addEventListener("scroll", () => sync(h, b), { passive: true });
+        }
+
+        // ------------------------------------------------------------------
+        // EVENT BINDING
+        // ------------------------------------------------------------------
+        searchInput.addEventListener("input", () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(searchStandards, 160);
+        });
+        familyFilter.addEventListener("change", searchStandards);
+
+        tableBody.addEventListener("click", e => {
+            const box = e.target.closest(".media-card");
+            if (box) openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+        });
+
+        exportModal.addEventListener("click", e => {
+            if (e.target === exportModal) closeExportPopup();
+        });
+        imagePreviewModal.addEventListener("click", e => {
+            if (e.target === imagePreviewModal) closeImagePreview();
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") {
+                closeExportPopup();
+                closeImagePreview();
+            }
+        });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+        });
+
+        // ------------------------------------------------------------------
+        // INIT
+        // ------------------------------------------------------------------
+        function init() {
+            try {
+                if (localStorage.getItem("pradakoCsnDensity") === "comfortable") currentDensity = "comfortable";
+            } catch (_) {}
+            document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+            document.body.classList.toggle("density-compact", currentDensity === "compact");
+            document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+            document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+            totalCount.textContent = standardsData.length;
+            pageCount.textContent = standardsData.length;
+            buildFamilyFilter();
+            buildViewPanel();
+            renderTable(currentFilteredData);
+            syncScroll();
+        }
+
+        // ------------------------------------------------------------------
+        // EXPOSE GLOBALS
+        // ------------------------------------------------------------------
+        window.searchStandards = searchStandards;
+        window.clearSearch = clearSearch;
+        window.toggleViewPanel = toggleViewPanel;
+        window.setDensity = setDensity;
+        window.applyViewPreset = applyViewPreset;
+        window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+        window.openExportPopup = openExportPopup;
+        window.closeExportPopup = closeExportPopup;
+        window.copyEmail = copyEmail;
+        window.openImagePreview = openImagePreview;
+        window.closeImagePreview = closeImagePreview;
+
+        // ------------------------------------------------------------------
+        // BOOT
+        // ------------------------------------------------------------------
+        init();
+
+        // ------------------------------------------------------------------
+        // BACK TO TOP
+        // ------------------------------------------------------------------
+        (function() {
+            const button = document.getElementById("pradakoBackToTop");
+            if (!button) return;
+            const update = () => {
+                const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                button.classList.toggle("is-visible", y > 300);
+            };
+            button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+            window.addEventListener("scroll", update, { passive: true });
+            update();
+        })();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

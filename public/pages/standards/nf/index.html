@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pradako NF / AFNOR French Fastener Standards Library</title>
+<meta name="description" content="Structured NF / AFNOR French standards fastener reference library covering NF, NF E, NF EN, NF EN ISO and related AFNOR fastener standards for bolts, screws, studs, nuts, washers, rivets and general engineering references." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ============================================================
+   PRADAKO MULTI-AUTHORITY STANDARDS LIBRARY
+   DIN master-page structure. Source standard data is untouched.
+   ============================================================ */
+:root{
+  --white:#fff;--navy:#24343b;--blue:#28766a;--gold:#f08080;--line:#dde5e7;
+  --text:#26343b;--muted:#6d7b82;--soft-blue:#eef7f4;--soft:#f7faf9;
+  --shadow:0 16px 42px rgba(36,52,59,.08);--dynamic-row-height:126px;
+  --dynamic-cell-x:8px;--dynamic-cell-y:10px;--title-clamp:3;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Montserrat","Segoe UI",Arial,sans-serif;color:var(--text);background:var(--white)}a{color:inherit}.page{min-height:100vh;background:#fff}
+/* Hero */
+.top-hero{padding:48px clamp(24px,3.1vw,58px) 34px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff 0%,#fbfdfc 100%)}
+.hero-kicker{display:inline-flex;gap:8px;align-items:center;margin-bottom:14px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
+.hero-route{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 17px}.hero-route-pill{display:inline-flex;align-items:center;min-height:30px;padding:0 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font:800 9.5px "Montserrat",sans-serif;letter-spacing:.9px;text-transform:uppercase}
+.top-hero h1{margin:0;max-width:1250px;font-family:"Space Grotesk",Georgia,serif;font-size:clamp(42px,4.1vw,72px);line-height:1;letter-spacing:-1.6px;color:var(--navy)}
+.hero-subtitle{display:block;margin-top:8px;font-size:clamp(17px,1.55vw,24px);line-height:1.25;letter-spacing:-.35px;color:var(--blue);font-weight:650}
+.top-hero p.hero-intro{max-width:1160px;margin:18px 0 0;font-size:15px;line-height:1.8;color:var(--muted);font-weight:600}
+.hero-trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.hero-trust-item{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:0 11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);font:850 10px "Montserrat",sans-serif;letter-spacing:.3px;text-transform:uppercase}.hero-trust-item i{color:var(--blue);font-size:10px}
+.engineering-use-note{margin:14px clamp(24px,3.1vw,58px) 0;padding:13px 15px;border:1px solid #d7e4e1;border-left:3px solid var(--blue);border-radius:10px;background:#f8fbfa;color:var(--text);font-size:11.5px;line-height:1.65;font-weight:600}.engineering-use-note strong{color:var(--navy);font-weight:900}.engineering-use-note .note-label{display:inline-flex;margin-right:8px;color:var(--blue);font-size:9.5px;font-weight:900;letter-spacing:.75px;text-transform:uppercase}
+/* Controls */
+.control-zone{position:relative;z-index:20;padding:12px 32px 10px;background:#fff;border-bottom:1px solid var(--line)}.controls-grid{display:grid;grid-template-columns:minmax(360px,1.7fr) minmax(220px,.72fr) auto auto auto;gap:8px;align-items:center}.search-wrap,.family-wrap{position:relative}.search-wrap input,.family-filter{width:100%;height:40px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:0;font:700 12.5px "Montserrat",sans-serif;color:var(--text);transition:.2s}.search-wrap input{padding:0 18px 0 46px}.family-filter{padding:0 14px}.search-wrap input:focus,.family-filter:focus{border-color:var(--blue);box-shadow:0 0 0 4px var(--soft-blue)}.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:17px;color:var(--navy)}
+.btn{height:40px;border-radius:12px;padding:0 14px;font:900 10.5px "Montserrat",sans-serif;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:.2s}.btn-primary{background:var(--navy);border:1px solid var(--navy);color:#fff}.btn-primary:hover{background:var(--blue);border-color:var(--blue)}.btn-soft{background:#fff;border:1px solid var(--line);color:var(--navy)}.btn-soft:hover,.btn-soft.active{background:var(--soft-blue);border-color:var(--blue)}
+.stats-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:8px}.stat-pills,.stats-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.stat-pill{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--navy);font-size:10.5px;font-weight:900;background:#fff}.duplicate-mode-pill{display:none}.duplicate-mode-pill.show{display:inline-flex}.duplicate-check-btn{border-color:#f08080;background:#fff2f2;color:#493538}.duplicate-check-btn.active{background:#f08080;color:#fff;border-color:#f08080}
+/* View options */
+.view-panel{display:none;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#fff,var(--soft));box-shadow:0 10px 25px rgba(36,52,59,.04)}.view-panel.open{display:block}.view-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.view-panel-title{font-size:12px;font-weight:900;color:var(--navy);letter-spacing:.6px;text-transform:uppercase}.preset-actions{display:flex;gap:6px;flex-wrap:wrap}.mini-btn{height:32px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);padding:0 11px;font:900 10px "Montserrat",sans-serif;text-transform:uppercase;cursor:pointer}.mini-btn.active,.mini-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}.view-groups{display:grid;grid-template-columns:2fr 1fr;gap:10px}.view-group{padding:11px;border:1px solid var(--line);border-radius:14px;background:#fff}.view-group h4{margin:0 0 8px;font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase}.column-checks{display:flex;gap:7px;flex-wrap:wrap}.check-item{display:inline-flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);font-size:11px;font-weight:800;cursor:pointer}.check-item:has(input:checked){border-color:#94c2b5;background:var(--soft-blue);color:var(--navy)}.check-item input{accent-color:var(--navy)}
+/* Sticky header / table */
+.sticky-table-head-wrap{position:sticky;top:0;z-index:1450;margin:0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 8px 18px rgba(36,52,59,.07)}.sticky-table-head-scroll{width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}.sticky-table-head-scroll::-webkit-scrollbar{display:none}.sticky-head-table,#standardsTable{width:max-content;min-width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}.sticky-head-table thead th{background:var(--navy)}#standardsTable thead{display:none}.table-zone{position:relative;background:#fff}.table-scroll{position:relative;width:100%;max-width:100%;overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch}.table-scroll:not(.has-horizontal-scroll),.sticky-table-head-scroll:not(.has-horizontal-scroll){overflow-x:hidden}.sticky-head-table th,#standardsTable th,#standardsTable td{box-sizing:border-box}thead th{padding:10px var(--dynamic-cell-x);text-align:left;font-size:9.5px;letter-spacing:.5px;color:#fff;background:var(--navy);border-right:1px solid rgba(255,255,255,.2);cursor:pointer;user-select:none;white-space:normal;text-transform:uppercase;line-height:1.25}thead th.not-sortable{cursor:default}tbody tr{height:var(--dynamic-row-height)}tbody td{padding:var(--dynamic-cell-y) var(--dynamic-cell-x);vertical-align:middle;font-size:11.5px;line-height:1.4;background:#fff;color:var(--text);border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-weight:600;overflow-wrap:anywhere}tbody tr:hover td{background:#f3f9f7}
+.sticky-col{position:sticky!important;left:var(--sticky-left,0)!important;background:#fff;box-shadow:7px 0 13px rgba(36,52,59,.045)}tbody tr:hover td.sticky-col{background:#f3f9f7}.sticky-head-table th.sticky-col{z-index:40;background:var(--navy);box-shadow:7px 0 13px rgba(0,0,0,.08)}#standardsTable td.sticky-col{z-index:12}
+/* Cells */
+.media-cell{padding:10px 14px!important}.media-card{width:210px;height:104px;border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden;position:relative;box-shadow:0 6px 16px rgba(36,52,59,.045);cursor:pointer}.media-card img{width:100%;height:100%;display:block;object-fit:contain;padding:9px;background:#fff;transition:.22s}.media-card:hover{border-color:var(--blue)}.media-card:hover img{transform:scale(1.035)}.media-empty{width:210px;height:104px;border:1px dashed #c8d5d7;border-radius:13px;background:#fbfcfc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.4px;text-transform:uppercase}.media-empty i{font-size:17px;color:#82959b}.pradako-id{display:inline-flex;padding:5px 7px;border:1px solid #cad6d8;border-radius:7px;background:#f6f9f8;color:var(--navy);font:900 10.5px "Montserrat",sans-serif;letter-spacing:.15px;white-space:nowrap}.standard-link{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:900;white-space:normal}.standard-link:hover{background:var(--blue)}.standard-link i{font-size:9px}.body-pill{display:inline-flex;padding:5px 7px;border:1px solid var(--line);border-radius:7px;background:var(--soft-blue);color:var(--navy);font-size:10px;font-weight:850}.title-cell{font-weight:750;color:var(--text);display:-webkit-box;-webkit-line-clamp:var(--title-clamp);-webkit-box-orient:vertical;overflow:hidden}.family-pill{display:inline-flex;font-size:10.5px;font-weight:850;line-height:1.3;color:var(--navy)}.scope-cell{color:var(--text)}
+.density-switch{display:inline-flex;align-items:center;padding:2px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}.density-btn{height:30px;padding:0 9px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:900 9.5px "Montserrat",sans-serif;text-transform:uppercase;cursor:pointer}.density-btn.active{background:var(--navy);color:#fff}.density-comfortable .media-card,.density-comfortable .media-empty{height:140px}mark{background:#dcefe9;color:var(--navy);padding:0 2px;border-radius:3px}.empty-state{display:none;padding:64px 20px;text-align:center;color:var(--muted)}.empty-state h3{margin:0 0 8px;color:var(--navy)}.footer-note{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.7;font-weight:700}
+/* Modal */
+.modal-overlay,.image-preview-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(24,34,39,.84);backdrop-filter:blur(8px)}.modal-overlay.show,.image-preview-overlay.show{display:flex}.modal-card,.image-preview-card{position:relative;width:min(620px,96vw);max-height:92vh;overflow:auto;border-radius:22px;background:#fff;box-shadow:0 28px 80px rgba(0,0,0,.24)}.image-preview-card{width:min(1000px,96vw)}.modal-top,.image-preview-head{padding:22px 26px;background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}.modal-top h2,.image-preview-head h3{margin:0}.modal-top p{margin:9px 0 0;line-height:1.6;font-size:13px}.modal-body,.image-preview-body{padding:24px}.image-preview-body img{width:100%;max-height:70vh;object-fit:contain;display:block}.modal-close,.image-preview-close{position:absolute;right:15px;top:15px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--navy);font-size:22px;cursor:pointer;z-index:3}.work-message{padding:17px;border:1px solid var(--line);border-radius:14px;line-height:1.7;font-weight:700}.email-line{margin-top:8px;color:var(--navy);font-weight:900}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.modal-btn{height:42px;padding:0 14px;border-radius:12px;border:1px solid var(--line);font:900 11px "Montserrat";text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.modal-btn-primary{background:var(--navy);border-color:var(--navy);color:#fff}.modal-btn-soft{background:#fff;color:var(--navy)}.copy-status{display:none;margin-top:10px;color:var(--navy);font-size:12px;font-weight:900}.copy-status.show{display:block}
+/* Back to top */
+.pradako-back-to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;z-index:100000;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);box-shadow:0 12px 28px rgba(36,52,59,.22);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,background .22s ease}.pradako-back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.pradako-back-to-top:hover{background:var(--blue)}
+/* Responsive */
+@media(max-width:1350px){.controls-grid{grid-template-columns:1fr 1fr auto auto}.stats-row{align-items:flex-start}.view-groups{grid-template-columns:1fr}}
+@media(max-width:900px){html,body{width:100%;max-width:100%;overflow-x:hidden}.sticky-col{position:static!important;left:auto!important;box-shadow:none!important}.sticky-head-table th.sticky-col,#standardsTable td.sticky-col{position:static!important;left:auto!important}.sticky-table-head-scroll,.table-scroll{overflow-x:auto!important;overscroll-behavior-x:contain}.top-hero{padding:28px 18px 24px}.top-hero h1{font-size:clamp(34px,10vw,48px);line-height:1.04;letter-spacing:-1px}.hero-subtitle{font-size:17px}.top-hero p.hero-intro{font-size:13px;line-height:1.65}.engineering-use-note{margin:12px 18px 0;padding:12px;font-size:10.5px}.control-zone{padding:12px}.controls-grid{grid-template-columns:1fr 1fr}.search-wrap,.family-filter,#viewOptionsBtn{grid-column:1/-1}.search-wrap input,.family-filter{height:42px;font-size:12px}.controls-grid .btn{width:100%;min-width:0;padding-left:8px;padding-right:8px}.stats-row{flex-direction:column;align-items:stretch;gap:8px}.stat-pills{width:100%;gap:5px}.stat-pill{padding:5px 8px;font-size:9px}.stats-actions{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px}.density-switch{grid-column:1/-1;width:100%;display:grid;grid-template-columns:1fr 1fr}.density-btn,.stats-actions>.btn{width:100%;min-width:0}.view-panel{padding:9px;border-radius:12px}.view-panel-head{flex-direction:column;align-items:stretch;gap:8px}.preset-actions{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.mini-btn{width:100%;min-width:0;padding:0 5px;font-size:8.5px}.view-groups{grid-template-columns:1fr;gap:7px}.view-group{padding:9px}.check-item{padding:6px 7px;font-size:9.5px}thead th{padding:8px 6px;font-size:8px}tbody td{padding:8px 6px;font-size:10px}.media-cell{padding:7px!important}.media-card,.media-empty{width:126px!important;height:88px!important}.density-comfortable .media-card,.density-comfortable .media-empty{height:105px!important}.pradako-id{font-size:8.5px;padding:4px 5px}.standard-link{padding:4px 6px;font-size:9px}.family-pill,.body-pill{font-size:9px}.footer-note{padding:14px 16px;font-size:9.5px}.pradako-back-to-top{right:14px;bottom:14px;width:44px;height:44px;font-size:14px}}
+@media(max-width:480px){.top-hero{padding-left:15px;padding-right:15px}.engineering-use-note{margin-left:15px;margin-right:15px}.hero-route-pill{font-size:7.5px;padding:0 8px}.hero-trust-item{font-size:7.8px;padding:0 8px}.media-card,.media-empty{width:116px!important;height:82px!important}}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/nf/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako NF / AFNOR French Fastener Standards Library">
+    <meta property="og:description" content="Structured NF / AFNOR French standards fastener reference library covering NF, NF E, NF EN, NF EN ISO and related AFNOR fastener standards for bolts, screws, studs, nuts, washers, rivets and general engineering references.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/nf/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako NF / AFNOR French Fastener Standards Library">
+    <meta name="twitter:description" content="Structured NF / AFNOR French standards fastener reference library covering NF, NF E, NF EN, NF EN ISO and related AFNOR fastener standards for bolts, screws, studs, nuts, washers, rivets and general engineering references.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako NF / AFNOR French Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standards/nf/index.html",
+  "description": "Structured NF / AFNOR French standards fastener reference library covering NF, NF E, NF EN, NF EN ISO and related AFNOR fastener standards for bolts, screws, studs, nuts, washers, rivets and general engineering references.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="density-compact">
+<div id="navbar-container"></div>
+<section class="page">
+<header class="top-hero">
+  <div class="hero-kicker"><i class="fa-solid fa-gears"></i> Pradako Standards Library · NF / AFNOR / France</div>
+  <div class="hero-route" aria-label="NF / AFNOR standards represented"><span class="hero-route-pill">NF</span><span class="hero-route-pill">NF E</span><span class="hero-route-pill">NF EN</span><span class="hero-route-pill">NF EN ISO</span><span class="hero-route-pill">ISO via AFNOR</span></div>
+  <h1>NF / AFNOR French Fastener Standards<span class="hero-subtitle">Engineering Reference Library</span></h1>
+  <p class="hero-intro">A structured NF / AFNOR standards reference library for engineering research. Explore the supplied French fastener references with their exact NF / AFNOR designations, supplied editions, original titles, product families and controlled Pradako standard identities through the same engineering reference architecture used across the standards library.</p>
+  <div class="hero-trust" aria-label="Library features"><span class="hero-trust-item"><i class="fa-solid fa-database"></i> 119 Standard Records</span><span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 119 Pradako Standard IDs</span><span class="hero-trust-item"><i class="fa-solid fa-language"></i> Original Supplied AFNOR Titles</span><span class="hero-trust-item"><i class="fa-solid fa-file-lines"></i> Independent Standard Pages</span></div>
+</header>
+<div class="engineering-use-note" role="note"><span class="note-label">Engineering Use Note</span><strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong> Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements should be confirmed against the governing specification and current official publication before design, procurement or release.</div>
+<section class="control-zone">
+  <div class="controls-grid"><div class="search-wrap"><i class="fa-solid fa-magnifying-glass search-icon"></i><input id="searchInput" type="text" placeholder="Search NF / AFNOR standard, title, Pradako ID, edition or product family..." /></div><select id="familyFilter" class="family-filter"><option value="">All Product Families</option></select><button class="btn btn-primary" onclick="searchStandards()">Search</button><button class="btn btn-soft" onclick="clearSearch()">Clear</button><button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel"><i class="fa-solid fa-sliders"></i>&nbsp; View Options</button></div>
+  <div class="stats-row"><div class="stat-pills"><div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div><div class="stat-pill"><span id="pageCount">0</span> individual pages</div><div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div><div class="stat-pill duplicate-mode-pill" id="duplicateModePill">Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows</div></div><div class="stats-actions"><div class="density-switch"><button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button><button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button></div><button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button><button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()"><span>⧉</span>&nbsp; Check Duplicates</button></div></div>
+  <div class="view-panel open" id="viewPanel"><div class="view-panel-head"><div class="view-panel-title">Choose the information you want visible</div><div class="preset-actions"><button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button><button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button><button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button></div></div><div class="view-groups" id="viewGroups"></div></div>
+</section>
+<div class="sticky-table-head-wrap"><div class="sticky-table-head-scroll" id="stickyTableHeadScroll"><table class="sticky-head-table" aria-hidden="true"><thead><tr id="stickyTableHeadRow"></tr></thead></table></div></div>
+<section class="table-zone"><div class="table-scroll" id="tableScroll"><table id="standardsTable"><thead><tr id="tableHeadRow"></tr></thead><tbody id="standardsTableBody"></tbody></table><div class="empty-state" id="emptyState"><h3>No standards found</h3><p>Try another NF / AFNOR standard, title, Pradako ID, edition or product family.</p></div></div></section>
+</section>
+<section class="modal-overlay" id="exportModal"><div class="modal-card"><button class="modal-close" onclick="closeExportPopup()">&times;</button><div class="modal-top"><h2>Export Request</h2><p>The export feature is currently being upgraded for the complete standards database.</p></div><div class="modal-body"><div class="work-message">We are working on it.<br>Please email us on:<div class="email-line">info@pradakomechanicals.com</div></div><div class="modal-actions"><a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=NF%20AFNOR%20Standards%20Library%20Export%20Request">Email Us</a><button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button><button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button></div><div class="copy-status" id="copyStatus">Email copied successfully.</div></div></div></section>
+<section class="image-preview-overlay" id="imagePreviewModal"><div class="image-preview-card"><button class="image-preview-close" onclick="closeImagePreview()">&times;</button><div class="image-preview-head"><h3 id="imagePreviewTitle">Standard Media</h3></div><div class="image-preview-body"><img id="imagePreviewImg" src="" alt=""></div></div></section>
+<div id="footer-container"></div>
+<button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+<script>
+
+
+const COLUMNS=[
+{key:"imageSrc",label:"Photo / 2D / 3D",width:240,minWidth:240,maxWidth:240,fixed:true,sticky:true,core:true,group:"core",type:"media",searchable:false,sortable:false,weight:0},
+{key:"pradakoId",label:"Pradako Standard ID",width:145,minWidth:124,maxWidth:190,sticky:true,core:true,group:"core",type:"id",searchable:true,sortable:true,weight:.55},
+{key:"standardCode",label:"NF / AFNOR Standard",width:250,minWidth:170,maxWidth:390,sticky:true,core:true,group:"core",type:"standard",searchable:true,sortable:true,weight:1.0},
+{key:"title",label:"Original AFNOR Title / Name",width:520,minWidth:285,maxWidth:850,core:true,group:"core",type:"title",searchable:true,sortable:true,weight:2.7},
+{key:"productFamily",label:"Product Family",width:245,minWidth:150,maxWidth:380,core:true,group:"core",type:"family",searchable:true,sortable:true,weight:1.0},
+{key:"edition",label:"Edition",width:220,minWidth:145,maxWidth:340,core:false,technical:true,group:"details",type:"title",searchable:true,sortable:true,weight:.85},
+{key:"sourceId",label:"Source Record ID",width:260,minWidth:180,maxWidth:400,core:false,technical:false,group:"source",type:"title",searchable:true,sortable:true,weight:.75}
+];
+const GROUP_META={core:{label:"Core Information"},details:{label:"NF / AFNOR Standard Details"},source:{label:"Source Record"}};
+function slugify(text){return String(text||"").toLowerCase().replace(/&/g,"and").replace(/\+/g,"plus").replace(/,/g," ").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")}
+function escapeHTML(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+function escapeRegex(v){return v.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+function highlightText(v,q){const t=escapeHTML(v);if(!q.trim())return t;const r=new RegExp("("+escapeRegex(escapeHTML(q.trim()))+")","gi");return t.replace(r,"<mark>$1</mark>")}
+function normalizeDuplicateKey(v){return String(v||"").trim().toLowerCase().replace(/\s+/g," ")}
+
+/* SOURCE DATA: preserved exactly as supplied in the uploaded NF / AFNOR standards page. */
+const SOURCE_STANDARDS_DATA = [
+        {
+            "id": "nf-e25-004",
+            "standardCode": "NF E25-004",
+            "productFamily": [
+                "General fasteners"
+            ],
+            "edition": "2018-09",
+            "title": "Fixations - Notations abrégées"
+        },
+        {
+            "id": "nf-e25-005",
+            "standardCode": "NF E25-005",
+            "productFamily": [
+                "General fasteners"
+            ],
+            "edition": "2022-04",
+            "title": "Fixations - Contrôles dimensionnels et méthodes d'essai"
+        },
+        {
+            "id": "nf-e25-015",
+            "standardCode": "NF E25-015",
+            "productFamily": [
+                "Bolts / screws / studs / threaded rods"
+            ],
+            "edition": "2017-03",
+            "title": "Fixations - Boulons, vis, goujons et tiges filetées à filetage métrique ISO - Essais de cisaillement simple"
+        },
+        {
+            "id": "nf-e25-030-1",
+            "standardCode": "NF E25-030-1",
+            "productFamily": [
+                "Bolted joints"
+            ],
+            "edition": "2014-08",
+            "title": "Fasteners - Threaded connections with ISO metric thread - Part 1: design rules for tensile loaded bolted joints - Simplified procedure"
+        },
+        {
+            "id": "nf-e25-030-2",
+            "standardCode": "NF E25-030-2",
+            "productFamily": [
+                "Bolted joints"
+            ],
+            "edition": "2014-08",
+            "title": "Fasteners - Threaded connections with ISO metric thread - Part 2: design rules for tensile loaded bolted joints - Complete procedure"
+        },
+        {
+            "id": "nf-e25-035-1",
+            "standardCode": "NF E25-035-1",
+            "productFamily": [
+                "Stainless bolted assemblies"
+            ],
+            "edition": "2020-04",
+            "title": "Assemblages vissés - Partie 1 : fixations en acier inoxydable - Méthodes d'essai couple/tension et aptitude au serrage"
+        },
+        {
+            "id": "nf-e25-035-2",
+            "standardCode": "NF E25-035-2",
+            "productFamily": [
+                "Stainless lock nuts"
+            ],
+            "edition": "2025-04",
+            "title": "Assemblages vissés - Partie 2 : écrous autofreinés en acier inoxydable - Caractéristiques fonctionnelles, méthodes d'essai de couple/tension, d'autofreinage et de charge d'épreuve"
+        },
+        {
+            "id": "nf-en-iso-888",
+            "standardCode": "NF EN ISO 888",
+            "productFamily": [
+                "Bolts / screws / studs / threaded rods"
+            ],
+            "edition": "2018-06",
+            "title": "Fixations - Vis, goujons et tiges filetées - Longueurs nominales et longueurs filetées"
+        },
+        {
+            "id": "nf-en-iso-898-1",
+            "standardCode": "NF EN ISO 898-1",
+            "productFamily": [
+                "Bolts / screws / studs"
+            ],
+            "edition": "2013-05",
+            "title": "Caractéristiques mécaniques des éléments de fixation en acier au carbone et en acier allié - Partie 1 : vis, goujons et tiges filetées de classes de qualité spécifiées"
+        },
+        {
+            "id": "nf-en-iso-898-2",
+            "standardCode": "NF EN ISO 898-2",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2022-10",
+            "title": "Fixations - Caractéristiques mécaniques des fixations en acier au carbone et en acier allié - Partie 2 : écrous de classes de qualité spécifiées"
+        },
+        {
+            "id": "nf-en-iso-898-3",
+            "standardCode": "NF EN ISO 898-3",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2018 + A1:2021",
+            "title": "Caractéristiques mécaniques des fixations en acier au carbone et en acier allié - Partie 3 : rondelles de forme plane de classes de qualité spécifiées"
+        },
+        {
+            "id": "nf-en-iso-3269",
+            "standardCode": "NF EN ISO 3269",
+            "productFamily": [
+                "General fasteners"
+            ],
+            "edition": "2019",
+            "title": "Fasteners - Acceptance inspection"
+        },
+        {
+            "id": "nf-en-iso-3506-1",
+            "standardCode": "NF EN ISO 3506-1",
+            "productFamily": [
+                "Bolts / screws / studs"
+            ],
+            "edition": "2020",
+            "title": "Fixations - Caractéristiques mécaniques des fixations en acier inoxydable résistant à la corrosion - Partie 1 : vis, goujons et tiges filetées de grades et classes de qualité spécifiés"
+        },
+        {
+            "id": "nf-en-iso-3506-2",
+            "standardCode": "NF EN ISO 3506-2",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2020",
+            "title": "Fixations - Caractéristiques mécaniques des fixations en acier inoxydable résistant à la corrosion - Partie 2 : écrous de grades et classes de qualité spécifiés"
+        },
+        {
+            "id": "nf-en-iso-3506-3",
+            "standardCode": "NF EN ISO 3506-3",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2025",
+            "title": "Fixations - Caractéristiques mécaniques des fixations en acier inoxydable résistant à la corrosion - Partie 3 : vis sans tête et fixations similaires non soumises à des contraintes de traction"
+        },
+        {
+            "id": "nf-en-iso-3506-4",
+            "standardCode": "NF EN ISO 3506-4",
+            "productFamily": [
+                "Tapping screws"
+            ],
+            "edition": "2025",
+            "title": "Fixations - Caractéristiques mécaniques des fixations en acier inoxydable résistant à la corrosion - Partie 4 : vis à tôle de grades et classes de dureté spécifiées"
+        },
+        {
+            "id": "nf-en-iso-3506-6",
+            "standardCode": "NF EN ISO 3506-6",
+            "productFamily": [
+                "General fasteners"
+            ],
+            "edition": "2022",
+            "title": "Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 6: general rules for the selection of stainless steels and nickel alloys for fasteners"
+        },
+        {
+            "id": "nf-en-iso-3506-7",
+            "standardCode": "NF EN ISO 3506-7",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2025",
+            "title": "Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 7: Flat washers with specified grades and property classes"
+        },
+        {
+            "id": "nf-en-iso-4759-1",
+            "standardCode": "NF EN ISO 4759-1",
+            "productFamily": [
+                "Bolts / screws / studs / nuts"
+            ],
+            "edition": "2000",
+            "title": "Tolérances des éléments de fixation - Vis, goujons et écrous - Partie 1 : grades A, B et C"
+        },
+        {
+            "id": "nf-en-iso-4759-3",
+            "standardCode": "NF EN ISO 4759-3",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2016",
+            "title": "Tolérances des éléments de fixation - Partie 3 : rondelles pour vis, boulons et écrous - Grades A, C et F"
+        },
+        {
+            "id": "nf-en-26157-1",
+            "standardCode": "NF EN 26157-1",
+            "productFamily": [
+                "Screws / studs"
+            ],
+            "edition": "1991 / current status verify",
+            "title": "Éléments de fixation - Défauts de surface - Partie 1 : vis et goujons d'usage général"
+        },
+        {
+            "id": "nf-en-26157-3",
+            "standardCode": "NF EN 26157-3",
+            "productFamily": [
+                "Screws / studs"
+            ],
+            "edition": "1991 / current status verify",
+            "title": "Éléments de fixation - Défauts de surface - Partie 3 : vis et goujons pour applications particulières"
+        },
+        {
+            "id": "nf-en-iso-4042",
+            "standardCode": "NF EN ISO 4042",
+            "productFamily": [
+                "General fasteners / coatings"
+            ],
+            "edition": "2018",
+            "title": "Fasteners - Electroplated coating systems"
+        },
+        {
+            "id": "nf-en-iso-10683",
+            "standardCode": "NF EN ISO 10683",
+            "productFamily": [
+                "General fasteners / coatings"
+            ],
+            "edition": "2014",
+            "title": "Fasteners - Non-electrolytically applied zinc flake coatings"
+        },
+        {
+            "id": "nf-en-iso-10684",
+            "standardCode": "NF EN ISO 10684",
+            "productFamily": [
+                "General fasteners / coatings"
+            ],
+            "edition": "2004",
+            "title": "Fasteners - Hot dip galvanized coatings"
+        },
+        {
+            "id": "nf-en-iso-16047",
+            "standardCode": "NF EN ISO 16047",
+            "productFamily": [
+                "General fasteners"
+            ],
+            "edition": "2005",
+            "title": "Fasteners - Torque/clamp force testing"
+        },
+        {
+            "id": "nf-en-iso-4014",
+            "standardCode": "NF EN ISO 4014",
+            "productFamily": [
+                "Bolts"
+            ],
+            "edition": "2022-07",
+            "title": "Fixations - Vis à tête hexagonale partiellement filetées - Grades A et B"
+        },
+        {
+            "id": "nf-en-iso-4015",
+            "standardCode": "NF EN ISO 4015",
+            "productFamily": [
+                "Bolts"
+            ],
+            "edition": "2022",
+            "title": "Fixations - Vis à tête hexagonale à tige réduite - Grade B"
+        },
+        {
+            "id": "nf-en-iso-4016",
+            "standardCode": "NF EN ISO 4016",
+            "productFamily": [
+                "Bolts"
+            ],
+            "edition": "2022",
+            "title": "Fixations - Vis à tête hexagonale - Grade C"
+        },
+        {
+            "id": "nf-en-iso-4017",
+            "standardCode": "NF EN ISO 4017",
+            "productFamily": [
+                "Screws"
+            ],
+            "edition": "2022-07",
+            "title": "Fixations - Vis à tête hexagonale entièrement filetées - Grades A et B"
+        },
+        {
+            "id": "nf-en-iso-4018",
+            "standardCode": "NF EN ISO 4018",
+            "productFamily": [
+                "Screws"
+            ],
+            "edition": "2022-07",
+            "title": "Fasteners — Hexagon head screws — Product grade C"
+        },
+        {
+            "id": "nf-en-iso-8765",
+            "standardCode": "NF EN ISO 8765",
+            "productFamily": [
+                "Bolts"
+            ],
+            "edition": "2022-07",
+            "title": "Fixations - Vis à tête hexagonale partiellement filetées, à pas fin - Grades A et B"
+        },
+        {
+            "id": "nf-en-iso-8676",
+            "standardCode": "NF EN ISO 8676",
+            "productFamily": [
+                "Screws"
+            ],
+            "edition": "2022",
+            "title": "Vis à tête hexagonale à filetage métrique à pas fin entièrement filetées - Grades A et B"
+        },
+        {
+            "id": "nf-en-iso-4762",
+            "standardCode": "NF EN ISO 4762",
+            "productFamily": [
+                "Socket screws"
+            ],
+            "edition": "2004 / latest verify",
+            "title": "Vis à tête cylindrique à six pans creux"
+        },
+        {
+            "id": "nf-en-iso-7380-1",
+            "standardCode": "NF EN ISO 7380-1",
+            "productFamily": [
+                "Socket screws"
+            ],
+            "edition": "2022",
+            "title": "Fixations - Vis à tête cylindrique bombée plate - Partie 1 : tête cylindrique bombée plate à six pans creux"
+        },
+        {
+            "id": "nf-en-iso-7380-2",
+            "standardCode": "NF EN ISO 7380-2",
+            "productFamily": [
+                "Socket screws"
+            ],
+            "edition": "2022",
+            "title": "Fixations - Vis à tête cylindrique bombée plate - Partie 2 : tête cylindrique bombée plate à six pans creux à embase plate"
+        },
+        {
+            "id": "nf-en-iso-10642",
+            "standardCode": "NF EN ISO 10642",
+            "productFamily": [
+                "Socket screws"
+            ],
+            "edition": "2026-03",
+            "title": "Fixations - Vis à tête fraisée à six pans creux à capacité de charge réduite"
+        },
+        {
+            "id": "nf-en-iso-14579",
+            "standardCode": "NF EN ISO 14579",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tête cylindrique à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-14580",
+            "standardCode": "NF EN ISO 14580",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tête cylindrique basse à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-14581",
+            "standardCode": "NF EN ISO 14581",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "2022",
+            "title": "Fixations - Vis à tête fraisée à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-14582",
+            "standardCode": "NF EN ISO 14582",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tête fraisée bombée à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-14583",
+            "standardCode": "NF EN ISO 14583",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tête cylindrique bombée large à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-14584",
+            "standardCode": "NF EN ISO 14584",
+            "productFamily": [
+                "Hexalobular screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tête cylindrique basse à six lobes internes"
+        },
+        {
+            "id": "nf-en-iso-7045",
+            "standardCode": "NF EN ISO 7045",
+            "productFamily": [
+                "Machine screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à métaux à tête cylindrique bombée large à empreinte cruciforme de type H ou de type Z - Grade A"
+        },
+        {
+            "id": "nf-en-iso-7046-1",
+            "standardCode": "NF EN ISO 7046-1",
+            "productFamily": [
+                "Machine screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à métaux à tête fraisée à empreinte cruciforme de type H ou de type Z - Grade A - Partie 1 : acier de classe de qualité 4.8"
+        },
+        {
+            "id": "nf-en-iso-7046-2",
+            "standardCode": "NF EN ISO 7046-2",
+            "productFamily": [
+                "Machine screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à métaux à tête fraisée à empreinte cruciforme de type H ou de type Z - Grade A - Partie 2 : acier classe 8.8, acier inoxydable et métaux non ferreux"
+        },
+        {
+            "id": "nf-en-iso-7047",
+            "standardCode": "NF EN ISO 7047",
+            "productFamily": [
+                "Machine screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à métaux à tête fraisée bombée à empreinte cruciforme de type H ou de type Z - Grade A"
+        },
+        {
+            "id": "nf-en-iso-7048",
+            "standardCode": "NF EN ISO 7048",
+            "productFamily": [
+                "Machine screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à métaux à tête cylindrique à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-7049",
+            "standardCode": "NF EN ISO 7049",
+            "productFamily": [
+                "Tapping screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tôle à tête cylindrique bombée large à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-7050",
+            "standardCode": "NF EN ISO 7050",
+            "productFamily": [
+                "Tapping screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tôle à tête fraisée à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-7051",
+            "standardCode": "NF EN ISO 7051",
+            "productFamily": [
+                "Tapping screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis à tôle à tête fraisée bombée à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-7053",
+            "standardCode": "NF EN ISO 7053",
+            "productFamily": [
+                "Tapping screws"
+            ],
+            "edition": "2019",
+            "title": "Fixations - Vis à tôle à tête hexagonale à embase plate"
+        },
+        {
+            "id": "nf-en-iso-15480",
+            "standardCode": "NF EN ISO 15480",
+            "productFamily": [
+                "Self-drilling screws"
+            ],
+            "edition": "latest verify",
+            "title": "Fixations - Vis autoperceuses à tête hexagonale à embase plate, avec filetage de vis à tôle"
+        },
+        {
+            "id": "nf-en-iso-15481",
+            "standardCode": "NF EN ISO 15481",
+            "productFamily": [
+                "Self-drilling screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis autoperceuses à tête cylindrique bombée large à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-15482",
+            "standardCode": "NF EN ISO 15482",
+            "productFamily": [
+                "Self-drilling screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis autoperceuses à tête fraisée à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-15483",
+            "standardCode": "NF EN ISO 15483",
+            "productFamily": [
+                "Self-drilling screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis autoperceuses à tête fraisée bombée à empreinte cruciforme"
+        },
+        {
+            "id": "nf-en-iso-4026",
+            "standardCode": "NF EN ISO 4026",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2026 / verify AFNOR",
+            "title": "Fixations - Vis sans tête à six pans creux, à bout plat"
+        },
+        {
+            "id": "nf-en-iso-4027",
+            "standardCode": "NF EN ISO 4027",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2026 / verify AFNOR",
+            "title": "Vis sans tête à six pans creux à bout conique"
+        },
+        {
+            "id": "nf-en-iso-4028",
+            "standardCode": "NF EN ISO 4028",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2026 / verify AFNOR",
+            "title": "Vis sans tête à six pans creux à téton"
+        },
+        {
+            "id": "nf-en-iso-4029",
+            "standardCode": "NF EN ISO 4029",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2026 / verify AFNOR",
+            "title": "Vis sans tête à six pans creux à bout cuvette"
+        },
+        {
+            "id": "nf-en-iso-7434",
+            "standardCode": "NF EN ISO 7434",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2024",
+            "title": "Vis sans tête fendues à bout conique"
+        },
+        {
+            "id": "nf-en-iso-7435",
+            "standardCode": "NF EN ISO 7435",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2024",
+            "title": "Vis sans tête fendues à téton"
+        },
+        {
+            "id": "nf-en-iso-7436",
+            "standardCode": "NF EN ISO 7436",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "2024",
+            "title": "Vis sans tête fendues à bout cuvette"
+        },
+        {
+            "id": "nf-en-iso-7437",
+            "standardCode": "NF EN ISO 7437",
+            "productFamily": [
+                "Set screws"
+            ],
+            "edition": "latest verify",
+            "title": "Vis sans tête fendues à bout plat"
+        },
+        {
+            "id": "nf-e25-136",
+            "standardCode": "NF E25-136",
+            "productFamily": [
+                "Threaded rods"
+            ],
+            "edition": "2014-11",
+            "title": "Fasteners - Threaded rods and threaded ends - Product grades A and B"
+        },
+        {
+            "id": "nf-en-iso-13918",
+            "standardCode": "NF EN ISO 13918",
+            "productFamily": [
+                "Weld studs"
+            ],
+            "edition": "2017 / A1:2021",
+            "title": "Soudage - Goujons et bagues céramiques pour le soudage à l'arc des goujons"
+        },
+        {
+            "id": "nf-e29-043",
+            "standardCode": "NF E29-043",
+            "productFamily": [
+                "Pressure-equipment bolting"
+            ],
+            "edition": "latest verify",
+            "title": "Boulonnerie en aciers non alliés et alliés pour équipements sous pression"
+        },
+        {
+            "id": "nf-en-iso-4032",
+            "standardCode": "NF EN ISO 4032",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023-08",
+            "title": "Fixations - Écrous normaux hexagonaux (style 1)"
+        },
+        {
+            "id": "nf-en-iso-4033",
+            "standardCode": "NF EN ISO 4033",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023",
+            "title": "Fixations - Écrous hauts hexagonaux (style 2)"
+        },
+        {
+            "id": "nf-en-iso-4035",
+            "standardCode": "NF EN ISO 4035",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023",
+            "title": "Fixations - Écrous bas hexagonaux (style 0)"
+        },
+        {
+            "id": "nf-en-iso-8673",
+            "standardCode": "NF EN ISO 8673",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023",
+            "title": "Fixations - Écrous normaux hexagonaux (style 1), à pas fin"
+        },
+        {
+            "id": "nf-en-iso-8674",
+            "standardCode": "NF EN ISO 8674",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023",
+            "title": "Fixations - Écrous hauts hexagonaux (style 2), à pas fin"
+        },
+        {
+            "id": "nf-en-iso-8675",
+            "standardCode": "NF EN ISO 8675",
+            "productFamily": [
+                "Nuts"
+            ],
+            "edition": "2023",
+            "title": "Fixations - Écrous bas hexagonaux (style 0), à pas fin"
+        },
+        {
+            "id": "nf-en-iso-7040",
+            "standardCode": "NF EN ISO 7040",
+            "productFamily": [
+                "Prevailing torque nuts"
+            ],
+            "edition": "2013-03",
+            "title": "Écrous hexagonaux normaux autofreinés (à anneau non métallique) - Classes de qualité 5, 8 et 10"
+        },
+        {
+            "id": "nf-en-iso-7042",
+            "standardCode": "NF EN ISO 7042",
+            "productFamily": [
+                "Prevailing torque nuts"
+            ],
+            "edition": "2012",
+            "title": "Écrous hexagonaux hauts autofreinés tout métal - Classes de qualité 5, 8, 10 et 12"
+        },
+        {
+            "id": "nf-en-iso-7719",
+            "standardCode": "NF EN ISO 7719",
+            "productFamily": [
+                "Prevailing torque nuts"
+            ],
+            "edition": "2012",
+            "title": "Écrous hexagonaux normaux autofreinés tout métal - Classes de qualité 5, 8 et 10"
+        },
+        {
+            "id": "nf-en-iso-2320",
+            "standardCode": "NF EN ISO 2320",
+            "productFamily": [
+                "Prevailing torque nuts"
+            ],
+            "edition": "2015",
+            "title": "Fixations - Écrous autofreinés en acier - Caractéristiques fonctionnelles"
+        },
+        {
+            "id": "nf-en-iso-21670",
+            "standardCode": "NF EN ISO 21670",
+            "productFamily": [
+                "Weld nuts"
+            ],
+            "edition": "2014 / latest verify",
+            "title": "Écrous hexagonaux à souder, à embase"
+        },
+        {
+            "id": "iso-4161-sold-via-afnor",
+            "standardCode": "ISO 4161 sold via AFNOR",
+            "productFamily": [
+                "Flange nuts"
+            ],
+            "edition": "2012 / latest verify",
+            "title": "Écrous hexagonaux à embase cylindro-tronconique, style 2 - Filetage à pas gros"
+        },
+        {
+            "id": "nf-en-iso-7089",
+            "standardCode": "NF EN ISO 7089",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers — Normal series — Product grade A"
+        },
+        {
+            "id": "nf-en-iso-7090",
+            "standardCode": "NF EN ISO 7090",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers, chamfered — Normal series — Product grade A"
+        },
+        {
+            "id": "nf-en-iso-7091",
+            "standardCode": "NF EN ISO 7091",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers — Normal series — Product grade C"
+        },
+        {
+            "id": "nf-en-iso-7092",
+            "standardCode": "NF EN ISO 7092",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers — Small series — Product grade A"
+        },
+        {
+            "id": "nf-en-iso-7093-1",
+            "standardCode": "NF EN ISO 7093-1",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers — Large series — Part 1: Product grade A"
+        },
+        {
+            "id": "nf-en-iso-7093-2",
+            "standardCode": "NF EN ISO 7093-2",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Plain washers — Large series — Part 2: Product grade C"
+        },
+        {
+            "id": "nf-en-iso-7094",
+            "standardCode": "NF EN ISO 7094",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000-10",
+            "title": "Rondelles plates - Série très large - Grade C"
+        },
+        {
+            "id": "nf-en-iso-887",
+            "standardCode": "NF EN ISO 887",
+            "productFamily": [
+                "Washers"
+            ],
+            "edition": "2000",
+            "title": "Rondelles plates pour vis, boulons et écrous métriques pour usages généraux - Plan général"
+        },
+        {
+            "id": "nf-en-iso-10673",
+            "standardCode": "NF EN ISO 10673",
+            "productFamily": [
+                "Washers / screw-washer assemblies"
+            ],
+            "edition": "2009",
+            "title": "Rondelles plates pour assemblages vis-rondelle - Série étroite, normale et large - Grade A"
+        },
+        {
+            "id": "nf-en-iso-10644",
+            "standardCode": "NF EN ISO 10644",
+            "productFamily": [
+                "Screw-washer assemblies"
+            ],
+            "edition": "2009",
+            "title": "Assemblages vis-rondelle en acier avec rondelles plates - Classes de dureté 200 HV et 300 HV"
+        },
+        {
+            "id": "nf-en-iso-14588",
+            "standardCode": "NF EN ISO 14588",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2001",
+            "title": "Rivets aveugles - Terminologie et définitions"
+        },
+        {
+            "id": "nf-en-iso-14589",
+            "standardCode": "NF EN ISO 14589",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2001-12",
+            "title": "Blind rivets - Mechanical testing"
+        },
+        {
+            "id": "nf-en-iso-15973",
+            "standardCode": "NF EN ISO 15973",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2001-12",
+            "title": "Closed end blind rivets with break pull mandrel and protruding head - AIA/St"
+        },
+        {
+            "id": "nf-en-iso-15974",
+            "standardCode": "NF EN ISO 15974",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2001",
+            "title": "Rivets aveugles à rupture de tige à corps fermé, à tête fraisée - AIA/St"
+        },
+        {
+            "id": "nf-en-iso-15975",
+            "standardCode": "NF EN ISO 15975",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps fermé, à tête bombée - Al/AlA"
+        },
+        {
+            "id": "nf-en-iso-15976",
+            "standardCode": "NF EN ISO 15976",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps fermé, à tête bombée - St/St"
+        },
+        {
+            "id": "nf-en-iso-15977",
+            "standardCode": "NF EN ISO 15977",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - AlA/St"
+        },
+        {
+            "id": "nf-en-iso-15978",
+            "standardCode": "NF EN ISO 15978",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête fraisée - AlA/St"
+        },
+        {
+            "id": "nf-en-iso-15979",
+            "standardCode": "NF EN ISO 15979",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - St/St"
+        },
+        {
+            "id": "nf-en-iso-15980",
+            "standardCode": "NF EN ISO 15980",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête fraisée - St/St"
+        },
+        {
+            "id": "nf-en-iso-15981",
+            "standardCode": "NF EN ISO 15981",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - AIA/AIA"
+        },
+        {
+            "id": "nf-en-iso-15982",
+            "standardCode": "NF EN ISO 15982",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête fraisée - AIA/AIA"
+        },
+        {
+            "id": "nf-en-iso-15983",
+            "standardCode": "NF EN ISO 15983",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - A2/A2"
+        },
+        {
+            "id": "nf-en-iso-15984",
+            "standardCode": "NF EN ISO 15984",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête fraisée - A2/A2"
+        },
+        {
+            "id": "nf-en-iso-16582",
+            "standardCode": "NF EN ISO 16582",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - Cu/St ou Cu/Br ou Cu/SSt"
+        },
+        {
+            "id": "nf-en-iso-16583",
+            "standardCode": "NF EN ISO 16583",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête fraisée - Cu/St ou Cu/Br ou Cu/SSt"
+        },
+        {
+            "id": "nf-en-iso-16584",
+            "standardCode": "NF EN ISO 16584",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps ouvert, à tête bombée - NiCu/St ou NiCu/SSt"
+        },
+        {
+            "id": "nf-en-iso-16585",
+            "standardCode": "NF EN ISO 16585",
+            "productFamily": [
+                "Blind rivets"
+            ],
+            "edition": "2002",
+            "title": "Rivets aveugles à rupture de tige à corps fermé, à tête bombée - A2/SSt"
+        },
+        {
+            "id": "nf-en-14399-1",
+            "standardCode": "NF EN 14399-1",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 1 : exigences générales"
+        },
+        {
+            "id": "nf-en-14399-2",
+            "standardCode": "NF EN 14399-2",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 2 : aptitude à l'emploi pour la mise en précontrainte"
+        },
+        {
+            "id": "nf-en-14399-3",
+            "standardCode": "NF EN 14399-3",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 3 : système HR - Boulons à tête hexagonale (vis + écrou)"
+        },
+        {
+            "id": "nf-en-14399-4",
+            "standardCode": "NF EN 14399-4",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 4 : système HV - Boulons à tête hexagonale (vis + écrou)"
+        },
+        {
+            "id": "nf-en-14399-5",
+            "standardCode": "NF EN 14399-5",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 5 : rondelles plates"
+        },
+        {
+            "id": "nf-en-14399-6",
+            "standardCode": "NF EN 14399-6",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 6 : rondelles plates chanfreinées"
+        },
+        {
+            "id": "nf-en-14399-7",
+            "standardCode": "NF EN 14399-7",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 7 : système HR - Boulons à tête fraisée"
+        },
+        {
+            "id": "nf-en-14399-8",
+            "standardCode": "NF EN 14399-8",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 8 : système HV - Boulons ajustés"
+        },
+        {
+            "id": "nf-en-14399-9",
+            "standardCode": "NF EN 14399-9",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 9 : rondelles indicatrices de précontrainte"
+        },
+        {
+            "id": "nf-en-14399-10",
+            "standardCode": "NF EN 14399-10",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2015/2018 series; verify part edition",
+            "title": "Boulonnerie de construction métallique à haute résistance apte à la précontrainte - Partie 10 : système HRC - Boulons à précontrainte calibrée"
+        },
+        {
+            "id": "nf-en-15048-1",
+            "standardCode": "NF EN 15048-1",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2016-11",
+            "title": "Boulonnerie de construction métallique non précontrainte - Partie 1 : exigences générales"
+        },
+        {
+            "id": "nf-en-15048-2",
+            "standardCode": "NF EN 15048-2",
+            "productFamily": [
+                "Structural bolting"
+            ],
+            "edition": "2016",
+            "title": "Boulonnerie de construction métallique non précontrainte - Partie 2 : aptitude à l'emploi"
+        }
+    ];
+const PAGE_SLUG_COUNTERS={};
+const standardsData=SOURCE_STANDARDS_DATA.map((row,index)=>{
+  const base=slugify(row.standardCode);PAGE_SLUG_COUNTERS[base]=(PAGE_SLUG_COUNTERS[base]||0)+1;const n=PAGE_SLUG_COUNTERS[base],pageSlug=n===1?base:`${base}-${String(n).padStart(2,"0")}`;
+  return{...row,sourceId:row.id,pradakoId:`PRA-STD-AFNOR-${String(index+1).padStart(4,"0")}`,imageSrc:`/assets/images/products/standards-products/${base}.png`,imageAltPresentation:`${row.standardCode} standard media`,pageUrl:`/pages/standards/nf/${pageSlug}.html`};
+});
+const tableHeadRow=document.getElementById("tableHeadRow"),stickyTableHeadRow=document.getElementById("stickyTableHeadRow"),tableBody=document.getElementById("standardsTableBody"),searchInput=document.getElementById("searchInput"),familyFilter=document.getElementById("familyFilter"),emptyState=document.getElementById("emptyState"),viewPanel=document.getElementById("viewPanel"),viewGroups=document.getElementById("viewGroups"),viewOptionsBtn=document.getElementById("viewOptionsBtn"),exportModal=document.getElementById("exportModal"),copyStatus=document.getElementById("copyStatus"),imagePreviewModal=document.getElementById("imagePreviewModal"),imagePreviewImg=document.getElementById("imagePreviewImg"),imagePreviewTitle=document.getElementById("imagePreviewTitle"),visibleCount=document.getElementById("visibleCount"),totalCount=document.getElementById("totalCount"),pageCount=document.getElementById("pageCount"),visibleColumnCount=document.getElementById("visibleColumnCount"),duplicateModePill=document.getElementById("duplicateModePill"),duplicateGroupsCount=document.getElementById("duplicateGroupsCount"),duplicateRowsCount=document.getElementById("duplicateRowsCount"),duplicateCheckBtn=document.getElementById("duplicateCheckBtn");
+let visibleColumns=new Set(COLUMNS.filter(c=>c.core).map(c=>c.key)),currentFilteredData=[...standardsData],duplicateMode=false,duplicateBaseData=[],sortState={key:null,direction:"asc"},currentDensity="compact",searchTimer;
+function getVisibleColumns(){return COLUMNS.filter(c=>visibleColumns.has(c.key))}
+function buildFamilyFilter(){const fs=[...new Set(standardsData.flatMap(x=>x.productFamily||[]))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true,sensitivity:"base"}));familyFilter.innerHTML='<option value="">All Product Families</option>';fs.forEach(f=>{const o=document.createElement("option");o.value=f;o.textContent=f;familyFilter.appendChild(o)})}
+function buildViewPanel(){viewGroups.innerHTML="";Object.entries(GROUP_META).forEach(([key,meta])=>{const cols=COLUMNS.filter(c=>c.group===key);if(!cols.length)return;const g=document.createElement("div");g.className="view-group";const h=document.createElement("h4");h.textContent=meta.label;const wrap=document.createElement("div");wrap.className="column-checks";cols.forEach(c=>{const label=document.createElement("label");label.className="check-item";const input=document.createElement("input");input.type="checkbox";input.checked=visibleColumns.has(c.key);input.addEventListener("change",()=>{if(input.checked)visibleColumns.add(c.key);else{if(visibleColumns.size===1){input.checked=true;return}visibleColumns.delete(c.key)}setPresetState("custom");buildViewPanel();renderTable(currentFilteredData)});const span=document.createElement("span");span.textContent=c.label;label.append(input,span);wrap.appendChild(label)});g.append(h,wrap);viewGroups.appendChild(g)})}
+function toggleViewPanel(){viewPanel.classList.toggle("open");const open=viewPanel.classList.contains("open");viewOptionsBtn.classList.toggle("active",open);viewOptionsBtn.setAttribute("aria-expanded",String(open))}
+function setPresetState(which){["Core","Technical","All"].forEach(n=>document.getElementById("preset"+n)?.classList.toggle("active",which===n.toLowerCase()))}
+function applyViewPreset(which){if(which==="core")visibleColumns=new Set(COLUMNS.filter(c=>c.core).map(c=>c.key));else if(which==="technical")visibleColumns=new Set(COLUMNS.filter(c=>c.core||c.technical).map(c=>c.key));else visibleColumns=new Set(COLUMNS.map(c=>c.key));setPresetState(which);buildViewPanel();renderTable(currentFilteredData)}
+function setDensity(mode){currentDensity=mode==="comfortable"?"comfortable":"compact";document.body.classList.toggle("density-comfortable",currentDensity==="comfortable");document.body.classList.toggle("density-compact",currentDensity==="compact");document.getElementById("densityCompact")?.classList.toggle("active",currentDensity==="compact");document.getElementById("densityComfortable")?.classList.toggle("active",currentDensity==="comfortable");try{localStorage.setItem("pradakoAfnorDensity",currentDensity)}catch(e){}renderTable(currentFilteredData)}
+function renderMediaCell(item){const src=item.imageSrc||"",alt=item.imageAlt||item.standardCode||"Standard media";return`<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}"><img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'"></div>`}
+/* Fit-to-viewport engine */
+function resolveColumnWidths(list){
+ const scroller=document.querySelector(".table-scroll"),viewport=Math.max(320,Math.floor(scroller?.clientWidth||window.innerWidth||1440));
+ if(window.innerWidth<=900){const mobile={imageSrc:140,pradakoId:132,standardCode:205,title:320,productFamily:190,edition:165,sourceId:190};const widths=list.map(c=>mobile[c.key]||160),total=widths.reduce((a,b)=>a+b,0);return{widths,total,viewport,minimumTotal:total,fit:total<=viewport,scrollRequired:total>viewport}}
+ const widths=list.map(c=>c.fixed?c.width:Math.max(c.minWidth,Math.min(c.width,c.maxWidth))),mins=list.map(c=>c.fixed?c.width:c.minWidth);let total=widths.reduce((a,b)=>a+b,0),minimumTotal=mins.reduce((a,b)=>a+b,0);
+ if(total>viewport){let excess=total-viewport,guard=0;while(excess>0&&guard++<20){const active=list.map((c,i)=>({i,room:Math.max(0,widths[i]-mins[i])})).filter(x=>x.room>0);if(!active.length)break;const rt=active.reduce((s,x)=>s+x.room,0);let removed=0;active.forEach((x,idx)=>{let cut=idx===active.length-1?Math.min(x.room,Math.max(0,excess-removed)):Math.min(x.room,Math.max(1,Math.floor(excess*(x.room/rt))));widths[x.i]-=cut;removed+=cut});if(!removed)break;excess-=removed}}
+ total=widths.reduce((a,b)=>a+b,0);
+ if(total<viewport){let spare=viewport-total,guard=0;while(spare>0&&guard++<20){const active=list.map((c,i)=>({i,weight:c.fixed?0:Math.max(.1,c.weight||1),room:c.fixed?0:Math.max(0,c.maxWidth-widths[i])})).filter(x=>x.weight>0&&x.room>0);if(!active.length)break;const wt=active.reduce((s,x)=>s+x.weight,0);let added=0;active.forEach((x,idx)=>{const grow=Math.min(x.room,idx===active.length-1?Math.max(0,spare-added):Math.max(1,Math.floor(spare*(x.weight/wt))));widths[x.i]+=grow;added+=grow});if(!added)break;spare-=added}total=widths.reduce((a,b)=>a+b,0);spare=Math.max(0,viewport-total);if(spare>0){const elastic=list.map((c,i)=>({i,weight:c.fixed?0:Math.max(.1,c.weight||1)})).filter(x=>x.weight>0),wt=elastic.reduce((s,x)=>s+x.weight,0)||1;let added=0;elastic.forEach((x,idx)=>{const grow=idx===elastic.length-1?spare-added:Math.floor(spare*(x.weight/wt));widths[x.i]+=Math.max(0,grow);added+=Math.max(0,grow)})}}
+ total=widths.reduce((a,b)=>a+b,0);return{widths,total,viewport,minimumTotal,fit:total<=viewport,scrollRequired:minimumTotal>viewport}
+}
+function getStickyLeftOffset(list,widths,index){let left=0;for(let i=0;i<index;i++)if(list[i].sticky)left+=widths[i];return left}
+function applyAdaptiveRowSizing(count){let row=count<=5?122:count===6?126:count===7?134:142,clamp=count<=6?3:4,x=count<=6?8:7,y=count<=6?10:11;if(currentDensity==="comfortable"){row+=38;clamp+=2;y+=3}document.documentElement.style.setProperty("--dynamic-row-height",row+"px");document.documentElement.style.setProperty("--title-clamp",String(clamp));document.documentElement.style.setProperty("--dynamic-cell-x",x+"px");document.documentElement.style.setProperty("--dynamic-cell-y",y+"px")}
+function applyExactColumnLayout(list){const layout=resolveColumnWidths(list),body=document.getElementById("standardsTable"),head=document.querySelector(".sticky-head-table"),bodyScroll=document.querySelector(".table-scroll"),headScroll=document.getElementById("stickyTableHeadScroll"),rendered=Math.max(layout.total,layout.viewport);bodyScroll.classList.toggle("has-horizontal-scroll",layout.total>layout.viewport);headScroll.classList.toggle("has-horizontal-scroll",layout.total>layout.viewport);[body,head].forEach(t=>{if(!t)return;t.style.width=rendered+"px";t.style.minWidth=rendered+"px";t.querySelector("colgroup")?.remove();const cg=document.createElement("colgroup");layout.widths.forEach(w=>{const col=document.createElement("col");col.style.width=w+"px";cg.appendChild(col)});t.insertBefore(cg,t.firstChild)});return layout}
+function renderTable(data){const q=searchInput.value.trim(),list=getVisibleColumns(),layout=applyExactColumnLayout(list);applyAdaptiveRowSizing(list.length);visibleColumnCount.textContent=list.length;visibleCount.textContent=data.length;tableHeadRow.innerHTML="";stickyTableHeadRow.innerHTML="";tableBody.innerHTML="";function thFor(c,i){const th=document.createElement("th");th.textContent=sortState.key===c.key?c.label+(sortState.direction==="asc"?" ▲":" ▼"):c.label;th.style.width=layout.widths[i]+"px";if(c.sticky&&window.innerWidth>900){th.classList.add("sticky-col");th.style.setProperty("--sticky-left",getStickyLeftOffset(list,layout.widths,i)+"px")}if(c.sortable===false)th.classList.add("not-sortable");else th.addEventListener("click",()=>sortByColumn(c.key));return th}list.forEach((c,i)=>{tableHeadRow.appendChild(thFor(c,i));stickyTableHeadRow.appendChild(thFor(c,i))});const frag=document.createDocumentFragment();data.forEach(item=>{const tr=document.createElement("tr");list.forEach((c,i)=>{const td=document.createElement("td"),v=item[c.key]!==undefined?item[c.key]:"—";td.style.width=layout.widths[i]+"px";if(c.sticky&&window.innerWidth>900){td.classList.add("sticky-col");td.style.setProperty("--sticky-left",getStickyLeftOffset(list,layout.widths,i)+"px")}if(c.type==="media"){td.classList.add("media-cell");td.innerHTML=renderMediaCell(item)}else if(c.type==="id")td.innerHTML=`<span class="pradako-id">${highlightText(v,q)}</span>`;else if(c.type==="standard")td.innerHTML=`<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode,q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;else if(c.type==="body")td.innerHTML=`<span class="body-pill">${highlightText(v,q)}</span>`;else if(c.type==="family"){const a=Array.isArray(v)?v:[v];td.innerHTML=a.map(x=>`<span class="family-pill">${highlightText(x,q)}</span>`).join("")}else if(c.type==="scope")td.innerHTML=`<div class="title-cell scope-cell" title="${escapeHTML(v)}">${highlightText(v,q)}</div>`;else td.innerHTML=`<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v,q)}</div>`;tr.appendChild(td)});frag.appendChild(tr)});tableBody.appendChild(frag);emptyState.style.display=data.length?"none":"block"}
+function getDuplicateGroups(){const m=new Map;standardsData.forEach(x=>{const k=normalizeDuplicateKey(x.standardCode);if(!k)return;if(!m.has(k))m.set(k,[]);m.get(k).push(x)});return[...m.values()].filter(g=>g.length>1).sort((a,b)=>a[0].standardCode.localeCompare(b[0].standardCode,undefined,{numeric:true,sensitivity:"base"}))}
+function updateDuplicateViewPill(gc,rc){if(!duplicateMode){duplicateModePill.classList.remove("show");duplicateGroupsCount.textContent="0";duplicateRowsCount.textContent="0";return}duplicateGroupsCount.textContent=gc;duplicateRowsCount.textContent=rc;duplicateModePill.classList.add("show")}
+function showDuplicateEntriesInTable(){const groups=getDuplicateGroups(),r=groups.flat();duplicateMode=true;duplicateBaseData=r;searchInput.value="";familyFilter.value="";sortState={key:null,direction:"asc"};currentFilteredData=[...r];updateDuplicateViewPill(groups.length,r.length);duplicateCheckBtn.classList.add("active");searchInput.placeholder="Search within duplicate NF / AFNOR entries...";renderTable(currentFilteredData)}
+function hideDuplicateView(){duplicateMode=false;duplicateBaseData=[];updateDuplicateViewPill(0,0);duplicateCheckBtn.classList.remove("active");searchInput.placeholder="Search NF / AFNOR standard, title, Pradako ID, edition or product family..."}
+function searchStandards(){const q=searchInput.value.trim().toLowerCase(),f=familyFilter.value,src=duplicateMode?duplicateBaseData:standardsData;currentFilteredData=src.filter(item=>{const ms=!q||COLUMNS.some(c=>{if(c.searchable===false)return false;const v=item[c.key];if(v==null)return false;if(Array.isArray(v))return v.some(e=>String(e).toLowerCase().includes(q));return String(v).toLowerCase().includes(q)}),mf=!f||item.productFamily.includes(f);return ms&&mf});if(sortState.key)currentFilteredData=sortData(currentFilteredData,sortState.key,sortState.direction);renderTable(currentFilteredData)}
+function clearSearch(){searchInput.value="";familyFilter.value="";sortState={key:null,direction:"asc"};hideDuplicateView();currentFilteredData=[...standardsData];renderTable(currentFilteredData)}
+function sortData(data,key,direction){return[...data].sort((a,b)=>{let A=a[key],B=b[key];if(Array.isArray(A))A=A.join(", ");if(Array.isArray(B))B=B.join(", ");A=String(A??"").toLowerCase();B=String(B??"").toLowerCase();return A<B?(direction==="asc"?-1:1):A>B?(direction==="asc"?1:-1):0})}function sortByColumn(key){const c=COLUMNS.find(x=>x.key===key);if(!c||c.sortable===false)return;if(sortState.key===key)sortState.direction=sortState.direction==="asc"?"desc":"asc";else sortState={key,direction:"asc"};currentFilteredData=sortData(currentFilteredData,key,sortState.direction);renderTable(currentFilteredData)}
+function openExportPopup(){exportModal.classList.add("show");document.body.style.overflow="hidden";copyStatus.classList.remove("show")}function closeExportPopup(){exportModal.classList.remove("show");document.body.style.overflow=""}function copyEmail(){const e="info@pradakomechanicals.com";if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(e).then(()=>copyStatus.classList.add("show"));else{const t=document.createElement("textarea");t.value=e;t.style.position="fixed";t.style.left="-9999px";document.body.appendChild(t);t.select();try{document.execCommand("copy");copyStatus.classList.add("show")}catch(err){copyStatus.textContent="Please copy manually: "+e;copyStatus.classList.add("show")}t.remove()}}
+function openImagePreview(src,alt,title){imagePreviewImg.src=src;imagePreviewImg.alt=alt;imagePreviewTitle.textContent=title+" · Photo / 2D / 3D";imagePreviewModal.classList.add("show");document.body.style.overflow="hidden"}function closeImagePreview(){imagePreviewModal.classList.remove("show");imagePreviewImg.src="";document.body.style.overflow=""}
+function syncScroll(){const b=document.querySelector(".table-scroll"),h=document.getElementById("stickyTableHeadScroll");let syncing=false;const sync=(from,to)=>{if(syncing)return;syncing=true;to.scrollLeft=from.scrollLeft;syncing=false};b.addEventListener("scroll",()=>sync(b,h),{passive:true});h.addEventListener("scroll",()=>sync(h,b),{passive:true})}
+searchInput.addEventListener("input",()=>{clearTimeout(searchTimer);searchTimer=setTimeout(searchStandards,160)});familyFilter.addEventListener("change",searchStandards);tableBody.addEventListener("click",e=>{const box=e.target.closest(".media-card");if(box)openImagePreview(box.dataset.imageSrc,box.dataset.imageAlt,box.dataset.imageTitle)});exportModal.addEventListener("click",e=>{if(e.target===exportModal)closeExportPopup()});imagePreviewModal.addEventListener("click",e=>{if(e.target===imagePreviewModal)closeImagePreview()});document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeExportPopup();closeImagePreview()}});let resizeTimer;window.addEventListener("resize",()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>renderTable(currentFilteredData),100)});
+function init(){try{if(localStorage.getItem("pradakoAfnorDensity")==="comfortable")currentDensity="comfortable"}catch(e){}document.body.classList.toggle("density-comfortable",currentDensity==="comfortable");document.body.classList.toggle("density-compact",currentDensity==="compact");document.getElementById("densityCompact")?.classList.toggle("active",currentDensity==="compact");document.getElementById("densityComfortable")?.classList.toggle("active",currentDensity==="comfortable");totalCount.textContent=standardsData.length;pageCount.textContent=standardsData.length;buildFamilyFilter();buildViewPanel();renderTable(currentFilteredData);syncScroll()}
+window.searchStandards=searchStandards;window.clearSearch=clearSearch;window.toggleViewPanel=toggleViewPanel;window.setDensity=setDensity;window.applyViewPreset=applyViewPreset;window.showDuplicateEntriesInTable=showDuplicateEntriesInTable;window.openExportPopup=openExportPopup;window.closeExportPopup=closeExportPopup;window.copyEmail=copyEmail;window.openImagePreview=openImagePreview;window.closeImagePreview=closeImagePreview;init();
+(function(){const button=document.getElementById("pradakoBackToTop");if(!button)return;const update=()=>{const y=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;button.classList.toggle("is-visible",y>300)};button.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));window.addEventListener("scroll",update,{passive:true});update()})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

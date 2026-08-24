@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Thread Engineering, Drive Types & Head Markings | Pradako Mechanical and Engineering Works</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME - KEEP ONLY ONE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="/assets/css/page-style.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <style>
+    :root {
+      --pmew-tech-white: #ffffff;
+      --pmew-tech-paper: #f6f9fb;
+      --pmew-tech-paper-2: #eef6f8;
+      --pmew-tech-ink: #061a3a;
+      --pmew-tech-navy: #0b1f3a;
+      --pmew-tech-muted: #5d6f8d;
+      --pmew-tech-soft-text: #71829c;
+      --pmew-tech-line: #dce8ed;
+
+      --pmew-tech-accent: #1f7891;
+      --pmew-tech-accent-dark: #155f74;
+      --pmew-tech-accent-soft: #e8f4f7;
+      --pmew-tech-cyan: #36a9bd;
+      --pmew-tech-orange: #f28c28;
+      --pmew-tech-green: #24a148;
+      --pmew-tech-purple: #7c3aed;
+      --pmew-tech-red: #e5484d;
+
+      --pmew-tech-radius-sm: 14px;
+      --pmew-tech-radius-md: 22px;
+      --pmew-tech-radius-lg: 34px;
+      --pmew-tech-radius-xl: 44px;
+
+      --pmew-tech-shadow-sm: 0 12px 34px rgba(6, 26, 58, 0.08);
+      --pmew-tech-shadow-md: 0 24px 70px rgba(6, 26, 58, 0.12);
+      --pmew-tech-shadow-accent: 0 22px 55px rgba(31, 120, 145, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--pmew-tech-white);
+      color: var(--pmew-tech-ink);
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .pmew-tech-page {
+      width: 100%;
+      background: var(--pmew-tech-white);
+    }
+
+    .pmew-tech-container {
+      width: min(1220px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .pmew-tech-section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .pmew-tech-section-soft {
+      background: var(--pmew-tech-paper);
+    }
+
+    .pmew-tech-section-white {
+      background: var(--pmew-tech-white);
+    }
+
+    .pmew-tech-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--pmew-tech-accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .pmew-tech-eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .pmew-tech-title,
+    .pmew-tech-heading {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--pmew-tech-ink);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+    }
+
+    .pmew-tech-title {
+      font-size: clamp(2.55rem, 5.5vw, 5.9rem);
+      line-height: 0.94;
+      max-width: 940px;
+    }
+
+    .pmew-tech-heading {
+      font-size: clamp(2.05rem, 4.2vw, 4.2rem);
+      line-height: 0.98;
+      max-width: 790px;
+    }
+
+    .pmew-tech-subtitle {
+      color: var(--pmew-tech-muted);
+      font-size: clamp(1rem, 1.45vw, 1.15rem);
+      margin: 22px 0 0;
+      max-width: 860px;
+    }
+
+    .pmew-tech-section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .pmew-tech-section-head p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 1rem;
+      max-width: 720px;
+    }
+
+    /* HERO */
+    .pmew-tech-hero {
+      min-height: 92vh;
+      padding: 132px 0 76px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, rgba(31, 120, 145, 0.13), transparent 34%),
+        radial-gradient(circle at 10% 20%, rgba(54, 169, 189, 0.10), transparent 28%),
+        var(--pmew-tech-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pmew-tech-hero::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: 46px;
+      pointer-events: none;
+    }
+
+    .pmew-tech-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.7fr);
+      gap: 52px;
+      align-items: center;
+    }
+
+    .pmew-tech-hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .pmew-tech-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 760;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .pmew-tech-btn-primary {
+      color: #ffffff;
+      background: var(--pmew-tech-accent);
+      box-shadow: var(--pmew-tech-shadow-accent);
+    }
+
+    .pmew-tech-btn-secondary {
+      background: #ffffff;
+      color: var(--pmew-tech-ink);
+      border-color: var(--pmew-tech-line);
+      box-shadow: var(--pmew-tech-shadow-sm);
+    }
+
+    .pmew-tech-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .pmew-tech-chip-row {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pmew-tech-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--pmew-tech-line);
+      color: var(--pmew-tech-ink);
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(6, 26, 58, 0.04);
+    }
+
+    .pmew-tech-chip i {
+      color: var(--pmew-tech-accent);
+    }
+
+    .pmew-tech-hero-panel {
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: var(--pmew-tech-radius-xl);
+      padding: 22px;
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-hero-metric {
+      min-height: 142px;
+      padding: 24px;
+      border-radius: 30px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .pmew-tech-hero-metric:last-child {
+      margin-bottom: 0;
+    }
+
+    .pmew-tech-hero-metric-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      color: #ffffff;
+      background: var(--pmew-tech-accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .pmew-tech-hero-metric:nth-child(2) .pmew-tech-hero-metric-icon {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-hero-metric:nth-child(3) .pmew-tech-hero-metric-icon {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-hero-metric h3 {
+      margin: 0 0 7px;
+      font-size: 1.02rem;
+      font-weight: 780;
+    }
+
+    .pmew-tech-hero-metric p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.92rem;
+    }
+
+    /* QUICK LINKS */
+    .pmew-tech-quick-wrap {
+      margin-top: -34px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .pmew-tech-quick-links {
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: 26px;
+      padding: 14px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      box-shadow: var(--pmew-tech-shadow-md);
+      scrollbar-width: none;
+    }
+
+    .pmew-tech-quick-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pmew-tech-quick-links a {
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 15px;
+      border-radius: 999px;
+      background: var(--pmew-tech-paper);
+      color: var(--pmew-tech-muted);
+      font-size: 0.84rem;
+      font-weight: 760;
+      transition: 0.22s ease;
+    }
+
+    .pmew-tech-quick-links a:hover {
+      background: var(--pmew-tech-accent);
+      color: #ffffff;
+    }
+
+    /* BASE PANELS */
+    .pmew-tech-intro-card,
+    .pmew-tech-panel {
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: var(--pmew-tech-radius-lg);
+      padding: 32px;
+      box-shadow: var(--pmew-tech-shadow-sm);
+    }
+
+    .pmew-tech-intro-card {
+      margin-bottom: 34px;
+    }
+
+    .pmew-tech-intro-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .pmew-tech-intro-card h3,
+    .pmew-tech-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      font-weight: 780;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-intro-card p,
+    .pmew-tech-panel p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+    }
+
+    .pmew-tech-mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pmew-tech-mini-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+      color: var(--pmew-tech-ink);
+      font-size: 0.88rem;
+      font-weight: 680;
+    }
+
+    .pmew-tech-mini-list i {
+      margin-top: 4px;
+      color: var(--pmew-tech-green);
+    }
+
+    /* THREAD ENGINEERING */
+    .pmew-tech-thread-hero {
+      background:
+        radial-gradient(circle at top left, rgba(31, 120, 145, 0.09), transparent 32%),
+        #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: var(--pmew-tech-radius-xl);
+      padding: 38px;
+      box-shadow: var(--pmew-tech-shadow-sm);
+      margin-bottom: 30px;
+    }
+
+    .pmew-tech-thread-hero h3 {
+      margin: 0 0 14px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-thread-hero p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      max-width: 980px;
+    }
+
+    .pmew-tech-info-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pmew-tech-info-tile {
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--pmew-tech-shadow-sm);
+      min-height: 150px;
+      transition: 0.25s ease;
+    }
+
+    .pmew-tech-info-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-info-tile i {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: var(--pmew-tech-accent);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .pmew-tech-info-tile:nth-child(2n) i {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-info-tile:nth-child(3n) i {
+      background: var(--pmew-tech-orange);
+    }
+
+    .pmew-tech-info-tile:nth-child(4n) i {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-info-tile h4 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-info-tile p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .pmew-tech-thread-block {
+      margin-top: 46px;
+    }
+
+    .pmew-tech-thread-block-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .pmew-tech-thread-block-head h3 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-thread-block-head p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      max-width: 580px;
+      font-size: 0.95rem;
+    }
+
+    .pmew-tech-thread-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pmew-tech-thread-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pmew-tech-process-card {
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--pmew-tech-shadow-sm);
+      min-height: 210px;
+      transition: 0.25s ease;
+    }
+
+    .pmew-tech-process-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-process-card span {
+      display: inline-flex;
+      color: var(--pmew-tech-accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .pmew-tech-process-card h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-process-card p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.88rem;
+    }
+
+    .pmew-tech-thread-summary {
+      margin-top: 44px;
+      background: var(--pmew-tech-navy);
+      color: #ffffff;
+      border-radius: var(--pmew-tech-radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-thread-summary h3 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .pmew-tech-thread-summary p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .pmew-tech-thread-summary strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    /* DRIVE + MARKING CARDS */
+    .pmew-tech-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pmew-tech-drive-card,
+    .pmew-tech-mark-card {
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      border-radius: 26px;
+      padding: 24px;
+      min-height: 320px;
+      box-shadow: var(--pmew-tech-shadow-sm);
+      transition: 0.25s ease;
+    }
+
+    .pmew-tech-drive-card::before,
+    .pmew-tech-mark-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--pmew-tech-accent);
+    }
+
+    .pmew-tech-drive-card:nth-child(2n)::before,
+    .pmew-tech-mark-card:nth-child(2n)::before {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-drive-card:nth-child(3n)::before,
+    .pmew-tech-mark-card:nth-child(3n)::before {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-drive-card:nth-child(4n)::before,
+    .pmew-tech-mark-card:nth-child(4n)::before {
+      background: var(--pmew-tech-orange);
+    }
+
+    .pmew-tech-drive-card:hover,
+    .pmew-tech-mark-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--pmew-tech-shadow-md);
+      border-color: rgba(31, 120, 145, 0.28);
+    }
+
+    .pmew-tech-card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      background: var(--pmew-tech-accent);
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+
+    .pmew-tech-drive-card:nth-child(2n) .pmew-tech-card-icon,
+    .pmew-tech-mark-card:nth-child(2n) .pmew-tech-card-icon {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-drive-card:nth-child(3n) .pmew-tech-card-icon,
+    .pmew-tech-mark-card:nth-child(3n) .pmew-tech-card-icon {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-drive-card:nth-child(4n) .pmew-tech-card-icon,
+    .pmew-tech-mark-card:nth-child(4n) .pmew-tech-card-icon {
+      background: var(--pmew-tech-orange);
+    }
+
+    .pmew-tech-drive-card h3,
+    .pmew-tech-mark-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.06rem;
+      line-height: 1.3;
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-drive-card p,
+    .pmew-tech-mark-card p {
+      margin: 0 0 16px;
+      color: var(--pmew-tech-muted);
+      font-size: 0.92rem;
+    }
+
+    .pmew-tech-card-label {
+      display: inline-flex;
+      color: var(--pmew-tech-accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 6px 0 9px;
+    }
+
+    .pmew-tech-tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pmew-tech-tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+      color: var(--pmew-tech-soft-text);
+      font-size: 0.72rem;
+      font-weight: 760;
+    }
+
+    /* FACTORS */
+    .pmew-tech-factor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .pmew-tech-factor {
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+    }
+
+    .pmew-tech-factor i {
+      color: var(--pmew-tech-accent);
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .pmew-tech-factor h4 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--pmew-tech-ink);
+    }
+
+    .pmew-tech-factor p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.84rem;
+    }
+
+    .pmew-tech-two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    /* ISSUES */
+    .pmew-tech-issue-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pmew-tech-issue {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+    }
+
+    .pmew-tech-issue i {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--pmew-tech-red);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pmew-tech-issue h4 {
+      margin: 0 0 5px;
+      font-size: 0.94rem;
+      font-weight: 800;
+    }
+
+    .pmew-tech-issue p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.86rem;
+    }
+
+    /* 3X3 CHECK GRIDS */
+    .pmew-tech-drive-quality-check-grid,
+    .pmew-tech-inspection-check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .pmew-tech-check-item {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+      color: var(--pmew-tech-ink);
+      font-size: 0.92rem;
+      font-weight: 760;
+      line-height: 1.45;
+      transition: 0.22s ease;
+    }
+
+    .pmew-tech-check-item:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: var(--pmew-tech-shadow-sm);
+    }
+
+    .pmew-tech-check-item i {
+      color: var(--pmew-tech-green);
+      flex: 0 0 auto;
+    }
+
+    .pmew-tech-grade-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pmew-tech-grade {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--pmew-tech-paper);
+      border: 1px solid var(--pmew-tech-line);
+    }
+
+    .pmew-tech-grade strong {
+      display: block;
+      color: var(--pmew-tech-ink);
+      font-size: 1.12rem;
+      margin-bottom: 4px;
+    }
+
+    .pmew-tech-grade span {
+      display: block;
+      color: var(--pmew-tech-muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    /* MARKING METHODS */
+    .pmew-tech-method-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .pmew-tech-method {
+      position: relative;
+      padding: 24px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid var(--pmew-tech-line);
+      box-shadow: var(--pmew-tech-shadow-sm);
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .pmew-tech-method:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-method span {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: var(--pmew-tech-accent);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .pmew-tech-method:nth-child(2) span {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-method:nth-child(3) span {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-method:nth-child(4) span {
+      background: var(--pmew-tech-orange);
+    }
+
+    .pmew-tech-method h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .pmew-tech-method p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.88rem;
+    }
+
+    /* TRACEABILITY */
+    .pmew-tech-trace-timeline {
+      position: relative;
+      margin-top: 42px;
+      padding: 30px 0 8px;
+    }
+
+    .pmew-tech-trace-track {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 61px;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        rgba(31, 120, 145, 0.08),
+        rgba(31, 120, 145, 0.95),
+        rgba(31, 120, 145, 0.08)
+      );
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .pmew-tech-trace-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pmew-tech-trace-step {
+      position: relative;
+      padding-top: 82px;
+    }
+
+    .pmew-tech-trace-node {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--pmew-tech-accent);
+      color: #ffffff;
+      border: 8px solid var(--pmew-tech-paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.18rem;
+      font-weight: 800;
+      box-shadow: 0 18px 42px rgba(31, 120, 145, 0.28);
+    }
+
+    .pmew-tech-trace-step:nth-child(2) .pmew-tech-trace-node {
+      background: var(--pmew-tech-cyan);
+    }
+
+    .pmew-tech-trace-step:nth-child(3) .pmew-tech-trace-node {
+      background: var(--pmew-tech-orange);
+    }
+
+    .pmew-tech-trace-step:nth-child(4) .pmew-tech-trace-node {
+      background: var(--pmew-tech-green);
+    }
+
+    .pmew-tech-trace-line {
+      width: 100%;
+      height: 1px;
+      background: var(--pmew-tech-line);
+      margin-bottom: 18px;
+    }
+
+    .pmew-tech-trace-step span {
+      display: inline-flex;
+      color: var(--pmew-tech-accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .pmew-tech-trace-step h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .pmew-tech-trace-step p {
+      margin: 0;
+      color: var(--pmew-tech-muted);
+      font-size: 0.9rem;
+      max-width: 250px;
+    }
+
+    .pmew-tech-safety-band {
+      margin-top: 58px;
+      background: var(--pmew-tech-navy);
+      color: #ffffff;
+      border-radius: var(--pmew-tech-radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--pmew-tech-shadow-md);
+    }
+
+    .pmew-tech-safety-band h3 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .pmew-tech-safety-band p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* CTA */
+    .pmew-tech-cta {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.20), transparent 30%),
+        var(--pmew-tech-accent);
+      color: #ffffff;
+      border-radius: var(--pmew-tech-radius-xl);
+      padding: 52px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--pmew-tech-shadow-accent);
+    }
+
+    .pmew-tech-cta h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .pmew-tech-cta p {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      max-width: 780px;
+    }
+
+    .pmew-tech-cta .pmew-tech-btn {
+      background: #ffffff;
+      color: var(--pmew-tech-accent);
+      white-space: nowrap;
+    }
+
+    .pmew-tech-reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .pmew-tech-reveal.pmew-tech-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .pmew-tech-hero-grid,
+      .pmew-tech-section-head,
+      .pmew-tech-two-col,
+      .pmew-tech-safety-band,
+      .pmew-tech-cta,
+      .pmew-tech-thread-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .pmew-tech-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pmew-tech-factor-grid,
+      .pmew-tech-method-strip,
+      .pmew-tech-thread-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pmew-tech-thread-grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pmew-tech-info-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .pmew-tech-trace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 44px;
+      }
+
+      .pmew-tech-trace-track {
+        display: none;
+      }
+
+      .pmew-tech-drive-quality-check-grid,
+      .pmew-tech-inspection-check-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .pmew-tech-drive-quality-check-grid,
+      .pmew-tech-inspection-check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pmew-tech-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .pmew-tech-container {
+        width: min(100% - 28px, 1220px);
+      }
+
+      .pmew-tech-hero {
+        min-height: auto;
+        padding: 112px 0 58px;
+      }
+
+      .pmew-tech-hero::before {
+        inset: 12px;
+        border-radius: 28px;
+      }
+
+      .pmew-tech-section {
+        padding: 68px 0;
+      }
+
+      .pmew-tech-hero-panel,
+      .pmew-tech-intro-card,
+      .pmew-tech-panel,
+      .pmew-tech-safety-band,
+      .pmew-tech-cta,
+      .pmew-tech-thread-hero,
+      .pmew-tech-thread-summary {
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      .pmew-tech-card-grid,
+      .pmew-tech-factor-grid,
+      .pmew-tech-method-strip,
+      .pmew-tech-intro-grid,
+      .pmew-tech-mini-list,
+      .pmew-tech-grade-row,
+      .pmew-tech-drive-quality-check-grid,
+      .pmew-tech-inspection-check-grid,
+      .pmew-tech-trace-grid,
+      .pmew-tech-info-grid,
+      .pmew-tech-thread-grid-4,
+      .pmew-tech-thread-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .pmew-tech-drive-card,
+      .pmew-tech-mark-card,
+      .pmew-tech-process-card,
+      .pmew-tech-info-tile {
+        min-height: auto;
+      }
+
+      .pmew-tech-hero-actions {
+        flex-direction: column;
+      }
+
+      .pmew-tech-btn {
+        width: 100%;
+      }
+
+      .pmew-tech-hero-metric {
+        grid-template-columns: 1fr;
+      }
+
+      .pmew-tech-check-item {
+        min-height: auto;
+      }
+
+      .pmew-tech-thread-block-head {
+        display: block;
+      }
+
+      .pmew-tech-thread-block-head p {
+        margin-top: 10px;
+      }
+
+      .pmew-tech-trace-step {
+        padding-top: 0;
+        padding-left: 86px;
+        min-height: 92px;
+      }
+
+      .pmew-tech-trace-node {
+        top: 0;
+        left: 0;
+        border-color: var(--pmew-tech-paper);
+      }
+
+      .pmew-tech-trace-line {
+        margin-bottom: 12px;
+      }
+
+      .pmew-tech-trace-step p {
+        max-width: 100%;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Thread Engineering, Drive Types &amp; Head Markings from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing su.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/threading-drive-types.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Thread Engineering, Drive Types &amp; Head Markings | Pradako Mechanical and Engineering Works">
+    <meta property="og:description" content="Thread Engineering, Drive Types &amp; Head Markings from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing su.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/threading-drive-types.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thread Engineering, Drive Types &amp; Head Markings | Pradako Mechanical and Engineering Works">
+    <meta name="twitter:description" content="Thread Engineering, Drive Types &amp; Head Markings from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing su.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Thread Engineering, Drive Types & Head Markings | Pradako Mechanical and Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/threading-drive-types.html",
+  "description": "Thread Engineering, Drive Types & Head Markings from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing su.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="pmew-tech-page">
+
+    <!-- HERO -->
+    <section class="pmew-tech-hero" id="top">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-hero-grid">
+          <div class="pmew-tech-reveal">
+            <div class="pmew-tech-eyebrow">Technical Information</div>
+            <h1 class="pmew-tech-title">Thread Engineering, Drive Types & Head Markings</h1>
+            <p class="pmew-tech-subtitle">
+              A clear engineering guide to thread geometry, controlled clamping force, drive engagement,
+              torque transfer, identification, traceability, strength recognition, and inspection confidence.
+            </p>
+
+            <div class="pmew-tech-chip-row">
+              <span class="pmew-tech-chip"><i class="fa-solid fa-arrows-spin"></i> Thread Engineering</span>
+              <span class="pmew-tech-chip"><i class="fa-solid fa-screwdriver-wrench"></i> Drive Engineering</span>
+              <span class="pmew-tech-chip"><i class="fa-solid fa-gauge-high"></i> Torque Control</span>
+              <span class="pmew-tech-chip"><i class="fa-solid fa-fingerprint"></i> Identification</span>
+              <span class="pmew-tech-chip"><i class="fa-solid fa-shield-halved"></i> Traceability</span>
+            </div>
+
+            <div class="pmew-tech-hero-actions">
+              <a href="#thread-engineering" class="pmew-tech-btn pmew-tech-btn-primary">
+                Explore Thread Engineering <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#drive-types" class="pmew-tech-btn pmew-tech-btn-secondary">
+                View Drive Types <i class="fa-solid fa-arrow-down"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="pmew-tech-hero-panel pmew-tech-reveal">
+            <div class="pmew-tech-hero-metric">
+              <div class="pmew-tech-hero-metric-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+              <div>
+                <h3>Controlled Clamping Force</h3>
+                <p>Thread geometry converts rotation into controlled axial movement and preload.</p>
+              </div>
+            </div>
+
+            <div class="pmew-tech-hero-metric">
+              <div class="pmew-tech-hero-metric-icon"><i class="fa-solid fa-rotate"></i></div>
+              <div>
+                <h3>Controlled Torque Transfer</h3>
+                <p>Drive geometry controls how rotational force enters the fastener during assembly.</p>
+              </div>
+            </div>
+
+            <div class="pmew-tech-hero-metric">
+              <div class="pmew-tech-hero-metric-icon"><i class="fa-solid fa-barcode"></i></div>
+              <div>
+                <h3>Clear Product Identification</h3>
+                <p>Head markings help identify grade, material, manufacturer, and application suitability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREAD ENGINEERING -->
+    <section class="pmew-tech-section pmew-tech-section-soft" id="thread-engineering">
+      <div class="pmew-tech-container">
+
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Thread Engineering</div>
+            <h2 class="pmew-tech-heading">Precision geometry that converts rotation into controlled clamping force.</h2>
+          </div>
+          <p>
+            Threading in fasteners is a precision-engineered helical system designed to convert rotational input into
+            controlled axial movement and clamping force.
+          </p>
+        </div>
+
+        <div class="pmew-tech-thread-hero pmew-tech-reveal">
+          <h3>Structural Control Through Thread Geometry</h3>
+          <p>
+            Threading governs load transfer, joint stability, repeatability, and performance across real-world operating
+            conditions. Thread systems are designed to align with application-specific requirements, enabling reliability,
+            structural integrity, and predictable fastening performance across every fastening system.
+          </p>
+        </div>
+
+        <div class="pmew-tech-thread-block" id="thread-geometry">
+          <div class="pmew-tech-thread-block-head pmew-tech-reveal">
+            <h3>Thread Geometry & Structural Control</h3>
+            <p>Thread geometry governs engagement behavior, load distribution, and mechanical interaction.</p>
+          </div>
+
+          <div class="pmew-tech-info-grid">
+            <div class="pmew-tech-info-tile pmew-tech-reveal">
+              <i class="fa-solid fa-circle-up"></i>
+              <h4>Crest</h4>
+              <p>Outer boundary of the thread profile.</p>
+            </div>
+
+            <div class="pmew-tech-info-tile pmew-tech-reveal">
+              <i class="fa-solid fa-circle-down"></i>
+              <h4>Root</h4>
+              <p>Stress concentration zone requiring controlled geometry.</p>
+            </div>
+
+            <div class="pmew-tech-info-tile pmew-tech-reveal">
+              <i class="fa-solid fa-grip-lines"></i>
+              <h4>Flank</h4>
+              <p>Load transfer interface between mating threads.</p>
+            </div>
+
+            <div class="pmew-tech-info-tile pmew-tech-reveal">
+              <i class="fa-solid fa-ruler-vertical"></i>
+              <h4>Thread Depth</h4>
+              <p>Controls engagement strength and holding performance.</p>
+            </div>
+
+            <div class="pmew-tech-info-tile pmew-tech-reveal">
+              <i class="fa-solid fa-compass-drafting"></i>
+              <h4>Thread Angle</h4>
+              <p>Influences compatibility, friction, strength, and assembly behavior.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-thread-block" id="thread-standards">
+          <div class="pmew-tech-thread-block-head pmew-tech-reveal">
+            <h3>Thread Systems & Standards</h3>
+            <p>Thread systems define compatibility, interchangeability, and functional performance.</p>
+          </div>
+
+          <div class="pmew-tech-thread-grid-4">
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>ISO / DIN</span>
+              <h4>Metric Threads</h4>
+              <p>Global metric thread standards used across industrial, automotive, machinery, and construction applications.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Unified</span>
+              <h4>UNC, UNF, UNEF</h4>
+              <p>Inch-based thread standards used in American and international engineering applications.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Whitworth</span>
+              <h4>British Whitworth</h4>
+              <p>A 55° thread form with rounded roots and legacy compatibility.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Motion</span>
+              <h4>ACME Threads</h4>
+              <p>Designed for motion systems, adjustment mechanisms, and power transmission.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-thread-block">
+          <div class="pmew-tech-thread-block-head pmew-tech-reveal">
+            <h3>Thread Types & Functional Application</h3>
+            <p>Thread type selection depends on assembly speed, load behavior, vibration exposure, and service conditions.</p>
+          </div>
+
+          <div class="pmew-tech-thread-grid-4">
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Fast Assembly</span>
+              <h4>Coarse Threads</h4>
+              <p>Suitable for faster assembly with higher tolerance to surface conditions, contamination, and coating effects.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Control</span>
+              <h4>Fine Threads</h4>
+              <p>Provide better load distribution, vibration resistance, and precise adjustment.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Directional Load</span>
+              <h4>Buttress Threads</h4>
+              <p>Designed for high axial load resistance in one primary direction.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Motion Transfer</span>
+              <h4>Acme Threads</h4>
+              <p>Support efficient motion transfer and wear resistance in mechanical movement systems.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-thread-block" id="thread-manufacturing">
+          <div class="pmew-tech-thread-block-head pmew-tech-reveal">
+            <h3>Thread Manufacturing & Formation</h3>
+            <p>Manufacturing method influences strength, fatigue resistance, accuracy, and surface quality.</p>
+          </div>
+
+          <div class="pmew-tech-thread-grid-3">
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Cold Forming</span>
+              <h4>Thread Rolling</h4>
+              <p>Grain flow follows the contour, enhancing fatigue resistance and creating a compressive surface layer.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Special Geometry</span>
+              <h4>Thread Cutting</h4>
+              <p>Provides precision and flexibility for specialized thread geometries, custom designs, and lower quantities.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>High Accuracy</span>
+              <h4>Thread Grinding</h4>
+              <p>Delivers high dimensional accuracy and superior surface finish for precision applications.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-thread-block">
+          <div class="pmew-tech-thread-block-head pmew-tech-reveal">
+            <h3>Fit, Preload & Advanced Thread Control</h3>
+            <p>Thread systems are evaluated beyond dimensions to ensure long-term reliability.</p>
+          </div>
+
+          <div class="pmew-tech-thread-grid-3">
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Fit & Engagement</span>
+              <h4>External / Internal Threads</h4>
+              <p>External threads include allowance for functional fit, while internal threads are maintained with controlled allowance behavior.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Preload Behavior</span>
+              <h4>Friction & Clamping</h4>
+              <p>Applied torque distributes between friction and preload generation. Consistent surface condition supports predictable preload.</p>
+            </div>
+
+            <div class="pmew-tech-process-card pmew-tech-reveal">
+              <span>Defect Control</span>
+              <h4>Advanced Thread Engineering</h4>
+              <p>Controls pitch consistency, thread circularity, surface integrity, thread stripping, and thread fracture risk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-thread-summary pmew-tech-reveal">
+          <h3>Engineering confidence, thread by thread.</h3>
+          <p>
+            Thread engineering is the convergence of precision geometry, material science, and process control.
+            From standard fasteners to high-performance applications, controlled thread systems deliver consistent
+            clamping, structural integrity, and lifecycle reliability.
+            <br><br>
+            <strong>Precision geometry. Controlled processes. Predictable performance.</strong>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DRIVE TYPES -->
+    <section class="pmew-tech-section pmew-tech-section-white" id="drive-types">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Drive Types</div>
+            <h2 class="pmew-tech-heading">Engineered tool engagement for controlled assembly.</h2>
+          </div>
+          <p>
+            Drive types define how torque is applied, transferred, and controlled. The correct drive improves
+            installation speed, tool grip, automation compatibility, serviceability, and resistance to head damage.
+          </p>
+        </div>
+
+        <div class="pmew-tech-intro-card pmew-tech-reveal">
+          <div class="pmew-tech-intro-grid">
+            <div>
+              <h3>Purpose of Drive Geometry</h3>
+              <p>
+                A drive is more than a tool interface. It is the engineered contact point that controls how
+                rotational force enters the fastener and how consistently preload can be generated.
+              </p>
+            </div>
+
+            <ul class="pmew-tech-mini-list">
+              <li><i class="fa-solid fa-check"></i> Torque transfer efficiency</li>
+              <li><i class="fa-solid fa-check"></i> Tool grip and engagement</li>
+              <li><i class="fa-solid fa-check"></i> Cam-out and slip resistance</li>
+              <li><i class="fa-solid fa-check"></i> Assembly speed and repeatability</li>
+              <li><i class="fa-solid fa-check"></i> Accessibility in confined areas</li>
+              <li><i class="fa-solid fa-check"></i> Service and maintenance ease</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmew-tech-card-grid">
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-minus"></i></div>
+            <h3>Slotted Drive</h3>
+            <p>A single straight slot, simple and widely recognized, but with limited engagement and higher slip risk.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Light-duty assemblies, electrical components, restoration work, and low-torque fastening.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Simple</span>
+              <span class="pmew-tech-tag">Low Torque</span>
+              <span class="pmew-tech-tag">High Slip Risk</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-plus"></i></div>
+            <h3>Phillips Drive</h3>
+            <p>A cross-shaped recess that improves centering and supports faster general assembly.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Sheet metal, appliances, electrical products, consumer products, and general machinery.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Fast Install</span>
+              <span class="pmew-tech-tag">Good Centering</span>
+              <span class="pmew-tech-tag">Cam-Out Tendency</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-xmark"></i></div>
+            <h3>Pozidriv Drive</h3>
+            <p>An enhanced cross-drive with additional ribs for better tool engagement and reduced cam-out.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Furniture, panels, industrial assembly, electrical fittings, and production fastening.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Better Grip</span>
+              <span class="pmew-tech-tag">Repeatable</span>
+              <span class="pmew-tech-tag">Correct Bit Needed</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-cube"></i></div>
+            <h3>Hex Socket Drive</h3>
+            <p>An internal hexagonal recess operated with an Allen key or hex bit for strong tool control.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Socket head cap screws, set screws, machine tools, automotive, and precision equipment.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">High Torque</span>
+              <span class="pmew-tech-tag">Compact</span>
+              <span class="pmew-tech-tag">Clean Appearance</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Hexalobular / Six-Lobe Drive</h3>
+            <p>A star-shaped internal profile designed for high torque transfer and low cam-out.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Automotive, electronics, appliances, aerospace assemblies, and high-speed production lines.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Low Cam-Out</span>
+              <span class="pmew-tech-tag">Automation Friendly</span>
+              <span class="pmew-tech-tag">Reduced Tool Wear</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>External Hex Drive</h3>
+            <p>A six-sided external head driven by a spanner, socket, or wrench for heavy-duty fastening.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Hex bolts, structural fasteners, construction, machinery, oil & gas, and heavy equipment.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Heavy Duty</span>
+              <span class="pmew-tech-tag">Field Friendly</span>
+              <span class="pmew-tech-tag">Easy Inspection</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-square-full"></i></div>
+            <h3>Square Drive</h3>
+            <p>A square recess that offers strong tool retention and reduced slipping compared to simple drives.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Wood construction, decking, furniture, industrial assemblies, and special fastening systems.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Good Retention</span>
+              <span class="pmew-tech-tag">Reduced Slip</span>
+              <span class="pmew-tech-tag">Reliable</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Combination Drive</h3>
+            <p>A multi-tool drive form, such as slotted plus Phillips, used for service flexibility.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Electrical fittings, access panels, hardware, maintenance-friendly assemblies, and light-duty products.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Flexible</span>
+              <span class="pmew-tech-tag">Service Friendly</span>
+              <span class="pmew-tech-tag">Moderate Torque</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-asterisk"></i></div>
+            <h3>12-Point Drive</h3>
+            <p>A high-engagement internal or external profile with twelve contact points for precision fastening.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Aerospace, automotive engines, high-performance machinery, and compact wrenching areas.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">High Torque</span>
+              <span class="pmew-tech-tag">Precision</span>
+              <span class="pmew-tech-tag">Compact Access</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-drive-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-lock"></i></div>
+            <h3>Security / Tamper-Resistant Drives</h3>
+            <p>Controlled-access drive forms such as pin-in-hex, pin-in-six-lobe, spanner, one-way, and tri-wing.</p>
+            <span class="pmew-tech-card-label">Common Use</span>
+            <p>Public infrastructure, transport systems, electrical panels, safety equipment, and access covers.</p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Tamper Resistant</span>
+              <span class="pmew-tech-tag">Controlled Access</span>
+              <span class="pmew-tech-tag">Security Focused</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRIVE SELECTION -->
+    <section class="pmew-tech-section pmew-tech-section-soft" id="drive-selection">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Selection Factors</div>
+            <h2 class="pmew-tech-heading">Choose the drive based on assembly reality.</h2>
+          </div>
+          <p>
+            The correct drive type depends on torque requirement, installation method, service access,
+            appearance, security need, coating thickness, and production speed.
+          </p>
+        </div>
+
+        <div class="pmew-tech-panel pmew-tech-reveal">
+          <h3>Drive Selection Guide</h3>
+          <p>
+            Higher torque applications need stronger engagement and lower cam-out risk. Automated assembly
+            benefits from stable bit retention, while field maintenance benefits from commonly available tools.
+          </p>
+
+          <div class="pmew-tech-factor-grid">
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-gauge-high"></i>
+              <h4>Torque Requirement</h4>
+              <p>Select stronger drive engagement for high preload and heavy-duty fastening.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-robot"></i>
+              <h4>Assembly Speed</h4>
+              <p>Use automation-friendly drives for repeatable engagement in high-volume lines.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-compress"></i>
+              <h4>Accessibility</h4>
+              <p>Confined spaces may require internal drives, compact heads, or reduced wrench clearance.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-screwdriver"></i>
+              <h4>Serviceability</h4>
+              <p>Maintenance applications benefit from durable geometry and commonly available tools.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-shield-halved"></i>
+              <h4>Tamper Resistance</h4>
+              <p>Public or restricted assemblies may require security drive systems.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-eye"></i>
+              <h4>Appearance</h4>
+              <p>Visible assemblies may require clean, recessed, low-profile, or premium head forms.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-fill-drip"></i>
+              <h4>Material & Coating</h4>
+              <p>Drive geometry must remain functional after plating, coating, heat treatment, or finishing.</p>
+            </div>
+
+            <div class="pmew-tech-factor">
+              <i class="fa-solid fa-repeat"></i>
+              <h4>Repeatability</h4>
+              <p>Production fastening requires consistent drive dimensions and stable tool engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRIVE QUALITY -->
+    <section class="pmew-tech-section pmew-tech-section-white" id="drive-quality">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Failure Prevention</div>
+            <h2 class="pmew-tech-heading">Prevent drive damage before assembly defects happen.</h2>
+          </div>
+          <p>
+            Drive failure is commonly linked to incorrect bit selection, worn tooling, excessive torque,
+            poor alignment, coating buildup, or uncontrolled recess geometry.
+          </p>
+        </div>
+
+        <div class="pmew-tech-two-col">
+          <div class="pmew-tech-panel pmew-tech-reveal">
+            <h3>Common Drive Issues</h3>
+
+            <div class="pmew-tech-issue-list">
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                  <h4>Cam-Out</h4>
+                  <p>Tool slips out of the recess, reducing torque control and damaging the head.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div>
+                  <h4>Drive Rounding</h4>
+                  <p>Drive corners deform due to excessive torque, repeated use, or poor bit fit.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-ban"></i>
+                <div>
+                  <h4>Recess Filling</h4>
+                  <p>Coating, plating, paint, or contamination reduces proper tool engagement.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-wrench"></i>
+                <div>
+                  <h4>Head Damage</h4>
+                  <p>Over-tightening, misalignment, or tooling error can make removal difficult.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pmew-tech-panel pmew-tech-reveal">
+            <h3>Drive Quality Control Checks</h3>
+            <p>
+              Drive geometry must be verified to support smooth tool engagement, repeatable tightening,
+              and reliable torque transfer.
+            </p>
+
+            <div class="pmew-tech-drive-quality-check-grid">
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Drive depth</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Profile accuracy</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Recess concentricity</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Burr-free formation</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Tool engagement quality</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Coating buildup control</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Head deformation control</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Torque validation</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Drive width control</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEAD MARKINGS -->
+    <section class="pmew-tech-section pmew-tech-section-soft" id="head-markings">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Head Markings</div>
+            <h2 class="pmew-tech-heading">Identification, strength recognition, and traceability built into the fastener.</h2>
+          </div>
+          <p>
+            Head markings use symbols, letters, numbers, radial lines, or patterns to communicate strength,
+            material, manufacturer identity, standard reference, and inspection confidence.
+          </p>
+        </div>
+
+        <div class="pmew-tech-intro-card pmew-tech-reveal">
+          <div class="pmew-tech-intro-grid">
+            <div>
+              <h3>Purpose of Head Markings</h3>
+              <p>
+                Markings help users identify the fastener before installation, during inspection, and throughout
+                service life. Correct marking reduces mix-ups and supports quality assurance.
+              </p>
+            </div>
+
+            <ul class="pmew-tech-mini-list">
+              <li><i class="fa-solid fa-check"></i> Manufacturer identification</li>
+              <li><i class="fa-solid fa-check"></i> Property class or grade</li>
+              <li><i class="fa-solid fa-check"></i> Material category</li>
+              <li><i class="fa-solid fa-check"></i> Stainless steel group</li>
+              <li><i class="fa-solid fa-check"></i> Structural classification</li>
+              <li><i class="fa-solid fa-check"></i> Traceability requirement</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmew-tech-card-grid">
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-industry"></i></div>
+            <h3>Manufacturer Identification</h3>
+            <p>
+              Manufacturer marks help trace the fastener back to its producer and support accountability,
+              supply-chain verification, and regulated market confidence.
+            </p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Structural</span>
+              <span class="pmew-tech-tag">Automotive</span>
+              <span class="pmew-tech-tag">Railway</span>
+              <span class="pmew-tech-tag">Aerospace</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-ranking-star"></i></div>
+            <h3>Metric Property Class Markings</h3>
+            <p>
+              Metric fasteners commonly use property classes to identify mechanical strength and correct
+              application suitability.
+            </p>
+
+            <div class="pmew-tech-grade-row">
+              <div class="pmew-tech-grade">
+                <strong>8.8</strong>
+                <span>Medium-high strength.</span>
+              </div>
+              <div class="pmew-tech-grade">
+                <strong>10.9</strong>
+                <span>High strength.</span>
+              </div>
+              <div class="pmew-tech-grade">
+                <strong>12.9</strong>
+                <span>Very high strength.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-lines-leaning"></i></div>
+            <h3>Inch-Series Grade Markings</h3>
+            <p>
+              Inch-series fasteners may use radial lines, specification letters, or grade symbols to show
+              mechanical grade and strength level.
+            </p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">SAE Grades</span>
+              <span class="pmew-tech-tag">ASTM Grades</span>
+              <span class="pmew-tech-tag">Structural Bolts</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h3>Stainless Steel Markings</h3>
+            <p>
+              Stainless markings identify corrosion-resistance group and strength class, helping users select
+              fasteners based on environment and mechanical demand.
+            </p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">A2</span>
+              <span class="pmew-tech-tag">A4</span>
+              <span class="pmew-tech-tag">A2-70</span>
+              <span class="pmew-tech-tag">A4-70</span>
+              <span class="pmew-tech-tag">A4-80</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-bridge"></i></div>
+            <h3>Structural Fastener Markings</h3>
+            <p>
+              Structural bolts, nuts, and washers require clear identification for grade, assembly compatibility,
+              coating suitability, and high-strength application use.
+            </p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Joint Safety</span>
+              <span class="pmew-tech-tag">Preload Control</span>
+              <span class="pmew-tech-tag">Assembly Match</span>
+            </div>
+          </article>
+
+          <article class="pmew-tech-mark-card pmew-tech-reveal">
+            <div class="pmew-tech-card-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+            <h3>Nut & Washer Markings</h3>
+            <p>
+              Nuts and washers may also carry identification marks for grade, hardness, manufacturer,
+              compatibility, and specification compliance.
+            </p>
+            <div class="pmew-tech-tag-wrap">
+              <span class="pmew-tech-tag">Nuts</span>
+              <span class="pmew-tech-tag">Washers</span>
+              <span class="pmew-tech-tag">Assembly Integrity</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKING METHODS -->
+    <section class="pmew-tech-section pmew-tech-section-white" id="marking-methods">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Marking Methods</div>
+            <h2 class="pmew-tech-heading">Clear markings without compromising head integrity.</h2>
+          </div>
+          <p>
+            Marking method depends on fastener size, head style, material, standard requirement, production
+            process, and readability after coating or surface treatment.
+          </p>
+        </div>
+
+        <div class="pmew-tech-method-strip">
+          <div class="pmew-tech-method pmew-tech-reveal">
+            <span>01</span>
+            <h3>Raised Markings</h3>
+            <p>Formed during heading or forging. Durable and commonly used on bolts and screws.</p>
+          </div>
+
+          <div class="pmew-tech-method pmew-tech-reveal">
+            <span>02</span>
+            <h3>Depressed Markings</h3>
+            <p>Stamped or indented into the fastener surface where raised marks are not suitable.</p>
+          </div>
+
+          <div class="pmew-tech-method pmew-tech-reveal">
+            <span>03</span>
+            <h3>Laser Marking</h3>
+            <p>Used for precision identification, traceability, branding, and special application needs.</p>
+          </div>
+
+          <div class="pmew-tech-method pmew-tech-reveal">
+            <span>04</span>
+            <h3>Stamping</h3>
+            <p>Used for grade, manufacturer, batch, or specification identification depending on fastener type.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACEABILITY -->
+    <section class="pmew-tech-section pmew-tech-section-soft" id="traceability">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Traceability</div>
+            <h2 class="pmew-tech-heading">Connecting the physical fastener to its quality record.</h2>
+          </div>
+          <p>
+            Head markings support traceability by linking fasteners to material, manufacturing, heat treatment,
+            coating, inspection, certificate, dispatch, and customer specification records.
+          </p>
+        </div>
+
+        <div class="pmew-tech-trace-timeline pmew-tech-reveal">
+          <div class="pmew-tech-trace-track"></div>
+
+          <div class="pmew-tech-trace-grid">
+            <div class="pmew-tech-trace-step">
+              <div class="pmew-tech-trace-node">01</div>
+              <div class="pmew-tech-trace-line"></div>
+              <span>Material</span>
+              <h3>Material Identity</h3>
+              <p>Raw material batch, material grade, and incoming inspection reference.</p>
+            </div>
+
+            <div class="pmew-tech-trace-step">
+              <div class="pmew-tech-trace-node">02</div>
+              <div class="pmew-tech-trace-line"></div>
+              <span>Production</span>
+              <h3>Production Route</h3>
+              <p>Manufacturing batch, forming process, machining route, and process control.</p>
+            </div>
+
+            <div class="pmew-tech-trace-step">
+              <div class="pmew-tech-trace-node">03</div>
+              <div class="pmew-tech-trace-line"></div>
+              <span>Treatment</span>
+              <h3>Treatment & Finish</h3>
+              <p>Heat treatment lot, coating batch, plating thickness, and surface finish control.</p>
+            </div>
+
+            <div class="pmew-tech-trace-step">
+              <div class="pmew-tech-trace-node">04</div>
+              <div class="pmew-tech-trace-line"></div>
+              <span>Inspection</span>
+              <h3>Inspection Record</h3>
+              <p>Inspection report, test certificate, dispatch record, and customer specification mapping.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-tech-safety-band pmew-tech-reveal">
+          <h3>Correct markings reduce critical assembly risk.</h3>
+          <p>
+            Improper identification can lead to wrong strength selection, material mismatch, joint failure,
+            corrosion issues, non-compliance, assembly rejection, and safety concerns. Clear markings improve
+            inspection speed, field verification, and long-term confidence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSPECTION -->
+    <section class="pmew-tech-section pmew-tech-section-white" id="inspection">
+      <div class="pmew-tech-container">
+        <div class="pmew-tech-section-head pmew-tech-reveal">
+          <div>
+            <div class="pmew-tech-eyebrow">Inspection</div>
+            <h2 class="pmew-tech-heading">Readable, correct, durable, and standard-aligned.</h2>
+          </div>
+          <p>
+            Head marking inspection confirms that identification is visible, accurate, correctly positioned,
+            suitable for the head design, and aligned with product requirements.
+          </p>
+        </div>
+
+        <div class="pmew-tech-two-col">
+          <div class="pmew-tech-panel pmew-tech-reveal">
+            <h3>Inspection Checks</h3>
+
+            <div class="pmew-tech-inspection-check-grid">
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Visual readability</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Marking depth</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Marking position</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Grade verification</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Manufacturer mark</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Coating visibility</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Batch traceability</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Standard compliance</div>
+              <div class="pmew-tech-check-item"><i class="fa-solid fa-check"></i> Specification review</div>
+            </div>
+          </div>
+
+          <div class="pmew-tech-panel pmew-tech-reveal">
+            <h3>Common Marking Problems</h3>
+
+            <div class="pmew-tech-issue-list">
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-question"></i>
+                <div>
+                  <h4>Missing Marking</h4>
+                  <p>Creates identification uncertainty and may lead to product rejection.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-xmark"></i>
+                <div>
+                  <h4>Incorrect Marking</h4>
+                  <p>Can cause wrong product selection, compliance failure, or assembly risk.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-eye-slash"></i>
+                <div>
+                  <h4>Poor Visibility</h4>
+                  <p>Coating, paint, weak forming, or handling damage may reduce readability.</p>
+                </div>
+              </div>
+
+              <div class="pmew-tech-issue">
+                <i class="fa-solid fa-shuffle"></i>
+                <div>
+                  <h4>Mixed Markings</h4>
+                  <p>Mixed grades or batches create serious traceability and assembly concerns.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <section class="pmew-tech-section pmew-tech-reveal">
+          <div class="pmew-tech-cta">
+            <div>
+              <h2>Precision Thread Engineering, Drive Control & Marking Intelligence</h2>
+              <p>
+                PRADAKO MECHANICAL AND ENGINEERING WORKS delivers controlled clamping force,
+                reliable torque transfer, product identification, traceability, and fastening confidence through
+                precision thread geometry, engineered drive systems, and clear marking discipline.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- GLOBAL SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const revealItems = document.querySelectorAll(".pmew-tech-reveal");
+
+      const revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("pmew-tech-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    });
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,2459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pradako GOST Standards Library</title>
+    <meta name="description" content="Structured GOST, GOST R, GOST ISO and legacy fastener standards reference library with Russian and English titles, product families, classification and ISO / EN relationships for engineering and procurement research." />
+
+    <!-- ============================================================
+    EXTERNAL RESOURCES
+    ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- ============================================================
+    INTERNAL STYLES
+    ============================================================ -->
+    <style>
+        /* ------------------------------------------------------------------
+           PRADAKO MULTI-AUTHORITY STANDARDS LIBRARY
+           GOST master-page structure. Source standard data is untouched.
+           ------------------------------------------------------------------ */
+        :root {
+            --white: #fff;
+            --navy: #24343b;
+            --blue: #28766a;
+            --gold: #f08080;
+            --line: #dde5e7;
+            --text: #26343b;
+            --muted: #6d7b82;
+            --soft-blue: #eef7f4;
+            --soft: #f7faf9;
+            --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+            --dynamic-row-height: 126px;
+            --dynamic-cell-x: 8px;
+            --dynamic-cell-y: 10px;
+            --title-clamp: 3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .top-hero {
+            padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 14px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .hero-route {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0 0 17px;
+        }
+
+        .hero-route-pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 0 11px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--muted);
+            font: 800 9.5px "Montserrat", sans-serif;
+            letter-spacing: .9px;
+            text-transform: uppercase;
+        }
+
+        .top-hero h1 {
+            margin: 0;
+            max-width: 1250px;
+            font-family: "Space Grotesk", Georgia, serif;
+            font-size: clamp(42px, 4.1vw, 72px);
+            line-height: 1;
+            letter-spacing: -1.6px;
+            color: var(--navy);
+        }
+
+        .hero-subtitle {
+            display: block;
+            margin-top: 8px;
+            font-size: clamp(17px, 1.55vw, 24px);
+            line-height: 1.25;
+            letter-spacing: -.35px;
+            color: var(--blue);
+            font-weight: 650;
+        }
+
+        .top-hero p.hero-intro {
+            max-width: 1160px;
+            margin: 18px 0 0;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .hero-trust-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 34px;
+            padding: 0 11px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--navy);
+            font: 850 10px "Montserrat", sans-serif;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+        }
+
+        .hero-trust-item i {
+            color: var(--blue);
+            font-size: 10px;
+        }
+
+        .engineering-use-note {
+            margin: 14px clamp(24px, 3.1vw, 58px) 0;
+            padding: 13px 15px;
+            border: 1px solid #d7e4e1;
+            border-left: 3px solid var(--blue);
+            border-radius: 10px;
+            background: #f8fbfa;
+            color: var(--text);
+            font-size: 11.5px;
+            line-height: 1.65;
+            font-weight: 600;
+        }
+
+        .engineering-use-note strong {
+            color: var(--navy);
+            font-weight: 900;
+        }
+
+        .engineering-use-note .note-label {
+            display: inline-flex;
+            margin-right: 8px;
+            color: var(--blue);
+            font-size: 9.5px;
+            font-weight: 900;
+            letter-spacing: .75px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CONTROLS ===== */
+        .control-zone {
+            position: relative;
+            z-index: 20;
+            padding: 12px 32px 10px;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .search-wrap,
+        .family-wrap {
+            position: relative;
+        }
+
+        .search-wrap input,
+        .family-filter {
+            width: 100%;
+            height: 40px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            outline: 0;
+            font: 700 12.5px "Montserrat", sans-serif;
+            color: var(--text);
+            transition: .2s;
+        }
+
+        .search-wrap input {
+            padding: 0 18px 0 46px;
+        }
+
+        .family-filter {
+            padding: 0 14px;
+        }
+
+        .search-wrap input:focus,
+        .family-filter:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px var(--soft-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 17px;
+            color: var(--navy);
+        }
+
+        .btn {
+            height: 40px;
+            border-radius: 12px;
+            padding: 0 14px;
+            font: 900 10.5px "Montserrat", sans-serif;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            border: 1px solid var(--navy);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .btn-soft {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--navy);
+        }
+
+        .btn-soft:hover,
+        .btn-soft.active {
+            background: var(--soft-blue);
+            border-color: var(--blue);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .stat-pills,
+        .stats-actions {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--navy);
+            font-size: 10.5px;
+            font-weight: 900;
+            background: #fff;
+        }
+
+        .duplicate-mode-pill {
+            display: none;
+        }
+
+        .duplicate-mode-pill.show {
+            display: inline-flex;
+        }
+
+        .duplicate-check-btn {
+            border-color: #f08080;
+            background: #fff2f2;
+            color: #493538;
+        }
+
+        .duplicate-check-btn.active {
+            background: #f08080;
+            color: #fff;
+            border-color: #f08080;
+        }
+
+        /* ===== VIEW PANEL ===== */
+        .view-panel {
+            display: none;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: linear-gradient(180deg, #fff, var(--soft));
+            box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+        }
+
+        .view-panel.open {
+            display: block;
+        }
+
+        .view-panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .view-panel-title {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: .6px;
+            text-transform: uppercase;
+        }
+
+        .preset-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .mini-btn {
+            height: 32px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--navy);
+            padding: 0 11px;
+            font: 900 10px "Montserrat", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .mini-btn.active,
+        .mini-btn:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+        }
+
+        .view-groups {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+        }
+
+        .view-group {
+            padding: 11px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .view-group h4 {
+            margin: 0 0 8px;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .column-checks {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .check-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 9px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text);
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .check-item:has(input:checked) {
+            border-color: #94c2b5;
+            background: var(--soft-blue);
+            color: var(--navy);
+        }
+
+        .check-item input {
+            accent-color: var(--navy);
+        }
+
+        /* ===== STICKY TABLE HEAD ===== */
+        .sticky-table-head-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 1450;
+            margin: 0;
+            background: #fff;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+        }
+
+        .sticky-table-head-scroll {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+        }
+
+        .sticky-table-head-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sticky-head-table,
+        #standardsTable {
+            width: max-content;
+            min-width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            table-layout: fixed;
+        }
+
+        .sticky-head-table thead th {
+            background: var(--navy);
+        }
+
+        #standardsTable thead {
+            display: none;
+        }
+
+        /* ===== TABLE ZONE ===== */
+        .table-zone {
+            position: relative;
+            background: #fff;
+        }
+
+        .table-scroll {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-scroll:not(.has-horizontal-scroll),
+        .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+            overflow-x: hidden;
+        }
+
+        .sticky-head-table th,
+        #standardsTable th,
+        #standardsTable td {
+            box-sizing: border-box;
+        }
+
+        thead th {
+            padding: 10px var(--dynamic-cell-x);
+            text-align: left;
+            font-size: 9.5px;
+            letter-spacing: .5px;
+            color: #fff;
+            background: var(--navy);
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            cursor: pointer;
+            user-select: none;
+            white-space: normal;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+
+        thead th.not-sortable {
+            cursor: default;
+        }
+
+        tbody tr {
+            height: var(--dynamic-row-height);
+        }
+
+        tbody td {
+            padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+            vertical-align: middle;
+            font-size: 11.5px;
+            line-height: 1.4;
+            background: #fff;
+            color: var(--text);
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        tbody tr:hover td {
+            background: #f3f9f7;
+        }
+
+        .sticky-col {
+            position: sticky !important;
+            left: var(--sticky-left, 0) !important;
+            background: #fff;
+            box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+        }
+
+        tbody tr:hover td.sticky-col {
+            background: #f3f9f7;
+        }
+
+        .sticky-head-table th.sticky-col {
+            z-index: 40;
+            background: var(--navy);
+            box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+        }
+
+        #standardsTable td.sticky-col {
+            z-index: 12;
+        }
+
+        /* ===== CELLS ===== */
+        .media-cell {
+            padding: 10px 14px !important;
+        }
+
+        .media-card {
+            width: 210px;
+            height: 104px;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+            cursor: pointer;
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            padding: 9px;
+            background: #fff;
+            transition: .22s;
+        }
+
+        .media-card:hover {
+            border-color: var(--blue);
+        }
+
+        .media-card:hover img {
+            transform: scale(1.035);
+        }
+
+        .media-empty {
+            width: 210px;
+            height: 104px;
+            border: 1px dashed #c8d5d7;
+            border-radius: 13px;
+            background: #fbfcfc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+        }
+
+        .media-empty i {
+            font-size: 17px;
+            color: #82959b;
+        }
+
+        .pradako-id {
+            display: inline-flex;
+            padding: 5px 7px;
+            border: 1px solid #cad6d8;
+            border-radius: 7px;
+            background: #f6f9f8;
+            color: var(--navy);
+            font: 900 10.5px "Montserrat", sans-serif;
+            letter-spacing: .15px;
+            white-space: nowrap;
+        }
+
+        .standard-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            background: var(--navy);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 900;
+            white-space: normal;
+        }
+
+        .standard-link:hover {
+            background: var(--blue);
+        }
+
+        .standard-link i {
+            font-size: 9px;
+        }
+
+        .body-pill {
+            display: inline-flex;
+            padding: 5px 7px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            background: var(--soft-blue);
+            color: var(--navy);
+            font-size: 10px;
+            font-weight: 850;
+        }
+
+        .title-cell {
+            font-weight: 750;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: var(--title-clamp);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .family-pill {
+            display: inline-flex;
+            font-size: 10.5px;
+            font-weight: 850;
+            line-height: 1.3;
+            color: var(--navy);
+        }
+
+        .scope-cell {
+            color: var(--text);
+        }
+
+        .density-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--soft);
+        }
+
+        .density-btn {
+            height: 30px;
+            padding: 0 9px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--muted);
+            font: 900 9.5px "Montserrat", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .density-btn.active {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .density-comfortable .media-card,
+        .density-comfortable .media-empty {
+            height: 140px;
+        }
+
+        mark {
+            background: #dcefe9;
+            color: var(--navy);
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+
+        .empty-state {
+            display: none;
+            padding: 64px 20px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .empty-state h3 {
+            margin: 0 0 8px;
+            color: var(--navy);
+        }
+
+        .footer-note {
+            padding: 16px 32px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        /* ===== MODALS ===== */
+        .modal-overlay,
+        .image-preview-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(24, 34, 39, .84);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.show,
+        .image-preview-overlay.show {
+            display: flex;
+        }
+
+        .modal-card,
+        .image-preview-card {
+            position: relative;
+            width: min(620px, 96vw);
+            max-height: 92vh;
+            overflow: auto;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+        }
+
+        .image-preview-card {
+            width: min(1000px, 96vw);
+        }
+
+        .modal-top,
+        .image-preview-head {
+            padding: 22px 26px;
+            background: var(--navy);
+            color: #fff;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .modal-top h2,
+        .image-preview-head h3 {
+            margin: 0;
+        }
+
+        .modal-top p {
+            margin: 9px 0 0;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .modal-body,
+        .image-preview-body {
+            padding: 24px;
+        }
+
+        .image-preview-body img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .modal-close,
+        .image-preview-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--navy);
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .work-message {
+            padding: 17px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        .email-line {
+            margin-top: 8px;
+            color: var(--navy);
+            font-weight: 900;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .modal-btn {
+            height: 42px;
+            padding: 0 14px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            font: 900 11px "Montserrat";
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .modal-btn-primary {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+        }
+
+        .modal-btn-soft {
+            background: #fff;
+            color: var(--navy);
+        }
+
+        .copy-status {
+            display: none;
+            margin-top: 10px;
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .copy-status.show {
+            display: block;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .pradako-back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            cursor: pointer;
+            z-index: 100000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+            transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+        }
+
+        .pradako-back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .pradako-back-to-top:hover {
+            background: var(--blue);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1350px) {
+            .controls-grid {
+                grid-template-columns: 1fr 1fr auto auto;
+            }
+            .stats-row {
+                align-items: flex-start;
+            }
+            .view-groups {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:900px) {
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            .sticky-col {
+                position: static !important;
+                left: auto !important;
+                box-shadow: none !important;
+            }
+            .sticky-head-table th.sticky-col,
+            #standardsTable td.sticky-col {
+                position: static !important;
+                left: auto !important;
+            }
+            .sticky-table-head-scroll,
+            .table-scroll {
+                overflow-x: auto !important;
+                overscroll-behavior-x: contain;
+            }
+            .top-hero {
+                padding: 28px 18px 24px;
+            }
+            .top-hero h1 {
+                font-size: clamp(34px, 10vw, 48px);
+                line-height: 1.04;
+                letter-spacing: -1px;
+            }
+            .hero-subtitle {
+                font-size: 17px;
+            }
+            .top-hero p.hero-intro {
+                font-size: 13px;
+                line-height: 1.65;
+            }
+            .engineering-use-note {
+                margin: 12px 18px 0;
+                padding: 12px;
+                font-size: 10.5px;
+            }
+            .control-zone {
+                padding: 12px;
+            }
+            .controls-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .search-wrap,
+            .family-filter,
+            #viewOptionsBtn {
+                grid-column: 1 / -1;
+            }
+            .search-wrap input,
+            .family-filter {
+                height: 42px;
+                font-size: 12px;
+            }
+            .controls-grid .btn {
+                width: 100%;
+                min-width: 0;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .stats-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .stat-pills {
+                width: 100%;
+                gap: 5px;
+            }
+            .stat-pill {
+                padding: 5px 8px;
+                font-size: 9px;
+            }
+            .stats-actions {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 7px;
+            }
+            .density-switch {
+                grid-column: 1 / -1;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .density-btn,
+            .stats-actions>.btn {
+                width: 100%;
+                min-width: 0;
+            }
+            .view-panel {
+                padding: 9px;
+                border-radius: 12px;
+            }
+            .view-panel-head {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .preset-actions {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+            }
+            .mini-btn {
+                width: 100%;
+                min-width: 0;
+                padding: 0 5px;
+                font-size: 8.5px;
+            }
+            .view-groups {
+                grid-template-columns: 1fr;
+                gap: 7px;
+            }
+            .view-group {
+                padding: 9px;
+            }
+            .check-item {
+                padding: 6px 7px;
+                font-size: 9.5px;
+            }
+            thead th {
+                padding: 8px 6px;
+                font-size: 8px;
+            }
+            tbody td {
+                padding: 8px 6px;
+                font-size: 10px;
+            }
+            .media-cell {
+                padding: 7px !important;
+            }
+            .media-card,
+            .media-empty {
+                width: 126px !important;
+                height: 88px !important;
+            }
+            .density-comfortable .media-card,
+            .density-comfortable .media-empty {
+                height: 105px !important;
+            }
+            .pradako-id {
+                font-size: 8.5px;
+                padding: 4px 5px;
+            }
+            .standard-link {
+                padding: 4px 6px;
+                font-size: 9px;
+            }
+            .family-pill,
+            .body-pill {
+                font-size: 9px;
+            }
+            .footer-note {
+                padding: 14px 16px;
+                font-size: 9.5px;
+            }
+            .pradako-back-to-top {
+                right: 14px;
+                bottom: 14px;
+                width: 44px;
+                height: 44px;
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .top-hero {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .engineering-use-note {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            .hero-route-pill {
+                font-size: 7.5px;
+                padding: 0 8px;
+            }
+            .hero-trust-item {
+                font-size: 7.8px;
+                padding: 0 8px;
+            }
+            .media-card,
+            .media-empty {
+                width: 116px !important;
+                height: 82px !important;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/gost/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako GOST Standards Library">
+    <meta property="og:description" content="Structured GOST, GOST R, GOST ISO and legacy fastener standards reference library with Russian and English titles, product families, classification and ISO / EN relationships for engineering and procurement research.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/gost/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako GOST Standards Library">
+    <meta name="twitter:description" content="Structured GOST, GOST R, GOST ISO and legacy fastener standards reference library with Russian and English titles, product families, classification and ISO / EN relationships for engineering and procurement research.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako GOST Standards Library",
+  "url": "https://www.pradako.co/pages/standards/gost/index.html",
+  "description": "Structured GOST, GOST R, GOST ISO and legacy fastener standards reference library with Russian and English titles, product families, classification and ISO / EN relationships for engineering and procurement research.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <div id="navbar-container"></div>
+
+    <!-- ============================================================
+    PAGE
+    ============================================================ -->
+    <section class="page">
+
+        <!-- ===== HERO ===== -->
+        <header class="top-hero">
+            <div class="hero-kicker">
+                <i class="fa-solid fa-gears"></i> Pradako Standards Library · GOST
+            </div>
+            <div class="hero-route" aria-label="GOST standard series represented">
+                <span class="hero-route-pill">GOST</span>
+                <span class="hero-route-pill">GOST R</span>
+                <span class="hero-route-pill">GOST ISO</span>
+                <span class="hero-route-pill">GOST R ISO</span>
+                <span class="hero-route-pill">GOST EN</span>
+                <span class="hero-route-pill">Legacy GOST</span>
+            </div>
+            <h1>
+                GOST Fastener Standards
+                <span class="hero-subtitle">Engineering Reference Library</span>
+            </h1>
+            <p class="hero-intro">
+                A structured GOST standards reference library for aerospace, defence and precision-engineering research.
+                Explore the supplied GOST, GOST R, GOST ISO and legacy fastener references with Russian and English titles,
+                classification groups, subgroups, product families, ISO / EN / legacy relationships and controlled Pradako
+                standard identities through the same engineering reference architecture used across the standards library.
+            </p>
+            <div class="hero-trust" aria-label="Library features">
+                <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 265 Standard Records</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 265 Pradako Standard IDs</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-language"></i> Russian + English Titles</span>
+                <span class="hero-trust-item"><i class="fa-solid fa-link"></i> Independent Standard Pages</span>
+            </div>
+        </header>
+
+        <!-- ===== ENGINEERING USE NOTE ===== -->
+        <div class="engineering-use-note" role="note">
+            <span class="note-label">Engineering Use Note</span>
+            <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+            Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements
+            should be confirmed against the governing specification and current official publication before design,
+            procurement or release.
+        </div>
+
+        <!-- ===== CONTROL ZONE ===== -->
+        <section class="control-zone">
+            <div class="controls-grid">
+                <div class="search-wrap">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input id="searchInput" type="text" placeholder="Search GOST standard, Russian or English title, Pradako ID, relation, group or product family..." />
+                </div>
+                <select id="familyFilter" class="family-filter">
+                    <option value="">All Product Families</option>
+                </select>
+                <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+                <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+                <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+                    <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+                </button>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-pills">
+                    <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+                    <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+                    <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+                    <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+                        Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+                    </div>
+                </div>
+                <div class="stats-actions">
+                    <div class="density-switch">
+                        <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+                        <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+                    </div>
+                    <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+                    <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+                        <span>⧉</span>&nbsp; Check Duplicates
+                    </button>
+                </div>
+            </div>
+
+            <!-- View Panel -->
+            <div class="view-panel open" id="viewPanel">
+                <div class="view-panel-head">
+                    <div class="view-panel-title">Choose the information you want visible</div>
+                    <div class="preset-actions">
+                        <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+                        <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+                        <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+                    </div>
+                </div>
+                <div class="view-groups" id="viewGroups"></div>
+            </div>
+        </section>
+
+        <!-- ===== STICKY TABLE HEAD ===== -->
+        <div class="sticky-table-head-wrap">
+            <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+                <table class="sticky-head-table" aria-hidden="true">
+                    <thead>
+                        <tr id="stickyTableHeadRow"></tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== TABLE ZONE ===== -->
+        <section class="table-zone">
+            <div class="table-scroll" id="tableScroll">
+                <table id="standardsTable">
+                    <thead>
+                        <tr id="tableHeadRow"></tr>
+                    </thead>
+                    <tbody id="standardsTableBody"></tbody>
+                </table>
+                <div class="empty-state" id="emptyState">
+                    <h3>No standards found</h3>
+                    <p>Try another GOST standard, Russian or English title, Pradako ID, relation, group or product family.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ============================================================
+    EXPORT MODAL
+    ============================================================ -->
+    <section class="modal-overlay" id="exportModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+            <div class="modal-top">
+                <h2>Export Request</h2>
+                <p>The export feature is currently being upgraded for the complete standards database.</p>
+            </div>
+            <div class="modal-body">
+                <div class="work-message">
+                    We are working on it.<br />Please email us on:
+                    <div class="email-line">info@pradakomechanicals.com</div>
+                </div>
+                <div class="modal-actions">
+                    <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=GOST%20Standards%20Library%20Export%20Request">Email Us</a>
+                    <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+                    <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+                </div>
+                <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    IMAGE PREVIEW MODAL
+    ============================================================ -->
+    <section class="image-preview-overlay" id="imagePreviewModal">
+        <div class="image-preview-card">
+            <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+            <div class="image-preview-head">
+                <h3 id="imagePreviewTitle">Standard Media</h3>
+            </div>
+            <div class="image-preview-body">
+                <img id="imagePreviewImg" src="" alt="" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <div id="footer-container"></div>
+
+    <!-- ============================================================
+    BACK TO TOP
+    ============================================================ -->
+    <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- ============================================================
+    EXTERNAL SCRIPTS
+    ============================================================ -->
+    <!-- ============================================================
+    APPLICATION SCRIPT
+    ============================================================ -->
+    <script>
+        // ------------------------------------------------------------------
+        // COMPONENT LOADER
+        // ------------------------------------------------------------------
+        
+        
+        
+
+        // ------------------------------------------------------------------
+        // COLUMN DEFINITIONS
+        // ------------------------------------------------------------------
+        const COLUMNS = [{
+            key: "imageSrc",
+            label: "Photo / 2D / 3D",
+            width: 240,
+            minWidth: 240,
+            maxWidth: 240,
+            fixed: true,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "media",
+            searchable: false,
+            sortable: false,
+            weight: 0
+        }, {
+            key: "pradakoId",
+            label: "Pradako Standard ID",
+            width: 145,
+            minWidth: 124,
+            maxWidth: 190,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "id",
+            searchable: true,
+            sortable: true,
+            weight: .55
+        }, {
+            key: "standardCode",
+            label: "GOST Standard",
+            width: 245,
+            minWidth: 175,
+            maxWidth: 380,
+            sticky: true,
+            core: true,
+            group: "core",
+            type: "standard",
+            searchable: true,
+            sortable: true,
+            weight: 1.0
+        }, {
+            key: "englishTitle",
+            label: "English Title",
+            width: 430,
+            minWidth: 250,
+            maxWidth: 700,
+            core: true,
+            group: "core",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: 2.2
+        }, {
+            key: "originalRussianTitle",
+            label: "Original Russian Title",
+            width: 430,
+            minWidth: 250,
+            maxWidth: 700,
+            core: true,
+            group: "core",
+            type: "title",
+            searchable: true,
+            sortable: true,
+            weight: 2.2
+        }, {
+            key: "productFamily",
+            label: "Product Family",
+            width: 245,
+            minWidth: 155,
+            maxWidth: 390,
+            core: true,
+            group: "core",
+            type: "family",
+            searchable: true,
+            sortable: true,
+            weight: 1.0
+        }, {
+            key: "group",
+            label: "Group",
+            width: 235,
+            minWidth: 160,
+            maxWidth: 360,
+            core: false,
+            technical: true,
+            group: "classification",
+            type: "body",
+            searchable: true,
+            sortable: true,
+            weight: .9
+        }, {
+            key: "subgroup",
+            label: "Subgroup",
+            width: 235,
+            minWidth: 160,
+            maxWidth: 360,
+            core: false,
+            technical: true,
+            group: "classification",
+            type: "body",
+            searchable: true,
+            sortable: true,
+            weight: .9
+        }, {
+            key: "relation",
+            label: "ISO / EN / Legacy Relation",
+            width: 300,
+            minWidth: 190,
+            maxWidth: 470,
+            core: false,
+            technical: true,
+            group: "technical",
+            type: "scope",
+            searchable: true,
+            sortable: true,
+            weight: 1.15
+        }];
+
+        const GROUP_META = {
+            core: { label: "Core Information" },
+            classification: { label: "GOST Classification" },
+            technical: { label: "ISO / EN / Legacy Relation" }
+        };
+
+        // ------------------------------------------------------------------
+        // UTILITY FUNCTIONS
+        // ------------------------------------------------------------------
+        function slugify(text) {
+            return String(text || "").toLowerCase()
+                .replace(/гост/g, "gost")
+                .replace(/исо/g, "iso")
+                .replace(/р/g, "r")
+                .replace(/&/g, "and")
+                .replace(/\+/g, "plus")
+                .replace(/,/g, " ")
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+
+        function escapeHTML(v) {
+            return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+        }
+
+        function escapeRegex(v) {
+            return String(v).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
+
+        function highlightText(v, q) {
+            const t = escapeHTML(v);
+            if (!q.trim()) return t;
+            const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+            return t.replace(r, "<mark>$1</mark>");
+        }
+
+        function normalizeDuplicateKey(v) {
+            return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+        }
+
+        // ------------------------------------------------------------------
+        // SOURCE DATA (preserved exactly as supplied from raw GOST TSV)
+        // ------------------------------------------------------------------
+        const SOURCE_GOST_TSV =
+            `Standard number	Group	Subgroup	Original Russian title	English title	Product family	ISO / EN / legacy relation
+        ГОСТ ISO 3269-2021	Process / inspection / quality	Inspection	Изделия крепежные. Приемочный контроль	Fasteners. Acceptance inspection	Inspection / acceptance sampling	Adopts ISO 3269
+        ГОСТ ISO 16426-2015	Process / inspection / quality	Quality assurance	Изделия крепежные. Система обеспечения качества	Fasteners. Quality assurance system	Quality assurance / zero defect control	Adopts ISO 16426
+        ГОСТ ISO 16047-2015	Process / testing	Torque / clamp force	Изделия крепежные. Испытания крутящего момента и усилия предварительной затяжки	Fasteners. Torque/clamp force testing	Torque testing / preload testing	Adopts ISO 16047
+        ГОСТ ISO 6157-1-2015	Process / testing	Surface discontinuities	Изделия крепежные. Дефекты поверхности. Часть 1. Болты, винты и шпильки общего назначения	Fasteners. Surface discontinuities. Part 1. Bolts, screws and studs for general requirements	Surface discontinuities / visual defect limits	Adopts ISO 6157-1
+        ГОСТ ISO 4042-2015	Coatings / plating	Electroplated coatings	Изделия крепежные. Электролитические покрытия	Fasteners. Electroplated coatings	Electroplating / zinc plating / passivation	Adopts ISO 4042
+        ГОСТ Р ИСО 10683-2020	Coatings / plating	Zinc flake coating	Изделия крепежные. Неэлектролитические цинк-ламельные покрытия	Fasteners. Non-electrolytically applied zinc flake coatings	Zinc flake coating	Adopts ISO 10683
+        ГОСТ Р ИСО 10683-2013	Coatings / plating	Zinc flake coating - legacy	Изделия крепежные. Неэлектролитические цинк-ламельные покрытия	Fasteners. Non-electrolytically zinc flake coatings	Zinc flake coating	Adopts ISO 10683
+        ГОСТ ISO 10684-2015	Coatings / plating	Hot dip galvanizing	Изделия крепежные. Покрытия, нанесенные методом горячего цинкования	Fasteners. Hot dip galvanized coatings	Hot-dip galvanizing / HDG	Adopts ISO 10684
+        ГОСТ ISO 898-1-2014	Mechanical properties / testing	Carbon/alloy fasteners	Механические свойства крепежных изделий из углеродистой и легированной стали. Часть 1. Болты, винты и шпильки с установленными классами прочности	Mechanical properties of fasteners made of carbon steel and alloy steel. Part 1. Bolts, screws and studs	Mechanical properties / bolts screws studs	Adopts ISO 898-1
+        ГОСТ ISO 898-7-2015	Mechanical properties / testing	Torsion test	Механические свойства крепежных изделий. Часть 7. Испытание на кручение и минимальные крутящие моменты для болтов и винтов номинальных диаметров от 1 до 10 мм	Mechanical properties of fasteners. Part 7. Torsional test and minimum torques for bolts and screws with nominal diameters 1 mm to 10 mm	Torsional testing / small bolts and screws	Adopts ISO 898-7
+        ГОСТ 1759.4-87	Mechanical properties / testing	Legacy mechanical properties	Болты, винты и шпильки. Механические свойства и методы испытаний	Bolts, screws and studs. Mechanical properties and test methods	Mechanical properties / bolts screws studs	Legacy GOST mechanical properties
+        ГОСТ ISO 3506-1-2014	Mechanical properties / stainless	Stainless fasteners	Механические свойства коррозионно-стойких крепежных изделий из нержавеющих сталей. Часть 1. Болты, винты и шпильки	Mechanical properties of corrosion-resistant stainless steel fasteners. Part 1. Bolts, screws and studs	Stainless fasteners / bolts screws studs	Adopts ISO 3506-1
+        ГОСТ ISO 4759-1-2015	Dimensional tolerances	Bolts screws studs nuts	Изделия крепежные. Допуски. Часть 1. Болты, винты, шпильки и гайки. Классы точности А, В и С	Fasteners. Tolerances. Part 1. Bolts, screws, studs and nuts. Product grades A, B and C	Dimensional tolerances / threaded fasteners	Adopts ISO 4759-1
+        ГОСТ ISO 4759-3-2015	Dimensional tolerances	Washers	Изделия крепежные. Допуски. Часть 3. Шайбы плоские классов точности А и С	Fasteners. Tolerances. Part 3. Plain washers for bolts, screws and nuts. Product grades A and C	Washer tolerances	Adopts ISO 4759-3
+        ГОСТ Р ИСО 4014-2013	Bolts / screws	Hex head bolts	Болты с шестигранной головкой. Классы точности А и В	Hexagon head bolts. Product grades A and B	Hex bolts / partial thread	Adopts ISO 4014
+        ГОСТ Р ИСО 4017-2013	Bolts / screws	Hex head screws	Винты с шестигранной головкой. Классы точности А и В	Hexagon head screws. Product grades A and B	Hex screws / full thread	Adopts ISO 4017
+        ГОСТ ISO 15071-2014	Bolts / screws	Flange bolts	Болты с шестигранной уменьшенной головкой с фланцем. Класс точности А	Hexagon flange reduced head bolts. Product grade A	Hex flange bolts / reduced head	Adopts ISO 15071
+        ГОСТ Р 71400-2024	Automotive fasteners	Thread rolling screws	Автомобильные транспортные средства. Изделия крепежные. Винты резьбовыдавливающие с метрической резьбой ИСО. Технические требования к термообработанным винтам	Motor vehicles. Fasteners. Thread rolling screws for metric thread ISO. Technical requirements for heat-treated screws	Automotive thread rolling screws / heat-treated screws	National GOST R
+        ГОСТ Р 72022-2025	Automotive fasteners	Weld nuts	Автомобильные транспортные средства. Изделия крепежные. Гайки квадратные приварные	Motor vehicles. Fasteners. Square weld nut	Automotive square weld nuts	National GOST R
+        ГОСТ Р ИСО 7045-2013	Machine screws	Cross recess pan head screws	Винты со скругленной головкой и крестообразным шлицем типа H или типа Z. Класс точности А	Pan head screws with type H or type Z cross recess. Product grade A	Machine screws / pan head cross recess	Adopts ISO 7045
+        ГОСТ Р ИСО 7046-1-2013	Machine screws	Countersunk cross recess screws	Винты с потайной головкой и крестообразным шлицем типа Н или типа Z. Класс точности А. Часть 1. Винты стальные класса прочности 4.8	Countersunk flat head screws with type H or Z cross recess. Product grade A. Part 1. Steel screws of property class 4.8	Machine screws / countersunk cross recess	Adopts ISO 7046-1
+        ГОСТ Р ИСО 7046-2-2013	Machine screws	Countersunk cross recess screws	Винты с потайной головкой и крестообразным шлицем типа Н или типа Z. Класс точности А. Часть 2. Винты стальные класса прочности 8.8, винты из нержавеющей стали и цветных металлов	Countersunk flat head screws with type H or Z cross recess. Product grade A. Part 2. Steel 8.8, stainless and non-ferrous screws	Machine screws / countersunk cross recess	Adopts ISO 7046-2
+        ГОСТ Р ИСО 7047-2013	Machine screws	Raised countersunk cross recess screws	Винты с полупотайной головкой и крестообразным шлицем типа H или типа Z. Класс точности А	Raised countersunk head screws with type H or type Z cross recess. Product grade A	Machine screws / raised countersunk cross recess	Adopts ISO 7047
+        ГОСТ ISO 14583-2015	Hexalobular screws	Pan head hexalobular screws	Винты со скругленной головкой и звездообразным углублением под ключ	Hexalobular socket pan head screws	Hexalobular socket screws / Torx pan head	Adopts ISO 14583
+        ГОСТ 5915-70	Nuts	Hex nuts legacy / GOZ	Гайки шестигранные класса точности В. Конструкция и размеры	Hexagon nuts, product grade B. Construction and dimensions	Hex nuts / grade B / legacy	Legacy equivalent to ISO 4032/8673 use in part
+        ГОСТ ISO 4033-2014	Nuts	Hex high nuts	Гайки шестигранные высокие (тип 2). Классы точности А и В	Hexagon high nuts (style 2). Product grades A and B	Hex high nuts / style 2	Adopts ISO 4033
+        ГОСТ ISO 4034-2014	Nuts	Hex regular nuts grade C	Гайки шестигранные нормальные (тип 1). Класс точности С	Hexagon regular nuts (style 1). Product grade C	Hex regular nuts / grade C	Adopts ISO 4034
+        ГОСТ ISO 4035-2014	Nuts	Hex thin nuts chamfered	Гайки шестигранные низкие с фаской (тип 0). Классы точности А и В	Chamfered hexagon thin nuts (style 0). Product grades A and B	Hex thin nuts / chamfered / jam nuts	Adopts ISO 4035
+        ГОСТ ISO 7040-2014	Nuts	Prevailing torque nuts	Гайки шестигранные нормальные самостопорящиеся (с неметаллической вставкой), тип 1. Классы прочности 5, 8 и 10	Prevailing torque type hexagon regular nuts with non-metallic insert, style 1. Property classes 5, 8 and 10	Prevailing torque nuts / nylon insert	Adopts ISO 7040
+        ГОСТ ISO 7043-2014	Nuts	Prevailing torque flange high nuts	Гайки шестигранные высокие самостопорящиеся с фланцем (с неметаллической вставкой), тип 2. Классы точности А и В	Prevailing torque type hexagon high nuts with flange and non-metallic insert, style 2. Product grades A and B	Prevailing torque flange nuts	Adopts ISO 7043
+        ГОСТ ISO 7092-2016	Washers	Small series washers	Шайбы плоские. Мелкая серия. Класс точности А	Plain washers. Small series. Product grade A	Small-series plain washers	Adopts ISO 7092
+        ГОСТ ISO 7093-1-2016	Washers	Large series washers grade A	Шайбы плоские. Крупная серия. Часть 1. Класс точности А	Plain washers. Large series. Part 1. Product grade A	Large-series plain washers	Adopts ISO 7093-1
+        ГОСТ ISO 7093-2-2016	Washers	Large series washers grade C	Шайбы плоские. Крупная серия. Часть 2. Класс точности С	Plain washers. Large series. Part 2. Product grade C	Large-series plain washers	Adopts ISO 7093-2
+        ГОСТ 6958-78	Washers	Large washers legacy	Шайбы увеличенные. Классы точности А и С	Large plain washers. Product grades A and C	Large-series washers / legacy	Legacy GOST / partly replaced by ГОСТ ISO 7093-1/2
+        ГОСТ 10450-78	Washers	Reduced washers	Шайбы уменьшенные. Классы точности А и С. Технические условия	Diminished washers. Product grades A and C. Specifications	Reduced OD plain washers	Legacy GOST
+        ГОСТ 28848-90	Washers	Extra-large washers	Шайбы плоские. Особо большие. Класс С	Plain washers. Extra large series. Product grade C	Extra-large plain washers for wood structures	ГОСТ based on ISO 7094:1983
+        ГОСТ Р ИСО 8746-93	Pins	Grooved pins	Штифты насеченные с полукруглой головкой	Grooved pins with round head	Grooved pins / half-round head	Adopts ISO 8746
+        ГОСТ Р ИСО 8743-93	Pins	Grooved pins	Штифты насеченные с насечками на половине длины	Grooved pins, half length grooved	Grooved pins	Adopts ISO 8743
+        ГОСТ 10773-93	Pins	Grooved pins	Штифты цилиндрические насеченные с тремя коническими насечками	Grooved pins, cylindrical, with three taper grooves	Grooved pins	National/legacy GOST
+        ГОСТ 5663-79	Raw material / wire drawing	Cold heading wire	Проволока стальная углеродистая для холодной высадки. Технические условия	Cold heading carbon steel wire. Specifications	Cold heading wire / wire drawing raw material	Legacy/current GOST
+        ГОСТ 10702-2016	Raw material / cold forming	Cold die forming steel bars	Прокат сортовой из конструкционной нелегированной и легированной стали для холодной объемной штамповки. Общие технические условия	Bars of structural non-alloy and alloy steel for cold die forming. General specifications	Cold forging / cold heading raw material	Replaces ГОСТ 10702-78
+        ГОСТ 10702-78	Raw material / cold forming	Legacy cold heading steel bars	Прокат из качественной конструкционной углеродистой и легированной стали для холодного выдавливания и высадки. Технические условия	Steel bars, carbon and alloy, structural, for cold extruding and upsetting. Specifications	Cold forming steel bars / legacy	Replaced by ГОСТ 10702-2016
+        ГОСТ 14959-2016	Raw material / steel	Spring steel bars	Прокат из рессорно-пружинной углеродистой и легированной стали. Технические условия	Spring carbon and alloy steel bars. Specifications	Spring steel / spring washers material	Replaces ГОСТ 14959-79
+        ГОСТ 4543-2016	Raw material / steel	Alloy structural steel bars	Прокат из легированной конструкционной стали. Технические условия	Structural alloy steel bars. Specifications	Alloy steel bars / fastener raw material	Replaces ГОСТ 4543-71
+        ГОСТ 32484.1-2013	Structural bolting	High-strength assemblies	Болтокомплекты высокопрочные для предварительного натяжения в металлических конструкциях. Общие требования	High-strength structural bolting assemblies for preloading. General requirements	High-strength structural bolting assemblies	GOST structural bolting series
+        ГОСТ Р 52644-2006	Structural bolting	Legacy high-strength structural bolts	Болты высокопрочные с шестигранной головкой с увеличенным размером под ключ для металлических конструкций. Технические условия	Hexagon bolts for high-strength structural bolting with large width across flats. Specifications	High-strength structural bolts / legacy	Based on ISO 7411:1984
+        ГОСТ Р 52645-2006	Structural bolting	Legacy high-strength structural nuts	Гайки высокопрочные шестигранные с увеличенным размером под ключ для металлических конструкций. Технические условия	Hexagon nuts for high-strength structural bolting with large width across flats. Specifications	High-strength structural nuts / legacy	Based on ISO 4775:1984
+        ГОСТ Р 52646-2006	Structural bolting	Legacy high-strength structural washers	Шайбы к высокопрочным болтам для металлических конструкций. Технические условия	Washers for high-strength bolts metal structures. Specifications	High-strength structural washers / legacy	Based on ISO 7415:1984
+        ГОСТ 22353-77	Structural bolting	Legacy high-strength bolts	Болты высокопрочные класса точности В. Конструкция и размеры	High-strength bolts, product grade B. Construction and dimensions	High-strength structural bolts / bridge construction legacy	Legacy GOST
+        ГОСТ 7798-70	Bolts / screws	Legacy hex bolts grade B	Болты с шестигранной головкой класса точности В. Конструкция и размеры	Hexagon head bolts, product grade B. Construction and dimensions	Hex bolts / legacy	Legacy; use ISO-family replacements
+        ГОСТ 7805-70	Bolts / screws	Legacy hex bolts grade A	Болты с шестигранной головкой класса точности А. Конструкция и размеры	Hexagon head bolts, product grade A. Construction and dimensions	Hex bolts / legacy	Legacy; use ISO-family replacements
+        ГОСТ Р ИСО 4016-2013	Bolts / screws	Hex head bolts grade C	Болты с шестигранной головкой. Класс точности C	Hexagon head bolts. Product grade C	Hex bolts / grade C	ISO 4016
+        ГОСТ Р ИСО 4018-2013	Bolts / screws	Hex head screws grade C	Винты с шестигранной головкой. Класс точности C	Hexagon head screws. Product grade C	Hex screws / grade C	ISO 4018
+        ГОСТ Р ИСО 8765-2013	Bolts / screws	Hex head bolts fine pitch	Болты с шестигранной головкой с метрической мелкой резьбой. Классы точности A и B	Hexagon head bolts with metric fine pitch thread. Product grades A and B	Hex bolts / fine pitch	ISO 8765
+        ГОСТ Р ИСО 8676-2013	Bolts / screws	Hex head screws fine pitch	Винты с шестигранной головкой с метрической мелкой резьбой. Классы точности A и B	Hexagon head screws with metric fine pitch thread. Product grades A and B	Hex screws / fine pitch	ISO 8676
+        ГОСТ ISO 4762-2015	Socket screws	Socket head cap screws	Винты с цилиндрической головкой и внутренним шестигранником	Hexagon socket head cap screws	Socket head cap screws	ISO 4762
+        ГОСТ ISO 10642-2015	Socket screws	Socket countersunk head screws	Винты с потайной головкой и внутренним шестигранником	Hexagon socket countersunk head screws	Socket countersunk screws	ISO 10642
+        ГОСТ ISO 7380-1-2015	Socket screws	Button head socket screws	Винты с полукруглой головкой и внутренним шестигранником. Часть 1	Button head screws with hexagon socket. Part 1	Button head socket screws	ISO 7380-1
+        ГОСТ ISO 7380-2-2015	Socket screws	Button head socket screws with collar	Винты с полукруглой головкой с буртиком и внутренним шестигранником. Часть 2	Button head screws with collar and hexagon socket. Part 2	Button head socket screws with flange	ISO 7380-2
+        ГОСТ ISO 4026-2014	Set screws	Flat point set screws	Винты установочные с внутренним шестигранником и плоским концом	Hexagon socket set screws with flat point	Socket set screws / flat point	ISO 4026
+        ГОСТ ISO 4027-2014	Set screws	Cone point set screws	Винты установочные с внутренним шестигранником и коническим концом	Hexagon socket set screws with cone point	Socket set screws / cone point	ISO 4027
+        ГОСТ ISO 4028-2014	Set screws	Dog point set screws	Винты установочные с внутренним шестигранником и цилиндрическим концом	Hexagon socket set screws with dog point	Socket set screws / dog point	ISO 4028
+        ГОСТ ISO 4029-2014	Set screws	Cup point set screws	Винты установочные с внутренним шестигранником и засверленным концом	Hexagon socket set screws with cup point	Socket set screws / cup point	ISO 4029
+        ГОСТ ISO 14579-2015	Hexalobular screws	Hexalobular socket head cap screws	Винты с цилиндрической головкой и звездообразным углублением под ключ	Hexalobular socket head cap screws	Hexalobular socket cap screws	ISO 14579
+        ГОСТ ISO 14580-2015	Hexalobular screws	Hexalobular socket cheese head screws	Винты с цилиндрической скругленной головкой и звездообразным углублением под ключ	Hexalobular socket cheese head screws	Hexalobular cheese head screws	ISO 14580
+        ГОСТ ISO 14581-2015	Hexalobular screws	Hexalobular socket countersunk screws	Винты с потайной головкой и звездообразным углублением под ключ	Hexalobular socket countersunk flat head screws	Hexalobular countersunk screws	ISO 14581
+        ГОСТ ISO 14584-2015	Hexalobular screws	Hexalobular socket raised countersunk screws	Винты с полупотайной головкой и звездообразным углублением под ключ	Hexalobular socket raised countersunk head screws	Hexalobular raised countersunk screws	ISO 14584
+        ГОСТ Р ИСО 1207-2013	Slotted screws	Slotted cheese head screws	Винты с цилиндрической головкой со шлицем	Slotted cheese head screws	Machine screws / slotted cheese head	ISO 1207
+        ГОСТ Р ИСО 1580-2013	Slotted screws	Slotted pan head screws	Винты со скругленной головкой со шлицем	Slotted pan head screws	Machine screws / slotted pan head	ISO 1580
+        ГОСТ Р ИСО 2009-2013	Slotted screws	Slotted countersunk screws	Винты с потайной головкой со шлицем	Slotted countersunk flat head screws	Machine screws / slotted countersunk	ISO 2009
+        ГОСТ Р ИСО 2010-2013	Slotted screws	Slotted raised countersunk screws	Винты с полупотайной головкой со шлицем	Slotted raised countersunk head screws	Machine screws / slotted raised countersunk	ISO 2010
+        ГОСТ ISO 1478-2015	Self-tapping screws	Tapping screw thread	Резьба винтов самонарезающих	Tapping screw thread	Self tapping screws / thread	ISO 1478
+        ГОСТ ISO 1479-2015	Self-tapping screws	Hex head tapping screws	Винты самонарезающие с шестигранной головкой	Hexagon head tapping screws	Self tapping hex screws	ISO 1479
+        ГОСТ ISO 1481-2015	Self-tapping screws	Slotted pan head tapping screws	Винты самонарезающие со скругленной головкой со шлицем	Slotted pan head tapping screws	Self tapping screws	ISO 1481
+        ГОСТ ISO 1482-2015	Self-tapping screws	Slotted countersunk tapping screws	Винты самонарезающие с потайной головкой со шлицем	Slotted countersunk tapping screws	Self tapping screws	ISO 1482
+        ГОСТ ISO 1483-2015	Self-tapping screws	Slotted raised countersunk tapping screws	Винты самонарезающие с полупотайной головкой со шлицем	Slotted raised countersunk tapping screws	Self tapping screws	ISO 1483
+        ГОСТ ISO 7049-2015	Self-tapping screws	Cross recessed pan head tapping screws	Винты самонарезающие со скругленной головкой и крестообразным шлицем	Cross recessed pan head tapping screws	Self tapping cross recess screws	ISO 7049
+        ГОСТ ISO 7050-2015	Self-tapping screws	Cross recessed countersunk tapping screws	Винты самонарезающие с потайной головкой и крестообразным шлицем	Cross recessed countersunk tapping screws	Self tapping cross recess screws	ISO 7050
+        ГОСТ ISO 7051-2015	Self-tapping screws	Cross recessed raised countersunk tapping screws	Винты самонарезающие с полупотайной головкой и крестообразным шлицем	Cross recessed raised countersunk tapping screws	Self tapping cross recess screws	ISO 7051
+        ГОСТ ISO 4032-2014	Nuts	Hex regular nuts style 1	Гайки шестигранные нормальные (тип 1). Классы точности A и B	Hexagon regular nuts (style 1). Product grades A and B	Hex nuts / style 1	ISO 4032
+        ГОСТ ISO 4036-2014	Nuts	Hex thin nuts unchamfered	Гайки шестигранные низкие без фаски (тип 0). Класс точности B	Unchamfered hexagon thin nuts (style 0). Product grade B	Hex thin nuts / unchamfered	ISO 4036
+        ГОСТ ISO 8675-2014	Nuts	Hex thin nuts fine pitch	Гайки шестигранные низкие с фаской с метрической мелкой резьбой	Hexagon thin nuts with fine pitch thread	Hex thin nuts / fine pitch	ISO 8675
+        ГОСТ ISO 8673-2014	Nuts	Hex regular nuts fine pitch	Гайки шестигранные нормальные (тип 1) с метрической мелкой резьбой	Hexagon regular nuts with fine pitch thread, style 1	Hex nuts / fine pitch	ISO 8673
+        ГОСТ ISO 8674-2014	Nuts	Hex high nuts fine pitch	Гайки шестигранные высокие (тип 2) с метрической мелкой резьбой	Hexagon high nuts with fine pitch thread, style 2	Hex high nuts / fine pitch	ISO 8674
+        ГОСТ ISO 7042-2014	Nuts	All-metal prevailing torque nuts	Гайки шестигранные высокие самостопорящиеся цельнометаллические, тип 2	Prevailing torque type all-metal hexagon high nuts, style 2	All-metal prevailing torque nuts	ISO 7042
+        ГОСТ ISO 10511-2014	Nuts	Prevailing torque thin nuts	Гайки шестигранные низкие самостопорящиеся с неметаллической вставкой	Prevailing torque type hexagon thin nuts with non-metallic insert	Prevailing torque thin nuts	ISO 10511
+        ГОСТ ISO 10512-2014	Nuts	Prevailing torque regular nuts with non-metallic insert	Гайки шестигранные нормальные самостопорящиеся с неметаллической вставкой	Prevailing torque type hexagon regular nuts with non-metallic insert	Prevailing torque nuts	ISO 10512
+        ГОСТ ISO 10513-2014	Nuts	All-metal prevailing torque regular nuts	Гайки шестигранные нормальные самостопорящиеся цельнометаллические	Prevailing torque type all-metal hexagon regular nuts	All-metal prevailing torque nuts	ISO 10513
+        ГОСТ ISO 7089-2016	Washers	Normal series washers	Шайбы плоские. Нормальная серия. Класс точности A	Plain washers. Normal series. Product grade A	Plain washers normal series	ISO 7089
+        ГОСТ ISO 7090-2016	Washers	Normal series chamfered washers	Шайбы плоские с фаской. Нормальная серия. Класс точности A	Plain washers, chamfered. Normal series. Product grade A	Chamfered plain washers	ISO 7090
+        ГОСТ ISO 7091-2016	Washers	Normal series washers grade C	Шайбы плоские. Нормальная серия. Класс точности C	Plain washers. Normal series. Product grade C	Plain washers grade C	ISO 7091
+        ГОСТ ISO 2338-2014	Pins	Parallel pins unhardened	Штифты цилиндрические незакаленные	Parallel pins, unhardened	Parallel pins	ISO 2338
+        ГОСТ ISO 2339-2014	Pins	Taper pins unhardened	Штифты конические незакаленные	Taper pins, unhardened	Taper pins	ISO 2339
+        ГОСТ ISO 8734-2014	Pins	Parallel pins hardened	Штифты цилиндрические закаленные	Parallel pins, hardened	Dowel pins / hardened parallel pins	ISO 8734
+        ГОСТ ISO 8733-2014	Pins	Parallel pins with internal thread	Штифты цилиндрические с внутренней резьбой	Parallel pins with internal thread	Internally threaded parallel pins	ISO 8733
+        ГОСТ ISO 8735-2014	Pins	Parallel pins with internal thread	Штифты цилиндрические закаленные с внутренней резьбой	Parallel pins with internal thread, hardened	Internally threaded hardened dowel pins	ISO 8735
+        ГОСТ ISO 8736-2014	Pins	Taper pins with internal thread	Штифты конические с внутренней резьбой	Taper pins with internal thread	Internally threaded taper pins	ISO 8736
+        ГОСТ ISO 8737-2014	Pins	Taper pins with external thread	Штифты конические с наружной резьбой	Taper pins with external thread	Externally threaded taper pins	ISO 8737
+        ГОСТ ISO 8738-2014	Pins	Washers for clevis pins	Шайбы для штифтов и пальцев	Plain washers for clevis pins	Washers for clevis pins	ISO 8738
+        ГОСТ ISO 8739-2014	Pins	Grooved pins with pilot	Штифты с насечками по всей длине и направляющим концом	Grooved pins, full length parallel-grooved, with pilot	Grooved pins	ISO 8739
+        ГОСТ ISO 8740-2014	Pins	Grooved pins full length	Штифты с насечками по всей длине с фаской	Grooved pins, full length parallel-grooved, with chamfer	Grooved pins	ISO 8740
+        ГОСТ ISO 8741-2014	Pins	Grooved pins reverse grooved	Штифты с насечками на половине длины, обратная насечка	Grooved pins, half-length reverse-grooved	Grooved pins	ISO 8741
+        ГОСТ ISO 8742-2014	Pins	Grooved pins centre grooved	Штифты с насечками на одной трети длины, центральная насечка	Grooved pins, one-third length centre-grooved	Grooved pins	ISO 8742
+        ГОСТ ISO 8744-2014	Pins	Grooved pins taper grooved	Штифты с коническими насечками по всей длине	Grooved pins, full-length taper-grooved	Grooved pins	ISO 8744
+        ГОСТ ISO 8745-2014	Pins	Grooved pins half-length taper grooved	Штифты с коническими насечками на половине длины	Grooved pins, half-length taper-grooved	Grooved pins	ISO 8745
+        ГОСТ ISO 8747-2014	Pins	Countersunk grooved pins	Штифты насеченные с потайной головкой	Grooved pins with countersunk head	Countersunk grooved pins	ISO 8747
+        ГОСТ ISO 8748-2014	Pins / spring pins	Coiled spring pins heavy duty	Штифты пружинные спиральные. Тяжелое исполнение	Spring-type coiled pins. Heavy duty	Coiled spring pins	ISO 8748
+        ГОСТ ISO 8750-2014	Pins / spring pins	Coiled spring pins standard duty	Штифты пружинные спиральные. Нормальное исполнение	Spring-type coiled pins. Standard duty	Coiled spring pins	ISO 8750
+        ГОСТ ISO 8752-2014	Pins / spring pins	Slotted spring pins heavy duty	Штифты пружинные прямые, разрезные, тяжелая серия	Spring-type straight pins, slotted, heavy duty	Slotted spring pins	ISO 8752
+        ГОСТ ISO 13337-2014	Pins / spring pins	Slotted spring pins light duty	Штифты пружинные прямые, разрезные, легкая серия	Spring-type straight pins, slotted, light duty	Slotted spring pins	ISO 13337
+        ГОСТ ISO 1234-2014	Split pins / cotters	Split pins	Шплинты	Split pins	Split pins / cotter pins	ISO 1234
+        ГОСТ ISO 2340-2014	Clevis pins	Clevis pins with head	Пальцы с головкой без отверстия	Clevis pins without head? / pins with head	Clevis pins	ISO 2340
+        ГОСТ ISO 2341-2014	Clevis pins	Clevis pins with head and hole	Пальцы с головкой и отверстием под шплинт	Clevis pins with head and hole	Clevis pins	ISO 2341
+        ГОСТ ISO 1051-2014	Rivets	Rivet shank diameters	Заклепки. Диаметры стержней	Rivet shank diameters	Rivets	ISO 1051
+        ГОСТ 10299-80	Rivets	Solid rivets	Заклепки с полукруглой головкой. Конструкция и размеры	Round head rivets. Construction and dimensions	Solid rivets	Legacy GOST
+        ГОСТ 10300-80	Rivets	Solid rivets	Заклепки с потайной головкой. Конструкция и размеры	Countersunk head rivets. Construction and dimensions	Solid rivets	Legacy GOST
+        ГОСТ 10301-80	Rivets	Solid rivets	Заклепки с полупотайной головкой. Конструкция и размеры	Raised countersunk head rivets. Construction and dimensions	Solid rivets	Legacy GOST
+        ГОСТ 9066-75	Studs	Studs for flange joints	Шпильки для фланцевых соединений с температурой среды от 0 до 650 °C. Типы и основные размеры	Studs for flange joints for media temperature from 0 to 650°C	Flange studs	Legacy GOST
+        ГОСТ 9064-75	Nuts	Nuts for flange joints	Гайки для фланцевых соединений с температурой среды от 0 до 650 °C. Типы и основные размеры	Nuts for flange joints for media temperature from 0 to 650°C	Flange nuts	Legacy GOST
+        ГОСТ 9065-75	Bolts	Bolts for flange joints	Болты для фланцевых соединений с температурой среды от 0 до 650 °C. Типы и основные размеры	Bolts for flange joints for media temperature from 0 to 650°C	Flange bolts	Legacy GOST
+        ГОСТ 22032-76	Studs	Studs with different thread ends	Шпильки с ввинчиваемым концом длиной 1d. Конструкция и размеры	Studs with metal end 1d. Construction and dimensions	Studs	Legacy GOST
+        ГОСТ 22034-76	Studs	Studs with different thread ends	Шпильки с ввинчиваемым концом длиной 1,25d. Конструкция и размеры	Studs with metal end 1.25d. Construction and dimensions	Studs	Legacy GOST
+        ГОСТ 22036-76	Studs	Studs with different thread ends	Шпильки с ввинчиваемым концом длиной 1,6d. Конструкция и размеры	Studs with metal end 1.6d. Construction and dimensions	Studs	Legacy GOST
+        ГОСТ 22038-76	Studs	Studs with different thread ends	Шпильки с ввинчиваемым концом длиной 2d. Конструкция и размеры	Studs with metal end 2d. Construction and dimensions	Studs	Legacy GOST
+        ГОСТ 22042-76	Studs	Studs for smooth holes	Шпильки для деталей с гладкими отверстиями. Конструкция и размеры	Studs for parts with smooth holes. Construction and dimensions	Studs	Legacy GOST
+        ГОСТ 4751-73	Bolts	Eye bolts	Рым-болты. Конструкция и размеры	Eye bolts. Construction and dimensions	Eye bolts / lifting bolts	Legacy GOST
+        ГОСТ 22355-77	Nuts	Eye nuts	Гайки рым. Конструкция и размеры	Eye nuts. Construction and dimensions	Eye nuts / lifting nuts	Legacy GOST
+        ГОСТ 9690-71	Turnbuckles	Turnbuckles	Талрепы. Технические условия	Turnbuckles. Specifications	Turnbuckles	Legacy GOST
+        ГОСТ 9.301-86	Coatings / plating	Metallic and non-metallic inorganic coatings	ЕСЗКС. Покрытия металлические и неметаллические неорганические. Общие требования	Unified corrosion protection system. Metallic and non-metallic inorganic coatings. General requirements	Coatings general	GOST 9 corrosion protection series
+        ГОСТ 9.302-88	Coatings / plating	Coating control methods	ЕСЗКС. Покрытия металлические и неметаллические неорганические. Методы контроля	Unified corrosion protection system. Metallic and non-metallic inorganic coatings. Control methods	Coating inspection / thickness / adhesion	GOST 9 corrosion protection series
+        ГОСТ 9.303-84	Coatings / plating	Coating types	ЕСЗКС. Покрытия металлические и неметаллические неорганические. Общие требования к выбору	Unified corrosion protection system. Metallic and non-metallic inorganic coatings. General selection requirements	Coating selection	GOST 9 corrosion protection series
+        ГОСТ 9.306-85	Coatings / plating	Coating designation	ЕСЗКС. Покрытия металлические и неметаллические неорганические. Обозначения	Unified corrosion protection system. Metallic and non-metallic inorganic coatings. Designations	Coating designation / drawing note	GOST 9 corrosion protection series
+        ГОСТ 9.307-2021	Coatings / corrosion	Hot-dip zinc coatings general	ЕСЗКС. Покрытия цинковые горячие. Общие требования и методы контроля	Unified corrosion protection system. Hot-dip zinc coatings. General requirements and control methods	Hot dip zinc / generic coatings	GOST 9 corrosion protection series
+        ГОСТ 9012-59	Heat treatment / process	Heat treatment vocabulary/control	Металлы. Метод измерения твердости по Бринеллю	Metals. Brinell hardness test method	Hardness testing	Generic materials testing
+        ГОСТ 9013-59	Heat treatment / process	Rockwell hardness testing	Металлы. Метод измерения твердости по Роквеллу	Metals. Rockwell hardness test method	Hardness testing	Generic materials testing
+        ГОСТ 2999-75	Heat treatment / process	Vickers hardness testing	Металлы и сплавы. Метод измерения твердости по Виккерсу	Metals and alloys. Vickers hardness test method	Hardness testing / microhardness	Generic materials testing
+        ГОСТ 1497-84	Testing / tensile	Tensile testing metals	Металлы. Методы испытаний на растяжение	Metals. Tensile test methods	Mechanical testing / UTM	Generic materials testing
+        ГОСТ 9.308-85	Testing / corrosion	Salt spray corrosion testing	ЕСЗКС. Покрытия металлические и неметаллические неорганические. Методы ускоренных коррозионных испытаний	Unified corrosion protection system. Accelerated corrosion test methods	Salt spray / corrosion testing	GOST 9 corrosion protection series
+        ГОСТ Р ИСО 4017-2013	Screws	Hexagon head screws	Винты с шестигранной головкой. Классы точности А и В	Hexagon head screws. Product grades A and B	Screws	Действует
+        ГОСТ Р ИСО 4018-2013	Screws	Hexagon head screws	Винты с шестигранной головкой. Класс точности С	Hexagon head screws. Product grade C	Screws	Needs final official status check
+        ГОСТ Р ИСО 8676-2013	Screws	Hexagon head screws, fine pitch	Винты с шестигранной головкой с мелким шагом резьбы. Классы точности А и В	Hexagon head screws with metric fine pitch thread. Product grades A and B	Screws	Needs final official status check
+        ГОСТ Р ИСО 4762-2012	Screws	Socket head cap screws	Винты с цилиндрической головкой и шестигранным углублением под ключ	Hexagon socket head screws	Screws	Действует
+        ГОСТ Р ИСО 10642-2012	Screws	Socket countersunk screws	Винты с потайной головкой и шестигранным углублением под ключ	Hexagon socket countersunk head screws	Screws	Действует
+        ГОСТ Р ИСО 12474-2012	Screws	Socket head cap screws, fine pitch	Винты с цилиндрической головкой и шестигранным углублением под ключ с мелким шагом резьбы	Hexagon socket head cap screws with metric fine pitch thread	Screws	Needs final official status check
+        ГОСТ ISO 7380-1-2014	Screws	Button head socket screws	Винты с полукруглой головкой. Часть 1. Винты с полукруглой головкой и шестигранным углублением	Button head screws. Part 1. Hexagon socket button head screws	Screws	Needs final official status check
+        ГОСТ ISO 7380-2-2014	Screws	Button head socket screws with collar/flange	Винты с полукруглой головкой. Часть 2. Винты с полукруглой головкой с буртом и шестигранным углублением	Button head screws. Part 2. Hexagon socket button head screws with collar	Screws	Действует
+        ГОСТ Р ИСО 7045-2013	Screws	Cross recessed pan head machine screws	Винты со скругленной головкой и крестообразным шлицем типа H или типа Z. Класс точности А	Pan head screws with type H or type Z cross recess. Product grade A	Screws	Действует
+        ГОСТ Р ИСО 7046-1-2013	Screws	Cross recessed countersunk screws	Винты с потайной головкой и крестообразным шлицем типа H или типа Z. Класс точности А. Часть 1. Сталь класса прочности 4.8	Countersunk flat head screws with type H or type Z cross recess. Product grade A. Part 1: Steel of property class 4.8	Screws	Needs final official status check
+        ГОСТ Р ИСО 7046-2-2013	Screws	Cross recessed countersunk screws	Винты с потайной головкой и крестообразным шлицем типа H или типа Z. Класс точности А. Часть 2. Сталь класса прочности 8.8, нержавеющая сталь и цветные металлы	Countersunk flat head screws with cross recess. Part 2	Screws	Needs final official status check
+        ГОСТ Р ИСО 7047-2013	Screws	Cross recessed raised countersunk screws	Винты с полупотайной головкой и крестообразным шлицем типа H или типа Z. Класс точности А	Raised countersunk head screws with type H or type Z cross recess. Product grade A	Screws	Needs final official status check
+        ГОСТ Р ИСО 7048-2013	Screws	Large head cross recessed screws	Винты со скругленной головкой и крестообразным шлицем типа H или типа Z с большим диаметром головки. Класс точности А	Pan head screws with large head and type H or type Z cross recess. Product grade A	Screws	Needs final official status check
+        ГОСТ ISO 14579-2014	Screws	Hexalobular socket screws	Винты с цилиндрической головкой и звездообразным углублением под ключ	Hexalobular socket head cap screws	Screws	Needs final official status check
+        ГОСТ ISO 14580-2014	Screws	Hexalobular socket screws	Винты со скругленной головкой и звездообразным углублением под ключ	Hexalobular socket cheese head screws	Screws	Needs final official status check
+        ГОСТ ISO 14581-2014	Screws	Hexalobular socket countersunk screws	Винты с потайной головкой и звездообразным углублением под ключ	Hexalobular socket countersunk flat head screws	Screws	Needs final official status check
+        ГОСТ ISO 14582-2014	Screws	Hexalobular raised countersunk screws	Винты с полупотайной головкой и звездообразным углублением под ключ	Hexalobular socket raised countersunk head screws	Screws	Needs final official status check
+        ГОСТ ISO 14583-2014	Screws	Hexalobular pan head screws	Винты со скругленной головкой и звездообразным углублением под ключ	Hexalobular socket pan head screws	Screws	Needs final official status check
+        ГОСТ ISO 14584-2014	Screws	Hexalobular raised cheese head screws	Винты с цилиндрической скругленной головкой и звездообразным углублением под ключ	Hexalobular socket raised cheese head screws	Screws	Needs final official status check
+        ГОСТ 11738-84	Screws	Socket head cap screws	Винты с цилиндрической головкой и шестигранным углублением под ключ класса точности А. Конструкция и размеры	Hexagon socket head cap screws, accuracy class A. Construction and dimensions	Screws	Действует; отменен в части / restored only for state defence order in specified parts
+        ГОСТ 1491-80	Screws	Slotted/machine screws	Винты с цилиндрической головкой классов точности А и В. Конструкция и размеры	Cheese head screws. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 17473-80	Screws	Slotted/machine screws	Винты с полукруглой головкой классов точности А и В. Конструкция и размеры	Pan head screws. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 17474-80	Screws	Slotted/machine screws	Винты с полупотайной головкой классов точности А и В. Конструкция и размеры	Raised countersunk head screws. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 17475-80	Screws	Slotted/machine screws	Винты с потайной головкой классов точности А и В. Конструкция и размеры	Countersunk head screws. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 17476-80	Screws	Tapping screws	Винты самонарезающие с полукруглой головкой для металла и пластмассы. Конструкция и размеры	Tapping screws with pan head for metal and plastics. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 17477-80	Screws	Tapping screws	Винты самонарезающие с потайной головкой для металла и пластмассы. Конструкция и размеры	Tapping screws with countersunk head for metal and plastics. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1476-93	Screws	Set screws	Винты установочные с плоским концом. Конструкция и размеры	Set screws with flat point. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1477-93	Screws	Set screws	Винты установочные с коническим концом. Конструкция и размеры	Set screws with cone point. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1478-93	Screws	Set screws	Винты установочные с цилиндрическим концом. Конструкция и размеры	Set screws with dog point. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1479-93	Screws	Set screws	Винты установочные с засверленным концом. Конструкция и размеры	Set screws with cup point. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1144-80	Screws	Wood screws	Шурупы с полукруглой головкой. Конструкция и размеры	Wood screws with round head. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1145-80	Screws	Wood screws	Шурупы с потайной головкой. Конструкция и размеры	Wood screws with countersunk head. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1146-80	Screws	Wood screws	Шурупы с полупотайной головкой. Конструкция и размеры	Wood screws with raised countersunk head. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ 1147-80	Screws	Wood screws	Шурупы с шестигранной головкой. Конструкция и размеры	Wood screws with hexagon head. Construction and dimensions	Screws	Needs final official status check
+        ГОСТ Р ИСО 4014-2013	Bolts	Hexagon head bolts	Болты с шестигранной головкой. Классы точности А и В	Hexagon head bolts. Product grades A and B	Bolts	Действует
+        ГОСТ Р ИСО 4016-2013	Bolts	Hexagon head bolts	Болты с шестигранной головкой. Класс точности С	Hexagon head bolts. Product grade C	Bolts	Needs final official status check
+        ГОСТ Р ИСО 4015-2013	Bolts	Reduced-shank hexagon head bolts	Болты с шестигранной головкой с уменьшенным стержнем. Класс точности В	Hexagon head bolts with reduced shank. Product grade B	Bolts	Needs final official status check
+        ГОСТ Р ИСО 8765-2013	Bolts	Fine pitch hexagon head bolts	Болты с шестигранной головкой с мелким шагом резьбы. Классы точности А и В	Hexagon head bolts with metric fine pitch thread. Product grades A and B	Bolts	Действует
+        ГОСТ Р ИСО 8766-2013	Bolts	Fine pitch hexagon head bolts	Болты с шестигранной головкой с мелким шагом резьбы. Класс точности В	Hexagon head bolts with metric fine pitch thread. Product grade B	Bolts	Needs final official status check
+        ГОСТ 7798-70	Bolts	Hexagon head bolts	Болты с шестигранной головкой класса точности В. Конструкция и размеры	Hexagon head bolts, product grade B. Construction and dimensions	Bolts	Действует; утратил силу в части / restored only for state defence order
+        ГОСТ 7805-70	Bolts	Hexagon head bolts	Болты с шестигранной головкой класса точности А. Конструкция и размеры	Hexagon head bolts, product grade A. Construction and dimensions	Bolts	Действует; утратил силу в части / except state defence order
+        ГОСТ 7796-70	Bolts	Reduced head bolts	Болты с шестигранной уменьшенной головкой класса точности В. Конструкция и размеры	Hexagon reduced head bolts, product grade B. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 7808-70	Bolts	Reduced head bolts	Болты с шестигранной уменьшенной головкой класса точности А. Конструкция и размеры	Hexagon reduced head bolts, product grade A. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 15589-70	Bolts	Hexagon head bolts	Болты с шестигранной головкой класса точности С. Конструкция и размеры	Hexagon head bolts, product grade C. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 15590-70	Bolts	Hexagon head bolts	Болты с шестигранной головкой класса точности С с увеличенным размером под ключ. Конструкция и размеры	Hexagon head bolts product grade C with large width across flats. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 15591-70	Bolts	Reduced head bolts	Болты с шестигранной уменьшенной головкой класса точности С. Конструкция и размеры	Hexagon reduced head bolts, product grade C. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 7811-70	Bolts	Reduced-shank bolts	Болты с шестигранной головкой с уменьшенным стержнем класса точности А. Конструкция и размеры	Hexagon head bolts with reduced shank, product grade A. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 7817-80	Bolts	Carriage/cup head bolts	Болты с полукруглой головкой и квадратным подголовком. Конструкция и размеры	Cup head square neck bolts. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 7786-81	Bolts	Swing bolts	Болты откидные. Конструкция и размеры	Swing bolts. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ 24379.1-2012	Bolts	Foundation/anchor bolts	Болты фундаментные. Конструкция и размеры	Foundation bolts. Construction and dimensions	Bolts	Needs final official status check
+        ГОСТ ISO 4032-2014	Nuts	Hexagon regular nuts	Гайки шестигранные нормальные (тип 1). Классы точности А и В	Hexagon regular nuts (style 1). Product grades A and B	Nuts	Needs final official status check
+        ГОСТ ISO 4033-2014	Nuts	Hexagon high nuts	Гайки шестигранные высокие (тип 2). Классы точности А и В	Hexagon high nuts (style 2). Product grades A and B	Nuts	Действует
+        ГОСТ ISO 4034-2014	Nuts	Hexagon regular nuts	Гайки шестигранные нормальные (тип 1). Класс точности С	Hexagon regular nuts (style 1). Product grade C	Nuts	Действует
+        ГОСТ ISO 4035-2014	Nuts	Hexagon thin chamfered nuts	Гайки шестигранные низкие с фаской (тип 0). Классы точности А и В	Chamfered hexagon thin nuts (style 0). Product grades A and B	Nuts	Действует
+        ГОСТ ISO 4036-2014	Nuts	Hexagon thin unchamfered nuts	Гайки шестигранные низкие без фаски (тип 0). Класс точности В	Hexagon thin nuts unchamfered (style 0). Product grade B	Nuts	Действует
+        ГОСТ ISO 4037-2014	Nuts	Hexagon thin unchamfered nuts	Гайки шестигранные низкие без фаски (тип 0). Класс точности А	Hexagon thin nuts unchamfered (style 0). Product grade A	Nuts	Needs final official status check
+        ГОСТ ISO 4038-2014	Nuts	Hexagon thin chamfered nuts	Гайки шестигранные низкие с фаской (тип 0). Класс точности С	Hexagon thin nuts chamfered (style 0). Product grade C	Nuts	Needs final official status check
+        ГОСТ ISO 8673-2014	Nuts	Fine pitch regular nuts	Гайки шестигранные нормальные (тип 1) с мелким шагом резьбы. Классы точности А и В	Hexagon regular nuts (style 1) with metric fine pitch thread. Product grades A and B	Nuts	Needs final official status check
+        ГОСТ ISO 8674-2014	Nuts	Fine pitch high nuts	Гайки шестигранные высокие (тип 2) с мелким шагом резьбы. Классы точности А и В	Hexagon high nuts (style 2) with metric fine pitch thread. Product grades A and B	Nuts	Needs final official status check
+        ГОСТ ISO 8675-2014	Nuts	Fine pitch thin nuts	Гайки шестигранные низкие с фаской (тип 0) с мелким шагом резьбы. Классы точности А и В	Chamfered hexagon thin nuts (style 0) with metric fine pitch thread. Product grades A and B	Nuts	Needs final official status check
+        ГОСТ 10605-94	Nuts	Large hexagon nuts over M48	Гайки шестигранные с диаметром резьбы свыше 48 мм класса точности В. Технические условия	Hexagon nuts with thread diameter over 48 mm. Product grade B. Specifications	Nuts	Действует
+        ГОСТ 5915-70	Nuts	Hexagon nuts	Гайки шестигранные класса точности В. Конструкция и размеры	Hexagon nuts, product grade B. Construction and dimensions	Nuts	Needs final official status check
+        ГОСТ 5916-70	Nuts	Hexagon thin/lock nuts	Гайки шестигранные низкие класса точности В. Конструкция и размеры	Hexagon lock nuts (standard precision). Construction and dimensions	Nuts	Действует; restored only for state defence order in specified parts
+        ГОСТ 5927-70	Nuts	Hexagon nuts	Гайки шестигранные класса точности А. Конструкция и размеры	Hexagon nuts, product grade A. Construction and dimensions	Nuts	Needs final official status check
+        ГОСТ 5929-70	Nuts	Hexagon thin/lock nuts	Гайки шестигранные низкие класса точности А. Конструкция и размеры	Hexagon lock nuts (high precision). Construction and dimensions	Nuts	Действует; restored only for state defence order in specified parts
+        ГОСТ 5931-70	Nuts	Hexagon high nuts	Гайки шестигранные высокие класса точности А. Конструкция и размеры	Hexagon high nuts, product grade A. Construction and dimensions	Nuts	Needs final official status check
+        ГОСТ 5933-73	Nuts	Slotted/castle nuts	Гайки прорезные и корончатые шестигранные класса точности В. Конструкция и размеры	Slotted and castle hexagon nuts, product grade B. Construction and dimensions	Nuts	Needs final official status check
+        ГОСТ 2524-70	Nuts	Round slotted nuts	Гайки круглые шлицевые. Конструкция и размеры	Round slotted nuts. Construction and dimensions	Nuts	Needs final official status check
+        ГОСТ 11871-88	Nuts	Round slotted nuts	Гайки круглые шлицевые. Технические условия	Round slotted nuts. Specifications	Nuts	Needs final official status check
+        ГОСТ 11860-85	Nuts	Cap nuts	Гайки колпачковые. Технические условия	Cap nuts. Specifications	Nuts	Needs final official status check
+        ГОСТ 15526-70	Nuts	Hexagon nuts	Гайки шестигранные класса точности С. Конструкция и размеры	Hexagon nuts, product grade C. Construction and dimensions	Nuts	Действует; replacement shown as ГОСТ ISO 4034-2014
+        ГОСТ Р ИСО 10673-2017	Washers	Plain washers for screw/washer assemblies	Шайбы плоские для винтов с шайбами в сборке. Уменьшенная, нормальная и увеличенная серии. Класс точности А	Plain washers for screw with washer assemblies. Small, normal and large series. Product grade A	Washers	Действует
+        ГОСТ Р ИСО 10669-2017	Washers	Plain washers for tapping screw assemblies	Шайбы плоские для самонарезающих винтов с шайбами в сборке. Нормальная и увеличенная серии. Класс точности А	Plain washers for tapping screw and washer assemblies. Normal and large series. Product grade A	Washers	Действует
+        ГОСТ ISO 7089-2016	Washers	Plain washers	Шайбы плоские. Нормальная серия. Класс точности А	Plain washers. Normal series. Product grade A	Washers	Needs final official status check
+        ГОСТ ISO 7090-2016	Washers	Plain washers	Шайбы плоские с фаской. Нормальная серия. Класс точности А	Plain washers, chamfered. Normal series. Product grade A	Washers	Needs final official status check
+        ГОСТ ISO 7091-2016	Washers	Plain washers	Шайбы плоские. Нормальная серия. Класс точности С	Plain washers. Normal series. Product grade C	Washers	Needs final official status check
+        ГОСТ ISO 7092-2016	Washers	Plain washers small series	Шайбы плоские. Мелкая серия. Класс точности А	Plain washers. Small series. Product grade A	Washers	Needs final official status check
+        ГОСТ ISO 7093-1-2016	Washers	Large plain washers	Шайбы плоские. Крупная серия. Часть 1. Класс точности А	Plain washers. Large series. Part 1: Product grade A	Washers	Действует
+        ГОСТ ISO 7093-2-2016	Washers	Large plain washers	Шайбы плоские. Крупная серия. Часть 2. Класс точности С	Plain washers. Large series. Part 2: Product grade C	Washers	Действует
+        ГОСТ ISO 7094-2016	Washers	Extra large plain washers	Шайбы плоские. Особо крупная серия. Класс точности С	Plain washers. Extra large series. Product grade C	Washers	Needs final official status check
+        ГОСТ 11371-78	Washers	Plain washers	Шайбы. Технические условия	Plain washers. Specifications	Washers	Needs final official status check
+        ГОСТ 6958-78	Washers	Enlarged washers	Шайбы увеличенные. Классы точности А и С. Технические условия	Enlarged washers. Product grades A and C. Specifications	Washers	Действует
+        ГОСТ 6402-70	Washers	Spring lock washers	Шайбы пружинные. Технические условия	Lock washers. Specifications	Washers	Действует
+        ГОСТ 10906-78	Washers	Square/taper washers	Шайбы косые. Технические условия	Square taper washers. Specifications	Washers	Действует
+        ГОСТ 4090-69	Washers	Suspended washers	Шайбы подвесные. Конструкция	Suspended washers. Construction	Washers	Действует
+        ГОСТ 10450-78	Washers	Small/plain washers	Шайбы уменьшенные. Классы точности А и С. Технические условия	Small series washers. Product grades A and C. Specifications	Washers	Needs final official status check
+        ГОСТ 13463-77	Washers	Toothed lock washers	Шайбы стопорные с внутренними зубьями. Конструкция и размеры	Toothed lock washers with internal teeth. Construction and dimensions	Washers	Needs final official status check
+        ГОСТ 13464-77	Washers	Toothed lock washers	Шайбы стопорные с наружными зубьями. Конструкция и размеры	Toothed lock washers with external teeth. Construction and dimensions	Washers	Needs final official status check
+        ГОСТ 13465-77	Washers	Tab lock washers	Шайбы стопорные с лапкой. Конструкция и размеры	Tab lock washers. Construction and dimensions	Washers	Needs final official status check
+        ГОСТ 397-79	Washers	Locking elements, not washer but within 21.060.30	Шплинты. Технические условия	Splints/cotter pins. Specifications	Washers	Действует
+        ГОСТ 10299-80	Rivets	Solid rivets	Заклепки с полукруглой головкой классов точности В и С. Технические условия	Round-head rivets classes B and C. Specifications	Rivets	Needs final official status check
+        ГОСТ 10300-80	Rivets	Solid countersunk rivets	Заклепки с потайной головкой классов точности В и С. Технические условия	Countersunk-head rivets classes B and C. Specifications	Rivets	Действует
+        ГОСТ 10301-80	Rivets	Solid raised countersunk rivets	Заклепки с полупотайной головкой классов точности В и С. Технические условия	Round-top countersunk-head rivets classes B and C. Specifications	Rivets	Действует
+        ГОСТ 12638-80	Rivets	Tubular rivets	Заклепки трубчатые с плоской головкой. Конструкция и размеры	Tubular rivets with flat head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12639-80	Rivets	Tubular rivets	Заклепки трубчатые с потайной головкой. Конструкция и размеры	Tubular rivets with countersunk head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12640-80	Rivets	Tubular rivets	Заклепки трубчатые с полупотайной головкой. Конструкция и размеры	Tubular rivets with raised countersunk head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12641-80	Rivets	Semi-tubular rivets	Заклепки полутрубчатые с плоской головкой. Конструкция и размеры	Semi-tubular rivets with flat head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12642-80	Rivets	Semi-tubular rivets	Заклепки полутрубчатые с потайной головкой. Конструкция и размеры	Semi-tubular rivets with countersunk head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12643-80	Rivets	Semi-tubular rivets	Заклепки полутрубчатые с полупотайной головкой. Конструкция и размеры	Semi-tubular rivets with raised countersunk head. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 12644-80	Rivets	Hollow rivets	Заклепки пустотелые. Конструкция и размеры	Hollow rivets. Construction and dimensions	Rivets	Needs final official status check
+        ГОСТ 14797-85	Rivets	General rivet requirements	Заклепки. Технические условия	Rivets. Specifications	Rivets	Needs final official status check
+        ГОСТ Р ИСО 15973-2016	Rivets	Blind rivets	Заклепки вытяжные. Технические требования	Blind rivets. Terminology and definitions/specifications	Rivets	Needs final official status check
+        ГОСТ ISO 898-1-2014	Studs / Threaded rods	Mechanical properties for bolts, screws and studs	Механические свойства крепежных изделий из углеродистых и легированных сталей. Часть 1. Болты, винты и шпильки установленных классов прочности с крупным и мелким шагом резьбы	Mechanical properties of fasteners made of carbon steel and alloy steel. Part 1. Bolts, screws and studs of specified property classes with coarse and fine pitch thread	Studs / Threaded rods	Действует
+        ГОСТ EN 28839-2015	Studs / Threaded rods	Mechanical properties for non-ferrous bolts/screws/studs/nuts	Механические свойства крепежных изделий. Болты, винты, шпильки и гайки из цветных металлов	Mechanical properties of fasteners. Bolts, screws, studs and nuts made of non-ferrous metals	Studs / Threaded rods	Действует
+        ГОСТ 22032-76	Studs / Threaded rods	Studs	Шпильки ввертные с длиной ввинчиваемого конца 1d. Конструкция и размеры	Screw-in studs with thread engagement end length 1d. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22033-76	Studs / Threaded rods	Studs	Шпильки ввертные с длиной ввинчиваемого конца 1,25d. Конструкция и размеры	Screw-in studs with thread engagement end length 1.25d. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22034-76	Studs / Threaded rods	Studs	Шпильки ввертные с длиной ввинчиваемого конца 1,6d. Конструкция и размеры	Screw-in studs with thread engagement end length 1.6d. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22035-76	Studs / Threaded rods	Studs	Шпильки ввертные с длиной ввинчиваемого конца 2d. Конструкция и размеры	Screw-in studs with thread engagement end length 2d. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22036-76	Studs / Threaded rods	Studs	Шпильки ввертные для деталей с гладкими отверстиями. Конструкция и размеры	Studs for parts with smooth holes. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22037-76	Studs / Threaded rods	Studs	Шпильки ввертные для деталей с резьбовыми отверстиями. Конструкция и размеры	Studs for parts with tapped holes. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22038-76	Studs / Threaded rods	Studs	Шпильки с ввинчиваемым концом. Технические условия	Studs with screw-in end. Specifications	Studs / Threaded rods	Needs final official status check
+        ГОСТ 22042-76	Studs / Threaded rods	Flange studs	Шпильки для фланцевых соединений. Конструкция и размеры	Studs for flange connections. Construction and dimensions	Studs / Threaded rods	Needs final official status check
+        ГОСТ 9066-75	Studs / Threaded rods	Flange studs	Шпильки для фланцевых соединений. Технические условия	Studs for flange connections. Specifications	Studs / Threaded rods	Needs final official status check
+        ГОСТ Р ИСО 1891-4-2020	Studs / Threaded rods	Terminology / supporting	Изделия крепежные. Термины и определения. Часть 4. Контроль, приемка и поставка	Fasteners. Terminology. Part 4. Control, inspection, delivery	Studs / Threaded rods	Needs final official status check
+        ГОСТ ISO 3269-2015	Supporting / General	Acceptance inspection for bolts, screws, studs, nuts, washers, rivets	Изделия крепежные. Приемочный контроль	Fasteners. Acceptance inspection	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 3269-2009	Supporting / General	Acceptance inspection	Изделия крепежные. Приемочный контроль	Fasteners. Acceptance inspection	Supporting / General	Отменен
+        ГОСТ 1759.4-87	Supporting / General	Mechanical properties for bolts/screws/studs	Болты, винты и шпильки. Механические свойства и методы испытаний	Bolts, screws and studs. Mechanical properties and test methods	Supporting / General	Needs final official current-use check
+        ГОСТ Р ИСО 3506-1-2014	Supporting / General	Stainless steel fasteners	Механические свойства крепежных изделий из коррозионно-стойкой нержавеющей стали. Часть 1. Болты, винты и шпильки	Mechanical properties of corrosion-resistant stainless steel fasteners. Part 1: Bolts, screws and studs	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 3506-2-2014	Supporting / General	Stainless steel nuts	Механические свойства крепежных изделий из коррозионно-стойкой нержавеющей стали. Часть 2. Гайки	Mechanical properties of corrosion-resistant stainless steel fasteners. Part 2: Nuts	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 3506-3-2014	Supporting / General	Stainless steel set screws	Механические свойства крепежных изделий из коррозионно-стойкой нержавеющей стали. Часть 3. Установочные винты	Mechanical properties of corrosion-resistant stainless steel fasteners. Part 3: Set screws	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 3506-4-2014	Supporting / General	Stainless steel tapping screws	Механические свойства крепежных изделий из коррозионно-стойкой нержавеющей стали. Часть 4. Самонарезающие винты	Mechanical properties of corrosion-resistant stainless steel fasteners. Part 4: Tapping screws	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 4759-1-2009	Supporting / General	Tolerances	Изделия крепежные. Допуски. Часть 1. Болты, винты, шпильки и гайки	Fasteners. Tolerances. Part 1: Bolts, screws, studs and nuts	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 4759-3-2009	Supporting / General	Washer tolerances	Изделия крепежные. Допуски. Часть 3. Шайбы плоские	Fasteners. Tolerances. Part 3: Plain washers	Supporting / General	Needs final official status check
+        ГОСТ ISO 16047-2015	Supporting / General	Torque/clamp force testing	Изделия крепежные. Испытание на крутящий момент и усилие предварительной затяжки	Fasteners. Torque/clamp force testing	Supporting / General	Needs final official status check
+        ГОСТ Р ИСО 4042-2009	Supporting / General	Coatings	Изделия крепежные. Электролитические покрытия	Fasteners. Electroplated coatings	Supporting / General	Needs final official status check
+        ГОСТ ISO 10684-2015	Supporting / General	Coatings	Изделия крепежные. Покрытия, нанесенные методом горячего цинкования	Fasteners. Hot dip galvanized coatings	Supporting / General	Needs final official status check
+        ГОСТ Р 53664-2009	Supporting / General	Coatings	Изделия крепежные. Покрытия из цинковых чешуек	Fasteners. Zinc flake coatings	Supporting / General	Needs final official status check`;
+
+        // ------------------------------------------------------------------
+        // BUILD ENRICHED DATA
+        // ------------------------------------------------------------------
+        const SOURCE_STANDARDS_DATA = SOURCE_GOST_TSV.trim().split("\n").slice(1).map((line, index) => {
+            const parts = line.split("\t");
+            // Handle rows with missing fields by providing defaults
+            const [
+                standardCode = "",
+                group = "",
+                subgroup = "",
+                originalRussianTitle = "",
+                englishTitle = "",
+                productFamily = "",
+                relation = ""
+            ] = parts;
+            return {
+                sourceRow: index + 1,
+                standardCode,
+                group,
+                subgroup,
+                originalRussianTitle,
+                englishTitle,
+                productFamily,
+                relation
+            };
+        });
+
+        const PAGE_SLUG_COUNTERS = {};
+        const standardsData = SOURCE_STANDARDS_DATA.map((row, index) => {
+            const base = slugify(row.standardCode);
+            PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+            const pageSlug = PAGE_SLUG_COUNTERS[base] === 1 ? base : `${base}-${String(PAGE_SLUG_COUNTERS[base]).padStart(2, "0")}`;
+            return {
+                ...row,
+                pradakoId: `PRA-STD-GOST-${String(index + 1).padStart(4, "0")}`,
+                imageSrc: `/assets/images/products/standards-products/${base}.png`,
+                imageAlt: `${row.standardCode} standard media`,
+                pageUrl: `/pages/standards/gost/${pageSlug}.html`
+            };
+        });
+
+        // ------------------------------------------------------------------
+        // DOM REFS
+        // ------------------------------------------------------------------
+        const tableHeadRow = document.getElementById("tableHeadRow");
+        const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+        const tableBody = document.getElementById("standardsTableBody");
+        const searchInput = document.getElementById("searchInput");
+        const familyFilter = document.getElementById("familyFilter");
+        const emptyState = document.getElementById("emptyState");
+        const viewPanel = document.getElementById("viewPanel");
+        const viewGroups = document.getElementById("viewGroups");
+        const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+        const exportModal = document.getElementById("exportModal");
+        const copyStatus = document.getElementById("copyStatus");
+        const imagePreviewModal = document.getElementById("imagePreviewModal");
+        const imagePreviewImg = document.getElementById("imagePreviewImg");
+        const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+        const visibleCount = document.getElementById("visibleCount");
+        const totalCount = document.getElementById("totalCount");
+        const pageCount = document.getElementById("pageCount");
+        const visibleColumnCount = document.getElementById("visibleColumnCount");
+        const duplicateModePill = document.getElementById("duplicateModePill");
+        const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+        const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+        const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+        // ------------------------------------------------------------------
+        // STATE
+        // ------------------------------------------------------------------
+        let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+        let currentFilteredData = [...standardsData];
+        let duplicateMode = false;
+        let duplicateBaseData = [];
+        let sortState = { key: null, direction: "asc" };
+        let currentDensity = "compact";
+        let searchTimer;
+
+        // ------------------------------------------------------------------
+        // HELPERS
+        // ------------------------------------------------------------------
+        function getVisibleColumns() {
+            return COLUMNS.filter(c => visibleColumns.has(c.key));
+        }
+
+        // ------------------------------------------------------------------
+        // BUILD FAMILY FILTER
+        // ------------------------------------------------------------------
+        function buildFamilyFilter() {
+            const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))].sort((a, b) =>
+                a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+            );
+            familyFilter.innerHTML = '<option value="">All Product Families</option>';
+            fs.forEach(f => {
+                const o = document.createElement("option");
+                o.value = f;
+                o.textContent = f;
+                familyFilter.appendChild(o);
+            });
+        }
+
+        // ------------------------------------------------------------------
+        // BUILD VIEW PANEL
+        // ------------------------------------------------------------------
+        function buildViewPanel() {
+            viewGroups.innerHTML = "";
+            Object.entries(GROUP_META).forEach(([key, meta]) => {
+                const cols = COLUMNS.filter(c => c.group === key);
+                if (!cols.length) return;
+                const g = document.createElement("div");
+                g.className = "view-group";
+                const h = document.createElement("h4");
+                h.textContent = meta.label;
+                const wrap = document.createElement("div");
+                wrap.className = "column-checks";
+                cols.forEach(c => {
+                    const label = document.createElement("label");
+                    label.className = "check-item";
+                    const input = document.createElement("input");
+                    input.type = "checkbox";
+                    input.checked = visibleColumns.has(c.key);
+                    input.addEventListener("change", () => {
+                        if (input.checked) {
+                            visibleColumns.add(c.key);
+                        } else {
+                            if (visibleColumns.size === 1) { input.checked = true; return; }
+                            visibleColumns.delete(c.key);
+                        }
+                        setPresetState("custom");
+                        buildViewPanel();
+                        renderTable(currentFilteredData);
+                    });
+                    const span = document.createElement("span");
+                    span.textContent = c.label;
+                    label.append(input, span);
+                    wrap.appendChild(label);
+                });
+                g.append(h, wrap);
+                viewGroups.appendChild(g);
+            });
+        }
+
+        // ------------------------------------------------------------------
+        // VIEW PANEL TOGGLE
+        // ------------------------------------------------------------------
+        function toggleViewPanel() {
+            viewPanel.classList.toggle("open");
+            const open = viewPanel.classList.contains("open");
+            viewOptionsBtn.classList.toggle("active", open);
+            viewOptionsBtn.setAttribute("aria-expanded", String(open));
+        }
+
+        function setPresetState(which) {
+            ["Core", "Technical", "All"].forEach(n =>
+                document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+            );
+        }
+
+        function applyViewPreset(which) {
+            if (which === "core") visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+            else if (which === "technical") visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c
+            .key));
+            else visibleColumns = new Set(COLUMNS.map(c => c.key));
+            setPresetState(which);
+            buildViewPanel();
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // DENSITY
+        // ------------------------------------------------------------------
+        function setDensity(mode) {
+            currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+            document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+            document.body.classList.toggle("density-compact", currentDensity === "compact");
+            document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+            document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+            try { localStorage.setItem("pradakoGostDensity", currentDensity); } catch (_) {}
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // MEDIA CELL
+        // ------------------------------------------------------------------
+        function renderMediaCell(item) {
+            const src = item.imageSrc || "";
+            const alt = item.imageAlt || item.standardCode || "Standard media";
+            return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'">
+            </div>`;
+        }
+
+        // ------------------------------------------------------------------
+        // FIT-TO-VIEWPORT ENGINE
+        // ------------------------------------------------------------------
+        function resolveColumnWidths(list) {
+            const scroller = document.querySelector(".table-scroll");
+            const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+            if (window.innerWidth <= 900) {
+                const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, englishTitle: 300,
+                    originalRussianTitle: 300, productFamily: 190, group: 190, subgroup: 190, relation: 220 };
+                const widths = list.map(c => mobile[c.key] || 160);
+                const total = widths.reduce((a, b) => a + b, 0);
+                return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total >
+                        viewport };
+            }
+            const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+            const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+            let total = widths.reduce((a, b) => a + b, 0);
+            let minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+            if (total > viewport) {
+                let excess = total - viewport,
+                    guard = 0;
+                while (excess > 0 && guard++ < 20) {
+                    const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x
+                        .room > 0);
+                    if (!active.length) break;
+                    const rt = active.reduce((s, x) => s + x.room, 0);
+                    let removed = 0;
+                    active.forEach((x, idx) => {
+                        let cut = idx === active.length - 1 ? Math.min(x.room, Math.max(0, excess - removed)) :
+                            Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+                        widths[x.i] -= cut;
+                        removed += cut;
+                    });
+                    if (!removed) break;
+                    excess -= removed;
+                }
+            }
+            total = widths.reduce((a, b) => a + b, 0);
+
+            if (total < viewport) {
+                let spare = viewport - total,
+                    guard = 0;
+                while (spare > 0 && guard++ < 20) {
+                    const active = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1), room: c
+                            .fixed ? 0 : Math.max(0, c.maxWidth - widths[i]) })).filter(x => x.weight > 0 && x
+                        .room > 0);
+                    if (!active.length) break;
+                    const wt = active.reduce((s, x) => s + x.weight, 0);
+                    let added = 0;
+                    active.forEach((x, idx) => {
+                        const grow = Math.min(x.room, idx === active.length - 1 ? Math.max(0, spare - added) :
+                            Math.max(1, Math.floor(spare * (x.weight / wt))));
+                        widths[x.i] += grow;
+                        added += grow;
+                    });
+                    if (!added) break;
+                    spare -= added;
+                }
+                total = widths.reduce((a, b) => a + b, 0);
+                spare = Math.max(0, viewport - total);
+                if (spare > 0) {
+                    const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+                        .filter(x => x.weight > 0);
+                    const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+                    let added = 0;
+                    elastic.forEach((x, idx) => {
+                        const grow = idx === elastic.length - 1 ? spare - added : Math.floor(spare * (x.weight /
+                            wt));
+                        widths[x.i] += Math.max(0, grow);
+                        added += Math.max(0, grow);
+                    });
+                }
+            }
+            total = widths.reduce((a, b) => a + b, 0);
+            return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal >
+                    viewport };
+        }
+
+        function getStickyLeftOffset(list, widths, index) {
+            let left = 0;
+            for (let i = 0; i < index; i++) {
+                if (list[i].sticky) left += widths[i];
+            }
+            return left;
+        }
+
+        function applyAdaptiveRowSizing(count) {
+            let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+            let clamp = count <= 6 ? 3 : 4;
+            let x = count <= 6 ? 8 : 7;
+            let y = count <= 6 ? 10 : 11;
+            if (currentDensity === "comfortable") { row += 38;
+                clamp += 2;
+                y += 3; }
+            document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+            document.documentElement.style.setProperty("--title-clamp", String(clamp));
+            document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+            document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+        }
+
+        function applyExactColumnLayout(list) {
+            const layout = resolveColumnWidths(list);
+            const body = document.getElementById("standardsTable");
+            const head = document.querySelector(".sticky-head-table");
+            const bodyScroll = document.querySelector(".table-scroll");
+            const headScroll = document.getElementById("stickyTableHeadScroll");
+            const rendered = Math.max(layout.total, layout.viewport);
+            bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+            headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+            [body, head].forEach(t => {
+                if (!t) return;
+                t.style.width = rendered + "px";
+                t.style.minWidth = rendered + "px";
+                t.querySelector("colgroup")?.remove();
+                const cg = document.createElement("colgroup");
+                layout.widths.forEach(w => {
+                    const col = document.createElement("col");
+                    col.style.width = w + "px";
+                    cg.appendChild(col);
+                });
+                t.insertBefore(cg, t.firstChild);
+            });
+            return layout;
+        }
+
+        // ------------------------------------------------------------------
+        // RENDER TABLE
+        // ------------------------------------------------------------------
+        function renderTable(data) {
+            const q = searchInput.value.trim();
+            const list = getVisibleColumns();
+            const layout = applyExactColumnLayout(list);
+            applyAdaptiveRowSizing(list.length);
+            visibleColumnCount.textContent = list.length;
+            visibleCount.textContent = data.length;
+            tableHeadRow.innerHTML = "";
+            stickyTableHeadRow.innerHTML = "";
+            tableBody.innerHTML = "";
+
+            function thFor(c, i) {
+                const th = document.createElement("th");
+                th.textContent = sortState.key === c.key ? c.label + (sortState.direction === "asc" ? " ▲" : " ▼") : c
+                    .label;
+                th.style.width = layout.widths[i] + "px";
+                if (c.sticky && window.innerWidth > 900) {
+                    th.classList.add("sticky-col");
+                    th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+                }
+                if (c.sortable === false) th.classList.add("not-sortable");
+                else th.addEventListener("click", () => sortByColumn(c.key));
+                return th;
+            }
+            list.forEach((c, i) => {
+                tableHeadRow.appendChild(thFor(c, i));
+                stickyTableHeadRow.appendChild(thFor(c, i));
+            });
+
+            const frag = document.createDocumentFragment();
+            data.forEach(item => {
+                const tr = document.createElement("tr");
+                list.forEach((c, i) => {
+                    const td = document.createElement("td");
+                    const v = item[c.key] !== undefined ? item[c.key] : "—";
+                    td.style.width = layout.widths[i] + "px";
+                    if (c.sticky && window.innerWidth > 900) {
+                        td.classList.add("sticky-col");
+                        td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) +
+                        "px");
+                    }
+                    if (c.type === "media") {
+                        td.classList.add("media-cell");
+                        td.innerHTML = renderMediaCell(item);
+                    } else if (c.type === "id") {
+                        td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+                    } else if (c.type === "standard") {
+                        td.innerHTML =
+                            `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+                    } else if (c.type === "body") {
+                        td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+                    } else if (c.type === "family") {
+                        const a = Array.isArray(v) ? v : [v];
+                        td.innerHTML = a.map(x =>
+                            `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+                    } else if (c.type === "scope") {
+                        td.innerHTML = `<div class="title-cell scope-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+                    } else {
+                        td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+                    }
+                    tr.appendChild(td);
+                });
+                frag.appendChild(tr);
+            });
+            tableBody.appendChild(frag);
+            emptyState.style.display = data.length ? "none" : "block";
+        }
+
+        // ------------------------------------------------------------------
+        // DUPLICATE HANDLING
+        // ------------------------------------------------------------------
+        function getDuplicateGroups() {
+            const m = new Map();
+            standardsData.forEach(x => {
+                const k = normalizeDuplicateKey(x.standardCode);
+                if (!k) return;
+                if (!m.has(k)) m.set(k, []);
+                m.get(k).push(x);
+            });
+            return [...m.values()].filter(g => g.length > 1).sort((a, b) =>
+                a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true, sensitivity: "base" })
+            );
+        }
+
+        function updateDuplicateViewPill(gc, rc) {
+            if (!duplicateMode) {
+                duplicateModePill.classList.remove("show");
+                duplicateGroupsCount.textContent = "0";
+                duplicateRowsCount.textContent = "0";
+                return;
+            }
+            duplicateGroupsCount.textContent = gc;
+            duplicateRowsCount.textContent = rc;
+            duplicateModePill.classList.add("show");
+        }
+
+        function showDuplicateEntriesInTable() {
+            const groups = getDuplicateGroups();
+            const r = groups.flat();
+            duplicateMode = true;
+            duplicateBaseData = r;
+            searchInput.value = "";
+            familyFilter.value = "";
+            sortState = { key: null, direction: "asc" };
+            currentFilteredData = [...r];
+            updateDuplicateViewPill(groups.length, r.length);
+            duplicateCheckBtn.classList.add("active");
+            searchInput.placeholder = "Search within duplicate GOST entries...";
+            renderTable(currentFilteredData);
+        }
+
+        function hideDuplicateView() {
+            duplicateMode = false;
+            duplicateBaseData = [];
+            updateDuplicateViewPill(0, 0);
+            duplicateCheckBtn.classList.remove("active");
+            searchInput.placeholder =
+                "Search GOST standard, Russian or English title, Pradako ID, relation, group or product family...";
+        }
+
+        // ------------------------------------------------------------------
+        // SEARCH / FILTER / SORT
+        // ------------------------------------------------------------------
+        function searchStandards() {
+            const q = searchInput.value.trim().toLowerCase();
+            const f = familyFilter.value;
+            const src = duplicateMode ? duplicateBaseData : standardsData;
+            currentFilteredData = src.filter(item => {
+                const ms = !q || COLUMNS.some(c => {
+                    if (c.searchable === false) return false;
+                    const v = item[c.key];
+                    if (v == null) return false;
+                    if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+                    return String(v).toLowerCase().includes(q);
+                });
+                const mf = !f || item.productFamily.includes(f);
+                return ms && mf;
+            });
+            if (sortState.key) currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+            renderTable(currentFilteredData);
+        }
+
+        function clearSearch() {
+            searchInput.value = "";
+            familyFilter.value = "";
+            sortState = { key: null, direction: "asc" };
+            hideDuplicateView();
+            currentFilteredData = [...standardsData];
+            renderTable(currentFilteredData);
+        }
+
+        function sortData(data, key, direction) {
+            return [...data].sort((a, b) => {
+                let A = a[key],
+                    B = b[key];
+                if (Array.isArray(A)) A = A.join(", ");
+                if (Array.isArray(B)) B = B.join(", ");
+                A = String(A ?? "").toLowerCase();
+                B = String(B ?? "").toLowerCase();
+                return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+            });
+        }
+
+        function sortByColumn(key) {
+            const c = COLUMNS.find(x => x.key === key);
+            if (!c || c.sortable === false) return;
+            if (sortState.key === key) {
+                sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+            } else {
+                sortState = { key, direction: "asc" };
+            }
+            currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+            renderTable(currentFilteredData);
+        }
+
+        // ------------------------------------------------------------------
+        // MODAL CONTROLS
+        // ------------------------------------------------------------------
+        function openExportPopup() {
+            exportModal.classList.add("show");
+            document.body.style.overflow = "hidden";
+            copyStatus.classList.remove("show");
+        }
+
+        function closeExportPopup() {
+            exportModal.classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+        function copyEmail() {
+            const e = "info@pradakomechanicals.com";
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+            } else {
+                const t = document.createElement("textarea");
+                t.value = e;
+                t.style.position = "fixed";
+                t.style.left = "-9999px";
+                document.body.appendChild(t);
+                t.select();
+                try {
+                    document.execCommand("copy");
+                    copyStatus.classList.add("show");
+                } catch (_) {
+                    copyStatus.textContent = "Please copy manually: " + e;
+                    copyStatus.classList.add("show");
+                }
+                t.remove();
+            }
+        }
+
+        function openImagePreview(src, alt, title) {
+            imagePreviewImg.src = src;
+            imagePreviewImg.alt = alt;
+            imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+            imagePreviewModal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeImagePreview() {
+            imagePreviewModal.classList.remove("show");
+            imagePreviewImg.src = "";
+            document.body.style.overflow = "";
+        }
+
+        // ------------------------------------------------------------------
+        // SYNC SCROLL
+        // ------------------------------------------------------------------
+        function syncScroll() {
+            const b = document.querySelector(".table-scroll");
+            const h = document.getElementById("stickyTableHeadScroll");
+            let syncing = false;
+
+            const sync = (from, to) => {
+                if (syncing) return;
+                syncing = true;
+                to.scrollLeft = from.scrollLeft;
+                syncing = false;
+            };
+            b.addEventListener("scroll", () => sync(b, h), { passive: true });
+            h.addEventListener("scroll", () => sync(h, b), { passive: true });
+        }
+
+        // ------------------------------------------------------------------
+        // EVENT BINDING
+        // ------------------------------------------------------------------
+        searchInput.addEventListener("input", () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(searchStandards, 160);
+        });
+        familyFilter.addEventListener("change", searchStandards);
+
+        tableBody.addEventListener("click", e => {
+            const box = e.target.closest(".media-card");
+            if (box) openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+        });
+
+        exportModal.addEventListener("click", e => {
+            if (e.target === exportModal) closeExportPopup();
+        });
+        imagePreviewModal.addEventListener("click", e => {
+            if (e.target === imagePreviewModal) closeImagePreview();
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") {
+                closeExportPopup();
+                closeImagePreview();
+            }
+        });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+        });
+
+        // ------------------------------------------------------------------
+        // INIT
+        // ------------------------------------------------------------------
+        function init() {
+            try {
+                if (localStorage.getItem("pradakoGostDensity") === "comfortable") currentDensity = "comfortable";
+            } catch (_) {}
+            document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+            document.body.classList.toggle("density-compact", currentDensity === "compact");
+            document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+            document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+            totalCount.textContent = standardsData.length;
+            pageCount.textContent = standardsData.length;
+            buildFamilyFilter();
+            buildViewPanel();
+            renderTable(currentFilteredData);
+            syncScroll();
+        }
+
+        // ------------------------------------------------------------------
+        // EXPOSE GLOBALS
+        // ------------------------------------------------------------------
+        window.searchStandards = searchStandards;
+        window.clearSearch = clearSearch;
+        window.toggleViewPanel = toggleViewPanel;
+        window.setDensity = setDensity;
+        window.applyViewPreset = applyViewPreset;
+        window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+        window.openExportPopup = openExportPopup;
+        window.closeExportPopup = closeExportPopup;
+        window.copyEmail = copyEmail;
+        window.openImagePreview = openImagePreview;
+        window.closeImagePreview = closeImagePreview;
+
+        // ------------------------------------------------------------------
+        // BOOT
+        // ------------------------------------------------------------------
+        init();
+
+        // ------------------------------------------------------------------
+        // BACK TO TOP
+        // ------------------------------------------------------------------
+        (function() {
+            const button = document.getElementById("pradakoBackToTop");
+            if (!button) return;
+            const update = () => {
+                const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                button.classList.toggle("is-visible", y > 300);
+            };
+            button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+            window.addEventListener("scroll", update, { passive: true });
+            update();
+        })();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

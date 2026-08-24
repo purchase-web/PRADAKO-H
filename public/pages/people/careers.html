@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Pradako Mechanical & Engineering Works</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root{
+  --pc-white:#ffffff;--pc-off:#f4f2ef;--pc-ink:#111214;
+  --pc-muted:#666970;--pc-line:#dedfdf;
+  --pc-red:#B32431;--pc-red-deep:#8F1C27;--pc-red-darkest:#7E1A23;--pc-wine:#5C1016;--pc-red-soft:#f8ecec;
+  --pc-d:"Montserrat",Arial,sans-serif;--pc-b:"Space Grotesk",Arial,sans-serif;
+  --pc-max:1480px;--pc-e:cubic-bezier(.2,.8,.2,1);
+}
+.pmew-cr *{margin:0;padding:0;box-sizing:border-box}
+.pmew-cr{background:var(--pc-white);color:#33363c;font-family:var(--pc-b);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.pmew-cr ::selection{background:var(--pc-red);color:#fff}
+.pmew-cr a{color:inherit;text-decoration:none}
+.cr-wrap{max-width:var(--pc-max);margin:0 auto;padding:0 clamp(22px,4vw,64px)}
+.cr-sec{padding:clamp(76px,8.5vw,120px) 0;position:relative}
+.cr-eyebrow{font-family:var(--pc-d);font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--pc-red);display:inline-flex;align-items:center;gap:14px;margin-bottom:24px}
+.cr-eyebrow::before{content:"";width:26px;height:3px;background:var(--pc-red);border-radius:2px}
+.cr-h{font-family:var(--pc-d);font-weight:900;letter-spacing:-.03em;line-height:.97;text-transform:uppercase;color:var(--pc-ink)}
+.cr-h .r{color:var(--pc-red)}
+.cr-h-lg{font-size:clamp(30px,4.2vw,58px)}
+.cr-lead{font-size:clamp(16px,1.3vw,18.5px);color:var(--pc-muted);max-width:840px;line-height:1.75;margin-top:24px}
+#cr-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--pc-red);z-index:400;transition:width .08s linear}
+.cr-paper{background:var(--pc-off);border-top:1px solid var(--pc-line);border-bottom:1px solid var(--pc-line)}
+.cr-btn{font-family:var(--pc-d);font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:800;padding:17px 32px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--pc-e),background .16s,color .16s,box-shadow .16s}
+.cr-btn--red{background:var(--pc-red);color:#fff;border-color:var(--pc-red)}
+.cr-btn--red:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(179,36,49,.4)}
+.cr-btn--glass{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);color:#fff;backdrop-filter:blur(10px)}
+.cr-btn--glass:hover{background:rgba(255,255,255,.22);transform:translateY(-3px)}
+.cr-btn--line{background:transparent;border-color:var(--pc-line);color:var(--pc-ink)}
+.cr-btn--line:hover{border-color:var(--pc-ink);transform:translateY(-3px)}
+.cr-btn--white{background:#fff;color:var(--pc-red-darkest);border-color:#fff}
+.cr-btn--white:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.25)}
+
+/* HERO — kinetic ink typographic */
+.cr-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--pc-red-darkest)}
+.cr-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 90% 80% at 30% 30%,#000,transparent 78%)}
+.cr-hero__bolt{position:absolute;right:-6vw;top:-10vh;width:56vw;height:120vh;pointer-events:none;opacity:.5}
+.cr-hero__scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);animation:cr-scan 7s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes cr-scan{0%{top:8%}50%{top:88%}100%{top:8%}}
+.cr-hero .cr-wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(56px,7vw,100px)}
+.cr-hero__kicker{font-family:var(--pc-d);font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:800;color:#fff;opacity:.9;margin-bottom:20px}
+.cr-hero h1{font-family:var(--pc-d);font-weight:900;text-transform:uppercase;letter-spacing:-.028em;line-height:.92;font-size:clamp(42px,7vw,104px);color:#fff;max-width:14ch}
+.cr-hero h1 .r{color:#ffb3ba}
+.cr-hero h1 .ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55)}
+.cr-hero__sub{margin-top:24px;font-size:clamp(15px,1.35vw,18px);color:rgba(255,255,255,.85);max-width:640px}
+.cr-hero__actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.cr-hero__stats{display:flex;gap:clamp(24px,4vw,64px);margin-top:52px;flex-wrap:wrap}
+.cr-hstat b{display:block;font-family:var(--pc-d);font-weight:900;font-size:clamp(26px,3vw,44px);color:#fff;letter-spacing:-.02em}
+.cr-hstat b i{font-style:normal;color:#ffb3ba}
+.cr-hstat span{font-family:var(--pc-d);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.6)}
+
+/* role accordions */
+.cr-roles{margin-top:52px;border:1.5px solid var(--pc-line);border-radius:20px;overflow:hidden;background:var(--pc-white)}
+.cr-role{border-bottom:1.5px solid var(--pc-line)}
+.cr-role:last-child{border-bottom:none}
+.cr-role.open{background:var(--pc-off)}
+.cr-roleq{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px clamp(20px,3vw,34px);display:grid;grid-template-columns:56px 1fr auto 34px;gap:18px;align-items:center}
+@media(max-width:760px){.cr-roleq{grid-template-columns:1fr 30px}}
+.cr-roleq .no{font-family:var(--pc-d);font-weight:900;font-size:13px;letter-spacing:.06em;color:var(--pc-red)}
+@media(max-width:760px){.cr-roleq .no,.cr-roleq .meta{display:none}}
+.cr-roleq h3{font-family:var(--pc-d);font-weight:900;text-transform:uppercase;font-size:clamp(16px,1.7vw,22px);color:var(--pc-ink);letter-spacing:-.005em;line-height:1.15}
+.cr-roleq .meta{font-family:var(--pc-d);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--pc-muted);text-align:right;line-height:1.7}
+.cr-roleq .ic{width:32px;height:32px;border-radius:50%;background:var(--pc-off);border:1.5px solid var(--pc-line);display:flex;align-items:center;justify-content:center;color:var(--pc-ink);font-size:18px;transition:transform .22s var(--pc-e),background .16s,border-color .16s,color .16s}
+.cr-role.open .cr-roleq .ic{transform:rotate(135deg);background:var(--pc-red);border-color:var(--pc-red);color:#fff}
+.cr-rolea{max-height:0;overflow:hidden;transition:max-height .35s var(--pc-e)}
+.cr-rolea__in{padding:6px clamp(20px,3vw,34px) 34px}
+.cr-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:980px){.cr-facts{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cr-facts{grid-template-columns:1fr}}
+.cr-fact{background:var(--pc-white);border:1.5px solid var(--pc-line);border-radius:12px;padding:14px 16px}
+.cr-role.open .cr-fact{background:var(--pc-white)}
+.cr-fact b{display:block;font-family:var(--pc-d);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--pc-red);margin-bottom:5px}
+.cr-fact span{font-size:13px;color:#3f434a;line-height:1.5;display:block}
+.cr-jd h5{font-family:var(--pc-d);font-weight:800;text-transform:uppercase;font-size:13.5px;letter-spacing:.06em;color:var(--pc-ink);margin:22px 0 10px}
+.cr-jd p{font-size:14.5px;color:#3f434a;line-height:1.75;margin-bottom:10px;max-width:900px}
+.cr-jd ul{margin:0 0 12px;padding-left:0;list-style:none}
+.cr-jd li{position:relative;padding:5px 0 5px 26px;font-size:14px;color:#3f434a;line-height:1.65;max-width:880px}
+.cr-jd li::before{content:"";position:absolute;left:2px;top:13px;width:12px;height:2.5px;background:var(--pc-red);border-radius:2px}
+.cr-role__apply{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.cr-role__apply small{font-size:12.5px;color:var(--pc-muted)}
+
+/* statement strip */
+.cr-strip{background:var(--pc-red-deep);padding:clamp(70px,9vw,120px) 0;overflow:hidden}
+.cr-strip h2{font-family:var(--pc-d);font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:.96;font-size:clamp(32px,5.4vw,80px);color:#fff;max-width:18ch}
+.cr-strip h2 .r{color:#ffb3ba}
+.cr-strip h2 .ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.5)}
+.cr-strip p{margin-top:22px;color:rgba(255,255,255,.78);font-size:clamp(15px,1.3vw,18px);max-width:720px}
+
+
+/* CANDIDATE APPLICATION FORM */
+.cr-application{background:var(--pc-white)}
+.cr-application__shell{margin-top:52px;display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.42fr);border:1.5px solid var(--pc-line);border-radius:28px;overflow:hidden;background:var(--pc-white)}
+.cr-application__intro{position:relative;background:var(--pc-red-darkest);color:#fff;padding:clamp(34px,4.2vw,64px);overflow:hidden}
+.cr-application__intro::after{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(255,255,255,.16);border-radius:50%;right:-190px;bottom:-180px}
+.cr-application__intro .cr-eyebrow{color:#ffb3ba;margin-bottom:22px}
+.cr-application__intro .cr-eyebrow::before{background:#ffb3ba}
+.cr-application__intro h3{font-family:var(--pc-d);font-size:clamp(28px,3vw,48px);line-height:1;text-transform:uppercase;letter-spacing:-.03em;font-weight:900;max-width:10ch}
+.cr-application__intro>p{margin-top:22px;color:rgba(255,255,255,.8);font-size:15px;line-height:1.75;max-width:480px}
+.cr-app-steps{margin-top:38px;display:grid;gap:18px;position:relative;z-index:1}
+.cr-app-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+.cr-app-step b{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-family:var(--pc-d);font-size:12px;letter-spacing:.05em}
+.cr-app-step strong{display:block;font-family:var(--pc-d);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:2px 0 4px}
+.cr-app-step span{display:block;color:rgba(255,255,255,.66);font-size:13px;line-height:1.55}
+.cr-app-contact{margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:rgba(255,255,255,.72);position:relative;z-index:1}
+.cr-app-contact a{color:#fff;font-weight:700}
+.cr-application__form{padding:clamp(30px,4.2vw,64px)}
+.cr-form-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:30px}
+.cr-form-top h3{font-family:var(--pc-d);font-size:clamp(22px,2.4vw,34px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;color:var(--pc-ink);line-height:1.05}
+.cr-form-top p{font-size:12.5px;color:var(--pc-muted);max-width:280px;text-align:right;line-height:1.55}
+.cr-required{color:var(--pc-red);font-weight:800}
+.cr-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.cr-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cr-field--full{grid-column:1/-1}
+.cr-field label,.cr-field legend{font-family:var(--pc-d);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--pc-ink)}
+.cr-field input,.cr-field select,.cr-field textarea{width:100%;border:1.5px solid var(--pc-line);border-radius:12px;background:#fff;color:var(--pc-ink);font:500 14px/1.5 var(--pc-b);padding:15px 16px;outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
+.cr-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--pc-muted) 50%),linear-gradient(135deg,var(--pc-muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:42px}
+.cr-field textarea{min-height:138px;resize:vertical}
+.cr-field input:focus,.cr-field select:focus,.cr-field textarea:focus{border-color:var(--pc-red);box-shadow:0 0 0 4px rgba(179,36,49,.09)}
+.cr-field input::placeholder,.cr-field textarea::placeholder{color:#999da3}
+.cr-field small{font-size:11.5px;color:var(--pc-muted);line-height:1.5}
+.cr-phone-row{display:grid;grid-template-columns:118px 1fr;gap:10px}
+.cr-file{position:relative;border:1.5px dashed #bfc1c5;border-radius:14px;background:var(--pc-off);padding:18px;transition:border-color .16s,background .16s}
+.cr-file:hover{border-color:var(--pc-red);background:var(--pc-red-soft)}
+.cr-file input[type="file"]{padding:0;border:0;background:transparent;border-radius:0;box-shadow:none;font-size:13px}
+.cr-file input[type="file"]::file-selector-button{font-family:var(--pc-d);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;border:0;border-radius:30px;background:var(--pc-ink);color:#fff;padding:10px 15px;margin-right:12px;cursor:pointer}
+.cr-file-name{display:block;margin-top:8px;color:var(--pc-red);font-size:11.5px;font-weight:700}
+.cr-consent{grid-column:1/-1;display:flex;align-items:flex-start;gap:12px;border-top:1px solid var(--pc-line);padding-top:22px;margin-top:2px}
+.cr-consent input{width:18px;height:18px;accent-color:var(--pc-red);margin-top:3px;flex:0 0 auto}
+.cr-consent label{font-size:12.5px;color:#565a61;line-height:1.65}
+.cr-consent a{color:var(--pc-red);font-weight:700;text-decoration:underline}
+.cr-form-actions{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:2px}
+.cr-form-actions .cr-btn{min-width:220px;justify-content:center}
+.cr-form-actions .cr-btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.cr-form-actions p{font-size:11.5px;color:var(--pc-muted);line-height:1.55;max-width:390px}
+.cr-form-status{display:none;grid-column:1/-1;border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.55;font-weight:600}
+.cr-form-status.is-visible{display:block}
+.cr-form-status.is-success{background:#edf8f0;color:#216e39;border:1px solid #b8dfc1}
+.cr-form-status.is-error{background:var(--pc-red-soft);color:var(--pc-red-darkest);border:1px solid #e7bfc3}
+.cr-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@media(max-width:980px){
+  .cr-application__shell{grid-template-columns:1fr}
+  .cr-application__intro h3{max-width:15ch}
+}
+@media(max-width:680px){
+  .cr-form-grid{grid-template-columns:1fr}
+  .cr-field--full,.cr-consent,.cr-form-actions,.cr-form-status{grid-column:auto}
+  .cr-form-top{display:block}
+  .cr-form-top p{text-align:left;margin-top:10px}
+  .cr-phone-row{grid-template-columns:104px 1fr}
+  .cr-application__shell{border-radius:20px}
+}
+
+/* FAQ */
+.cr-faq{margin-top:52px;border:1.5px solid var(--pc-line);border-radius:20px;overflow:hidden}
+.cr-fq{border-bottom:1.5px solid var(--pc-line);background:var(--pc-white)}
+.cr-fq:last-child{border-bottom:none}
+.cr-fq.open{background:var(--pc-off)}
+.cr-fqq{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px clamp(20px,3vw,32px);font-family:var(--pc-d);font-size:clamp(15px,1.45vw,19px);font-weight:800;color:var(--pc-ink);display:flex;justify-content:space-between;align-items:center;gap:16px;line-height:1.3}
+.cr-fqq .ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--pc-off);border:1.5px solid var(--pc-line);display:flex;align-items:center;justify-content:center;font-size:17px;transition:transform .22s var(--pc-e),background .16s,border-color .16s,color .16s}
+.cr-fq.open .cr-fqq .ic{transform:rotate(135deg);background:var(--pc-red);border-color:var(--pc-red);color:#fff}
+.cr-fqa{max-height:0;overflow:hidden;transition:max-height .3s var(--pc-e)}
+.cr-fqa p{padding:0 clamp(20px,3vw,32px) 26px;font-size:14.5px;color:#3f434a;line-height:1.75;max-width:860px}
+.cr-fqa a{color:var(--pc-red);font-weight:600}
+
+/* FRAUD */
+.cr-fraud{background:var(--pc-wine);color:#e8d3d5}
+.cr-fraud .cr-eyebrow{color:#ff8d96}.cr-fraud .cr-eyebrow::before{background:#ff8d96}
+.cr-fraud .cr-h{color:#fff}.cr-fraud .cr-h .r{color:#ffb3ba}
+.cr-fraud__alert{margin-top:44px;border:2px solid rgba(255,255,255,.55);border-radius:20px;background:rgba(0,0,0,.22);padding:clamp(26px,3.4vw,44px)}
+.cr-fraud__alert .tag{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--pc-wine);font-family:var(--pc-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:900;border-radius:30px;padding:9px 18px;margin-bottom:20px}
+.cr-fraud__alert p{font-size:15px;line-height:1.8;color:rgba(255,255,255,.88);margin-bottom:14px;max-width:960px}
+.cr-fraud__alert p b{color:#fff}
+.cr-fraud h4{font-family:var(--pc-d);font-weight:900;text-transform:uppercase;font-size:clamp(17px,1.8vw,24px);color:#fff;margin:40px 0 18px;letter-spacing:-.005em}
+.cr-doc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1080px){.cr-doc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.cr-doc-grid{grid-template-columns:1fr 1fr}}
+.cr-doc{border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 15px;font-family:var(--pc-d);font-size:12.5px;font-weight:700;color:rgba(255,255,255,.86);line-height:1.4;transition:border-color .15s}
+.cr-doc:hover{border-color:#fff}
+.cr-fraud__note{margin-top:22px;font-size:14px;color:rgba(255,255,255,.72);max-width:920px;line-height:1.75}
+.cr-report{margin-top:44px;border:1.5px solid rgba(255,255,255,.2);border-radius:20px;padding:clamp(26px,3.4vw,44px);background:rgba(255,255,255,.04)}
+.cr-report h4{margin-top:0}
+.cr-report ul{list-style:none;margin:16px 0 22px;display:grid;grid-template-columns:1fr 1fr;gap:8px 30px}
+@media(max-width:820px){.cr-report ul{grid-template-columns:1fr}}
+.cr-report li{position:relative;padding:4px 0 4px 26px;font-size:14px;color:rgba(255,255,255,.82);line-height:1.6}
+.cr-report li::before{content:"⚠";position:absolute;left:0;top:4px;color:#ffb3ba;font-size:13px}
+.cr-report__mail{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--pc-wine);font-family:var(--pc-d);font-weight:800;font-size:clamp(13px,1.4vw,17px);letter-spacing:.02em;border-radius:50px;padding:16px 28px;transition:transform .16s var(--pc-e),box-shadow .16s}
+.cr-report__mail:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.cr-legal{margin-top:30px;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.7;max-width:960px}
+
+/* CTA */
+.cr-cta{background:var(--pc-red-darkest);position:relative;overflow:hidden;min-height:80svh;display:flex;align-items:center;text-align:center}
+.cr-cta::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.1) 1.4px,transparent 1.4px);background-size:30px 30px;mask-image:radial-gradient(ellipse 70% 70% at 50% 45%,#000,transparent 74%)}
+.cr-cta .ring{position:absolute;width:460px;height:460px;border:3px solid rgba(255,255,255,.12);border-radius:50%;right:-120px;top:-120px;animation:cr-spin 50s linear infinite}
+@keyframes cr-spin{to{transform:rotate(360deg)}}
+.cr-cta .cr-wrap{position:relative;z-index:2;width:100%}
+.cr-cta h2{font-family:var(--pc-d);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.94;font-size:clamp(36px,6vw,88px);color:#fff}
+.cr-cta p{margin:24px auto 0;font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.9);max-width:660px}
+.cr-cta__actions{display:flex;gap:16px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+
+.cr-rv{opacity:0;transform:translateY(24px);transition:opacity .55s var(--pc-e),transform .55s var(--pc-e)}
+.cr-rv.is-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .cr-rv{opacity:1;transform:none;transition:none}
+  .cr-hero__scan{animation:none}.cr-cta .ring{animation:none}
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Careers — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/people/careers.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Careers — Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Careers — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/people/careers.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Careers — Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Careers — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Careers — Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/people/careers.html",
+  "description": "Careers — Pradako Mechanical & Engineering Works from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+<div id="cr-progress"></div>
+<div id="navbar-container"></div>
+
+<!-- HERO -->
+<header class="cr-hero" id="top">
+  <div class="cr-hero__grid"></div>
+  <svg class="cr-hero__bolt" viewBox="0 0 400 900" fill="none" stroke="rgba(255,182,188,.55)" stroke-width="1.4" aria-hidden="true">
+    <g stroke="rgba(255,255,255,.16)">
+      <path d="M80 40 L320 40 L360 110 L320 180 L80 180 L40 110 Z"/>
+      <circle cx="200" cy="110" r="34"/>
+    </g>
+    <path d="M140 260 h120 v40 h-120 z M150 300 v420 c0 0 -8 22 10 22 h80 c18 0 10 -22 10 -22 v-420"/>
+    <path d="M150 340 h100 M150 380 h100 M150 420 h100 M150 460 h100 M150 500 h100 M150 540 h100 M150 580 h100 M150 620 h100 M150 660 h100 M150 700 h100" stroke="rgba(255,182,188,.4)"/>
+  </svg>
+  <div class="cr-hero__scan"></div>
+  <div class="cr-wrap">
+    <div class="cr-hero__kicker">Careers at Pradako Mechanical &amp; Engineering Works</div>
+    <h1>Build what holds the <span class="r">world</span> <span class="ghost">together.</span></h1>
+    <p class="cr-hero__sub">Every machine, vehicle, structure and system depends on fasteners that cannot fail. Since 1960, the people of Pradako have engineered that reliability. Bring your capability — and build a career on it.</p>
+    <div class="cr-hero__actions">
+      <a href="#current" class="cr-btn cr-btn--red">View Current Openings</a>
+      <a href="#spontaneous" class="cr-btn cr-btn--glass">Spontaneous Application</a>
+      <a href="#faqs" class="cr-btn cr-btn--glass">Candidate FAQs</a>
+    </div>
+    <div class="cr-hero__stats">
+      <div class="cr-hstat"><b>60<i>+</i></b><span>Years of manufacturing</span></div>
+      <div class="cr-hstat"><b>5</b><span>Open positions</span></div>
+      <div class="cr-hstat"><b>17<i>+</i></b><span>Functions accepting applications</span></div>
+      <div class="cr-hstat"><b>6</b><span>Continents served</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- TALENT INTRO SLOT: awaiting ATTRACTING DEVELOPING MANAGING TALENT content -->
+<!-- PMEW_TALENT_SECTION_PLACEHOLDER -->
+
+<!-- CURRENT OPPORTUNITIES -->
+<section class="cr-sec" id="current">
+  <div class="cr-wrap">
+    <div class="cr-eyebrow cr-rv">Current opportunities · Open now</div>
+    <h2 class="cr-h cr-h-lg cr-rv">Roles we are hiring for<br><span class="r">right now.</span></h2>
+    <p class="cr-lead cr-rv">These positions are actively open. Review the full role description, and apply by email with the position title in the subject line.</p>
+    <div class="cr-roles cr-rv" id="rolesCurrent"><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">01</span><h3>International Marketing Manager</h3><span class="meta">International Business Development / Marketi</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>International Business Development / Marketing</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate/Postgraduate in Marketing / International Trade / Engineering</span></div><div class="cr-fact"><b>Experience</b><span>7–15 years in international B2B industrial marketing and client coordination</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Engineering Components, Automotive, Export Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, we are committed to expanding our global footprint by delivering world-class fasteners and engineering solutions. We are seeking an experienced and globally-oriented International Marketing Manager to drive business growth across North America, Europe, Australia, and other key global markets.</p><p>This role demands a strategic thinker and a hands-on executor who can engage across time zones, build strong overseas relationships, represent the company at global exhibitions, and convert international opportunities into long-term partnerships.</p><h5>Key Responsibilities</h5><h5>Global Market Development</h5><ul><li>Identify and develop new markets, OEMs, distributors, and importers in North America, Europe, Australia, and the Middle East.</li></ul><ul><li>Conduct competitive market analysis and define entry strategies for different regions.</li></ul><h5>Client &amp; Partner Engagement</h5><ul><li>Handle direct communication with international customers across varying time zones—must be flexible with working hours.</li></ul><ul><li>Build strong business relationships through calls, emails, video conferences, and occasional in-person meetings.</li></ul><h5>Exhibitions &amp; Overseas Travel</h5><ul><li>Represent Pradako at global trade shows such as Fastener Fair Stuttgart, Fastener Poland, Fastener Expo USA, etc.</li></ul><ul><li>Prepare product displays, catalogues, and samples; manage booths and conduct lead follow-ups post-events.</li></ul><ul><li>Maintain a record of countries visited, exhibitions attended, and expand networking continuously.</li></ul><h5>Marketing Strategy &amp; Content</h5><ul><li>Collaborate with the design and content teams to develop region-specific marketing collateral, presentations, and product pitches.</li></ul><ul><li>Align product positioning and pricing strategy with regional demand and compliance norms.</li></ul><h5>Sales Coordination &amp; Export Interface</h5><ul><li>Work closely with export documentation, production, and dispatch teams to ensure order execution.</li></ul><ul><li>Provide clear customer requirements, forecast inputs, and product specification updates.</li></ul><h5>Eligibility &amp; Requirements</h5><ul><li>Valid Passport is mandatory. Must be comfortable with frequent international travel.</li></ul><ul><li>Previous visa history (especially Schengen, USA, UK, Australia) will be an added advantage.</li></ul><ul><li>Should be flexible with working hours to coordinate across time zones.</li></ul><ul><li>Must demonstrate cultural sensitivity and adaptability in international communication.</li></ul><h5>Preferred Skills</h5><ul><li>Strong communication, negotiation, and presentation abilities.</li></ul><ul><li>Proven record of international B2B marketing success in manufacturing or engineering.</li></ul><ul><li>Experience with CRM tools, lead generation platforms, and digital marketing support is preferred.</li></ul><ul><li>Find, engage, and convert global prospects into loyal customers.</li></ul></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">02</span><h3>Marketing Manager</h3><span class="meta">Marketing / OEM Sales</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Marketing / OEM Sales</span></div><div class="cr-fact"><b>Qualification</b><span>B.E. / B.Tech in Mechanical Engineering/MBA (Marketing)</span></div><div class="cr-fact"><b>Experience</b><span>5 years</span></div><div class="cr-fact"><b>Industry</b><span>Automotive Components, OEMs &amp; Aftermarket Solutions</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Roles &amp; Responsibilities</h5><h5>Key Account Management (OEM Sales)</h5><ul><li>Lead strategic sales growth across North India by identifying high-potential OEMs, analyzing competitor activity, and aligning product offerings with customer needs.</li></ul><ul><li>Work closely with engineering and technical support teams to deliver customized solutions and integrate new programs seamlessly.</li></ul><ul><li>Present clear and compelling value propositions that reflect Pradako’s capabilities in precision fasteners, advanced coatings, and engineered assemblies.</li></ul><ul><li>Own the sales cycle—RFQ to negotiation to order finalization—with an emphasis on technical and commercial balance.</li></ul><ul><li>Facilitate customer trials, validation procedures, and product approvals while ensuring compliance with industry-specific standards.</li></ul><ul><li>Maintain strong program-level visibility by coordinating closely with planning, production, and logistics teams for on-time execution and delivery.</li></ul><ul><li>Foster deep, enduring customer relationships at all levels—from engineering to procurement and top management.</li></ul><ul><li>Manage customer expectations and ensure timely payments, seamless order flow, and efficient warehouse coordination.</li></ul><h5>Aftermarket Sales &amp; Channel Development</h5><ul><li>Strengthen and expand our aftermarket network by onboarding and managing financially sound dealers, distributors, and channel partners.</li></ul><ul><li>Drive market penetration by mapping regional potential and aligning sales strategies to maximize reach, revenue, and performance.</li></ul><ul><li>Develop training, engagement, and performance improvement programs for channel partners to boost efficiency and achieve sales targets.</li></ul><ul><li>Revitalize underperforming territories with structured interventions and tailored channel support.</li></ul><ul><li>Monitor sales performance metrics and continuously realign territory and partner strategies for optimal results.</li></ul><ul><li>Collaborate with zonal and regional teams for market feedback, pricing intelligence, and continuous strategic alignment.</li></ul><ul><li>Ensure alignment of channel performance with Pradako’s long-term brand and business objectives.</li></ul></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">03</span><h3>Accounts-Export Documentation</h3><span class="meta">International Business / Exports</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>International Business / Exports</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate or Postgraduate in Commerce / International Trade / Supply Chain Management</span></div><div class="cr-fact"><b>Experience</b><span>3–7 years of relevant experience in export documentation, preferably in engineering goods or fastener industry</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Fasteners, Automotive, Industrial Hardware Exports</span></div><div class="cr-fact"><b>Location</b><span>Mumbai (Head Office)</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, we take pride in delivering precision-engineered fasteners across global markets. We are seeking a meticulous and proactive Export Documentation Executive to handle all export-related documentation, compliance, and coordination activities.</p><p>This role is essential to ensure smooth international shipments, regulatory compliance, and customer satisfaction across borders.</p><h5>Roles &amp; Responsibilities</h5><h5>Export Documentation &amp; Compliance</h5><p>Prepare and verify all pre-shipment and post-shipment documentation including commercial invoices, packing lists, certificates of origin, bill of lading, inspection certificates, and other statutory export documents.</p><p>Coordinate with customs, freight forwarders, CHA (Custom House Agents), and shipping lines to ensure timely clearance and dispatch of export consignments.</p><p>Ensure documentation adheres to international trade regulations (DGFT, FEMA, Incoterms, CBAM, etc.) and country-specific compliance requirements.</p><p>Handle online documentation through government portals like ICEGATE, DGFT, SEZ Online, etc.</p><h5>Customer &amp; Interdepartmental Coordination</h5><p>Work closely with the production, dispatch, quality, and logistics teams to ensure timely order readiness and accurate shipment execution.</p><p>Liaise with international customers and banks for LC (Letter of Credit), advance payments, BL release, and document submissions.</p><p>Maintain clear communication with overseas buyers on shipment status, documentation accuracy, and feedback resolution.</p><h5>Logistics &amp; Cost Management</h5><p>Optimize shipping routes and select appropriate modes of transport (sea/air/road) based on order specifications, deadlines, and cost efficiency.</p><p>Negotiate freight rates and monitor logistics KPIs to ensure timely deliveries and cost control.</p><h5>Records &amp; Reporting</h5><p>Maintain up-to-date export records, including shipment tracking, bank documentation, and customs filing.</p><p>Assist in monthly MIS reporting for export volumes, region-wise sales, and documentation efficiency.</p><p>Support in external and internal audits (ISO, IATF, CBAM, etc.) by providing accurate export documentation and traceability.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">04</span><h3>Admin Executive / Assistant</h3><span class="meta">Administration / Facility Management</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Administration / Facility Management</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate in any discipline (Degree/Diploma in Administration preferred)</span></div><div class="cr-fact"><b>Experience</b><span>0-1 years in administration.</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Manufacturing, Fasteners, Automotive</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Key Responsibilities</h5><h5>Facility &amp; Office Administration</h5><h5>Oversee day-to-day office operations In Office</h5><p>Ensure all infrastructure such as lighting, HVAC, restrooms, and cafeteria are functioning optimally.</p><p>Handle utility bills, AMC renewals, waste disposal coordination, and building maintenance.</p><h5>Vendor &amp; Asset Management</h5><p>Coordinate with service providers and vendors for stationery, housekeeping supplies, PPE and printing materials.</p><p>Manage company assets such as furniture, electronics, stationery, uniforms, etc., and ensure inventory control.</p><p>Ensure timely service and repairs through third-party vendors.</p><p>Coordinate travel and accommodation for visitors, employees, or audit teams.</p><p>Maintain administrative records, gate passes, ID cards, and visitor logs.</p><p>Ensure all notice boards, safety signage, and statutory displays are up to date as per factory norms.</p><h5>Event &amp; Audit Support</h5><p>Assist in organizing safety drills, health camps, townhalls, and official events.</p><p>Support internal audits, HR inspections, and statutory compliance visits by ensuring administrative documentation is complete and verifiable.</p><h5>Communication &amp; Coordination</h5><p>Act as a bridge between the plant floor and senior management for admin-related needs.</p><p>Ensure administrative policies and procedures are followed consistently by employees and contract staff.</p><h5>Preferred Skills</h5><p>Proficiency in MS Office and basic record-keeping.</p><p>Excellent organizational, coordination, and communication skills.</p><p>Experience managing support staff teams is preferred.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">05</span><h3>Quality Engineer – Construction Fasteners</h3><span class="meta">Quality Assurance – Structural &amp; Constructio</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Quality Assurance – Structural &amp; Construction Fasteners</span></div><div class="cr-fact"><b>Qualification</b><span>B.E. / B.Tech – Mechanical / Industrial / Production Engineering</span></div><div class="cr-fact"><b>Experience</b><span>5–10 years in quality control related to construction fasteners</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Fasteners, Structural Steel, Construction &amp; Infrastructure</span></div><div class="cr-fact"><b>Location</b><span>Faridabad</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, we serve critical infrastructure sectors where safety, compliance, and traceability are non-negotiable. We are looking for a Quality Engineer with specialized experience in construction fasteners and a thorough understanding of EN 14399, EN 15048, and EN 14592 standards.</p><p>This role demands technical accuracy, compliance-focused execution, and cross-functional coordination to ensure that all products manufactured for structural and timber applications meet the most stringent European quality standards.</p><h5>Roles &amp; Responsibilities</h5><h5>Product &amp; Process Quality Oversight</h5><p>Monitor and verify quality across the manufacturing lifecycle of:</p><h5>High-strength structural bolts, nuts, and washers (EN 14399)</h5><h5>Non-preloaded structural fasteners (EN 15048)</h5><h5>Timber screws and connections (EN 14592)</h5><p>Ensure each batch meets requirements related to mechanical properties, thread dimensions, coating thickness, and marking.</p><h5>Testing &amp; Certification</h5><p>Coordinate and supervise:</p><p>Tensile testing, hardness testing, proof load testing, rotational capacity tests (RoCap), wedge load</p><h5>Coating thickness measurement (Delta Scope / XRF)</h5><h5>Torque-tension, surface discontinuity, and impact testing</h5><p>Ensure complete documentation for:</p><h5>Declaration of Performance (DoP)</h5><h5>Factory Production Control (FPC)</h5><p>CE Marking requirements under CPR (Construction Products Regulation)</p><h5>Audit, Compliance &amp; Traceability</h5><p>Prepare and maintain compliance documents and technical files for third-party audits, notified bodies, and customer inspections.</p><p>Implement and update:</p><p>Control Plans, MTCs, Material Traceability Records, Calibration Certificates</p><p>Lot-wise heat traceability and CE-tagged labels as per EN standards</p><p>Support initial type testing (ITT) and periodic type testing protocols.</p><h5>Problem Solving &amp; Supplier Control</h5><p>Conduct RCA and CAPA for deviations or customer complaints related to construction applications.</p><p>Audit and evaluate suppliers of raw material, surface treatment, and outsourcing (hot-dip galvanizing, coating, etc.) for EN compliance.</p><h5>Preferred Skills &amp; Technical Knowledge</h5><p>Mandatory knowledge of EN 14399, EN 15048, EN 14592 standards</p><p>Experience working with high-strength bolts, structural steel fasteners, or CE-certified fasteners</p><p>Ability to interpret test standards, tolerances, marking norms, and material classifications</p><p>Familiar with ISO 898-1, ISO 3506, ISO 4042, and CPR regulations</p><p>Experience preparing documentation for CE Marking, DoP, FPC &amp; Type Testing</p><h5>Cross-Functional Coordination</h5><p>Work with PPC, production, and dispatch to ensure lot-wise segregation and packaging of CE-compliant material.</p><p>Coordinate with external labs, notified bodies, and certification agencies (e.g., TÜV, DIBt, VDE, etc.) for ongoing validations.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<section class="cr-strip">
+  <div class="cr-wrap cr-rv">
+    <h2>Talent opens the door. <span class="ghost">Contribution builds the career.</span></h2>
+    <p>We hire for capability and attitude — and we develop both. If your function is not listed above, introduce yourself below. Strong profiles are kept in active consideration as requirements emerge.</p>
+  </div>
+</section>
+
+<!-- SPONTANEOUS -->
+<section class="cr-sec cr-paper" id="spontaneous">
+  <div class="cr-wrap">
+    <div class="cr-eyebrow cr-rv">Spontaneous applications · Always open</div>
+    <h2 class="cr-h cr-h-lg cr-rv">Don't see your role?<br><span class="r">Introduce yourself anyway.</span></h2>
+    <p class="cr-lead cr-rv">We continuously welcome applications across the functions below. Vacancies arise as operations grow — a strong spontaneous application today can become tomorrow's interview.</p>
+    <div class="cr-roles cr-rv" id="rolesSpont"><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">01</span><h3>Import Documentation Executive</h3><span class="meta">Supply Chain / Imports</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Supply Chain / Imports</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate or Postgraduate in Commerce / International Trade / Supply Chain Management</span></div><div class="cr-fact"><b>Experience</b><span>3–7 years of relevant experience in import documentation, preferably in engineering or manufacturing industries</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Manufacturing, Industrial Machinery &amp; Tooling, Raw Material Imports</span></div><div class="cr-fact"><b>Location</b><span>Mumbai (Head Office)</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, our operations rely on the precise and timely import of critical machinery, tooling, and raw materials from global suppliers. We are seeking a diligent and detail-oriented Import Documentation Executive to manage all import-related formalities, compliance, and coordination.</p><p>This role ensures the smooth inbound flow of machines and tooling like punches, threading &amp; trimming dies, bolt former parts, and RM wire, critical to our fastener production operations.</p><h5>Roles &amp; Responsibilities</h5><h5>Import Documentation &amp; Compliance</h5><p>Prepare, verify, and manage all import-related documents including purchase orders, invoices, packing lists, air/sea waybills, technical catalogues, and shipping instructions Including duty draw back.</p><p>Coordinate with freight forwarders, customs brokers, and port authorities for timely clearance of shipments.</p><p>Ensure compliance with DGFT guidelines, BIS/ISI certifications (if applicable), customs notifications, and Import Policy norms.</p><p>Monitor and process BOE (Bill of Entry), assess applicable duties (BCD, IGST, CESS), and maintain accurate HS code classification of all imported goods.</p><h5>Product Focus – Machinery &amp; Tooling</h5><p>Handle documentation and clearances for the import of:</p><h5>Primary and secondary punches</h5><h5>Thread rolling and trimming dies</h5><h5>Bolt former fingers and wear parts</h5><h5>Fastener manufacturing machinery &amp; upgrades</h5><h5>Raw Material wire coils (Steel, Alloy grades)</h5><p>Ensure import documentation matches the specific technical requirements and configuration of tooling/machinery.</p><h5>Coordination &amp; Vendor Communication</h5><p>Liaise with overseas machinery/tooling suppliers for documentation accuracy, dispatch schedules, and pre-shipment inspection (if required).</p><p>Coordinate with internal teams (Tool Room, Production, Stores) to schedule incoming shipments and update expected delivery timelines.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">02</span><h3>Manager – Accounts Receivable</h3><span class="meta">ACCOUNTS</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>ACCOUNTS</span></div><div class="cr-fact"><b>Qualification</b><span>B.Com / M.Com</span></div><div class="cr-fact"><b>Experience</b><span>2-3 YEARS</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Engineering, Industrial Components, Fasteners</span></div><div class="cr-fact"><b>Location</b><span>MUMBAI</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, we believe that strong financial discipline is the backbone of sustainable operations. As we expand across global and domestic markets, we are looking for a highly detail-oriented and experienced Manager – Accounts Receivable to lead our receivables function with precision and accountability.</p><p>You will be responsible for overseeing customer accounts, ensuring timely collections, managing deductions and reconciliations, and supporting financial reporting and audit processes.</p><h5>Roles &amp; Responsibilities</h5><h5>Receivables Management</h5><p>Manage and record all accounts receivable transactions, ensuring accuracy and timely updating of customer accounts.</p><p>Monitor outstanding balances, ensure timely collections, and follow up on overdue payments through structured recovery processes.</p><p>Issue and track debit/credit notes, supplementary invoices (e.g., price increases), and customer-wise reconciliation statements.</p><h5>Accounting &amp; Reconciliations</h5><p>Conduct regular reconciliation of inter-unit transactions, bank statements, and customer accounts against the trial balance and ageing reports.</p><p>Investigate and resolve discrepancies related to deductions, payment shortfalls, or adjustments initiated by customers.</p><p>Track MCL (Maximum Credit Limit) of customers and ensure adherence to internal credit control policies.</p><h5>Reporting &amp; Compliance</h5><p>Generate and analyze monthly AR reports, ageing summaries, and receivables MIS for management decision-making.</p><p>Support internal and statutory audits by preparing necessary documentation, schedules, and responses.</p><p>Maintain accurate, up-to-date AR ledgers and ensure compliance with company accounting policies and standards.</p><h5>Customer Coordination</h5><p>Liaise with sales and commercial teams to align on payment terms, disputes, and outstanding settlements.</p><p>Build a proactive communication channel with key customers to resolve issues quickly and professionally.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">03</span><h3>Assistant Manager – Accounts Payable</h3><span class="meta">Finance &amp; Accounts</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Finance &amp; Accounts</span></div><div class="cr-fact"><b>Qualification</b><span>B.Com / M.Com (Working in CA’s office preferred)</span></div><div class="cr-fact"><b>Experience</b><span>2-3 years</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Engineering, Industrial Hardware, Automotive Components</span></div><div class="cr-fact"><b>Location</b><span>Mumbai</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, timely vendor payments, accurate cost control, and disciplined financial processes are critical to keeping our supply chain efficient and uninterrupted. We are seeking a highly responsible and detail-driven Assistant Manager – Accounts Payable to manage end-to-end vendor payables with accuracy, compliance, and timeliness.</p><p>You will ensure correct processing of vendor invoices, adherence to tax regulations, and seamless coordination with internal departments and external stakeholders for a smooth accounts payable lifecycle.</p><h5>Roles &amp; Responsibilities</h5><h5>Invoice Processing &amp; Validation</h5><p>Verify vendor invoices against purchase orders (PO), GRNs, contractual terms, and ensure correctness of quantity, rate, GST, and calculations.</p><p>Ensure accurate booking of vendor invoices in the ERP system (Tally / SAP / any relevant platform).</p><p>Maintain strict compliance with tax laws—correct TDS application as per applicable sections and GST input matching.</p><h5>Accounting &amp; Reconciliations</h5><p>Ensure correct accounting of vendor payments as per accrual-based accounting principles.</p><p>Perform monthly provisioning of expenses, including service entries and unbilled liabilities.</p><p>Review and analyze creditor ageing reports regularly to identify outstanding dues, advances, and discrepancies.</p><p>Conduct vendor account reconciliations periodically and ensure timely resolution of mismatches.</p><h5>Payment &amp; Banking Coordination</h5><p>Prepare weekly/monthly payment cycles, ensuring timely disbursal and proper documentation.</p><p>Handle RTGS/NEFT transactions and maintain vendor payment schedules.</p><p>Visit banks as required for documentation, DDs, or verification, ensuring full compliance with banking protocols.</p><p>Perform bank reconciliations and ensure books match transactional data across accounts.</p><h5>Compliance &amp; Internal Controls</h5><p>Ensure adherence to internal financial controls and audit requirements related to AP processes.</p><p>Support internal, statutory, and GST audits with relevant documentation, schedules, and reconciliations.</p><p>Maintain all AP records in an organized, audit-ready format for traceability and compliance.</p><h5>Cross-Functional Coordination</h5><p>Coordinate with Procurement, Stores, and Production teams for PO clarifications, goods receipt confirmations, and delivery note validations.</p><p>Act as a single point of contact for vendor queries and maintain strong vendor relationships built on transparency and timely communication.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">04</span><h3>Tax Accountant</h3><span class="meta">Finance &amp; Accounts – Taxation &amp; Compliance</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Finance &amp; Accounts – Taxation &amp; Compliance</span></div><div class="cr-fact"><b>Qualification</b><span>B.Com / M.Com (CA Inter or specialization in Taxation preferred)</span></div><div class="cr-fact"><b>Experience</b><span>5-6 years in Taxation and Compliance roles in a manufacturing environment</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Engineering, Fasteners, Industrial Components</span></div><div class="cr-fact"><b>Location</b><span>Mumbai</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, tax compliance is a cornerstone of our financial discipline. We are seeking a knowledgeable and reliable Tax Accountant who brings expertise in TDS, GST, and Income Tax, and ensures timely and accurate filing of all statutory returns.</p><p>This role is critical for ensuring 100% compliance, minimizing tax risks, and aligning our operations with both domestic and international tax frameworks.</p><h5>Roles &amp; Responsibilities</h5><h5>Direct &amp; Indirect Tax Management</h5><p>Ensure end-to-end compliance with all applicable tax laws including TDS (Tax Deducted at Source), GST (Goods &amp; Services Tax), and Income Tax.</p><p>Apply correct tax rates and provisions during transaction entries for both vendors and customers.</p><p>Calculate, deduct, and deposit TDS accurately within statutory deadlines (Contractors, Professionals, Rent, etc.).</p><h5>GST Accounting &amp; Filing</h5><p>Maintain accurate GST books—track input tax credits, output liabilities, reverse charges, and GST reconciliations (GSTR-2B vs Books).</p><p>File all GST returns (GSTR-1, GSTR-3B, GSTR-9, GSTR-9C) within due dates.</p><p>Handle GST refund applications, LUT renewals, and coordinate for GST audits and departmental queries.</p><h5>Income Tax &amp; Advance Tax</h5><p>Assist in preparation and filing of income tax returns for the company and handle advance tax computations and deposits.</p><p>Coordinate with external consultants for tax assessments, scrutiny, and notices, if any.</p><h5>Timely Filing &amp; Compliance Monitoring</h5><p>Maintain a tax calendar with all return filing due dates and statutory obligations.</p><p>Ensure no delays or defaults in filing returns, paying taxes, or statutory submissions.</p><p>Monitor changes in tax laws and update internal processes accordingly.</p><h5>Audit &amp; Documentation</h5><p>Prepare and maintain statutory records, tax ledgers, and reports required for internal, statutory, and departmental audits.</p><p>Ensure readiness for assessments, inspections, and tax-related inquiries by maintaining complete documentation and backup.</p><h5>Cross-Functional Coordination</h5><p>Work closely with Accounts Payable, Receivable, and Commercial teams to verify tax accuracy in vendor/customer transactions.</p><p>Coordinate with external CA firms, tax consultants, and legal advisors for expert guidance and validation.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">05</span><h3>Production Engineer – Cold Forging / HOT FORGING/WARM FORMING Manufacturing</h3><span class="meta">Production</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Production</span></div><div class="cr-fact"><b>Qualification</b><span>Diploma / B.E. / B.Tech – Mechanical Engineering</span></div><div class="cr-fact"><b>Experience</b><span>4–8 years in fastener manufacturing or cold forging operations</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Automotive Fasteners / Industrial Components</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, precision and consistency in production define our leadership in fastener manufacturing. We are looking for a proactive and technically sound Production Engineer with experience in cold forging, rolling, and secondary machining processes. The ideal candidate must be familiar with machine operations, daily planning, manpower management, and quality compliance.</p><h5>Roles &amp; Responsibilities</h5><h5>Daily Production Management</h5><p>Plan and execute daily production schedules as per dispatch commitments and shift-wise targets.</p><p>Monitor machine utilization, downtime analysis, and improve OEE (Overall Equipment Effectiveness).</p><p>Ensure optimal manpower deployment and on-shift supervision across lines.</p><h5>Machine &amp; Tooling Knowledge</h5><p>Operate and oversee production on machines such as:</p><h5>Indian Make Cold Formers</h5><h5>Hatebur</h5><h5>Nedschroef</h5><h5>SACMA</h5><h5>SASPI</h5><h5>National</h5><h5>China / Taiwan Make Machines</h5><p>Coordinate with the tooling team for punch/die replacement, finger setting, trimming, and rolling operations.</p><h5>Process Control &amp; Quality</h5><p>Ensure compliance with quality standards (ISO/IATF) and maintain first-piece and in-process inspection protocols.</p><p>Assist in root cause analysis and implement corrective actions for rejection and rework issues.</p><p>Drive 5S, Kaizen, Lean Manufacturing, and continual improvement initiatives on the shop floor.</p><h5>Documentation &amp; Reporting</h5><p>Maintain shift reports, downtime logs, rejection analysis, and production registers.</p><p>Coordinate with the planning, quality, and maintenance departments for smooth production flow.</p><p>Track consumables usage and support cost-saving initiatives.</p><h5>Preferred Candidate Attributes</h5><p>Hands-on experience with cold forming or multi-station headers.</p><p>Exposure to fastener standards and automotive quality systems.</p><p>Basic understanding of tool setting, SPC, and mechanical measurements.</p><p>Working knowledge of Excel, PowerPoint, and production software (ERP or shop floor automation tools).</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">06</span><h3>Machine Operators – Cold Forging &amp; Fastener Manufacturing</h3><span class="meta">Production / Manufacturing</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Production / Manufacturing</span></div><div class="cr-fact"><b>Qualification</b><span>ITI / Diploma / 10th Pass (with industry experience)</span></div><div class="cr-fact"><b>Experience</b><span>2–10 years in operating fastener manufacturing machines</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Automotive Fasteners, Industrial Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Operator Types Required</h5><p>We are actively hiring skilled operators for the following machines:</p><h5>Cold Forging Bolt Formers (Single &amp; Multi-Station)</h5><h5>Header Machines (Open &amp; Closed Die)</h5><h5>Thread Rolling Machines</h5><h5>Nut Tapping Machines</h5><h5>Multi-Station Part Formers</h5><h5>Secondary Operation Machines (Trimming, Slotting, Pointing)</h5><h5>Wire drawing Machines</h5><h5>Key Requirements</h5><p>Hands-on experience in setting and operating fastener production machinery.</p><p>Ability to read basic technical drawings and operate measurement instruments.</p><p>Exposure to cold forming tools (punches, dies, fingers, trimming inserts).</p><p>Knowledge of preventive maintenance, safety, and quality practices.</p><p>Preference will be given to candidates with experience on:</p><h5>Indian Machines</h5><h5>SACMA ,Hatebur, Carlo Salvi, , Nedschroef, SASPI, National</h5><p>Multi station part formers from TAIWAN/CHINA.</p><h5>Techno impianti, Ebner, etc</h5></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">07</span><h3>Lab Technician – Quality &amp; Testing(Experience in ISO 17025 Accredited lab preferred, Internal or External)</h3><span class="meta">Quality Assurance / Testing Laboratory</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Quality Assurance / Testing Laboratory</span></div><div class="cr-fact"><b>Qualification</b><span>B.Tech / B.E. in Chemical / Metallurgy / Surface Coating</span></div><div class="cr-fact"><b>Experience</b><span>2–5 years in testing lab of a manufacturing or engineering company</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Automotive, Engineering Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>We are seeking a dedicated and detail-oriented Lab Technician to support our Raw Material to Finished Goods testing operations. You will be responsible for executing standard tests, maintaining records, and ensuring quality compliance as per ISO, IATF, and customer-specific standards.</p><h5>Key Responsibilities</h5><p>Conduct routine physical, mechanical, and metallurgical testing such as:</p><h5>Tensile, Hardness (Brinell, Rockwell, Vickers)</h5><h5>Microscopic Analysis</h5><h5>Coating Thickness (Delta Scope)</h5><h5>Profile Projector Readings</h5><h5>Torque-Tension Testing</h5><h5>Spectrometer for material analysis</h5><p>Sample preparation and polishing for metallography and microstructure studies.</p><p>Operate and maintain instruments such as:</p><p>UTM, Impact Testing Machine, Eddy Current Tester, Microscope with Image Analyzer</p><p>Record, report, and file test results as per lab SOPs and customer documentation needs.</p><p>Ensure calibration of lab instruments and participate in internal audits.</p><p>Support Quality Engineers in new product development, PPAP testing, and customer inspection.</p><h5>CHECKING REPORTS</h5><h5>Preferred Traits</h5><p>Familiar with lab safety protocols and ISO/IATF/ISO 17025 documentation.</p><p>Basic computer knowledge – Excel, Word, and test report formatting.</p><p>Experience in fastener or precision component testing preferred.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">08</span><h3>Packing &amp; Dispatch Executive</h3><span class="meta">Logistics / Stores / Packing &amp; Dispatch</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Logistics / Stores / Packing &amp; Dispatch</span></div><div class="cr-fact"><b>Qualification</b><span>10th / 12th / ITI / Any Graduate</span></div><div class="cr-fact"><b>Experience</b><span>2–6 years in packing, dispatch, or logistics role in a manufacturing setup</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Engineering, Automotive, Export/Industrial Packaging</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, our commitment to quality extends beyond production—to how we pack and deliver our products. We are seeking skilled and responsible individuals to manage packing and dispatch of precision fasteners for both domestic and export customers.</p><h5>Key Responsibilities</h5><h5>Packing Operations</h5><p>Follow packing specifications for domestic and export shipments (poly bags, corrugated boxes, HDPE drums, pallets, wooden cases, etc.).</p><p>Perform quantity verification, labeling, barcoding, and final quality checks before packing.</p><p>Ensure use of correct packing materials for rust prevention, handling safety, and compliance with customer norms.</p><h5>Dispatch &amp; Logistics</h5><p>Coordinate with logistics partners for pick-up and delivery as per schedule (by road, air, or sea).</p><p>Prepare and verify dispatch documents including delivery challans, packing lists, invoices, and E-way bills.</p><p>Assist in container loading and supervision for export orders, ensuring weight distribution and box orientation are correct.</p><h5>Inventory &amp; Coordination</h5><p>Maintain accurate stock levels of finished goods ready for dispatch.</p><p>Coordinate with production, store, and planning teams for timely packing readiness and material movement.</p><p>Update ERP/dispatch logs daily and assist in MIS preparation.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">09</span><h3>Stores &amp; Warehousing Executive / Operator</h3><span class="meta">Stores &amp; Inventory Management</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Stores &amp; Inventory Management</span></div><div class="cr-fact"><b>Qualification</b><span>10th / 12th / ITI / Graduate in Commerce or Supply Chain preferred</span></div><div class="cr-fact"><b>Experience</b><span>2–6 years in engineering stores or warehousing in a manufacturing setup</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Automotive, Engineering, Industrial Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>Efficient stores and warehousing are critical to keeping our production and dispatch running seamlessly. At Pradako Mechanical &amp; Engineering Works, we are looking for experienced professionals to manage raw material, tooling, consumables, WIP, and finished goods inventory with discipline, accuracy, and traceability.</p><h5>Key Responsibilities</h5><h5>Material Handling &amp; Storage</h5><p>Receive and verify incoming materials including:</p><h5>Raw material wire coils</h5><h5>VARIOUS TYPES OF FASTENERS</h5><p>Packing material, consumables, etc.</p><p>Tag, label, and store items as per 5S and FIFO/FEFO practices.</p><p>Organize materials systematically to minimize retrieval time and space wastage.</p><h5>Issue &amp; Receipt Documentation</h5><p>Maintain issue slips, gate entry records, GRN (Goods Receipt Notes), and material issue registers.</p><p>Ensure timely issuance of raw materials, tools, and consumables to production and maintenance departments.</p><p>Record inward/outward movement of goods in ERP/manual logbooks.</p><h5>Inventory Management</h5><p>Conduct daily cycle counting and assist in monthly/quarterly physical stock audits.</p><p>Track minimum/maximum stock levels and coordinate for timely replenishment.</p><p>Prevent pilferage, material mismatch, and storage damage through standard practices.</p><h5>Coordination &amp; Reporting</h5><p>Coordinate with planning, purchase, production, and dispatch teams for material movement and availability.</p><p>Assist in generation of MIS reports for RM, FG, and consumable stock status.</p><p>Ensure compliance with ISO/IATF requirements for traceability and material shelf-life.</p><h5>Preferred Skills</h5><p>Familiarity with fasteners and engineering items.</p><p>Basic knowledge of measurement, identification, and handling of RM/tooling items.</p><p>Understanding of ERP/storekeeping software (optional but preferred).</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">10</span><h3>Logistics Executive / Coordinator</h3><span class="meta">Logistics / Supply Chain</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Logistics / Supply Chain</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate in Logistics / Supply Chain / Commerce (MBA in SCM preferred)</span></div><div class="cr-fact"><b>Experience</b><span>3–7 years in logistics, dispatch, or shipping coordination in manufacturing</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Fasteners, Automotive Components, Industrial Exports</span></div><div class="cr-fact"><b>Location</b><span>Mumbai &amp; Gujarat Units</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, logistics is not just about transportation—it’s about ensuring every fastener reaches the right place, on time, and in perfect condition. We are looking for a proactive and detail-oriented Logistics Executive / Coordinator to manage end-to-end logistics for domestic and export operations.</p><h5>Key Responsibilities</h5><h5>Dispatch Coordination</h5><p>Plan and schedule dispatches for both domestic deliveries and export shipments as per production and customer timelines.</p><p>Coordinate with packing, stores, and dispatch teams for shipment readiness and container loading.</p><p>Handle documentation for transport including challans, packing lists, invoices, e-way bills, and customs forms.</p><h5>Transport &amp; Freight Management</h5><p>Liaise with transporters, courier partners, shipping lines, and CHA agents for timely pick-up and delivery.</p><p>Ensure cost-effective routing, mode selection (road, sea, air), and freight negotiation.</p><p>Monitor vehicle movements, maintain PODs (proof of delivery), and resolve any transit-related issues.</p><h5>Export Logistics</h5><p>Coordinate with the export documentation team for container planning, vessel booking, and timely gate-in at ports (Nhava Sheva, Mundra, etc.).</p><p>Track BL, AWB, and other international shipping documents; manage loading plans and packaging configurations.</p><p>Follow up on LCL/FCL movements, carton marking, and country-specific documentation norms.</p><h5>Tracking &amp; Reporting</h5><p>Maintain daily tracking logs for all shipments and communicate updates to customers and internal teams.</p><p>Generate MIS reports on freight costs, transit time, transporter performance, and delivery SLAs.</p><p>Maintain logistics KPIs and support in process improvements, freight audits, and vendor evaluations.</p><h5>Coordination &amp; Compliance</h5><p>Ensure compliance with transport regulations, and internal SOPs.</p><p>Assist in customs clearance coordination and smooth handovers for export container movement.</p><h5>Preferred Skills</h5><p>Strong command of logistics systems and documentation (ERP, TMS preferred).</p><p>Basic understanding of HS codes, and port operations.</p><p>Experience in handling automotive/engineering goods is highly desirable.</p><p>Excellent coordination, communication, and time management skills.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">11</span><h3>HR Assistant</h3><span class="meta">Human Resources</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Human Resources</span></div><div class="cr-fact"><b>Qualification</b><span>Graduate in HR / Commerce / Arts (MBA/PG in HR preferred)</span></div><div class="cr-fact"><b>Experience</b><span>2–5 years in HR operations, preferably in manufacturing</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Manufacturing, Automotive, Industrial Goods</span></div><div class="cr-fact"><b>Location</b><span>Mumbai &amp; Gujarat Units</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, people are at the heart of everything we build. As an HR Assistant, you will play a key role in supporting day-to-day HR operations across recruitment, onboarding, attendance, statutory compliance, and employee engagement—ensuring smooth workforce management at both plant and head office levels.</p><h5>Key Responsibilities</h5><h5>Recruitment &amp; Onboarding</h5><p>Assist in posting job openings, screening resumes, and scheduling interviews for factory and office roles.</p><p>Support new hire onboarding processes including document collection, ID issuance, and orientation sessions.</p><p>Maintain up-to-date candidate databases and joiner trackers.</p><h5>Attendance &amp; Payroll Support</h5><p>Monitor daily attendance through biometric or manual registers.</p><p>Coordinate with contractors for shift records, overtime tracking, and leave data consolidation.</p><p>Assist the accounts/payroll team in salary processing inputs.</p><h5>HR Documentation &amp; Filing</h5><p>Maintain employee records – personal files, contracts, bank details, Aadhar/PAN, etc.</p><p>Ensure documentation for contract workers and compliance with labour law requirements.</p><p>Assist in audit readiness for ISO, IATF, and government inspections.</p><h5>Employee Engagement &amp; Welfare</h5><p>Support HR in organizing safety trainings, birthday celebrations, skill-building workshops, and suggestion schemes.</p><p>Handle employee grievances, escalate issues where necessary, and maintain employee trust and confidentiality.</p><p>Maintain discipline registers and notices on the shopfloor in coordination with supervisors.</p><h5>Compliance &amp; Reporting</h5><p>Help in maintaining statutory registers (ESIC, PF, Bonus, Gratuity, etc.).</p><p>Assist with HR-related MIS, headcount reporting, and exit formalities.</p><h5>Preferred Skills</h5><p>Proficient in MS Office (Excel, Word) and basic HR software.</p><p>Understanding of labour compliance and factory HR processes.</p><p>Good interpersonal skills, confidentiality, and attention to detail.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">12</span><h3>IT Executive / Assistant – Infrastructure &amp; Support</h3><span class="meta">Information Technology / Systems Support</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Information Technology / Systems Support</span></div><div class="cr-fact"><b>Qualification</b><span>Diploma / B.E. / B.Sc. in IT, Computer Science, or related fields</span></div><div class="cr-fact"><b>Experience</b><span>2–5 years in IT support or infrastructure management in a manufacturing setup</span></div><div class="cr-fact"><b>Industry</b><span>Engineering, Manufacturing, Fasteners, Industrial Technology</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, technology plays a vital role in connecting our operations, production, quality, logistics, and global customer communications. We are looking for an IT Executive / Assistant to manage day-to-day infrastructure, network, system support, and software maintenance across locations.</p><p>You will be the go-to person for ensuring uninterrupted system functionality, IT security, and basic ERP coordination.</p><h5>Key Responsibilities</h5><h5>Hardware &amp; Software Support</h5><p>Provide day-to-day technical support for desktops, laptops, printers, scanners, and other peripherals.</p><p>Install, troubleshoot, and maintain operating systems, antivirus software, and productivity tools (MS Office, etc.).</p><p>Maintain IT asset registers and ensure AMC (Annual Maintenance Contracts) are up to date.</p><h5>Network &amp; Infrastructure</h5><p>Monitor and manage internet connectivity, routers, switches, LAN/WAN setup across departments.</p><p>Handle basic server management and file-sharing systems.</p><p>Ensure data backups, firewall settings, and network security protocols are in place.</p><h5>ERP/System Coordination</h5><p>Coordinate with ERP vendors or software providers for bug fixes, user access, and functional enhancements.</p><p>Support HR, Stores, Dispatch, and Accounts teams with ERP usage issues and training.</p><p>Manage email configuration, system permissions, and access-level controls.</p><h5>IT Administration &amp; Security</h5><p>Ensure data privacy and IT policies are followed within the organization.</p><p>Assist with CCTV system maintenance, biometric attendance integration, and access control.</p><p>Maintain uptime logs, ticket tracking, and escalation resolution timelines.</p><h5>Support During Audits &amp; System Integrations</h5><p>Assist internal teams during ISO, IATF, or client audits by ensuring system logs, backups, and access records are up-to-date.</p><p>Support integration of new tools, automation systems, or remote working setups if needed.</p><h5>Preferred Skills</h5><p>Hands-on with Windows OS, Microsoft Office, basic networking tools.</p><p>Knowledge of ERP or production software is an advantage.</p><p>Good troubleshooting ability, communication skills, and responsiveness.</p><p>Willingness to travel between plant units as needed.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">13</span><h3>Tool Room Technician / Engineer</h3><span class="meta">Tool Room / Engineering Support</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Tool Room / Engineering Support</span></div><div class="cr-fact"><b>Qualification</b><span>ITI / Diploma / B.E. in Mechanical / Tool &amp; Die Making</span></div><div class="cr-fact"><b>Experience</b><span>3–10 years in tool room operations, preferably in fastener/tooling industry</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Automotive Components, Precision Engineering</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, the heart of quality and precision lies in our tooling. We are seeking experienced Tool Room Technicians and Engineers who specialize in cold forging dies, punches, trimming tools, threading dies, and forming fingers. This role is critical to ensure uninterrupted, high-quality production with optimal tool life, accuracy, and maintenance planning.</p><h5>Key Responsibilities</h5><h5>Tool Preparation &amp; Maintenance</h5><p>Manufacture, regrind, and assemble tooling such as:</p><h5>First Punches</h5><h5>Dies (Trimming, Threading, Extrusion)</h5><h5>HEADERS/BOLT/NUT Former Fingers</h5><h5>Rolling &amp; Slotting Tools</h5><h5>Tool Reconditioning &amp; Inventory</h5><p>Rework damaged tools with precision and ensure quick turnaround for production.</p><p>Maintain records of tool life, tool change frequencies, and preventive sharpening schedules.</p><p>Maintain tool room inventory – categorize and organize tools for reusability, discard, and rework.</p><h5>Machinery Operation &amp; Technical Skills</h5><p>Operate toolroom machines such as:</p><h5>Surface Grinders</h5><h5>Tool &amp; Cutter Grinders</h5><h5>Lathes, Milling Machines</h5><p>Read and interpret tool drawings and tolerances.</p><h5>Process Coordination</h5><p>Coordinate closely with production, maintenance, and QC teams for tool performance feedback.</p><p>Support new part development and tool trials with the design and development team.</p><p>Ensure readiness of tooling based on production schedules and material plans.</p><h5>Documentation &amp; Reporting</h5><p>Update tool change logs, damage reports, and usage sheets.</p><p>Prepare basic MIS or tool usage dashboards (manual or system-based).</p><h5>Preferred Skills</h5><p>Strong understanding of cold forming/tooling fundamentals.</p><p>Familiarity with fastener dimensions and tolerances (DIN, ISO standards).</p><p>Basic computer knowledge for logging and report entry.</p><p>High attention to detail and precision machining discipline.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">14</span><h3>Production &amp; PPC Control Executive / Engineer</h3><span class="meta">Production Planning &amp; Control (PPC)</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Production Planning &amp; Control (PPC)</span></div><div class="cr-fact"><b>Qualification</b><span>Diploma / B.E. / B.Tech – Mechanical / Industrial Engineering</span></div><div class="cr-fact"><b>Experience</b><span>3–10 years in production planning and shop floor coordination</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Automotive Components, Engineering Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, ensuring smooth coordination between planning and production is critical to maintaining quality, delivery, and customer satisfaction. We are seeking experienced professionals for Production &amp; PPC Control who will be responsible for end-to-end scheduling, resource allocation, and workflow management across all production departments.</p><h5>Key Responsibilities</h5><h5>Planning &amp; Coordination</h5><p>Develop daily, weekly, and monthly production plans based on customer requirements, priority dispatches, and capacity.</p><p>Prepare job cards and load production schedules across the following key departments:</p><h5>Wire Drawing</h5><h5>Cold Forging</h5><h5>Hot Forging</h5><h5>Heat Treatment</h5><h5>Surface Finishing (Plating/Coating)</h5><h5>Zinc Flake Coating</h5><h5>Production Monitoring</h5><p>Track real-time progress of batches across each process stage and coordinate with shop floor supervisors for corrective actions in case of delays or breakdowns.</p><p>Monitor WIP (Work-in-Progress) and ensure minimum idle time between departments.</p><h5>Resource &amp; Material Management</h5><p>Coordinate with Stores and Purchase for availability of raw material, tools, and consumables as per schedule.</p><p>Optimize manpower and machine utilization across shifts.</p><h5>MIS &amp; Reporting</h5><p>Maintain daily production logs, deviation reports, and downtime data.</p><p>Generate department-wise production efficiency and performance reports for management.</p><h5>Interdepartmental Communication</h5><p>Liaise with Quality, Maintenance, Packing, and Dispatch teams to ensure alignment and adherence to timelines.</p><p>Support New Product Development (NPD) with planning support for trials and pilot runs.</p><h5>Preferred Skills</h5><p>Strong understanding of manufacturing flow in fastener production.</p><p>Familiar with ERP/MRP systems and planning software.</p><p>Ability to handle multi-department coordination and fast-paced production environments.</p><p>Good analytical, communication, and follow-up skills.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">15</span><h3>Vendor Development Executive / Engineer</h3><span class="meta">Vendor Development / Purchase / SCM</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Vendor Development / Purchase / SCM</span></div><div class="cr-fact"><b>Qualification</b><span>Diploma / B.E. / B.Tech – Mechanical / Production / Industrial Engineering</span></div><div class="cr-fact"><b>Experience</b><span>4–10 years in vendor sourcing, development, and supplier audits</span></div><div class="cr-fact"><b>Industry</b><span>Fasteners, Automotive, Precision Components, Engineering Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai &amp; Gujarat Units</span></div></div>
+<div class="cr-jd"><h5>Role Overview</h5><p>At Pradako Mechanical &amp; Engineering Works, our vendor partners play a vital role in delivering consistent quality, timely supply, and process innovation. We are seeking a driven and detail-oriented Vendor Development Executive / Engineer to identify, evaluate, and onboard reliable suppliers for raw materials, tools, consumables, and outsourced processes.</p><p>This role is critical in strengthening our supply chain, improving cost competitiveness, and ensuring quality compliance across all sourced components and services.</p><h5>Key Responsibilities</h5><h5>Supplier Identification &amp; Evaluation</h5><p>Source and identify potential suppliers for raw materials (wires, rods), tooling (punches, dies), packaging, plating, and subcontracting services.</p><p>Evaluate supplier capability in terms of capacity, quality systems, delivery performance, and pricing.</p><p>Conduct supplier audits and assessments based on ISO/IATF standards.</p><h5>Development &amp; Onboarding</h5><p>Initiate RFQs, cost comparisons, sample approvals, and supplier registration.</p><p>Work with Quality and Design teams for sample development, approvals, and PPAP sign-offs.</p><p>Maintain approved vendor lists (AVL) and update vendor ratings quarterly based on performance.</p><h5>Relationship &amp; Performance Management</h5><p>Build strong relationships with key suppliers for long-term collaboration.</p><p>Monitor supplier KPIs such as OTIF (On-Time In-Full), rejection rates, and responsiveness.</p><p>Resolve disputes, coordinate reworks, and drive cost reduction initiatives through alternate sourcing.</p><h5>Cross-Functional Coordination</h5><p>Work closely with the Purchase, Quality, Stores, and PPC teams to forecast material requirements and plan sourcing accordingly.</p><p>Collaborate with R&amp;D for NPD (New Product Development) sourcing and vendor trials.</p><h5>Documentation &amp; Compliance</h5><p>Maintain all vendor records including certifications, price agreements, technical documents, and non-disclosure agreements.</p><p>Ensure compliance with statutory and customer-specific procurement norms.</p><h5>Preferred Skills</h5><p>Sound technical understanding of fasteners and their manufacturing processes.</p><p>Knowledge of procurement lifecycle, negotiation tactics, and cost breakdown analysis.</p><p>Familiarity with vendor audit protocols and ISO/IATF requirements.</p><p>ERP knowledge (purchase module), strong communication, and vendor follow-up capabilities.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">16</span><h3>Heat Treatment – Assistant Manager / Executive</h3><span class="meta">Heat Treatment &amp; Metallurgical Processing</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Heat Treatment &amp; Metallurgical Processing</span></div><div class="cr-fact"><b>Qualification</b><span>B.E. / B.Tech – Mechanical Engineering</span></div><div class="cr-fact"><b>Experience</b><span>3–12 years (Junior and Senior levels considered based on experience)</span></div><div class="cr-fact"><b>Industry</b><span>Automotive Fasteners, Precision Engineering, Industrial Manufacturing</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><p>Job Title: Heat Treatment – Assistant Manager / Executive</p><p>Employment Type: Full Time</p><p>--------------------------------------------------------------------------------------- Field           Details --------------- ----------------------------------------------------------------------- Department      Heat Treatment &amp; Metallurgical Processing</p><h5>Qualification   B.E. / B.Tech – Mechanical Engineering</h5><p>Experience      3–12 years (Junior and Senior levels considered based on experience)</p><p>Industry        Automotive Fasteners, Precision Engineering, Industrial Manufacturing ---------------------------------------------------------------------------------------</p><p>Preferred Knowledge/Application Criteria:</p><h5>Process &amp; Production Control</h5><ul><li>Developing and executing heat treatment plans in coordination with PPC.</li></ul><ul><li>Working with SCADA-based systems for batch creation, recipe selection, and real-time process monitoring.</li></ul><ul><li>Managing critical heat treatment parameters such as temperature, soak time, and quench conditions within tolerance limits.</li></ul><h5>Quality &amp; Inspection</h5><ul><li>Performing in-process and interval-based inspections using hardness testers, microscopes, and metallurgical instruments.</li></ul><ul><li>Documenting and maintaining batch-wise records related to hardness, case depth, and microstructure verification.</li></ul><h5>Operational Efficiency</h5><ul><li>Monitoring Furnace OEE and implementing measures to minimize downtime and reduce job changeover times.</li></ul><ul><li>Tracking energy, gas, and consumable consumption to optimize furnace efficiency and reduce operational costs.</li></ul><ul><li>Supporting preventive maintenance activities in collaboration with the maintenance department.</li></ul><h5>Training &amp; Compliance</h5><ul><li>Conducting on-the-job training for supervisors and operators on process adherence, safety practices, and documentation standards.</li></ul><ul><li>Ensuring disciplined implementation of 5S, housekeeping, and visual factory standards in the heat treatment area.</li></ul><ul><li>Maintaining ERP entries, SCADA logs, and all relevant documentation in line with IATF 16949 and customer-specific requirements.</li></ul><h5>Preferred Technical Exposure</h5><ul><li>Experience operating Mesh Belt, Shaker hearth, etc</li></ul><ul><li>Familiarity with processes like Carburizing, Carbonitriding, Annealing, Tempering, Stress Relieving, and Quenching.</li></ul><ul><li>Worked with materials such as 10B21, SCM435, 42CrMo4 and property classes 8.8, 10.9, 12.9.</li></ul><ul><li>Ability to interpret metallurgical reports, case depth requirements, and control charts.</li></ul></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div><div class="cr-role">
+<button class="cr-roleq" type="button"><span class="no">17</span><h3>Quality Engineer</h3><span class="meta">Quality Assurance / Quality Control</span><span class="ic">+</span></button>
+<div class="cr-rolea"><div class="cr-rolea__in">
+<div class="cr-facts"><div class="cr-fact"><b>Department</b><span>Quality Assurance / Quality Control</span></div><div class="cr-fact"><b>Qualification</b><span>B.E. / B.Tech – Mechanical / Production / Industrial Engineering</span></div><div class="cr-fact"><b>Experience</b><span>4–8 years in Quality roles within a manufacturing or engineering environment</span></div><div class="cr-fact"><b>Industry</b><span>Manufacturing – Fasteners, Automotive, Engineering Components</span></div><div class="cr-fact"><b>Location</b><span>Mumbai / Plant locations</span></div></div>
+<div class="cr-jd"><h5>About the Role</h5><p>At Pradako Mechanical &amp; Engineering Works, delivering zero-defect products is not an option—it’s a promise. We are seeking a disciplined, process-driven, and detail-oriented Quality Engineer to manage in-process and final quality checks, oversee compliance documentation, and drive continual improvement initiatives across our operations.</p><p>This role plays a key part in ensuring that every fastener manufactured meets or exceeds international standards such as ISO 898-1, ISO 3506, IATF 16949, and specific customer requirements.</p><h5>Roles &amp; Responsibilities</h5><h5>In-Process &amp; Final Inspection</h5><p>Conduct in-process inspections at key stages (cold forging, threading, heat treatment, plating) and support final product release.</p><p>Use standard measurement tools: micrometers, verniers, thread gauges, profile projectors, and hardness testers.</p><p>Ensure compliance with product drawings, customer specifications, and tolerance limits.</p><h5>Testing &amp; Quality Control</h5><p>Perform or supervise mechanical and metallurgical testing:</p><p>Tensile, hardness (Rockwell/Vickers), impact, coating thickness, torque-tension</p><p>Maintain test records, batch traceability, and documentation for PPAP, FAI, and internal QC logs.</p><h5>Documentation &amp; Standards Compliance</h5><p>Prepare and maintain:</p><p>Inspection Reports, Control Plans, FMEA, MSA, Calibration Logs</p><p>Ensure adherence to quality management systems:</p><p>ISO 9001, IATF 16949, ISO 898-1, ISO 3506, RoHS, REACH</p><p>Participate in internal audits, process audits, and customer inspections.</p><h5>Problem Solving &amp; Continuous Improvement</h5><p>Lead root cause analysis (RCA) for internal rejections and customer complaints.</p><p>Implement Corrective &amp; Preventive Actions (CAPA) and support Kaizen &amp; lean manufacturing initiatives.</p><h5>Cross-Functional Coordination</h5><p>Work closely with Production, Tool Room, Maintenance, and Dispatch teams to ensure quality targets are met.</p><p>Coordinate with suppliers and external labs for outsourced testing, material certification, and quality clearances.</p><h5>Preferred Skills</h5><p>Experience in fastener or automotive component manufacturing.</p><p>Sound understanding of GD&amp;T, engineering drawings, and sampling standards.</p><p>Familiarity with ERP/quality modules, MS Excel, and digital inspection records.</p><p>Clear communicator with problem-solving mindset and audit-readiness discipline.</p></div>
+<div class="cr-role__apply"><a class="cr-btn cr-btn--red cr-apply-link" href="#candidate-application">Apply for this role →</a><small>Complete the online application form below and upload your resume/CV.</small></div>
+</div></div></div></div>
+  </div>
+</section>
+
+
+<!-- CANDIDATE APPLICATION FORM -->
+<section class="cr-sec cr-application" id="candidate-application">
+  <div class="cr-wrap">
+    <div class="cr-eyebrow cr-rv">Online candidate application</div>
+    <h2 class="cr-h cr-h-lg cr-rv">Apply for your<br><span class="r">next opportunity.</span></h2>
+    <p class="cr-lead cr-rv">Complete the form below and upload your latest resume. Select a listed position or choose a spontaneous application so our recruitment team can review your profile for suitable opportunities.</p>
+
+    <div class="cr-application__shell cr-rv">
+      <aside class="cr-application__intro">
+        <div class="cr-eyebrow">Your application journey</div>
+        <h3>One form. A meaningful beginning.</h3>
+        <p>Share accurate, current information so we can evaluate your experience, qualifications and career interests against the role you have selected.</p>
+
+        <div class="cr-app-steps">
+          <div class="cr-app-step">
+            <b>01</b>
+            <div><strong>Select the opportunity</strong><span>Choose a current opening or submit a spontaneous application.</span></div>
+          </div>
+          <div class="cr-app-step">
+            <b>02</b>
+            <div><strong>Tell us about yourself</strong><span>Add your contact details, experience, qualifications and professional links.</span></div>
+          </div>
+          <div class="cr-app-step">
+            <b>03</b>
+            <div><strong>Upload your resume</strong><span>PDF, DOC or DOCX format, up to 5 MB.</span></div>
+          </div>
+          <div class="cr-app-step">
+            <b>04</b>
+            <div><strong>Submit for review</strong><span>Shortlisted candidates will be contacted by the recruitment team.</span></div>
+          </div>
+        </div>
+
+        <div class="cr-app-contact">
+          Need assistance? Write to<br>
+          <a href="mailto:careers@pradakomechanicals.com">careers@pradakomechanicals.com</a>
+        </div>
+      </aside>
+
+      <div class="cr-application__form">
+        <div class="cr-form-top">
+          <h3>Candidate details</h3>
+          <p>Fields marked <span class="cr-required">*</span> are mandatory. Please review your information before submitting.</p>
+        </div>
+
+        <form id="careerApplicationForm" action="/php/submit-career-application.php" method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="application_source" value="Pradako Careers Website">
+          <input type="hidden" name="submitted_at" id="submittedAt" value="">
+          <div class="cr-hp" aria-hidden="true">
+            <label for="companyWebsite">Leave this field empty</label>
+            <input type="text" id="companyWebsite" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="cr-form-grid">
+            <div class="cr-field cr-field--full">
+              <label for="positionApplied">Position applied for <span class="cr-required">*</span></label>
+              <select id="positionApplied" name="position_applied" required>
+                <option value="">Select a position</option>
+                <optgroup label="Current opportunities">
+                  <option value="International Marketing Manager">International Marketing Manager</option>
+                  <option value="Marketing Manager">Marketing Manager</option>
+                  <option value="Accounts-Export Documentation">Accounts-Export Documentation</option>
+                  <option value="Admin Executive / Assistant">Admin Executive / Assistant</option>
+                  <option value="Quality Engineer – Construction Fasteners">Quality Engineer – Construction Fasteners</option>
+                </optgroup>
+                <optgroup label="Spontaneous applications">
+                  <option value="General Spontaneous Application">General Spontaneous Application</option>
+                  <option value="Import Documentation Executive">Import Documentation Executive</option>
+                  <option value="Manager – Accounts Receivable">Manager – Accounts Receivable</option>
+                  <option value="Assistant Manager – Accounts Payable">Assistant Manager – Accounts Payable</option>
+                  <option value="Tax Accountant">Tax Accountant</option>
+                  <option value="Production Engineer – Cold Forging / HOT FORGING/WARM FORMING Manufacturing">Production Engineer – Cold Forging / HOT FORGING/WARM FORMING Manufacturing</option>
+                  <option value="Machine Operators – Cold Forging &amp; Fastener Manufacturing">Machine Operators – Cold Forging &amp; Fastener Manufacturing</option>
+                  <option value="Lab Technician – Quality &amp; Testing(Experience in ISO 17025 Accredited lab preferred, Internal or External)">Lab Technician – Quality &amp; Testing(Experience in ISO 17025 Accredited lab preferred, Internal or External)</option>
+                  <option value="Packing &amp; Dispatch Executive">Packing &amp; Dispatch Executive</option>
+                  <option value="Stores &amp; Warehousing Executive / Operator">Stores &amp; Warehousing Executive / Operator</option>
+                  <option value="Logistics Executive / Coordinator">Logistics Executive / Coordinator</option>
+                  <option value="HR Assistant">HR Assistant</option>
+                  <option value="IT Executive / Assistant – Infrastructure &amp; Support">IT Executive / Assistant – Infrastructure &amp; Support</option>
+                  <option value="Tool Room Technician / Engineer">Tool Room Technician / Engineer</option>
+                  <option value="Production &amp; PPC Control Executive / Engineer">Production &amp; PPC Control Executive / Engineer</option>
+                  <option value="Vendor Development Executive / Engineer">Vendor Development Executive / Engineer</option>
+                  <option value="Heat Treatment – Assistant Manager / Executive">Heat Treatment – Assistant Manager / Executive</option>
+                  <option value="Quality Engineer">Quality Engineer</option>
+                </optgroup>
+              </select>
+              <small>Clicking “Apply for this role” above automatically selects the relevant position.</small>
+            </div>
+
+            <div class="cr-field">
+              <label for="applicationType">Application type <span class="cr-required">*</span></label>
+              <select id="applicationType" name="application_type" required>
+                <option value="">Select application type</option>
+                <option value="Current Opening">Current Opening</option>
+                <option value="Spontaneous Application">Spontaneous Application</option>
+              </select>
+            </div>
+
+            <div class="cr-field">
+              <label for="preferredLocation">Preferred work location <span class="cr-required">*</span></label>
+              <input type="text" id="preferredLocation" name="preferred_location" placeholder="Mumbai, Faridabad, plant location, etc." required maxlength="100">
+            </div>
+
+            <div class="cr-field">
+              <label for="fullName">Full name <span class="cr-required">*</span></label>
+              <input type="text" id="fullName" name="full_name" placeholder="Enter your full name" required autocomplete="name" maxlength="120">
+            </div>
+
+            <div class="cr-field">
+              <label for="emailAddress">Email address <span class="cr-required">*</span></label>
+              <input type="email" id="emailAddress" name="email" placeholder="name@example.com" required autocomplete="email" maxlength="150">
+            </div>
+
+            <div class="cr-field">
+              <label for="phoneNumber">Mobile number <span class="cr-required">*</span></label>
+              <div class="cr-phone-row">
+                <select id="countryCode" name="country_code" aria-label="Country code" required>
+                  <option value="+91">+91 India</option>
+                  <option value="+1">+1 USA/Canada</option>
+                  <option value="+44">+44 UK</option>
+                  <option value="+49">+49 Germany</option>
+                  <option value="+33">+33 France</option>
+                  <option value="+39">+39 Italy</option>
+                  <option value="+34">+34 Spain</option>
+                  <option value="+31">+31 Netherlands</option>
+                  <option value="+61">+61 Australia</option>
+                  <option value="+81">+81 Japan</option>
+                  <option value="+971">+971 UAE</option>
+                  <option value="+65">+65 Singapore</option>
+                  <option value="+86">+86 China</option>
+                  <option value="+886">+886 Taiwan</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input type="tel" id="phoneNumber" name="phone" placeholder="10-digit mobile number" required autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{7,15}" maxlength="15">
+              </div>
+              <small>Enter digits only, without spaces or hyphens.</small>
+            </div>
+
+            <div class="cr-field">
+              <label for="currentLocation">Current city / country <span class="cr-required">*</span></label>
+              <input type="text" id="currentLocation" name="current_location" placeholder="Your current location" required maxlength="100">
+            </div>
+
+            <div class="cr-field">
+              <label for="qualification">Highest qualification <span class="cr-required">*</span></label>
+              <input type="text" id="qualification" name="highest_qualification" placeholder="Degree, diploma or certification" required maxlength="150">
+            </div>
+
+            <div class="cr-field">
+              <label for="experience">Total experience <span class="cr-required">*</span></label>
+              <select id="experience" name="total_experience" required>
+                <option value="">Select experience</option>
+                <option value="Fresher">Fresher</option>
+                <option value="Less than 1 year">Less than 1 year</option>
+                <option value="1–2 years">1–2 years</option>
+                <option value="3–5 years">3–5 years</option>
+                <option value="6–10 years">6–10 years</option>
+                <option value="11–15 years">11–15 years</option>
+                <option value="16+ years">16+ years</option>
+              </select>
+            </div>
+
+            <div class="cr-field">
+              <label for="currentCompany">Current / most recent employer</label>
+              <input type="text" id="currentCompany" name="current_company" placeholder="Company name" maxlength="150">
+            </div>
+
+            <div class="cr-field">
+              <label for="noticePeriod">Notice period / availability <span class="cr-required">*</span></label>
+              <select id="noticePeriod" name="notice_period" required>
+                <option value="">Select availability</option>
+                <option value="Immediate">Immediate</option>
+                <option value="15 days">15 days</option>
+                <option value="30 days">30 days</option>
+                <option value="45 days">45 days</option>
+                <option value="60 days">60 days</option>
+                <option value="90 days">90 days</option>
+                <option value="More than 90 days">More than 90 days</option>
+                <option value="Not applicable">Not applicable</option>
+              </select>
+            </div>
+
+            <div class="cr-field">
+              <label for="currentCtc">Current annual compensation</label>
+              <input type="text" id="currentCtc" name="current_ctc" placeholder="Optional">
+            </div>
+
+            <div class="cr-field">
+              <label for="expectedCtc">Expected annual compensation</label>
+              <input type="text" id="expectedCtc" name="expected_ctc" placeholder="Optional">
+            </div>
+
+            <div class="cr-field">
+              <label for="linkedinUrl">LinkedIn profile</label>
+              <input type="url" id="linkedinUrl" name="linkedin_url" placeholder="https://linkedin.com/in/your-profile">
+            </div>
+
+            <div class="cr-field">
+              <label for="portfolioUrl">Portfolio / professional profile</label>
+              <input type="url" id="portfolioUrl" name="portfolio_url" placeholder="Website, portfolio or profile URL">
+            </div>
+
+            <div class="cr-field cr-field--full">
+              <label for="skills">Core skills <span class="cr-required">*</span></label>
+              <input type="text" id="skills" name="core_skills" placeholder="Example: Export documentation, OEM sales, cold forging, quality systems" required maxlength="300">
+            </div>
+
+            <div class="cr-field cr-field--full">
+              <label for="candidateMessage">Professional summary / cover note <span class="cr-required">*</span></label>
+              <textarea id="candidateMessage" name="candidate_message" placeholder="Briefly explain your experience, achievements and why you are interested in this opportunity." required maxlength="2500"></textarea>
+              <small>Maximum 2,500 characters.</small>
+            </div>
+
+            <div class="cr-field">
+              <label for="resumeFile">Resume / CV <span class="cr-required">*</span></label>
+              <div class="cr-file">
+                <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                <span class="cr-file-name" id="resumeFileName">No file selected</span>
+              </div>
+              <small>PDF, DOC or DOCX only. Maximum 5 MB.</small>
+            </div>
+
+            <div class="cr-field">
+              <label for="supportingFile">Supporting document</label>
+              <div class="cr-file">
+                <input type="file" id="supportingFile" name="supporting_document" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
+                <span class="cr-file-name" id="supportingFileName">No file selected</span>
+              </div>
+              <small>Optional certificate, cover letter or portfolio sample. Maximum 10 MB.</small>
+            </div>
+
+            <div class="cr-field">
+              <label for="humanCheck">Human verification: 3 + 4 = ? <span class="cr-required">*</span></label>
+              <input type="text" id="humanCheck" name="human_check" inputmode="numeric" pattern="7" maxlength="1" placeholder="Enter answer" required>
+            </div>
+
+            <div class="cr-field">
+              <label for="referralSource">How did you hear about us?</label>
+              <select id="referralSource" name="referral_source">
+                <option value="">Select an option</option>
+                <option value="Pradako website">Pradako website</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Job portal">Job portal</option>
+                <option value="Employee referral">Employee referral</option>
+                <option value="Recruitment consultant">Recruitment consultant</option>
+                <option value="Career fair / campus">Career fair / campus</option>
+                <option value="Social media">Social media</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="cr-consent">
+              <input type="checkbox" id="dataConsent" name="data_consent" value="yes" required>
+              <label for="dataConsent">I confirm that the information provided is accurate and consent to Pradako Mechanical &amp; Engineering Works processing my personal data and uploaded documents for recruitment, assessment, communication and future suitable opportunities in accordance with its privacy practices. <span class="cr-required">*</span></label>
+            </div>
+
+            <div class="cr-form-status" id="careerFormStatus" role="status" aria-live="polite"></div>
+
+            <div class="cr-form-actions">
+              <button type="submit" class="cr-btn cr-btn--red" id="careerSubmit">Submit Application →</button>
+              <p>Pradako does not charge candidates any fee at any stage of recruitment. Applications are reviewed only through authorized channels.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cr-sec" id="faqs">
+  <div class="cr-wrap">
+    <div class="cr-eyebrow cr-rv">Candidate FAQs</div>
+    <h2 class="cr-h cr-h-lg cr-rv">Questions before<br><span class="r">you apply?</span></h2>
+    <p class="cr-lead cr-rv">We've compiled answers to some of the most common queries candidates have during their journey with Pradako Mechanical and Engineering Works.</p>
+    <div class="cr-faq cr-rv"><div class="cr-fq"><button class="cr-fqq" type="button">How do I apply for a job at Pradako Mechanical and Engineering Works?<span class="ic">+</span></button><div class="cr-fqa"><p>You can apply directly through our Careers page. Search for open positions, select the one that fits your profile, and submit your resume/CV or LinkedIn profile online.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">Can I apply for more than one job at a time?<span class="ic">+</span></button><div class="cr-fqa"><p>Yes, you are welcome to apply for multiple positions that align with your skills and career interests.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">What documents should I submit with my application?<span class="ic">+</span></button><div class="cr-fqa"><p>Typically, a resume or CV is required. Depending on the role, we may also ask for a cover letter, certifications, or portfolio samples.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">How will I know if my application was received?<span class="ic">+</span></button><div class="cr-fqa"><p>Once you submit your application online, you will receive an automated confirmation email. Our recruitment team will reach out if you are shortlisted for the next steps.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">What does the interview process involve?<span class="ic">+</span></button><div class="cr-fqa"><p>Interviews may be conducted in person or virtually. You may meet with a hiring manager, team leads, or a panel. The process may include technical assessments depending on the role.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">How long does the hiring process take?<span class="ic">+</span></button><div class="cr-fqa"><p>Timelines vary by role and team. We strive to keep the process efficient and will keep you informed along the way.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">Do you offer internships or opportunities for freshers?<span class="ic">+</span></button><div class="cr-fqa"><p>Yes, we welcome young talent through internships, industrial training, and entry-level roles. Explore our dedicated <a href='/pages/people/internship.html'>Internships</a> and <a href='/pages/people/fresher.html'>Freshers</a> pages, and keep an eye on this Careers page for such openings.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">What is the work culture like at Pradako?<span class="ic">+</span></button><div class="cr-fqa"><p>We value integrity, collaboration, and continuous growth. Our workplace encourages diversity, open dialogue, and personal development.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">I received a suspicious job offer claiming to be from Pradako. What should I do?<span class="ic">+</span></button><div class="cr-fqa"><p>We never ask for payment or fees during the recruitment process. If you suspect fraud, please report it immediately — see our <a href='#fraud'>recruitment fraud advisory</a> below or write to <a href='mailto:careers@pradakomechanicals.com'>careers@pradakomechanicals.com</a>.</p></div></div><div class="cr-fq"><button class="cr-fqq" type="button">Whom can I contact for further queries?<span class="ic">+</span></button><div class="cr-fqa"><p>You can reach our HR team through the contact form on our Careers page or email us directly at <a href='mailto:careers@pradakomechanicals.com'>careers@pradakomechanicals.com</a>.</p></div></div></div>
+  </div>
+</section>
+
+<!-- FRAUD -->
+<section class="cr-sec cr-fraud" id="fraud">
+  <div class="cr-wrap">
+    <div class="cr-eyebrow cr-rv">Recruitment integrity</div>
+    <h2 class="cr-h cr-h-lg cr-rv">Beware of fraudulent recruitment, employment claims <span class="r">and documents.</span></h2>
+
+    <div class="cr-fraud__alert cr-rv">
+      <span class="tag">⚠ Official advisory</span>
+      <p>It has come to our attention that certain individuals, candidates, agencies or other entities may misuse the name, logo, identity or proprietary information of Pradako Mechanical &amp; Engineering Works for unauthorized or fraudulent purposes.</p>
+      <p>Such activities may include publishing false job advertisements, promising guaranteed employment, demanding registration charges, interview fees, refundable security deposits or other payments, and issuing or presenting fabricated, altered or unauthorized employment-related documents.</p>
+      <p><b>Pradako Mechanical &amp; Engineering Works does not charge candidates any fee at any stage of its recruitment process</b> — including for job applications, interviews, assessments, offer letters or appointments. No individual, consultant, recruitment agency or third party is authorized to collect money or guarantee employment on behalf of the company unless formally confirmed through our official communication channels.</p>
+      <p>We have also identified instances in which individuals may falsely claim to be currently or previously employed by Pradako Mechanical &amp; Engineering Works, including claims of having worked with the company for several years despite having no genuine employment record with us.</p>
+    </div>
+
+    <h4 class="cr-rv">Fraudulent or unauthorized documents may include:</h4>
+    <div class="cr-doc-grid cr-rv">
+      <div class="cr-doc">Offer letters</div>
+      <div class="cr-doc">Appointment letters</div>
+      <div class="cr-doc">Experience certificates</div>
+      <div class="cr-doc">Employment / service certificates</div>
+      <div class="cr-doc">Relieving letters</div>
+      <div class="cr-doc">Salary documents or payslips</div>
+      <div class="cr-doc">Employee identity cards</div>
+      <div class="cr-doc">Joining documents</div>
+      <div class="cr-doc">Reference letters</div>
+      <div class="cr-doc">Any other employment record</div>
+    </div>
+    <p class="cr-fraud__note cr-rv">Any document carrying the name or logo of Pradako Mechanical &amp; Engineering Works shall not be considered genuine merely because it appears to contain company branding, signatures, stamps or employee details. An employment document will be recognized as valid only when it has been formally issued by an authorized representative of Pradako Mechanical &amp; Engineering Works through the company's approved process and can be verified against our official employment records.</p>
+    <p class="cr-fraud__note cr-rv">Candidates, employers, background-verification agencies, financial institutions and other concerned parties are strongly advised to verify the authenticity of any employment claim, offer letter, appointment letter, experience certificate or related document directly with our Human Resources Department.</p>
+
+    <div class="cr-report cr-rv">
+      <h4>Report suspicious activity</h4>
+      <p style="color:rgba(255,255,255,.82);font-size:14.5px;line-height:1.75">If you come across any individual, candidate, consultant, recruitment agency or organization that may be:</p>
+      <ul>
+        <li>Publishing fraudulent job advertisements</li>
+        <li>Demanding money in exchange for employment</li>
+        <li>Issuing unauthorized offer or appointment letters</li>
+        <li>Using forged or altered experience certificates</li>
+        <li>Falsely claiming current or previous employment with our company</li>
+        <li>Misusing our company name, logo, signatures, stamps or employee details</li>
+        <li>Presenting any suspicious employment-related document or communication</li>
+      </ul>
+      <p style="color:rgba(255,255,255,.82);font-size:14.5px;line-height:1.75;margin-bottom:22px">please report the matter immediately. Even if you are uncertain but have reasonable grounds to suspect that a recruitment communication, employment claim or document may be fraudulent, we encourage you to contact us for verification. When reporting, please provide all available information — copies or screenshots of the advertisement, email, message, document, contact number, website link, social-media profile or any other relevant evidence. All reports will be reviewed appropriately.</p>
+      <a class="cr-report__mail" href="mailto:careers@pradakomechanicals.com?subject=Suspected%20Recruitment%20Fraud%20Report">✉ &nbsp;careers@pradakomechanicals.com</a>
+    </div>
+
+    <p class="cr-legal cr-rv">Pradako Mechanical &amp; Engineering Works shall not be responsible for any loss, damage, employment decision, financial transaction, claim or consequence arising from reliance upon fraudulent job postings, false employment representations, forged documents or communications issued by unauthorized persons or entities. The company reserves the right to initiate appropriate civil, criminal and other legal proceedings against any person or organization found misusing its name, logo, documents, signatures, stamps, employee information or corporate identity, or making false representations regarding employment with the company. Your vigilance helps us maintain a secure, transparent and trustworthy recruitment and employment-verification process.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cr-cta" id="apply">
+  <span class="ring"></span>
+  <div class="cr-wrap cr-rv">
+    <h2>Your capability belongs here.</h2>
+    <p>Apply for an open role or introduce yourself through our online candidate application form.</p>
+    <div class="cr-cta__actions">
+      <a href="#candidate-application" class="cr-btn cr-btn--white">Apply Online →</a>
+      <a href="#current" class="cr-btn cr-btn--glass">Browse Openings</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<script>
+(function(){
+  const bar=document.getElementById('cr-progress');
+  addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.width=(h>0?scrollY/h*100:0)+'%';
+  },{passive:true});
+
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    }),{threshold:.1});
+    document.querySelectorAll('.cr-rv').forEach(el=>io.observe(el));
+  }else{
+    document.querySelectorAll('.cr-rv').forEach(el=>el.classList.add('is-in'));
+  }
+
+  function wire(sel){
+    document.querySelectorAll(sel+' .cr-roleq, '+sel+' .cr-fqq').forEach(q=>q.addEventListener('click',()=>{
+      const it=q.parentElement;
+      const a=it.querySelector('.cr-rolea, .cr-fqa');
+      const open=it.classList.contains('open');
+      it.parentElement.querySelectorAll(':scope > .open').forEach(o=>{
+        o.classList.remove('open');
+        const panel=o.querySelector('.cr-rolea, .cr-fqa');
+        if(panel) panel.style.maxHeight=null;
+      });
+      if(!open&&a){
+        it.classList.add('open');
+        a.style.maxHeight=a.scrollHeight+'px';
+      }
+    }));
+  }
+  wire('#rolesCurrent');
+  wire('#rolesSpont');
+  wire('.cr-faq');
+
+  const form=document.getElementById('careerApplicationForm');
+  const position=document.getElementById('positionApplied');
+  const applicationType=document.getElementById('applicationType');
+  const status=document.getElementById('careerFormStatus');
+  const submit=document.getElementById('careerSubmit');
+  const submittedAt=document.getElementById('submittedAt');
+
+  if(submittedAt) submittedAt.value=String(Date.now());
+
+  document.querySelectorAll('.cr-apply-link').forEach(link=>{
+    link.addEventListener('click',()=>{
+      const role=link.closest('.cr-role');
+      const roleTitle=role?.querySelector('.cr-roleq h3')?.textContent.trim()||'';
+      const currentGroup=Boolean(link.closest('#rolesCurrent'));
+      if(position&&roleTitle) position.value=roleTitle;
+      if(applicationType) applicationType.value=currentGroup?'Current Opening':'Spontaneous Application';
+    });
+  });
+
+  if(position&&applicationType){
+    position.addEventListener('change',()=>{
+      const selected=position.options[position.selectedIndex];
+      const group=selected?.parentElement?.label||'';
+      if(group==='Current opportunities') applicationType.value='Current Opening';
+      if(group==='Spontaneous applications') applicationType.value='Spontaneous Application';
+    });
+  }
+
+  function showFileName(inputId,outputId,maxMb){
+    const input=document.getElementById(inputId);
+    const output=document.getElementById(outputId);
+    if(!input||!output) return;
+    input.addEventListener('change',()=>{
+      const file=input.files&&input.files[0];
+      if(!file){
+        output.textContent='No file selected';
+        input.setCustomValidity('');
+        return;
+      }
+      output.textContent=file.name;
+      if(file.size>maxMb*1024*1024){
+        input.setCustomValidity('File size must not exceed '+maxMb+' MB.');
+        output.textContent=file.name+' — exceeds '+maxMb+' MB';
+      }else{
+        input.setCustomValidity('');
+      }
+    });
+  }
+  showFileName('resumeFile','resumeFileName',5);
+  showFileName('supportingFile','supportingFileName',10);
+
+  function setStatus(message,type){
+    if(!status) return;
+    status.textContent=message;
+    status.className='cr-form-status is-visible '+(type==='success'?'is-success':'is-error');
+  }
+
+  const params=new URLSearchParams(location.search);
+  const applicationStatus=params.get('application');
+  if(applicationStatus==='success'){
+    setStatus('Thank you. Your application has been submitted successfully. A confirmation email will be sent to the address provided.','success');
+  }else if(applicationStatus==='error'){
+    setStatus('We could not submit your application. Please review the form and try again, or email careers@pradakomechanicals.com.','error');
+  }
+
+  if(form){
+    form.addEventListener('submit',event=>{
+      status?.classList.remove('is-visible','is-success','is-error');
+
+      if(!form.checkValidity()){
+        event.preventDefault();
+        form.reportValidity();
+        const firstInvalid=form.querySelector(':invalid');
+        firstInvalid?.focus({preventScroll:true});
+        firstInvalid?.scrollIntoView({behavior:'smooth',block:'center'});
+        setStatus('Please complete all mandatory fields and correct the highlighted information.','error');
+        return;
+      }
+
+      const phone=document.getElementById('phoneNumber');
+      if(phone&&phone.value&&!/^[0-9]{7,15}$/.test(phone.value)){
+        event.preventDefault();
+        phone.setCustomValidity('Enter 7 to 15 digits only.');
+        phone.reportValidity();
+        setStatus('Please enter a valid mobile number using digits only.','error');
+        return;
+      }
+
+      if(submit){
+        submit.disabled=true;
+        submit.textContent='Submitting Application…';
+      }
+    });
+  }
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+/* ==========================================================
+   INDEPENDENT CROSS-REFERENCE FOR ALL STANDARDS PAGE
+   Layout/loading/error styles only.
+   The actual guide keeps using /css/cross-reference-guide.css.
+========================================================== */
+
+:root {
+    --allstd-navy: #0c2f4a;
+    --allstd-navy-deep: #06243b;
+    --allstd-blue: #174a6d;
+    --allstd-orange: #e67e22;
+    --allstd-gold: #d6aa3b;
+    --allstd-white: #ffffff;
+    --allstd-soft: #f7f9fc;
+    --allstd-line: #dfe7ef;
+    --allstd-muted: #667b8e;
+    --allstd-shadow: 0 24px 64px rgba(9, 33, 52, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.pmew-all-standards-page {
+    margin: 0;
+    min-width: 320px;
+    background: var(--allstd-white);
+    color: var(--allstd-navy-deep);
+    font-family: "Montserrat", sans-serif;
+}
+
+body.pmew-all-standards-page *,
+body.pmew-all-standards-page *::before,
+body.pmew-all-standards-page *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   PRODUCT SUB-NAVIGATION
+========================================================== */
+
+.pmew-independent-product-nav {
+    position: sticky !important;
+    top: var(--pmew-main-header-height, 0px) !important;
+    z-index: 90 !important;
+}
+
+.pmew-independent-product-nav .nav-card[aria-current="page"] {
+    color: var(--allstd-orange) !important;
+}
+
+.pmew-independent-product-nav .nav-card[aria-current="page"] .nav-small,
+.pmew-independent-product-nav .nav-card[aria-current="page"] .nav-big {
+    color: inherit !important;
+}
+
+/* ==========================================================
+   PAGE APP / SHARED MOUNT
+========================================================== */
+
+.pmew-all-standards-app {
+    min-height: 72vh;
+    background: #ffffff;
+}
+
+.pmew-all-standards-shared-mount {
+    min-height: 1px;
+    scroll-margin-top: calc(
+        var(--pmew-main-header-height, 16px) +
+        var(--pmew-product-nav-height, 78px) +
+        24px
+    );
+}
+
+.pmew-all-standards-app.is-ready .pmew-all-standards-shared-mount {
+    min-height: 60vh;
+}
+
+/* Ensure the imported shared section begins with suitable page spacing. */
+.pmew-all-standards-shared-mount > section,
+.pmew-all-standards-shared-mount > div:first-child {
+    margin-top: 0 !important;
+}
+
+/* ==========================================================
+   LOADING STATE
+========================================================== */
+
+.pmew-all-standards-loading {
+    min-height: 72vh;
+    padding: clamp(76px, 8vw, 122px) 24px;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(23, 74, 109, 0.055), transparent 34%),
+        #ffffff;
+}
+
+.pmew-all-standards-loading[hidden] {
+    display: none !important;
+}
+
+.pmew-all-standards-loading-inner {
+    width: min(1480px, 100%);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.pmew-all-standards-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: var(--allstd-orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.pmew-all-standards-kicker::before,
+.pmew-all-standards-kicker::after {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: currentColor;
+}
+
+.pmew-all-standards-loading h1 {
+    max-width: 1220px;
+    margin: 0 auto;
+    color: var(--allstd-navy);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 5.2vw, 76px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.pmew-all-standards-loading p {
+    max-width: 780px;
+    margin: 22px auto 0;
+    color: var(--allstd-muted);
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.75;
+}
+
+.pmew-all-standards-skeleton {
+    width: min(1480px, 100%);
+    margin: 52px auto 0;
+    padding: clamp(22px, 3vw, 38px);
+    border: 1px solid var(--allstd-line);
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: 0 16px 45px rgba(9, 33, 52, 0.07);
+    overflow: hidden;
+}
+
+.pmew-all-standards-skeleton-head,
+.pmew-all-standards-skeleton-controls span,
+.pmew-all-standards-skeleton-table i {
+    display: block;
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            90deg,
+            #edf2f6 0%,
+            #f8fafc 42%,
+            #e8eef3 66%,
+            #edf2f6 100%
+        );
+    background-size: 240% 100%;
+    animation: pmewAllStandardsShimmer 1.45s linear infinite;
+}
+
+.pmew-all-standards-skeleton-head {
+    width: min(520px, 62%);
+    height: 30px;
+    margin: 0 auto 30px;
+}
+
+.pmew-all-standards-skeleton-controls {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 0.7fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.pmew-all-standards-skeleton-controls span {
+    height: 54px;
+}
+
+.pmew-all-standards-skeleton-table {
+    display: grid;
+    gap: 12px;
+}
+
+.pmew-all-standards-skeleton-table i {
+    height: 58px;
+    border-radius: 12px;
+}
+
+@keyframes pmewAllStandardsShimmer {
+    to {
+        background-position: -240% 0;
+    }
+}
+
+/* ==========================================================
+   ERROR STATE
+========================================================== */
+
+.pmew-all-standards-error {
+    min-height: 72vh;
+    padding: 78px 24px;
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+}
+
+.pmew-all-standards-error[hidden] {
+    display: none !important;
+}
+
+.pmew-all-standards-error-card {
+    width: min(720px, 100%);
+    padding: clamp(36px, 5vw, 62px);
+    border: 1px solid var(--allstd-line);
+    border-radius: 32px;
+    background: #ffffff;
+    box-shadow: var(--allstd-shadow);
+    text-align: center;
+}
+
+.pmew-all-standards-error-card > i {
+    width: 76px;
+    height: 76px;
+    display: inline-grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: rgba(230, 126, 34, 0.11);
+    color: var(--allstd-orange);
+    font-size: 31px;
+}
+
+.pmew-all-standards-error-card h1 {
+    margin: 0 0 16px;
+    color: var(--allstd-navy);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 5vw, 50px);
+    line-height: 1.1;
+}
+
+.pmew-all-standards-error-card p {
+    margin: 0;
+    color: var(--allstd-muted);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.pmew-all-standards-error-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
+}
+
+.pmew-all-standards-error-actions button,
+.pmew-all-standards-error-actions a {
+    min-height: 52px;
+    padding: 0 25px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pmew-all-standards-error-actions button {
+    border: 1px solid var(--allstd-navy);
+    background: var(--allstd-navy);
+    color: #ffffff;
+}
+
+.pmew-all-standards-error-actions a {
+    border: 1px solid var(--allstd-line);
+    background: #ffffff;
+    color: var(--allstd-navy);
+}
+
+.pmew-all-standards-error-actions button:hover,
+.pmew-all-standards-error-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(9, 33, 52, 0.12);
+}
+
+/* ==========================================================
+   BACK TO TOP
+========================================================== */
+
+.pmew-all-standards-back-top {
+    position: fixed;
+    right: clamp(18px, 3vw, 42px);
+    bottom: clamp(18px, 3vw, 38px);
+    z-index: 160;
+    width: 58px;
+    height: 58px;
+    border: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #ffc83d;
+    color: #ffffff;
+    box-shadow: 0 15px 32px rgba(9, 33, 52, 0.18);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.24s ease, visibility 0.24s ease, transform 0.24s ease;
+}
+
+.pmew-all-standards-back-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.pmew-all-standards-back-top i {
+    font-size: 23px;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 900px) {
+    .pmew-all-standards-skeleton-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .pmew-all-standards-loading {
+        padding-top: 62px;
+    }
+}
+
+@media (max-width: 640px) {
+    .pmew-all-standards-loading,
+    .pmew-all-standards-error {
+        min-height: 64vh;
+        padding-inline: 16px;
+    }
+
+    .pmew-all-standards-skeleton {
+        margin-top: 36px;
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .pmew-all-standards-skeleton-head {
+        width: 78%;
+        height: 24px;
+    }
+
+    .pmew-all-standards-back-top {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .pmew-all-standards-skeleton-head,
+    .pmew-all-standards-skeleton-controls span,
+    .pmew-all-standards-skeleton-table i {
+        animation: none;
+    }
+
+    .pmew-all-standards-back-top,
+    .pmew-all-standards-error-actions button,
+    .pmew-all-standards-error-actions a {
+        transition: none;
+    }
+}

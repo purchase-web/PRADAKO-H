@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Global Presence | Pradako Mechanical</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS --> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/global-presence.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+
+<!-- NEW: PRELOAD THE FIRST GLOBAL AMBITION HERO -->
+<link rel="preload" as="image" href="/assets/images/global-presence/global-01-glass-earth.png">
+
+<!-- ==========================================================
+     NEW FIRST HERO — GLOBAL AMBITION
+     This block is intentionally self-contained so the existing
+     Global Presence styles and sections remain unchanged.
+=========================================================== -->
+<style>
+    /* ==========================================================
+       FIRST HERO — GLOBAL AMBITION
+       Desktop: copy on the left, globe on the right.
+       Mobile/tablet: copy remains visible over a darker image.
+    ========================================================== */
+
+    .pmew-global-ambition-hero {
+        position: relative;
+        width: 100%;
+        height: 100svh;
+        min-height: 720px;
+        max-height: 1080px;
+        overflow: hidden;
+        background: #fbfbfb;
+        isolation: isolate;
+    }
+
+    /* Darkens only the copy side without covering the globe. */
+    .pmew-global-ambition-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        /* background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.98) 27%,
+            rgba(0, 0, 0, 0.72) 47%,
+            rgba(0, 0, 0, 0.12) 68%,
+            rgba(0, 0, 0, 0) 100%
+        ); */
+    }
+
+    .pmew-global-ambition-hero__image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        object-position: center;
+        /* background: #000; */
+        transform: translateX(22%);
+        transform-origin: center;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    /*
+       IMPORTANT:
+       The previous CSS converted this element into screen-reader-only text
+       by setting it to 1px and clipping it. It is now a visible hero layer.
+    */
+    .pmew-global-ambition-hero__copy {
+        position: absolute;
+        left: clamp(46px, 4.6vw, 90px);
+        top: 50%;
+        z-index: 2;
+        width: min(53vw, 940px);
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        color: #0c0c0c;
+        transform: translateY(-50%);
+    }
+
+    .pmew-global-ambition-hero__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        margin: 0 0 clamp(24px, 2vw, 38px);
+        color: #141414;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(10px, 0.72vw, 14px);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+    }
+
+    .pmew-global-ambition-hero__eyebrow::before {
+        content: "";
+        width: clamp(42px, 3vw, 58px);
+        height: 3px;
+        flex: 0 0 auto;
+        background: #ff922f;
+    }
+
+    .pmew-global-ambition-hero__title {
+        max-width: 930px;
+        margin: 0;
+        color: #000000;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(58px, 5.15vw, 103px);
+        font-weight: 800;
+        line-height: 0.88;
+        letter-spacing: -0.075em;
+        text-wrap: balance;
+        text-transform: uppercase;
+    }
+
+    .pmew-global-ambition-hero__title span {
+        display: block;
+        max-width: 920px;
+        margin-top: clamp(18px, 1.4vw, 28px);
+        color: #ff922f;
+        font-size: 0.76em;
+        line-height: 0.97;
+        letter-spacing: -0.065em;
+        text-wrap: pretty;
+    }
+
+    .pmew-global-ambition-hero__text {
+        max-width: 760px;
+        margin: clamp(28px, 2vw, 42px) 0 0;
+        color: rgba(7, 7, 7, 0.82);
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(14px, 1vw, 20px);
+        font-weight: 400;
+        line-height: 1.65;
+    }
+
+    .pmew-global-ambition-hero__scroll {
+        position: absolute;
+        left: clamp(46px, 4.6vw, 90px);
+        bottom: clamp(22px, 3vw, 48px);
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 15px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.64);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .pmew-global-ambition-hero__scroll:hover,
+    .pmew-global-ambition-hero__scroll:focus-visible {
+        color: #fff;
+        background: #ff922f;
+        border-color: #ff922f;
+        outline: none;
+    }
+
+    .pmew-global-ambition-hero__scroll i {
+        font-size: 11px;
+    }
+
+    #global-introduction {
+        scroll-margin-top: 90px;
+    }
+
+    @media (max-width: 1320px) {
+        .pmew-global-ambition-hero__image {
+            transform: translateX(27%) scale(0.96);
+        }
+
+        .pmew-global-ambition-hero__copy {
+            width: min(56vw, 780px);
+        }
+
+        .pmew-global-ambition-hero__title {
+            font-size: clamp(54px, 5.35vw, 78px);
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .pmew-global-ambition-hero {
+            min-height: 720px;
+            max-height: none;
+        }
+
+        .pmew-global-ambition-hero::before {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.98) 0%,
+                rgba(0, 0, 0, 0.88) 48%,
+                rgba(0, 0, 0, 0.28) 100%
+            );
+        }
+
+        .pmew-global-ambition-hero__image {
+            object-fit: cover;
+            object-position: 64% center;
+            transform: none;
+            opacity: 0.8;
+        }
+
+        .pmew-global-ambition-hero__copy {
+            left: clamp(26px, 6vw, 62px);
+            width: min(78vw, 720px);
+        }
+
+        .pmew-global-ambition-hero__title {
+            font-size: clamp(50px, 8.3vw, 78px);
+        }
+
+        .pmew-global-ambition-hero__scroll {
+            left: clamp(26px, 6vw, 62px);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .pmew-global-ambition-hero {
+            height: auto;
+            min-height: 760px;
+        }
+
+        .pmew-global-ambition-hero::before {
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.10) 0%,
+                rgba(0, 0, 0, 0.34) 35%,
+                rgba(0, 0, 0, 0.96) 68%,
+                rgba(0, 0, 0, 1) 100%
+            );
+        }
+
+        .pmew-global-ambition-hero__image {
+            height: 57%;
+            object-fit: cover;
+            object-position: 58% center;
+            opacity: 0.9;
+        }
+
+        .pmew-global-ambition-hero__copy {
+            left: 24px;
+            right: 24px;
+            top: auto;
+            bottom: 94px;
+            width: auto;
+            transform: none;
+        }
+
+        .pmew-global-ambition-hero__eyebrow {
+            margin-bottom: 20px;
+            font-size: 9px;
+            letter-spacing: 0.24em;
+        }
+
+        .pmew-global-ambition-hero__title {
+            font-size: clamp(42px, 12vw, 62px);
+            line-height: 0.91;
+        }
+
+        .pmew-global-ambition-hero__title span {
+            margin-top: 16px;
+            font-size: 0.7em;
+            line-height: 1;
+        }
+
+        .pmew-global-ambition-hero__text {
+            margin-top: 22px;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .pmew-global-ambition-hero__scroll {
+            left: 24px;
+            bottom: 25px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pmew-global-ambition-hero__scroll {
+            transition: none;
+        }
+    }
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Global Presence from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/global-presence.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Global Presence | Pradako Mechanical">
+    <meta property="og:description" content="Global Presence from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/global-presence.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Global Presence | Pradako Mechanical">
+    <meta name="twitter:description" content="Global Presence from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Global Presence | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/global-presence/global-presence.html",
+  "description": "Global Presence from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<div id="navbar-container"></div>
+
+<main class="pmew-global-page">
+
+    <!-- ======================================================
+         NEW FIRST HERO — SCREENSHOT / GLOBAL AMBITION
+         The previous hero is retained immediately below.
+    ======================================================= -->
+    <section
+        class="pmew-global-ambition-hero"
+        id="top"
+        aria-labelledby="pmew-global-ambition-title"
+    >
+        <img
+            class="pmew-global-ambition-hero__image"
+            src="/assets/images/global-presence/global-01-glass-earth.png"
+            alt=""
+            fetchpriority="high"
+            decoding="async"
+        >
+
+        <!-- Accessible copy; also becomes the responsive mobile layout. -->
+        <div class="pmew-global-ambition-hero__copy">
+            <p class="pmew-global-ambition-hero__eyebrow">Our Global Ambition</p>
+
+            <h1
+                class="pmew-global-ambition-hero__title"
+                id="pmew-global-ambition-title"
+            >
+                195 Countries<br>
+                One World
+                <span>Reaching Customers and Customers to Be</span>
+            </h1>
+
+            <p class="pmew-global-ambition-hero__text">
+                Building relationships across markets, industries and generations.
+            </p>
+        </div>
+    </section>
+
+    
+
+    <section class="pmew-global-hero" id="global-introduction" aria-label="Global Presence Introduction">
+        <div class="pmew-global-hero-content pmew-global-reveal">
+            <div class="pmew-global-hero-badge">
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                Pradako Mechanical & Engineering Works
+            </div>
+
+            <h1 class="pmew-global-hero-heading">
+                THE GROWING
+                <span>GLOBAL PRESENCE</span>
+            </h1>
+
+            <p class="pmew-global-hero-text">
+                Serving quality volumes across continents with precision fasteners, export documentation and global dispatch readiness.
+            </p>
+
+            <div class="pmew-global-hero-actions">
+                <a href="#global-export-form" class="pmew-global-btn pmew-global-btn--primary" aria-label="Go to Global RFQ form">
+                    GLOBAL RFQ
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <div class="pmew-global-hero-meta" aria-label="Global Presence Highlights">
+                <div>
+                    <strong>6</strong>
+                    <span>Continents</span>
+                </div>
+
+                <div class="pmew-global-hero-meta-line" aria-hidden="true"></div>
+
+                <div>
+                    <strong>0 PPM</strong>
+                    <span>Quality Commitment</span>
+                </div>
+
+                <div class="pmew-global-hero-meta-line" aria-hidden="true"></div>
+
+                <div>
+                    <strong>1960s</strong>
+                    <span>Established</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pmew-global-philosophy" aria-label="Pradako Philosophy">
+        OM Namaste | Shree Ganeshay Namah | HariOM | Jay Shree Radhe Shyam | ATHITHI DEVO BHAVA
+    </section>
+
+    <!-- <nav class="pmew-global-workline" aria-label="Global Presence Page Navigation">
+        <div class="pmew-global-workline-inner">
+            <a href="#global-story">Global Story</a>
+            <a href="#pradakoGlobalPresence">Footprint</a>
+            <a href="#global-markets">Markets</a>
+            <a href="#global-culture">Cultures</a>
+            <a href="#global-trust">Trust</a>
+            <a href="#global-export-enquiry">Global RFQ</a>
+        </div>
+    </nav> -->
+
+<section class="pmew-global-section pmew-global-story" id="global-story">
+    <div class="pmew-global-container">
+
+        <div class="pmew-global-command-head pmew-global-reveal">
+            <div>
+                <span class="pmew-global-command-eyebrow">ALL SIX CONTINENTS — SIX DECADES</span>
+                <h2 class="pmew-global-command-title">OUR FASTENERS CAN REACH ALL SEVEN CONTINENTS.</h2>
+
+                <div class="pmew-global-command-image-label">
+                    <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+                    Global business team discussion
+                </div>
+            </div>
+
+            <p class="pmew-global-command-intro">
+                Global Presence and Export Division.
+            </p>
+        </div>
+
+        <div class="pmew-global-command-grid">
+
+            <div class="pmew-global-command-copy pmew-global-reveal">
+                <div class="pmew-global-command-statement">
+                    <p>Billions and Billions of Fasteners Worldwide and still a very Wide World to Cater To by Maintaining 0 PPM.</p>
+                    <p><strong>PRADAKO — Quality with Volumes.</strong></p>
+                    <p>Serving Industry with Quality Volumes, Confidentiality, and Ethics.</p>
+                </div>
+
+                <div class="pmew-global-command-timeline">
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">01</div>
+                        <div>
+                            <h3>Customer Focus</h3>
+                            <p>We have reached Global Presence by Focusing on each customer individually.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">02</div>
+                        <div>
+                            <h3>Established in the 1960s</h3>
+                            <p>Established in the 1960s, our company has grown from a regional fastener supplier to a global leader in the fastener industry.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">03</div>
+                        <div>
+                            <h3>Export Division</h3>
+                            <p>Our Export Division is at the heart of this global success, ensuring that our wide range of fasteners will reach clients in over 100 countries across Europe, North America, South America, Asia, Africa and Australia soon.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">04</div>
+                        <div>
+                            <h3>Logistics Partnerships</h3>
+                            <p>With strategically located distribution centres, warehousing facilities and logistics partnerships and solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">05</div>
+                        <div>
+                            <h3>International Standards</h3>
+                            <p>A key factor in our success is our ability to meet and exceed International Standards such as ISO, DIN, JIS, IS, ANSI and ASTM.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">06</div>
+                        <div>
+                            <h3>Global OEMs</h3>
+                            <p>By consistently meeting international standards we have earned the trust of Global OEMs.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">07</div>
+                        <div>
+                            <h3>Dedicated Team</h3>
+                            <p>We have a dedicated team in our Export Division that works closely with our international clients.</p>
+                        </div>
+                    </div>
+
+                    <div class="pmew-global-command-step">
+                        <div class="pmew-global-command-step-num">08</div>
+                        <div>
+                            <h3>Continuous Investment</h3>
+                            <p>By continually investing in Human Resource, Technology, Innovation and Sustainability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <section class="pradako-gp-section" id="pradakoGlobalPresence" aria-label="Pradako Global Presence Map">
+        <div class="pradako-gp-wrapper">
+
+            <div class="pradako-gp-title">
+                <div class="section-badge">PRADAKO Global Footprint</div>
+                <h2>Global<br>Presence</h2>
+                <p>Serving precision fastener requirements across continents with a trusted manufacturing base in India and a growing international customer network.</p>
+            </div>
+
+            <div class="pradako-gp-map-label">
+                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+                Pradako Global Presence Map
+            </div>
+
+            <div class="pradako-gp-map-stage">
+                <div class="pradako-gp-map-card">
+                    <img src="/assets/images/global-presence/global-map.png" alt="Pradako Global Presence Map">
+                    <span class="pradako-gp-india-glow" aria-hidden="true"></span>
+                </div>
+            </div>
+
+            <aside class="pradako-gp-panel" aria-label="Global Presence Highlights">
+                <div class="pradako-gp-panel-inner">
+                    <div class="pradako-gp-grid">
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Headquartered In</div>
+                            <div class="pradako-gp-value">Mumbai, India</div>
+                        </div>
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Service Offerings</div>
+                            <div class="pradako-gp-value">50+ Countries</div>
+                        </div>
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Reaching All</div>
+                            <div class="pradako-gp-value">6 Continents</div>
+                        </div>
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Research & Development</div>
+                            <div class="pradako-gp-small">R&D Centre, Mumbai</div>
+                        </div>
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Management Systems</div>
+                            <div class="pradako-gp-value">10+ Certifications</div>
+                        </div>
+
+                        <div class="pradako-gp-card">
+                            <div class="pradako-gp-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+                            <div class="pradako-gp-label">Quality Commitment</div>
+                            <div class="pradako-gp-value">0 PPM</div>
+                            <div class="pradako-gp-small">Maintaining Across The Globe</div>
+                        </div>
+
+                        <div class="pradako-gp-card pradako-gp-locations">
+                            <div class="pradako-gp-label">Marketing & Sales</div>
+                            <div class="pradako-gp-value">International Access Points</div>
+
+                            <ul class="pradako-gp-location-list">
+                                <li>Ahmedabad, Gujarat</li>
+                                <li>Vadodara, Gujarat</li>
+                                <li>Mumbai, Maharashtra</li>
+                                <li>Las Vegas, USA</li>
+                                <li>Milan, Italy</li>
+                                <li>Stuttgart, Germany</li>
+                                <li>Istanbul, Turkey</li>
+                                <li>Krakow, Poland</li>
+                                <li>Dubai, UAE</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+<!-- ======================================================
+    GLOBAL MARKET SEGMENTS
+======================================================= -->
+<section
+    class="pmew-global-section pmew-global-markets"
+    aria-label="Global Market Segments"
+>
+    <div class="pmew-global-container">
+
+        <div class="pmew-global-market-board pmew-global-reveal">
+
+            <!-- ==================================================
+                MARKET GROUP 01
+            =================================================== -->
+            <article class="pmew-global-market-row">
+
+                <div
+                    class="pmew-global-market-number"
+                    aria-hidden="true"
+                >
+                    01
+                </div>
+
+                <div class="pmew-global-market-content">
+
+                    <span class="pmew-global-market-kicker">
+                        Global Reach
+                    </span>
+
+                    <h3>THE ELITE'S</h3>
+
+                    <p class="pmew-global-market-description">
+                        Strategic markets representing established industrial
+                        regions, emerging economies and international business
+                        destinations across the Pradako global network.
+                    </p>
+
+                    <div class="pmew-global-market-list">
+                        <span>NORTH AMERICAN MARKET</span>
+                        <span>MEXICO</span>
+                        <span>LATIN AMERICA</span>
+                        <span>BRAZIL</span>
+                        <span>CHILE</span>
+                        <span>REST OF LATAM</span>
+                        <span>THE KINGS</span>
+                        <span>MIDDLE EAST &amp; AFRICA</span>
+                        <span>ASIA PACIFIC &amp; JAPAN</span>
+                        <span>THE EUROPE</span>
+                        <span>THE SIGNIFICANT OTHERS</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                MARKET GROUP 02
+            =================================================== -->
+            <article class="pmew-global-market-row">
+
+                <div
+                    class="pmew-global-market-number"
+                    aria-hidden="true"
+                >
+                    02
+                </div>
+
+                <div class="pmew-global-market-content">
+
+                    <span class="pmew-global-market-kicker">
+                        OEM Trust
+                    </span>
+
+                    <h3>THE OEMS & THE AUTOMOTIVES</h3>
+
+                    <p class="pmew-global-market-description">
+                        Engineering-led relationships supporting original
+                        equipment manufacturers, their group companies and
+                        their interconnected supply chains.
+                    </p>
+
+                    <div class="pmew-global-market-list">
+                        <span>INDIAN</span>
+                        <span>JAPANESE</span>
+                        <span>EUROPEAN OEMS & AUTOMOTIVES</span>
+                        <span>NORTH AMERICAN</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                MARKET GROUP 03
+            =================================================== -->
+            <article class="pmew-global-market-row">
+
+                <div
+                    class="pmew-global-market-number"
+                    aria-hidden="true"
+                >
+                    03
+                </div>
+
+                <div class="pmew-global-market-content">
+
+                    <span class="pmew-global-market-kicker">
+                        Sector Growth
+                    </span>
+
+                    <h3>THE BOOMING SECTORS</h3>
+
+                    <p class="pmew-global-market-description">
+                        High-performance industries where quality, precision,
+                        traceability and dependable fastening systems are
+                        becoming increasingly critical.
+                    </p>
+
+                    <div class="pmew-global-market-list">
+                        <span>THE DEFENCE SECTOR</span>
+                        <span>THE AEROSPACE SECTOR</span>
+                        <span>THE AUTOMOTIVES</span>
+                        <span>THE ELECTRONICS</span>
+                        <span>THE INFRASTRUCTURE</span>
+                        <span>THE SOLAR</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+    <section class="pmew-global-section pmew-global-culture" id="global-culture">
+        <div class="pmew-global-container">
+            <div class="pmew-global-culture-runway">
+
+                <div class="pmew-global-culture-image pmew-global-reveal">
+                    <img src="/assets/images/global-presence/team-collaboration.png" alt="Global team collaboration">
+                    <div class="pmew-global-culture-label">Global team collaboration</div>
+                </div>
+
+                <div class="pmew-global-culture-copy pmew-global-reveal">
+                    <h2>Embracing Global Cultures, Expanding Horizons</h2>
+
+                    <div class="pmew-global-culture-statement">
+                        <p>Having a global presence means more than just reaching different markets.</p>
+                        <p>Working with global partners, OEMs and industries across continents has given us the opportunity to learn and grow.</p>
+                        <p>From the precision-driven engineering standards of Germany and Japan to the fast-paced industries of the USA and Europe.</p>
+                        <p>At Pradako, we believe diversity fuels innovation and every experience enriches our global vision.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="pmew-global-section pmew-global-trust" id="global-trust" aria-label="How We Build Trust">
+        <div class="pmew-global-container">
+
+            <div class="pmew-global-section-header pmew-global-reveal">
+                <span class="pmew-global-kicker">Global Confidence</span>
+                <h2 class="pmew-global-title">HOW WE BUILD TRUST</h2>
+            </div>
+
+            <div class="pmew-global-trust-board pmew-global-reveal">
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">01</div>
+                    <p>Cost Effective Production established since 1960's.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">02</div>
+                    <p>Cash Rich Company with financially strong backing.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">03</div>
+                    <p>Dedicated team for Development, Quality, Exports and Follow-ups.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">04</div>
+                    <p>High Quality Goods for Domestic and Export Markets.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">05</div>
+                    <p>0 PPM and Lower Internal PPM with Skilled Manpower.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">06</div>
+                    <p>Reports and Certifications shared as per international standards.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">07</div>
+                    <p>India strategically located with strong diplomatic relationships.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">08</div>
+                    <p>Make in India initiative reduces costs for customers.</p>
+                </div>
+
+                <div class="pmew-global-trust-row">
+                    <div class="pmew-global-trust-number">09</div>
+                    <p>Serving industries with Quality, Volumes, Confidentiality and Ethics.</p>
+                </div>
+
+            </div>
+
+            <!-- COMPACT, EXTRA-WIDE WORLD MAP -->
+            <figure class="pmew-global-trust-map pmew-global-reveal" aria-label="Global reach across continents">
+                <div class="pmew-global-trust-map-orbit" aria-hidden="true"></div>
+
+                <img
+                    class="pmew-global-trust-map-main"
+                    src="/assets/images/global-presence/pmew-world-map.svg"
+                    alt="Detailed world map representing Pradako's global industrial reach"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </figure>
+
+        </div>
+    </section>
+
+    <section class="pradako-global-premium-section" id="global-export-enquiry" aria-label="Global Export Enquiry Form">
+        <div class="pradako-global-premium-wrap pmew-global-reveal">
+
+            <div class="pradako-global-premium-left">
+                <div class="pradako-global-premium-kicker">GLOBAL PRESENCE • EXPORT READY • EMERGENCY DISPATCH</div>
+
+                <h2>NEED FASTENERS<br>DELIVERED<br>ANYWHERE?</h2>
+
+                <p class="pradako-global-premium-intro">
+                    From urgent samples to scheduled bulk supplies, Pradako supports global customers with standard fasteners, custom components, export packing, international documentation and country-specific dispatch requirements.
+                </p>
+
+                <div class="pradako-global-premium-emergency">
+                    <strong>EMERGENCY REQUIREMENT?</strong>
+                    <p>We can dispatch via air through <b>DHL</b>, <b>BlueDart</b>, <b>FedEx</b>, <b>UPS</b>, <b>Aramex</b> or the courier of your choice, subject to stock availability, export documentation and shipment clearance.</p>
+                </div>
+
+                <div class="pradako-global-premium-badges">
+                    <span>URGENT SAMPLE DISPATCH</span>
+                    <span>BULK EXPORT SUPPLY</span>
+                    <span>COURIER OF YOUR CHOICE</span>
+                    <span>EXPORT DOCUMENTATION</span>
+                </div>
+
+                <div class="pradako-global-premium-grid">
+                    <div class="pradako-global-premium-info-card">
+                        <strong>Urgent Samples</strong>
+                        <span>Small lots, pilot quantities and trial parts can be reviewed for express dispatch.</span>
+                    </div>
+
+                    <div class="pradako-global-premium-info-card">
+                        <strong>Bulk Export</strong>
+                        <span>Ideal for OEMs, distributors, project supply and scheduled international deliveries.</span>
+                    </div>
+
+                    <div class="pradako-global-premium-info-card">
+                        <strong>Documentation</strong>
+                        <span>Invoice, packing list, COO, MTC, batch traceability and customer-specific paperwork.</span>
+                    </div>
+
+                    <div class="pradako-global-premium-info-card">
+                        <strong>Dispatch Flexibility</strong>
+                        <span>Courier shipment, air freight, sea freight or customer-nominated logistics partner.</span>
+                    </div>
+                </div>
+
+                <div class="pradako-global-premium-contact">
+                    <div class="pradako-global-premium-contact-line">
+                        <span>EMAIL :</span>
+                        <a href="mailto:info@pradakomechanicals.com">INFO@PRADAKOMECHANICALS.COM</a>
+                    </div>
+
+                    <div class="pradako-global-premium-contact-line">
+                        <span>CALL 24 × 7 × 365 :</span>
+                        <a href="tel:+917045000507">+91 7045000507</a>
+                    </div>
+
+                    <div class="pradako-global-premium-contact-line">
+                        <span>TEXT / WHATSAPP :</span>
+                        <a href="https://wa.me/917045000507" target="_blank" rel="noopener noreferrer">+91 7045000507</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pradako-global-premium-right">
+                <div class="pradako-global-premium-form-shell">
+                    <div class="pradako-global-premium-form-label">GLOBAL EXPORT DESK</div>
+
+                    <h3>SELECT COUNTRY & SHARE REQUIREMENT</h3>
+
+                    <p>Tell us your destination country, dispatch urgency, product standard, quantity and preferred shipment mode.</p>
+
+                    <form class="pradako-global-premium-form" id="global-export-form" action="/submit-global-enquiry" method="POST">
+                        <input type="hidden" name="source_page" value="Global Presence Page">
+
+                        <select id="globalCountrySelect" name="country" required>
+                            <option value="">Select Country / Region</option>
+                        </select>
+
+                        <select name="shipment_priority" required>
+                            <option value="">Shipment Priority</option>
+                            <option value="Emergency Air Dispatch">Emergency Air Dispatch</option>
+                            <option value="Express Courier">Express Courier</option>
+                            <option value="Standard Air Freight">Standard Air Freight</option>
+                            <option value="Sea Freight">Sea Freight</option>
+                            <option value="Scheduled Bulk Export">Scheduled Bulk Export</option>
+                        </select>
+
+                        <select name="preferred_courier">
+                            <option value="">Preferred Courier / Freight</option>
+                            <option value="DHL">DHL</option>
+                            <option value="BlueDart">BlueDart</option>
+                            <option value="FedEx">FedEx</option>
+                            <option value="UPS">UPS</option>
+                            <option value="Aramex">Aramex</option>
+                            <option value="Customer Nominated Courier">Customer Nominated Courier</option>
+                        </select>
+
+                        <input type="text" name="name_company" placeholder="Name / Company" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="tel" name="phone_whatsapp" placeholder="Phone / WhatsApp">
+                        <input type="text" name="product_standard" placeholder="Product / Standard">
+                        <input type="text" name="size_material_grade_finish" placeholder="Size / Material / Grade / Finish">
+                        <input type="text" name="quantity" placeholder="Quantity / Annual Requirement">
+
+                        <textarea name="message" placeholder="Delivery city, urgency, packing instructions, documents required or special notes"></textarea>
+
+                        <button type="submit" class="pradako-global-premium-submit">
+                            SUBMIT GLOBAL ENQUIRY
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <p class="pradako-global-premium-form-note">
+                            Our export desk will review your requirement and respond through your provided contact details.
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-container"></div>
+
+<script src="/assets/js/global-presence.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

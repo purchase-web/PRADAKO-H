@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Accent: Chrome Silver — single hue, two tints (var --el-ac / --el-ac-bright) -->
+<title>ELITE Program — Pradako Mechanical &amp; Engineering Works</title>
+<meta name="description" content="The Pradako ELITE Program: dedicated manufacturing plants, exclusive production lines, integrated engineering and scalable capacity for strategic OEM partnerships.">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --el-white:#ffffff;
+  --el-off:#f3f2ef;
+  --el-ink:#111214;
+  --el-ink-deep:#0a0b0c;
+  --el-muted:#63666c;
+  --el-line:#dedcd6;
+  --el-ac:#4E5A66;
+  --el-ac-mid:#6B7885;
+  --el-ac-bright:#C6D2DB;
+  --el-ac-soft:#eef1f4;
+  --el-d:"Montserrat",Arial,sans-serif;
+  --el-b:"Space Grotesk",Arial,sans-serif;
+  --el-m:"JetBrains Mono",ui-monospace,monospace;
+  --el-max:1480px;--el-e:cubic-bezier(.2,.8,.2,1);
+}
+.pmew-el *{margin:0;padding:0;box-sizing:border-box}
+.pmew-el{margin:0;background:var(--el-white);color:#34373d;font-family:var(--el-b);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.pmew-el ::selection{background:var(--el-ac);color:#fff}
+.pmew-el a{color:inherit;text-decoration:none}
+.pmew-el :focus-visible{outline:3px solid var(--el-ac-bright);outline-offset:3px}
+.el-wrap{max-width:var(--el-max);margin:0 auto;padding:0 clamp(22px,4vw,64px)}
+.el-sec{padding:clamp(78px,8.5vw,124px) 0;position:relative}
+.el-paper{background:var(--el-off);border-top:1px solid var(--el-line);border-bottom:1px solid var(--el-line)}
+#el-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--el-ac);z-index:400;transition:width .08s linear}
+
+/* ---------- TYPE SYSTEM ---------- */
+.el-stencil{font-family:var(--el-m);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--el-ac);display:inline-flex;align-items:center;gap:12px;margin-bottom:22px}
+.el-stencil::before{content:"";width:30px;height:0;border-top:3px double var(--el-ac)}
+.el-h{font-family:var(--el-d);font-weight:900;letter-spacing:-.032em;line-height:.95;text-transform:uppercase;color:var(--el-ink)}
+.el-h .t{color:var(--el-ac)}
+.el-h-lg{font-size:clamp(31px,4.4vw,62px)}
+.el-lead{font-size:clamp(15.5px,1.28vw,18.5px);color:var(--el-muted);max-width:880px;line-height:1.78;margin-top:24px}
+.el-lead b{color:var(--el-ink);font-weight:700}
+.el-note{margin-top:28px;border-left:4px solid var(--el-ac);padding:6px 0 6px 20px;font-size:14.5px;color:#3f434a;line-height:1.75;max-width:840px}
+.el-btn{font-family:var(--el-d);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;padding:17px 32px;border-radius:2px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--el-e),background .16s,color .16s,box-shadow .16s}
+.el-btn--accent{background:var(--el-ac);color:#fff !important;border-color:var(--el-ac)}
+.el-btn--accent:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(78,90,102,.4)}
+.el-btn--line{background:transparent;border-color:var(--el-line);color:var(--el-ink) !important}
+.el-btn--line:hover{border-color:var(--el-ac);color:var(--el-ac);transform:translateY(-3px)}
+.el-btn--white{background:#fff;color:var(--el-ink);border-color:#fff}
+.el-btn--white:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.3)}
+.el-btn--ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff !important}
+.el-btn--ghost:hover{border-color:var(--el-ac-bright);color:var(--el-ac-bright);transform:translateY(-3px)}
+
+/* ---------- SIGNATURE: MACHINED PROGRAM PLATE ---------- */
+.el-plate{position:relative;border:2px solid var(--el-ac);background:var(--el-white);padding:26px 28px;
+  background-image:
+    radial-gradient(circle at 11px 11px,var(--el-ac) 2.6px,transparent 3.1px),
+    radial-gradient(circle at calc(100% - 11px) 11px,var(--el-ac) 2.6px,transparent 3.1px),
+    radial-gradient(circle at 11px calc(100% - 11px),var(--el-ac) 2.6px,transparent 3.1px),
+    radial-gradient(circle at calc(100% - 11px) calc(100% - 11px),var(--el-ac) 2.6px,transparent 3.1px);
+  background-repeat:no-repeat}
+.el-plate--dark{background-color:transparent;border-color:rgba(198,210,219,.5)}
+
+/* ---------- REVEAL ---------- */
+.el-rv{opacity:0;transform:translateY(30px);transition:opacity .78s var(--el-e),transform .78s var(--el-e)}
+.el-rv.is-in{opacity:1;transform:none}
+.el-rv[data-d="1"]{transition-delay:.09s}.el-rv[data-d="2"]{transition-delay:.18s}
+.el-rv[data-d="3"]{transition-delay:.27s}.el-rv[data-d="4"]{transition-delay:.36s}
+
+/* ---------- HERO ---------- */
+.el-hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--el-ink-deep);overflow:hidden;padding:120px 0 70px}
+.el-hero__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 15px,transparent 15px 32px)}
+.el-hero__glow{position:absolute;width:900px;height:900px;right:-280px;top:-260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(198,210,219,.16),transparent 62%)}
+.el-hero__rule{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--el-ac-bright),var(--el-ac) 45%,transparent)}
+.el-hero .el-wrap{position:relative;z-index:3;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,4vw,74px);align-items:center;width:100%}
+@media(max-width:1080px){.el-hero .el-wrap{grid-template-columns:1fr}.el-hero__plan{display:none}}
+.el-hero .el-stencil{color:var(--el-ac-bright)}
+.el-hero .el-stencil::before{border-top-color:var(--el-ac-bright)}
+.el-hero h1{font-family:var(--el-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.85;
+  font-size:clamp(50px,8.6vw,132px);color:#fff}
+.el-hero h1 .ln{display:block;overflow:hidden}
+.el-hero h1 .ln>span{display:block;transform:translateY(112%);animation:el-rise .95s var(--el-e) forwards}
+.el-hero h1 .ln:nth-child(1)>span{animation-delay:.15s}
+.el-hero h1 .ln:nth-child(2)>span{animation-delay:.29s}
+.el-hero h1 .ln:nth-child(3)>span{animation-delay:.43s}
+.el-hero h1 .g{color:var(--el-ac-bright)}
+.el-hero h1 .o{color:transparent;-webkit-text-stroke:2.4px rgba(255,255,255,.42)}
+@keyframes el-rise{to{transform:translateY(0)}}
+.el-hero__sub{margin-top:30px;font-size:clamp(15px,1.35vw,19px);color:rgba(255,255,255,.74);max-width:560px;
+  opacity:0;animation:el-fade .9s var(--el-e) .72s forwards}
+@keyframes el-fade{to{opacity:1}}
+.el-hero__actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:40px;opacity:0;animation:el-fade .9s var(--el-e) .86s forwards}
+.el-hero__mark{margin-top:52px;display:grid;grid-template-columns:repeat(4,auto);border:2px solid rgba(255,255,255,.2);
+  font-family:var(--el-m);width:fit-content;opacity:0;animation:el-fade .9s var(--el-e) 1s forwards}
+@media(max-width:760px){.el-hero__mark{grid-template-columns:1fr 1fr}}
+.el-hero__mark div{padding:13px 24px;border-left:1px solid rgba(255,255,255,.14)}
+.el-hero__mark div:first-child{border-left:none}
+@media(max-width:760px){.el-hero__mark div{border-left:none;border-top:1px solid rgba(255,255,255,.14)}
+  .el-hero__mark div:nth-child(-n+2){border-top:none}}
+.el-hero__mark b{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500;margin-bottom:5px}
+.el-hero__mark span{font-size:13.5px;font-weight:700;color:var(--el-ac-bright)}
+/* self-drawing plant floor plan */
+.el-hero__plan{width:100%;height:auto;max-height:70svh}
+.el-hero__plan .dr{stroke-dasharray:var(--l,1400);stroke-dashoffset:var(--l,1400);animation:el-draw 2.6s var(--el-e) .35s forwards}
+.el-hero__plan .dr2{animation-delay:.85s}
+.el-hero__plan .dr3{animation-delay:1.3s}
+@keyframes el-draw{to{stroke-dashoffset:0}}
+.el-hero__plan .cell{opacity:0;animation:el-pop .55s var(--el-e) forwards}
+@keyframes el-pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.el-hero__plan .bay{opacity:0;animation:el-fade .8s ease 1.9s forwards}
+.el-hero__plan .pulse{animation:el-pulse 2.9s ease-in-out 2.4s infinite}
+@keyframes el-pulse{0%,100%{opacity:.28}50%{opacity:.75}}
+
+/* ---------- MARQUEE ---------- */
+.el-marq{background:var(--el-ink);border-top:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.09);overflow:hidden;padding:18px 0}
+.el-marq__t{display:flex;gap:0;width:max-content;animation:el-slide 34s linear infinite}
+@keyframes el-slide{to{transform:translateX(-50%)}}
+.el-marq__t span{font-family:var(--el-m);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.46);padding:0 30px;white-space:nowrap;display:inline-flex;align-items:center;gap:30px}
+.el-marq__t span::after{content:"";width:5px;height:5px;background:var(--el-ac-bright);border-radius:50%}
+
+/* ---------- CARDS ---------- */
+.el-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+@media(max-width:1060px){.el-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.el-grid{grid-template-columns:1fr}}
+.el-card{border:1.5px solid var(--el-line);background:var(--el-white);padding:30px 26px;position:relative;overflow:hidden;
+  transition:transform .2s var(--el-e),border-color .2s,box-shadow .2s}
+.el-card::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--el-ac);transition:width .42s var(--el-e)}
+.el-card:hover{transform:translateY(-7px);border-color:var(--el-ac);box-shadow:0 20px 46px rgba(78,90,102,.15)}
+.el-card:hover::after{width:100%}
+.el-card .ico{width:44px;height:44px;color:var(--el-ac);margin-bottom:20px}
+.el-card h4{font-family:var(--el-d);font-weight:900;text-transform:uppercase;font-size:16px;color:var(--el-ink);margin-bottom:10px;letter-spacing:-.01em;line-height:1.2}
+.el-card p{font-size:13.6px;color:var(--el-muted);line-height:1.68}
+
+/* ---------- TWO PANELS ---------- */
+.el-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,2.6vw,44px);margin-top:52px}
+.el-two.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.el-two.three{grid-template-columns:1fr}}
+@media(max-width:880px){.el-two{grid-template-columns:1fr}}
+.el-panel{border:2px solid var(--el-ink);padding:clamp(26px,3vw,42px);background:var(--el-white)}
+.el-panel__tag{font-family:var(--el-m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--el-ink);display:inline-block;padding:6px 14px;margin-bottom:20px}
+.el-panel h3{font-family:var(--el-d);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.1vw,28px);color:var(--el-ink);letter-spacing:-.02em;line-height:1.06;margin-bottom:14px}
+.el-panel p{font-size:14.6px;color:#3f434a;line-height:1.78;margin-bottom:12px}
+.el-panel ul{list-style:none;margin-top:16px}
+.el-panel li{position:relative;padding:6px 0 6px 24px;font-size:13.9px;color:#3f434a;line-height:1.6}
+.el-panel li::before{content:"";position:absolute;left:0;top:14px;width:12px;height:2.5px;background:var(--el-ac)}
+.el-panel .ico{width:38px;height:38px;color:var(--el-ac);margin-bottom:18px}
+
+/* ---------- LIST GRID ---------- */
+.el-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 34px;margin-top:38px}
+.el-list.two{grid-template-columns:repeat(2,1fr)}
+.el-list.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.el-list,.el-list.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.el-list,.el-list.two,.el-list.four{grid-template-columns:1fr}}
+.el-list li{position:relative;padding:13px 0 13px 26px;font-size:14.4px;color:#3f434a;line-height:1.6;border-bottom:1px solid var(--el-line)}
+.el-list li::before{content:"";position:absolute;left:0;top:21px;width:13px;height:2.5px;background:var(--el-ac)}
+
+/* ---------- CHIPS ---------- */
+.el-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.el-chip{font-family:var(--el-m);font-size:11.5px;font-weight:500;color:#3f434a;border:1.5px solid var(--el-line);
+  padding:9px 15px;background:var(--el-white);transition:border-color .18s,color .18s,transform .18s var(--el-e)}
+.el-chip:hover{border-color:var(--el-ac);color:var(--el-ac);transform:translateY(-3px)}
+
+/* ---------- ONE-LINER BREAKERS ---------- */
+.el-say{position:relative;min-height:84svh;display:flex;align-items:center;overflow:hidden}
+.el-say--ink{background:var(--el-ink)}
+.el-say--accent{background:linear-gradient(140deg,#1B2026,#0D1013 62%)}
+.el-say__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 14px,transparent 14px 30px)}
+.el-say__dots{position:absolute;inset:0;background-image:radial-gradient(rgba(198,210,219,.16) 1.3px,transparent 1.3px);background-size:28px 28px;
+  mask-image:radial-gradient(ellipse 70% 70% at 30% 50%,#000,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 30% 50%,#000,transparent 76%)}
+.el-say .el-wrap{position:relative;z-index:2;width:100%}
+.el-say__mark{font-family:var(--el-m);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--el-ac-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:12px}
+.el-say__mark::before{content:"";width:30px;border-top:3px double var(--el-ac-bright)}
+.el-say h2{font-family:var(--el-d);font-weight:900;text-transform:uppercase;letter-spacing:-.032em;line-height:.94;font-size:clamp(34px,5.6vw,88px);color:#fff;max-width:17ch}
+.el-say h2 .t{color:var(--el-ac-bright)}
+.el-say h2 .ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.5)}
+.el-say p{margin-top:26px;font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.75);max-width:660px}
+
+/* ---------- PARTNERSHIP STAGES (plate rail) ---------- */
+.el-stages{margin-top:60px;position:relative;display:grid;gap:2px;background:var(--el-line);border:2px solid var(--el-ink)}
+.el-stage{background:var(--el-white);display:grid;grid-template-columns:150px 1fr;gap:clamp(18px,3vw,52px);
+  padding:clamp(28px,3.2vw,44px) clamp(22px,2.6vw,40px);transition:background .3s var(--el-e)}
+@media(max-width:820px){.el-stage{grid-template-columns:1fr;gap:20px}}
+.el-stage.lit{background:var(--el-ac-soft)}
+.el-stage__no{font-family:var(--el-m);font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--el-ac);
+  border:2px solid var(--el-line);padding:16px 10px;text-align:center;align-self:start;position:relative;transition:border-color .3s,background .3s,color .3s;
+  background-image:
+    radial-gradient(circle at 8px 8px,currentColor 2px,transparent 2.4px),
+    radial-gradient(circle at calc(100% - 8px) 8px,currentColor 2px,transparent 2.4px),
+    radial-gradient(circle at 8px calc(100% - 8px),currentColor 2px,transparent 2.4px),
+    radial-gradient(circle at calc(100% - 8px) calc(100% - 8px),currentColor 2px,transparent 2.4px);
+  background-repeat:no-repeat}
+.el-stage.lit .el-stage__no{border-color:var(--el-ac);background-color:var(--el-white)}
+.el-stage__no b{display:block;font-family:var(--el-d);font-weight:900;font-size:clamp(30px,3.4vw,46px);
+  line-height:.9;color:var(--el-ink);letter-spacing:-.04em;margin-bottom:6px}
+.el-stage.lit .el-stage__no b{color:var(--el-ac)}
+.el-stage h3{font-family:var(--el-d);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.2vw,30px);
+  color:var(--el-ink);letter-spacing:-.022em;line-height:1.06;margin-bottom:14px}
+.el-stage p{font-size:14.6px;color:#3f434a;line-height:1.76;max-width:760px}
+
+/* ---------- CAPACITY / SCALE BARS ---------- */
+.el-scale{margin-top:52px;border:2px solid var(--el-ink);background:var(--el-white)}
+.el-scale__head{background:var(--el-ink);color:#fff;font-family:var(--el-m);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:700;padding:16px clamp(18px,2.4vw,32px);display:grid;grid-template-columns:1fr 300px;gap:20px}
+@media(max-width:700px){.el-scale__head{grid-template-columns:1fr 120px;gap:12px}}
+.el-scale__row{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:center;
+  padding:17px clamp(18px,2.4vw,32px);border-bottom:1px solid var(--el-line);transition:background .16s}
+@media(max-width:700px){.el-scale__row{grid-template-columns:1fr 120px;gap:12px}}
+.el-scale__row:last-child{border-bottom:none}
+.el-scale__row:hover{background:var(--el-ac-soft)}
+.el-scale__row .lbl{font-family:var(--el-d);font-weight:800;font-size:15px;color:var(--el-ink);text-transform:uppercase;
+  display:flex;align-items:center;gap:14px}
+.el-scale__row .lbl svg{width:22px;height:22px;color:var(--el-ac);flex-shrink:0}
+@media(max-width:700px){.el-scale__row .lbl{font-size:12.5px}.el-scale__row .lbl svg{display:none}}
+.el-scale__row .val{font-family:var(--el-m);font-size:12.6px;font-weight:700;color:var(--el-ac);text-align:right;line-height:1.5}
+@media(max-width:700px){.el-scale__row .val{font-size:10.5px}}
+
+/* ---------- CLOSING STATEMENT ---------- */
+.el-close{background:var(--el-ink);position:relative;overflow:hidden;padding:clamp(84px,9vw,140px) 0}
+.el-close__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 15px,transparent 15px 32px)}
+.el-close .el-wrap{position:relative;z-index:2}
+.el-close .el-stencil{color:var(--el-ac-bright)}
+.el-close .el-stencil::before{border-top-color:var(--el-ac-bright)}
+.el-close h2{font-family:var(--el-d);font-weight:900;text-transform:uppercase;letter-spacing:-.034em;line-height:.95;
+  font-size:clamp(30px,4.4vw,62px);color:#fff;max-width:20ch}
+.el-close h2 .t{color:var(--el-ac-bright)}
+.el-close p{margin-top:28px;font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.74);max-width:800px;line-height:1.8}
+.el-close p b{color:#fff;font-weight:700}
+.el-triad{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.2)}
+@media(max-width:820px){.el-triad{grid-template-columns:1fr}}
+.el-triad div{background:var(--el-ink);padding:32px 28px;transition:background .22s}
+.el-triad div:hover{background:#1b1c1e}
+.el-triad b{display:block;font-family:var(--el-m);font-size:10px;letter-spacing:.2em;color:var(--el-ac-bright);font-weight:700;margin-bottom:12px}
+.el-triad span{font-family:var(--el-d);font-weight:900;text-transform:uppercase;font-size:clamp(17px,1.8vw,23px);
+  color:#fff;letter-spacing:-.02em;line-height:1.14;display:block}
+
+/* ---------- CTA ---------- */
+.el-cta{position:relative;min-height:92svh;display:flex;align-items:center;text-align:center;
+  background:linear-gradient(150deg,#161B20,#0A0B0C 60%);overflow:hidden}
+.el-cta__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 14px,transparent 14px 30px)}
+.el-cta__ring{position:absolute;width:560px;height:560px;border:3px solid rgba(198,210,219,.14);border-radius:50%;
+  right:-170px;bottom:-200px;animation:el-spin 62s linear infinite}
+.el-cta__ring.two{width:380px;height:380px;left:-130px;top:-120px;right:auto;bottom:auto;border-color:rgba(198,210,219,.1);animation-duration:44s;animation-direction:reverse}
+@keyframes el-spin{to{transform:rotate(360deg)}}
+.el-cta .el-wrap{position:relative;z-index:2;width:100%}
+.el-cta h2{font-family:var(--el-d);font-weight:900;text-transform:uppercase;letter-spacing:-.034em;line-height:.92;
+  font-size:clamp(34px,5.6vw,86px);color:#fff}
+.el-cta h2 .t{color:var(--el-ac-bright)}
+.el-cta p{margin:28px auto 0;font-size:clamp(15px,1.4vw,19px);color:rgba(255,255,255,.82);max-width:720px}
+.el-cta__actions{display:flex;gap:15px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+.el-cta__plate{margin:56px auto 0;display:inline-grid;grid-template-columns:repeat(3,auto);border:2px solid rgba(198,210,219,.42);
+  font-family:var(--el-m);background-image:
+    radial-gradient(circle at 12px 12px,var(--el-ac-bright) 2.6px,transparent 3.1px),
+    radial-gradient(circle at calc(100% - 12px) 12px,var(--el-ac-bright) 2.6px,transparent 3.1px),
+    radial-gradient(circle at 12px calc(100% - 12px),var(--el-ac-bright) 2.6px,transparent 3.1px),
+    radial-gradient(circle at calc(100% - 12px) calc(100% - 12px),var(--el-ac-bright) 2.6px,transparent 3.1px);
+  background-repeat:no-repeat}
+@media(max-width:640px){.el-cta__plate{grid-template-columns:1fr}}
+.el-cta__plate div{padding:16px 30px;border-left:1px solid rgba(255,255,255,.16)}
+.el-cta__plate div:first-child{border-left:none}
+@media(max-width:640px){.el-cta__plate div{border-left:none;border-top:1px solid rgba(255,255,255,.16)}
+  .el-cta__plate div:first-child{border-top:none}}
+.el-cta__plate b{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:5px}
+.el-cta__plate span{font-size:13.5px;font-weight:700;color:var(--el-ac-bright)}
+
+
+/* ---------- PHOTOGRAPHY SUPPORT ---------- */
+/* Figure block: bordered image with a machined caption plate */
+.el-fig{margin-top:56px;position:relative;border:2px solid var(--el-ink);background:var(--el-ink);overflow:hidden}
+.el-fig img{display:block;width:100%;height:auto;object-fit:cover;filter:saturate(.82) contrast(1.06);
+  transition:transform .8s var(--el-e),filter .5s}
+.el-fig:hover img{transform:scale(1.028);filter:saturate(.94) contrast(1.06)}
+.el-fig--tall img{aspect-ratio:16/9}
+.el-fig__cap{position:absolute;left:0;bottom:0;display:flex;align-items:center;gap:14px;
+  font-family:var(--el-m);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:rgba(10,11,12,.86);padding:13px 20px;border-top:2px solid var(--el-ac-bright)}
+.el-fig__cap b{color:var(--el-ac-bright);font-weight:700}
+/* Side-by-side: copy next to an image */
+.el-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.4vw,58px);align-items:center;margin-top:56px}
+@media(max-width:900px){.el-split{grid-template-columns:1fr}}
+.el-split .el-fig{margin-top:0}
+/* Photo-backed one-liner breaker: scrim keeps type legible over any image */
+.el-say--photo{background:var(--el-ink)}
+.el-say__img{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:grayscale(1) contrast(1.12) brightness(.62)}
+.el-say--photo .el-say__scrim{position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(10,11,12,.94) 0%,rgba(10,11,12,.78) 46%,rgba(10,11,12,.42) 100%)}
+.el-say--photo .el-wrap{position:relative;z-index:3}
+/* Full-bleed image band */
+.el-band{position:relative;height:clamp(300px,46svh,560px);overflow:hidden;background:var(--el-ink)}
+.el-band__img{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:grayscale(1) contrast(1.1) brightness(.72)}
+.el-band__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,12,.5),rgba(10,11,12,.2) 50%,rgba(10,11,12,.72))}
+.el-band__tag{position:absolute;left:clamp(22px,4vw,64px);bottom:clamp(22px,3vw,46px);z-index:2;
+  font-family:var(--el-m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  color:var(--el-ac-bright);display:inline-flex;align-items:center;gap:12px}
+.el-band__tag::before{content:"";width:30px;border-top:3px double var(--el-ac-bright)}
+
+@media(prefers-reduced-motion:reduce){
+  .pmew-el *,.pmew-el *::before,.pmew-el *::after{animation:none!important;transition:none!important}
+  .el-rv{opacity:1;transform:none}
+  .el-hero h1 .ln>span{transform:none}
+  .el-hero__sub,.el-hero__actions,.el-hero__mark{opacity:1}
+  .el-hero__plan .dr,.el-hero__plan .cell,.el-hero__plan .bay{stroke-dashoffset:0;opacity:1}
+  .el-fig:hover img{transform:none}
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/dedicated.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ELITE Program — Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="The Pradako ELITE Program: dedicated manufacturing plants, exclusive production lines, integrated engineering and scalable capacity for strategic OEM partnerships.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/dedicated.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ELITE Program — Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="The Pradako ELITE Program: dedicated manufacturing plants, exclusive production lines, integrated engineering and scalable capacity for strategic OEM partnerships.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "ELITE Program — Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/global-presence/dedicated.html",
+  "description": "The Pradako ELITE Program: dedicated manufacturing plants, exclusive production lines, integrated engineering and scalable capacity for strategic OEM partnerships.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="pmew-el">
+<div id="el-progress"></div>
+<div id="navbar-container"></div>
+
+<!-- ============ HERO ============ -->
+<header class="el-hero" id="top">
+  <div class="el-hero__hatch"></div>
+  <div class="el-hero__glow"></div>
+  <div class="el-hero__rule"></div>
+  <div class="el-wrap">
+    <div>
+      <div class="el-stencil">Pradako ELITE Program</div>
+      <h1>
+        <span class="ln"><span>Dedicated</span></span>
+        <span class="ln"><span class="g">plants.</span></span>
+        <span class="ln"><span class="o">One partner.</span></span>
+      </h1>
+      <p class="el-hero__sub">A strategic manufacturing partnership model for global OEMs, Tier-1 suppliers and large industrial organizations — built on dedicated plants, exclusive production lines and integrated engineering.</p>
+      <div class="el-hero__actions">
+        <a href="#partnership" class="el-btn el-btn--accent">See the Partnership Model</a>
+        <a href="#plants" class="el-btn el-btn--ghost">Dedicated Plants</a>
+      </div>
+      <div class="el-hero__mark">
+        <div><b>Partnership stages</b><span>06</span></div>
+        <div><b>Production</b><span>DEDICATED</span></div>
+        <div><b>Engineering</b><span>INTEGRATED</span></div>
+        <div><b>Capacity</b><span>SCALABLE</span></div>
+      </div>
+    </div>
+    <svg class="el-hero__plan" viewBox="0 0 520 460" fill="none" aria-hidden="true">
+      <!-- plant outline -->
+      <rect class="dr" style="--l:1900" x="20" y="26" width="480" height="408" stroke="rgba(255,255,255,.5)" stroke-width="2.5"/>
+      <!-- internal division -->
+      <path class="dr dr2" style="--l:900" d="M20 150h480M290 150v284" stroke="rgba(255,255,255,.2)" stroke-width="1.6"/>
+      <!-- grid columns -->
+      <g class="dr dr3" style="--l:2600" stroke="rgba(255,255,255,.09)" stroke-width="1.1">
+        <path d="M80 26v408M140 26v408M200 26v408M260 26v408M320 26v408M380 26v408M440 26v408M20 90h480M20 220h480M20 290h480M20 360h480"/>
+      </g>
+      <!-- dedicated bay highlight -->
+      <rect class="bay" x="300" y="160" width="190" height="264" fill="rgba(198,210,219,.09)" stroke="#C6D2DB" stroke-width="2" stroke-dasharray="7 5"/>
+      <text class="bay" x="312" y="182" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#C6D2DB" letter-spacing="1.4">DEDICATED BAY</text>
+      <!-- machine cells, staggered -->
+      <g fill="#C6D2DB">
+        <rect class="cell" style="animation-delay:1.5s" x="42" y="176" width="46" height="30" opacity=".85"/>
+        <rect class="cell" style="animation-delay:1.62s" x="104" y="176" width="46" height="30" opacity=".7"/>
+        <rect class="cell" style="animation-delay:1.74s" x="166" y="176" width="46" height="30" opacity=".58"/>
+        <rect class="cell" style="animation-delay:1.86s" x="42" y="246" width="46" height="30" opacity=".46"/>
+        <rect class="cell" style="animation-delay:1.98s" x="104" y="246" width="46" height="30" opacity=".38"/>
+        <rect class="cell" style="animation-delay:2.1s" x="166" y="246" width="46" height="30" opacity=".3"/>
+      </g>
+      <g fill="#C6D2DB" opacity=".92">
+        <rect class="cell" style="animation-delay:2.2s" x="318" y="200" width="70" height="34"/>
+        <rect class="cell" style="animation-delay:2.32s" x="404" y="200" width="70" height="34"/>
+        <rect class="cell" style="animation-delay:2.44s" x="318" y="256" width="70" height="34"/>
+        <rect class="cell" style="animation-delay:2.56s" x="404" y="256" width="70" height="34"/>
+      </g>
+      <!-- material flow -->
+      <path class="pulse" d="M42 400h430" stroke="#C6D2DB" stroke-width="2.5" stroke-dasharray="12 8" opacity=".3"/>
+      <text x="42" y="70" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,.4)" letter-spacing="1.6">SHARED CAPACITY</text>
+      <text x="42" y="424" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,.3)" letter-spacing="1.4">MATERIAL FLOW</text>
+    </svg>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="el-marq" aria-hidden="true">
+  <div class="el-marq__t">
+    <span>Dedicated plants</span><span>Exclusive lines</span><span>Integrated engineering</span><span>Structured industrialization</span><span>Batch traceability</span><span>Scalable capacity</span><span>Supply continuity</span><span>Controlled manufacturing</span>
+    <span>Dedicated plants</span><span>Exclusive lines</span><span>Integrated engineering</span><span>Structured industrialization</span><span>Batch traceability</span><span>Scalable capacity</span><span>Supply continuity</span><span>Controlled manufacturing</span>
+  </div>
+</div>
+
+
+<!-- ==========================================================
+     AUTOMOTIVE PHOTO SLOTS — paste-ready, drop in anywhere
+     Images are treated to greyscale + scrim so the accent and
+     white type stay legible over any car photograph.
+
+     1) FULL-BLEED BAND (use between two sections)
+     <section class="el-band">
+       <div class="el-band__img" style="background-image:url('/assets/images/global-presence/dedicated/tooling.jpg')"></div>
+       <div class="el-band__veil"></div>
+       <div class="el-band__tag">Dedicated line — automotive fasteners</div>
+     </section>
+
+     2) PHOTO-BACKED ONE-LINER (swap any el-say--ink for this)
+     <section class="el-say el-say--photo">
+       <div class="el-say__img" style="background-image:url('/assets/images/global-presence/dedicated/press.jpg')"></div>
+       <div class="el-say__scrim"></div>
+       <div class="el-wrap el-rv">
+         <div class="el-say__mark">Your mark</div>
+         <h2>Your headline. <span class="t">Accent half.</span></h2>
+         <p>Supporting line.</p>
+       </div>
+     </section>
+
+     3) COPY BESIDE AN IMAGE (inside any .el-wrap)
+     <div class="el-split">
+       <div><h3 class="el-h el-h-lg">Headline</h3><p class="el-lead">Copy.</p></div>
+       <figure class="el-fig">
+         <img src="/assets/images/global-presence/dedicated/line-01.jpg" alt="Tooling on a dedicated line">
+         <figcaption class="el-fig__cap"><b>01</b> Dedicated tooling</figcaption>
+       </figure>
+     </div>
+
+     4) STANDALONE FIGURE (inside any .el-wrap)
+     <figure class="el-fig el-fig--tall">
+       <img src="/assets/images/global-presence/dedicated/plant.jpg" alt="Forming press">
+       <figcaption class="el-fig__cap"><b>02</b> Cold forming — exclusive line</figcaption>
+     </figure>
+========================================================== -->
+
+
+<!-- ============ PROGRAM INTRO ============ -->
+<section class="el-sec" id="program">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">The ELITE Program</div>
+    <h2 class="el-h el-h-lg el-rv">Dedicated manufacturing plants<br>for <span class="t">strategic OEM partnerships.</span></h2>
+    <p class="el-lead el-rv">The <b>Pradako ELITE Program</b> is a strategic manufacturing partnership model created for global OEMs, Tier-1 suppliers, and large industrial organizations seeking dependable, scalable, and long-term production support.</p>
+    <p class="el-lead el-rv">Through dedicated manufacturing plants, exclusive production lines, integrated quality systems, and engineering collaboration, Pradako develops customer-focused manufacturing environments built around specific products, volumes, standards, and supply-chain requirements.</p>
+    <div class="el-grid">
+      <div class="el-card el-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 42V20l10-6 10 6v22M25 42V26h18v16M5 42h38M11 26h8M11 33h8M31 33h6"/></svg>
+        <h4>Dedicated Plants</h4>
+        <p>Manufacturing facilities developed around defined product families, volumes and technologies.</p>
+      </div>
+      <div class="el-card el-rv" data-d="1">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34h36M6 34V22l7-6h22l7 6v12"/><circle cx="15" cy="40" r="3.4"/><circle cx="33" cy="40" r="3.4"/><path d="M18 22h12M24 16v6"/></svg>
+        <h4>Exclusive Lines</h4>
+        <p>Machines, tooling, gauges and controls configured for one customer program.</p>
+      </div>
+      <div class="el-card el-rv" data-d="2">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l16 8v22l-16 8-16-8V13z"/><path d="M8 13l16 8 16-8M24 21v22"/></svg>
+        <h4>Integrated Engineering</h4>
+        <p>Engineering, quality and manufacturing teams working alongside yours from concept to serial.</p>
+      </div>
+      <div class="el-card el-rv" data-d="3">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 42V30h9v12M19.5 42V20h9v22M33 42V10h9v32M4 42h40"/></svg>
+        <h4>Scalable Capacity</h4>
+        <p>Machinery, shifts, lines and space added as the program grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MORE THAN A SUPPLIER ============ -->
+<section class="el-sec el-paper" id="ecosystem">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">More than a supplier relationship</div>
+    <h2 class="el-h el-h-lg el-rv">A manufacturing ecosystem<br>built around <span class="t">your program.</span></h2>
+    <p class="el-lead el-rv">The ELITE Program goes beyond conventional sourcing. Each partnership is structured around the customer's technical requirements, product families, expected volumes, quality standards, delivery expectations, and long-term growth plans.</p>
+    <p class="el-lead el-rv">From product industrialization and production launch to serial manufacturing and future capacity expansion, Pradako works as an integrated manufacturing partner throughout the program lifecycle.</p>
+    <ul class="el-list four el-rv">
+      <li>Technical requirements</li><li>Product families</li><li>Expected volumes</li><li>Quality standards</li>
+      <li>Delivery expectations</li><li>Capacity needs</li><li>Growth plans</li><li>Programme lifecycle</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 1 ============ -->
+<section class="el-say el-say--ink">
+  <div class="el-say__hatch"></div><div class="el-say__dots"></div>
+  <div class="el-wrap el-rv">
+    <div class="el-say__mark">The difference</div>
+    <h2>A supplier quotes a part. <span class="ghost">A partner builds the plant.</span></h2>
+    <p>The ELITE Program is not a purchase order. It is a manufacturing environment configured around one customer's products, volumes and standards.</p>
+  </div>
+</section>
+
+<!-- ============ DEDICATED PLANTS ============ -->
+<section class="el-sec" id="plants">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Dedicated manufacturing plants</div>
+    <h2 class="el-h el-h-lg el-rv">A plant configured<br>around <span class="t">one programme.</span></h2>
+    <p class="el-lead el-rv">For strategic programs requiring greater operational focus, dedicated manufacturing facilities can be developed around defined product families, production volumes, technologies, and supply requirements.</p>
+    <p class="el-lead el-rv">The manufacturing environment may include customer-aligned machinery, tooling, inspection systems, material flow, packaging infrastructure, documentation, and trained production teams.</p>
+    <div class="el-two">
+      <div class="el-panel el-rv">
+        <span class="el-panel__tag">What the environment includes</span>
+        <h3>Built to your product, not to a catalogue</h3>
+        <ul>
+          <li>Customer-aligned machinery</li><li>Dedicated tooling</li><li>Inspection systems</li>
+          <li>Defined material flow</li><li>Packaging infrastructure</li><li>Controlled documentation</li>
+          <li>Trained production teams</li>
+        </ul>
+      </div>
+      <div class="el-panel el-rv" data-d="1">
+        <span class="el-panel__tag">Key advantages</span>
+        <h3>What a dedicated plant changes</h3>
+        <ul>
+          <li>Greater manufacturing focus</li><li>Dedicated production capacity</li><li>Improved process control</li>
+          <li>Enhanced operational visibility</li><li>Stable long-term supply</li><li>Easier capacity expansion</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXCLUSIVE LINES ============ -->
+<section class="el-sec el-paper" id="lines">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Exclusive production lines</div>
+    <h2 class="el-h el-h-lg el-rv">Set up once.<br><span class="t">Then it just runs.</span></h2>
+    <p class="el-lead el-rv">Where a complete dedicated plant is not required, exclusive production lines can be configured for specific customer programs. Machines, tooling, gauges, process controls, inspection methods, and documentation are aligned with the approved product and quality requirements.</p>
+    <ul class="el-list el-rv">
+      <li>Consistent manufacturing conditions</li><li>Stable production planning</li><li>Controlled process parameters</li>
+      <li>Reduced product-mix complexity</li><li>Improved traceability</li><li>Predictable lead times</li>
+    </ul>
+    <p class="el-note el-rv">A line carrying a single approved product mix holds its process window far more tightly than a line switching between programmes.</p>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 2 ============ -->
+<section class="el-say el-say--accent">
+  <div class="el-say__hatch"></div><div class="el-say__dots"></div>
+  <div class="el-wrap el-rv">
+    <div class="el-say__mark">Engineering collaboration</div>
+    <h2>Your engineers and ours, <span class="t">on the same drawing.</span></h2>
+    <p>Feasibility, tooling, validation and value engineering are worked through together — before the process is frozen, not after.</p>
+  </div>
+</section>
+
+<!-- ============ ENGINEERING COLLABORATION ============ -->
+<section class="el-sec" id="engineering">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Integrated engineering collaboration</div>
+    <h2 class="el-h el-h-lg el-rv">From concept<br>to <span class="t">serial manufacturing.</span></h2>
+    <p class="el-lead el-rv">Pradako's engineering, quality, and manufacturing teams collaborate with customers throughout product development, industrialization, production launch, and serial manufacturing.</p>
+    <ul class="el-list el-rv">
+      <li>Manufacturing feasibility reviews</li><li>Material and coating evaluation</li><li>Tooling and process development</li>
+      <li>Prototype and sample coordination</li><li>Product and process validation</li><li>Value engineering</li>
+      <li>Manufacturing-efficiency improvement</li><li>Continuous product and process development</li>
+    </ul>
+    <p class="el-note el-rv">This integrated approach helps improve manufacturability, production stability, product performance, and lifecycle value.</p>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIALIZATION ============ -->
+<section class="el-sec el-paper" id="industrialization">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Structured product industrialization</div>
+    <h2 class="el-h el-h-lg el-rv">Proven first.<br><span class="t">Then produced.</span></h2>
+    <p class="el-lead el-rv">Every program begins with a detailed review of product specifications, drawings, materials, tooling, inspection methods, testing requirements, packaging standards, and production volumes.</p>
+    <ul class="el-list el-rv">
+      <li>Technical feasibility assessment</li><li>Tooling and process development</li><li>Trial production</li>
+      <li>Sample approval</li><li>Process validation</li><li>Production-readiness review</li>
+      <li>Controlled production ramp-up</li>
+    </ul>
+    <p class="el-note el-rv">This structured approach helps establish reliable manufacturing processes before serial production begins.</p>
+  </div>
+</section>
+
+<!-- ============ QUALITY SYSTEMS ============ -->
+<section class="el-sec" id="quality">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Integrated quality systems</div>
+    <h2 class="el-h el-h-lg el-rv">Quality is built in<br>at <span class="t">every stage.</span></h2>
+    <p class="el-lead el-rv">Quality controls are built into every stage of the manufacturing process. Customer-specific quality frameworks may include:</p>
+    <ul class="el-list el-rv">
+      <li>Incoming-material verification</li><li>In-process inspection</li><li>Final-product inspection</li>
+      <li>Batch and lot traceability</li><li>Calibrated measuring equipment</li><li>Product testing and validation</li>
+      <li>Statistical process monitoring</li><li>Control plans and inspection standards</li><li>Non-conformance management</li>
+      <li>Corrective and preventive actions</li><li>Customer-specific reporting</li>
+    </ul>
+    <p class="el-note el-rv">Quality systems are aligned with applicable customer specifications, industry standards, and regulatory requirements.</p>
+  </div>
+</section>
+
+<!-- ============ TRACEABILITY ============ -->
+<section class="el-sec el-paper" id="traceability">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Traceability and controlled documentation</div>
+    <h2 class="el-h el-h-lg el-rv">Every piece<br>can be <span class="t">traced back.</span></h2>
+    <p class="el-lead el-rv">Structured identification and documentation systems support visibility throughout the manufacturing process. Traceability may cover:</p>
+    <div class="el-chips el-rv">
+      <span class="el-chip">Raw materials</span><span class="el-chip">Production batches</span><span class="el-chip">Machine and process routes</span><span class="el-chip">Tooling records</span><span class="el-chip">Inspection results</span><span class="el-chip">Testing reports</span><span class="el-chip">Packaging information</span><span class="el-chip">Dispatch documentation</span>
+    </div>
+    <p class="el-note el-rv">Controlled change-management procedures help ensure that approved drawings, specifications, processes, and quality requirements are consistently followed.</p>
+  </div>
+</section>
+
+<!-- ============ PACKAGING &amp; LOGISTICS ============ -->
+<section class="el-sec" id="logistics">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Customized packaging and logistics</div>
+    <h2 class="el-h el-h-lg el-rv">Packed for your line,<br>not for <span class="t">the warehouse.</span></h2>
+    <p class="el-lead el-rv">Packaging and logistics systems are developed around the handling, storage, identification, and delivery requirements of each customer program.</p>
+    <ul class="el-list el-rv">
+      <li>Customer-specific packaging</li><li>Bulk, carton, bin or palletized packing</li><li>Product segregation</li>
+      <li>Barcode and labeling systems</li><li>Batch and lot identification</li><li>Kitting and line-side supply formats</li>
+      <li>Export-ready packaging</li><li>Warehouse coordination</li><li>Shipment planning and documentation</li>
+    </ul>
+    <p class="el-note el-rv">The objective is to protect product quality while improving supply-chain efficiency.</p>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 3 ============ -->
+<section class="el-say el-say--ink">
+  <div class="el-say__hatch"></div><div class="el-say__dots"></div>
+  <div class="el-wrap el-rv">
+    <div class="el-say__mark">Capacity</div>
+    <h2>Capacity you can plan against, <span class="ghost">years out.</span></h2>
+    <p>Machinery, tooling, shifts, inspection resources, lines and floor space expand with the programme — not after it has already outgrown them.</p>
+  </div>
+</section>
+
+<!-- ============ SCALABLE CAPACITY ============ -->
+<section class="el-sec" id="capacity">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Scalable production capacity</div>
+    <h2 class="el-h el-h-lg el-rv">Designed for today's demand<br>and <span class="t">tomorrow's growth.</span></h2>
+    <p class="el-lead el-rv">Manufacturing capacity can be expanded through additional machinery, tooling, shifts, inspection resources, production lines, or dedicated manufacturing space based on program requirements.</p>
+    <div class="el-scale el-rv">
+      <div class="el-scale__head"><span>What you are managing</span><span style="text-align:right">How the programme absorbs it</span></div>
+      <div class="el-scale__row"><span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V4M4 20h16M8 20v-6M13 20v-10M18 20v-14"/></svg>Volume growth</span><span class="val">Added machinery, tooling and shifts</span></div>
+      <div class="el-scale__row"><span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>New product introductions</span><span class="val">Fresh industrialization cycle on the same line</span></div>
+      <div class="el-scale__row"><span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>Market expansion</span><span class="val">Export-ready packaging and documentation</span></div>
+      <div class="el-scale__row"><span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l5-6 4 4 4-6 5 5"/><path d="M3 20h18"/></svg>Demand fluctuations</span><span class="val">Safety-stock strategies and capacity backup</span></div>
+      <div class="el-scale__row"><span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg>Long-term sourcing plans</span><span class="val">Additional lines or dedicated floor space</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTINUITY ============ -->
+<section class="el-sec el-paper" id="continuity">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Supply continuity and business resilience</div>
+    <h2 class="el-h el-h-lg el-rv">Reliable supply takes more<br>than <span class="t">reliable machines.</span></h2>
+    <p class="el-lead el-rv">The ELITE Program supports structured production planning, preventive maintenance, material coordination, tooling control, inventory planning, and operational risk management. Where required, continuity planning may include:</p>
+    <ul class="el-list el-rv">
+      <li>Critical-tooling management</li><li>Preventive maintenance programs</li><li>Capacity backup planning</li>
+      <li>Material-risk reviews</li><li>Safety-stock strategies</li><li>Alternative production arrangements</li>
+      <li>Supply-chain contingency planning</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CONFIDENTIALITY ============ -->
+<section class="el-sec" id="confidentiality">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Confidentiality and controlled manufacturing</div>
+    <h2 class="el-h el-h-lg el-rv">Your drawings, tooling and data<br>stay <span class="t">under access control.</span></h2>
+    <div class="el-two">
+      <div class="el-panel el-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="21" width="30" height="21"/><path d="M16 21v-6a8 8 0 0116 0v6"/><circle cx="24" cy="31" r="2.6"/><path d="M24 33.6V37"/></svg>
+        <h3>Controlled information</h3>
+        <p>Customer drawings, specifications, technical data, tooling information, and commercial details are managed through defined confidentiality and access-control procedures.</p>
+      </div>
+      <div class="el-panel el-rv" data-d="1">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="16" height="13"/><rect x="26" y="10" width="16" height="13"/><rect x="6" y="27" width="16" height="13"/><rect x="26" y="27" width="16" height="13"/><path d="M14 16.5h0M34 16.5h0"/></svg>
+        <h3>Segregated production</h3>
+        <p>Dedicated production environments can also support the controlled segregation of customer-specific products, documents, tooling, inspection records, and manufacturing information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 4 ============ -->
+<section class="el-say el-say--accent">
+  <div class="el-say__hatch"></div><div class="el-say__dots"></div>
+  <div class="el-wrap el-rv">
+    <div class="el-say__mark">Partnership model</div>
+    <h2>Six stages. <span class="t">One long-term programme.</span></h2>
+    <p>From first alignment to serial supply and future growth — a structured collaboration framework, not an open-ended arrangement.</p>
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP MODEL ============ -->
+<section class="el-sec el-paper" id="partnership">
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">A structured collaboration framework</div>
+    <h2 class="el-h el-h-lg el-rv">How an ELITE partnership<br><span class="t">is built.</span></h2>
+    <p class="el-lead el-rv">Each stage is completed and agreed before the next begins, so that responsibility, capacity and quality expectations are clear on both sides.</p>
+    <div class="el-stages el-rv" id="stageList">
+      <div class="el-stage">
+        <div class="el-stage__no"><b>01</b>Stage</div>
+        <div>
+          <h3>Program alignment</h3>
+          <p>Product requirements, expected volumes, quality standards, delivery expectations, capacity needs, and partnership objectives are jointly defined.</p>
+        </div>
+      </div>
+      <div class="el-stage">
+        <div class="el-stage__no"><b>02</b>Stage</div>
+        <div>
+          <h3>Feasibility and industrialization</h3>
+          <p>Manufacturing processes, materials, tooling, inspection methods, testing requirements, and packaging standards are evaluated and developed.</p>
+        </div>
+      </div>
+      <div class="el-stage">
+        <div class="el-stage__no"><b>03</b>Stage</div>
+        <div>
+          <h3>Manufacturing setup</h3>
+          <p>The required production environment, machinery, tooling, quality systems, material flow, and operational resources are configured.</p>
+        </div>
+      </div>
+      <div class="el-stage">
+        <div class="el-stage__no"><b>04</b>Stage</div>
+        <div>
+          <h3>Quality integration</h3>
+          <p>Traceability systems, control plans, testing arrangements, documentation, and customer-specific compliance requirements are implemented.</p>
+        </div>
+      </div>
+      <div class="el-stage">
+        <div class="el-stage__no"><b>05</b>Stage</div>
+        <div>
+          <h3>Validation and production launch</h3>
+          <p>Trial production, product validation, process approval, production-readiness reviews, and controlled ramp-up are completed.</p>
+        </div>
+      </div>
+      <div class="el-stage">
+        <div class="el-stage__no"><b>06</b>Stage</div>
+        <div>
+          <h3>Long-term partnership</h3>
+          <p>Ongoing collaboration supports supply stability, continuous improvement, cost optimization, new-product development, and future capacity growth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING STATEMENT ============ -->
+<section class="el-close" id="closing">
+  <div class="el-close__hatch"></div>
+  <div class="el-wrap">
+    <div class="el-stencil el-rv">Strategic manufacturing partnerships</div>
+    <h2 class="el-rv">For the future <span class="t">of industry.</span></h2>
+    <p class="el-rv">Through the <b>Pradako ELITE Program</b>, organizations gain access to dedicated manufacturing infrastructure, customer-focused production systems, integrated engineering support, structured quality controls, and scalable capacity.</p>
+    <p class="el-rv">The program is designed to build secure, transparent, and long-term manufacturing partnerships that strengthen <b>product quality, supply-chain resilience, operational performance, and sustainable industrial growth</b>.</p>
+    <div class="el-triad">
+      <div class="el-rv"><b>01</b><span>Dedicated<br>infrastructure.</span></div>
+      <div class="el-rv" data-d="1"><b>02</b><span>Integrated<br>engineering.</span></div>
+      <div class="el-rv" data-d="2"><b>03</b><span>Reliable<br>supply.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="el-cta" id="cta">
+  <div class="el-cta__hatch"></div>
+  <span class="el-cta__ring"></span>
+  <span class="el-cta__ring two"></span>
+  <div class="el-wrap el-rv">
+    <h2>Built for<br><span class="t">long-term partnership.</span></h2>
+    <p>Tell us the product families, volumes, standards and timelines you are planning around — and we will show you what a dedicated manufacturing environment for that programme would look like.</p>
+    <div class="el-cta__actions">
+      <a href="/pages/contact/contact-us.html" class="el-btn el-btn--white">Discuss an ELITE Partnership</a>
+      <a href="#partnership" class="el-btn el-btn--ghost">Review the Six Stages</a>
+    </div>
+    <div class="el-cta__plate">
+      <div><b>Manufacturing</b><span>DEDICATED</span></div>
+      <div><b>Engineering</b><span>INTEGRATED</span></div>
+      <div><b>Supply</b><span>RELIABLE</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress */
+  var bar = document.getElementById('el-progress');
+  addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+  }, {passive:true});
+
+  /* reveal on scroll */
+  var els = document.querySelectorAll('.el-rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* partnership stages light up in sequence as they cross the viewport */
+  var stages = document.querySelectorAll('#stageList .el-stage');
+  if (stages.length && !reduce && 'IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('lit', e.isIntersecting); });
+    }, {rootMargin:'-32% 0px -32% 0px'});
+    stages.forEach(function(s){ so.observe(s); });
+  }
+
+  /* pause the keyword marquee when it is off-screen */
+  var marq = document.querySelector('.el-marq__t');
+  if (marq && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ marq.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
+    }).observe(marq);
+  }
+
+  /* smooth in-page anchors */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

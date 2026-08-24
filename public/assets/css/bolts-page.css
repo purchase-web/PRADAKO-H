@@ -1,0 +1,459 @@
+/* ==========================================================================
+   PMEW BOLTS — INDIVIDUAL PRODUCT FAMILY PAGE
+   Shared product-system implementation: Spotlight + Customised Products.
+   ========================================================================== */
+:root{
+  --bolt-navy:#0b304c;--bolt-navy-deep:#06243b;--bolt-blue:#1f587e;--bolt-orange:#e87616;
+  --bolt-white:#fff;--bolt-soft:#f7f9fb;--bolt-soft-blue:#f1f7fa;--bolt-line:#dce6ed;
+  --bolt-line-strong:#c8d7e2;--bolt-muted:#677e92;--bolt-ink:#142f43;--bolt-danger:#b42318;
+  --bolt-success:#147a57;--bolt-sticky-top:0px;--bolt-shadow:0 18px 46px rgba(9,33,52,.10)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden;background:#fff;color:var(--bolt-ink);font-family:Montserrat,sans-serif}.pmew-skip-link{position:fixed;top:12px;left:16px;z-index:100000;padding:10px 14px;border-radius:10px;background:var(--bolt-navy);color:#fff;font-weight:800;font-size:12px;text-decoration:none;transform:translateY(-170%)}.pmew-skip-link:focus{transform:none}
+.premium-bolts-showcase{padding:clamp(34px,4vw,62px) 0 110px;background:radial-gradient(circle at 88% 4%,rgba(31,88,126,.07),transparent 27%),#fff}.showcase-container{width:min(1580px,calc(100% - 48px));margin:auto}.showcase-hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(360px,.55fr);gap:24px;margin-bottom:52px}.hero-copy,.hero-rfq-panel{border:1px solid var(--bolt-line);border-radius:30px;background:#fff;box-shadow:0 12px 32px rgba(9,33,52,.06)}.hero-copy{padding:clamp(38px,5vw,74px);position:relative;overflow:hidden}.hero-copy:after{content:"";position:absolute;width:330px;height:330px;right:-160px;top:-165px;border:1px solid rgba(31,88,126,.15);border-radius:50%;box-shadow:0 0 0 38px rgba(31,88,126,.025),0 0 0 76px rgba(31,88,126,.018);pointer-events:none}.hero-badge,.hero-rfq-kicker,.pmew-bolt-explorer-heading span,.pmew-bolt-guidance span,.pmew-compare-selection>div>span{display:inline-block;color:var(--bolt-orange);font:900 10px/1 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase}.showcase-title{margin:18px 0 0;color:var(--bolt-navy-deep);font:900 clamp(58px,7vw,104px)/.88 Montserrat,sans-serif;letter-spacing:-.06em}.showcase-title span{display:block;max-width:720px;margin-top:20px;color:var(--bolt-ink);font:650 clamp(20px,2vw,30px)/1.25 Montserrat,sans-serif;letter-spacing:-.035em}.showcase-desc{max-width:880px;margin:25px 0 0;color:var(--bolt-muted);font:500 clamp(14px,1.15vw,17px)/1.8 Poppins,sans-serif}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.pmew-hero-cta{min-height:46px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--bolt-line-strong);border-radius:12px;background:#fff;color:var(--bolt-navy);font:850 10px/1 Montserrat,sans-serif;letter-spacing:.055em;text-decoration:none;cursor:pointer;transition:.18s ease}.pmew-hero-cta:hover,.pmew-hero-cta:focus-visible{transform:translateY(-1px);border-color:var(--bolt-navy)}.pmew-hero-cta.is-primary{border-color:var(--bolt-navy);background:var(--bolt-navy);color:#fff}.pmew-hero-cta.is-primary:hover{background:var(--bolt-navy-deep)}.pmew-hero-cta.is-link{border-color:transparent;background:var(--bolt-soft-blue)}
+.hero-rfq-panel{padding:32px;display:flex;flex-direction:column;justify-content:center}.hero-rfq-panel h2{margin:12px 0 8px;color:var(--bolt-navy-deep);font:900 28px/1.12 Montserrat,sans-serif;letter-spacing:-.035em}.hero-rfq-panel>p{margin:0;color:var(--bolt-muted);font:500 13px/1.65 Poppins,sans-serif}.rfq-guide-list{display:grid;gap:0;margin:24px 0 0;padding:0;list-style:none}.rfq-guide-list li{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;padding:14px 0;border-top:1px solid var(--bolt-line)}.rfq-guide-list li>span{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--bolt-soft-blue);color:var(--bolt-blue);font:900 10px/1 Montserrat,sans-serif}.rfq-guide-list strong{display:block;color:var(--bolt-navy);font:800 12px/1.35 Montserrat,sans-serif}.rfq-guide-list small{display:block;margin-top:3px;color:var(--bolt-muted);font:500 10px/1.5 Poppins,sans-serif}
+.pmew-bolt-explorer{scroll-margin-top:110px}.pmew-bolt-explorer-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,640px);gap:30px;align-items:end;margin-bottom:20px}.pmew-bolt-explorer-heading h2{margin:8px 0 0;color:var(--bolt-navy-deep);font:900 clamp(31px,3.5vw,52px)/1 Montserrat,sans-serif;letter-spacing:-.045em}.pmew-bolt-explorer-heading p{margin:0;color:var(--bolt-muted);font:500 13px/1.7 Poppins,sans-serif}
+.pmew-bolt-toolbar{position:sticky !important;top:var(--bolt-sticky-top) !important;z-index:6200;align-self:start;display:grid;grid-template-columns:minmax(360px,1fr) auto auto auto;gap:10px;align-items:center;padding:12px;border:1px solid rgba(11,48,76,.12);border-radius:20px;background:rgba(255,255,255,.985);box-shadow:0 16px 40px rgba(9,33,52,.10);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.pmew-bolt-search{height:48px;display:grid;grid-template-columns:38px 1fr;align-items:center;border:1px solid var(--bolt-line);border-radius:13px;background:var(--bolt-soft)}.pmew-bolt-search:focus-within{border-color:var(--bolt-blue);background:#fff;box-shadow:0 0 0 4px rgba(31,88,126,.08)}.pmew-search-icon{display:grid;place-items:center;color:var(--bolt-blue);font-size:19px}.pmew-bolt-search input{width:100%;height:100%;padding:0 13px 0 0;border:0;outline:0;background:transparent;color:var(--bolt-ink);font:600 12px/1 Montserrat,sans-serif}.pmew-bolt-search input::placeholder{color:#8395a5}.pmew-toolbar-action,.pmew-toolbar-clear{min-height:48px;padding:0 15px;border:1px solid var(--bolt-line-strong);border-radius:12px;background:#fff;color:var(--bolt-navy);font:850 10px/1 Montserrat,sans-serif;letter-spacing:.04em;cursor:pointer}.pmew-toolbar-action[aria-expanded="true"]{border-color:var(--bolt-navy);background:var(--bolt-navy);color:#fff}.pmew-toolbar-action strong{min-width:23px;height:23px;margin-left:6px;display:inline-grid;place-items:center;border-radius:999px;background:var(--bolt-orange);color:#fff;font-size:9px}.pmew-toolbar-clear{border-color:transparent;background:var(--bolt-soft-blue)}.pmew-bolt-result-count{min-width:max-content;color:var(--bolt-muted);font:750 11px/1.3 Montserrat,sans-serif}
+.pmew-active-filters{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0}.pmew-active-filters:empty{display:none}.pmew-filter-chip{min-height:34px;display:inline-flex;align-items:center;gap:7px;padding:0 10px;border:1px solid var(--bolt-line);border-radius:999px;background:#fff;color:var(--bolt-navy);font:750 10px/1 Montserrat,sans-serif}.pmew-filter-chip button{width:20px;height:20px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--bolt-soft-blue);color:var(--bolt-navy);cursor:pointer}.pmew-bolt-facets{margin-top:12px;padding:18px;border:1px solid var(--bolt-line);border-radius:18px;background:#fff;box-shadow:0 14px 34px rgba(9,33,52,.06)}.pmew-bolt-facet-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pmew-bolt-facet{min-width:0;padding:14px;border:1px solid var(--bolt-line);border-radius:14px;background:var(--bolt-soft)}.pmew-bolt-facet h3{margin:0 0 10px;color:var(--bolt-navy);font:850 11px/1.25 Montserrat,sans-serif}.pmew-bolt-facet-options{display:flex;flex-wrap:wrap;gap:7px}.pmew-bolt-facet label{position:relative}.pmew-bolt-facet input{position:absolute;opacity:0;pointer-events:none}.pmew-bolt-facet label span{min-height:31px;display:inline-flex;align-items:center;padding:0 9px;border:1px solid var(--bolt-line);border-radius:9px;background:#fff;color:#587083;font:650 9.5px/1.2 Poppins,sans-serif;cursor:pointer}.pmew-bolt-facet input:checked+span{border-color:var(--bolt-blue);background:var(--bolt-navy);color:#fff}.pmew-bolt-facet details summary{margin-top:9px;color:var(--bolt-blue);font:800 9px/1 Montserrat,sans-serif;cursor:pointer}
+.pmew-bolt-category-rail{position:relative !important;top:auto !important;z-index:1;display:flex;gap:8px;margin:14px 0 30px;padding:8px;border:1px solid var(--bolt-line);border-radius:16px;background:rgba(255,255,255,.99);overflow-x:auto;scrollbar-width:thin;box-shadow:0 10px 28px rgba(9,33,52,.08)}.pmew-bolt-category-rail button{flex:0 0 auto;min-height:37px;padding:0 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--bolt-muted);font:800 9.5px/1 Montserrat,sans-serif;cursor:pointer}.pmew-bolt-category-rail button:hover,.pmew-bolt-category-rail button:focus-visible{background:var(--bolt-soft-blue);color:var(--bolt-navy)}.pmew-bolt-category-rail button.is-active{background:var(--bolt-navy);color:#fff}.pmew-bolt-category-rail button span{margin-left:5px;opacity:.72;font-size:8px}
+/* ==========================================================================
+   BOLT PRODUCT CARDS — PREMIUM CATALOG UI
+   Keeps the existing JS-generated markup and product interactions intact.
+   ========================================================================== */
+.mega-category{
+  margin:0 0 64px;
+}
+.category-header{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+  padding:0 3px 16px;
+  border-bottom:1px solid var(--bolt-line);
+}
+.category-header-copy{min-width:0}
+.category-eyebrow{
+  display:block;
+  margin-bottom:7px;
+  color:var(--bolt-orange);
+  font:900 9px/1 Montserrat,sans-serif;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.category-title{
+  margin:0;
+  color:var(--bolt-navy-deep);
+  font:900 clamp(22px,2.3vw,31px)/1.15 Montserrat,sans-serif;
+  letter-spacing:-.035em;
+}
+.category-count{
+  flex:0 0 auto;
+  padding:7px 11px;
+  border:1px solid var(--bolt-line);
+  border-radius:999px;
+  background:var(--bolt-soft);
+  color:var(--bolt-muted);
+  font:800 9px/1 Montserrat,sans-serif;
+}
+
+.bolt-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:22px;
+  align-items:stretch;
+}
+
+.product-card{
+  position:relative;
+  min-width:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #dbe5ec;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(9,33,52,.055);
+  transition:
+    transform .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s ease,
+    box-shadow .24s ease;
+  isolation:isolate;
+}
+.product-card::before{
+  content:none;
+  display:none;
+}
+.product-card:hover,
+.product-card:focus-within{
+  transform:translateY(-5px);
+  border-color:#b9ccd9;
+  box-shadow:0 22px 52px rgba(9,33,52,.12);
+}
+.product-card-link{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
+  color:inherit;
+  text-decoration:none;
+  outline:none;
+}
+
+.card-image-wrap{
+  height:296px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  margin:8px 8px 0;
+  padding:0;
+  overflow:hidden;
+  border:1px solid #e4edf3;
+  border-radius:18px;
+  background:#fff;
+  transition:border-color .24s ease,background .24s ease;
+}
+.card-image-wrap::before{
+  content:var(--pmew-family-badge,"BOLT");
+  position:absolute;
+  top:13px;
+  left:14px;
+  z-index:2;
+  min-height:24px;
+  display:inline-flex;
+  align-items:center;
+  padding:0 9px;
+  border:1px solid rgba(11,48,76,.10);
+  border-radius:999px;
+  background:rgba(255,255,255,.88);
+  color:var(--bolt-navy);
+  box-shadow:0 4px 14px rgba(9,33,52,.05);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font:900 8px/1 Montserrat,sans-serif;
+  letter-spacing:.12em;
+}
+.card-image-wrap::after{
+  content:"↗";
+  position:absolute;
+  top:12px;
+  right:13px;
+  z-index:2;
+  width:29px;
+  height:29px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(11,48,76,.10);
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  color:var(--bolt-blue);
+  box-shadow:0 4px 14px rgba(9,33,52,.05);
+  font:800 13px/1 Montserrat,sans-serif;
+  transform:translate(2px,-2px);
+  opacity:.72;
+  transition:transform .22s ease,opacity .22s ease,background .22s ease,color .22s ease;
+}
+.product-card:hover .card-image-wrap,
+.product-card:focus-within .card-image-wrap{
+  border-color:#cfdee8;
+  background:#fff;
+}
+.product-card:hover .card-image-wrap::after,
+.product-card:focus-within .card-image-wrap::after{
+  transform:translate(0,0);
+  opacity:1;
+  background:var(--bolt-navy);
+  color:#fff;
+}
+
+.card-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  filter:drop-shadow(0 13px 13px rgba(13,43,64,.085));
+  transform:scale(1.22);
+  transform-origin:center;
+  transition:transform .34s cubic-bezier(.2,.7,.2,1),filter .34s ease;
+}
+.product-card:hover .card-img,
+.product-card:focus-within .card-img{
+  transform:scale(1.255);
+  filter:drop-shadow(0 18px 18px rgba(13,43,64,.14));
+}
+
+.card-fallback{
+  position:absolute;
+  inset:0;
+  display:none;
+  place-items:center;
+  padding:18px;
+  color:var(--bolt-muted);
+  font:750 10px/1.5 Montserrat,sans-serif;
+  text-align:center;
+}
+.card-image-wrap.image-missing .card-fallback{display:grid}
+.card-image-wrap.image-missing img{display:none}
+
+.card-content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:20px 20px 17px;
+}
+.card-part-no{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  min-height:24px;
+  margin-bottom:10px;
+  padding:0 8px;
+  overflow:hidden;
+  border:1px solid #e2eaf0;
+  border-radius:7px;
+  background:var(--bolt-soft);
+  color:#718797;
+  font:800 8.5px/1 Montserrat,sans-serif;
+  letter-spacing:.075em;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.product-card h3{
+  min-height:46px;
+  margin:0;
+  color:var(--bolt-navy-deep);
+  font:850 16.5px/1.38 Montserrat,sans-serif;
+  letter-spacing:-.025em;
+  transition:color .2s ease;
+}
+.product-card:hover h3,
+.product-card:focus-within h3{
+  color:var(--bolt-blue);
+}
+.card-open-cue{
+  position:relative;
+  margin-top:auto;
+  padding-top:16px;
+  color:#5f788d;
+  font:750 10.75px/1.45 Montserrat,sans-serif;
+  letter-spacing:.01em;
+}
+.card-open-cue::before{
+  content:"";
+  display:block;
+  width:38px;
+  height:1px;
+  margin-bottom:9px;
+  background:var(--bolt-line-strong);
+  transition:width .22s ease,background .22s ease;
+}
+.product-card:hover .card-open-cue,
+.product-card:focus-within .card-open-cue{
+  color:var(--bolt-navy);
+}
+.product-card:hover .card-open-cue::before,
+.product-card:focus-within .card-open-cue::before{
+  width:58px;
+  background:var(--bolt-orange);
+}
+
+.card-actions{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:10px;
+  padding:14px 14px 15px;
+  border-top:1px solid #e7edf2;
+  background:linear-gradient(180deg,#fbfcfd 0%,#f7fafc 100%);
+}
+.pmew-card-compare,
+.pmew-card-enquiry{
+  min-height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:0 14px;
+  border-radius:11px;
+  font:850 11.25px/1.15 Montserrat,sans-serif;
+  letter-spacing:.012em;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    color .18s ease,
+    box-shadow .18s ease;
+}
+.pmew-card-compare{
+  border:1px solid #c9d7e1;
+  background:#fff;
+  color:var(--bolt-navy);
+}
+.pmew-card-compare:hover,
+.pmew-card-compare:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--bolt-blue);
+  background:var(--bolt-soft-blue);
+  box-shadow:0 5px 14px rgba(31,88,126,.08);
+}
+.pmew-card-compare.is-added{
+  border-color:var(--bolt-navy);
+  background:var(--bolt-navy);
+  color:#fff;
+  box-shadow:0 6px 16px rgba(11,48,76,.16);
+}
+.pmew-card-enquiry{
+  border:1px solid var(--bolt-navy);
+  background:var(--bolt-navy);
+  color:#fff;
+  box-shadow:0 6px 16px rgba(11,48,76,.13);
+}
+.pmew-card-enquiry:not(.is-added):not(:disabled):hover,
+.pmew-card-enquiry:not(.is-added):not(:disabled):focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--bolt-navy-deep);
+  background:var(--bolt-navy-deep);
+  box-shadow:0 8px 20px rgba(11,48,76,.18);
+}
+.pmew-card-enquiry.is-added{
+  border-color:rgba(20,122,87,.24);
+  background:#edf8f4;
+  color:var(--bolt-success);
+  box-shadow:none;
+}
+.pmew-card-enquiry.is-added.is-remove-ready{
+  border-color:rgba(180,35,24,.24);
+  background:#fff1f0;
+  color:var(--bolt-danger);
+}
+.pmew-card-enquiry:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+.pmew-card-compare .pmew-icon,
+.pmew-card-enquiry .pmew-icon{
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+}
+
+.product-card-link:focus-visible{
+  border-radius:22px 22px 0 0;
+  box-shadow:inset 0 0 0 3px rgba(31,88,126,.14);
+}
+.pmew-bolt-empty{margin:30px 0;padding:42px;border:1px dashed var(--bolt-line-strong);border-radius:18px;background:var(--bolt-soft);text-align:center}.pmew-bolt-empty strong,.pmew-bolt-empty span{display:block}.pmew-bolt-empty strong{color:var(--bolt-navy);font:850 17px/1.3 Montserrat,sans-serif}.pmew-bolt-empty span{margin-top:7px;color:var(--bolt-muted);font:500 12px/1.5 Poppins,sans-serif}.pmew-bolt-empty button{margin-top:16px;min-height:40px;padding:0 14px;border:1px solid var(--bolt-navy);border-radius:10px;background:var(--bolt-navy);color:#fff;font:800 9px/1 Montserrat,sans-serif}.pmew-bolt-guidance{margin-top:70px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;border:1px solid var(--bolt-line);border-radius:26px;background:var(--bolt-navy-deep);color:#fff}.pmew-bolt-guidance h2{margin:9px 0 0;color:#fff;font:900 clamp(25px,3vw,40px)/1.05 Montserrat,sans-serif;letter-spacing:-.04em}.pmew-bolt-guidance p{max-width:860px;margin:13px 0 0;color:rgba(255,255,255,.72);font:500 12px/1.7 Poppins,sans-serif}.pmew-bolt-guidance-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px}.pmew-bolt-guidance-actions button{min-height:44px;padding:0 15px;border:1px solid var(--bolt-orange);border-radius:11px;background:var(--bolt-orange);color:#fff;font:850 9.5px/1 Montserrat,sans-serif}.pmew-bolt-guidance-actions button.is-secondary{border-color:rgba(255,255,255,.25);background:transparent}.pmew-crawl-details{margin-top:18px;border:1px solid var(--bolt-line);border-radius:16px;background:#fff}.pmew-crawl-details>summary{padding:16px 18px;color:var(--bolt-navy);font:800 11px/1.2 Montserrat,sans-serif;cursor:pointer}.pmew-crawl-index{padding:0 18px 18px}.pmew-crawl-index>h2,.pmew-crawl-index>p{display:none}.pmew-crawl-group{padding:12px 0;border-top:1px solid var(--bolt-line)}.pmew-crawl-group h3{margin:0 0 8px;color:var(--bolt-navy);font:800 11px/1.3 Montserrat,sans-serif}.pmew-crawl-group ul{margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px;list-style:none}.pmew-crawl-group a{display:inline-flex;padding:6px 8px;border-radius:7px;background:var(--bolt-soft);color:var(--bolt-blue);font:600 9px/1.25 Poppins,sans-serif;text-decoration:none}
+
+.pmew-noscript{padding:18px;text-align:center;color:var(--bolt-navy);font:700 12px Montserrat,sans-serif}
+@media(max-width:1280px){.bolt-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pmew-bolt-facet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:980px){.showcase-container{width:min(100% - 30px,1580px)}.showcase-hero{grid-template-columns:1fr}.pmew-bolt-explorer-heading{grid-template-columns:1fr}.pmew-bolt-toolbar{grid-template-columns:minmax(0,1fr) auto auto}.pmew-bolt-search{grid-column:1/-1}.bolt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pmew-bolt-guidance{grid-template-columns:1fr}.pmew-bolt-guidance-actions{justify-content:flex-start}}
+@media(max-width:680px){.product-card{border-radius:20px}.card-image-wrap{margin:10px 10px 0;border-radius:15px}.card-content{padding:18px 17px 15px}.card-actions{padding:11px 11px 12px}.premium-bolts-showcase{padding-top:20px}.showcase-container{width:min(100% - 20px,1580px)}.hero-copy,.hero-rfq-panel{border-radius:22px}.hero-copy{padding:30px 22px}.showcase-title{font-size:52px}.hero-actions{display:grid}.pmew-hero-cta{width:100%}.hero-rfq-panel{padding:24px}.pmew-bolt-toolbar{position:sticky !important;top:var(--bolt-sticky-top) !important;z-index:6200;grid-template-columns:1fr 1fr;padding:9px}.pmew-bolt-search{grid-column:1/-1}.pmew-bolt-result-count{white-space:normal}.pmew-bolt-category-rail{position:relative !important;top:auto !important;margin-top:10px}.pmew-bolt-facet-grid{grid-template-columns:1fr}.bolt-grid{grid-template-columns:1fr}.card-image-wrap{height:280px}.pmew-bolt-guidance{margin-top:45px;padding:26px 20px}.pmew-bolt-guidance-actions{display:grid}.pmew-enquiry-cart-trigger{left:12px!important;bottom:12px!important}}
+@media(max-width:420px){.pmew-card-compare,.pmew-card-enquiry{font-size:11.5px;min-height:48px}.pmew-bolt-toolbar{grid-template-columns:1fr}.pmew-bolt-search,.pmew-toolbar-action,.pmew-toolbar-clear,.pmew-bolt-result-count{grid-column:1;width:100%}.card-actions{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .product-card,
+  .card-img,
+  .pmew-hero-cta,
+  .pmew-compare-panel {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   CARD SIZE SAFETY LAYER
+   Prevents shared/global product styles from stretching bolt images/cards.
+   ========================================================================== */
+.pmew-bolts-page .bolt-grid{
+  width:100%;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:22px !important;
+}
+.pmew-bolts-page .bolt-grid > .product-card{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+}
+.pmew-bolts-page .bolt-grid .product-card-link{
+  width:100% !important;
+  min-width:0 !important;
+}
+.pmew-bolts-page .bolt-grid .card-image-wrap{
+  width:auto !important;
+  height:296px !important;
+  min-height:296px !important;
+  max-height:296px !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+}
+.pmew-bolts-page .bolt-grid .card-image-wrap img,
+.pmew-bolts-page .bolt-grid img.card-img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+.pmew-bolts-page .bolt-grid img.card-img{
+  transform:scale(1.22) !important;
+  transform-origin:center !important;
+}
+.pmew-bolts-page .bolt-grid .product-card:hover img.card-img,
+.pmew-bolts-page .bolt-grid .product-card:focus-within img.card-img{
+  transform:scale(1.255) !important;
+}
+.pmew-bolts-page .bolt-grid .card-content{
+  width:100% !important;
+  min-width:0 !important;
+}
+.pmew-bolts-page .bolt-grid .card-actions{
+  width:100% !important;
+}
+
+@media(max-width:1280px){
+  .pmew-bolts-page .bolt-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:980px){
+  .pmew-bolts-page .bolt-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:680px){
+  .pmew-bolts-page .bolt-grid{
+    grid-template-columns:1fr !important;
+  }
+  .pmew-bolts-page .bolt-grid .card-image-wrap{
+    height:280px !important;
+    min-height:280px !important;
+    max-height:280px !important;
+  }
+}
+
+
+/* v7 — search/filter bar is the only sticky page navigation element */
+.pmew-bolts-page .pmew-bolt-toolbar{
+  isolation:isolate;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(9,33,52,.12);
+}
+
+/* ==========================================================================
+   STANDARDISED FAMILY PAGE SUPPORT
+   The latest Bolts UI is shared visually across all 12 product-family pages.
+   ========================================================================== */
+.pmew-standardized-family-page .card-image-wrap::before{
+  max-width:calc(100% - 62px);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

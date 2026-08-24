@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ meta_description }}">
+<link rel="canonical" href="{{ canonical }}">
+<meta property="og:type" content="product">
+<meta property="og:title" content="{{ og_title }}">
+<meta property="og:description" content="{{ og_description }}">
+<meta property="og:url" content="{{ og_url }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/products.css">
+<link rel="stylesheet" href="../css/pradako-enquiry-cart.css">
+<link rel="stylesheet" href="../css/pradako-compare.css">
+<link rel="stylesheet" href="../css/pradako-products-plus.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../css/design_system.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/navbar_product_slider.css">
+<link rel="stylesheet" href="../css/page_style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/pmew-individual-product.css">
+
+{% if json_ld %}<script type="application/ld+json">{{ json_ld | safe }}</script>{% endif %}
+</head>
+<body class="pmew-product-template-page">
+<a class="pmew-ip-skip" href="#product-main">Skip to product information</a>
+<div id="navbar-container"></div>
+
+<main id="product-main" class="pmew-ip-page" tabindex="-1">
+  <div class="pmew-ip-shell">
+    <div class="pmew-ip-breadcrumb-row">
+      <button type="button" class="pmew-ip-return" data-return-context hidden>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span data-return-label>Back to products</span>
+      </button>
+      <nav class="pmew-ip-breadcrumb" aria-label="Breadcrumb">
+        {% for crumb in breadcrumbs %}
+          {% if crumb.href %}<a href="{{ crumb.href }}">{{ crumb.label }}</a>{% else %}<strong aria-current="page">{{ crumb.label }}</strong>{% endif %}
+          {% if not loop.last %}<span class="pmew-ip-breadcrumb-sep" aria-hidden="true">›</span>{% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+
+    <!-- ================================================================
+         PRODUCT COMMERCE AREA
+         ================================================================ -->
+    <section class="pmew-ip-commerce" id="overview" aria-labelledby="pmewProductTitle">
+      <div class="pmew-ip-gallery-wrap">
+        <div class="pmew-ip-gallery">
+          <aside class="pmew-ip-gallery-rail" aria-label="Product media and shortcuts">
+            <button type="button" class="pmew-ip-gallery-thumb is-active" data-product-image-open aria-label="View {{ product_name }} product image">
+              <img src="{{ image }}" alt="">
+            </button>
+            <a class="pmew-ip-gallery-shortcut" href="#specification" aria-label="View technical specifications">
+              <i class="fa-solid fa-table-list" aria-hidden="true"></i><span>Specs</span>
+            </a>
+            <a class="pmew-ip-gallery-shortcut" href="#standards" aria-label="View standards and equivalents">
+              <i class="fa-solid fa-certificate" aria-hidden="true"></i><span>Standards</span>
+            </a>
+            <a class="pmew-ip-gallery-shortcut" href="#tools" aria-label="Open engineering tools">
+              <i class="fa-solid fa-calculator" aria-hidden="true"></i><span>Tools</span>
+            </a>
+          </aside>
+
+          <div class="pmew-ip-gallery-main">
+            <div class="pmew-ip-gallery-topbar">
+              <div class="pmew-ip-gallery-badges">
+                <span>PRADAKO</span>
+                <span>{{ family }}</span>
+                <span>ENGINEERED FASTENER</span>
+              </div>
+              <button class="pmew-ip-copy pmew-ip-copy-compact" type="button" data-copy-partno="{{ part_no }}" aria-label="Copy Pradako product number {{ part_no }}">
+                <span>{{ part_no }}</span><i class="fa-regular fa-copy" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <button class="pmew-ip-image-stage" type="button" data-product-image-open aria-label="Open larger image of {{ product_name }}">
+              <span class="pmew-ip-image-watermark" aria-hidden="true">PRADAKO</span>
+              <img src="{{ image }}" alt="{{ product_name }}" loading="eager" decoding="async">
+              <span class="pmew-ip-image-zoom"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> Zoom</span>
+            </button>
+
+            <div class="pmew-ip-gallery-foot">
+              <span><i class="fa-solid fa-expand" aria-hidden="true"></i> Click image to enlarge</span>
+              <span><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Full technical data below</span>
+              <span><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Custom requirements accepted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pmew-ip-gallery-confidence" aria-label="Product support highlights">
+          <div><i class="fa-solid fa-gears" aria-hidden="true"></i><span><strong>Engineering reviewed</strong><small>Requirement checked before quotation</small></span></div>
+          <div><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><span><strong>Bulk / OEM supply</strong><small>Production and project quantities</small></span></div>
+          <div><i class="fa-solid fa-earth-americas" aria-hidden="true"></i><span><strong>Export enquiries</strong><small>Destination-specific requirements</small></span></div>
+        </div>
+      </div>
+
+      <article class="pmew-ip-buybox">
+        <div class="pmew-ip-buybox-topline">
+          <div class="pmew-ip-buybox-status-row">
+            <span class="pmew-ip-commerce-badge"><i class="fa-solid fa-industry" aria-hidden="true"></i> B2B / OEM</span>
+            <span class="pmew-ip-availability"><i class="fa-solid fa-circle" aria-hidden="true"></i> RFQ READY</span>
+          </div>
+          <div class="pmew-ip-header-actions" aria-label="Save and share product">
+            <button type="button" data-save-product title="Save product"><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span class="pmew-ip-visually-hidden" data-save-label>Save</span></button>
+            <button type="button" data-share-product title="Share product"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i><span class="pmew-ip-visually-hidden">Share</span></button>
+          </div>
+        </div>
+
+        <div class="pmew-ip-taxonomy"><a href="{{ family_url }}">{{ family }}</a><span>›</span><span>{{ category }}</span></div>
+        <h1 id="pmewProductTitle">{{ product_name }}</h1>
+        <p class="pmew-ip-lead">{{ lead }}</p>
+
+        <div class="pmew-ip-identity-line">
+          <button class="pmew-ip-copy pmew-ip-copy-inline" type="button" data-copy-partno="{{ part_no }}">
+            <span>PRADAKO PRODUCT NO.</span><strong>{{ part_no }}</strong><i class="fa-regular fa-copy" aria-hidden="true"></i>
+          </button>
+          {% if primary_standard %}<span class="pmew-ip-standard-chip"><small>PRIMARY STANDARD</small><strong>{{ primary_standard }}</strong></span>{% endif %}
+        </div>
+
+        <div class="pmew-ip-key-specs" aria-label="Key specifications">
+          {% for spec in key_specs %}
+          <div class="pmew-ip-key-spec"><span>{{ spec.label }}</span><strong>{{ spec.value }}</strong></div>
+          {% endfor %}
+        </div>
+
+        <div class="pmew-ip-quote-panel">
+          <div class="pmew-ip-quote-panel-main">
+            <span class="pmew-ip-price-label">FACTORY / PROJECT PRICING</span>
+            <strong>Price on request</strong>
+            <p>Quoted against your exact size, grade, finish, quantity and documentation requirements.</p>
+          </div>
+          <div class="pmew-ip-quote-panel-side">
+            <span>SUPPLY MODE</span>
+            <strong>Bulk · OEM · Project</strong>
+            <small>MOQ confirmed per configuration</small>
+          </div>
+        </div>
+
+        <div class="pmew-ip-recovery-strip" data-recovery-strip role="status" aria-live="polite" hidden>
+          <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+          <div><strong data-recovery-title></strong><p data-recovery-message></p></div>
+          <button type="button" data-recovery-action hidden></button>
+        </div>
+
+        <div class="pmew-ip-connectivity" data-connectivity-status role="status" aria-live="polite" hidden>
+          <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+          <div><strong data-connectivity-title></strong><p data-connectivity-message></p></div>
+        </div>
+
+        <p class="pmew-ip-visually-hidden" data-system-live role="status" aria-live="polite" aria-atomic="true"></p>
+
+        <noscript>
+          <div class="pmew-ip-noscript">
+            <strong>Interactive RFQ tools require JavaScript.</strong>
+            <span>The product information remains available. You can also email your requirement directly to <a href="mailto:info@pradakomechanicals.com">info@pradakomechanicals.com</a>.</span>
+          </div>
+        </noscript>
+
+        <form class="pmew-ip-configurator" data-product-configurator novalidate aria-labelledby="pmew-config-title">
+          <div class="pmew-ip-config-head">
+            <div>
+              <span>BUILD YOUR RFQ</span>
+              <strong id="pmew-config-title">Configure requirement</strong>
+              <small>These selections are carried into your enquiry.</small>
+            </div>
+            <button type="button" class="pmew-ip-config-clear" data-config-clear>Clear</button>
+          </div>
+
+          <div class="pmew-ip-config-grid">
+            <label class="pmew-ip-field pmew-ip-field-wide">
+              <span>Size / thread requirement <b>01</b></span>
+              <div class="pmew-ip-input-shell">
+                <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
+                <input id="pmew-config-size" type="text" maxlength="120" data-config-size placeholder="{{ size_range if size_range else 'Enter required size or drawing reference' }}" aria-label="Size or thread requirement" aria-describedby="pmew-size-help pmew-size-error" aria-invalid="false">
+              </div>
+              {% if size_range %}<small id="pmew-size-help">Published range: {{ size_range }}</small>{% else %}<small id="pmew-size-help">No fixed published range is shown. Enter the size, drawing reference, or leave it open for engineering review.</small>{% endif %}
+              <small class="pmew-ip-field-error" id="pmew-size-error" data-field-error="size" role="alert" aria-live="assertive" hidden></small>
+            </label>
+
+            <label class="pmew-ip-field">
+              <span>Grade / property class <b>02</b></span>
+              <div class="pmew-ip-select-shell">
+                <select id="pmew-config-grade" data-config-grade aria-label="Grade or property class" aria-describedby="pmew-grade-help">
+                  <option value="">Select / specify</option>
+                  {% for value in grades %}<option value="{{ value }}">{{ value }}</option>{% endfor %}
+                  <option value="As per customer drawing / specification">As per customer drawing / specification</option>
+                  <option value="Engineering recommendation required">Not sure — recommend a grade</option>
+                </select>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </div>
+              <small id="pmew-grade-help">{% if grades %}Choose a published grade, use the drawing/specification option, or ask engineering to recommend one.{% else %}No fixed grade is published for this product. Choose drawing/specification or request an engineering recommendation.{% endif %}</small>
+            </label>
+
+            <label class="pmew-ip-field">
+              <span>Finish / coating <b>03</b></span>
+              <div class="pmew-ip-select-shell">
+                <select id="pmew-config-finish" data-config-finish aria-label="Finish or coating" aria-describedby="pmew-finish-help">
+                  <option value="">Select / specify</option>
+                  {% for value in finishes %}<option value="{{ value }}">{{ value }}</option>{% endfor %}
+                  <option value="As per customer drawing / specification">As per customer drawing / specification</option>
+                  <option value="Engineering recommendation required">Not sure — recommend a finish</option>
+                </select>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </div>
+              <small id="pmew-finish-help">{% if finishes %}Choose a published finish, use the drawing/specification option, or ask engineering to recommend one.{% else %}No fixed finish is published for this product. Choose drawing/specification or request an engineering recommendation.{% endif %}</small>
+            </label>
+
+            <label class="pmew-ip-field pmew-ip-qty-field">
+              <span>Required quantity <b>04</b></span>
+              <div class="pmew-ip-qty-control">
+                <button type="button" data-qty-minus aria-label="Decrease quantity"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+                <input id="pmew-config-quantity" type="text" value="1" inputmode="numeric" autocomplete="off" data-config-quantity aria-label="Quantity" aria-describedby="pmew-quantity-help pmew-quantity-error" aria-invalid="false">
+                <button type="button" data-qty-plus aria-label="Increase quantity"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+              </div>
+              <small id="pmew-quantity-help">Whole numbers are used for Pieces, Boxes and Sets. Decimal quantities are accepted for Kilograms and Tonnes.</small>
+              <small class="pmew-ip-field-error" id="pmew-quantity-error" data-field-error="quantity" role="alert" aria-live="assertive" hidden></small>
+            </label>
+
+            <label class="pmew-ip-field">
+              <span>Unit</span>
+              <div class="pmew-ip-select-shell">
+                <select id="pmew-config-unit" data-config-unit aria-label="Quantity unit">
+                  <option>Pieces</option><option>Kilograms</option><option>Tonnes</option><option>Boxes</option><option>Sets</option>
+                </select>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="pmew-ip-config-summary is-info" data-config-summary role="status" aria-live="polite" aria-atomic="true">
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+            <span><small data-config-state>ENGINEERING REVIEW</small><strong data-config-summary-text>1 Piece · Add size, grade and finish as required</strong></span>
+          </div>
+
+          <div class="pmew-ip-commerce-notice" data-commerce-notice role="status" aria-live="polite" aria-atomic="true" hidden>
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <div class="pmew-ip-commerce-notice-copy"><strong data-commerce-notice-title></strong><p data-commerce-notice-text></p></div>
+            <div class="pmew-ip-commerce-notice-actions">
+              <button type="button" data-commerce-notice-primary hidden></button>
+              <button type="button" data-commerce-notice-secondary hidden></button>
+            </div>
+          </div>
+
+          <div class="pmew-ip-purchase-actions">
+            <button type="button" class="pmew-ip-quote-btn" data-ecom-quote>
+              <span class="pmew-ip-action-icon"><i class="fa-solid fa-file-signature" aria-hidden="true"></i></span>
+              <span><strong>REQUEST QUOTE</strong><small data-ecom-quote-sub>Open RFQ with this configuration</small></span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pmew-ip-cart-btn" data-ecom-add>
+              <i class="fa-solid fa-plus" aria-hidden="true"></i><span data-ecom-add-label>ADD TO ENQUIRY</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="pmew-ip-secondary-actions" aria-label="Secondary product actions">
+          <button type="button" data-product-compare><i class="fa-solid fa-code-compare" aria-hidden="true"></i><span data-compare-label>Compare</span></button>
+          <a href="{{ browse_url }}"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>View all {{ family }}</span></a>
+        </div>
+
+        <div class="pmew-ip-buyer-help">
+          <i class="fa-solid fa-headset" aria-hidden="true"></i>
+          <div><strong>Not sure what to specify?</strong><p>Send your drawing, sample or end-use requirement. Our team can review the fastener specification before quotation.</p></div>
+          <button type="button" data-ecom-quote aria-label="Start an engineering enquiry"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <!-- Product navigation -->
+  <div class="pmew-ip-anchor-wrap" data-sticky-nav>
+    <nav class="pmew-ip-anchor-nav pmew-ip-shell" aria-label="Product page sections">
+      <a href="#overview" class="is-active" aria-current="location">Product</a>
+      <a href="#details">Overview</a>
+      <a href="#specification">Specifications</a>
+      <a href="#standards">Standards</a>
+      <a href="#tools">Engineering Tools</a>
+      {% if config_alternatives.grade or config_alternatives.finish or cross_alternatives %}<a href="#alternatives">Alternatives</a>{% endif %}
+      <a href="#related">Related</a>
+      <button type="button" data-open-enquiry><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Enquiry <span data-cart-badge>0/10</span></button>
+    </nav>
+  </div>
+
+  <!-- ================================================================
+       PRODUCT OVERVIEW
+       ================================================================ -->
+  <section class="pmew-ip-section pmew-ip-section-white" id="details" data-page-section>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">PRODUCT OVERVIEW</span><h2>What you need to specify</h2></div>
+        <p>Fast commercial selection first; complete engineering data remains available in the specification table below.</p>
+      </div>
+
+      <div class="pmew-ip-detail-cards">
+        <article class="pmew-ip-detail-card">
+          <div class="pmew-ip-detail-card-head"><span class="pmew-ip-detail-icon"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></span><div><small>GEOMETRY</small><h3>Size &amp; configuration</h3></div></div>
+          <dl>
+            {% if primary_standard %}<div><dt>Primary standard</dt><dd>{{ primary_standard }}</dd></div>{% endif %}
+            {% if thread_type %}<div><dt>Thread</dt><dd>{{ thread_type }}</dd></div>{% endif %}
+            {% if size_range %}<div><dt>Size range</dt><dd>{{ size_range }}</dd></div>{% endif %}
+            {% if drive %}<div><dt>Drive / form</dt><dd>{{ drive }}</dd></div>{% endif %}
+          </dl>
+        </article>
+
+        <article class="pmew-ip-detail-card">
+          <div class="pmew-ip-detail-card-head"><span class="pmew-ip-detail-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></span><div><small>MATERIAL SYSTEM</small><h3>Grade, material &amp; finish</h3></div></div>
+          {% if grades %}<div class="pmew-ip-chip-group"><span>Grades / classes</span><div>{% for value in grades %}<b>{{ value }}</b>{% endfor %}</div></div>{% endif %}
+          {% if materials %}<div class="pmew-ip-chip-group"><span>Materials</span><div>{% for value in materials %}<b>{{ value }}</b>{% endfor %}</div></div>{% endif %}
+          {% if finishes %}<div class="pmew-ip-chip-group"><span>Finishes</span><div>{% for value in finishes[:6] %}<b>{{ value }}</b>{% endfor %}</div></div>{% endif %}
+        </article>
+
+        <article class="pmew-ip-detail-card">
+          <div class="pmew-ip-detail-card-head"><span class="pmew-ip-detail-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><div><small>APPLICATION &amp; QA</small><h3>Sectors &amp; verification</h3></div></div>
+          {% if sectors %}<div class="pmew-ip-chip-group"><span>Typical sectors</span><div>{% for value in sectors %}<b>{{ value }}</b>{% endfor %}</div></div>{% endif %}
+          {% if tests %}<div class="pmew-ip-chip-group"><span>Testing / checks</span><div>{% for value in tests %}<b>{{ value }}</b>{% endfor %}</div></div>{% endif %}
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical specification -->
+  <section class="pmew-ip-section pmew-ip-section-soft" id="specification" data-page-section>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">ENGINEERING DATA</span><h2>Technical specifications</h2></div>
+        <p>Use this table for preliminary product selection. Final order acceptance remains subject to the governing standard and approved requirement.</p>
+      </div>
+      <div class="pmew-ip-spec-card">
+        <div class="pmew-ip-spec-card-bar"><span><i class="fa-solid fa-table-list" aria-hidden="true"></i> PRODUCT DATA SHEET</span><strong>{{ part_no }}</strong></div>
+        <dl class="pmew-ip-spec-grid">
+          {% for spec in specs %}
+          <div class="pmew-ip-spec-row"><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="pmew-ip-spec-footer-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>{{ source_note }}</span></div>
+    </div>
+  </section>
+
+  <!-- Standards -->
+  <section class="pmew-ip-section pmew-ip-section-white" id="standards" data-page-section>
+    <div class="pmew-ip-shell pmew-ip-split">
+      <div class="pmew-ip-section-head pmew-ip-section-head-stacked">
+        <span class="pmew-ip-section-kicker">STANDARD CROSS-REFERENCE</span>
+        <h2>Standards &amp; equivalents</h2>
+        <p>{{ xref_note }}</p>
+        {% if standards %}<div class="pmew-ip-standard-cloud">{% for value in standards %}<span>{{ value }}</span>{% endfor %}</div>{% endif %}
+      </div>
+      <div class="pmew-ip-xref-card">
+        <div class="pmew-ip-xref-card-head"><i class="fa-solid fa-shuffle" aria-hidden="true"></i><div><small>CROSS-REFERENCE</small><strong>Equivalent designations</strong></div></div>
+        <div class="pmew-ip-xref-list">{% for xref in xrefs %}<span>{{ xref }}</span>{% endfor %}</div>
+        <div class="pmew-ip-caution"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><p>Verify dimensions, tolerances, property class and coating requirements against the governing purchase specification before substitution.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering tools -->
+  <section class="pmew-ip-section pmew-ip-section-soft" id="tools" data-page-section>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">ENGINEERING UTILITIES</span><h2>Tools for this product</h2></div>
+        <p>Continue from product selection into engineering calculations, compatibility and logistics planning.</p>
+      </div>
+      <div class="pmew-ip-tool-grid">
+        {% for tool in tools %}
+        <a class="pmew-ip-tool" href="{{ tool.href }}">
+          <span class="pmew-ip-tool-icon"><i class="{{ tool.icon }}" aria-hidden="true"></i></span>
+          <span><small>{{ tool.eyebrow }}</small><strong>{{ tool.label }}</strong></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% if config_alternatives.grade or config_alternatives.finish or cross_alternatives %}
+  <!-- Alternative products: same-page configuration swaps + cross-page product-form candidates -->
+  <section class="pmew-ip-section pmew-ip-alternatives-section" id="alternatives" data-page-section>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">ALTERNATIVE PRODUCTS</span><h2>Same requirement. Different route.</h2></div>
+        <p>Change an available configuration on this page, or review a different product form. Cross-product candidates are shown conservatively and require the stated level of engineering confirmation.</p>
+      </div>
+
+      {% if config_alternatives.grade or config_alternatives.finish %}
+      <div class="pmew-ip-alt-block pmew-ip-alt-config-block">
+        <div class="pmew-ip-alt-block-head">
+          <div><small>STAY ON THIS PRODUCT</small><h3>Configuration alternatives</h3></div>
+          <p>These options do not create another product page. They update the existing RFQ configurator in place.</p>
+        </div>
+        <div class="pmew-ip-alt-config-groups">
+          {% if config_alternatives.finish %}
+          <div class="pmew-ip-alt-config-group">
+            <div class="pmew-ip-alt-config-group-title"><span class="pmew-ip-alt-config-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><div><small>FINISH / COATING</small><strong>Change surface protection</strong></div></div>
+            <div class="pmew-ip-alt-config-grid">
+              {% for value in config_alternatives.finish[:6] %}
+              <article class="pmew-ip-alt-config-card" data-alt-config-card data-alt-axis="finish" data-alt-value="{{ value }}">
+                <div class="pmew-ip-alt-config-copy"><strong>{{ value }}</strong><span>Same product · finish changes</span></div>
+                <div class="pmew-ip-alt-config-actions">
+                  <button type="button" data-alt-config-apply data-alt-axis="finish" data-alt-value="{{ value }}">Apply</button>
+                  <button type="button" data-alt-config-add data-alt-axis="finish" data-alt-value="{{ value }}" aria-label="Add {{ value }} finish option to RFQ"><i class="fa-solid fa-plus" aria-hidden="true"></i> RFQ</button>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+          {% if config_alternatives.grade %}
+          <div class="pmew-ip-alt-config-group">
+            <div class="pmew-ip-alt-config-group-title"><span class="pmew-ip-alt-config-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><div><small>GRADE / CLASS</small><strong>Change mechanical requirement</strong></div></div>
+            <div class="pmew-ip-alt-config-grid">
+              {% for value in config_alternatives.grade[:4] %}
+              <article class="pmew-ip-alt-config-card" data-alt-config-card data-alt-axis="grade" data-alt-value="{{ value }}">
+                <div class="pmew-ip-alt-config-copy"><strong>{{ value }}</strong><span>Same product · grade changes</span></div>
+                <div class="pmew-ip-alt-config-actions">
+                  <button type="button" data-alt-config-apply data-alt-axis="grade" data-alt-value="{{ value }}">Apply</button>
+                  <button type="button" data-alt-config-add data-alt-axis="grade" data-alt-value="{{ value }}" aria-label="Add {{ value }} grade option to RFQ"><i class="fa-solid fa-plus" aria-hidden="true"></i> RFQ</button>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <p class="pmew-ip-alt-config-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Material remains descriptive on this PDP because it is not currently a verified configurator field. It is not presented here as a one-click swap.</p>
+      </div>
+      {% endif %}
+
+      {% if cross_alternatives %}
+      <div class="pmew-ip-alt-block pmew-ip-alt-product-block">
+        <div class="pmew-ip-alt-block-head">
+          <div><small>DIFFERENT PRODUCT FORM</small><h3>Cross-product alternatives</h3></div>
+          <p>Derived from structured catalogue attributes, then governed by the confidence policy. A candidate is not a dimensional-equivalence claim.</p>
+        </div>
+        <div class="pmew-ip-alt-product-grid">
+          {% for alt in cross_alternatives %}
+          <article class="pmew-ip-alt-product-card{% if loop.index > 4 %} is-extra-alt{% endif %}" data-alt-product-card data-alt-product-id="{{ alt.id }}"{% if loop.index > 4 %} hidden{% endif %}>
+            <div class="pmew-ip-alt-product-media">
+              {% if alt.image %}<img src="{{ alt.image }}" alt="{{ alt.name }}" loading="lazy" decoding="async">{% else %}<i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>{% endif %}
+              <span class="pmew-ip-alt-confidence is-{{ alt.confidence }}">{{ alt.confidenceLabel }}</span>
+            </div>
+            <div class="pmew-ip-alt-product-content">
+              <div class="pmew-ip-alt-product-heading">
+                <div><small>{{ alt.reason }}</small><h4>{{ alt.name }}</h4><span>{{ alt.partNo }}</span></div>
+                <a href="{{ alt.href }}" aria-label="View {{ alt.name }} product page"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              </div>
+
+              <div class="pmew-ip-alt-diff-grid">
+                <div>
+                  <span><i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i> WHAT CHANGES</span>
+                  <ul>{% for line in alt.changes[:3] %}<li>{{ line }}</li>{% endfor %}</ul>
+                </div>
+                <div>
+                  <span><i class="fa-solid fa-check" aria-hidden="true"></i> WHAT STAYS / OVERLAPS</span>
+                  <ul>{% for line in alt.same[:3] %}<li>{{ line }}</li>{% endfor %}</ul>
+                </div>
+              </div>
+
+              {% if alt.changes|length > 3 or alt.same|length > 3 %}
+              <details class="pmew-ip-alt-more-details"><summary>View more technical differences</summary><div class="pmew-ip-alt-more-grid"><div><strong>Additional changes</strong><ul>{% for line in alt.changes[3:] %}<li>{{ line }}</li>{% else %}<li>No additional changes listed.</li>{% endfor %}</ul></div><div><strong>Additional overlaps</strong><ul>{% for line in alt.same[3:] %}<li>{{ line }}</li>{% else %}<li>No additional overlaps listed.</li>{% endfor %}</ul></div></div></details>
+              {% endif %}
+
+              {% if alt.basis %}<div class="pmew-ip-alt-basis"><strong>Verification basis</strong><span>{{ alt.basis }}</span></div>{% else %}<div class="pmew-ip-alt-basis is-review"><strong>Engineering review</strong><span>Confirm governing standards, critical dimensions, grade and service conditions before substitution.</span></div>{% endif %}
+
+              <div class="pmew-ip-alt-product-actions">
+                <button type="button" class="pmew-ip-alt-quote-both" data-alt-rfq-both data-alt-id="{{ alt.id }}"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Quote both</button>
+                <button type="button" data-alt-rfq-add data-alt-id="{{ alt.id }}">Add alternative</button>
+                <a href="{{ alt.href }}">View product <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="pmew-ip-alt-replace" data-alt-rfq-replace data-alt-id="{{ alt.id }}" disabled>Replace current RFQ line</button>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% if cross_alternatives|length > 4 %}<div class="pmew-ip-alt-viewall-wrap"><button type="button" class="pmew-ip-alt-viewall" data-alt-viewall aria-expanded="false"><span>View all {{ cross_alternatives|length }} alternatives</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div>{% endif %}
+        <div class="pmew-ip-alt-caution"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><p><strong>Substitution caution:</strong> product-form alternatives may change wrenching, bearing area, locking behaviour, head/recess geometry, standards or service performance. No candidate should be treated as interchangeable unless the displayed verification basis explicitly supports that conclusion.</p></div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Related products -->
+  <section class="pmew-ip-section pmew-ip-section-white" id="related" data-page-section>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">YOU MAY ALSO NEED</span><h2>{{ related_title }}</h2></div>
+        <a class="pmew-ip-text-link" href="{{ browse_url }}">View complete {{ family }} catalogue <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="pmew-ip-related-grid">
+        {% for item in related %}
+        <a href="{{ item.href }}" class="pmew-ip-related-card">
+          <span class="pmew-ip-related-visual">
+            {% if item.image %}<img src="{{ item.image }}" alt="{{ item.label }}" loading="lazy" decoding="async">{% else %}<i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>{% endif %}
+            <small>{{ "%02d" % loop.index }}</small>
+          </span>
+          <span class="pmew-ip-related-copy">
+            <small>{{ item.part_no if item.part_no else family }}</small>
+            <strong>{{ item.label }}</strong>
+            {% if item.category %}<span>{{ item.category }}</span>{% endif %}
+            <em>View product <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></em>
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Recently viewed -->
+  <section class="pmew-ip-section pmew-ip-recent-section" data-recent-section hidden>
+    <div class="pmew-ip-shell">
+      <div class="pmew-ip-section-head">
+        <div><span class="pmew-ip-section-kicker">RECENTLY VIEWED</span><h2>Continue where you left off</h2></div>
+        <button type="button" class="pmew-ip-recent-clear" data-recent-clear>Clear history</button>
+      </div>
+      <div class="pmew-ip-recent-grid" data-recent-grid></div>
+    </div>
+  </section>
+
+  <!-- Final enquiry CTA -->
+  <section class="pmew-ip-enquiry-band" id="enquiry" data-page-section>
+    <div class="pmew-ip-shell pmew-ip-enquiry-inner">
+      <div>
+        <span class="pmew-ip-enquiry-kicker">DRAWING · SAMPLE · SPECIFICATION</span>
+        <h2>Need {{ product_name }} to your requirement?</h2>
+        <p>{{ cta_copy }}</p>
+      </div>
+      <div class="pmew-ip-enquiry-actions">
+        <button type="button" class="pmew-ip-enquiry-primary" data-ecom-quote><span>Request Quote</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        <button type="button" class="pmew-ip-enquiry-secondary" data-open-enquiry>Open Enquiry Basket <span data-cart-badge>0/10</span></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-container"></div>
+
+<!-- Product image lightbox -->
+<div class="pmew-ip-image-modal" data-product-image-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pmew-image-modal-title" inert>
+  <button type="button" class="pmew-ip-image-modal-backdrop" data-product-image-close aria-label="Close image preview"></button>
+  <div class="pmew-ip-image-modal-card">
+    <div class="pmew-ip-image-modal-head"><span id="pmew-image-modal-title">{{ product_name }}</span><small>{{ part_no }}</small></div>
+    <img src="{{ image }}" alt="{{ product_name }} enlarged">
+    <button type="button" class="pmew-ip-image-modal-close" data-product-image-close aria-label="Close image preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<!-- Desktop sticky commerce bar -->
+<div class="pmew-ip-buybar" data-buybar aria-hidden="true" inert>
+  <div class="pmew-ip-buybar-inner pmew-ip-shell">
+    <div class="pmew-ip-buybar-product"><img src="{{ image }}" alt=""><span><small>{{ part_no }}</small><strong>{{ product_name }}</strong></span></div>
+    <div class="pmew-ip-buybar-actions">
+      <span class="pmew-ip-buybar-price"><small>PRICING</small><strong>On request</strong></span>
+      <button type="button" data-product-compare><i class="fa-solid fa-code-compare" aria-hidden="true"></i><span data-compare-label>Compare</span></button>
+      <button type="button" data-ecom-quote>Request Quote</button>
+      <button type="button" data-open-enquiry>Enquiry <span data-cart-badge>0/10</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile commerce bar -->
+<div class="pmew-ip-mobile-actions" role="region" aria-label="Product actions">
+  <button type="button" class="pmew-ip-mobile-quote" data-ecom-quote><i class="fa-solid fa-file-signature" aria-hidden="true"></i><span>Request Quote</span></button>
+  <button type="button" data-open-enquiry><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Enquiry</span><b data-cart-badge>0/10</b></button>
+</div>
+
+<button class="pmew-ip-backtop" type="button" data-back-top aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+<script>
+window.PMEW_PRODUCT_DETAIL = {{ product_json | safe }};
+</script>
+<script defer src="../js/script.js"></script>
+<script defer src="../js/footer-newsletter.js"></script>
+<script defer src="../js/pradako-enquiry-cart.js"></script>
+<script defer src="../js/pradako-compare.js"></script>
+<script defer src="../js/pmew-individual-product.js"></script>
+</body>
+</html>

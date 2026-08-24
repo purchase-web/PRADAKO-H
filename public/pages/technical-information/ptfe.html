@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>PTFE Coating | Pradako Mechanical</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+/* ==========================================================
+   PTFE COATING PAGE — FLUOROPOLYMER / LOW-FRICTION UI
+   ========================================================== */
+
+:root{
+    --ptfe-white:#ffffff;
+    --ptfe-ice:#f6fbfa;
+    --ptfe-mist:#edf7f5;
+    --ptfe-mint:#dff3ef;
+    --ptfe-graphite:#17343b;
+    --ptfe-graphite-2:#224a52;
+    --ptfe-teal:#16a99b;
+    --ptfe-teal-dark:#0e8178;
+    --ptfe-aqua:#65d6cc;
+    --ptfe-slate:#5e7580;
+    --ptfe-muted:#6f838b;
+    --ptfe-line:#d8e8e5;
+    --ptfe-line-strong:#b9d5d0;
+    --ptfe-warm:#f2b45b;
+    --ptfe-red:#d95d59;
+    --ptfe-blue:#3d88a8;
+    --ptfe-purple:#8d7ac4;
+    --ptfe-container:min(1180px, calc(100% - 36px));
+    --font-primary:'Montserrat', sans-serif;
+    --font-display:'Space Grotesk', sans-serif;
+    --mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --radius-sm:16px;
+    --radius-md:24px;
+    --radius-lg:38px;
+    --shadow-sm:0 10px 28px rgba(23,52,59,.06);
+    --shadow-md:0 22px 62px rgba(23,52,59,.10);
+    --shadow-lg:0 34px 96px rgba(23,52,59,.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    background:var(--ptfe-white);
+    color:var(--ptfe-graphite);
+    font-family:var(--font-primary);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+::selection{background:var(--ptfe-teal);color:#fff}
+a{color:inherit;text-decoration:none}
+#navbar-container{position:relative;z-index:1000}
+
+.ptfe-page{width:100%;overflow:hidden;background:var(--ptfe-white)}
+.ptfe-wrap{width:var(--ptfe-container);margin:0 auto}
+.ptfe-section{position:relative;padding:96px 0;background:var(--ptfe-white)}
+.ptfe-section.ptfe-tint{background:var(--ptfe-ice);border-top:1px solid var(--ptfe-line);border-bottom:1px solid var(--ptfe-line)}
+.ptfe-eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.22em;
+    color:var(--ptfe-teal);text-transform:uppercase;
+}
+.ptfe-eyebrow::before{content:"";width:34px;height:1px;background:var(--ptfe-teal)}
+.ptfe-title{
+    font-family:var(--font-display);font-size:clamp(34px,5vw,62px);line-height:1.03;
+    color:var(--ptfe-graphite);font-weight:800;letter-spacing:-.04em;margin-top:18px;
+}
+.ptfe-lead{font-size:clamp(16px,1.45vw,19px);line-height:1.78;color:var(--ptfe-slate);max-width:870px}
+.ptfe-text{font-size:15px;line-height:1.82;color:var(--ptfe-slate)}
+.ptfe-text + .ptfe-text{margin-top:16px}
+.ptfe-index{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#9baeb3;font-weight:700;text-transform:uppercase}
+.ptfe-head{display:flex;align-items:flex-start;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:42px}
+
+/* ==========================================================
+   HERO
+========================================================== */
+.ptfe-hero{position:relative;padding:92px 0 42px;background:var(--ptfe-white)}
+.ptfe-hero-shell{
+    position:relative;min-height:680px;border-radius:46px;background:var(--ptfe-graphite);
+    overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow-lg);
+}
+.ptfe-hero-shell::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:68px 68px;opacity:.7;mask-image:radial-gradient(ellipse 85% 74% at 68% 48%,#000 20%,transparent 76%);pointer-events:none;
+}
+.ptfe-hero-shell::after{
+    content:"";position:absolute;width:740px;height:740px;right:-270px;top:-210px;border-radius:50%;
+    border:1px solid rgba(101,214,204,.24);box-shadow:inset 0 0 0 80px rgba(101,214,204,.035);pointer-events:none;
+}
+.ptfe-hero-grid{
+    position:relative;z-index:1;min-height:680px;display:grid;grid-template-columns:1.04fr .96fr;gap:46px;
+    align-items:center;padding:76px;
+}
+.ptfe-hero-copy{max-width:720px}
+.ptfe-hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ptfe-aqua);font-weight:700;margin-bottom:24px}
+.ptfe-hero h1{
+    font-family:var(--font-display);font-size:clamp(44px,6.8vw,88px);line-height:.96;letter-spacing:-.055em;
+    color:#fff;font-weight:800;margin:0;
+}
+.ptfe-hero h1 span{display:block;color:var(--ptfe-aqua)}
+.ptfe-hero p{max-width:650px;color:rgba(255,255,255,.78);font-size:clamp(16px,1.45vw,20px);line-height:1.78;margin-top:28px}
+.ptfe-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.ptfe-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:15px 27px;
+    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:1px solid transparent;transition:.25s ease;
+}
+.ptfe-btn-primary{background:var(--ptfe-aqua);border-color:var(--ptfe-aqua);color:var(--ptfe-graphite)}
+.ptfe-btn-primary:hover{background:#fff;border-color:#fff;transform:translateY(-2px)}
+.ptfe-btn-ghost{border-color:rgba(255,255,255,.28);color:#fff;background:transparent}
+.ptfe-btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+
+.ptfe-visual{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center}
+.ptfe-orbit{position:relative;width:min(420px,100%);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center}
+.ptfe-orbit::before,.ptfe-orbit::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(101,214,204,.23)}
+.ptfe-orbit::before{inset:42px}.ptfe-orbit::after{inset:92px;background:rgba(101,214,204,.06)}
+.ptfe-core{
+    position:relative;z-index:2;width:178px;height:178px;border-radius:38px;background:#fff;color:var(--ptfe-graphite);
+    display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.22);font-family:var(--mono);
+    font-size:17px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+}
+.ptfe-chip{
+    position:absolute;z-index:2;padding:12px 14px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
+    color:rgba(255,255,255,.82);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(10px);
+}
+.ptfe-chip.c1{top:18px;left:22px}.ptfe-chip.c2{right:10px;top:96px}.ptfe-chip.c3{left:2px;bottom:88px}.ptfe-chip.c4{right:34px;bottom:32px}
+
+.ptfe-metrics{
+    width:var(--ptfe-container);margin:18px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.ptfe-metric{
+    min-height:112px;padding:20px;border-radius:24px;background:var(--ptfe-ice);border:1px solid var(--ptfe-line);box-shadow:var(--shadow-sm);
+}
+.ptfe-metric b{display:block;font-family:var(--font-display);font-size:30px;line-height:1.05;color:var(--ptfe-graphite);font-weight:800;margin-bottom:8px}
+.ptfe-metric span{font-size:11px;color:var(--ptfe-muted);letter-spacing:.11em;text-transform:uppercase;font-weight:800;line-height:1.45}
+
+/* ==========================================================
+   EDITORIAL INTRO
+========================================================== */
+.ptfe-intro-panel{
+    display:grid;grid-template-columns:1.04fr .96fr;gap:42px;align-items:center;
+    padding:46px;border:1px solid var(--ptfe-line);border-radius:var(--radius-lg);background:#fff;box-shadow:var(--shadow-sm);
+}
+.ptfe-stack-visual{
+    position:relative;min-height:360px;border-radius:32px;background:var(--ptfe-ice);border:1px solid var(--ptfe-line);padding:34px;overflow:hidden;
+}
+.ptfe-stack-visual::before{content:"";position:absolute;inset:24px;border:1px solid rgba(22,169,155,.16);border-radius:24px;pointer-events:none}
+.ptfe-stack{position:relative;z-index:1;margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.ptfe-layer{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;padding:18px 20px;border-radius:18px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:0 8px 22px rgba(23,52,59,.04)}
+.ptfe-layer strong{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ptfe-teal)}
+.ptfe-layer span{font-size:13px;color:var(--ptfe-slate);line-height:1.6}
+.ptfe-layer.top{background:var(--ptfe-mint);border-color:var(--ptfe-line-strong)}
+.ptfe-layer.base strong{color:var(--ptfe-graphite)}
+
+/* ==========================================================
+   HORIZONTAL EXPLAINER
+========================================================== */
+.ptfe-explainer{
+    display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:start;
+}
+.ptfe-sticky-note{position:sticky;top:112px;padding:30px;border-radius:30px;background:var(--ptfe-graphite);color:#fff;box-shadow:var(--shadow-md)}
+.ptfe-sticky-note i{width:48px;height:48px;border-radius:16px;background:var(--ptfe-aqua);color:var(--ptfe-graphite);display:grid;place-items:center;font-size:20px;margin-bottom:18px}
+.ptfe-sticky-note h3{font-family:var(--font-display);font-size:30px;line-height:1.05;font-weight:800;color:#fff}
+.ptfe-sticky-note p{font-size:14px;color:rgba(255,255,255,.74);line-height:1.75;margin-top:14px}
+.ptfe-ribbon{display:flex;flex-direction:column;gap:14px}
+.ptfe-ribbon-row{
+    display:grid;grid-template-columns:210px 1fr;gap:18px;align-items:center;padding:22px 26px;border-radius:24px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:var(--shadow-sm);
+}
+.ptfe-ribbon-row b{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ptfe-teal)}
+.ptfe-ribbon-row p{font-size:14px;color:var(--ptfe-slate);line-height:1.7;margin:0}
+
+/* ==========================================================
+   INDUSTRY STRIP
+========================================================== */
+.ptfe-industry-strip{
+    display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;
+}
+.ptfe-industry{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:999px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:0 6px 18px rgba(23,52,59,.04);
+    color:var(--ptfe-slate);font-size:13px;font-weight:700;
+}
+.ptfe-industry i{color:var(--ptfe-teal);font-size:15px}
+.ptfe-reference{
+    margin-top:26px;padding:24px 28px;border-radius:26px;background:var(--ptfe-graphite);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.ptfe-reference span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ptfe-aqua);font-weight:800}
+.ptfe-reference b{font-size:18px;color:#fff}
+
+/* ==========================================================
+   ADVANTAGE TIMELINE
+========================================================== */
+.ptfe-advantage-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.ptfe-advantage{
+    padding:30px;border-radius:30px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:var(--shadow-sm);
+}
+.ptfe-advantage.wide{grid-column:1/-1;display:grid;grid-template-columns:270px 1fr;gap:24px;align-items:center;background:var(--ptfe-mist)}
+.ptfe-advantage .number{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ptfe-teal);font-weight:800;margin-bottom:16px;display:block}
+.ptfe-advantage h3{font-family:var(--font-display);font-size:28px;line-height:1.1;color:var(--ptfe-graphite);font-weight:800;margin-bottom:12px}
+.ptfe-advantage p{color:var(--ptfe-slate);font-size:14.5px;line-height:1.76}
+.ptfe-mini-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.ptfe-mini-list span{font-size:12px;color:var(--ptfe-teal-dark);background:#fff;border:1px solid var(--ptfe-line);border-radius:999px;padding:8px 12px;font-weight:700}
+.ptfe-friction-meter{padding:28px;border-radius:28px;background:#fff;border:1px solid var(--ptfe-line)}
+.ptfe-meter-line{height:12px;border-radius:999px;background:linear-gradient(90deg,var(--ptfe-teal),var(--ptfe-aqua),var(--ptfe-warm));position:relative;margin:26px 0 14px}
+.ptfe-meter-line::before{content:"0.05";position:absolute;left:0;top:20px;font-family:var(--mono);font-size:11px;color:var(--ptfe-muted)}
+.ptfe-meter-line::after{content:"0.10";position:absolute;right:0;top:20px;font-family:var(--mono);font-size:11px;color:var(--ptfe-muted)}
+.ptfe-meter-pin{position:absolute;left:50%;top:50%;width:24px;height:24px;border:4px solid #fff;border-radius:50%;background:var(--ptfe-graphite);transform:translate(-50%,-50%);box-shadow:0 6px 18px rgba(23,52,59,.22)}
+
+/* ==========================================================
+   SPEC SECTIONS
+========================================================== */
+.ptfe-spec-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ptfe-spec-panel{
+    padding:34px;border-radius:32px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:var(--shadow-sm);
+}
+.ptfe-spec-panel.dark{background:var(--ptfe-graphite);border-color:var(--ptfe-graphite);color:#fff}
+.ptfe-spec-panel h3{font-family:var(--font-display);font-size:30px;line-height:1.12;color:var(--ptfe-graphite);font-weight:800;margin-bottom:18px}
+.ptfe-spec-panel.dark h3{color:#fff}
+.ptfe-spec-panel p{font-size:15px;line-height:1.8;color:var(--ptfe-slate);margin-bottom:12px}
+.ptfe-spec-panel.dark p{color:rgba(255,255,255,.76)}
+.ptfe-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ptfe-badge{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px;background:var(--ptfe-mist);color:var(--ptfe-teal-dark);font-weight:800}
+.ptfe-spec-panel.dark .ptfe-badge{background:rgba(101,214,204,.12);color:var(--ptfe-aqua);border:1px solid rgba(101,214,204,.25)}
+
+.ptfe-process-rail{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+.ptfe-process-item{position:relative;min-height:138px;padding:22px 18px;border-radius:24px;background:#fff;border:1px solid var(--ptfe-line);box-shadow:var(--shadow-sm)}
+.ptfe-process-item::after{content:"";position:absolute;right:-13px;top:50%;width:14px;height:1px;background:var(--ptfe-line-strong)}
+.ptfe-process-item:last-child::after{display:none}
+.ptfe-process-item b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ptfe-teal);text-transform:uppercase;margin-bottom:14px}
+.ptfe-process-item span{font-size:13px;color:var(--ptfe-slate);line-height:1.65;display:block}
+
+.ptfe-color-helper{
+    max-width:720px;
+    margin:8px 0 0;
+    color:var(--ptfe-slate);
+    font-size:14px;
+    line-height:1.7;
+}
+
+.ptfe-color-palette{
+    display:grid;
+    grid-template-columns:repeat(8,minmax(78px,1fr));
+    gap:14px;
+    margin-top:22px;
+    padding:18px;
+    border-radius:28px;
+    border:1px solid var(--ptfe-line);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(246,251,250,.96));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.92), 0 12px 32px rgba(23,52,59,.055);
+}
+
+.ptfe-color-option{
+    min-height:98px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:12px 8px;
+    border-radius:20px;
+    border:1px solid transparent;
+    background:rgba(255,255,255,.62);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.ptfe-color-option:hover{
+    transform:translateY(-3px);
+    border-color:var(--ptfe-line-strong);
+    background:#fff;
+    box-shadow:0 12px 28px rgba(23,52,59,.08);
+}
+
+.ptfe-color{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:4px solid #fff;
+    box-shadow:0 7px 18px rgba(23,52,59,.18);
+    display:block;
+    flex:0 0 46px;
+}
+
+.ptfe-color-name{
+    display:block;
+    font-family:var(--mono);
+    font-size:10px;
+    line-height:1;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ptfe-slate);
+    font-weight:800;
+    text-align:center;
+}
+
+.ptfe-color.black{background:#111}
+.ptfe-color.blue{background:#3377b8}
+.ptfe-color.green{background:#22a66a}
+.ptfe-color.red{background:#d84d4d}
+.ptfe-color.white{background:#fff;border-color:#d7ece8;box-shadow:0 7px 18px rgba(23,52,59,.12), inset 0 0 0 1px #edf7f5}
+.ptfe-color.yellow{background:#f4ca4f}
+.ptfe-color.orange{background:#ee8b34}
+.ptfe-color.purple{background:#8a61c9}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+.ptfe-table-shell{border:1px solid var(--ptfe-line);border-radius:30px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+.ptfe-table{width:100%;border-collapse:collapse;min-width:720px}
+.ptfe-table th{
+    text-align:left;padding:18px 22px;background:var(--ptfe-graphite);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+}
+.ptfe-table td{padding:16px 22px;border-bottom:1px solid var(--ptfe-line);font-size:14px;color:var(--ptfe-slate);vertical-align:top}
+.ptfe-table tr:last-child td{border-bottom:none}
+.ptfe-table td:first-child{font-weight:800;color:var(--ptfe-graphite);background:var(--ptfe-ice);width:38%}
+.ptfe-table tr:hover td{background:var(--ptfe-mist)}
+.ptfe-table-wrap{overflow-x:auto;border-radius:30px}
+
+/* ==========================================================
+   STANDARDS / PRODUCTS
+========================================================== */
+.ptfe-columns{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ptfe-standard-cloud,.ptfe-product-cloud{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ptfe-standard-cloud span,.ptfe-product-cloud span{
+    padding:10px 13px;border-radius:999px;background:#fff;border:1px solid var(--ptfe-line);color:var(--ptfe-slate);font-size:12px;font-weight:700;
+}
+.ptfe-standard-cloud span{font-family:var(--mono);letter-spacing:.04em;color:var(--ptfe-graphite)}
+.ptfe-product-cloud span{background:var(--ptfe-mist)}
+
+/* ==========================================================
+   FINAL FLOWCHART
+========================================================== */
+.ptfe-final-flow{background:var(--ptfe-ice);border-top:1px solid var(--ptfe-line);padding:100px 0}
+.ptfe-flowchart{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr;gap:12px;align-items:center;margin-top:46px}
+.ptfe-flow-card{
+    min-height:108px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px 18px;
+    border:1px solid #b9cbd0;border-radius:14px;background:#fbfefd;box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 6px 16px rgba(23,52,59,.08);
+    transition:.25s ease;
+}
+.ptfe-flow-card span{
+    font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.14em;line-height:1.42;text-transform:uppercase;color:#71868b;
+}
+.ptfe-flow-card.highlight{background:var(--ptfe-mint);border-color:var(--ptfe-teal);box-shadow:0 1px 0 rgba(255,255,255,.92) inset,0 8px 20px rgba(22,169,155,.16)}
+.ptfe-flow-card.highlight span{color:var(--ptfe-teal-dark)}
+.ptfe-flow-arrow{color:#9aaab0;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:400;line-height:1;display:flex;align-items:center;justify-content:center}
+.ptfe-flow-pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.ptfe-flow-pill{padding:10px 16px;border-radius:999px;border:1px solid var(--ptfe-line);background:#fff;color:var(--ptfe-slate);font-size:12px;font-weight:700}
+.ptfe-flow-pill b{color:var(--ptfe-teal)}
+
+
+/* ==========================================================
+   FINAL CTA
+========================================================== */
+.ptfe-cta{
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    padding:120px 0;
+    background:var(--ptfe-graphite);
+}
+.ptfe-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:.72;
+    mask-image:radial-gradient(ellipse 78% 68% at 50% 50%, #000 12%, transparent 78%);
+    pointer-events:none;
+}
+.ptfe-cta::after{
+    content:"";
+    position:absolute;
+    width:680px;
+    height:680px;
+    right:-250px;
+    top:-240px;
+    border-radius:50%;
+    border:1px solid rgba(101,214,204,.23);
+    box-shadow:inset 0 0 0 86px rgba(101,214,204,.035);
+    pointer-events:none;
+}
+.ptfe-cta .ptfe-wrap{
+    position:relative;
+    z-index:1;
+}
+.ptfe-cta .ptfe-eyebrow{
+    justify-content:center;
+    color:var(--ptfe-aqua);
+}
+.ptfe-cta .ptfe-eyebrow::before{
+    background:var(--ptfe-aqua);
+}
+.ptfe-cta h2{
+    margin:26px auto 0;
+    max-width:980px;
+    font-family:var(--font-display);
+    font-size:clamp(38px,5.4vw,74px);
+    line-height:1.04;
+    letter-spacing:-.045em;
+    font-weight:800;
+    color:#fff;
+}
+.ptfe-cta p{
+    max-width:850px;
+    margin:28px auto 0;
+    color:rgba(255,255,255,.80);
+    font-size:clamp(16px,1.45vw,20px);
+    line-height:1.8;
+}
+.ptfe-cta-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:44px;
+}
+.ptfe-cta .ptfe-btn-primary{
+    background:#fff;
+    color:var(--ptfe-graphite);
+    border-color:#fff;
+}
+.ptfe-cta .ptfe-btn-primary:hover{
+    background:var(--ptfe-aqua);
+    border-color:var(--ptfe-aqua);
+    color:var(--ptfe-graphite);
+}
+.ptfe-cta .ptfe-btn-ghost{
+    background:transparent;
+    color:#fff;
+    border-color:rgba(255,255,255,.30);
+}
+.ptfe-cta .ptfe-btn-ghost:hover{
+    border-color:var(--ptfe-aqua);
+    color:var(--ptfe-aqua);
+}
+
+#footer-container{margin-top:0}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+@media(max-width:1100px){
+    .ptfe-hero-grid,.ptfe-intro-panel,.ptfe-explainer,.ptfe-spec-layout,.ptfe-columns{grid-template-columns:1fr}
+    .ptfe-visual{min-height:360px}.ptfe-sticky-note{position:relative;top:auto}.ptfe-process-rail{grid-template-columns:1fr 1fr}.ptfe-process-item::after{display:none}
+}
+@media(max-width:980px){
+    .ptfe-metrics{grid-template-columns:1fr 1fr}.ptfe-advantage-grid{grid-template-columns:1fr}.ptfe-advantage.wide{grid-template-columns:1fr}.ptfe-flowchart{grid-template-columns:1fr;gap:10px}.ptfe-flow-arrow{transform:rotate(90deg);padding:2px 0}
+}
+@media(max-width:760px){
+    :root{--ptfe-container:min(100% - 28px,1180px)}
+    .ptfe-section,.ptfe-final-flow,.ptfe-cta{padding:72px 0}.ptfe-hero{padding:44px 0 30px}.ptfe-hero-shell{border-radius:32px;min-height:auto}.ptfe-hero-grid{grid-template-columns:1fr;min-height:auto;padding:42px 24px}.ptfe-hero h1{font-size:clamp(36px,10vw,54px)}.ptfe-visual{display:none}.ptfe-metrics{grid-template-columns:1fr}.ptfe-intro-panel,.ptfe-stack-visual,.ptfe-sticky-note,.ptfe-advantage,.ptfe-spec-panel{padding:26px;border-radius:26px}.ptfe-ribbon-row{grid-template-columns:1fr;padding:22px}.ptfe-layer{grid-template-columns:1fr}.ptfe-process-rail{grid-template-columns:1fr}.ptfe-title{font-size:32px}.ptfe-head{margin-bottom:30px}.ptfe-reference{align-items:flex-start;flex-direction:column}.ptfe-flow-card{min-height:86px}
+}
+@media(max-width:480px){
+    :root{--ptfe-container:min(100% - 20px,1180px)}
+    .ptfe-hero-grid{padding:34px 20px}.ptfe-btn{width:100%}.ptfe-cta-actions{flex-direction:column}.ptfe-cta h2{font-size:36px}.ptfe-hero-actions{flex-direction:column}.ptfe-table{min-width:680px}.ptfe-flow-card span{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* ==========================================================
+   HERO FULL-WIDTH OVERRIDE — MATCHES FULL PAGE HERO SYSTEM
+========================================================== */
+.ptfe-hero{
+    position:relative;
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:118px 0 78px;
+    background:var(--ptfe-graphite);
+    overflow:hidden;
+}
+
+.ptfe-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:72px 72px;
+    opacity:.75;
+    mask-image:radial-gradient(ellipse 78% 70% at 64% 48%, #000 12%, transparent 78%);
+    pointer-events:none;
+}
+
+.ptfe-hero::after{
+    content:"";
+    position:absolute;
+    width:720px;
+    height:720px;
+    right:-250px;
+    top:52px;
+    border-radius:50%;
+    border:1px solid rgba(101,214,204,.18);
+    box-shadow:inset 0 0 0 80px rgba(101,214,204,.035);
+    pointer-events:none;
+}
+
+.ptfe-hero .ptfe-wrap,
+.ptfe-hero .ptfe-metrics{
+    position:relative;
+    z-index:2;
+}
+
+.ptfe-hero-shell{
+    min-height:auto;
+    border-radius:0;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    overflow:visible;
+}
+
+.ptfe-hero-shell::before,
+.ptfe-hero-shell::after{
+    display:none;
+}
+
+.ptfe-hero-grid{
+    min-height:auto;
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    align-items:center;
+    gap:58px;
+    padding:0;
+}
+
+.ptfe-hero-copy{
+    max-width:740px;
+}
+
+.ptfe-hero-kicker{
+    color:var(--ptfe-aqua);
+}
+
+.ptfe-hero h1{
+    max-width:780px;
+    color:#fff;
+}
+
+.ptfe-hero p{
+    max-width:700px;
+}
+
+.ptfe-visual{
+    min-height:500px;
+}
+
+.ptfe-orbit{
+    width:min(470px,100%);
+    border-color:rgba(255,255,255,.16);
+}
+
+.ptfe-orbit::before{
+    border-color:rgba(101,214,204,.24);
+}
+
+.ptfe-orbit::after{
+    border-color:rgba(101,214,204,.27);
+    background:rgba(101,214,204,.055);
+}
+
+.ptfe-core{
+    width:188px;
+    height:188px;
+    border-radius:40px;
+}
+
+.ptfe-chip{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.20);
+    color:rgba(255,255,255,.86);
+}
+
+.ptfe-metrics{
+    margin:56px auto 0;
+}
+
+.ptfe-metric{
+    min-height:112px;
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,255,255,.16);
+    box-shadow:0 18px 42px rgba(0,0,0,.12);
+    backdrop-filter:blur(10px);
+}
+
+.ptfe-metric b{
+    color:#fff;
+}
+
+.ptfe-metric span{
+    color:rgba(255,255,255,.70);
+}
+
+@media(max-width:1100px){
+    .ptfe-hero-grid{
+        grid-template-columns:1fr;
+        gap:42px;
+    }
+
+    .ptfe-visual{
+        min-height:420px;
+        max-width:620px;
+        margin:0 auto;
+        width:100%;
+    }
+}
+
+@media(max-width:760px){
+    .ptfe-hero{
+        min-height:auto;
+        padding:100px 0 62px;
+    }
+
+    .ptfe-hero-grid{
+        padding:0;
+        grid-template-columns:1fr;
+    }
+
+    .ptfe-hero-shell{
+        border-radius:0;
+    }
+
+    .ptfe-hero h1{
+        font-size:clamp(42px,12vw,58px);
+    }
+
+    .ptfe-visual{
+        display:none;
+    }
+
+    .ptfe-metrics{
+        grid-template-columns:1fr;
+        margin-top:42px;
+    }
+}
+
+@media(max-width:480px){
+    .ptfe-hero{
+        padding:88px 0 54px;
+    }
+
+    .ptfe-hero-grid{
+        padding:0;
+    }
+
+    .ptfe-hero-actions{
+        flex-direction:column;
+    }
+
+    .ptfe-btn{
+        width:100%;
+    }
+}
+
+
+@media(max-width:980px){
+    .ptfe-color-palette{grid-template-columns:repeat(4,minmax(78px,1fr))}
+}
+@media(max-width:560px){
+    .ptfe-color-palette{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px}
+    .ptfe-color-option{min-height:92px}
+}
+
+
+/* ==========================================================
+   GLOBAL FONT WEIGHT SOFTENING
+   Keeps hierarchy clear, but removes the heavy/bold feel.
+========================================================== */
+.ptfe-page{
+    font-weight:400;
+}
+
+.ptfe-page :where(p, li, td, span, small){
+    font-weight:400;
+}
+
+.ptfe-page :where(h1, h2){
+    font-weight:650;
+}
+
+.ptfe-page :where(h3, h4){
+    font-weight:600;
+}
+
+.ptfe-page :where(strong, b){
+    font-weight:600;
+}
+
+.ptfe-page :where(.ptfe-btn,
+.ptfe-hero-kicker,
+.ptfe-eyebrow,
+.ptfe-index,
+.ptfe-badge,
+.ptfe-process-item b,
+.ptfe-ribbon-row b,
+.ptfe-layer strong,
+.ptfe-color-name,
+.ptfe-flow-card span,
+.ptfe-flow-chip,
+.ptfe-metric span,
+.ptfe-table th,
+.ptfe-table td:first-child,
+.ptfe-standard-cloud span,
+.ptfe-product-cloud span,
+.ptfe-reference span){
+    font-weight:600;
+}
+
+.ptfe-hero h1,
+.ptfe-cta h2{
+    font-weight:650;
+}
+
+.ptfe-title,
+.ptfe-sticky-note h3{
+    font-weight:650;
+}
+
+.ptfe-metric b,
+.ptfe-advantage strong{
+    font-weight:650;
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="PTFE Coating from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/ptfe.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PTFE Coating | Pradako Mechanical">
+    <meta property="og:description" content="PTFE Coating from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/ptfe.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PTFE Coating | Pradako Mechanical">
+    <meta name="twitter:description" content="PTFE Coating from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PTFE Coating | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/technical-information/ptfe.html",
+  "description": "PTFE Coating from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+<!-- =======================================================
+    HEADER WITH PROPER LOGO & HAMBURGER
+======================================================== -->
+<div id="navbar-container"></div>
+
+<main class="ptfe-page">
+
+    <!-- ======================================================
+        HERO
+    ======================================================= -->
+    <section class="ptfe-hero" id="top">
+        <div class="ptfe-wrap">
+            <div class="ptfe-hero-shell">
+                <div class="ptfe-hero-grid">
+                    <div class="ptfe-hero-copy">
+                        <div class="ptfe-hero-kicker">Low-friction fluoropolymer surface system</div>
+                        <h1>PTFE Coating <span>for Fasteners</span></h1>
+                        <p>Controlled Friction. Engineered Performance. Consistent Reliability.</p>
+                        <div class="ptfe-hero-actions">
+                            <a href="#ptfe-flow" class="ptfe-btn ptfe-btn-primary">View Flowchart <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#properties" class="ptfe-btn ptfe-btn-ghost">Properties</a>
+                        </div>
+                    </div>
+
+                    <div class="ptfe-visual" aria-hidden="true">
+                        <div class="ptfe-orbit">
+                            <div class="ptfe-core">PTFE</div>
+                            <div class="ptfe-chip c1">Low Friction</div>
+                            <div class="ptfe-chip c2">Chemical Resistant</div>
+                            <div class="ptfe-chip c3">Non-Stick</div>
+                            <div class="ptfe-chip c4">Dry Film</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ptfe-metrics">
+            <div class="ptfe-metric"><b>0.05–0.10</b><span>Dynamic friction range</span></div>
+            <div class="ptfe-metric"><b>3000+ h</b><span>Salt spray resistance</span></div>
+            <div class="ptfe-metric"><b>-200°C to +260°C</b><span>Continuous operating range</span></div>
+            <div class="ptfe-metric"><b>20–75 μm</b><span>Coating thickness range</span></div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        ENGINEERING OVERVIEW
+    ======================================================= -->
+    <section class="ptfe-section ptfe-tint">
+        <div class="ptfe-wrap">
+            <div class="ptfe-intro-panel">
+                <div>
+                    <div class="ptfe-eyebrow">Engineering Overview</div>
+                    <h2 class="ptfe-title">A functional coating system,<br>not only a finish.</h2>
+                    <p class="ptfe-lead" style="margin-top:24px;">PTFE (Polytetrafluoroethylene) is a high-performance fluoropolymer coating system used in fasteners to deliver controlled friction, chemical resistance, and long-term operational stability.</p>
+                    <p class="ptfe-text" style="margin-top:18px;">It is applied as part of an engineered coating system, typically consisting of a base layer for corrosion protection and a PTFE-based topcoat for lubrication and friction control. PTFE functions as a dry film lubricant, enabling smooth assembly, precision-controlled torque behavior, and consistent performance across demanding applications.</p>
+                </div>
+
+                <div class="ptfe-stack-visual">
+                    <div class="ptfe-eyebrow">Coating Stack</div>
+                    <div class="ptfe-stack">
+                        <div class="ptfe-layer top"><strong>PTFE Topcoat</strong><span>Lubrication, controlled friction, non-stick behavior and release properties.</span></div>
+                        <div class="ptfe-layer"><strong>Primer / Binder</strong><span>Adhesion bridge between the functional PTFE layer and corrosion basecoat.</span></div>
+                        <div class="ptfe-layer base"><strong>Base Coating</strong><span>Zinc-based, phosphate or zinc flake layer selected by corrosion requirement.</span></div>
+                        <div class="ptfe-layer base"><strong>Prepared Steel</strong><span>Cleaned / blasted surface for bonding and coating uniformity.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        FUNCTIONAL POSITIONING
+    ======================================================= -->
+    <section class="ptfe-section">
+        <div class="ptfe-wrap">
+            <div class="ptfe-explainer">
+                <aside class="ptfe-sticky-note">
+                    <i class="fa-solid fa-sliders"></i>
+                    <h3>Functional Positioning</h3>
+                    <p>PTFE coatings are applied as functional surface engineering systems that directly influence assembly performance.</p>
+                </aside>
+
+                <div class="ptfe-ribbon">
+                    <div class="ptfe-ribbon-row"><b>Friction Behavior</b><p>Controls torque behavior and helps reduce tightening variability during assembly.</p></div>
+                    <div class="ptfe-ribbon-row"><b>Clamp Load</b><p>Supports consistent preload generation and reliable joint performance.</p></div>
+                    <div class="ptfe-ribbon-row"><b>Anti-Galling</b><p>Prevents metal-to-metal adhesion, especially in stainless steel and high-load applications.</p></div>
+                    <div class="ptfe-ribbon-row"><b>Environment</b><p>Resists aggressive chemicals, acids, alkalis, solvents, industrial media and moisture.</p></div>
+                    <div class="ptfe-ribbon-row"><b>Repeatability</b><p>Improves assembly efficiency, release properties and operational consistency.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        APPLICATIONS
+    ======================================================= -->
+    <section class="ptfe-section ptfe-tint">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">Where PTFE Coatings Are Used</div>
+                    <h2 class="ptfe-title">Built for aggressive, high-load,<br>and precision assembly environments.</h2>
+                </div>
+                <span class="ptfe-index">Application Map</span>
+            </div>
+
+            <div class="ptfe-industry-strip">
+                <span class="ptfe-industry"><i class="fa-solid fa-oil-well"></i>Oil & Gas</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-anchor"></i>Offshore & Marine</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-flask-vial"></i>Petrochemical</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-vials"></i>Chemical Processing</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-prescription-bottle-medical"></i>Pharmaceutical</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-bolt"></i>Power Generation</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-gears"></i>Heavy Engineering</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-jet-fighter"></i>Aerospace & Defence</span>
+                <span class="ptfe-industry"><i class="fa-solid fa-industry"></i>Industrial Equipment</span>
+            </div>
+
+            <div class="ptfe-reference">
+                <span>Typical Application Reference</span>
+                <b>ASTM A193 B7 studs with ASTM A194 2H nuts</b>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        KEY ADVANTAGES
+    ======================================================= -->
+    <section class="ptfe-section">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">Key Functional Advantages</div>
+                    <h2 class="ptfe-title">Designed around torque,<br>release, and resistance.</h2>
+                </div>
+                <span class="ptfe-index">Performance</span>
+            </div>
+
+            <div class="ptfe-advantage-grid">
+                <div class="ptfe-advantage wide">
+                    <div class="ptfe-friction-meter">
+                        <span class="number">Friction Range</span>
+                        <div class="ptfe-meter-line"><span class="ptfe-meter-pin"></span></div>
+                    </div>
+                    <div>
+                        <h3>Controlled Friction & Torque-Tension Performance</h3>
+                        <p>PTFE coatings are engineered to deliver a controlled coefficient of friction, typically in the range of 0.05–0.10 dynamic. Optimized systems can operate around 0.06–0.08.</p>
+                        <div class="ptfe-mini-list"><span>Predictable torque-tension</span><span>Consistent preload</span><span>Reduced variability</span><span>Improved joint reliability</span></div>
+                    </div>
+                </div>
+
+                <div class="ptfe-advantage">
+                    <span class="number">Anti-Galling</span>
+                    <h3>Anti-Galling & Anti-Seizing</h3>
+                    <p>Prevents metal-to-metal adhesion and supports stainless steel and high-load applications.</p>
+                </div>
+
+                <div class="ptfe-advantage">
+                    <span class="number">Chemical Resistance</span>
+                    <h3>Resistance to Aggressive Media</h3>
+                    <p>PTFE exhibits excellent resistance to acids, alkalis, solvents and industrial chemicals.</p>
+                </div>
+
+                <div class="ptfe-advantage">
+                    <span class="number">Non-Stick</span>
+                    <h3>Release Properties</h3>
+                    <p>Hydrophobic and oleophobic behavior helps prevent adhesion of contaminants and process media.</p>
+                </div>
+
+                <div class="ptfe-advantage">
+                    <span class="number">Assembly</span>
+                    <h3>Repeatable Fastening</h3>
+                    <p>Supports smooth installation, better assembly efficiency and reduced tightening variation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        TEMPERATURE / CORROSION / STRUCTURE
+    ======================================================= -->
+    <section class="ptfe-section ptfe-tint">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">System Behavior</div>
+                    <h2 class="ptfe-title">Thermal stability and corrosion protection,<br>built as a complete system.</h2>
+                </div>
+                <span class="ptfe-index">System</span>
+            </div>
+
+            <div class="ptfe-spec-layout">
+                <div class="ptfe-spec-panel dark">
+                    <h3>Temperature Stability</h3>
+                    <p>Operating temperature range: approximately -200°C to +260°C continuous.</p>
+                    <p>Enhanced performance under controlled short-term exposure beyond this range.</p>
+                    <p>Melting point: ~327°C (620–625°F).</p>
+                    <div class="ptfe-badges"><span class="ptfe-badge">-200°C</span><span class="ptfe-badge">+260°C</span><span class="ptfe-badge">~327°C melt</span></div>
+                </div>
+
+                <div class="ptfe-spec-panel">
+                    <h3>Corrosion Protection</h3>
+                    <p>Corrosion resistance is achieved through the complete coating system, which may include zinc-based coatings, phosphate layers or zinc flake systems.</p>
+                    <p>Salt spray resistance can reach up to 3000+ hours as per ASTM B117 depending on system design.</p>
+                    <div class="ptfe-badges"><span class="ptfe-badge">Zinc base</span><span class="ptfe-badge">Phosphate</span><span class="ptfe-badge">Zinc flake</span><span class="ptfe-badge">ASTM B117</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        PTFE PROCESS
+    ======================================================= -->
+    <section class="ptfe-section">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">PTFE Coating Process</div>
+                    <h2 class="ptfe-title">A controlled route from cleaning<br>to cured coating integrity.</h2>
+                </div>
+                <span class="ptfe-index">Process</span>
+            </div>
+
+            <div class="ptfe-process-rail">
+                <div class="ptfe-process-item"><b>01</b><span>Components undergo cleaning to remove oil, dirt and contaminants.</span></div>
+                <div class="ptfe-process-item"><b>02</b><span>Surface preparation enhances adhesion and coating consistency.</span></div>
+                <div class="ptfe-process-item"><b>03</b><span>Base layer is selected based on corrosion requirements.</span></div>
+                <div class="ptfe-process-item"><b>04</b><span>PTFE coating is applied through spray or dip-spin controlled processes.</span></div>
+                <div class="ptfe-process-item"><b>05</b><span>Curing ensures bonding, coating integrity and functional surface performance.</span></div>
+            </div>
+
+            <div class="ptfe-spec-panel" style="margin-top:26px;">
+                <h3>Available in multiple colors</h3>
+                <p class="ptfe-color-helper">
+                    PTFE coating colors can be specified for functional identification, batch coding, assembly recognition, or customer-specific visual requirements.
+                </p>
+                <div class="ptfe-color-palette" aria-label="PTFE coating color options">
+                    <div class="ptfe-color-option" aria-label="Black PTFE coating color">
+                        <span class="ptfe-color black"></span>
+                        <span class="ptfe-color-name">Black</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Blue PTFE coating color">
+                        <span class="ptfe-color blue"></span>
+                        <span class="ptfe-color-name">Blue</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Green PTFE coating color">
+                        <span class="ptfe-color green"></span>
+                        <span class="ptfe-color-name">Green</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Red PTFE coating color">
+                        <span class="ptfe-color red"></span>
+                        <span class="ptfe-color-name">Red</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="White PTFE coating color">
+                        <span class="ptfe-color white"></span>
+                        <span class="ptfe-color-name">White</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Yellow PTFE coating color">
+                        <span class="ptfe-color yellow"></span>
+                        <span class="ptfe-color-name">Yellow</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Orange PTFE coating color">
+                        <span class="ptfe-color orange"></span>
+                        <span class="ptfe-color-name">Orange</span>
+                    </div>
+                    <div class="ptfe-color-option" aria-label="Purple PTFE coating color">
+                        <span class="ptfe-color purple"></span>
+                        <span class="ptfe-color-name">Purple</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        MECHANICAL PROPERTIES
+    ======================================================= -->
+    <section class="ptfe-section ptfe-tint" id="properties">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">Mechanical & Physical Properties</div>
+                    <h2 class="ptfe-title">Measured performance parameters<br>for engineering decisions.</h2>
+                </div>
+                <span class="ptfe-index">Technical Data</span>
+            </div>
+
+            <div class="ptfe-table-shell">
+                <div class="ptfe-table-wrap">
+                    <table class="ptfe-table">
+                        <thead>
+                            <tr><th>Property</th><th>Typical Value / Range</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tensile Strength</td><td>3000 – 5000 psi (~4000 psi typical)</td></tr>
+                            <tr><td>Elongation</td><td>35% – 500%</td></tr>
+                            <tr><td>Impact Resistance</td><td>~3.5 ft-lb/in / ~160 in-lb</td></tr>
+                            <tr><td>Hardness</td><td>Shore D 50 – 65</td></tr>
+                            <tr><td>Pencil Hardness</td><td>5H – 6H</td></tr>
+                            <tr><td>Abrasion Resistance</td><td>~12 mg loss</td></tr>
+                            <tr><td>Coefficient of Friction</td><td>0.10 – 0.15 static / 0.05 – 0.10 dynamic</td></tr>
+                            <tr><td>Dielectric Strength</td><td>~450 volts/mil</td></tr>
+                            <tr><td>Thermal Conductivity</td><td>~1.7 BTU-in/h-ft²-°F</td></tr>
+                            <tr><td>Water Absorption</td><td>~0.01%</td></tr>
+                            <tr><td>Coating Thickness</td><td>20 – 75 microns</td></tr>
+                            <tr><td>Adhesion</td><td>5B</td></tr>
+                            <tr><td>Pressure Capability</td><td>Up to 100,000 psi</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        STANDARDS & PRODUCTS
+    ======================================================= -->
+    <section class="ptfe-section">
+        <div class="ptfe-wrap">
+            <div class="ptfe-columns">
+                <div class="ptfe-spec-panel">
+                    <div class="ptfe-eyebrow">Standards & Compliance</div>
+                    <h3 style="margin-top:18px;">Reference framework</h3>
+                    <p>PTFE coating validation and specification can be linked with multiple material, coating and performance standards.</p>
+                    <div class="ptfe-standard-cloud">
+                        <span>ASTM D1708</span><span>ASTM D1457</span><span>ASTM D256</span><span>ASTM D2794</span><span>ASTM D2240</span><span>ASTM D3363</span><span>ASTM D1894</span><span>ASTM D149</span><span>ASTM D543</span><span>ASTM D570</span><span>ASTM B117</span><span>ASTM D3359</span><span>ASTM A193</span><span>ASTM A194</span><span>ASTM A320</span>
+                    </div>
+                    <div class="ptfe-badges"><span class="ptfe-badge">RoHS</span><span class="ptfe-badge">REACH</span><span class="ptfe-badge">PFAS considerations</span></div>
+                </div>
+
+                <div class="ptfe-spec-panel">
+                    <div class="ptfe-eyebrow">PTFE Coated Product Range</div>
+                    <h3 style="margin-top:18px;">Fastener coverage</h3>
+                    <p>PTFE coating is applied across a wide range of standard and engineered fastener products.</p>
+                    <div class="ptfe-product-cloud">
+                        <span>PTFE Coated Bolts</span><span>PTFE Coated Screws</span><span>PTFE Coated Studs / Stud Bolts</span><span>PTFE Coated Threaded Rods</span><span>PTFE Coated Nuts</span><span>PTFE Coated Washers</span><span>PTFE Coated Pins</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        ENGINEERING POSITIONING
+    ======================================================= -->
+    <section class="ptfe-section ptfe-tint">
+        <div class="ptfe-wrap">
+            <div class="ptfe-intro-panel">
+                <div>
+                    <div class="ptfe-eyebrow">Engineering Positioning</div>
+                    <h2 class="ptfe-title">Precision-controlled functional layer.</h2>
+                </div>
+                <div>
+                    <p class="ptfe-lead">PTFE coating is applied as a precision-controlled functional layer, enabling consistent torque-tension behavior, reliable clamp load generation, reduced assembly variability and long-term performance stability.</p>
+                    <div class="ptfe-mini-list"><span>Torque-tension behavior</span><span>Clamp load generation</span><span>Reduced variability</span><span>Long-term stability</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        FINAL FLOWCHART
+    ======================================================= -->
+    <section class="ptfe-final-flow" id="ptfe-flow">
+        <div class="ptfe-wrap">
+            <div class="ptfe-head">
+                <div>
+                    <div class="ptfe-eyebrow">Integration with PMEW Quality Flow</div>
+                    <h2 class="ptfe-title">One controlled chain,<br>from review to inspection.</h2>
+                </div>
+                <span class="ptfe-index">Process Flow</span>
+            </div>
+
+            <p class="ptfe-lead">PTFE coating is integrated into a controlled PMEW coating and quality framework — connected with material review, surface preparation, PTFE coating, curing and final inspection.</p>
+
+            <div class="ptfe-flowchart" aria-label="PTFE coating process flowchart">
+                <div class="ptfe-flow-card"><span>Material Review</span></div>
+                <div class="ptfe-flow-arrow">→</div>
+                <div class="ptfe-flow-card"><span>Surface Preparation</span></div>
+                <div class="ptfe-flow-arrow">→</div>
+                <div class="ptfe-flow-card highlight"><span>PTFE Coating</span></div>
+                <div class="ptfe-flow-arrow">→</div>
+                <div class="ptfe-flow-card"><span>Curing</span></div>
+                <div class="ptfe-flow-arrow">→</div>
+                <div class="ptfe-flow-card"><span>Final Inspection</span></div>
+            </div>
+
+            <div class="ptfe-flow-pills">
+                <span class="ptfe-flow-pill"><b>•</b> Controlled process routing</span>
+                <span class="ptfe-flow-pill"><b>•</b> Surface adhesion readiness</span>
+                <span class="ptfe-flow-pill"><b>•</b> PTFE friction control</span>
+                <span class="ptfe-flow-pill"><b>•</b> Curing documentation</span>
+                <span class="ptfe-flow-pill"><b>•</b> Final release inspection</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+        FINAL CTA
+    ======================================================= -->
+    <section class="ptfe-cta" id="rfq">
+        <div class="ptfe-wrap">
+            <div class="ptfe-eyebrow">Request Engineering Support</div>
+            <h2>Need PTFE coating<br>for critical fasteners?</h2>
+            <p>
+                Share your fastener size, grade, friction target, coating system requirement, operating temperature, application environment and documentation need. Our team can support PTFE coating selection, friction planning and compliance-aligned execution.
+            </p>
+
+            <div class="ptfe-cta-actions">
+                <a href="/pages/contact/contact-us.html" class="ptfe-btn ptfe-btn-primary">
+                    Send RFQ <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="/pages/products/products.html" class="ptfe-btn ptfe-btn-ghost">
+                    Explore Fasteners
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

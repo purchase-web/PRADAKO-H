@@ -1,0 +1,1060 @@
+@import url("./leadership.css");
+
+/* ===================================================== */
+/* ROOT VARIABLES */
+/* ===================================================== */
+
+:root {
+    --color-navy: #071b35;
+    --color-navy-dark: #000000;
+
+    --color-blue: #0b5fc6;
+    --color-gold: #c9a24d;
+
+    --color-white: #ffffff;
+    --color-text: #1f2a37;
+    --color-muted: #667085;
+
+    --color-soft-bg: #f4f8fc;
+    --color-ice-bg: #eef5fb;
+
+    --shadow-lg: 0 30px 90px rgba(7, 27, 53, 0.18);
+
+    --radius-lg: 34px;
+}
+
+/* ===================================================== */
+/* RESET */
+/* ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--color-text);
+    overflow-x: hidden;
+}
+
+/* ===================================================== */
+/* COMMON SECTION STYLES */
+/* ===================================================== */
+
+section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 6%;
+}
+
+.section-container {
+    width: 100%;
+    max-width: 1480px;
+    margin: auto;
+}
+
+/* ===================================================== */
+/* TYPOGRAPHY */
+/* ===================================================== */
+
+.section-eyebrow {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--color-blue);
+    margin-bottom: 22px;
+}
+
+.section-heading {
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: .95;
+    letter-spacing: -.07em;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 950;
+    color: var(--color-navy-dark);
+    margin-bottom: 32px;
+}
+
+.section-heading-highlight {
+    color: var(--color-blue);
+}
+
+.section-description {
+    font-size: clamp(18px, 1.4vw, 24px);
+    line-height: 1.75;
+    color: var(--color-muted);
+}
+
+.section-large-text {
+    font-size: clamp(26px, 3vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -.04em;
+    font-weight: 800;
+}
+
+/* ===================================================== */
+/* DIVIDER */
+/* ===================================================== */
+
+.section-divider {
+    width: 120px;
+    height: 5px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        var(--color-blue),
+        var(--color-gold)
+    );
+    margin: 30px 0;
+}
+
+/* ===================================================== */
+/* BACKGROUNDS */
+/* ===================================================== */
+
+.bg-soft {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f4f8fc
+    );
+}
+
+.bg-ice {
+    background: linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef5fb
+    );
+}
+
+.bg-dark {
+    background: linear-gradient(
+        135deg,
+        #03101f,
+        #071b35
+    );
+    color: #fff;
+}
+
+.bg-dark .section-heading,
+.bg-dark .section-large-text {
+    color: #fff;
+}
+
+.bg-dark .section-description {
+    color: #cbd8e6;
+}
+
+/* ===================================================== */
+/* REVEAL */
+/* ===================================================== */
+
+.reveal {
+    
+    transform: translateY(40px);
+    transition: .8s ease;
+}
+
+
+
+/* ===================================================== */
+/* FOUNDERS HERO — IMAGE LEFT / CONTENT RIGHT */
+/* ===================================================== */
+
+.founders-hero {
+    min-height: 100vh;
+    padding: 78px 0 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-navy-dark);
+    color: #fff;
+}
+
+.founders-hero > .section-container {
+    width: 100%;
+    max-width: none;
+    min-height: calc(100vh - 78px);
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+    align-items: stretch;
+}
+
+.founders-hero__media {
+    min-height: calc(100vh - 78px);
+    background-image: url("/assets/images/about-us/founder-rajnikant-trivedi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 72% center;
+}
+
+.founders-hero__content {
+    width: 100%;
+    max-width: 760px;
+    margin: auto 0;
+    padding: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 82px) clamp(48px, 6vw, 96px) clamp(38px, 5vw, 76px);
+    justify-self: start;
+    position: relative;
+    z-index: 2;
+}
+
+.founders-hero__title {
+    font-size: clamp(60px, 8vw, 126px);
+    font-weight: 950;
+    line-height: .9;
+    font-family: "Segoe UI", Arial, sans-serif;
+    letter-spacing: -.08em;
+    color: #fff;
+}
+
+.founders-hero__title-highlight {
+    display: block;
+    color: #6db6ff;
+}
+
+.founders-hero__subtitle {
+    font-size: clamp(24px, 2.5vw, 42px);
+    line-height: 1.2;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-bottom: 40px;
+}
+
+.founders-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.founders-hero__button {
+    min-height: 56px;
+    padding: 0 30px;
+    border-radius: 999px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: .3s ease;
+    letter-spacing: .4px;
+}
+
+.founders-hero__button:hover {
+    transform: translateY(-3px);
+}
+
+.founders-hero__button--primary {
+    background: var(--color-blue);
+    color: #fff;
+}
+
+.founders-hero__button--secondary {
+    border: 1px solid rgba(255, 255, 255, .4);
+    color: #fff;
+    background: transparent;
+}
+
+.founders-hero__button--collaboration {
+    background: var(--color-blue);
+    color: #ffffff;
+    box-shadow: 0 16px 36px rgba(77, 120, 201, 0.34);
+}
+
+/* ===================================================== */
+/* FOUNDATION */
+/* ===================================================== */
+
+.founders-foundation__card {
+    max-width: 1200px;
+    background: rgba(255, 255, 255, .85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: clamp(40px, 5vw, 80px);
+    box-shadow: var(--shadow-lg);
+}
+
+.founders-foundation__highlights {
+    display: grid;
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.founders-foundation__highlight {
+    padding: 25px 30px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #ffffff, #eef6ff);
+    border: 1px solid rgba(7, 27, 53, 0.08);
+    font-size: clamp(26px, 3vw, 50px);
+    font-weight: 900;
+    letter-spacing: -.04em;
+}
+
+.founders-foundation__highlight span {
+    color: var(--color-blue);
+}
+
+/* ===================================================== */
+/* QUOTE */
+/* ===================================================== */
+
+.founders-quote {
+    text-align: center;
+}
+
+.founders-quote__mark {
+    font-size: 120px;
+    color: #6db6ff;
+    line-height: .7;
+}
+
+.founders-quote__text {
+    font-size: clamp(46px, 6vw, 100px);
+    font-weight: 950;
+    line-height: 1.05;
+    letter-spacing: -.07em;
+}
+
+.founders-quote__caption {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #cbd8e6;
+}
+
+/* ===================================================== */
+/* FOUNDER RAJNIKANT */
+/* ===================================================== */
+
+.founders-rajnikant {
+    text-align: center;
+}
+
+.founders-rajnikant__layout {
+    width: 100%;
+    display: block;
+}
+
+.founders-rajnikant__content {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.founders-rajnikant .section-eyebrow {
+    text-align: center;
+}
+
+.founders-rajnikant .section-heading {
+    max-width: 1320px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.founders-rajnikant__description-group {
+    width: 100%;
+    max-width: 960px;
+    margin: 42px auto 0;
+    display: grid;
+    gap: 12px;
+}
+
+.founders-rajnikant .section-description {
+    margin: 0;
+    text-align: center;
+}
+
+/* ===================================================== */
+/* FOUNDER KARUNA */
+/* ===================================================== */
+
+.founders-karuna__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.founders-karuna__card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .08);
+}
+
+.founders-karuna__card-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: var(--color-navy-dark);
+}
+
+.founders-karuna__card-description {
+    line-height: 1.8;
+    color: var(--color-muted);
+}
+
+/* ===================================================== */
+/* JOURNEY */
+/* ===================================================== */
+
+.founders-journey__timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.founders-journey__item {
+    background: #fff;
+    padding: 35px;
+    border-radius: 28px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .08);
+}
+
+.founders-journey__year {
+    font-size: 70px;
+    font-weight: 900;
+    color: var(--color-blue);
+    margin-bottom: 15px;
+}
+
+/* ===================================================== */
+/* LEGACY */
+/* ===================================================== */
+
+.founders-legacy {
+    text-align: left;
+}
+
+.founders-legacy .section-heading {
+    max-width: 1100px;
+}
+
+.founders-legacy .section-large-text {
+    max-width: 900px;
+}
+
+/* ===================================================== */
+/* METAPHOR */
+/* ===================================================== */
+
+.founders-metaphor__card {
+    background: #fff;
+    border-radius: 34px;
+    padding: clamp(40px, 5vw, 80px);
+    box-shadow: var(--shadow-lg);
+}
+
+.founders-metaphor__points {
+    margin-top: 40px;
+    display: grid;
+    gap: 18px;
+}
+
+.founders-metaphor__point {
+    font-size: clamp(24px, 3vw, 48px);
+    font-weight: 900;
+    padding: 24px;
+    border-radius: 24px;
+    background: #eef5fb;
+}
+
+/* ===================================================== */
+/* GRATITUDE */
+/* ===================================================== */
+
+.founders-gratitude {
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eef6ff
+    );
+}
+
+.founders-gratitude__box {
+    max-width: 1000px;
+    margin: 50px auto 0;
+    background: var(--color-navy-dark);
+    color: #fff;
+    padding: 40px;
+    border-radius: 34px;
+    box-shadow: var(--shadow-lg);
+}
+
+.founders-gratitude__signature {
+    margin-top: 20px;
+    color: #8cc7ff;
+    font-weight: 900;
+}
+
+/* ===================================================== */
+/* LEADERSHIP CTA COLOR SYSTEM */
+/* MATCHED WITH FOUNDERS PAGE COLOR CODE */
+/* ===================================================== */
+
+:root {
+    --leadership-blue: var(--color-navy-dark);
+    --leadership-blue-dark: var(--color-navy);
+    --leadership-gold: var(--color-blue);
+    --leadership-secondary-gold: var(--color-gold);
+    --leadership-white: var(--color-white);
+    --leadership-light: #f8fbff;
+    --leadership-border: rgba(7, 27, 53, 0.12);
+    --leadership-text: var(--color-navy-dark);
+    --leadership-muted: var(--color-muted);
+}
+
+/* ===================================================== */
+/* LEADERSHIP & COLLABORATION CTA */
+/* ===================================================== */
+
+.pradako-leadership-footer {
+    
+    
+    
+    align-items: initial;
+    
+    
+    
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.pradako-leadership-footer-inner {
+    
+    
+    background: var(--leadership-blue);
+    
+    
+    
+    
+    
+    
+    
+    
+    box-shadow: 0 28px 70px rgba(7, 27, 53, 0.22);
+}
+
+.pradako-leadership-footer-inner::before {
+    
+    
+    
+    
+    
+    
+    background: var(--leadership-gold);
+    
+}
+
+.pradako-leadership-kicker {
+    color: #6db6ff;
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+.pradako-leadership-quote {
+    
+    
+    border-left: 5px solid var(--leadership-gold);
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+.pradako-leadership-btn-gold {
+    
+    color: #ffffff;
+    
+}
+
+
+
+
+
+
+
+
+
+.pradako-leadership-contact-line span {
+    color: #6db6ff;
+}
+
+
+
+.pradako-leadership-contact-line a:hover {
+    color: #6db6ff;
+}
+
+/* ===================================================== */
+/* LEADERSHIP FORM CARD */
+/* ===================================================== */
+
+
+
+
+
+
+
+
+
+.pradako-leadership-form input,
+.pradako-leadership-form select,
+.pradako-leadership-form textarea {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+
+.pradako-leadership-form input:focus,
+.pradako-leadership-form select:focus,
+.pradako-leadership-form textarea:focus {
+    border-color: var(--leadership-gold);
+    box-shadow: 0 0 0 3px rgba(11, 95, 198, 0.14);
+}
+
+.pradako-leadership-form button {
+    
+    background: var(--leadership-gold);
+    color: #ffffff;
+    
+    
+    
+    
+    
+    
+    
+    
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.pradako-leadership-form button:hover {
+    background: var(--leadership-blue-dark);
+    
+}
+
+/* ===================================================== */
+/* FORM VALIDATION */
+/* ===================================================== */
+
+.leadership-field-error {
+    border-color: #d93025 !important;
+    box-shadow: 0 0 0 4px rgba(217, 48, 37, 0.12) !important;
+}
+
+/* ===================================================== */
+/* LARGE DESKTOP */
+/* <= 1400px */
+/* ===================================================== */
+
+@media (max-width: 1400px) {
+    .section-container {
+        max-width: 1200px;
+    }
+
+    .section-heading {
+        max-width: 1000px;
+    }
+
+    .founders-hero > .section-container {
+        max-width: none;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .founders-hero__content {
+        max-width: 620px;
+        padding-left: clamp(32px, 4vw, 60px);
+        padding-right: clamp(28px, 4vw, 56px);
+    }
+}
+
+/* ===================================================== */
+/* TABLET LANDSCAPE */
+/* <= 1100px */
+/* ===================================================== */
+
+@media (max-width: 1100px) {
+    section {
+        padding: 100px 5%;
+    }
+
+    .founders-navbar {
+        padding: 0 5%;
+    }
+
+    .founders-hero {
+        padding: 78px 0 0;
+    }
+
+    .founders-hero > .section-container {
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+    }
+
+    .founders-hero__media {
+        background-position: 74% center;
+    }
+
+    .founders-hero__content {
+        width: 100%;
+        max-width: 680px;
+        padding: 56px 42px;
+    }
+
+    .founders-karuna__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .founders-journey__timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+
+    
+}
+
+/* ===================================================== */
+/* TABLET PORTRAIT */
+/* <= 768px */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+    section {
+        padding: 90px 5%;
+        min-height: auto;
+    }
+
+    .section-heading {
+        font-size: clamp(38px, 8vw, 54px);
+        line-height: 1;
+    }
+
+    .section-large-text {
+        font-size: clamp(22px, 5vw, 30px);
+    }
+
+    .section-description {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .founders-navbar {
+        height: 70px;
+    }
+
+    .founders-navbar__menu {
+        display: none;
+    }
+
+    .founders-navbar__logo {
+        font-size: 18px;
+    }
+
+    .founders-hero {
+        min-height: auto;
+        padding: 70px 0 0;
+        display: block;
+    }
+
+    .founders-hero > .section-container {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .founders-hero__media {
+        min-height: clamp(320px, 72vw, 520px);
+        background-position: 72% top;
+    }
+
+    .founders-hero__content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 40px 5% 90px;
+    }
+
+    .founders-hero__title {
+        font-size: clamp(48px, 12vw, 70px);
+    }
+
+    .founders-hero__subtitle {
+        font-size: clamp(20px, 5vw, 28px);
+    }
+
+    .founders-hero__actions {
+        flex-direction: column;
+    }
+
+    .founders-hero__button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .founders-rajnikant__description-group {
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .founders-foundation__card {
+        padding: 35px 25px;
+    }
+
+    .founders-foundation__highlight {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    .founders-quote__mark {
+        font-size: 80px;
+    }
+
+    .founders-quote__text {
+        font-size: clamp(34px, 8vw, 50px);
+    }
+
+    .founders-karuna__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .founders-karuna__card {
+        padding: 30px;
+    }
+
+    .founders-karuna__card-title {
+        font-size: 32px;
+    }
+
+    .founders-journey__timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .founders-journey__item {
+        padding: 30px;
+    }
+
+    .founders-journey__year {
+        font-size: 60px;
+    }
+
+    .founders-metaphor__card {
+        padding: 35px 25px;
+    }
+
+    .founders-metaphor__point {
+        font-size: 26px;
+        padding: 20px;
+    }
+
+    .founders-gratitude__box {
+        padding: 30px 24px;
+    }
+
+    .founders-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pradako-leadership-footer {
+        padding: 0 14px 72px;
+    }
+
+    .pradako-leadership-footer-inner {
+        border-radius: 24px;
+        padding: 42px 22px 34px;
+    }
+
+    .pradako-leadership-kicker {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .pradako-leadership-footer-content h2 {
+        font-size: 44px;
+        letter-spacing: 1px;
+    }
+
+    .pradako-leadership-footer-content p {
+        font-size: 15px;
+    }
+
+    .pradako-leadership-quote {
+        font-size: 17px;
+        padding: 16px 18px;
+    }
+
+    .pradako-leadership-actions {
+        flex-direction: column;
+    }
+
+    .pradako-leadership-btn {
+        width: 100%;
+    }
+
+    .pradako-leadership-form-card {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .pradako-leadership-contact-line {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
+
+/* ===================================================== */
+/* MOBILE */
+/* <= 576px */
+/* ===================================================== */
+
+@media (max-width: 576px) {
+    section {
+        padding: 80px 20px;
+    }
+
+    .section-eyebrow {
+        font-size: 12px;
+        letter-spacing: .15em;
+    }
+
+    .section-heading {
+        font-size: 34px;
+    }
+
+    .section-large-text {
+        font-size: 22px;
+    }
+
+    .section-description {
+        font-size: 15px;
+    }
+
+    .founders-hero {
+        padding: 70px 0 0;
+    }
+
+    .founders-hero__media {
+        min-height: clamp(290px, 86vw, 450px);
+        background-position: 70% top;
+    }
+
+    .founders-hero__content {
+        padding: 36px 20px 80px;
+    }
+
+    .founders-hero__title {
+        font-size: 44px;
+    }
+
+    .founders-hero__subtitle {
+        font-size: 20px;
+    }
+
+    .founders-rajnikant__description-group {
+        margin-top: 24px;
+    }
+
+    .founders-foundation__highlight {
+        font-size: 24px;
+    }
+
+    .founders-quote__text {
+        font-size: 36px;
+    }
+
+    .founders-karuna__card-title {
+        font-size: 28px;
+    }
+
+    .founders-journey__year {
+        font-size: 52px;
+    }
+
+    .founders-metaphor__point {
+        font-size: 22px;
+    }
+
+    .founders-gratitude__box p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .founders-gratitude__signature {
+        font-size: 16px;
+    }
+
+    .pradako-leadership-footer-content h2 {
+        font-size: 38px;
+    }
+
+    .pradako-leadership-form-card h3 {
+        font-size: 24px;
+    }
+
+    .pradako-leadership-form input,
+    .pradako-leadership-form select,
+    .pradako-leadership-form textarea {
+        padding: 14px 15px;
+        font-size: 14px;
+    }
+}
+
+/* ===================================================== */
+/* EXTRA SMALL DEVICES */
+/* <= 400px */
+/* ===================================================== */
+
+@media (max-width: 400px) {
+    .section-heading {
+        font-size: 30px;
+    }
+
+    .founders-hero__title {
+        font-size: 38px;
+    }
+
+    .founders-foundation__highlight {
+        font-size: 22px;
+    }
+
+    .founders-quote__text {
+        font-size: 30px;
+    }
+
+    .founders-metaphor__point {
+        font-size: 20px;
+    }
+}

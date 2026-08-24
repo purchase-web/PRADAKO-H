@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pradako Mechanical & Engineering Works — IPO readiness and public-market preparation journey.">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>IPO Readiness | Pradako Mechanical & Engineering Works</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- PMEW GLOBAL FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <!-- PMEW GLOBAL STYLES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <style>
+        :root {
+            --ipo-white: #ffffff;
+            --ipo-surface: #fbfbfb;
+            --ipo-surface-soft: #f6f6f4;
+            --ipo-ink: #111111;
+            --ipo-text: #313131;
+            --ipo-muted: #696969;
+            --ipo-line: #dededb;
+            --ipo-line-dark: #bebeba;
+            --ipo-accent: #0b8064;
+            --ipo-accent-soft: #eaf6f2;
+            --ipo-accent-deep: #075f4b;
+            --ipo-accent-contrast: #ffffff;
+            --ipo-max: 1420px;
+            --ipo-section: clamp(88px, 10vw, 156px);
+            --ipo-radius: 0px;
+            --ipo-transition: 320ms cubic-bezier(.2, .8, .2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 118px;
+        }
+
+        body.ipo-page {
+            margin: 0;
+            min-width: 320px;
+            overflow-x: hidden;
+            background: var(--ipo-white);
+            color: var(--ipo-text);
+            font-family: "Montserrat", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.ipo-page.menu-open {
+            overflow: hidden;
+        }
+
+        .ipo-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .ipo-page button,
+        .ipo-page input,
+        .ipo-page textarea,
+        .ipo-page select {
+            font: inherit;
+        }
+
+       /* Apply responsive media styling only to the IPO page content */
+        .ipo-page main img,
+        .ipo-page main svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        .ipo-shell {
+            width: min(calc(100% - 48px), var(--ipo-max));
+            margin-inline: auto;
+        }
+
+        .ipo-section {
+            position: relative;
+            padding-block: var(--ipo-section);
+            border-top: 1px solid var(--ipo-line);
+        }
+
+        .ipo-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 24px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .ipo-kicker::before {
+            width: 38px;
+            height: 2px;
+            background: var(--ipo-accent);
+            content: "";
+        }
+
+        .ipo-display {
+            margin: 0;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(52px, 7vw, 116px);
+            font-weight: 700;
+            letter-spacing: -.065em;
+            line-height: .88;
+        }
+
+        .ipo-display .accent-word {
+            color: var(--ipo-accent);
+        }
+
+        .ipo-section-title {
+            max-width: 930px;
+            margin: 0;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(42px, 5.4vw, 86px);
+            font-weight: 700;
+            letter-spacing: -.055em;
+            line-height: .95;
+        }
+
+        .ipo-section-title .serif {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: -.035em;
+        }
+
+        .ipo-lead {
+            max-width: 760px;
+            margin: 30px 0 0;
+            color: var(--ipo-text);
+            font-size: clamp(17px, 1.35vw, 21px);
+            line-height: 1.8;
+        }
+
+        .ipo-copy {
+            color: var(--ipo-text);
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .ipo-copy p {
+            margin: 0 0 22px;
+        }
+
+        .ipo-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ipo-button {
+            display: inline-flex;
+            min-height: 58px;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 14px 24px;
+            border: 1px solid var(--ipo-ink);
+            background: var(--ipo-ink);
+            color: var(--ipo-white) !important;
+            cursor: pointer;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            line-height: 1;
+            text-transform: uppercase;
+            transition: background var(--ipo-transition), color var(--ipo-transition), border-color var(--ipo-transition), transform var(--ipo-transition);
+        }
+
+        .ipo-button:hover,
+        .ipo-button:focus-visible {
+            border-color: var(--ipo-accent);
+            background: var(--ipo-accent);
+            color: var(--ipo-accent-contrast) !important;
+            transform: translateY(-2px);
+        }
+
+        .ipo-button--light {
+            border-color: var(--ipo-line-dark);
+            background: transparent;
+            color: var(--ipo-ink) !important;
+        }
+
+        .ipo-button--light:hover,
+        .ipo-button--light:focus-visible {
+            border-color: var(--ipo-ink);
+            background: var(--ipo-ink);
+            color: var(--ipo-white) !important;
+        }
+
+        .ipo-arrow {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--ipo-transition);
+        }
+
+        .ipo-button:hover .ipo-arrow,
+        .ipo-text-link:hover .ipo-arrow {
+            transform: translateX(5px);
+        }
+
+        /* HERO */
+        .ipo-hero {
+            position: relative;
+            min-height: min(920px, calc(100vh - 40px));
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            border-bottom: 1px solid var(--ipo-line);
+            background:
+                linear-gradient(var(--ipo-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ipo-line) 1px, transparent 1px),
+                var(--ipo-white);
+            background-size: 72px 72px;
+        }
+
+        .ipo-hero::before {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 50%, rgba(255,255,255,.56) 100%);
+            content: "";
+            pointer-events: none;
+        }
+
+        .ipo-hero__watermark {
+            position: absolute;
+            right: -2vw;
+            bottom: -4vw;
+            color: transparent;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(150px, 26vw, 470px);
+            font-weight: 700;
+            letter-spacing: -.1em;
+            line-height: .7;
+            -webkit-text-stroke: 1px rgba(17,17,17,.1);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .ipo-hero__inner {
+            position: relative;
+            z-index: 2;
+            width: min(calc(100% - 48px), var(--ipo-max));
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.22fr) minmax(320px, .78fr);
+            gap: clamp(56px, 8vw, 130px);
+            align-items: center;
+            padding-block: clamp(120px, 12vw, 190px) clamp(90px, 8vw, 130px);
+        }
+
+        .ipo-hero__status {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 34px;
+            padding: 11px 15px;
+            border: 1px solid var(--ipo-line-dark);
+            background: rgba(255,255,255,.86);
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .ipo-hero__status-dot {
+            position: relative;
+            width: 9px;
+            height: 9px;
+            background: var(--ipo-accent);
+            border-radius: 50%;
+        }
+
+        .ipo-hero__status-dot::after {
+            position: absolute;
+            inset: -5px;
+            border: 1px solid rgba(11,128,100,.48);
+            border-radius: inherit;
+            content: "";
+            animation: ipoPulse 2.2s ease-out infinite;
+        }
+
+        @keyframes ipoPulse {
+            0% { opacity: 1; transform: scale(.65); }
+            75%, 100% { opacity: 0; transform: scale(1.45); }
+        }
+
+        .ipo-hero__brand {
+            margin: 0 0 22px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+        }
+
+        .ipo-hero__title {
+            max-width: 940px;
+            margin: 0;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(62px, 8.2vw, 138px);
+            font-weight: 700;
+            letter-spacing: -.075em;
+            line-height: .82;
+        }
+
+        .ipo-hero__title span {
+            display: block;
+        }
+
+        .ipo-hero__title .hero-serif {
+            margin-top: .07em;
+            color: var(--ipo-accent);
+            font-family: "Playfair Display", serif;
+            font-size: .76em;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: -.045em;
+        }
+
+        .ipo-hero__intro {
+            max-width: 760px;
+            margin: 38px 0 0;
+            color: var(--ipo-text);
+            font-size: clamp(16px, 1.25vw, 20px);
+            line-height: 1.75;
+        }
+
+        .ipo-hero__intro p {
+            margin: 0 0 17px;
+        }
+
+        .ipo-hero__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 38px;
+        }
+
+        .ipo-hero__panel {
+            position: relative;
+            min-height: 570px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(28px, 3vw, 46px);
+            border: 1px solid var(--ipo-line-dark);
+            background: rgba(255,255,255,.82);
+            backdrop-filter: blur(18px);
+        }
+
+        .ipo-hero__panel::before {
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 86px;
+            height: 8px;
+            background: var(--ipo-accent);
+            content: "";
+        }
+
+        .ipo-hero__panel-label {
+            margin: 0;
+            color: var(--ipo-muted);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .ipo-hero__principles {
+            display: grid;
+            gap: 0;
+            margin-top: 34px;
+            border-top: 1px solid var(--ipo-line);
+        }
+
+        .ipo-hero__principle {
+            display: grid;
+            grid-template-columns: 22px 1fr;
+            gap: 18px;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--ipo-line);
+        }
+
+        .ipo-hero__principle i {
+            color: var(--ipo-accent-deep);
+            font-size: 14px;
+        }
+
+        .ipo-hero__principle span {
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(16px, 1.35vw, 20px);
+            font-weight: 600;
+        }
+
+        .ipo-hero__panel-note {
+            margin: 36px 0 0;
+            color: var(--ipo-muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* STICKY PAGE NAV */
+        .ipo-subnav-wrap {
+            position: sticky;
+            z-index: 40;
+            top: 0;
+            border-bottom: 1px solid var(--ipo-line);
+            background: rgba(255,255,255,.94);
+            backdrop-filter: blur(18px);
+        }
+
+        .ipo-subnav {
+            width: min(calc(100% - 48px), var(--ipo-max));
+            min-height: 72px;
+            margin-inline: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .ipo-subnav__brand {
+            flex: 0 0 auto;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .ipo-subnav__brand span {
+            color: var(--ipo-accent-deep);
+        }
+
+        .ipo-subnav__links {
+            display: flex;
+            align-items: center;
+            gap: clamp(18px, 2.3vw, 34px);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .ipo-subnav__links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .ipo-subnav__link {
+            position: relative;
+            flex: 0 0 auto;
+            padding: 27px 0 24px;
+            color: var(--ipo-muted);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            transition: color var(--ipo-transition);
+        }
+
+        .ipo-subnav__link::after {
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            height: 2px;
+            background: var(--ipo-accent);
+            content: "";
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ipo-transition);
+        }
+
+        .ipo-subnav__link:hover,
+        .ipo-subnav__link.is-active {
+            color: var(--ipo-ink);
+        }
+
+        .ipo-subnav__link:hover::after,
+        .ipo-subnav__link.is-active::after {
+            transform: scaleX(1);
+        }
+
+        /* PROPOSITION */
+        .ipo-proposition {
+            padding-block: clamp(70px, 7vw, 112px);
+            border-bottom: 1px solid var(--ipo-line);
+            background: var(--ipo-white);
+        }
+
+        .ipo-proposition__header {
+            display: grid;
+            grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr);
+            gap: clamp(44px, 7vw, 110px);
+            align-items: end;
+            margin-bottom: 62px;
+        }
+
+        .ipo-proposition__header p {
+            max-width: 790px;
+            margin: 0;
+            color: var(--ipo-text);
+            font-size: clamp(18px, 1.4vw, 22px);
+            line-height: 1.7;
+        }
+
+        .ipo-proposition__grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            border-top: 1px solid var(--ipo-line-dark);
+            border-left: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-proposition__item {
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(26px, 3vw, 42px);
+            border-right: 1px solid var(--ipo-line-dark);
+            border-bottom: 1px solid var(--ipo-line-dark);
+            background: var(--ipo-white);
+            transition: background var(--ipo-transition), transform var(--ipo-transition);
+        }
+
+        .ipo-proposition__item:hover {
+            position: relative;
+            z-index: 2;
+            background: var(--ipo-accent-soft);
+            transform: translateY(-6px);
+        }
+
+        .ipo-proposition__icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--ipo-line-dark);
+            color: var(--ipo-accent-deep);
+            font-size: 18px;
+        }
+
+        .ipo-proposition__item h3 {
+            margin: 52px 0 14px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(21px, 1.8vw, 28px);
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1.06;
+        }
+
+        .ipo-proposition__item p {
+            margin: 0;
+            color: var(--ipo-muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* MARQUEE */
+        .ipo-marquee {
+            overflow: hidden;
+            border-bottom: 1px solid var(--ipo-line);
+            background: var(--ipo-accent);
+        }
+
+        .ipo-marquee__track {
+            width: max-content;
+            display: flex;
+            animation: ipoMarquee 42s linear infinite;
+        }
+
+        .ipo-marquee:hover .ipo-marquee__track {
+            animation-play-state: paused;
+        }
+
+        .ipo-marquee__group {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .ipo-marquee__item {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            padding: 25px 34px;
+            color: var(--ipo-accent-contrast);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .ipo-marquee__item::after {
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgba(255,255,255,.86);
+            background: transparent;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        @keyframes ipoMarquee {
+            to { transform: translateX(-50%); }
+        }
+
+        /* EDITORIAL SPLIT */
+        .ipo-editorial {
+            display: grid;
+            grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr);
+            gap: clamp(60px, 9vw, 150px);
+            align-items: start;
+        }
+
+        .ipo-editorial__aside {
+            position: sticky;
+            top: 120px;
+        }
+
+        .ipo-editorial__aside-mark {
+            margin-top: 54px;
+            color: transparent;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(90px, 13vw, 190px);
+            font-weight: 700;
+            letter-spacing: -.08em;
+            line-height: .7;
+            -webkit-text-stroke: 1px var(--ipo-line-dark);
+        }
+
+        .ipo-editorial__body {
+            padding-top: 4px;
+        }
+
+        .ipo-highlight {
+            margin: 46px 0 0;
+            padding: 32px 0 32px 32px;
+            border-left: 5px solid var(--ipo-accent);
+            color: var(--ipo-ink);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(25px, 2.6vw, 40px);
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: -.025em;
+            line-height: 1.28;
+        }
+
+        /* GROWTH PRIORITIES */
+        .ipo-priorities {
+            margin-top: 72px;
+            border-top: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-priority {
+            display: grid;
+            grid-template-columns: 72px minmax(230px, .7fr) minmax(0, 1.3fr) 36px;
+            gap: clamp(20px, 3vw, 48px);
+            align-items: start;
+            padding: clamp(30px, 3.6vw, 52px) 0;
+            border-bottom: 1px solid var(--ipo-line);
+            transition: background var(--ipo-transition), padding var(--ipo-transition);
+        }
+
+        .ipo-priority:hover {
+            padding-inline: 22px;
+            background: var(--ipo-accent-soft);
+        }
+
+        .ipo-priority__mark {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--ipo-line-dark);
+            color: var(--ipo-accent-deep);
+            font-size: 17px;
+        }
+
+        .ipo-priority h3 {
+            margin: 0;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(22px, 2vw, 31px);
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+
+        .ipo-priority__copy p {
+            margin: 0 0 15px;
+            color: var(--ipo-text);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .ipo-priority__copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ipo-priority__arrow {
+            color: var(--ipo-line-dark);
+            font-size: 20px;
+            transition: color var(--ipo-transition), transform var(--ipo-transition);
+        }
+
+        .ipo-priority:hover .ipo-priority__arrow {
+            color: var(--ipo-accent-deep);
+            transform: translate(4px, -4px);
+        }
+
+        /* INVESTMENT PROPOSITION */
+        .ipo-investment {
+            background: var(--ipo-surface);
+        }
+
+        .ipo-investment__head {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+            gap: clamp(50px, 8vw, 130px);
+            align-items: end;
+        }
+
+        .ipo-investment__head-copy {
+            max-width: 580px;
+            justify-self: end;
+            margin: 0;
+            color: var(--ipo-text);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .ipo-investment__grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 78px;
+            border-top: 1px solid var(--ipo-line-dark);
+            border-left: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-investment__item {
+            position: relative;
+            min-height: 340px;
+            padding: clamp(30px, 3.5vw, 52px);
+            border-right: 1px solid var(--ipo-line-dark);
+            border-bottom: 1px solid var(--ipo-line-dark);
+            background: var(--ipo-white);
+            overflow: hidden;
+        }
+
+        .ipo-investment__item::after {
+            position: absolute;
+            right: -100%;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background: var(--ipo-accent);
+            content: "";
+            transition: right 500ms cubic-bezier(.2,.8,.2,1);
+        }
+
+        .ipo-investment__item:hover::after {
+            right: 0;
+        }
+
+        .ipo-investment__index {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--ipo-muted);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .ipo-investment__index::before {
+            width: 8px;
+            height: 8px;
+            background: var(--ipo-accent);
+            content: "";
+        }
+
+        .ipo-investment__item h3 {
+            max-width: 560px;
+            margin: 55px 0 20px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(24px, 2.25vw, 36px);
+            font-weight: 700;
+            letter-spacing: -.04em;
+            line-height: 1.08;
+            text-transform: uppercase;
+        }
+
+        .ipo-investment__item p {
+            margin: 0 0 14px;
+            color: var(--ipo-text);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        /* READINESS */
+        .ipo-readiness__intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, .75fr);
+            gap: clamp(52px, 8vw, 130px);
+            align-items: end;
+        }
+
+        .ipo-readiness__intro p {
+            margin: 0;
+            color: var(--ipo-text);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .ipo-readiness__map {
+            position: relative;
+            margin-top: 80px;
+            padding: clamp(34px, 4vw, 60px);
+            border: 1px solid var(--ipo-line-dark);
+            background: var(--ipo-white);
+        }
+
+        .ipo-readiness__map::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: clamp(55px, 7vw, 102px);
+            width: 1px;
+            background: var(--ipo-line-dark);
+            content: "";
+        }
+
+        .ipo-readiness__item {
+            position: relative;
+            display: grid;
+            grid-template-columns: clamp(66px, 8vw, 112px) minmax(210px, .68fr) minmax(0, 1.32fr);
+            gap: clamp(26px, 4vw, 62px);
+            align-items: start;
+            padding: 34px 0;
+            border-bottom: 1px solid var(--ipo-line);
+        }
+
+        .ipo-readiness__item:last-child {
+            border-bottom: 0;
+        }
+
+        .ipo-readiness__node {
+            position: relative;
+            z-index: 2;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--ipo-ink);
+            background: var(--ipo-white);
+            color: var(--ipo-accent-deep);
+            font-size: 16px;
+        }
+
+        .ipo-readiness__item:hover .ipo-readiness__node {
+            border-color: var(--ipo-accent);
+            background: var(--ipo-accent);
+            color: var(--ipo-accent-contrast);
+        }
+
+        .ipo-readiness__item h3 {
+            margin: 9px 0 0;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(20px, 1.9vw, 28px);
+            font-weight: 700;
+            letter-spacing: -.03em;
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+
+        .ipo-readiness__item p {
+            margin: 6px 0 0;
+            color: var(--ipo-text);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        /* JOURNEY */
+        .ipo-journey {
+            background: var(--ipo-surface-soft);
+        }
+
+        .ipo-journey__head {
+            max-width: 1040px;
+        }
+
+        .ipo-journey__head .ipo-lead {
+            max-width: 860px;
+        }
+
+        .ipo-journey__line {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, minmax(210px, 1fr));
+            margin-top: 76px;
+            padding-top: 34px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--ipo-accent) var(--ipo-line);
+        }
+
+        .ipo-journey__line::before {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            left: 0;
+            height: 1px;
+            background: var(--ipo-line-dark);
+            content: "";
+        }
+
+        .ipo-journey__step {
+            position: relative;
+            min-height: 365px;
+            padding: 44px 32px 32px 0;
+        }
+
+        .ipo-journey__dot {
+            position: absolute;
+            z-index: 2;
+            top: 4px;
+            left: 0;
+            width: 23px;
+            height: 23px;
+            border: 6px solid var(--ipo-surface-soft);
+            background: var(--ipo-ink);
+            outline: 1px solid var(--ipo-ink);
+            border-radius: 50%;
+        }
+
+        .ipo-journey__step.is-current .ipo-journey__dot {
+            background: var(--ipo-accent);
+            outline-color: var(--ipo-accent-deep);
+        }
+
+        .ipo-journey__status {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--ipo-accent-deep);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .ipo-journey__step h3 {
+            margin: 0 0 18px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1.12;
+            text-transform: uppercase;
+        }
+
+        .ipo-journey__step p {
+            margin: 0;
+            color: var(--ipo-muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* COMMITMENT */
+        .ipo-commitment__intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+            gap: clamp(48px, 8vw, 130px);
+            align-items: end;
+        }
+
+        .ipo-commitment__intro p {
+            margin: 0;
+            color: var(--ipo-text);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .ipo-commitment__grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            margin-top: 78px;
+            border-top: 1px solid var(--ipo-line-dark);
+            border-left: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-commitment__item {
+            min-height: 330px;
+            padding: clamp(27px, 3vw, 42px);
+            border-right: 1px solid var(--ipo-line-dark);
+            border-bottom: 1px solid var(--ipo-line-dark);
+            transition: background var(--ipo-transition);
+        }
+
+        .ipo-commitment__item:hover {
+            background: var(--ipo-accent-soft);
+        }
+
+        .ipo-commitment__icon {
+            color: var(--ipo-accent-deep);
+            font-size: 22px;
+        }
+
+        .ipo-commitment__item h3 {
+            margin: 68px 0 20px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(20px, 1.7vw, 27px);
+            font-weight: 700;
+            letter-spacing: -.035em;
+            line-height: 1.12;
+            text-transform: uppercase;
+        }
+
+        .ipo-commitment__item p {
+            margin: 0;
+            color: var(--ipo-muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* VALUE CREATION */
+        .ipo-value {
+            background: var(--ipo-accent-soft);
+        }
+
+        .ipo-value__layout {
+            display: grid;
+            grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
+            gap: clamp(55px, 9vw, 150px);
+            align-items: start;
+        }
+
+        .ipo-value__left {
+            position: sticky;
+            top: 120px;
+        }
+
+        .ipo-value__left .ipo-lead {
+            max-width: 520px;
+        }
+
+        .ipo-value__list {
+            border-top: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-value__item {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 22px;
+            align-items: start;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-value__item i {
+            margin-top: 4px;
+            color: var(--ipo-accent-deep);
+            font-size: 18px;
+        }
+
+        .ipo-value__item strong {
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(18px, 1.5vw, 23px);
+            font-weight: 600;
+            letter-spacing: -.025em;
+            line-height: 1.45;
+        }
+
+        .ipo-value__closing {
+            margin: 40px 0 0;
+            color: var(--ipo-ink);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(25px, 2.4vw, 38px);
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.38;
+        }
+
+        /* INVESTOR DESK */
+        .ipo-contact {
+            overflow: hidden;
+        }
+
+        .ipo-contact__layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr);
+            gap: clamp(50px, 8vw, 130px);
+            align-items: start;
+        }
+
+        .ipo-contact__copy {
+            max-width: 800px;
+        }
+
+        .ipo-contact__copy .ipo-lead {
+            max-width: 760px;
+        }
+
+        .ipo-contact__small {
+            margin: 28px 0 0;
+            color: var(--ipo-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .ipo-contact__panel {
+            position: relative;
+            padding: clamp(32px, 4vw, 52px);
+            border: 1px solid var(--ipo-line-dark);
+            background: var(--ipo-surface);
+        }
+
+        .ipo-contact__panel::before {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            left: -1px;
+            height: 7px;
+            background: var(--ipo-accent);
+            content: "";
+        }
+
+        .ipo-contact__panel-label {
+            margin: 0 0 36px;
+            color: var(--ipo-muted);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .ipo-contact__email {
+            display: block;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--ipo-line-dark);
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(22px, 2.15vw, 34px);
+            font-weight: 600;
+            letter-spacing: -.035em;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+            transition: color var(--ipo-transition);
+        }
+
+        .ipo-contact__email:hover {
+            color: var(--ipo-accent-deep);
+        }
+
+        .ipo-contact__actions {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .ipo-contact__overview {
+            margin-top: 34px;
+            padding-top: 30px;
+            border-top: 1px solid var(--ipo-line-dark);
+        }
+
+        .ipo-contact__overview h3 {
+            margin: 0 0 12px;
+            color: var(--ipo-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+        }
+
+        .ipo-contact__overview p {
+            margin: 0;
+            color: var(--ipo-muted);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* IMPORTANT NOTICE */
+        .ipo-notice {
+            padding-block: 54px 86px;
+            border-top: 1px solid var(--ipo-line);
+            background: var(--ipo-surface-soft);
+        }
+
+        .ipo-notice__button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--ipo-ink);
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .ipo-notice__button span:first-child {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(24px, 2.4vw, 38px);
+            font-weight: 700;
+            letter-spacing: -.035em;
+            text-transform: uppercase;
+        }
+
+        .ipo-notice__button-icon {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--ipo-line-dark);
+            transition: transform var(--ipo-transition), background var(--ipo-transition), border-color var(--ipo-transition);
+        }
+
+        .ipo-notice__button[aria-expanded="true"] .ipo-notice__button-icon {
+            border-color: var(--ipo-accent);
+            background: var(--ipo-accent);
+            color: var(--ipo-accent-contrast);
+            transform: rotate(45deg);
+        }
+
+        .ipo-notice__content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 800ms cubic-bezier(.2,.8,.2,1), opacity 350ms ease, padding-top 350ms ease;
+        }
+
+        .ipo-notice__content.is-open {
+            max-height: 2200px;
+            padding-top: 42px;
+            opacity: 1;
+        }
+
+        .ipo-notice__grid {
+            columns: 2;
+            column-gap: clamp(40px, 6vw, 90px);
+        }
+
+        .ipo-notice__grid p {
+            break-inside: avoid;
+            margin: 0 0 20px;
+            color: var(--ipo-muted);
+            font-size: 12px;
+            line-height: 1.85;
+        }
+
+        /* REVEAL */
+        [data-ipo-reveal] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 750ms ease, transform 750ms cubic-bezier(.2,.8,.2,1);
+        }
+
+        [data-ipo-reveal].is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1180px) {
+            .ipo-hero__inner,
+            .ipo-editorial,
+            .ipo-investment__head,
+            .ipo-readiness__intro,
+            .ipo-commitment__intro,
+            .ipo-value__layout,
+            .ipo-contact__layout {
+                grid-template-columns: 1fr;
+            }
+
+            .ipo-hero__panel {
+                min-height: auto;
+            }
+
+            .ipo-editorial__aside,
+            .ipo-value__left {
+                position: static;
+            }
+
+            .ipo-editorial__aside-mark {
+                display: none;
+            }
+
+            .ipo-investment__head-copy {
+                max-width: 780px;
+                justify-self: start;
+            }
+
+            .ipo-commitment__grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .ipo-shell,
+            .ipo-subnav,
+            .ipo-hero__inner {
+                width: min(calc(100% - 32px), var(--ipo-max));
+            }
+
+            .ipo-proposition__header {
+                grid-template-columns: 1fr;
+            }
+
+            .ipo-proposition__grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .ipo-priority {
+                grid-template-columns: 56px 1fr 28px;
+            }
+
+            .ipo-priority__copy {
+                grid-column: 2 / -1;
+            }
+
+            .ipo-investment__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ipo-readiness__map::before {
+                left: 64px;
+            }
+
+            .ipo-readiness__item {
+                grid-template-columns: 64px 1fr;
+            }
+
+            .ipo-readiness__item p {
+                grid-column: 2;
+            }
+
+            .ipo-notice__grid {
+                columns: 1;
+            }
+        }
+
+        @media (max-width: 700px) {
+            :root {
+                --ipo-section: 82px;
+            }
+
+            html {
+                scroll-padding-top: 78px;
+            }
+
+            .ipo-hero {
+                min-height: auto;
+                background-size: 46px 46px;
+            }
+
+            .ipo-hero__inner {
+                gap: 46px;
+                padding-block: 95px 74px;
+            }
+
+            .ipo-hero__title {
+                font-size: clamp(54px, 18vw, 82px);
+                line-height: .84;
+            }
+
+            .ipo-hero__actions {
+                display: grid;
+            }
+
+            .ipo-button {
+                width: 100%;
+            }
+
+            .ipo-hero__panel {
+                padding: 28px 22px;
+            }
+
+            .ipo-subnav {
+                min-height: 64px;
+            }
+
+            .ipo-subnav__brand {
+                display: none;
+            }
+
+            .ipo-subnav__link {
+                padding-block: 24px 21px;
+            }
+
+            .ipo-proposition__grid,
+            .ipo-commitment__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ipo-proposition__item {
+                min-height: 225px;
+            }
+
+            .ipo-priority {
+                grid-template-columns: 48px 1fr;
+                gap: 18px;
+            }
+
+            .ipo-priority__arrow {
+                display: none;
+            }
+
+            .ipo-priority__copy {
+                grid-column: 1 / -1;
+                padding-left: 66px;
+            }
+
+            .ipo-investment__item {
+                min-height: auto;
+            }
+
+            .ipo-readiness__map {
+                padding: 22px;
+            }
+
+            .ipo-readiness__map::before {
+                left: 45px;
+            }
+
+            .ipo-readiness__item {
+                grid-template-columns: 48px 1fr;
+                gap: 18px;
+                padding-block: 28px;
+            }
+
+            .ipo-readiness__node {
+                width: 46px;
+                height: 46px;
+            }
+
+            .ipo-journey__line {
+                grid-template-columns: repeat(7, 250px);
+            }
+
+            .ipo-contact__panel {
+                padding: 34px 24px;
+            }
+
+            .ipo-notice {
+                padding-block: 42px 70px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .ipo-shell,
+            .ipo-subnav,
+            .ipo-hero__inner {
+                width: min(calc(100% - 24px), var(--ipo-max));
+            }
+
+            .ipo-display,
+            .ipo-section-title {
+                letter-spacing: -.05em;
+            }
+
+            .ipo-marquee__item {
+                padding-inline: 24px;
+            }
+
+            .ipo-priority:hover {
+                padding-inline: 0;
+                background: transparent;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+
+            [data-ipo-reveal] {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/invitation/ipo.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="IPO Readiness | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Pradako Mechanical &amp; Engineering Works — IPO readiness and public-market preparation journey.">
+    <meta property="og:url" content="https://www.pradako.co/pages/invitation/ipo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IPO Readiness | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Pradako Mechanical &amp; Engineering Works — IPO readiness and public-market preparation journey.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "IPO Readiness | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/invitation/ipo.html",
+  "description": "Pradako Mechanical & Engineering Works — IPO readiness and public-market preparation journey.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="ipo-page">
+    <div id="navbar-container"></div>
+
+    <main>
+        <!-- HERO -->
+        <section class="ipo-hero" id="top" aria-labelledby="ipoHeroTitle">
+            <div class="ipo-hero__watermark" aria-hidden="true">IPO</div>
+
+            <div class="ipo-hero__inner">
+                <div class="ipo-hero__content" data-ipo-reveal>
+                    <div class="ipo-hero__status">
+                        <span class="ipo-hero__status-dot" aria-hidden="true"></span>
+                        IPO readiness · In progress
+                    </div>
+
+                    <p class="ipo-hero__brand">Pradako Mechanical &amp; Engineering Works</p>
+
+                    <h1 class="ipo-hero__title" id="ipoHeroTitle">
+                        <span>Preparing for our</span>
+                        <span class="hero-serif">next defining chapter.</span>
+                    </h1>
+
+                    <div class="ipo-hero__intro">
+                        <p>Pradako Mechanical &amp; Engineering Works is working toward public-market readiness and evaluating a proposed Initial Public Offering as part of its long-term growth journey.</p>
+                        <p>A potential listing would represent an important evolution for the organisation—building upon our manufacturing heritage, engineering discipline, established customer relationships, quality-focused systems, and commitment to responsible value creation.</p>
+                    </div>
+
+                    <div class="ipo-hero__actions">
+                        <a class="ipo-button" href="#investor-desk">
+                            Register your interest
+                            <svg class="ipo-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="ipo-button ipo-button--light" href="#journey">
+                            Explore the journey
+                            <svg class="ipo-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <aside class="ipo-hero__panel" aria-label="Principles guiding the IPO readiness journey" data-ipo-reveal>
+                    <div>
+                        <p class="ipo-hero__panel-label">The principles guiding our preparation</p>
+                        <div class="ipo-hero__principles">
+                            <div class="ipo-hero__principle"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="6" r="2"/><path d="M11 8l-6 13M13 8l6 13M7 16.5c3 1.8 7 1.8 10 0"/></svg><span>Preparation</span></div>
+                            <div class="ipo-hero__principle"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="12" r="7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="1.4"/></svg><span>Precision</span></div>
+                            <div class="ipo-hero__principle"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg><span>Transparency</span></div>
+                            <div class="ipo-hero__principle"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3v18M4 21h16M12 6l6 1M12 6L6 7M6 7l-3 6a3.5 3.5 0 007 0zM18 7l-3 6a3.5 3.5 0 007 0z"/></svg><span>Accountability</span></div>
+                            <div class="ipo-hero__principle"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M8 15.5c-2 0-3.5-1.6-3.5-3.5S6 8.5 8 8.5c3.2 0 4.8 7 8 7 2 0 3.5-1.6 3.5-3.5S18 8.5 16 8.5c-3.2 0-4.8 7-8 7z"/></svg><span>Long-term thinking</span></div>
+                        </div>
+                    </div>
+                    <p class="ipo-hero__panel-note">Any proposed offering remains subject to applicable approvals, requirements, professional advice, market conditions, and formally approved offer documentation.</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- STICKY SECTION NAVIGATION -->
+        <div class="ipo-subnav-wrap" aria-label="IPO page navigation">
+            <nav class="ipo-subnav">
+                <a class="ipo-subnav__brand" href="#top">Pradako <span>IPO</span></a>
+                <div class="ipo-subnav__links">
+                    <a class="ipo-subnav__link" href="#proposition">Proposition</a>
+                    <a class="ipo-subnav__link" href="#why-public-markets">Why public markets</a>
+                    <a class="ipo-subnav__link" href="#priorities">Growth priorities</a>
+                    <a class="ipo-subnav__link" href="#investment-case">Investment proposition</a>
+                    <a class="ipo-subnav__link" href="#readiness">Readiness</a>
+                    <a class="ipo-subnav__link" href="#journey">Journey</a>
+                    <a class="ipo-subnav__link" href="#investor-desk">Investor desk</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PROPOSITION -->
+        <section class="ipo-proposition" id="proposition" aria-labelledby="propositionTitle">
+            <div class="ipo-shell">
+                <div class="ipo-proposition__header" data-ipo-reveal>
+                    <div>
+                        <p class="ipo-kicker">The Pradako proposition</p>
+                        <h2 class="ipo-section-title" id="propositionTitle">Built for industry.<br><span class="serif">Preparing for public markets.</span></h2>
+                    </div>
+                    <p>We are approaching this journey with the same principles that guide our manufacturing operations: preparation, precision, transparency, accountability, and long-term thinking.</p>
+                </div>
+
+                <div class="ipo-proposition__grid">
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 21V9l6 4V9l6 4V4h6v17z"/></svg></div>
+                        <div>
+                            <h3>Manufacturing Heritage</h3>
+                            <p>Experience developed through generations of industrial manufacturing.</p>
+                        </div>
+                    </article>
+
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="8" cy="8" r="2.6"/><path d="M8 2.6v2M8 11.4v2M2.6 8h2M11.4 8h2M4.2 4.2l1.4 1.4M10.4 10.4l1.4 1.4M11.8 4.2l-1.4 1.4M5.6 10.4l-1.4 1.4"/><circle cx="16.5" cy="16.5" r="2.4"/><path d="M16.5 11.8v1.6M16.5 19.6v1.6M11.8 16.5h1.6M19.6 16.5h1.6M13.2 13.2l1.1 1.1M18.7 18.7l1.1 1.1M19.8 13.2l-1.1 1.1M14.3 18.7l-1.1 1.1"/></svg></div>
+                        <div>
+                            <h3>Engineering Discipline</h3>
+                            <p>Application-driven engineering supported by structured processes.</p>
+                        </div>
+                    </article>
+
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M12 3v18"/></svg></div>
+                        <div>
+                            <h3>Quality Systems</h3>
+                            <p>A strong focus on consistency, traceability, compliance, and performance.</p>
+                        </div>
+                    </article>
+
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="12" r="9"/><path d="M5 9c2 .5 3 2 5 1.5S13 8 12 6.5 8 5 7 6M14 13c-1.5 1-1 3 .5 3.5s3-.5 3.5-2-1-3-2.5-3z"/></svg></div>
+                        <div>
+                            <h3>Global Orientation</h3>
+                            <p>Growing relationships across international markets and industrial sectors.</p>
+                        </div>
+                    </article>
+
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3l9 4.5L12 12 3 7.5zM4.5 12L12 15.8 19.5 12M4.5 16.5L12 20.3l7.5-3.8"/></svg></div>
+                        <div>
+                            <h3>Scalable Capabilities</h3>
+                            <p>Manufacturing systems designed to support evolving customer requirements.</p>
+                        </div>
+                    </article>
+
+                    <article class="ipo-proposition__item" data-ipo-reveal>
+                        <div class="ipo-proposition__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 22V10M12 10C12 6 9 3 4 3c0 5 3 8 8 7zM12 13c0-3 3-6 8-6 0 5-3 8-8 6z"/></svg></div>
+                        <div>
+                            <h3>Long-Term Value Creation</h3>
+                            <p>Responsible growth centred on customers, employees, partners, and stakeholders.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="ipo-marquee" aria-label="Pradako proposition highlights">
+            <div class="ipo-marquee__track">
+                <div class="ipo-marquee__group">
+                    <span class="ipo-marquee__item">Long-standing manufacturing heritage</span>
+                    <span class="ipo-marquee__item">Experience serving global OEM ecosystems</span>
+                    <span class="ipo-marquee__item">Established industrial supply partnerships</span>
+                    <span class="ipo-marquee__item">Growing international market reach</span>
+                    <span class="ipo-marquee__item">Certified quality and process systems</span>
+                    <span class="ipo-marquee__item">Engineering-led operating culture</span>
+                    <span class="ipo-marquee__item">Public-market readiness in progress</span>
+                    <span class="ipo-marquee__item">Long-term stakeholder orientation</span>
+                </div>
+                <div class="ipo-marquee__group" aria-hidden="true">
+                    <span class="ipo-marquee__item">Long-standing manufacturing heritage</span>
+                    <span class="ipo-marquee__item">Experience serving global OEM ecosystems</span>
+                    <span class="ipo-marquee__item">Established industrial supply partnerships</span>
+                    <span class="ipo-marquee__item">Growing international market reach</span>
+                    <span class="ipo-marquee__item">Certified quality and process systems</span>
+                    <span class="ipo-marquee__item">Engineering-led operating culture</span>
+                    <span class="ipo-marquee__item">Public-market readiness in progress</span>
+                    <span class="ipo-marquee__item">Long-term stakeholder orientation</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHY PUBLIC MARKETS -->
+        <section class="ipo-section" id="why-public-markets" aria-labelledby="whyMarketsTitle">
+            <div class="ipo-shell ipo-editorial">
+                <div class="ipo-editorial__aside" data-ipo-reveal>
+                    <p class="ipo-kicker">Why public markets</p>
+                    <h2 class="ipo-section-title" id="whyMarketsTitle">Growth pursued<br><span class="serif">with discipline.</span></h2>
+                    <div class="ipo-editorial__aside-mark" aria-hidden="true">WHY</div>
+                </div>
+
+                <div class="ipo-editorial__body" data-ipo-reveal>
+                    <div class="ipo-copy">
+                        <p>Pradako has been built through manufacturing experience, customer trust, engineering knowledge, and a commitment to dependable execution.</p>
+                        <p>As we prepare for the organisation’s next phase, we are evaluating how access to public markets could support responsible expansion, strengthen institutional capabilities, and create a broader platform for long-term value creation.</p>
+                        <p>A proposed IPO would not be pursued merely for scale. It would be considered as part of a carefully structured strategy to strengthen the organisation, deepen its manufacturing capabilities, support market expansion, and establish a stronger foundation for future growth.</p>
+                        <p>Our objective is to grow without compromising the principles that have shaped Pradako: product integrity, process discipline, responsible commitments, and respect for every stakeholder associated with the organisation.</p>
+                        <p>We are therefore working toward the governance, reporting, operational, compliance, and organisational standards expected of a public-market company.</p>
+                        <p>Any proposed offering will remain subject to internal approvals, regulatory requirements, market conditions, professional advice, and other applicable considerations.</p>
+                    </div>
+
+                    <blockquote class="ipo-highlight">We are not pursuing scale for its own sake. We are preparing to build a stronger, more accountable, and more enduring institution.</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- GROWTH PRIORITIES -->
+        <section class="ipo-section" id="priorities" aria-labelledby="prioritiesTitle">
+            <div class="ipo-shell">
+                <div data-ipo-reveal>
+                    <p class="ipo-kicker">Our growth priorities</p>
+                    <h2 class="ipo-section-title" id="prioritiesTitle">Capital directed<br><span class="serif">with purpose.</span></h2>
+                    <p class="ipo-lead">Should an Initial Public Offering be undertaken, the deployment of capital would be guided by disciplined planning, responsible governance, and the long-term interests of the organisation and its stakeholders.</p>
+                    <p class="ipo-lead">The final utilisation of any proceeds would be described in the relevant offer documents. Our present areas of focus include the following.</p>
+                </div>
+
+                <div class="ipo-priorities">
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3"/></svg></div>
+                        <h3>Manufacturing Capacity and Capability</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Strengthening production capabilities to support evolving customer programmes, increasingly complex components, and long-term supply requirements.</p>
+                            <p>The emphasis would remain on sustainable capacity development rather than expansion without operational justification.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><rect x="7" y="7" width="10" height="10" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></div>
+                        <h3>Technology and Modernisation</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Advancing manufacturing technology, quality infrastructure, automation, process monitoring, traceability, inspection systems, and operational intelligence.</p>
+                            <p>These investments would support greater consistency, reliability, productivity, and manufacturing control.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 5l3-2 3 3-2 3-3-1zM8 9l7 7"/><path d="M15 13a4 4 0 105 5l-2.5-1-.5-2.5 2.5.5 1-2.5a4 4 0 00-5.5.5z"/></svg></div>
+                        <h3>Product and Application Engineering</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Expanding engineering capabilities to support application-specific requirements, customised fastener solutions, development programmes, and technically demanding industries.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+                        <h3>Global Market Development</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Building stronger international customer relationships, distribution channels, local partnerships, market-development capabilities, and responsive supply systems.</p>
+                            <p>Our objective is to move closer to the customers and industries we serve while retaining the strength of our manufacturing base.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5 1 0 2 .2 2.8.6"/><circle cx="17.5" cy="16.5" r="2.2"/><path d="M17.5 12.8v1.4M17.5 18.9v1.4M13.8 16.5h1.4M19.8 16.5h1.4"/></svg></div>
+                        <h3>People and Leadership Development</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Developing the technical, managerial, financial, compliance, and leadership capabilities required for a larger and more institutionally governed organisation.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><rect x="3" y="3" width="6" height="5" rx="1"/><rect x="15" y="3" width="6" height="5" rx="1"/><rect x="9" y="16" width="6" height="5" rx="1"/><path d="M6 8v3h12V8M12 11v5"/></svg></div>
+                        <h3>Governance and Enterprise Systems</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Strengthening financial controls, reporting frameworks, risk-management systems, compliance processes, data governance, internal accountability, and organisational transparency.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+
+                    <article class="ipo-priority" data-ipo-reveal>
+                        <div class="ipo-priority__mark"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+                        <h3>Long-Term Business Resilience</h3>
+                        <div class="ipo-priority__copy">
+                            <p>Supporting the organisation’s ability to respond to changing customer requirements, supply-chain developments, market conditions, regulatory expectations, and emerging industrial opportunities.</p>
+                        </div>
+                        <svg class="ipo-priority__arrow" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVESTMENT PROPOSITION -->
+        <section class="ipo-section ipo-investment" id="investment-case" aria-labelledby="investmentTitle">
+            <div class="ipo-shell">
+                <div class="ipo-investment__head" data-ipo-reveal>
+                    <div>
+                        <p class="ipo-kicker">The investment proposition</p>
+                        <h2 class="ipo-display" id="investmentTitle">WHY<br><span class="accent-word">PRADAKO.</span></h2>
+                    </div>
+                    <p class="ipo-investment__head-copy">A manufacturing enterprise preparing to combine its industrial character with stronger institutional systems, governance, transparency, and long-term public accountability.</p>
+                </div>
+
+                <div class="ipo-investment__grid">
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Foundation</span>
+                        <h3>An Established Manufacturing Foundation</h3>
+                        <p>Pradako has been developed as a long-term manufacturing enterprise rather than a short-term commercial venture.</p>
+                        <p>Its foundation is based on engineering experience, industrial relationships, process knowledge, and an understanding of the responsibilities involved in supplying critical components.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Customer experience</span>
+                        <h3>Experience With Demanding Customers</h3>
+                        <p>The organisation has experience working within OEM, industrial, and structured supply-chain environments where consistency, documentation, traceability, quality, and responsiveness are essential.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Operating philosophy</span>
+                        <h3>Engineering Integrity</h3>
+                        <p>Quality and precision are not treated as promotional claims. They form part of the operating philosophy through which products, processes, systems, and customer commitments are evaluated.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Engineering depth</span>
+                        <h3>Application-Driven Capability</h3>
+                        <p>Pradako’s approach extends beyond manufacturing to understanding applications, performance expectations, material behaviour, production feasibility, and customer-specific requirements.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Market orientation</span>
+                        <h3>Global Market Orientation</h3>
+                        <p>The organisation continues to develop relationships and opportunities across international markets while strengthening its understanding of global standards, customer expectations, logistics, documentation, and compliance requirements.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Scale systems</span>
+                        <h3>Scalable Operating Systems</h3>
+                        <p>We are working to strengthen manufacturing, quality, reporting, planning, technology, and management systems so that growth can be supported with greater control and consistency.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Relationship capital</span>
+                        <h3>Long-Term Customer Relationships</h3>
+                        <p>Pradako believes enduring value is created through trusted relationships, dependable performance, transparent communication, and the ability to support customers through changing requirements.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Institutional discipline</span>
+                        <h3>Governance-Led Growth</h3>
+                        <p>Our public-market preparation is centred on stronger governance, responsible decision-making, internal accountability, compliance, and transparent stakeholder communication.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Responsible growth</span>
+                        <h3>Responsible Industrial Development</h3>
+                        <p>We aim to pursue growth while considering operational efficiency, resource responsibility, workplace development, supply-chain integrity, and the long-term resilience of the organisation.</p>
+                    </article>
+
+                    <article class="ipo-investment__item" data-ipo-reveal>
+                        <span class="ipo-investment__index">Continuity</span>
+                        <h3>Continuity With Transformation</h3>
+                        <p>The proposed public-market journey is intended to preserve Pradako’s manufacturing values while strengthening the institutional systems required for its next stage of development.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC MARKET READINESS -->
+        <section class="ipo-section" id="readiness" aria-labelledby="readinessTitle">
+            <div class="ipo-shell">
+                <div class="ipo-readiness__intro" data-ipo-reveal>
+                    <div>
+                        <p class="ipo-kicker">Public-market readiness</p>
+                        <h2 class="ipo-section-title" id="readinessTitle">Strengthening the organisation<br><span class="serif">from within.</span></h2>
+                    </div>
+                    <div>
+                        <p>Preparing for a proposed IPO involves more than completing a transaction. It requires the organisation to evolve across governance, reporting, risk management, leadership, communication, and operational accountability.</p>
+                        <p>Pradako is working toward this readiness through a structured internal transformation.</p>
+                    </div>
+                </div>
+
+                <div class="ipo-readiness__map">
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 21h18M4 18h16M6 18v-7M10 18v-7M14 18v-7M18 18v-7M3 8l9-5 9 5z"/></svg></div>
+                        <h3>Governance Frameworks</h3>
+                        <p>Developing clearer decision-making structures, oversight responsibilities, accountability mechanisms, and governance policies aligned with the expectations of a professionally managed organisation.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M12 10v7M10 12.5c0-.8.9-1.5 2-1.5s2 .7 2 1.5-1 1.3-2 1.5-2 .7-2 1.5.9 1.5 2 1.5 2-.7 2-1.5"/></svg></div>
+                        <h3>Financial Reporting and Controls</h3>
+                        <p>Strengthening reporting processes, financial discipline, internal controls, audit readiness, documentation, and management information systems.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3v18M4 21h16M12 6l6 1M12 6L6 7M6 7l-3 6a3.5 3.5 0 007 0zM18 7l-3 6a3.5 3.5 0 007 0z"/></svg></div>
+                        <h3>Risk and Compliance Management</h3>
+                        <p>Building a more structured approach to identifying, assessing, monitoring, and responding to operational, financial, regulatory, environmental, supply-chain, and market-related risks.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="7" cy="8" r="2.4"/><circle cx="17" cy="8" r="2.4"/><path d="M2.5 19c0-2.8 2-4.6 4.5-4.6S11.5 16.2 11.5 19M12.5 19c0-2.8 2-4.6 4.5-4.6s4.5 1.8 4.5 4.6"/></svg></div>
+                        <h3>Organisational Readiness</h3>
+                        <p>Defining responsibilities, strengthening leadership capability, improving cross-functional coordination, and preparing teams for the standards expected from a publicly accountable enterprise.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 3v18h18"/><path d="M6 15l4-5 3 3 6-7"/></svg></div>
+                        <h3>Operational Transparency</h3>
+                        <p>Improving the availability, consistency, traceability, and reliability of operational and management information used for decision-making.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 10v4h3l8 4V6l-8 4zM17 9a4 4 0 010 6M6 14v5h3v-4"/></svg></div>
+                        <h3>Responsible Disclosure</h3>
+                        <p>Preparing communication systems that can support timely, balanced, accurate, and responsible engagement with investors and other stakeholders.</p>
+                    </article>
+
+                    <article class="ipo-readiness__item" data-ipo-reveal>
+                        <div class="ipo-readiness__node"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="10" cy="7.5" r="3"/><path d="M4 20c0-3.3 2.7-5.5 6-5.5h1"/><path d="M17.5 11l4 1.6v2.9c0 2.6-1.7 4.4-4 5.5-2.3-1.1-4-2.9-4-5.5v-2.9z"/></svg></div>
+                        <h3>Stakeholder Protection</h3>
+                        <p>Developing policies and processes intended to uphold fairness, accountability, ethical conduct, responsible communication, and the legitimate interests of stakeholders.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY -->
+        <section class="ipo-section ipo-journey" id="journey" aria-labelledby="journeyTitle">
+            <div class="ipo-shell">
+                <div class="ipo-journey__head" data-ipo-reveal>
+                    <p class="ipo-kicker">The journey ahead</p>
+                    <h2 class="ipo-section-title" id="journeyTitle">Progress already<br><span class="serif">in motion.</span></h2>
+                    <p class="ipo-lead">The proposed IPO is part of a broader organisational journey. Each stage is intended to strengthen Pradako, irrespective of the eventual timing or structure of any offering.</p>
+                </div>
+
+                <div class="ipo-journey__line" aria-label="IPO readiness journey">
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Foundation</span>
+                        <h3>Foundation Established</h3>
+                        <p>A manufacturing enterprise supported by engineering experience, customer relationships, quality systems, operational knowledge, and long-term industrial commitment.</p>
+                    </article>
+
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Capability</span>
+                        <h3>Capabilities Strengthened</h3>
+                        <p>Continued development of manufacturing processes, technology, quality infrastructure, customer support, market reach, and organisational systems.</p>
+                    </article>
+
+                    <article class="ipo-journey__step is-current" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">In progress now</span>
+                        <h3>Readiness Underway</h3>
+                        <p>Governance, financial reporting, compliance, risk management, leadership structures, and internal controls are being reviewed and strengthened.</p>
+                    </article>
+
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Alignment</span>
+                        <h3>Strategic Direction Refined</h3>
+                        <p>The organisation is aligning its growth priorities, capital requirements, operating plans, and institutional capabilities with its long-term vision.</p>
+                    </article>
+
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Engagement</span>
+                        <h3>Stakeholder Engagement</h3>
+                        <p>At an appropriate stage, Pradako intends to engage with investors, advisors, industry participants, and stakeholders who understand long-term manufacturing value.</p>
+                    </article>
+
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Subject to approvals</span>
+                        <h3>Potential Public Offering</h3>
+                        <p>A proposed Initial Public Offering may be considered after the relevant organisational, regulatory, governance, market, and approval requirements have been evaluated.</p>
+                    </article>
+
+                    <article class="ipo-journey__step" data-ipo-reveal>
+                        <span class="ipo-journey__dot" aria-hidden="true"></span>
+                        <span class="ipo-journey__status">Future responsibility</span>
+                        <h3>Public Value Creation</h3>
+                        <p>Should an offering proceed, it would mark the beginning of a new responsibility: creating sustainable value within a publicly accountable framework.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMITMENT -->
+        <section class="ipo-section" id="commitment" aria-labelledby="commitmentTitle">
+            <div class="ipo-shell">
+                <div class="ipo-commitment__intro" data-ipo-reveal>
+                    <div>
+                        <p class="ipo-kicker">Our commitment</p>
+                        <h2 class="ipo-section-title" id="commitmentTitle">What changes is our scale.<br><span class="serif">What remains is our character.</span></h2>
+                    </div>
+                    <p>As Pradako prepares for its next chapter, the fundamental priorities of the organisation remain unchanged.</p>
+                </div>
+
+                <div class="ipo-commitment__grid">
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="6" r="2"/><path d="M11 8l-6 13M13 8l6 13M7 16.5c3 1.8 7 1.8 10 0"/></svg>
+                        <h3>Engineering Integrity</h3>
+                        <p>Maintaining precision, quality, product responsibility, and technical discipline as essential foundations of the business.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="8" cy="8" r="2.6"/><path d="M8 2.6v2M8 11.4v2M2.6 8h2M11.4 8h2M4.2 4.2l1.4 1.4M10.4 10.4l1.4 1.4M11.8 4.2l-1.4 1.4M5.6 10.4l-1.4 1.4"/><circle cx="16.5" cy="16.5" r="2.4"/><path d="M16.5 11.8v1.6M16.5 19.6v1.6M11.8 16.5h1.6M19.6 16.5h1.6M13.2 13.2l1.1 1.1M18.7 18.7l1.1 1.1M19.8 13.2l-1.1 1.1M14.3 18.7l-1.1 1.1"/></svg>
+                        <h3>Operational Excellence</h3>
+                        <p>Strengthening execution, consistency, productivity, process control, traceability, and performance across operations.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 22V10M12 10C12 6 9 3 4 3c0 5 3 8 8 7zM12 13c0-3 3-6 8-6 0 5-3 8-8 6z"/></svg>
+                        <h3>Responsible Growth</h3>
+                        <p>Expanding with intent, appropriate governance, financial discipline, operational preparedness, and respect for long-term consequences.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M2 8l4-2 5 2 5-2 6 3v6l-3 1.5"/><path d="M12 8l-4 4a1.6 1.6 0 002.3 2.3L12 13l3 3a1.6 1.6 0 002.3-2.3L13 9.5"/></svg>
+                        <h3>Customer Commitment</h3>
+                        <p>Continuing to support customers through dependable supply, responsive communication, engineering collaboration, and responsible commercial relationships.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3L3 7l9 4 9-4z"/><path d="M7 9.5V13c0 1.7 2.2 3 5 3s5-1.3 5-3V9.5M21 7v4"/></svg>
+                        <h3>People Development</h3>
+                        <p>Creating opportunities for employees to develop their skills, responsibilities, leadership capabilities, and contribution to the organisation.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M3 18c0-2.5 1.5-4 3.5-4M21 18c0-2.5-1.5-4-3.5-4M9.5 12.5h5M12 10l2.5 2.5L12 15"/></svg>
+                        <h3>Trusted Partnerships</h3>
+                        <p>Building relationships based on mutual respect, transparency, fairness, reliability, and shared long-term objectives.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 3v18M4 21h16M12 6l6 1M12 6L6 7M6 7l-3 6a3.5 3.5 0 007 0zM18 7l-3 6a3.5 3.5 0 007 0z"/></svg>
+                        <h3>Governance and Accountability</h3>
+                        <p>Developing the systems, structures, and organisational culture required to operate with greater transparency and public responsibility.</p>
+                    </article>
+
+                    <article class="ipo-commitment__item" data-ipo-reveal>
+                        <svg class="ipo-commitment__icon" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M11 3a9 9 0 109.8 11H11z"/><path d="M13 2.2A9 9 0 0121.8 11H13z"/></svg>
+                        <h3>Stakeholder Value</h3>
+                        <p>Balancing the interests of customers, employees, suppliers, business partners, investors, communities, and the organisation itself.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUE CREATION -->
+        <section class="ipo-section ipo-value" id="value-creation" aria-labelledby="valueTitle">
+            <div class="ipo-shell ipo-value__layout">
+                <div class="ipo-value__left" data-ipo-reveal>
+                    <p class="ipo-kicker">Our approach to value creation</p>
+                    <h2 class="ipo-section-title" id="valueTitle">Building value that<br><span class="serif">can endure.</span></h2>
+                    <p class="ipo-lead">Pradako’s approach to value creation is based on strengthening the underlying business rather than depending on short-term market expectations.</p>
+                </div>
+
+                <div data-ipo-reveal>
+                    <div class="ipo-value__list">
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Manufacturing capability that solves real customer requirements.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Quality systems that improve consistency and confidence.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Engineering knowledge that supports difficult applications.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Customer relationships developed through dependable performance.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Technology investments supported by operational relevance.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Governance that strengthens accountability and decision-making.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Financial discipline that protects long-term resilience.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>People who understand the responsibility behind every commitment.</strong></div>
+                        <div class="ipo-value__item"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Responsible growth that can be sustained through changing market conditions.</strong></div>
+                    </div>
+                    <p class="ipo-value__closing">Our intention is to build an organisation capable of delivering value through performance, integrity, adaptability, and disciplined execution.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVESTOR DESK -->
+        <section class="ipo-section ipo-contact" id="investor-desk" aria-labelledby="contactTitle">
+            <div class="ipo-shell ipo-contact__layout">
+                <div class="ipo-contact__copy" data-ipo-reveal>
+                    <p class="ipo-kicker">Investor and stakeholder enquiries</p>
+                    <h2 class="ipo-display" id="contactTitle">BE PART OF THE<br><span class="accent-word">NEXT CHAPTER.</span></h2>
+                    <p class="ipo-lead">Pradako welcomes interest from investors, industry professionals, advisors, institutions, business partners, and stakeholders who would like to understand our organisation and its public-market readiness journey.</p>
+                    <p class="ipo-contact__small">Registering your interest does not constitute an application, commitment, allocation, offer, invitation, or recommendation relating to any securities. It enables our team to maintain an appropriate channel of communication and share authorised information when it becomes available and legally permissible to do so.</p>
+                </div>
+
+                <aside class="ipo-contact__panel" aria-label="IPO and investor desk contact information" data-ipo-reveal>
+                    <p class="ipo-contact__panel-label">IPO and Investor Desk</p>
+                    <a class="ipo-contact__email" href="mailto:IPO@Pradakomechanicals.com">IPO@Pradakomechanicals.com</a>
+
+                    <div class="ipo-contact__actions">
+                        <a class="ipo-button" href="mailto:IPO@Pradakomechanicals.com?subject=Registration%20of%20Interest%20-%20Pradako%20IPO%20Readiness">
+                            Register your interest
+                            <svg class="ipo-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="ipo-button ipo-button--light" href="mailto:IPO@Pradakomechanicals.com?subject=Request%20for%20Investor%20Overview%20-%20Pradako">
+                            Request information
+                            <svg class="ipo-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="ipo-contact__overview">
+                        <h3>Investor Overview</h3>
+                        <p>An investor overview and other authorised materials may be made available at an appropriate stage, subject to applicable requirements and internal approvals.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- IMPORTANT NOTICE -->
+        <section class="ipo-notice" aria-labelledby="noticeTitle">
+            <div class="ipo-shell">
+                <button class="ipo-notice__button" type="button" aria-expanded="false" aria-controls="ipoNoticeContent" id="noticeTitle">
+                    <span>Important notice</span>
+                    <span class="ipo-notice__button-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+
+                <div class="ipo-notice__content" id="ipoNoticeContent">
+                    <div class="ipo-notice__grid">
+                        <p>The information presented on this page is general, preliminary, and intended solely to communicate Pradako Mechanical &amp; Engineering Works’ current intention to work toward public-market readiness.</p>
+                        <p>This page does not constitute, and should not be interpreted as, an offer, invitation, advertisement, solicitation, recommendation, or inducement to buy, sell, subscribe for, or otherwise deal in any securities.</p>
+                        <p>It is not a prospectus, placement document, offer document, investment memorandum, research report, or part of any securities offering documentation.</p>
+                        <p>No decision has been communicated through this page regarding the timing, structure, terms, valuation, pricing, jurisdiction, eligibility, completion, or certainty of any proposed Initial Public Offering.</p>
+                        <p>Any proposed offering, if undertaken, would be subject to internal approvals, professional advice, due diligence, applicable laws, regulatory requirements, market conditions, and the preparation and filing of the relevant offer documentation.</p>
+                        <p>Only information contained in formally approved and legally valid offering documents should be relied upon in connection with any investment decision.</p>
+                        <p>Statements concerning the organisation’s plans, intentions, expectations, priorities, readiness, strategy, growth, or future activities are forward-looking in nature. Such statements are subject to risks, uncertainties, changing circumstances, internal decisions, regulatory considerations, and market conditions. Actual developments may differ materially from present intentions.</p>
+                        <p>Pradako Mechanical &amp; Engineering Works does not provide investment, legal, taxation, accounting, or financial advice through this page.</p>
+                        <p>Interested persons should conduct their own independent assessment and seek advice from appropriately qualified professional advisors before making any investment or financial decision.</p>
+                        <p>Registration of interest does not create any right, entitlement, priority, assurance of participation, allocation, or obligation on the part of Pradako Mechanical &amp; Engineering Works or any associated party.</p>
+                        <p>The information on this page may be revised, withdrawn, supplemented, or updated without prior notice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- PMEW GLOBAL SCRIPTS -->
+    <script>
+        (() => {
+            "use strict";
+
+            const revealItems = document.querySelectorAll("[data-ipo-reveal]");
+            const sectionLinks = document.querySelectorAll(".ipo-subnav__link");
+            const noticeButton = document.querySelector(".ipo-notice__button");
+            const noticeContent = document.getElementById("ipoNoticeContent");
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+                revealItems.forEach((item) => item.classList.add("is-visible"));
+            } else {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    });
+                }, {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -7% 0px"
+                });
+
+                revealItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+                    revealObserver.observe(item);
+                });
+            }
+
+            const trackedSections = [...sectionLinks]
+                .map((link) => document.querySelector(link.getAttribute("href")))
+                .filter(Boolean);
+
+            if (trackedSections.length && "IntersectionObserver" in window) {
+                const navObserver = new IntersectionObserver((entries) => {
+                    const visibleEntry = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+                    if (!visibleEntry) return;
+
+                    sectionLinks.forEach((link) => {
+                        const isCurrent = link.getAttribute("href") === `#${visibleEntry.target.id}`;
+                        link.classList.toggle("is-active", isCurrent);
+                        if (isCurrent) link.setAttribute("aria-current", "location");
+                        else link.removeAttribute("aria-current");
+                    });
+                }, {
+                    rootMargin: "-22% 0px -62% 0px",
+                    threshold: [0.05, 0.2, 0.45]
+                });
+
+                trackedSections.forEach((section) => navObserver.observe(section));
+            }
+
+            sectionLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    sectionLinks.forEach((item) => item.classList.remove("is-active"));
+                    link.classList.add("is-active");
+                });
+            });
+
+            if (noticeButton && noticeContent) {
+                noticeButton.addEventListener("click", () => {
+                    const isOpen = noticeButton.getAttribute("aria-expanded") === "true";
+                    noticeButton.setAttribute("aria-expanded", String(!isOpen));
+                    noticeContent.classList.toggle("is-open", !isOpen);
+                });
+            }
+        })();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

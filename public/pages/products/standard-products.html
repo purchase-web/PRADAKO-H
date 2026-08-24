@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Some of Our Standard Products | Pradako Mechanical</title>
+    <meta
+        name="description"
+        content="Browse the Pradako standard fastener catalogue by standard type or by standard number. DIN, ISO, ASME, ANSI, ASTM, BS, IS, JIS, GOST, EN, UNI, NAS and MIL standards across screws, socket screws, nuts, washers, bolts, threaded rods, structural bolts and rivets."
+    >
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Existing Pradako website shell. -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <!-- Standard Products catalogue, independent of products.css. -->
+    <link rel="stylesheet" href="/assets/css/standard-products.css">
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/products/standard-products.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Some of Our Standard Products | Pradako Mechanical">
+    <meta property="og:description" content="Browse the Pradako standard fastener catalogue by standard type or by standard number. DIN, ISO, ASME, ANSI, ASTM, BS, IS, JIS, GOST, EN, UNI, NAS and MIL standards across screws, socket screws, nuts, washers, bolts, threaded rods, structural bolts and rivets.">
+    <meta property="og:url" content="https://www.pradako.co/pages/products/standard-products.html">
+    <meta property="og:type" content="product">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Some of Our Standard Products | Pradako Mechanical">
+    <meta name="twitter:description" content="Browse the Pradako standard fastener catalogue by standard type or by standard number. DIN, ISO, ASME, ANSI, ASTM, BS, IS, JIS, GOST, EN, UNI, NAS and MIL standards across screws, socket screws, nuts, washers, bolts, threaded rods, structural bolts and rivets.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Some of Our Standard Products | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/products/standard-products.html",
+  "description": "Browse the Pradako standard fastener catalogue by standard type or by standard number. DIN, ISO, ASME, ANSI, ASTM, BS, IS, JIS, GOST, EN, UNI, NAS and MIL standards across screws, socket screws, nuts, washers, bolts, threaded rods, structural bolts and rivets.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="pmew-standard-products-page">
+
+    <div id="navbar-container"></div>
+
+    <!--
+        INDEPENDENT STANDARD PRODUCTS PAGE
+        ----------------------------------
+        This page carries its own copy of the catalogue markup,
+        styling and data. It does not read from /products.html and
+        it does not load /js/products.js or /assets/css/products.css, so a
+        change on the Products page cannot break this one.
+
+        Deep links accepted:
+          /standard-products.html?type=Nuts#standards
+          /standard-products.html?type=Screws&subtype=Machine%20Screws#standards
+          /standard-products.html?family=DIN#standards
+          add &view=list to any of the above
+    -->
+    <main id="standardProductsMain">
+
+    <section id="standards" class="pradako-products-info-section">
+
+        <div class="container">
+
+            <h2 class="pradako-products-section-title">
+                SOME OF OUR STANDARD PRODUCTS
+            </h2>
+
+            <div class="pradako-products-controls">
+
+                <div class="pradako-products-filter-toggle">
+
+                    <button class="pradako-products-toggle-btn active"
+                            id="typeViewBtn">
+                        By Standard (Type)
+                    </button>
+
+                    <button class="pradako-products-toggle-btn"
+                            id="standardViewBtn">
+                        By Standard (Number)
+                    </button>
+
+                </div>
+
+                <div class="pradako-products-search-box">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                    <input
+                        type="search"
+                        id="productSearch"
+                        placeholder="Search product or type..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        class="pradako-products-search-clear"
+                        id="productSearchClear"
+                        aria-label="Clear search"
+                    >
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                </div>
+            
+
+                <div class="pradako-products-view-actions">
+                    <button type="button" class="pradako-products-action-btn active" data-view="grid">
+                        <i class="fa-solid fa-grip"></i>
+                        <span>Grid</span>
+                    </button>
+
+                    <button type="button" class="pradako-products-action-btn" data-view="list">
+                        <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+                        <span>List</span>
+                    </button>
+
+                    <button type="button" class="pradako-products-action-btn export" data-export="true">
+                        <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+                        <span>Export</span>
+                    </button>
+                </div>
+
+            </div>
+
+        
+
+            <nav id="catalogueBreadcrumb"
+                class="pradako-catalogue-breadcrumb"
+                aria-label="Standard products breadcrumb">
+
+                <button type="button"
+                        class="pmew-breadcrumb-item"
+                        data-breadcrumb-action="mode-type">
+                    Home
+                </button>
+
+                <strong class="pmew-breadcrumb-item">
+                    By Standard (Type)
+                </strong>
+
+            </nav>
+
+            <div class="pradako-catalogue-head">
+                <div>
+                    <h3 id="catalogueTitle">Browse by Type</h3>
+                    <p id="catalogueSubtitle">
+                        Select Screws, Socket Screws, Nuts, Washers, Bolts, Threaded Rods / Studs, Structural Bolts or Rivets.
+                    </p>
+                </div>
+
+                <span class="pradako-catalogue-count">
+                    <i></i>
+                    <span id="catalogueCount">0 entries</span>
+                </span>
+            </div>
+
+            <div id="catalogueContent" class="pradako-products-standards-grid grid-view">
+            
+            </div>
+
+            <div id="catalogueEmpty" class="pradako-catalogue-empty">
+                No matching products found.
+            </div>
+
+            <div id="catalogueDetail" class="pradako-catalogue-detail-shell">
+            </div>
+
+        </div>
+
+    </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- Existing global navbar and footer loader. -->
+    <!-- Standard Products catalogue engine, independent of products.js. -->
+    <script src="/assets/js/standard-route-resolver.js" defer></script>
+    <script src="/assets/js/standard-products.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+    <script src="/assets/js/standard-navigation.js" defer></script>
+</body>
+
+</html>

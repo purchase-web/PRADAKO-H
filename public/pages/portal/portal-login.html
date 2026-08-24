@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Request access to or sign in to the Pradako business portal."
+    >
+
+    <title>Portal Access | Pradako Mechanical & Engineering Works</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME - KEEP ONLY ONE -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <style>
+        /* =========================================================
+           PRADAKO PORTAL ACCESS PAGE
+           SOLID COLOURS ONLY
+        ========================================================= */
+
+        .pradako-portal-page {
+            --portal-primary: #3972df;
+            --portal-primary-dark: #2454ae;
+            --portal-primary-soft: #eaf1ff;
+            --portal-primary-pale: #f6f8fc;
+
+            --portal-page-bg: #f5f7fb;
+            --portal-white: #ffffff;
+            --portal-panel: #f8fafe;
+
+            --portal-heading: #10213c;
+            --portal-text: #56647a;
+            --portal-muted: #7b879b;
+
+            --portal-border: #dce5f0;
+            --portal-border-strong: #c9d5e5;
+
+            --portal-error: #b43e37;
+            --portal-error-bg: #fff3f2;
+            --portal-error-border: #efc6c2;
+
+            --portal-success: #23734f;
+            --portal-success-bg: #edf8f2;
+            --portal-success-border: #bce0cc;
+
+            --portal-warning: #79570c;
+            --portal-warning-bg: #fff8e8;
+            --portal-warning-border: #ead5a0;
+
+            min-height: 100vh;
+            padding: clamp(42px, 6vw, 82px) 0;
+            background: var(--portal-page-bg);
+            color: var(--portal-heading);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+        }
+
+        .pradako-portal-page *,
+        .pradako-portal-page *::before,
+        .pradako-portal-page *::after {
+            box-sizing: border-box;
+        }
+
+        .pradako-portal-page button,
+        .pradako-portal-page input,
+        .pradako-portal-page select,
+        .pradako-portal-page textarea {
+            font: inherit;
+        }
+
+        .pradako-portal-page button {
+            border: 0;
+        }
+
+        .pradako-portal-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .pradako-portal-container {
+            width: min(1180px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        /* =========================================================
+           INTRODUCTION
+        ========================================================= */
+
+        .pradako-portal-intro {
+            max-width: 760px;
+            margin: 0 auto clamp(30px, 4vw, 44px);
+            text-align: center;
+        }
+
+        .pradako-portal-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 35px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--portal-primary-soft);
+            color: var(--portal-primary-dark);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .pradako-portal-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            flex: 0 0 8px;
+            border-radius: 50%;
+            background: var(--portal-primary);
+        }
+
+        .pradako-portal-intro h1 {
+            margin: 20px 0 0;
+            color: var(--portal-heading);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .pradako-portal-intro p {
+            max-width: 660px;
+            margin: 16px auto 0;
+            color: var(--portal-text);
+            font-size: 0.88rem;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           MAIN SHELL
+        ========================================================= */
+
+        .pradako-portal-shell {
+            display: grid;
+            grid-template-columns:
+                minmax(300px, 0.82fr)
+                minmax(460px, 1.18fr);
+
+            min-height: 700px;
+            overflow: hidden;
+            border: 1px solid var(--portal-border);
+            border-radius: 26px;
+            background: var(--portal-white);
+            box-shadow: 0 18px 46px rgba(31, 49, 79, 0.08);
+        }
+
+        /* =========================================================
+           LEFT PANEL
+        ========================================================= */
+
+        .pradako-portal-sidebar {
+            display: flex;
+            flex-direction: column;
+            padding: clamp(32px, 4.5vw, 52px);
+            border-right: 1px solid var(--portal-border);
+            background: var(--portal-panel);
+        }
+
+        .pradako-portal-sidebar h2 {
+            margin: 0;
+            color: var(--portal-heading);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .pradako-portal-sidebar-copy {
+            margin: 10px 0 0;
+            color: var(--portal-muted);
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           PORTAL ROLES
+        ========================================================= */
+
+        .pradako-portal-role-list {
+            display: grid;
+            gap: 9px;
+            margin-top: 29px;
+        }
+
+        .pradako-portal-role {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            width: 100%;
+            min-height: 49px;
+            padding: 8px 12px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            background: transparent;
+            color: var(--portal-text);
+            text-align: left;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .pradako-portal-role:hover {
+            border-color: var(--portal-border);
+            background: var(--portal-white);
+            color: var(--portal-primary-dark);
+        }
+
+        .pradako-portal-role.is-active {
+            border-color: #c8d7f0;
+            background: var(--portal-white);
+            color: var(--portal-primary-dark);
+        }
+
+        .pradako-portal-role:focus-visible {
+            outline: 3px solid rgba(57, 114, 223, 0.18);
+            outline-offset: 2px;
+        }
+
+        .pradako-portal-role-icon {
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            border: 1px solid var(--portal-border);
+            border-radius: 10px;
+            background: var(--portal-white);
+            color: var(--portal-primary);
+        }
+
+        .pradako-portal-role-icon i {
+            font-size: 0.8rem;
+        }
+
+        .pradako-portal-role.is-active .pradako-portal-role-icon {
+            border-color: var(--portal-primary);
+            background: var(--portal-primary);
+            color: var(--portal-white);
+        }
+
+        /* =========================================================
+           ACCESS PROCESS
+        ========================================================= */
+
+        .pradako-portal-process {
+            margin-top: 31px;
+            padding-top: 25px;
+            border-top: 1px solid var(--portal-border);
+        }
+
+        .pradako-portal-process-title {
+            color: var(--portal-heading);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.79rem;
+            font-weight: 600;
+        }
+
+        .pradako-portal-process-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .pradako-portal-process-item {
+            display: grid;
+            grid-template-columns: 28px minmax(0, 1fr);
+            gap: 11px;
+            align-items: start;
+        }
+
+        .pradako-portal-process-number {
+            display: grid;
+            place-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--portal-primary-soft);
+            color: var(--portal-primary-dark);
+            font-size: 0.66rem;
+            font-weight: 700;
+        }
+
+        .pradako-portal-process-item strong {
+            display: block;
+            color: var(--portal-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .pradako-portal-process-item p {
+            margin: 3px 0 0;
+            color: var(--portal-muted);
+            font-size: 0.66rem;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           SUPPORT
+        ========================================================= */
+
+        .pradako-portal-support {
+            margin-top: auto;
+            padding-top: 30px;
+        }
+
+        .pradako-portal-support-card {
+            padding: 18px;
+            border: 1px solid var(--portal-border);
+            border-radius: 14px;
+            background: var(--portal-white);
+        }
+
+        .pradako-portal-support-title {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--portal-heading);
+            font-size: 0.76rem;
+            font-weight: 600;
+        }
+
+        .pradako-portal-support-title i {
+            color: var(--portal-primary);
+        }
+
+        .pradako-portal-support-card p {
+            margin: 9px 0 0;
+            color: var(--portal-muted);
+            font-size: 0.69rem;
+            line-height: 1.7;
+        }
+
+        .pradako-portal-support-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: var(--portal-primary-dark);
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .pradako-portal-support-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* =========================================================
+           FORM PANEL
+        ========================================================= */
+
+        .pradako-portal-form-panel {
+            display: flex;
+            align-items: center;
+            padding: clamp(34px, 5.5vw, 68px);
+            background: var(--portal-white);
+        }
+
+        .pradako-portal-form-inner {
+            width: min(100%, 560px);
+            margin-inline: auto;
+        }
+
+        .pradako-portal-eyebrow {
+            color: var(--portal-primary);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .pradako-portal-form-heading {
+            margin: 8px 0 0;
+            color: var(--portal-heading);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+        }
+
+        .pradako-portal-form-description {
+            margin: 11px 0 0;
+            color: var(--portal-muted);
+            font-size: 0.79rem;
+            line-height: 1.75;
+        }
+
+        /* =========================================================
+           TABS
+        ========================================================= */
+
+        .pradako-portal-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 5px;
+            margin-top: 27px;
+            padding: 5px;
+            border: 1px solid var(--portal-border);
+            border-radius: 13px;
+            background: var(--portal-panel);
+        }
+
+        .pradako-portal-tab {
+            min-height: 44px;
+            padding: 10px 14px;
+            border: 1px solid transparent;
+            border-radius: 9px;
+            background: transparent;
+            color: var(--portal-muted);
+            font-size: 0.73rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .pradako-portal-tab:hover {
+            color: var(--portal-heading);
+        }
+
+        .pradako-portal-tab.is-active {
+            border-color: var(--portal-border);
+            background: var(--portal-white);
+            color: var(--portal-primary-dark);
+        }
+
+        .pradako-portal-tab:focus-visible {
+            outline: 3px solid rgba(57, 114, 223, 0.18);
+            outline-offset: 2px;
+        }
+
+        .pradako-portal-tab-panel {
+            display: none;
+            margin-top: 27px;
+        }
+
+        .pradako-portal-tab-panel.is-active {
+            display: block;
+            animation: pradakoPortalShow 0.22s ease;
+        }
+
+        @keyframes pradakoPortalShow {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================================
+           FORM FIELDS
+        ========================================================= */
+
+        .pradako-portal-form-grid {
+            display: grid;
+            gap: 17px;
+        }
+
+        .pradako-portal-form-grid-two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .pradako-portal-field {
+            min-width: 0;
+        }
+
+        .pradako-portal-field-full {
+            grid-column: 1 / -1;
+        }
+
+        .pradako-portal-field label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--portal-heading);
+            font-size: 0.71rem;
+            font-weight: 600;
+        }
+
+        .pradako-portal-required {
+            color: var(--portal-error);
+        }
+
+        .pradako-portal-input {
+            position: relative;
+        }
+
+        .pradako-portal-input-icon {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            z-index: 2;
+            color: #8994a4;
+            font-size: 0.77rem;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        .pradako-portal-input input,
+        .pradako-portal-input select,
+        .pradako-portal-input textarea {
+            width: 100%;
+            border: 1px solid var(--portal-border-strong);
+            border-radius: 12px;
+            outline: none;
+            background: var(--portal-white);
+            color: var(--portal-heading);
+            font-size: 0.78rem;
+            font-weight: 400;
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .pradako-portal-input input,
+        .pradako-portal-input select {
+            min-height: 51px;
+            padding: 12px 46px 12px 44px;
+        }
+
+        .pradako-portal-input textarea {
+            min-height: 105px;
+            padding: 14px 15px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .pradako-portal-input input::placeholder,
+        .pradako-portal-input textarea::placeholder {
+            color: #99a3b1;
+        }
+
+        .pradako-portal-input input:hover,
+        .pradako-portal-input select:hover,
+        .pradako-portal-input textarea:hover {
+            border-color: #aab7c8;
+        }
+
+        .pradako-portal-input input:focus,
+        .pradako-portal-input select:focus,
+        .pradako-portal-input textarea:focus {
+            border-color: var(--portal-primary);
+            box-shadow: 0 0 0 4px rgba(57, 114, 223, 0.1);
+        }
+
+        .pradako-portal-input input:disabled,
+        .pradako-portal-input select:disabled {
+            background: #f4f6fa;
+            color: var(--portal-muted);
+            cursor: not-allowed;
+        }
+
+        .pradako-portal-input select {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .pradako-portal-select-arrow {
+            position: absolute;
+            top: 50%;
+            right: 17px;
+            color: var(--portal-muted);
+            font-size: 0.67rem;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        .pradako-portal-password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--portal-muted);
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .pradako-portal-password-toggle:hover {
+            background: var(--portal-primary-pale);
+            color: var(--portal-primary);
+        }
+
+        .pradako-portal-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 17px;
+        }
+
+        .pradako-portal-checkbox {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--portal-text);
+            font-size: 0.69rem;
+            cursor: pointer;
+        }
+
+        .pradako-portal-checkbox input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--portal-primary);
+        }
+
+        .pradako-portal-help-button {
+            padding: 0;
+            background: transparent;
+            color: var(--portal-primary-dark);
+            font-size: 0.69rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .pradako-portal-help-button:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .pradako-portal-honeypot {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .pradako-portal-primary-button,
+        .pradako-portal-secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 52px;
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .pradako-portal-primary-button {
+            margin-top: 22px;
+            border: 1px solid var(--portal-primary);
+            background: var(--portal-primary);
+            color: var(--portal-white);
+        }
+
+        .pradako-portal-primary-button:hover {
+            border-color: var(--portal-primary-dark);
+            background: var(--portal-primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .pradako-portal-secondary-button {
+            margin-top: 12px;
+            border: 1px solid var(--portal-border-strong);
+            background: var(--portal-white);
+            color: var(--portal-primary-dark);
+        }
+
+        .pradako-portal-secondary-button:hover {
+            border-color: var(--portal-primary);
+            background: var(--portal-primary-pale);
+        }
+
+        .pradako-portal-primary-button:disabled {
+            opacity: 0.72;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* =========================================================
+           ALERTS
+        ========================================================= */
+
+        .pradako-portal-alert {
+            display: none;
+            align-items: flex-start;
+            gap: 11px;
+            margin-bottom: 18px;
+            padding: 14px 15px;
+            border: 1px solid;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        .pradako-portal-alert.is-visible {
+            display: flex;
+        }
+
+        .pradako-portal-alert i {
+            margin-top: 3px;
+            flex: 0 0 auto;
+        }
+
+        .pradako-portal-alert-error {
+            border-color: var(--portal-error-border);
+            background: var(--portal-error-bg);
+            color: var(--portal-error);
+        }
+
+        .pradako-portal-alert-success {
+            border-color: var(--portal-success-border);
+            background: var(--portal-success-bg);
+            color: var(--portal-success);
+        }
+
+        .pradako-portal-alert-warning {
+            border-color: var(--portal-warning-border);
+            background: var(--portal-warning-bg);
+            color: var(--portal-warning);
+        }
+
+        .pradako-portal-login-progress {
+            display: none;
+            margin-top: 10px;
+            height: 4px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #dcebdc;
+        }
+
+        .pradako-portal-login-progress.is-visible {
+            display: block;
+        }
+
+        .pradako-portal-login-progress-bar {
+            width: 100%;
+            height: 100%;
+            background: var(--portal-success);
+            transform-origin: left center;
+            animation: pradakoRedirectProgress 3s linear forwards;
+        }
+
+        @keyframes pradakoRedirectProgress {
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* =========================================================
+           INFORMATION
+        ========================================================= */
+
+        .pradako-portal-information {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 21px;
+            padding: 13px 14px;
+            border: 1px solid var(--portal-border);
+            border-radius: 11px;
+            background: var(--portal-panel);
+            color: var(--portal-muted);
+            font-size: 0.65rem;
+            line-height: 1.6;
+        }
+
+        .pradako-portal-information i {
+            margin-top: 3px;
+            color: var(--portal-primary);
+        }
+
+        /* =========================================================
+           REQUEST SUCCESS
+        ========================================================= */
+
+        .pradako-portal-request-success {
+            display: none;
+            padding: 25px;
+            border: 1px solid var(--portal-success-border);
+            border-radius: 16px;
+            background: var(--portal-success-bg);
+        }
+
+        .pradako-portal-request-success.is-visible {
+            display: block;
+        }
+
+        .pradako-portal-success-icon {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border: 1px solid var(--portal-success-border);
+            border-radius: 12px;
+            background: var(--portal-white);
+            color: var(--portal-success);
+        }
+
+        .pradako-portal-request-success h3 {
+            margin: 16px 0 0;
+            color: var(--portal-heading);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .pradako-portal-request-success p {
+            margin: 8px 0 0;
+            color: #50695d;
+            font-size: 0.74rem;
+            line-height: 1.75;
+        }
+
+        .pradako-portal-success-message {
+            margin-top: 17px;
+            padding: 15px;
+            border: 1px solid var(--portal-success-border);
+            border-radius: 12px;
+            background: var(--portal-white);
+        }
+
+        .pradako-portal-success-message strong {
+            display: block;
+            color: var(--portal-success);
+            font-size: 0.79rem;
+            font-weight: 650;
+        }
+
+        .pradako-portal-reference {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 17px;
+            padding: 13px 14px;
+            border: 1px dashed #9fcbb4;
+            border-radius: 11px;
+            background: var(--portal-white);
+        }
+
+        .pradako-portal-reference span {
+            color: #667b71;
+            font-size: 0.64rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .pradako-portal-reference strong {
+            color: var(--portal-success);
+            font-size: 0.76rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 960px) {
+            .pradako-portal-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .pradako-portal-sidebar {
+                border-right: 0;
+                border-bottom: 1px solid var(--portal-border);
+            }
+
+            .pradako-portal-role-list {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .pradako-portal-process-list {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .pradako-portal-support {
+                margin-top: 27px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            /* Show the portal form first on mobile while keeping
+               the complete sidebar directly below it. */
+            .pradako-portal-form-panel {
+                order: 1;
+                border-bottom: 1px solid var(--portal-border);
+            }
+
+            .pradako-portal-sidebar {
+                order: 2;
+                border-top: 0;
+                border-bottom: 0;
+            }
+
+            .pradako-portal-page {
+                padding: 38px 0 52px;
+            }
+
+            .pradako-portal-container {
+                width: min(100% - 24px, 1180px);
+            }
+
+            .pradako-portal-shell {
+                border-radius: 20px;
+            }
+
+            .pradako-portal-sidebar {
+                padding: 29px 22px;
+            }
+
+            .pradako-portal-role-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .pradako-portal-process-list {
+                grid-template-columns: 1fr;
+            }
+
+            .pradako-portal-form-panel {
+                padding: 37px 22px;
+            }
+
+            .pradako-portal-form-grid-two {
+                grid-template-columns: 1fr;
+            }
+
+            .pradako-portal-field-full {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .pradako-portal-role-list,
+            .pradako-portal-tabs {
+                grid-template-columns: 1fr;
+            }
+
+            .pradako-portal-options {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pradako-portal-reference {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pradako-portal-page *,
+            .pradako-portal-page *::before,
+            .pradako-portal-page *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/portal/portal-login.html">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Portal Access | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Request access to or sign in to the Pradako business portal.">
+    <meta property="og:url" content="https://www.pradako.co/pages/portal/portal-login.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portal Access | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Request access to or sign in to the Pradako business portal.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Portal Access | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/portal/portal-login.html",
+  "description": "Request access to or sign in to the Pradako business portal.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ======================================================
+        HEADER
+    ======================================================= -->
+    <div id="navbar-container"></div>
+
+    <!-- ======================================================
+        PORTAL ACCESS PAGE
+    ======================================================= -->
+    <main class="pradako-portal-page">
+        <div class="pradako-portal-container">
+
+            <header class="pradako-portal-intro">
+
+                <div class="pradako-portal-badge">
+                    Portal Access
+                </div>
+
+                <h1>Access your Pradako portal</h1>
+
+                <p>
+                    Request access to the appropriate business portal or
+                    sign in using the portal ID and password shared with
+                    you by the authorised Pradako team.
+                </p>
+
+            </header>
+
+            <section class="pradako-portal-shell">
+
+                <!-- LEFT PANEL -->
+                <aside class="pradako-portal-sidebar">
+
+                    <div>
+                        <h2>Select your portal</h2>
+
+                        <p class="pradako-portal-sidebar-copy">
+                            Choose the category that best describes your
+                            relationship with Pradako.
+                        </p>
+                    </div>
+
+                    <div
+                        class="pradako-portal-role-list"
+                        aria-label="Portal categories"
+                    >
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role is-active"
+                            data-portal-role="employees"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </span>
+                            <span>Employees</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role"
+                            data-portal-role="client"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-building"></i>
+                            </span>
+                            <span>Client</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role"
+                            data-portal-role="supplier"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                            </span>
+                            <span>Supplier</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role"
+                            data-portal-role="agent"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-user-group"></i>
+                            </span>
+                            <span>Agent</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role"
+                            data-portal-role="distributor"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </span>
+                            <span>Distributor</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pradako-portal-role"
+                            data-portal-role="dealer"
+                        >
+                            <span class="pradako-portal-role-icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </span>
+                            <span>Dealer</span>
+                        </button>
+
+                    </div>
+
+                    <div class="pradako-portal-process">
+
+                        <div class="pradako-portal-process-title">
+                            How access works
+                        </div>
+
+                        <div class="pradako-portal-process-list">
+
+                            <div class="pradako-portal-process-item">
+                                <span class="pradako-portal-process-number">
+                                    01
+                                </span>
+
+                                <div>
+                                    <strong>Submit your request</strong>
+
+                                    <p>
+                                        Provide your business and contact
+                                        information.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="pradako-portal-process-item">
+                                <span class="pradako-portal-process-number">
+                                    02
+                                </span>
+
+                                <div>
+                                    <strong>Administrator review</strong>
+
+                                    <p>
+                                        The request is reviewed by the
+                                        Pradako portal team.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="pradako-portal-process-item">
+                                <span class="pradako-portal-process-number">
+                                    03
+                                </span>
+
+                                <div>
+                                    <strong>Receive credentials</strong>
+
+                                    <p>
+                                        Pradako sends the approved portal
+                                        ID and password shortly.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="pradako-portal-support">
+
+                        <div class="pradako-portal-support-card">
+
+                            <div class="pradako-portal-support-title">
+                                <i class="fa-solid fa-headset"></i>
+                                Portal assistance
+                            </div>
+
+                            <p>
+                                Submitted a request but did not receive your
+                                credentials? Contact the Pradako administrators.
+                            </p>
+
+                            <a
+                                href="mailto:info@pradakomechanicals.com"
+                                class="pradako-portal-support-link"
+                            >
+                                Contact administrators
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+                <!-- RIGHT PANEL -->
+                <div class="pradako-portal-form-panel">
+
+                    <div class="pradako-portal-form-inner">
+
+                        <div class="pradako-portal-eyebrow">
+                            Authorised access
+                        </div>
+
+                        <h2
+                            class="pradako-portal-form-heading"
+                            id="pradakoPortalHeading"
+                        >
+                            Welcome back
+                        </h2>
+
+                        <p
+                            class="pradako-portal-form-description"
+                            id="pradakoPortalDescription"
+                        >
+                            Sign in using the portal ID and password
+                            shared with you by the Pradako portal team.
+                        </p>
+
+                        <div
+                            class="pradako-portal-tabs"
+                            role="tablist"
+                            aria-label="Portal access options"
+                        >
+
+                            <button
+                                type="button"
+                                class="pradako-portal-tab is-active"
+                                data-portal-tab="login"
+                                role="tab"
+                                aria-selected="true"
+                            >
+                                Portal Login
+                            </button>
+
+                            <button
+                                type="button"
+                                class="pradako-portal-tab"
+                                data-portal-tab="request"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                Request Access
+                            </button>
+
+                        </div>
+
+                        <!-- LOGIN PANEL -->
+                        <div
+                            class="pradako-portal-tab-panel is-active"
+                            id="pradakoPortalLoginPanel"
+                        >
+
+                            <div
+                                class="pradako-portal-alert pradako-portal-alert-error"
+                                id="pradakoPortalLoginError"
+                                role="alert"
+                                aria-live="assertive"
+                            >
+                                <i class="fa-solid fa-circle-exclamation"></i>
+
+                                <span id="pradakoPortalLoginErrorText">
+                                    Please use the exact portal ID and password
+                                    shared with you by the Pradako portal team.
+                                </span>
+                            </div>
+
+                            <div
+                                class="pradako-portal-alert pradako-portal-alert-success"
+                                id="pradakoPortalLoginSuccess"
+                                role="status"
+                                aria-live="polite"
+                            >
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <div>
+                                    <span id="pradakoPortalLoginSuccessText">
+                                        Login successful.
+                                    </span>
+
+                                    <div
+                                        class="pradako-portal-login-progress"
+                                        id="pradakoPortalLoginProgress"
+                                    >
+                                        <div class="pradako-portal-login-progress-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form id="pradakoPortalLoginForm" novalidate>
+
+                                <div class="pradako-portal-form-grid">
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalLoginRole">
+                                            Portal category
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-layer-group pradako-portal-input-icon"></i>
+
+                                            <select
+                                                id="pradakoPortalLoginRole"
+                                                required
+                                            >
+                                                <option value="employees">
+                                                    Employees
+                                                </option>
+
+                                                <option value="client">
+                                                    Client
+                                                </option>
+
+                                                <option value="supplier">
+                                                    Supplier
+                                                </option>
+
+                                                <option value="agent">
+                                                    Agent
+                                                </option>
+
+                                                <option value="distributor">
+                                                    Distributor
+                                                </option>
+
+                                                <option value="dealer">
+                                                    Dealer
+                                                </option>
+                                            </select>
+
+                                            <i class="fa-solid fa-chevron-down pradako-portal-select-arrow"></i>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalAccessId">
+                                            Portal ID
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-id-card pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="text"
+                                                id="pradakoPortalAccessId"
+                                                placeholder="Enter your shared portal ID"
+                                                autocomplete="off"
+                                                autocapitalize="characters"
+                                                spellcheck="false"
+                                                data-lpignore="true"
+                                                data-1p-ignore="true"
+                                                maxlength="80"
+                                                required
+                                            >
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalPassword">
+                                            Password
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-lock pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="password"
+                                                id="pradakoPortalPassword"
+                                                placeholder="Enter your shared password"
+                                                autocomplete="current-password"
+                                                maxlength="200"
+                                                required
+                                            >
+
+                                            <button
+                                                type="button"
+                                                class="pradako-portal-password-toggle"
+                                                id="pradakoPortalPasswordToggle"
+                                                aria-label="Show password"
+                                            >
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="pradako-portal-options">
+
+                                    <label class="pradako-portal-checkbox">
+                                        <input
+                                            type="checkbox"
+                                            id="pradakoPortalRememberId"
+                                        >
+
+                                        <span>Remember my portal ID</span>
+                                    </label>
+
+                                    <button
+                                        type="button"
+                                        class="pradako-portal-help-button"
+                                        id="pradakoPortalCredentialHelp"
+                                    >
+                                        Did not receive credentials?
+                                    </button>
+
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="pradako-portal-primary-button"
+                                    id="pradakoPortalLoginButton"
+                                >
+                                    <span>Access Portal</span>
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                </button>
+
+                            </form>
+
+                            <div class="pradako-portal-information">
+
+                                <i class="fa-solid fa-shield-halved"></i>
+
+                                <span>
+                                    Portal access is available only to approved
+                                    users using credentials shared by the
+                                    authorised Pradako team.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- REQUEST PANEL -->
+                        <div
+                            class="pradako-portal-tab-panel"
+                            id="pradakoPortalRequestPanel"
+                        >
+
+                            <div
+                                class="pradako-portal-alert pradako-portal-alert-error"
+                                id="pradakoPortalRequestError"
+                                role="alert"
+                                aria-live="assertive"
+                            >
+                                <i class="fa-solid fa-circle-exclamation"></i>
+
+                                <span id="pradakoPortalRequestErrorText">
+                                    Please complete all required fields.
+                                </span>
+                            </div>
+
+                            <form id="pradakoPortalRequestForm" novalidate>
+
+                                <div
+                                    class="pradako-portal-honeypot"
+                                    aria-hidden="true"
+                                >
+                                    <label for="pradakoPortalWebsite">
+                                        Website
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="pradakoPortalWebsite"
+                                        tabindex="-1"
+                                        autocomplete="off"
+                                    >
+                                </div>
+
+                                <div class="pradako-portal-form-grid pradako-portal-form-grid-two">
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalRequestName">
+                                            Full name
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-user pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="text"
+                                                id="pradakoPortalRequestName"
+                                                placeholder="Enter your full name"
+                                                autocomplete="name"
+                                                maxlength="100"
+                                                required
+                                            >
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalRequestCompany">
+                                            Company name
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-building pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="text"
+                                                id="pradakoPortalRequestCompany"
+                                                placeholder="Enter company name"
+                                                autocomplete="organization"
+                                                maxlength="150"
+                                                required
+                                            >
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalRequestEmail">
+                                            Business email
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-envelope pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="email"
+                                                id="pradakoPortalRequestEmail"
+                                                placeholder="name@company.com"
+                                                autocomplete="email"
+                                                maxlength="150"
+                                                required
+                                            >
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field">
+
+                                        <label for="pradakoPortalRequestPhone">
+                                            Contact number
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-phone pradako-portal-input-icon"></i>
+
+                                            <input
+                                                type="tel"
+                                                id="pradakoPortalRequestPhone"
+                                                placeholder="+91"
+                                                autocomplete="tel"
+                                                maxlength="30"
+                                                required
+                                            >
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field pradako-portal-field-full">
+
+                                        <label for="pradakoPortalRequestRole">
+                                            Required portal
+                                            <span class="pradako-portal-required">*</span>
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <i class="fa-solid fa-layer-group pradako-portal-input-icon"></i>
+
+                                            <select
+                                                id="pradakoPortalRequestRole"
+                                                required
+                                            >
+                                                <option value="">
+                                                    Select portal category
+                                                </option>
+
+                                                <option value="employees">
+                                                    Employees
+                                                </option>
+
+                                                <option value="client">
+                                                    Client
+                                                </option>
+
+                                                <option value="supplier">
+                                                    Supplier
+                                                </option>
+
+                                                <option value="agent">
+                                                    Agent
+                                                </option>
+
+                                                <option value="distributor">
+                                                    Distributor
+                                                </option>
+
+                                                <option value="dealer">
+                                                    Dealer
+                                                </option>
+                                            </select>
+
+                                            <i class="fa-solid fa-chevron-down pradako-portal-select-arrow"></i>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="pradako-portal-field pradako-portal-field-full">
+
+                                        <label for="pradakoPortalRequestReason">
+                                            Reason for access
+                                        </label>
+
+                                        <div class="pradako-portal-input">
+
+                                            <textarea
+                                                id="pradakoPortalRequestReason"
+                                                placeholder="Briefly describe why portal access is required."
+                                                maxlength="1000"
+                                            ></textarea>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="pradako-portal-primary-button"
+                                    id="pradakoPortalRequestButton"
+                                >
+                                    <span>Send Access Request</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+
+                            </form>
+
+                            <div
+                                class="pradako-portal-request-success"
+                                id="pradakoPortalRequestSuccess"
+                                aria-live="polite"
+                            >
+
+                                <div class="pradako-portal-success-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <h3>Email sent successfully</h3>
+
+                                <p>
+                                    Your portal request has been emailed to the
+                                    Pradako administrator team.
+                                </p>
+
+                                <div class="pradako-portal-success-message">
+
+                                    <strong>
+                                        Please wait for your portal credentials.
+                                    </strong>
+
+                                    <p>
+                                        Pradako will review your request and
+                                        send your approved ID and password
+                                        shortly. Please check your inbox and
+                                        spam folder.
+                                    </p>
+
+                                </div>
+
+                                <div class="pradako-portal-reference">
+
+                                    <span>Request reference</span>
+
+                                    <strong id="pradakoPortalRequestReference">
+                                        PMEW-REQ-000000
+                                    </strong>
+
+                                </div>
+
+                                <p id="pradakoPortalConfirmationStatus">
+                                    A confirmation has also been sent to your
+                                    business email address.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    class="pradako-portal-secondary-button"
+                                    id="pradakoPortalAnotherRequest"
+                                >
+                                    <span>Submit Another Request</span>
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                </button>
+
+                            </div>
+
+                            <div class="pradako-portal-information">
+
+                                <i class="fa-solid fa-circle-info"></i>
+
+                                <span>
+                                    If you do not receive your credentials
+                                    after review, contact
+                                    info@pradakomechanicals.com.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ======================================================
+        FOOTER
+    ======================================================= -->
+    <div id="footer-container"></div>
+
+    <!-- GLOBAL WEBSITE SCRIPT -->
+    <script>
+        "use strict";
+
+        const PRADAKO_LOGIN_ENDPOINT = "/portal-auth.php";
+        const PRADAKO_REQUEST_ENDPOINT = "/portal-request.php";
+        const PRADAKO_DEFAULT_REDIRECT = "/index.html";
+        const PRADAKO_REDIRECT_DELAY = 3000;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initializePradakoPortalPage();
+        });
+
+        function initializePradakoPortalPage() {
+            initializePradakoPortalTabs();
+            initializePradakoPortalRoles();
+            initializePradakoPasswordToggle();
+            initializePradakoRememberedLogin();
+            initializePradakoLogin();
+            initializePradakoRequestForm();
+            initializePradakoCredentialHelp();
+        }
+
+        /* =========================================================
+           TABS
+        ========================================================= */
+
+        function initializePradakoPortalTabs() {
+            const tabs = document.querySelectorAll(
+                ".pradako-portal-tab"
+            );
+
+            const loginPanel = document.getElementById(
+                "pradakoPortalLoginPanel"
+            );
+
+            const requestPanel = document.getElementById(
+                "pradakoPortalRequestPanel"
+            );
+
+            const heading = document.getElementById(
+                "pradakoPortalHeading"
+            );
+
+            const description = document.getElementById(
+                "pradakoPortalDescription"
+            );
+
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    const selectedTab = tab.dataset.portalTab;
+                    const showLogin = selectedTab === "login";
+
+                    tabs.forEach((item) => {
+                        const active = item === tab;
+
+                        item.classList.toggle(
+                            "is-active",
+                            active
+                        );
+
+                        item.setAttribute(
+                            "aria-selected",
+                            String(active)
+                        );
+                    });
+
+                    loginPanel.classList.toggle(
+                        "is-active",
+                        showLogin
+                    );
+
+                    requestPanel.classList.toggle(
+                        "is-active",
+                        !showLogin
+                    );
+
+                    hidePradakoLoginMessages();
+                    resetPradakoRequestAlert();
+
+                    if (showLogin) {
+                        heading.textContent = "Welcome back";
+
+                        description.textContent =
+                            "Sign in using the portal ID and password " +
+                            "shared with you by the Pradako portal team.";
+                    } else {
+                        heading.textContent =
+                            "Request portal access";
+
+                        description.textContent =
+                            "Submit your details and the request will " +
+                            "be emailed directly to the Pradako administrator team.";
+                    }
+                });
+            });
+        }
+
+        function openPradakoRequestTab() {
+            document
+                .querySelector('[data-portal-tab="request"]')
+                ?.click();
+        }
+
+        /* =========================================================
+           PORTAL ROLES
+        ========================================================= */
+
+        function initializePradakoPortalRoles() {
+            const roleButtons = document.querySelectorAll(
+                ".pradako-portal-role"
+            );
+
+            const loginRole = document.getElementById(
+                "pradakoPortalLoginRole"
+            );
+
+            const requestRole = document.getElementById(
+                "pradakoPortalRequestRole"
+            );
+
+            roleButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const selectedRole =
+                        button.dataset.portalRole;
+
+                    setPradakoActiveRole(selectedRole);
+
+                    loginRole.value = selectedRole;
+                    requestRole.value = selectedRole;
+                });
+            });
+
+            loginRole.addEventListener("change", () => {
+                setPradakoActiveRole(loginRole.value);
+            });
+
+            requestRole.addEventListener("change", () => {
+                if (requestRole.value) {
+                    setPradakoActiveRole(
+                        requestRole.value
+                    );
+                }
+            });
+        }
+
+        function setPradakoActiveRole(selectedRole) {
+            document
+                .querySelectorAll(".pradako-portal-role")
+                .forEach((button) => {
+                    button.classList.toggle(
+                        "is-active",
+                        button.dataset.portalRole === selectedRole
+                    );
+                });
+        }
+
+        /* =========================================================
+           PASSWORD VISIBILITY
+        ========================================================= */
+
+        function initializePradakoPasswordToggle() {
+            const toggle = document.getElementById(
+                "pradakoPortalPasswordToggle"
+            );
+
+            const password = document.getElementById(
+                "pradakoPortalPassword"
+            );
+
+            toggle.addEventListener("click", () => {
+                const hidden = password.type === "password";
+
+                password.type = hidden ? "text" : "password";
+
+                toggle.innerHTML = hidden
+                    ? '<i class="fa-regular fa-eye-slash"></i>'
+                    : '<i class="fa-regular fa-eye"></i>';
+
+                toggle.setAttribute(
+                    "aria-label",
+                    hidden ? "Hide password" : "Show password"
+                );
+            });
+        }
+
+        /* =========================================================
+           REMEMBER PORTAL ID
+        ========================================================= */
+
+        function initializePradakoRememberedLogin() {
+            const portalId = document.getElementById(
+                "pradakoPortalAccessId"
+            );
+
+            const role = document.getElementById(
+                "pradakoPortalLoginRole"
+            );
+
+            const remember = document.getElementById(
+                "pradakoPortalRememberId"
+            );
+
+            try {
+                const savedId = localStorage.getItem(
+                    "pradakoRememberedPortalIdV2"
+                );
+
+                const savedRole = localStorage.getItem(
+                    "pradakoRememberedPortalRoleV2"
+                );
+
+                if (savedId) {
+                    portalId.value = savedId;
+                    remember.checked = true;
+                }
+
+                if (savedRole) {
+                    role.value = savedRole;
+                    setPradakoActiveRole(savedRole);
+                }
+            } catch (error) {
+                console.warn(
+                    "Browser storage is unavailable.",
+                    error
+                );
+            }
+        }
+
+        function savePradakoRememberedLogin(
+            remember,
+            portalId,
+            role
+        ) {
+            try {
+                if (remember) {
+                    localStorage.setItem(
+                        "pradakoRememberedPortalIdV2",
+                        portalId
+                    );
+
+                    localStorage.setItem(
+                        "pradakoRememberedPortalRoleV2",
+                        role
+                    );
+                } else {
+                    localStorage.removeItem(
+                        "pradakoRememberedPortalIdV2"
+                    );
+
+                    localStorage.removeItem(
+                        "pradakoRememberedPortalRoleV2"
+                    );
+                }
+            } catch (error) {
+                console.warn(
+                    "Unable to remember the portal ID.",
+                    error
+                );
+            }
+        }
+
+        /* =========================================================
+           SERVER-SIDE LOGIN
+        ========================================================= */
+
+        function initializePradakoLogin() {
+            const form = document.getElementById(
+                "pradakoPortalLoginForm"
+            );
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                hidePradakoLoginMessages();
+
+                const role = document.getElementById(
+                    "pradakoPortalLoginRole"
+                ).value;
+
+                const portalId = document
+                    .getElementById("pradakoPortalAccessId")
+                    .value
+                    .trim();
+
+                const password = document.getElementById(
+                    "pradakoPortalPassword"
+                ).value;
+
+                const remember = document.getElementById(
+                    "pradakoPortalRememberId"
+                ).checked;
+
+                if (!role || !portalId || !password) {
+                    showPradakoLoginError(
+                        "Please enter your portal category, ID and password."
+                    );
+
+                    return;
+                }
+
+                const button = document.getElementById(
+                    "pradakoPortalLoginButton"
+                );
+
+                const originalContent = button.innerHTML;
+
+                button.disabled = true;
+
+                button.innerHTML =
+                    '<span>Verifying Credentials</span>' +
+                    '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+                try {
+                    const response = await fetch(
+                        PRADAKO_LOGIN_ENDPOINT,
+                        {
+                            method: "POST",
+                            credentials: "same-origin",
+
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                role,
+                                portalId,
+                                password
+                            })
+                        }
+                    );
+
+                    const responseText = await response.text();
+
+                    let result;
+
+                    try {
+                        result = JSON.parse(responseText);
+                    } catch (error) {
+                        console.error(
+                            "Invalid login response:",
+                            responseText
+                        );
+
+                        throw new Error(
+                            "The login server returned an invalid response."
+                        );
+                    }
+
+                    if (
+                        !response.ok ||
+                        result.success !== true
+                    ) {
+                        throw new Error(
+                            result.message ||
+                            "Please use the ID and password shared by Pradako."
+                        );
+                    }
+
+                    savePradakoRememberedLogin(
+                        remember,
+                        portalId,
+                        role
+                    );
+
+                    showPradakoLoginSuccess(
+                        result.redirect ||
+                        PRADAKO_DEFAULT_REDIRECT
+                    );
+
+                } catch (error) {
+                    showPradakoLoginError(
+                        error.message ||
+                        "Login could not be completed. Please try again."
+                    );
+
+                    button.disabled = false;
+                    button.innerHTML = originalContent;
+                }
+            });
+        }
+
+        function showPradakoLoginSuccess(redirectUrl) {
+            const successBox = document.getElementById(
+                "pradakoPortalLoginSuccess"
+            );
+
+            const successText = document.getElementById(
+                "pradakoPortalLoginSuccessText"
+            );
+
+            const progress = document.getElementById(
+                "pradakoPortalLoginProgress"
+            );
+
+            const button = document.getElementById(
+                "pradakoPortalLoginButton"
+            );
+
+            const form = document.getElementById(
+                "pradakoPortalLoginForm"
+            );
+
+            let secondsRemaining = Math.ceil(
+                PRADAKO_REDIRECT_DELAY / 1000
+            );
+
+            successBox.classList.add("is-visible");
+            progress.classList.add("is-visible");
+
+            successText.textContent =
+                `Login successful. Redirecting to the Pradako home page in ${secondsRemaining} seconds.`;
+
+            button.disabled = true;
+
+            button.innerHTML =
+                '<span>Login Successful</span>' +
+                '<i class="fa-solid fa-circle-check"></i>';
+
+            form.querySelectorAll(
+                "input, select, button"
+            ).forEach((control) => {
+                control.disabled = true;
+            });
+
+            const countdown = window.setInterval(() => {
+                secondsRemaining -= 1;
+
+                if (secondsRemaining > 0) {
+                    successText.textContent =
+                        `Login successful. Redirecting to the Pradako home page in ${secondsRemaining} seconds.`;
+                }
+            }, 1000);
+
+            window.setTimeout(() => {
+                window.clearInterval(countdown);
+
+                successText.textContent =
+                    "Login successful. Opening the Pradako home page.";
+
+                window.location.replace(
+                    redirectUrl
+                );
+            }, PRADAKO_REDIRECT_DELAY);
+        }
+
+        function showPradakoLoginError(message) {
+            const errorBox = document.getElementById(
+                "pradakoPortalLoginError"
+            );
+
+            const errorText = document.getElementById(
+                "pradakoPortalLoginErrorText"
+            );
+
+            const password = document.getElementById(
+                "pradakoPortalPassword"
+            );
+
+            errorText.textContent = message;
+
+            errorBox.classList.add("is-visible");
+
+            password.value = "";
+            password.focus();
+        }
+
+        function hidePradakoLoginMessages() {
+            document
+                .getElementById(
+                    "pradakoPortalLoginError"
+                )
+                .classList.remove("is-visible");
+
+            document
+                .getElementById(
+                    "pradakoPortalLoginSuccess"
+                )
+                .classList.remove("is-visible");
+
+            document
+                .getElementById(
+                    "pradakoPortalLoginProgress"
+                )
+                .classList.remove("is-visible");
+        }
+
+        /* =========================================================
+           REQUEST ACCESS EMAIL
+        ========================================================= */
+
+        function initializePradakoRequestForm() {
+            const form = document.getElementById(
+                "pradakoPortalRequestForm"
+            );
+
+            const anotherRequestButton =
+                document.getElementById(
+                    "pradakoPortalAnotherRequest"
+                );
+
+            form.addEventListener(
+                "submit",
+                async (event) => {
+                    event.preventDefault();
+
+                    resetPradakoRequestAlert();
+
+                    const requestData = {
+                        fullName: document
+                            .getElementById(
+                                "pradakoPortalRequestName"
+                            )
+                            .value
+                            .trim(),
+
+                        company: document
+                            .getElementById(
+                                "pradakoPortalRequestCompany"
+                            )
+                            .value
+                            .trim(),
+
+                        email: document
+                            .getElementById(
+                                "pradakoPortalRequestEmail"
+                            )
+                            .value
+                            .trim(),
+
+                        phone: document
+                            .getElementById(
+                                "pradakoPortalRequestPhone"
+                            )
+                            .value
+                            .trim(),
+
+                        role: document.getElementById(
+                            "pradakoPortalRequestRole"
+                        ).value,
+
+                        reason: document
+                            .getElementById(
+                                "pradakoPortalRequestReason"
+                            )
+                            .value
+                            .trim(),
+
+                        website: document
+                            .getElementById(
+                                "pradakoPortalWebsite"
+                            )
+                            .value
+                            .trim()
+                    };
+
+                    if (
+                        !validatePradakoRequest(
+                            requestData
+                        )
+                    ) {
+                        showPradakoRequestError(
+                            "Please complete all required fields using valid information."
+                        );
+
+                        return;
+                    }
+
+                    const submitButton =
+                        document.getElementById(
+                            "pradakoPortalRequestButton"
+                        );
+
+                    const originalContent =
+                        submitButton.innerHTML;
+
+                    submitButton.disabled = true;
+
+                    submitButton.innerHTML =
+                        '<span>Sending Email</span>' +
+                        '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+                    try {
+                        const response = await fetch(
+                            PRADAKO_REQUEST_ENDPOINT,
+                            {
+                                method: "POST",
+                                credentials: "same-origin",
+
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Accept": "application/json"
+                                },
+
+                                body: JSON.stringify(
+                                    requestData
+                                )
+                            }
+                        );
+
+                        const responseText =
+                            await response.text();
+
+                        let result;
+
+                        try {
+                            result = JSON.parse(
+                                responseText
+                            );
+                        } catch (error) {
+                            console.error(
+                                "Invalid request response:",
+                                responseText
+                            );
+
+                            throw new Error(
+                                "The email server returned an invalid response."
+                            );
+                        }
+
+                        if (
+                            !response.ok ||
+                            result.success !== true
+                        ) {
+                            throw new Error(
+                                result.message ||
+                                "The request email could not be sent."
+                            );
+                        }
+
+                        document.getElementById(
+                            "pradakoPortalRequestReference"
+                        ).textContent =
+                            result.reference ||
+                            "PMEW-REQ-SENT";
+
+                        const confirmationStatus =
+                            document.getElementById(
+                                "pradakoPortalConfirmationStatus"
+                            );
+
+                        if (
+                            result.confirmationEmailSent === true
+                        ) {
+                            confirmationStatus.textContent =
+                                "A confirmation has also been sent to your business email address.";
+                        } else {
+                            confirmationStatus.textContent =
+                                "Your request was delivered to Pradako. Please keep the reference shown above.";
+                        }
+
+                        form.style.display = "none";
+
+                        document
+                            .getElementById(
+                                "pradakoPortalRequestSuccess"
+                            )
+                            .classList.add("is-visible");
+
+                    } catch (error) {
+                        showPradakoRequestError(
+                            error.message ||
+                            "Your request could not be sent. Please try again or contact info@pradakomechanicals.com."
+                        );
+                    } finally {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML =
+                            originalContent;
+                    }
+                }
+            );
+
+            anotherRequestButton.addEventListener(
+                "click",
+                () => {
+                    form.reset();
+                    form.style.display = "block";
+
+                    document
+                        .getElementById(
+                            "pradakoPortalRequestSuccess"
+                        )
+                        .classList.remove("is-visible");
+
+                    resetPradakoRequestAlert();
+
+                    document
+                        .getElementById(
+                            "pradakoPortalRequestName"
+                        )
+                        .focus();
+                }
+            );
+        }
+
+        function validatePradakoRequest(data) {
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            const phonePattern =
+                /^[0-9+\-()\s]{7,30}$/;
+
+            return Boolean(
+                data.fullName &&
+                data.company &&
+                data.email &&
+                emailPattern.test(data.email) &&
+                data.phone &&
+                phonePattern.test(data.phone) &&
+                data.role
+            );
+        }
+
+        function showPradakoRequestError(message) {
+            const errorBox = document.getElementById(
+                "pradakoPortalRequestError"
+            );
+
+            const errorText = document.getElementById(
+                "pradakoPortalRequestErrorText"
+            );
+
+            errorBox.className =
+                "pradako-portal-alert " +
+                "pradako-portal-alert-error " +
+                "is-visible";
+
+            errorText.textContent = message;
+        }
+
+        function resetPradakoRequestAlert() {
+            const errorBox = document.getElementById(
+                "pradakoPortalRequestError"
+            );
+
+            const errorText = document.getElementById(
+                "pradakoPortalRequestErrorText"
+            );
+
+            errorBox.className =
+                "pradako-portal-alert " +
+                "pradako-portal-alert-error";
+
+            errorText.textContent =
+                "Please complete all required fields using valid information.";
+        }
+
+        /* =========================================================
+           CREDENTIAL HELP
+        ========================================================= */
+
+        function initializePradakoCredentialHelp() {
+            document
+                .getElementById(
+                    "pradakoPortalCredentialHelp"
+                )
+                .addEventListener("click", () => {
+                    openPradakoRequestTab();
+
+                    const errorBox = document.getElementById(
+                        "pradakoPortalRequestError"
+                    );
+
+                    const errorText = document.getElementById(
+                        "pradakoPortalRequestErrorText"
+                    );
+
+                    errorBox.className =
+                        "pradako-portal-alert " +
+                        "pradako-portal-alert-warning " +
+                        "is-visible";
+
+                    errorText.textContent =
+                        "If you submitted a request but did not receive your portal ID and password, contact info@pradakomechanicals.com.";
+                });
+        }
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

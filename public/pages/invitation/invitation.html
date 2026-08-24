@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore leadership, collaboration, partnership, CSR, academic, service and strategic opportunities with Pradako Mechanical and Engineering Works.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Invitations & Opportunities | Pradako Mechanical</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <style>
+        :root {
+            --ink: #111111;
+            --ink-soft: #2f2f2f;
+            --muted: #696969;
+            --line: #dedede;
+            --line-dark: #bdbdbd;
+            --paper: #ffffff;
+            --paper-soft: #f6f6f4;
+            --accent: #f08080;
+            --accent-soft: #fff0f0;
+            --max-width: 1440px;
+            --header-height: 82px;
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --ease: cubic-bezier(.2, .75, .25, 1);
+            --font-primary: "Montserrat", sans-serif;
+            --font-display: "Space Grotesk", sans-serif;
+            --font-editorial: "Playfair Display", serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 24px);
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.65;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::selection {
+            color: var(--ink);
+            background: var(--accent);
+        }
+
+        .inv-shell {
+            width: min(calc(100% - 64px), var(--max-width));
+            margin-inline: auto;
+        }
+
+        .inv-skip-link {
+            position: fixed;
+            left: 18px;
+            top: -80px;
+            z-index: 9999;
+            padding: 12px 16px;
+            color: #ffffff;
+            background: var(--ink);
+            border-radius: 8px;
+            transition: top .2s ease;
+        }
+
+        .inv-skip-link:focus {
+            top: 18px;
+        }
+
+
+        .inv-btn {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 20px;
+            color: #ffffff !important;
+            background: var(--ink);
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .07em;
+            line-height: 1;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform .22s var(--ease), background .22s ease, color .22s ease, border-color .22s ease;
+        }
+
+        .inv-btn:hover,
+        .inv-btn:focus-visible {
+            color: var(--ink) !important;
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .inv-btn--outline {
+            color: var(--ink) !important;
+            background: transparent;
+            border-color: var(--line-dark);
+        }
+
+        .inv-btn--outline:hover,
+        .inv-btn--outline:focus-visible {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+        }
+
+
+        .inv-hero {
+            min-height: calc(100vh - var(--header-height));
+            display: grid;
+            align-items: stretch;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-hero__inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.52fr) minmax(320px, .48fr);
+        }
+
+        .inv-hero__main {
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 76px 64px 52px 0;
+            border-right: 1px solid var(--line);
+        }
+
+        .inv-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .inv-eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .inv-hero__title {
+            margin: 32px 0 30px;
+            font-family: var(--font-display);
+            font-size: clamp(64px, 8.5vw, 146px);
+            font-weight: 700;
+            letter-spacing: -.085em;
+            line-height: .79;
+            text-transform: uppercase;
+        }
+
+        .inv-hero__title span {
+            display: block;
+        }
+
+        .inv-hero__title .inv-outline-word {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--ink);
+            --text-stroke: 1.5px var(--ink);
+        }
+
+        .inv-hero__title .inv-accent-dot {
+            color: var(--accent);
+            -webkit-text-stroke: 0;
+        }
+
+        .inv-hero__lead {
+            width: min(760px, 88%);
+            margin: 0;
+            color: var(--ink);
+            font-size: clamp(18px, 1.45vw, 24px);
+            line-height: 1.55;
+        }
+
+        .inv-hero__lead strong {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        .inv-hero__bottom {
+            margin-top: 64px;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .inv-hero__scroll {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .inv-hero__scroll i {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            color: var(--ink);
+            border: 1px solid var(--line-dark);
+            border-radius: 50%;
+        }
+
+        .inv-hero__meta {
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .inv-hero__paths {
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .inv-hero-path {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 32px 0 28px 36px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+            transition: background .25s ease;
+        }
+
+        .inv-hero-path:last-child {
+            border-bottom: 0;
+        }
+
+        .inv-hero-path:hover,
+        .inv-hero-path:focus-visible {
+            background: var(--accent-soft);
+        }
+
+        .inv-hero-path__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .inv-hero-path__index {
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .1em;
+        }
+
+        .inv-hero-path i {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            color: var(--ink);
+            border: 1px solid var(--line-dark);
+            border-radius: 50%;
+            transition: transform .25s var(--ease), background .25s ease, border-color .25s ease;
+        }
+
+        .inv-hero-path:hover i,
+        .inv-hero-path:focus-visible i {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translate(3px, -3px);
+        }
+
+        .inv-hero-path strong {
+            display: block;
+            max-width: 270px;
+            font-family: var(--font-display);
+            font-size: clamp(22px, 2vw, 34px);
+            letter-spacing: -.045em;
+            line-height: 1.04;
+            text-transform: uppercase;
+        }
+
+        .inv-hero-path span:last-child {
+            display: block;
+            margin-top: 10px;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .04em;
+        }
+
+        .inv-pathways {
+            padding: 118px 0 128px;
+        }
+
+        .inv-section-head {
+            display: grid;
+            grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+            gap: 70px;
+            align-items: start;
+            margin-bottom: 72px;
+        }
+
+        .inv-section-head__kicker {
+            position: sticky;
+            top: calc(var(--header-height) + 24px);
+        }
+
+        .inv-section-head__number {
+            display: block;
+            margin-bottom: 24px;
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: clamp(54px, 7vw, 112px);
+            font-weight: 700;
+            letter-spacing: -.08em;
+            line-height: .8;
+        }
+
+        .inv-section-head h2 {
+            margin: 16px 0 0;
+            font-family: var(--font-display);
+            font-size: clamp(42px, 5vw, 82px);
+            font-weight: 700;
+            letter-spacing: -.065em;
+            line-height: .92;
+            text-transform: uppercase;
+        }
+
+        .inv-section-head__copy {
+            padding-top: 28px;
+            border-top: 1px solid var(--line-dark);
+        }
+
+        .inv-section-head__copy p {
+            margin: 0;
+            color: var(--ink);
+            font-size: clamp(18px, 1.45vw, 24px);
+            line-height: 1.55;
+        }
+
+        .inv-section-head__copy strong {
+            color: var(--ink);
+        }
+
+        .inv-path-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-path-card {
+            min-height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 36px 34px;
+            border-right: 1px solid var(--line);
+            transition: background .25s ease;
+        }
+
+        .inv-path-card:last-child {
+            border-right: 0;
+        }
+
+        .inv-path-card:hover {
+            background: var(--paper-soft);
+        }
+
+        .inv-path-card__icon {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            border: 1px solid var(--line-dark);
+            border-radius: 50%;
+        }
+
+        .inv-path-card h3 {
+            margin: 44px 0 14px;
+            font-family: var(--font-display);
+            font-size: clamp(28px, 2.2vw, 38px);
+            letter-spacing: -.045em;
+            line-height: 1.03;
+            text-transform: uppercase;
+        }
+
+        .inv-path-card p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .inv-path-card__link {
+            margin-top: 34px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .inv-path-card__link i {
+            color: var(--accent);
+            transition: transform .2s var(--ease);
+        }
+
+        .inv-path-card:hover .inv-path-card__link i {
+            transform: translateX(5px);
+        }
+
+        .inv-statement {
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            background: var(--ink);
+        }
+
+        .inv-statement__track {
+            width: max-content;
+            display: flex;
+            align-items: center;
+            gap: 52px;
+            padding: 34px 0 38px;
+            animation: invMarquee 34s linear infinite;
+        }
+
+        .inv-statement__track span {
+            display: inline-flex;
+            align-items: center;
+            gap: 52px;
+            font-family: var(--font-display);
+            font-size: clamp(52px, 7.2vw, 116px);
+            font-weight: 700;
+            letter-spacing: -.075em;
+            line-height: .92;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .inv-statement__track span::after {
+            content: "•";
+            color: var(--accent);
+        }
+
+        @keyframes invMarquee {
+            to { transform: translateX(-50%); }
+        }
+
+        .inv-opportunity-section {
+            padding: 132px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-opportunity-section--soft {
+            background: var(--paper-soft);
+        }
+
+        .inv-opportunity-layout {
+            display: grid;
+            grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+            gap: 86px;
+            align-items: start;
+        }
+
+        .inv-opportunity-intro {
+            position: sticky;
+            top: calc(var(--header-height) + 28px);
+        }
+
+        .inv-section-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0 13px;
+            color: var(--ink);
+            background: var(--accent);
+            border-radius: 999px;
+            font-family: var(--font-editorial);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .inv-opportunity-intro h2,
+        .inv-group-heading h2 {
+            margin: 24px 0 24px;
+            font-family: var(--font-display);
+            font-size: clamp(48px, 5.7vw, 94px);
+            font-weight: 700;
+            letter-spacing: -.075em;
+            line-height: .86;
+            text-transform: uppercase;
+        }
+
+        .inv-opportunity-intro p,
+        .inv-group-heading p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .inv-opportunity-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 34px;
+        }
+
+        .inv-opportunity-pills span {
+            min-height: 35px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 13px;
+            color: var(--ink);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .inv-email-desk {
+            margin-top: 44px;
+            padding-top: 26px;
+            border-top: 1px solid var(--line-dark);
+        }
+
+        .inv-email-desk small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--ink);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .inv-email-desk a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: clamp(15px, 1.3vw, 19px);
+            font-weight: 700;
+            letter-spacing: -.02em;
+            word-break: break-word;
+        }
+
+        .inv-email-desk a i {
+            color: var(--accent);
+        }
+
+        .inv-opportunity-list {
+            border-top: 1px solid var(--line-dark);
+        }
+
+        .inv-opportunity-row {
+            display: grid;
+            grid-template-columns: 58px minmax(0, 1fr) auto;
+            gap: 24px;
+            align-items: center;
+            min-height: 108px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
+            transition: padding .24s var(--ease), background .24s ease;
+        }
+
+        .inv-opportunity-row:hover {
+            padding-inline: 20px;
+            background: var(--paper);
+        }
+
+        .inv-opportunity-row__number {
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .inv-opportunity-row h3 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(19px, 1.65vw, 26px);
+            font-weight: 650;
+            letter-spacing: -.035em;
+            line-height: 1.23;
+            text-transform: uppercase;
+        }
+
+        .inv-opportunity-row p {
+            margin: 7px 0 0;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .02em;
+        }
+
+        .inv-opportunity-row .inv-btn {
+            min-width: 150px;
+        }
+
+        .inv-collab-hero {
+            padding: 120px 0 94px;
+            background: var(--paper-soft);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-collab-hero__grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+            gap: 90px;
+            align-items: end;
+        }
+
+        .inv-collab-hero h2 {
+            margin: 24px 0 0;
+            font-family: var(--font-display);
+            font-size: clamp(66px, 8vw, 138px);
+            font-weight: 700;
+            letter-spacing: -.085em;
+            line-height: .78;
+            text-transform: uppercase;
+        }
+
+        .inv-collab-hero h2 span {
+            display: block;
+        }
+
+        .inv-collab-hero__side {
+            padding-top: 30px;
+            border-top: 1px solid var(--line-dark);
+        }
+
+        .inv-collab-count {
+            display: flex;
+            align-items: end;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .inv-collab-count strong {
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: clamp(74px, 8vw, 128px);
+            line-height: .7;
+            letter-spacing: -.08em;
+        }
+
+        .inv-collab-count span {
+            max-width: 230px;
+            padding-bottom: 3px;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            line-height: 1.45;
+            text-transform: uppercase;
+        }
+
+        .inv-collab-hero__side p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .inv-category-block {
+            padding: 116px 0 124px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-category-block:last-of-type {
+            border-bottom: 0;
+        }
+
+        .inv-category-grid {
+            display: grid;
+            grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+            gap: 90px;
+            align-items: start;
+        }
+
+        .inv-category-intro {
+            position: sticky;
+            top: calc(var(--header-height) + 28px);
+        }
+
+        .inv-category-intro__index {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: .1em;
+        }
+
+        .inv-category-intro h2 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(42px, 4.3vw, 72px);
+            font-weight: 700;
+            letter-spacing: -.065em;
+            line-height: .95;
+            text-transform: uppercase;
+        }
+
+        .inv-category-intro p {
+            margin: 24px 0 0;
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .inv-category-list {
+            border-top: 1px solid var(--line-dark);
+        }
+
+        .inv-category-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 28px;
+            align-items: center;
+            min-height: 88px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .inv-category-row h3 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(17px, 1.45vw, 23px);
+            font-weight: 650;
+            letter-spacing: -.025em;
+            line-height: 1.35;
+            text-transform: uppercase;
+        }
+
+        .inv-category-row .inv-btn {
+            min-width: 138px;
+        }
+
+        .inv-category-row:hover h3 {
+            color: #000000;
+        }
+
+        .inv-block-quote {
+            padding: 120px 0 126px;
+            background: var(--accent);
+            overflow: hidden;
+        }
+
+        .inv-block-quote p {
+            width: min(1180px, 100%);
+            margin: 0;
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-size: clamp(54px, 7.4vw, 118px);
+            font-weight: 700;
+            letter-spacing: -.085em;
+            line-height: .82;
+            text-transform: uppercase;
+        }
+
+        .inv-block-quote p span {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--ink);
+            --text-stroke: 1.5px var(--ink);
+        }
+
+        .inv-final {
+            padding: 134px 0 70px;
+            color: #ffffff;
+            background: var(--ink);
+        }
+
+        .inv-final__grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.28fr) minmax(300px, .72fr);
+            gap: 88px;
+            align-items: end;
+        }
+
+        .inv-final h2 {
+            margin: 24px 0 0;
+            font-family: var(--font-display);
+            font-size: clamp(64px, 8vw, 132px);
+            font-weight: 700;
+            letter-spacing: -.085em;
+            line-height: .78;
+            text-transform: uppercase;
+        }
+
+        .inv-final h2 span {
+            display: block;
+        }
+
+        .inv-final__side {
+            padding-top: 28px;
+            border-top: 1px solid #454545;
+        }
+
+        .inv-final__side p {
+            margin: 0 0 28px;
+            color: #cacaca;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .inv-final__side .inv-btn {
+            color: var(--ink) !important;
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .inv-final__side .inv-btn:hover,
+        .inv-final__side .inv-btn:focus-visible {
+            color: var(--ink) !important;
+            background: #ffffff;
+            border-color: #ffffff;
+        }
+
+
+        /* =========================================================
+           PMEW INK / BLACK TEXT ENFORCEMENT
+           Keeps all foreground text on light sections consistently ink.
+           Dark sections retain their dedicated white text declarations.
+        ========================================================= */
+        .inv-hero__title,
+        .inv-hero-path strong,
+        .inv-section-head h2,
+        .inv-path-card h3,
+        .inv-path-card__link,
+        .inv-opportunity-intro h2,
+        .inv-group-heading h2,
+        .inv-opportunity-row h3,
+        .inv-collab-hero h2,
+        .inv-category-intro h2,
+        .inv-category-row h3,
+        .inv-email-desk a {
+            color: var(--ink) !important;
+        }
+
+        .inv-eyebrow,
+        .inv-hero__lead,
+        .inv-hero__scroll,
+        .inv-hero__meta,
+        .inv-hero-path__index,
+        .inv-hero-path span:last-child,
+        .inv-section-head__copy p,
+        .inv-path-card p,
+        .inv-opportunity-intro p,
+        .inv-group-heading p,
+        .inv-opportunity-pills span,
+        .inv-email-desk small,
+        .inv-opportunity-row__number,
+        .inv-opportunity-row p,
+        .inv-collab-count span,
+        .inv-collab-hero__side p,
+        .inv-category-intro p {
+            color: var(--ink) !important;
+        }
+
+        .inv-section-tag,
+        .inv-block-quote p {
+            color: var(--ink) !important;
+        }
+
+        .inv-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 26px;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            max-width: calc(100% - 32px);
+            padding: 14px 18px;
+            color: #ffffff;
+            background: var(--ink);
+            border: 1px solid #343434;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 20px);
+            transition: opacity .25s ease, transform .25s var(--ease);
+        }
+
+        .inv-toast.is-visible {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .inv-reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .inv-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 1180px) {
+            .inv-shell {
+                width: min(calc(100% - 44px), var(--max-width));
+            }
+
+
+            .inv-hero__inner {
+                grid-template-columns: minmax(0, 1.32fr) minmax(300px, .68fr);
+            }
+
+            .inv-hero__main {
+                padding-right: 36px;
+            }
+
+            .inv-hero-path {
+                padding-left: 28px;
+            }
+
+            .inv-opportunity-layout,
+            .inv-category-grid {
+                gap: 54px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            :root {
+                --header-height: 74px;
+            }
+
+
+            .inv-hero {
+                min-height: auto;
+            }
+
+            .inv-hero__inner {
+                grid-template-columns: 1fr;
+            }
+
+            .inv-hero__main {
+                min-height: auto;
+                padding: 78px 0 54px;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .inv-hero__paths {
+                min-height: auto;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .inv-hero-path {
+                min-height: 220px;
+                padding: 28px;
+                border-right: 1px solid var(--line);
+            }
+
+            .inv-hero-path:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .inv-hero-path:nth-child(3) {
+                border-bottom: 0;
+            }
+
+            .inv-section-head,
+            .inv-opportunity-layout,
+            .inv-category-grid,
+            .inv-collab-hero__grid,
+            .inv-final__grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .inv-section-head__kicker,
+            .inv-opportunity-intro,
+            .inv-category-intro {
+                position: static;
+            }
+
+            .inv-path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .inv-path-card {
+                min-height: auto;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .inv-path-card:last-child {
+                border-bottom: 0;
+            }
+
+            .inv-collab-hero__grid,
+            .inv-final__grid {
+                align-items: start;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .inv-shell {
+                width: min(calc(100% - 32px), var(--max-width));
+            }
+
+
+            .inv-hero__main {
+                padding-top: 58px;
+            }
+
+            .inv-hero__title {
+                margin-top: 25px;
+                font-size: clamp(51px, 17vw, 88px);
+                line-height: .82;
+            }
+
+            .inv-hero__lead {
+                width: 100%;
+                font-size: 17px;
+            }
+
+            .inv-hero__bottom {
+                margin-top: 44px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .inv-hero__paths {
+                grid-template-columns: 1fr;
+            }
+
+            .inv-hero-path,
+            .inv-hero-path:nth-child(3) {
+                min-height: 190px;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .inv-hero-path:last-child {
+                border-bottom: 0;
+            }
+
+            .inv-pathways,
+            .inv-opportunity-section,
+            .inv-category-block,
+            .inv-block-quote,
+            .inv-final {
+                padding-top: 88px;
+                padding-bottom: 92px;
+            }
+
+            .inv-collab-hero {
+                padding-top: 86px;
+                padding-bottom: 76px;
+            }
+
+            .inv-section-head {
+                margin-bottom: 48px;
+            }
+
+            .inv-section-head h2,
+            .inv-opportunity-intro h2,
+            .inv-group-heading h2,
+            .inv-category-intro h2 {
+                font-size: clamp(42px, 13.5vw, 68px);
+            }
+
+            .inv-opportunity-row {
+                grid-template-columns: 42px minmax(0, 1fr);
+                gap: 15px;
+                padding: 24px 0;
+            }
+
+            .inv-opportunity-row:hover {
+                padding-inline: 0;
+                background: transparent;
+            }
+
+            .inv-opportunity-row .inv-btn {
+                grid-column: 2;
+                width: 100%;
+                margin-top: 4px;
+            }
+
+            .inv-category-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 24px 0;
+            }
+
+            .inv-category-row .inv-btn {
+                width: 100%;
+            }
+
+            .inv-block-quote p,
+            .inv-final h2 {
+                font-size: clamp(50px, 16vw, 84px);
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important;
+            }
+
+            .inv-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/invitation/invitation.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Invitations &amp; Opportunities | Pradako Mechanical">
+    <meta property="og:description" content="Explore leadership, collaboration, partnership, CSR, academic, service and strategic opportunities with Pradako Mechanical and Engineering Works.">
+    <meta property="og:url" content="https://www.pradako.co/pages/invitation/invitation.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Invitations &amp; Opportunities | Pradako Mechanical">
+    <meta name="twitter:description" content="Explore leadership, collaboration, partnership, CSR, academic, service and strategic opportunities with Pradako Mechanical and Engineering Works.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Invitations & Opportunities | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/invitation/invitation.html",
+  "description": "Explore leadership, collaboration, partnership, CSR, academic, service and strategic opportunities with Pradako Mechanical and Engineering Works.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+    <a class="inv-skip-link" href="#main-content">Skip to main content</a>
+
+    <div id="navbar-container"></div>
+
+    <main id="main-content">
+        <section class="inv-hero" id="top" aria-labelledby="inv-hero-title">
+            <div class="inv-shell inv-hero__inner">
+                <div class="inv-hero__main">
+                    <div>
+                        <div class="inv-eyebrow">Pradako Mechanical</div>
+                        <h1 class="inv-hero__title" id="inv-hero-title">
+                            <span class="inv-outline-word">Invitations</span>
+                            <span>&amp; Opportunities<span class="inv-accent-dot">.</span></span>
+                        </h1>
+                        <p class="inv-hero__lead">
+                            Explore meaningful ways to engage with <strong>Pradako Mechanical and Engineering Works.</strong>
+                            Select the category that best matches your leadership ambition, partnership idea, institutional initiative or business opportunity.
+                        </p>
+                    </div>
+
+                    <div class="inv-hero__bottom">
+                        <a class="inv-hero__scroll" href="#pathways">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+                            Explore opportunity pathways
+                        </a>
+                        <span class="inv-hero__meta">Leadership · Partnerships · Institutions · Impact</span>
+                    </div>
+                </div>
+
+                <div class="inv-hero__paths" aria-label="Primary opportunity categories">
+                    <a class="inv-hero-path" href="#leadership">
+                        <span class="inv-hero-path__top">
+                            <span class="inv-hero-path__index">01 / 04</span>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M14 4h6v6M20 4L11 13"/><path d="M18 13v6a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 19V8a1.5 1.5 0 011.5-1.5H11"/></svg>
+                        </span>
+                        <span>
+                            <strong>Join Our Team</strong>
+                            <span>Leadership, board and business roles</span>
+                        </span>
+                    </a>
+
+                    <a class="inv-hero-path" href="#collaborations">
+                        <span class="inv-hero-path__top">
+                            <span class="inv-hero-path__index">02 / 04</span>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M14 4h6v6M20 4L11 13"/><path d="M18 13v6a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 19V8a1.5 1.5 0 011.5-1.5H11"/></svg>
+                        </span>
+                        <span>
+                            <strong>Collaborations</strong>
+                            <span>Strategic, technical and channel partnerships</span>
+                        </span>
+                    </a>
+
+                    <a class="inv-hero-path" href="#csr">
+                        <span class="inv-hero-path__top">
+                            <span class="inv-hero-path__index">03 / 04</span>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M14 4h6v6M20 4L11 13"/><path d="M18 13v6a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 19V8a1.5 1.5 0 011.5-1.5H11"/></svg>
+                        </span>
+                        <span>
+                            <strong>CSR &amp; Impact</strong>
+                            <span>Social, environmental and volunteer alliances</span>
+                        </span>
+                    </a>
+
+                    <a class="inv-hero-path" href="#visibility">
+                        <span class="inv-hero-path__top">
+                            <span class="inv-hero-path__index">04 / 04</span>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M14 4h6v6M20 4L11 13"/><path d="M18 13v6a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 19V8a1.5 1.5 0 011.5-1.5H11"/></svg>
+                        </span>
+                        <span>
+                            <strong>Opportunity Desk</strong>
+                            <span>Investor, media, trade and visibility conversations</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="inv-pathways" id="pathways" aria-labelledby="pathways-title">
+            <div class="inv-shell">
+                <div class="inv-section-head inv-reveal">
+                    <div class="inv-section-head__kicker">
+                        <span class="inv-section-head__number">00</span>
+                        <span class="inv-eyebrow">Choose the right path</span>
+                    </div>
+                    <div class="inv-section-head__copy">
+                        <h2 id="pathways-title">One organisation.<br>Multiple ways to engage.</h2>
+                        <p>
+                            Every enquiry is routed to the most relevant opportunity desk so the conversation begins with the right context, the right decision makers and a clear next step.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="inv-path-grid inv-reveal">
+                    <a class="inv-path-card" href="#leadership">
+                        <div>
+                            <span class="inv-path-card__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><circle cx="12" cy="7" r="3.4"/><path d="M5 21c.4-4 3.2-6.5 7-6.5s6.6 2.5 7 6.5zM12 14.5l-1.5 2 1.5 4 1.5-4z"/></svg></span>
+                            <h3>Leadership &amp; Careers</h3>
+                            <p>Country Head, Executive Director, Board Roles and business leadership opportunities.</p>
+                        </div>
+                        <span class="inv-path-card__link">Explore leadership <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></span>
+                    </a>
+
+                    <a class="inv-path-card" href="#collaborations">
+                        <div>
+                            <span class="inv-path-card__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M2 8l4-2 5 2 5-2 6 3v6l-3 1.5"/><path d="M12 8l-4 4a1.6 1.6 0 002.3 2.3L12 13l3 3a1.6 1.6 0 002.3-2.3L13 9.5"/></svg></span>
+                            <h3>Partnership Channels</h3>
+                            <p>Dealer, Distributor, Vendor, Agent, Franchise, Warehousing and B2B opportunities.</p>
+                        </div>
+                        <span class="inv-path-card__link">Explore partnerships <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></span>
+                    </a>
+
+                    <a class="inv-path-card" href="#institutional">
+                        <div>
+                            <span class="inv-path-card__icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 21h18M4 18h16M6 18v-8M10 18v-8M14 18v-8M18 18v-8M3 8l9-5 9 5z"/></svg></span>
+                            <h3>Institutional Engagement</h3>
+                            <p>CSR, training, media, academic, trade fair and strategic alliance conversations.</p>
+                        </div>
+                        <span class="inv-path-card__link">Explore institutional desks <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="inv-statement" aria-label="Opportunity statement">
+            <div class="inv-statement__track" aria-hidden="true">
+                <span>Choose the right path to connect</span>
+                <span>Build the next opportunity together</span>
+                <span>Choose the right path to connect</span>
+                <span>Build the next opportunity together</span>
+            </div>
+        </section>
+
+        <section class="inv-opportunity-section" id="leadership" aria-labelledby="leadership-title">
+            <div class="inv-shell inv-opportunity-layout">
+                <div class="inv-opportunity-intro inv-reveal">
+                    <span class="inv-section-tag">01 · Join Our Team</span>
+                    <h2 id="leadership-title">Leadership opportunities.</h2>
+                    <p>
+                        For professionals and decision makers looking to engage with Pradako Mechanical and Engineering Works through leadership, governance or business-building roles.
+                    </p>
+                    <div class="inv-opportunity-pills" aria-label="Leadership categories">
+                        <span>Leadership</span>
+                        <span>Board Roles</span>
+                        <span>Business</span>
+                    </div>
+                    <div class="inv-email-desk">
+                        <small>Chairman opportunity desk</small>
+                        <a href="mailto:Chairman@Pradakomechanicals.com">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
+                            Chairman@Pradakomechanicals.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="inv-reveal">
+                    <div class="inv-opportunity-list">
+                        <article class="inv-opportunity-row">
+                            <span class="inv-opportunity-row__number">01</span>
+                            <div>
+                                <h3>Apply for Country Head</h3>
+                                <p>Country leadership, market development and regional growth responsibility.</p>
+                            </div>
+                            <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Apply for Country Head">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+
+                        <article class="inv-opportunity-row">
+                            <span class="inv-opportunity-row__number">02</span>
+                            <div>
+                                <h3>Apply for Executive Director</h3>
+                                <p>Executive leadership and strategic business management opportunity.</p>
+                            </div>
+                            <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Apply for Executive Director">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+
+                        <article class="inv-opportunity-row">
+                            <span class="inv-opportunity-row__number">03</span>
+                            <div>
+                                <h3>Board of Directors Post IPO</h3>
+                                <p>Future governance, advisory and board-level contribution.</p>
+                            </div>
+                            <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Board of Directors Post IPO">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+
+                        <article class="inv-opportunity-row">
+                            <span class="inv-opportunity-row__number">04</span>
+                            <div>
+                                <h3>Other Business Opportunities</h3>
+                                <p>Distinct proposals that do not fit an existing category.</p>
+                            </div>
+                            <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Other Business Opportunities">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inv-block-quote" aria-label="Leadership statement">
+            <div class="inv-shell">
+                <p class="inv-reveal">Lead with purpose. <span>Build with responsibility.</span></p>
+            </div>
+        </section>
+
+        <section class="inv-collab-hero" id="collaborations" aria-labelledby="collab-title">
+            <div class="inv-shell inv-collab-hero__grid">
+                <div class="inv-reveal">
+                    <span class="inv-section-tag">02 · Partnership Network</span>
+                    <h2 id="collab-title"><span>Collab</span><span>orations.</span></h2>
+                </div>
+                <div class="inv-collab-hero__side inv-reveal">
+                    <div class="inv-collab-count">
+                        <strong>12</strong>
+                        <span>Collaboration categories routed to the Chairman desk</span>
+                    </div>
+                    <p>
+                        Strategic, geographical, technical, channel and business collaboration requests are organised as a focused premium opportunity pathway.
+                    </p>
+                    <div class="inv-email-desk">
+                        <small>Direct opportunity email</small>
+                        <a href="mailto:Chairman@Pradakomechanicals.com">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
+                            Chairman@Pradakomechanicals.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inv-opportunity-section inv-opportunity-section--soft" aria-labelledby="b2b-title">
+            <div class="inv-shell inv-opportunity-layout">
+                <div class="inv-opportunity-intro inv-reveal">
+                    <span class="inv-section-tag">B2B</span>
+                    <h2 id="b2b-title">Business and channel network.</h2>
+                    <p>
+                        Vendor, supplier, dealer, distributor, franchise, warehousing, agency, marketing and brand partnership opportunities.
+                    </p>
+                </div>
+
+                <div class="inv-opportunity-list inv-reveal">
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">01</span>
+                        <div><h3>Strategic Collaborations</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Strategic Collaborations">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">02</span>
+                        <div><h3>Geographical Collaborations</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Geographical Collaborations">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">03</span>
+                        <div><h3>Technical Collaborations</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Technical Collaborations">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">04</span>
+                        <div><h3>Collaboration on Innovation</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Collaboration on Innovation">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">05</span>
+                        <div><h3>Franchise Inquiry</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Franchise Inquiry">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">06</span>
+                        <div><h3>Business Partnerships</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Business Partnerships">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">07</span>
+                        <div><h3>Become a Dealer</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Become a Dealer">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">08</span>
+                        <div><h3>Become a Distributor</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Become a Distributor">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">09</span>
+                        <div><h3>B2B — Vendor / Supplier Registration</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="B2B - Vendor / Supplier Registration">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">10</span>
+                        <div><h3>Become a Warehousing Partner</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Become a Warehousing Partner">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">11</span>
+                        <div><h3>Become an Agent / Indenting Agent</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Become an Agent / Indenting Agent">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                    <article class="inv-opportunity-row">
+                        <span class="inv-opportunity-row__number">12</span>
+                        <div><h3>Channel Partner / Marketing / Branding Partner</h3></div>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="Apply as a Channel Partner / Marketing / Branding Partner">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="inv-statement" aria-label="Partnership statement">
+            <div class="inv-statement__track" aria-hidden="true">
+                <span>Ideas become partnerships</span>
+                <span>Partnerships create progress</span>
+                <span>Ideas become partnerships</span>
+                <span>Partnerships create progress</span>
+            </div>
+        </section>
+
+        <div id="institutional">
+            <section class="inv-category-block" aria-labelledby="services-title">
+                <div class="inv-shell inv-category-grid">
+                    <div class="inv-category-intro inv-reveal">
+                        <span class="inv-category-intro__index">03 / A</span>
+                        <h2 id="services-title">Operational Support</h2>
+                        <p>Specialised service providers supporting manufacturing, logistics, exports and global trade operations.</p>
+                    </div>
+                    <div class="inv-category-list inv-reveal">
+                        <article class="inv-category-row">
+                            <h3>To Provide Kanban Services (Mutual)</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="To Provide Kanban Services (Mutual)">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Imports / Exports Container Services</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Imports / Exports Container Services">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Export and Global Trade Partner</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Export and Global Trade Partner">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="inv-category-block" aria-labelledby="education-title">
+                <div class="inv-shell inv-category-grid">
+                    <div class="inv-category-intro inv-reveal">
+                        <span class="inv-category-intro__index">03 / B</span>
+                        <h2 id="education-title">Education &amp; Talent</h2>
+                        <p>Academic connections that bring industry exposure, learning, training and professional development closer together.</p>
+                    </div>
+                    <div class="inv-category-list inv-reveal">
+                        <article class="inv-category-row">
+                            <h3>For Colleges and Institutions</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="For Colleges and Institutions">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Apply for Industrial Visits</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Apply for Industrial Visits">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Internship / Industrial Training Requests</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Internship / Industrial Training Requests">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Campus Connect / Academic Alliances</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Campus Connect / Academic Alliances">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Career Speakers / Guest Lecturers</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Career Speakers / Guest Lecturers">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Corporate Training Partnerships</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Corporate Training Partnerships">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="inv-category-block" id="csr" aria-labelledby="csr-title">
+                <div class="inv-shell inv-category-grid">
+                    <div class="inv-category-intro inv-reveal">
+                        <span class="inv-category-intro__index">03 / C</span>
+                        <h2 id="csr-title">Social Impact &amp; CSR</h2>
+                        <p>Social responsibility, volunteer enrollment and sustainability alliance requests are grouped into a focused CSR desk.</p>
+                    </div>
+                    <div class="inv-category-list inv-reveal">
+                        <article class="inv-category-row">
+                            <h3>CSR Collaboration</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="CSR Collaboration">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>CSR Volunteer Enrollment</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="CSR Volunteer Enrollment">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Environment and Sustainability Alliances</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Environment and Sustainability Alliances">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="inv-category-block" id="visibility" aria-labelledby="visibility-title">
+                <div class="inv-shell inv-category-grid">
+                    <div class="inv-category-intro inv-reveal">
+                        <span class="inv-category-intro__index">03 / D</span>
+                        <h2 id="visibility-title">Innovation &amp; Visibility</h2>
+                        <p>Investor relations, media, PR, trade fair and strategic visibility conversations are placed into a premium communication desk.</p>
+                    </div>
+                    <div class="inv-category-list inv-reveal">
+                        <article class="inv-category-row">
+                            <h3>Investor Relations / Strategic Alliances</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Investor Relations / Strategic Alliances">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Media and PR Collaboration</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Media and PR Collaboration">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                        <article class="inv-category-row">
+                            <h3>Event / Trade Fair Partnerships</h3>
+                            <button class="inv-btn inv-btn--outline inv-inquiry-btn" type="button" data-opportunity="Event / Trade Fair Partnerships">Send Inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="inv-block-quote" aria-label="Engagement statement">
+            <div class="inv-shell">
+                <p class="inv-reveal">The right conversation <span>can begin something significant.</span></p>
+            </div>
+        </section>
+
+        <section class="inv-final" id="connect" aria-labelledby="connect-title">
+            <div class="inv-shell">
+                <div class="inv-final__grid">
+                    <div class="inv-reveal">
+                        <span class="inv-eyebrow" style="color:#d6d6d6;">Connect with Pradako</span>
+                        <h2 id="connect-title"><span>Start the right</span><span>conversation.</span></h2>
+                    </div>
+                    <div class="inv-final__side inv-reveal">
+                        <p>
+                            Select any opportunity item above and your email client will open with a prepared inquiry format for faster communication with the relevant Pradako opportunity desk.
+                        </p>
+                        <button class="inv-btn inv-inquiry-btn" type="button" data-opportunity="General Invitation and Opportunity Inquiry">
+                            Send a general inquiry <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M4 12h16M13 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <div class="inv-toast" id="inv-toast" role="status" aria-live="polite">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.12em"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M3.5 9.5L12 15l8.5-5.5"/></svg>
+        Preparing your inquiry email…
+    </div>
+
+    <script src="/assets/js/global-presence.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            const recipient = "Chairman@Pradakomechanicals.com";
+            const inquiryButtons = document.querySelectorAll(".inv-inquiry-btn");
+            const toast = document.getElementById("inv-toast");
+            const revealItems = document.querySelectorAll(".inv-reveal");
+            let toastTimer;
+
+
+            function showToast() {
+                if (!toast) return;
+                window.clearTimeout(toastTimer);
+                toast.classList.add("is-visible");
+                toastTimer = window.setTimeout(function () {
+                    toast.classList.remove("is-visible");
+                }, 2400);
+            }
+
+            function buildMailto(opportunity) {
+                const subject = "Pradako Opportunity Inquiry — " + opportunity;
+                const body = [
+                    "Dear Chairman's Office,",
+                    "",
+                    "I would like to enquire about the following Pradako invitation / opportunity:",
+                    opportunity,
+                    "",
+                    "Name:",
+                    "Organisation:",
+                    "Designation:",
+                    "Country / Region:",
+                    "Phone:",
+                    "Website / LinkedIn:",
+                    "",
+                    "Brief introduction and proposal:",
+                    "",
+                    "",
+                    "Preferred next step:",
+                    "",
+                    "Kind regards,"
+                ].join("\n");
+
+                return "mailto:" + recipient +
+                    "?subject=" + encodeURIComponent(subject) +
+                    "&body=" + encodeURIComponent(body);
+            }
+
+            inquiryButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const opportunity = button.dataset.opportunity || "General Invitation and Opportunity Inquiry";
+                    showToast();
+                    window.setTimeout(function () {
+                        window.location.href = buildMailto(opportunity);
+                    }, 180);
+                });
+            });
+
+            if ("IntersectionObserver" in window) {
+                const revealObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -40px 0px"
+                });
+
+                revealItems.forEach(function (item) {
+                    revealObserver.observe(item);
+                });
+            } else {
+                revealItems.forEach(function (item) {
+                    item.classList.add("is-visible");
+                });
+            }
+
+        })();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

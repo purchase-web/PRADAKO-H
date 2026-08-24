@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>CQI Compliance | Pradako Mechanical</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="/assets/css/page-style.css">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #111;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========== HEADER WITH PROPER LOGO ========== */
+.main-header {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    overflow: visible;
+}
+
+.topbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: auto;
+    max-height: 60px;
+    width: auto;
+    display: block;
+}
+
+
+/* ========== CQI SECTION ========== */
+.cqi {
+    padding: clamp(80px, 15vw, 190px) 5%;
+    background: linear-gradient(180deg, #ffffff, #f3f7fa);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.cqi-head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cqi-head h2 {
+    font-size: clamp(32px, 6vw, 46px);
+    margin-bottom: 8px;
+}
+
+.cqi-head p {
+    color: #0A3D62;
+    font-size: clamp(16px, 3vw, 20px);
+}
+
+.cqi-intro {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    text-align: center;
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.8;
+    color: #444;
+    padding: 0 15px;
+}
+
+.cqi-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.cqi-card {
+    background: #fff;
+    padding: clamp(30px, 4vw, 40px);
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cqi-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cqi-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .12);
+}
+
+.cqi-card h3 {
+    font-size: clamp(28px, 4vw, 32px);
+    margin-bottom: 6px;
+}
+
+.cqi-card h4 {
+    font-size: clamp(15px, 2.5vw, 17px);
+    color: #0A3D62;
+    margin-bottom: 14px;
+}
+
+.cqi-card p {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.cqi-text {
+    max-width: 1400px;
+    margin: 50px auto 0;
+    padding: 0 15px;
+}
+
+.cqi-text p {
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    color: #444;
+}
+
+.cqi-bottom {
+    max-width: 900px;
+    margin: 70px auto 0;
+    text-align: center;
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.8;
+    color: #333;
+    padding: 0 15px;
+}
+
+
+/* Additional responsive fixes */
+@media (max-width: 768px) {
+    .cqi {
+        padding: 100px 4% 60px;
+    }
+    .cqi-cards {
+        gap: 20px;
+    }
+    .cqi-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cqi-card h3 {
+        font-size: 24px;
+    }
+    .cqi-card h4 {
+        font-size: 14px;
+    }
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="CQI Compliance from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/quality-manufacturing/cqi-9.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CQI Compliance | Pradako Mechanical">
+    <meta property="og:description" content="CQI Compliance from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/quality-manufacturing/cqi-9.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CQI Compliance | Pradako Mechanical">
+    <meta name="twitter:description" content="CQI Compliance from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "CQI Compliance | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/quality-manufacturing/cqi-9.html",
+  "description": "CQI Compliance from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+
+<div id="navbar-container"></div>
+
+<section class="cqi">
+    <div class="cqi-head">
+        <h2>CQI Compliance Systems</h2>
+        <p>Commitment to Excellence: CQI-9, CQI-11 & CQI-12</p>
+    </div>
+
+    <div class="cqi-intro">
+        At Pradako Mechanical & Engineering Works we strictly adhere to AIAG CQI standards to ensure precision, durability and performance consistency across heat treatment, plating and coating processes.
+    </div>
+
+    <div class="cqi-cards">
+        <div class="cqi-card">
+            <h3>CQI-9</h3>
+            <h4>Heat Treat System Assessment</h4>
+            <p>
+                CQI-9 establishes best practices for heat treatment processes, ensuring uniform hardness, tensile strength, and durability in metal components.
+            </p>
+            <p>
+                At Pradako, we maintain strict compliance through controlled furnace operations, periodic testing, and process monitoring, guaranteeing that all fasteners and precision-engineered parts meet industry and safety standards.
+            </p>
+        </div>
+
+        <div class="cqi-card">
+            <h3>CQI-11</h3>
+            <h4>Plating System Assessment</h4>
+            <p>
+                This standard ensures high-quality plating processes, focusing on coating thickness, adhesion, and corrosion resistance.
+            </p>
+            <p>
+                By adhering to CQI-11, Pradako ensures that electroplated fasteners and components maintain long-term durability, enhancing performance in automotive, aerospace, and industrial applications.
+            </p>
+        </div>
+
+        <div class="cqi-card">
+            <h3>CQI-12</h3>
+            <h4>Coating System Assessment</h4>
+            <p>
+                CQI-12 governs paint, powder coating, and other surface protection processes, ensuring defect-free, high-performance coatings.
+            </p>
+            <p>
+                Pradako applies strict quality controls in coating application, curing, and adhesion testing, delivering aesthetic, wear-resistant, and corrosion-resistant finishes that meet stringent industry demands.
+            </p>
+        </div>
+    </div>
+
+    <div class="cqi-text">
+        <p>
+            By implementing rigorous process controls, regular self-assessments, and quality inspections, we guarantee that every part meets automotive, aerospace, and high-precision manufacturing requirements.
+        </p>
+        <p>
+            Our heat-treated fasteners and components exhibit superior mechanical properties, our plating processes provide exceptional corrosion resistance, and our coatings meet the highest aesthetic and functional standards.
+        </p>
+        <p>
+            The growing importance of these standards aligns with the increasing complexity of modern engineering components, requiring stringent quality assurance to prevent failures. Pradako's commitment to CQI compliance reinforces our position as a trusted partner, delivering high-performance solutions that meet global industry benchmarks and exceed customer expectations.
+        </p>
+    </div>
+</section>
+
+    <!-- ======================================================
+        FOOTER
+    ======================================================= -->
+
+    <div id="footer-container"></div>
+
+    <!-- ======================================================
+        MAIN JS
+    ======================================================= -->
+
+    <script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

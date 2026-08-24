@@ -1,0 +1,541 @@
+/* ==========================================================================
+   PRADAKO / PMEW — SHARED PRODUCT ACTION CONSISTENCY
+   --------------------------------------------------------------------------
+   Loaded LAST on Customised Products and the 12 product-family pages.
+
+   Scope only:
+   - product-level Add to Enquiry controls
+   - product-level Compare controls / family comparison dock
+   - individual-product Save controls
+
+   The page/card layouts remain owned by their existing stylesheets.
+   ========================================================================== */
+
+:root {
+    --pmew-action-navy: #0A3D62;
+    --pmew-action-navy-deep: #062b47;
+    --pmew-action-orange: #F47A14;
+    --pmew-action-line: #c9d9e4;
+    --pmew-action-success: #167a55;
+    --pmew-action-success-bg: #edf8f3;
+    --pmew-action-danger: #b42318;
+    --pmew-action-danger-bg: #fff2f1;
+    --pmew-action-muted-bg: #eef2f5;
+    --pmew-action-muted: #8496a5;
+}
+
+.pmew-ui-enquiry-action,
+.pmew-ui-compare-action,
+.pmew-product-save-action {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   01. ADD TO ENQUIRY — SAME THREE STATES AS PDP
+   ========================================================================== */
+
+button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact) {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding: 0 11px !important;
+    border: 1px solid var(--pmew-action-navy) !important;
+    border-radius: 9px !important;
+    background: var(--pmew-action-navy) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transform: none !important;
+    transition:
+        border-color .18s ease,
+        background-color .18s ease,
+        color .18s ease,
+        box-shadow .18s ease !important;
+}
+
+button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact):not(.is-added):not(:disabled):hover,
+button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact):not(.is-added):not(:disabled):focus-visible {
+    border-color: var(--pmew-action-navy-deep) !important;
+    background: var(--pmew-action-navy-deep) !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(10,61,98,.13) !important;
+    transform: none !important;
+}
+
+/* The shared PradakoEnquiryCart owns these three states:
+   Add (navy) -> Added (green) -> Remove intent (red on hover/focus). */
+button.pmew-ui-enquiry-action.is-added {
+    border-color: rgba(22,122,85,.42) !important;
+    background: var(--pmew-action-success-bg) !important;
+    color: var(--pmew-action-success) !important;
+    box-shadow: none !important;
+}
+
+button.pmew-ui-enquiry-action.is-added.is-remove-ready {
+    border-color: rgba(180,35,24,.38) !important;
+    background: var(--pmew-action-danger-bg) !important;
+    color: var(--pmew-action-danger) !important;
+    box-shadow: 0 8px 20px rgba(180,35,24,.08) !important;
+}
+
+button.pmew-ui-enquiry-action:disabled:not(.is-added) {
+    border-color: #d8e1e8 !important;
+    background: var(--pmew-action-muted-bg) !important;
+    color: var(--pmew-action-muted) !important;
+    opacity: .72 !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+}
+
+.pmew-ui-enquiry-action [data-enquiry-icon] {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,.13) !important;
+    transition: background .18s ease, transform .18s ease !important;
+}
+
+.pmew-ui-enquiry-action [data-enquiry-icon] i,
+.pmew-ui-enquiry-action [data-enquiry-icon] svg {
+    width: 13px !important;
+    height: 13px !important;
+    font-size: 12px !important;
+    transition: transform .18s ease !important;
+}
+
+.pmew-ui-enquiry-action:not(.is-added):not(:disabled):hover [data-enquiry-icon] i,
+.pmew-ui-enquiry-action:not(.is-added):not(:disabled):focus-visible [data-enquiry-icon] i,
+.pmew-ui-enquiry-action:not(.is-added):not(:disabled):hover [data-enquiry-icon] svg,
+.pmew-ui-enquiry-action:not(.is-added):not(:disabled):focus-visible [data-enquiry-icon] svg {
+    transform: rotate(90deg) !important;
+}
+
+.pmew-ui-enquiry-action.is-added [data-enquiry-icon] {
+    background: rgba(22,122,85,.11) !important;
+}
+
+.pmew-ui-enquiry-action.is-added.is-remove-ready [data-enquiry-icon] {
+    background: rgba(180,35,24,.08) !important;
+}
+
+.pmew-ui-enquiry-action.is-added.is-remove-ready [data-enquiry-icon] i,
+.pmew-ui-enquiry-action.is-added.is-remove-ready [data-enquiry-icon] svg {
+    transform: rotate(180deg) !important;
+}
+
+.pmew-ui-enquiry-action [data-enquiry-label] {
+    font: inherit !important;
+    color: inherit !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+}
+
+/* Compact product controls (gallery/chart) preserve their original footprint,
+   but use the exact PDP state colours and state semantics. */
+button.pmew-ui-enquiry-action.pmew-ui-enquiry-compact {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border: 1px solid var(--pmew-action-navy) !important;
+    border-radius: 9px !important;
+    background: var(--pmew-action-navy) !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+button.pmew-ui-enquiry-action.pmew-ui-enquiry-compact [data-enquiry-icon] {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+button.pmew-ui-enquiry-action.pmew-ui-enquiry-compact.is-added {
+    border-color: rgba(22,122,85,.42) !important;
+    background: var(--pmew-action-success-bg) !important;
+    color: var(--pmew-action-success) !important;
+}
+
+button.pmew-ui-enquiry-action.pmew-ui-enquiry-compact.is-added.is-remove-ready {
+    border-color: rgba(180,35,24,.38) !important;
+    background: var(--pmew-action-danger-bg) !important;
+    color: var(--pmew-action-danger) !important;
+}
+
+/* ==========================================================================
+   02. COMPARE — SAME PDP OUTLINE / ORANGE SELECTED STATE
+   ========================================================================== */
+
+button.pmew-ui-compare-action:not(.pmew-ui-compare-compact) {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding: 0 11px !important;
+    border: 1px solid #b9ccda !important;
+    border-radius: 9px !important;
+    background: #fff !important;
+    color: #0b3553 !important;
+    box-shadow: none !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transform: none !important;
+    transition:
+        border-color .18s ease,
+        background-color .18s ease,
+        color .18s ease,
+        box-shadow .18s ease !important;
+}
+
+button.pmew-ui-compare-action:not(.pmew-ui-compare-compact):hover,
+button.pmew-ui-compare-action:not(.pmew-ui-compare-compact):focus-visible {
+    border-color: #0b3553 !important;
+    background: #f3f8fb !important;
+    color: #072a43 !important;
+    box-shadow: 0 6px 14px rgba(10,61,98,.07) !important;
+    transform: none !important;
+}
+
+button.pmew-ui-compare-action.is-added,
+button.pmew-ui-compare-action.is-selected,
+button.pmew-ui-compare-action.is-compared {
+    border-color: var(--pmew-action-orange) !important;
+    background: #fff7f0 !important;
+    color: #b44d00 !important;
+    box-shadow: none !important;
+}
+
+button.pmew-ui-compare-action.pmew-ui-compare-compact {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border: 1px solid #b9ccda !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,.97) !important;
+    color: #0b3553 !important;
+    box-shadow: 0 6px 16px rgba(8,43,68,.08) !important;
+    cursor: pointer !important;
+    transform: none !important;
+}
+
+button.pmew-ui-compare-action.pmew-ui-compare-compact:hover,
+button.pmew-ui-compare-action.pmew-ui-compare-compact:focus-visible {
+    border-color: #0b3553 !important;
+    background: #f3f8fb !important;
+    color: #072a43 !important;
+}
+
+button.pmew-ui-compare-action.pmew-ui-compare-compact.is-added,
+button.pmew-ui-compare-action.pmew-ui-compare-compact.is-selected,
+button.pmew-ui-compare-action.pmew-ui-compare-compact.is-compared {
+    border-color: var(--pmew-action-orange) !important;
+    background: #fff7f0 !important;
+    color: #b44d00 !important;
+}
+
+/* Family pages reuse the canonical .pmew-selection-bar / .pmew-selbar-*
+   component from pradako-products-plus.css. No family-specific dock CSS here. */
+
+/* ==========================================================================
+   03. SAVE — INDIVIDUAL PRODUCT ONLY
+   ========================================================================== */
+
+.pmew-save-host-card {
+    position: relative !important;
+}
+
+.pmew-product-save-action {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 12 !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    border: 1px solid #d9e4ec !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,.97) !important;
+    color: #607486 !important;
+    box-shadow: 0 7px 18px rgba(8,43,68,.09) !important;
+    cursor: pointer !important;
+    transform: none !important;
+    transition:
+        border-color .18s ease,
+        background-color .18s ease,
+        color .18s ease,
+        box-shadow .18s ease !important;
+}
+
+.pmew-product-save-action.pmew-save-offset-compare {
+    right: 58px !important;
+}
+
+.pmew-product-save-action:hover,
+.pmew-product-save-action:focus-visible {
+    border-color: var(--pmew-action-navy) !important;
+    background: #f4f8fb !important;
+    color: var(--pmew-action-navy) !important;
+    box-shadow: 0 8px 20px rgba(10,61,98,.10) !important;
+    outline: 0 !important;
+}
+
+.pmew-product-save-action.is-saved {
+    border-color: rgba(244,122,20,.42) !important;
+    background: #fff8f2 !important;
+    color: var(--pmew-action-orange) !important;
+}
+
+.pmew-product-save-action i {
+    font-size: 15px !important;
+}
+
+.pmew-product-save-action [data-pmew-save-label] {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ==========================================================================
+   04. RESPONSIVE BUTTON / DOCK BEHAVIOUR
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact),
+    button.pmew-ui-compare-action:not(.pmew-ui-compare-compact) {
+        height: 46px !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        padding-inline: 9px !important;
+        font-size: 12px !important;
+    }
+
+    .pmew-product-save-action {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+        top: 11px !important;
+        right: 11px !important;
+    }
+
+    .pmew-product-save-action.pmew-save-offset-compare {
+        right: 52px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pmew-ui-enquiry-action,
+    .pmew-ui-compare-action,
+    .pmew-product-save-action {
+        transition: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   05. CUSTOMISED PAGE SPECIFICITY BRIDGE
+   --------------------------------------------------------------------------
+   customised-products.css intentionally contains older !important product
+   action states. These selectors are deliberately more specific so the shared
+   PDP state language wins without editing the page's layout CSS.
+   ========================================================================== */
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact) {
+    border-color: var(--pmew-action-navy) !important;
+    background: var(--pmew-action-navy) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact):not(.is-added):not(:disabled):hover,
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact):not(.is-added):not(:disabled):focus-visible {
+    border-color: var(--pmew-action-navy-deep) !important;
+    background: var(--pmew-action-navy-deep) !important;
+    color: #fff !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action.is-added {
+    border-color: rgba(22,122,85,.42) !important;
+    background: var(--pmew-action-success-bg) !important;
+    color: var(--pmew-action-success) !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action.is-added.is-remove-ready {
+    border-color: rgba(180,35,24,.38) !important;
+    background: var(--pmew-action-danger-bg) !important;
+    color: var(--pmew-action-danger) !important;
+    box-shadow: 0 8px 20px rgba(180,35,24,.08) !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-enquiry-action:disabled:not(.is-added) {
+    border-color: #d8e1e8 !important;
+    background: var(--pmew-action-muted-bg) !important;
+    color: var(--pmew-action-muted) !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action {
+    border-color: #b9ccda !important;
+    background: #fff !important;
+    color: #0b3553 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action:hover,
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action:focus-visible {
+    border-color: #0b3553 !important;
+    background: #f3f8fb !important;
+    color: #072a43 !important;
+    transform: none !important;
+}
+
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action.is-added,
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action.is-selected,
+body.pmew-customised-products-page .customised-products-page-main button.pmew-ui-compare-action.is-compared {
+    border-color: var(--pmew-action-orange) !important;
+    background: #fff7f0 !important;
+    color: #b44d00 !important;
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   SHARED PRODUCT CARD ACTIONS
+   Canonical order: Add to Enquiry → Compare
+   Same height / typography on Bolt + Customised pages
+   ========================================================================== */
+
+/* Any action row containing the shared Enquiry + Compare buttons */
+:where(
+    .pmew-product-actions,
+    .product-actions,
+    .card-actions,
+    .pmew-card-actions
+):has(> .pmew-ui-enquiry-action):has(> .pmew-ui-compare-action) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.55fr) minmax(120px, .85fr) !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+}
+
+
+/* ADD TO ENQUIRY — FIRST / WIDER */
+.pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact) {
+    order: 1 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+
+    margin: 0 !important;
+
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* COMPARE — SECOND / SMALLER */
+.pmew-ui-compare-action:not(.pmew-ui-compare-compact) {
+    order: 2 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+
+    margin: 0 !important;
+
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* Mobile — retain same order, slightly tighter proportions */
+@media (max-width: 520px) {
+
+    :where(
+        .pmew-product-actions,
+        .product-actions,
+        .card-actions,
+        .pmew-card-actions
+    ):has(> .pmew-ui-enquiry-action):has(> .pmew-ui-compare-action) {
+        grid-template-columns: minmax(0, 1.45fr) minmax(112px, .85fr) !important;
+        gap: 8px !important;
+    }
+
+    .pmew-ui-enquiry-action:not(.pmew-ui-enquiry-compact),
+    .pmew-ui-compare-action:not(.pmew-ui-compare-compact) {
+        height: 46px !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        font-size: 12px !important;
+    }
+}

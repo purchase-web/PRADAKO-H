@@ -1,0 +1,127 @@
+PMEW DATA / SOURCE-DATA ORGANIZATION REPORT
+Generated: 2026-08-21
+
+PURPOSE
+-------
+This pass reorganizes the user's remaining PMEW data files without changing their engineering/source content and without modifying the HTML baseline.
+
+FINAL ORGANIZATION
+------------------
+data/source/standards/
+  Canonical source/provenance records. KEEP.
+
+data/generated/standards/authority/
+  Generated browser-style authority datasets. KEEP as derived data, but do not mix with interactive site JS.
+
+data/manifests/
+  Specifications manifest in JSON (machine-friendly) and CSV (human/Excel review) forms.
+
+data/audit/
+  Historical QA/audit snapshots. Not runtime website files.
+
+data/archive/product-taxonomy/
+  Older screw taxonomy retained for reference; not currently referenced by the website.
+
+config/
+  Redirect map. KEEP for production redirects / SEO migration.
+
+tools/archive/
+  Misnamed iso-standards.json preserved as iso-standards-converter.py because its content is Python code.
+
+COUNTS
+------
+Source authority JSON files: 26
+Source authority records: 3876
+Generated authority JS files: 25
+Generated authority records: 3389
+Current HTML pages inspected for direct generated-data references: 5194
+Direct references from current HTML to *-data.js files: 0
+Direct references from cleaned interactive JS to *-data.js filenames: 0
+
+SOURCE / GENERATED RELATIONSHIP
+-------------------------------
+Matching source/generated authorities checked: 25
+Pairs whose embedded sourceRecord arrays exactly equal the source JSON arrays: 25
+Pairs not exact: 0
+
+DIN SPECIAL CASE
+----------------
+Source file: din-source-records.json
+Source records / unique codes: 487 / 445
+Existing cleaned din-data.js rows / unique Given standard codes: 439 / 435
+Source-only normalized standard-code entries requiring reconciliation: 10
+  - DIN 1478
+  - DIN 1480
+  - DIN 7971 / ISO 1481
+  - DIN 7981 / ISO 7049
+  - DIN 7982 / ISO 7050
+  - DIN 7983 / ISO 7051
+  - DIN 933 + DIN 934 / ISO 4017
+  - DIN 966 / ISO 7047-H
+  - DIN 966 / ISO 7047-Z
+  - DIN 966 TX VARIANT
+
+
+PUBLICATION-READINESS FLAGS
+---------------------------
+Generated records containing obvious placeholder/pending wording:
+  - asme-data.js: 17
+  - cen-data.js: 11
+  - pn-data.js: 6
+
+These files were retained, not deleted. Placeholder rows should be verified before being presented as publication-ready technical data.
+
+OFFICIAL-URL COVERAGE FOUND IN SOURCE RECORDS
+---------------------------------------------
+  - jis-source-records.json: 84/84 records contain an explicit http(s) URL field
+  - sn-snv-source-records.json: 123/123 records contain an explicit http(s) URL field
+
+Most other source records retain PMEW/internal source-page provenance rather than an individual official authority URL. Preserve them as provenance, but do not interpret that alone as official-source verification.
+
+SPECIFICATIONS MANIFEST
+-----------------------
+CSV rows: 641
+JSON and CSV row content identical: True
+Manifest target HTML files currently present: 641/641
+
+REDIRECT MAP
+------------
+Redirect rows: 152
+New/target paths currently present in HTML baseline: 152/152
+Old/source paths still present in HTML baseline: 0/152
+
+CONVERTER SCRIPT
+----------------
+Original filename: iso-standards.json (incorrect extension)
+New archived filename: tools/archive/iso-standards-converter.py
+Python syntax validation: OK
+Expected Excel input mentioned by script: ISO_fastener_standards_iso_org_verified_2026-06-11.xlsx
+That Excel input was found in the supplied current archives/runtime: no
+
+VALIDATION
+----------
+JSON files parsed successfully: 29/29
+Generated JS syntax errors: 0
+
+DECISIONS
+---------
+KEEP:
+- all 26 *-source-records.json files
+- all 25 *-data.js files as generated/derived data
+- specifications-manifest.json and specifications-manifest.csv
+- redirect-map.csv
+- DIN source records
+
+KEEP BUT ARCHIVE / NON-RUNTIME:
+- standards-data-check-2026-06-17.json
+- pmew-shell-validation-legacy.csv
+- screwdata.json
+- iso-standards-converter.py
+
+DO NOT DELETE YET:
+- any DIN source-only records
+- ASME/CEN/PN placeholder records; verify first
+
+HTML
+----
+No HTML page, navbar, or footer was modified in this pass. The current HTML archive remains the future path/fetching baseline until image assets are supplied.

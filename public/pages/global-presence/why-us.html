@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why Pradako — engineering reliability, structured manufacturing systems, scalable capacity and long-term global supply confidence since 1960.">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Why Pradako | Engineering Trust Since 1960</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- PMEW TYPOGRAPHY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- PMEW GLOBAL STYLES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <style>
+        /* ============================================================
+           WHY PRADAKO — PAGE-SCOPED DESIGN SYSTEM
+           All selectors are prefixed with wp- to prevent CSS conflicts.
+        ============================================================ */
+
+        :root {
+            --wp-white: #ffffff;
+            --wp-paper: #fafafa;
+            --wp-soft: #f5f5f3;
+            --wp-ink: #111111;
+            --wp-ink-soft: #2b2b2b;
+            --wp-grey: #666a70;
+            --wp-line: #deded9;
+            --wp-line-strong: #bdbdb7;
+            --wp-coral: #0f766e;
+            --wp-coral-soft: #e9f5f2;
+            --wp-coral-pale: #f4faf8;
+            --wp-radius: 2px;
+            --wp-container: 1380px;
+            --wp-header-offset: 88px;
+            --wp-section-space: clamp(6rem, 10vw, 10rem);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.wp-page {
+            margin: 0;
+            overflow-x: hidden;
+            background: var(--wp-white);
+            color: var(--wp-ink);
+            font-family: "Montserrat", sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wp-page *,
+        .wp-page *::before,
+        .wp-page *::after {
+            box-sizing: border-box;
+        }
+
+        .wp-page img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .wp-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wp-page button,
+        .wp-page a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .wp-container {
+            width: min(calc(100% - 48px), var(--wp-container));
+            margin-inline: auto;
+        }
+
+        .wp-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0 0 1.25rem;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .wp-kicker::before {
+            width: 42px;
+            height: 2px;
+            background: var(--wp-coral);
+            content: "";
+        }
+
+        .wp-section-title {
+            max-width: 1000px;
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.6rem, 6vw, 6.5rem);
+            font-weight: 700;
+            letter-spacing: -0.07em;
+            line-height: 0.92;
+            text-transform: uppercase;
+        }
+
+        .wp-section-title span {
+            color: var(--wp-coral);
+        }
+
+        .wp-lead {
+            max-width: 840px;
+            margin: 2rem 0 0;
+            color: var(--wp-ink-soft);
+            font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+            line-height: 1.75;
+        }
+
+        .wp-copy {
+            color: var(--wp-ink-soft);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .wp-copy + .wp-copy {
+            margin-top: 1rem;
+        }
+
+        .wp-rule {
+            height: 1px;
+            background: var(--wp-line);
+        }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+
+        .wp-hero {
+            position: relative;
+            min-height: calc(100svh - var(--wp-header-offset));
+            padding: clamp(2.5rem, 5vw, 5rem) 0 2rem;
+            overflow: hidden;
+            background: var(--wp-white);
+        }
+
+        .wp-hero__grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(420px, 0.96fr);
+            min-height: calc(100svh - var(--wp-header-offset) - 7rem);
+            align-items: center;
+            gap: clamp(2.5rem, 5vw, 6rem);
+        }
+
+        .wp-hero__content {
+            position: relative;
+            z-index: 2;
+            padding: 1rem 0;
+        }
+
+        .wp-hero__eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            color: var(--wp-grey);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.19em;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__eyebrow span {
+            color: var(--wp-coral);
+        }
+
+        .wp-hero__title {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(4.4rem, 9.4vw, 10.8rem);
+            font-weight: 700;
+            letter-spacing: -0.095em;
+            line-height: 0.78;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__title .wp-hero__title-accent {
+            display: block;
+            color: var(--wp-coral);
+        }
+
+        .wp-hero__one-liner {
+            max-width: 720px;
+            margin: clamp(2rem, 3.8vw, 3.2rem) 0 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.3rem, 2vw, 2.1rem);
+            font-weight: 500;
+            letter-spacing: -0.035em;
+            line-height: 1.25;
+        }
+
+        .wp-hero__one-liner strong {
+            font-weight: 700;
+        }
+
+        .wp-hero__description {
+            max-width: 710px;
+            margin: 1.5rem 0 0;
+            color: var(--wp-grey);
+            font-size: clamp(0.96rem, 1.15vw, 1.12rem);
+            line-height: 1.75;
+        }
+
+        .wp-hero__actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.9rem;
+            margin-top: 2.2rem;
+        }
+
+        .wp-btn {
+            display: inline-flex;
+            min-height: 52px;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.9rem 1.35rem;
+            border: 1px solid var(--wp-ink);
+            border-radius: var(--wp-radius);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            text-transform: uppercase;
+            transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease;
+        }
+
+        .wp-btn:hover,
+        .wp-btn:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .wp-btn--primary {
+            border-color: var(--wp-coral);
+            background: var(--wp-coral);
+            color: var(--wp-white);
+        }
+
+        .wp-btn--primary:hover,
+        .wp-btn--primary:focus-visible {
+            border-color: var(--wp-ink);
+            background: var(--wp-ink);
+            color: var(--wp-white);
+        }
+
+        .wp-btn--outline {
+            background: var(--wp-white);
+            color: var(--wp-ink);
+        }
+
+        .wp-btn--outline:hover,
+        .wp-btn--outline:focus-visible {
+            background: var(--wp-ink);
+            color: var(--wp-white);
+        }
+
+        .wp-hero__visual {
+            position: relative;
+            min-height: min(72vh, 760px);
+            overflow: hidden;
+            background: var(--wp-soft);
+        }
+
+        .wp-hero__visual::before {
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            border: 1px solid rgba(17, 17, 17, 0.12);
+            content: "";
+            pointer-events: none;
+        }
+
+        .wp-hero__image {
+            width: 100%;
+            height: 100%;
+            min-height: min(72vh, 760px);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .wp-hero__visual-label {
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            bottom: 0;
+            width: min(88%, 390px);
+            padding: 1.4rem 1.5rem;
+            border-top: 1px solid rgba(17, 17, 17, 0.14);
+            border-left: 1px solid rgba(17, 17, 17, 0.14);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+        }
+
+        .wp-hero__visual-label small {
+            display: block;
+            margin-bottom: 0.45rem;
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__visual-label strong {
+            display: block;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1rem, 1.4vw, 1.3rem);
+            letter-spacing: -0.025em;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 2rem;
+            border-top: 1px solid var(--wp-line);
+            border-bottom: 1px solid var(--wp-line);
+        }
+
+        .wp-metric {
+            min-height: 132px;
+            padding: 1.35rem 1.1rem 1.15rem;
+            border-right: 1px solid var(--wp-line);
+        }
+
+        .wp-metric:last-child {
+            border-right: 0;
+        }
+
+        .wp-metric__value {
+            display: block;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.75rem, 3vw, 3.3rem);
+            font-weight: 700;
+            letter-spacing: -0.06em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .wp-metric__label {
+            display: block;
+            max-width: 170px;
+            margin-top: 0.7rem;
+            color: var(--wp-grey);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            line-height: 1.45;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__signature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.35rem;
+            color: var(--wp-grey);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .wp-hero__signature::before,
+        .wp-hero__signature::after {
+            width: 48px;
+            height: 1px;
+            background: var(--wp-line-strong);
+            content: "";
+        }
+
+        /* ============================================================
+           FULL-PAGE STATEMENTS
+        ============================================================ */
+
+        .wp-statement {
+            position: relative;
+            min-height: 92svh;
+            display: grid;
+            place-items: center;
+            padding: 7rem 0;
+            overflow: hidden;
+            background: var(--wp-white);
+        }
+
+        .wp-statement--soft {
+            background: var(--wp-soft);
+        }
+
+        .wp-statement--coral {
+            background: var(--wp-coral-soft);
+        }
+
+        .wp-statement__inner {
+            width: min(calc(100% - 48px), 1500px);
+            margin-inline: auto;
+        }
+
+        .wp-statement__index {
+            display: block;
+            margin-bottom: clamp(2rem, 5vw, 5rem);
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .wp-statement__text {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(4rem, 11vw, 12rem);
+            font-weight: 700;
+            letter-spacing: -0.09em;
+            line-height: 0.82;
+            text-transform: uppercase;
+        }
+
+        .wp-statement__text .wp-outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--wp-ink);
+        }
+
+        .wp-statement__text .wp-coral {
+            color: var(--wp-coral);
+        }
+
+        .wp-statement__support {
+            max-width: 690px;
+            margin: clamp(2rem, 4vw, 4rem) 0 0 auto;
+            color: var(--wp-grey);
+            font-size: clamp(1rem, 1.35vw, 1.25rem);
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           STANDARDS
+        ============================================================ */
+
+        .wp-standards {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-white);
+        }
+
+        .wp-standards__intro {
+            display: grid;
+            grid-template-columns: 1fr minmax(320px, 0.56fr);
+            align-items: end;
+            gap: 4rem;
+            margin-bottom: clamp(4rem, 7vw, 7rem);
+        }
+
+        .wp-standards__note {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--wp-coral);
+            color: var(--wp-grey);
+            font-size: 0.88rem;
+            line-height: 1.75;
+        }
+
+        .wp-standards__grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border-top: 1px solid var(--wp-ink);
+            border-bottom: 1px solid var(--wp-ink);
+        }
+
+        .wp-standard {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 1.25rem 1.5rem;
+            border-right: 1px solid var(--wp-line);
+            transition: background-color 240ms ease;
+        }
+
+        .wp-standard:last-child {
+            border-right: 0;
+        }
+
+        .wp-standard:hover {
+            background: var(--wp-coral-pale);
+        }
+
+        .wp-standard__name {
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.2rem, 4vw, 4.7rem);
+            font-weight: 700;
+            letter-spacing: -0.07em;
+            line-height: 0.9;
+        }
+
+        .wp-standard__number {
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .wp-standard__description {
+            margin: 1.5rem 0 0;
+            color: var(--wp-grey);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            line-height: 1.55;
+            text-transform: uppercase;
+        }
+
+        .wp-standards__closing {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .wp-standards__closing p {
+            margin: 0;
+            color: var(--wp-grey);
+            font-size: 0.94rem;
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+           CAPABILITIES — EDITORIAL ROWS
+        ============================================================ */
+
+        .wp-capabilities {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-paper);
+        }
+
+        .wp-capabilities__heading {
+            display: grid;
+            grid-template-columns: 1fr minmax(300px, 0.42fr);
+            align-items: end;
+            gap: 4rem;
+            margin-bottom: clamp(4rem, 8vw, 8rem);
+        }
+
+        .wp-capabilities__heading .wp-lead {
+            margin: 0;
+        }
+
+        .wp-capability-list {
+            border-top: 1px solid var(--wp-ink);
+        }
+
+        .wp-capability {
+            display: grid;
+            grid-template-columns: 84px minmax(250px, 0.45fr) 1fr;
+            gap: clamp(1.5rem, 4vw, 5rem);
+            padding: clamp(2.6rem, 5vw, 5rem) 0;
+            border-bottom: 1px solid var(--wp-line);
+        }
+
+        .wp-capability__number {
+            padding-top: 0.35rem;
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wp-capability__title {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.7rem, 3vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+            text-transform: uppercase;
+        }
+
+        .wp-capability__body {
+            max-width: 760px;
+        }
+
+        .wp-capability__body p {
+            margin: 0;
+            color: var(--wp-ink-soft);
+            font-size: clamp(0.96rem, 1.1vw, 1.08rem);
+            line-height: 1.78;
+        }
+
+        .wp-capability__body p + p {
+            margin-top: 1rem;
+        }
+
+        .wp-sector-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--wp-line);
+            border-left: 1px solid var(--wp-line);
+        }
+
+        .wp-sector {
+            min-height: 92px;
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.1rem;
+            border-right: 1px solid var(--wp-line);
+            border-bottom: 1px solid var(--wp-line);
+            color: var(--wp-ink);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================
+           IMAGE / CONTENT FEATURE
+        ============================================================ */
+
+        .wp-feature {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-white);
+        }
+
+        .wp-feature__grid {
+            display: grid;
+            grid-template-columns: minmax(420px, 0.92fr) 1.08fr;
+            align-items: stretch;
+            gap: clamp(2.5rem, 6vw, 7rem);
+        }
+
+        .wp-feature__media {
+            min-height: 720px;
+            overflow: hidden;
+            background: var(--wp-soft);
+        }
+
+        .wp-feature__media img {
+            width: 100%;
+            height: 100%;
+            min-height: 720px;
+            object-fit: cover;
+        }
+
+        .wp-feature__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .wp-feature__title {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(3rem, 6vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -0.075em;
+            line-height: 0.88;
+            text-transform: uppercase;
+        }
+
+        .wp-feature__title span {
+            color: var(--wp-coral);
+        }
+
+        .wp-feature__content .wp-lead {
+            max-width: 760px;
+        }
+
+        .wp-feature__points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 3rem;
+            border-top: 1px solid var(--wp-ink);
+        }
+
+        .wp-feature__point {
+            min-height: 148px;
+            padding: 1.4rem 1rem 1.2rem 0;
+            border-bottom: 1px solid var(--wp-line);
+        }
+
+        .wp-feature__point:nth-child(odd) {
+            padding-right: 1.5rem;
+            border-right: 1px solid var(--wp-line);
+        }
+
+        .wp-feature__point:nth-child(even) {
+            padding-left: 1.5rem;
+        }
+
+        .wp-feature__point strong {
+            display: block;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .wp-feature__point span {
+            display: block;
+            margin-top: 0.75rem;
+            color: var(--wp-grey);
+            font-size: 0.84rem;
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           SYSTEMS
+        ============================================================ */
+
+        .wp-systems {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-soft);
+        }
+
+        .wp-systems__header {
+            display: grid;
+            grid-template-columns: 1fr minmax(320px, 0.52fr);
+            align-items: end;
+            gap: 4rem;
+            margin-bottom: clamp(4rem, 7vw, 7rem);
+        }
+
+        .wp-systems__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--wp-ink);
+            border-left: 1px solid var(--wp-line);
+        }
+
+        .wp-system {
+            min-height: 290px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.8rem;
+            border-right: 1px solid var(--wp-line);
+            border-bottom: 1px solid var(--wp-line);
+            background: var(--wp-white);
+        }
+
+        .wp-system__code {
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.4rem, 5vw, 5.4rem);
+            font-weight: 700;
+            letter-spacing: -0.07em;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .wp-system__index {
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wp-system__name {
+            max-width: 230px;
+            margin-top: 2rem;
+            color: var(--wp-grey);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            line-height: 1.55;
+            text-transform: uppercase;
+        }
+
+        .wp-systems__footer {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--wp-line);
+        }
+
+        .wp-systems__footer strong {
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .wp-systems__footer p {
+            max-width: 850px;
+            margin: 0;
+            color: var(--wp-grey);
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+           TRUST
+        ============================================================ */
+
+        .wp-trust {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-white);
+        }
+
+        .wp-trust__header {
+            display: grid;
+            grid-template-columns: 1fr minmax(300px, 0.45fr);
+            align-items: end;
+            gap: 4rem;
+            margin-bottom: clamp(4rem, 7vw, 7rem);
+        }
+
+        .wp-trust-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-top: 1px solid var(--wp-ink);
+            border-left: 1px solid var(--wp-line);
+        }
+
+        .wp-trust-item {
+            min-height: 410px;
+            padding: clamp(1.8rem, 3vw, 3rem);
+            border-right: 1px solid var(--wp-line);
+            border-bottom: 1px solid var(--wp-line);
+            background: var(--wp-white);
+        }
+
+        .wp-trust-item__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .wp-trust-item__number {
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wp-trust-item__line {
+            width: 80px;
+            height: 1px;
+            background: var(--wp-line-strong);
+        }
+
+        .wp-trust-item h3 {
+            max-width: 620px;
+            margin: clamp(2.4rem, 4vw, 4.5rem) 0 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.8rem, 3.7vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.06em;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .wp-trust-item p {
+            max-width: 650px;
+            margin: 1.6rem 0 0;
+            color: var(--wp-grey);
+            font-size: 0.93rem;
+            line-height: 1.75;
+        }
+
+        .wp-inline-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.65rem 1.25rem;
+            margin: 1.5rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wp-inline-list li {
+            position: relative;
+            padding-left: 1rem;
+            color: var(--wp-ink-soft);
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .wp-inline-list li::before {
+            position: absolute;
+            top: 0.53em;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background: var(--wp-coral);
+            content: "";
+        }
+
+        /* ============================================================
+           CUSTOMER VALUE
+        ============================================================ */
+
+        .wp-gain {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-coral-pale);
+        }
+
+        .wp-gain__header {
+            margin-bottom: clamp(4rem, 7vw, 7rem);
+        }
+
+        .wp-gain__grid {
+            border-top: 1px solid var(--wp-ink);
+        }
+
+        .wp-gain-item {
+            display: grid;
+            grid-template-columns: minmax(230px, 0.4fr) 1fr 56px;
+            align-items: center;
+            gap: 2rem;
+            min-height: 150px;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--wp-line);
+        }
+
+        .wp-gain-item h3 {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.6rem, 3.3vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .wp-gain-item p {
+            max-width: 760px;
+            margin: 0;
+            color: var(--wp-grey);
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+
+        .wp-gain-item__index {
+            color: var(--wp-coral);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-align: right;
+        }
+
+        /* ============================================================
+           COMMITMENT
+        ============================================================ */
+
+        .wp-commitment {
+            padding: var(--wp-section-space) 0;
+            background: var(--wp-white);
+        }
+
+        .wp-commitment__layout {
+            display: grid;
+            grid-template-columns: minmax(400px, 430px) minmax(0, 1fr);
+            gap: clamp(3rem, 4.5vw, 4rem);
+        }
+
+        /* Prevent either commitment column from overflowing into the other. */
+        .wp-commitment__layout > * {
+            min-width: 0;
+        }
+
+        .wp-commitment__sticky {
+            align-self: start;
+            position: sticky;
+            top: calc(var(--wp-header-offset) + 2rem);
+        }
+
+        /* The global section-title size is intentionally reduced only here
+           so the long word “RESPONSIBILITY” remains inside the left column. */
+        .wp-commitment__sticky .wp-section-title {
+            width: 100%;
+            max-width: 430px;
+            font-size: clamp(3rem, 3.65vw, 4.15rem);
+            letter-spacing: -0.07em;
+            line-height: 0.96;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
+
+        .wp-commitment__long-word {
+            display: block;
+            font-size: 0.82em;
+            letter-spacing: -0.075em;
+            white-space: nowrap;
+        }
+
+        .wp-commitment__sticky p {
+            max-width: 310px;
+            margin: 1.5rem 0 0;
+            color: var(--wp-grey);
+            font-size: 0.92rem;
+            line-height: 1.75;
+        }
+
+        .wp-commitment__lines {
+            border-top: 1px solid var(--wp-ink);
+        }
+
+        .wp-commitment-line {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--wp-line);
+        }
+
+        .wp-commitment-line p {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.2rem, 5.4vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.065em;
+            line-height: 0.96;
+            overflow-wrap: break-word;
+            text-transform: uppercase;
+        }
+
+        .wp-commitment-line:nth-child(2) p,
+        .wp-commitment-line:nth-child(4) p {
+            color: var(--wp-coral);
+        }
+
+        .wp-commitment__closing {
+            max-width: 880px;
+            margin: 4rem 0 0 auto;
+            color: var(--wp-grey);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.55rem, 2.7vw, 2.7rem);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* ============================================================
+           FINAL CTA
+        ============================================================ */
+
+        .wp-final {
+            position: relative;
+            min-height: 92svh;
+            display: grid;
+            align-items: center;
+            overflow: hidden;
+            background: var(--wp-coral-soft);
+        }
+
+        .wp-final__grid {
+            display: grid;
+            grid-template-columns: 1.1fr minmax(360px, 0.9fr);
+            align-items: center;
+            gap: clamp(3rem, 6vw, 7rem);
+            padding: 7rem 0;
+        }
+
+        .wp-final__title {
+            margin: 0;
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(3.6rem, 8vw, 9rem);
+            font-weight: 700;
+            letter-spacing: -0.085em;
+            line-height: 0.82;
+            text-transform: uppercase;
+        }
+
+        .wp-final__title span {
+            display: block;
+            color: var(--wp-coral);
+        }
+
+        .wp-final__list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--wp-ink);
+        }
+
+        .wp-final__list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(17, 17, 17, 0.16);
+            color: var(--wp-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1rem, 1.5vw, 1.35rem);
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .wp-final__cta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .wp-final__micro {
+            margin: 1.5rem 0 0;
+            color: var(--wp-grey);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            line-height: 1.6;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================
+           REVEAL
+        ============================================================ */
+
+        .wp-reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1);
+        }
+
+        .wp-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wp-reveal-delay-1 { transition-delay: 90ms; }
+        .wp-reveal-delay-2 { transition-delay: 180ms; }
+        .wp-reveal-delay-3 { transition-delay: 270ms; }
+
+        /* ============================================================
+           PMEW GLOBAL BACK-TO-TOP ICON OVERRIDE
+           Keeps the existing button styling unchanged and forces only
+           the arrow/icon to remain white.
+        ============================================================ */
+
+        /* Force the back-to-top arrow to pure white */
+        #backToTop,
+        #backToTop i,
+        #backToTop::before,
+        .back-to-top,
+        .back-to-top i,
+        .back-to-top::before,
+        .scroll-to-top,
+        .scroll-to-top i,
+        .scroll-to-top::before {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+
+        /* Support SVG-based arrows */
+        #backToTop svg,
+        .back-to-top svg,
+        .scroll-to-top svg {
+            fill: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        #backToTop svg path,
+        .back-to-top svg path,
+        .scroll-to-top svg path {
+            fill: inherit !important;
+            stroke: #ffffff !important;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+
+        @media (max-width: 1180px) {
+            :root {
+                --wp-header-offset: 76px;
+            }
+
+            .wp-hero__grid,
+            .wp-feature__grid,
+            .wp-final__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-hero__content {
+                padding-top: 2rem;
+            }
+
+            .wp-hero__visual {
+                min-height: 58vw;
+            }
+
+            .wp-hero__image {
+                min-height: 58vw;
+            }
+
+            .wp-standards__grid {
+                grid-template-columns: repeat(3, 1fr);
+                border-left: 1px solid var(--wp-line);
+            }
+
+            .wp-standard {
+                border-bottom: 1px solid var(--wp-line);
+            }
+
+            .wp-standard:nth-child(3) {
+                border-right: 0;
+            }
+
+            .wp-standard:last-child {
+                border-right: 1px solid var(--wp-line);
+            }
+
+            .wp-feature__media,
+            .wp-feature__media img {
+                min-height: 620px;
+            }
+
+            .wp-final {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .wp-container,
+            .wp-statement__inner {
+                width: min(calc(100% - 36px), var(--wp-container));
+            }
+
+            .wp-standards__intro,
+            .wp-capabilities__heading,
+            .wp-systems__header,
+            .wp-trust__header,
+            .wp-standards__closing,
+            .wp-systems__footer,
+            .wp-commitment__layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .wp-capability {
+                grid-template-columns: 60px 0.62fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .wp-commitment__sticky {
+                position: static;
+            }
+
+            .wp-commitment__sticky .wp-section-title {
+                max-width: 760px;
+                font-size: clamp(2.8rem, 9vw, 5.2rem);
+            }
+
+            .wp-trust-item {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            :root {
+                --wp-section-space: 5.5rem;
+            }
+
+            .wp-container,
+            .wp-statement__inner {
+                width: min(calc(100% - 28px), var(--wp-container));
+            }
+
+            .wp-hero {
+                min-height: auto;
+                padding-top: 2rem;
+            }
+
+            .wp-hero__grid {
+                min-height: auto;
+                gap: 2.5rem;
+            }
+
+            .wp-hero__title {
+                font-size: clamp(4rem, 22vw, 6.6rem);
+                line-height: 0.8;
+            }
+
+            .wp-hero__visual,
+            .wp-hero__image {
+                min-height: 118vw;
+                max-height: 720px;
+            }
+
+            .wp-hero__metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .wp-metric:nth-child(2) {
+                border-right: 0;
+            }
+
+            .wp-metric:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--wp-line);
+            }
+
+            .wp-statement {
+                min-height: 78svh;
+                padding: 5rem 0;
+            }
+
+            .wp-statement__text {
+                font-size: clamp(3.5rem, 18vw, 6.8rem);
+                line-height: 0.86;
+            }
+
+            .wp-standards__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .wp-standard,
+            .wp-standard:nth-child(3),
+            .wp-standard:last-child {
+                min-height: 230px;
+                border-right: 1px solid var(--wp-line);
+            }
+
+            .wp-standard:nth-child(even) {
+                border-right: 0;
+            }
+
+            .wp-standard:last-child {
+                grid-column: 1 / -1;
+                border-right: 0;
+            }
+
+            .wp-capability {
+                grid-template-columns: 42px 1fr;
+                gap: 1.25rem;
+            }
+
+            .wp-capability__body {
+                grid-column: 2;
+            }
+
+            .wp-sector-grid,
+            .wp-feature__points,
+            .wp-systems__grid,
+            .wp-trust-list,
+            .wp-inline-list {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-feature__media,
+            .wp-feature__media img {
+                min-height: 118vw;
+                max-height: 760px;
+            }
+
+            .wp-feature__point:nth-child(odd),
+            .wp-feature__point:nth-child(even) {
+                padding-inline: 0;
+                border-right: 0;
+            }
+
+            .wp-system,
+            .wp-trust-item {
+                min-height: auto;
+            }
+
+            .wp-gain-item {
+                grid-template-columns: 1fr auto;
+                gap: 1rem;
+                min-height: 170px;
+            }
+
+            .wp-gain-item p {
+                grid-column: 1 / -1;
+            }
+
+            .wp-commitment-line {
+                min-height: 160px;
+            }
+
+            .wp-final__grid {
+                padding: 5.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wp-hero__actions,
+            .wp-final__cta {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .wp-btn {
+                width: 100%;
+            }
+
+            .wp-hero__metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-metric,
+            .wp-metric:nth-child(2) {
+                min-height: 116px;
+                border-right: 0;
+                border-bottom: 1px solid var(--wp-line);
+            }
+
+            .wp-metric:last-child {
+                border-bottom: 0;
+            }
+
+            .wp-standards__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-standard,
+            .wp-standard:nth-child(3),
+            .wp-standard:nth-child(even),
+            .wp-standard:last-child {
+                grid-column: auto;
+                border-right: 0;
+            }
+
+            .wp-capability {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-capability__body {
+                grid-column: auto;
+            }
+
+            .wp-capability__number {
+                padding-top: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .wp-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .wp-btn {
+                transition: none;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/why-us.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Why Pradako | Engineering Trust Since 1960">
+    <meta property="og:description" content="Why Pradako — engineering reliability, structured manufacturing systems, scalable capacity and long-term global supply confidence since 1960.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/why-us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Pradako | Engineering Trust Since 1960">
+    <meta name="twitter:description" content="Why Pradako — engineering reliability, structured manufacturing systems, scalable capacity and long-term global supply confidence since 1960.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Why Pradako | Engineering Trust Since 1960",
+  "url": "https://www.pradako.co/pages/global-presence/why-us.html",
+  "description": "Why Pradako — engineering reliability, structured manufacturing systems, scalable capacity and long-term global supply confidence since 1960.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="wp-page">
+    <!-- PMEW GLOBAL NAVIGATION -->
+    <div id="navbar-container"></div>
+
+    <main>
+        <!-- ========================================================
+             HERO BANNER
+             Replace the image path below with your final hero image.
+        ========================================================= -->
+        <section class="wp-hero" id="top" aria-labelledby="wpHeroTitle">
+            <div class="wp-container">
+                <div class="wp-hero__grid">
+                    <div class="wp-hero__content">
+                        <div class="wp-hero__eyebrow wp-reveal">
+                            <span>01</span>
+                            Why Pradako
+                        </div>
+
+                        <h1 class="wp-hero__title wp-reveal wp-reveal-delay-1" id="wpHeroTitle">
+                            Why
+                            <span class="wp-hero__title-accent">Pradako?</span>
+                        </h1>
+
+                        <p class="wp-hero__one-liner wp-reveal wp-reveal-delay-2">
+                            <strong>Engineering reliability</strong> built over generations.
+                        </p>
+
+                        <p class="wp-hero__description wp-reveal wp-reveal-delay-3">
+                            For more than six decades, Pradako Mechanical &amp; Engineering Works has supported industries through structured manufacturing systems, application-led engineering, disciplined quality control, scalable infrastructure, and a long-term commitment to every program we undertake.
+                        </p>
+
+                        <div class="wp-hero__actions wp-reveal wp-reveal-delay-3">
+                            <a class="wp-btn wp-btn--primary" href="#capability">
+                                Explore Our Capability
+                                <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                            </a>
+                            <a class="wp-btn wp-btn--outline" href="#partnership">
+                                Start a Partnership
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="wp-hero__visual wp-reveal wp-reveal-delay-2">
+                        <img
+                            class="wp-hero__image"
+                            src="/assets/images/global-presence/why-pradako/why-pradako-hero.jpg"
+                            alt="Precision fastener manufacturing and inspection at Pradako"
+                            loading="eager"
+                            fetchpriority="high"
+                            onerror="this.style.display='none'"
+                        >
+                        <div class="wp-hero__visual-label">
+                            <small>Engineering Trust Since 1960</small>
+                            <strong>Structured systems. Controlled manufacturing. Long-term confidence.</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wp-hero__metrics" aria-label="Pradako key strengths">
+                    <div class="wp-metric wp-reveal">
+                        <span class="wp-metric__value">60+</span>
+                        <span class="wp-metric__label">Years Manufacturing Legacy</span>
+                    </div>
+                    <div class="wp-metric wp-reveal wp-reveal-delay-1">
+                        <span class="wp-metric__value">Zero</span>
+                        <span class="wp-metric__label">Defect Quality Philosophy</span>
+                    </div>
+                    <div class="wp-metric wp-reveal wp-reveal-delay-2">
+                        <span class="wp-metric__value">7+</span>
+                        <span class="wp-metric__label">Plants Integrated Manufacturing</span>
+                    </div>
+                    <div class="wp-metric wp-reveal wp-reveal-delay-3">
+                        <span class="wp-metric__value">Global</span>
+                        <span class="wp-metric__label">Reach Multi-Industry Supply</span>
+                    </div>
+                </div>
+
+                <div class="wp-hero__signature">Engineering Trust Since 1960</div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE ONE-LINER 01 -->
+        <section class="wp-statement wp-statement--soft" aria-label="Manufacturing statement">
+            <div class="wp-statement__inner">
+                <span class="wp-statement__index wp-reveal">One responsibility. Every program.</span>
+                <h2 class="wp-statement__text wp-reveal">
+                    We do more than
+                    <span class="wp-outline">manufacture</span>
+                    <span class="wp-coral">fasteners.</span>
+                </h2>
+                <p class="wp-statement__support wp-reveal">
+                    We build dependable production systems around the technical, commercial, quality, documentation, and delivery requirements of our customers.
+                </p>
+            </div>
+        </section>
+
+        <!-- STANDARDS -->
+        <section class="wp-standards" aria-labelledby="wpStandardsTitle">
+            <div class="wp-container">
+                <div class="wp-standards__intro">
+                    <div>
+                        <p class="wp-kicker wp-reveal">Standards-Driven Manufacturing</p>
+                        <h2 class="wp-section-title wp-reveal" id="wpStandardsTitle">
+                            Global requirements.<br><span>Structured execution.</span>
+                        </h2>
+                    </div>
+                    <p class="wp-standards__note wp-reveal">
+                        Our manufacturing, inspection, documentation, and quality practices are developed around applicable customer specifications and recognised international standards.
+                    </p>
+                </div>
+
+                <div class="wp-standards__grid">
+                    <article class="wp-standard wp-reveal">
+                        <span class="wp-standard__number">Standard 01</span>
+                        <div>
+                            <strong class="wp-standard__name">ISO</strong>
+                            <p class="wp-standard__description">Structured Management Systems</p>
+                        </div>
+                    </article>
+                    <article class="wp-standard wp-reveal wp-reveal-delay-1">
+                        <span class="wp-standard__number">Standard 02</span>
+                        <div>
+                            <strong class="wp-standard__name">IATF</strong>
+                            <p class="wp-standard__description">Automotive Quality Practices</p>
+                        </div>
+                    </article>
+                    <article class="wp-standard wp-reveal wp-reveal-delay-2">
+                        <span class="wp-standard__number">Standard 03</span>
+                        <div>
+                            <strong class="wp-standard__name">EN</strong>
+                            <p class="wp-standard__description">Structural and Engineering Requirements</p>
+                        </div>
+                    </article>
+                    <article class="wp-standard wp-reveal wp-reveal-delay-2">
+                        <span class="wp-standard__number">Standard 04</span>
+                        <div>
+                            <strong class="wp-standard__name">ASTM</strong>
+                            <p class="wp-standard__description">International Material and Performance Specifications</p>
+                        </div>
+                    </article>
+                    <article class="wp-standard wp-reveal wp-reveal-delay-3">
+                        <span class="wp-standard__number">Standard 05</span>
+                        <div>
+                            <strong class="wp-standard__name">DIN</strong>
+                            <p class="wp-standard__description">Globally Recognised Dimensional Standards</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="wp-standards__closing">
+                    <p class="wp-reveal">
+                        Product and process controls are selected according to the applicable application, customer specification, criticality, destination market, and approved quality plan.
+                    </p>
+                    <p class="wp-reveal wp-reveal-delay-1">
+                        Certification and compliance references should be displayed according to the applicable product, facility, process, and certification scope.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE ONE-LINER 02 -->
+        <section class="wp-statement" aria-label="Engineering statement">
+            <div class="wp-statement__inner">
+                <span class="wp-statement__index wp-reveal">Engineering depth</span>
+                <h2 class="wp-statement__text wp-reveal">
+                    Engineering begins
+                    <span class="wp-coral">where the drawing ends.</span>
+                </h2>
+                <p class="wp-statement__support wp-reveal">
+                    Application requirements, materials, assembly conditions, loading, tolerances, coatings, installation, and service performance are considered together—not in isolation.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPABILITIES -->
+        <section class="wp-capabilities" id="capability" aria-labelledby="wpCapabilityTitle">
+            <div class="wp-container">
+                <div class="wp-capabilities__heading">
+                    <div>
+                        <p class="wp-kicker wp-reveal">What Defines Our Capability</p>
+                        <h2 class="wp-section-title wp-reveal" id="wpCapabilityTitle">
+                            Knowledge.<br>Control.<br><span>Repeatability.</span>
+                        </h2>
+                    </div>
+                    <p class="wp-lead wp-reveal">
+                        Our capability is not defined by equipment alone. It is defined by the systems, knowledge, controls, and people that turn requirements into reliable serial production.
+                    </p>
+                </div>
+
+                <div class="wp-capability-list">
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">01</span>
+                        <h3 class="wp-capability__title">Engineering Depth</h3>
+                        <div class="wp-capability__body">
+                            <p>Our understanding extends beyond drawings and dimensions. We evaluate application requirements, material behaviour, assembly conditions, loading, tolerances, coatings, installation methods, and expected service performance.</p>
+                            <p>This application-driven approach helps us develop fasteners that perform reliably in their intended operating environment.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">02</span>
+                        <h3 class="wp-capability__title">Process Discipline</h3>
+                        <div class="wp-capability__body">
+                            <p>Every critical manufacturing stage is supported by defined process parameters, operating instructions, inspection controls, traceability requirements, and documented approvals.</p>
+                            <p>Structured control improves repeatability, reduces variation, and supports consistent production across batches.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">03</span>
+                        <h3 class="wp-capability__title">Product Development Support</h3>
+                        <div class="wp-capability__body">
+                            <p>From technical evaluation and feasibility review to sampling, validation, approval, and serial production, our teams remain involved throughout the product-development cycle.</p>
+                            <p>Customer drawings, samples, standards, functional requirements, and application information are translated into controlled manufacturing processes.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">04</span>
+                        <h3 class="wp-capability__title">In-House Tooling Capability</h3>
+                        <div class="wp-capability__body">
+                            <p>Tooling knowledge is central to dimensional accuracy, production stability, development speed, and product consistency.</p>
+                            <p>Our experience in punches, dies, forming tools, thread-rolling solutions, gauges, fixtures, and process-specific tooling enables faster response and greater control over specialised requirements.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">05</span>
+                        <h3 class="wp-capability__title">Material and Process Control</h3>
+                        <div class="wp-capability__body">
+                            <p>Raw materials, forming operations, threading, heat treatment, surface finishing, inspection, packaging, and dispatch are managed through defined verification systems.</p>
+                            <p>Material certificates, process records, inspection reports, and applicable third-party documentation can be maintained according to customer and market requirements.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">06</span>
+                        <h3 class="wp-capability__title">Traceability Systems</h3>
+                        <div class="wp-capability__body">
+                            <p>Batch-level identification and structured documentation help connect material, production, inspection, coating, packaging, and dispatch information.</p>
+                            <p>This supports accountability, investigation, repeatability, and confidence across the supply chain.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">07</span>
+                        <h3 class="wp-capability__title">Testing and Metrology</h3>
+                        <div class="wp-capability__body">
+                            <p>Dimensional verification and performance assessment are supported through appropriate gauges, inspection instruments, testing methods, control plans, and external laboratory coordination where required.</p>
+                            <p>Inspection systems are selected according to product criticality, customer specifications, and application requirements.</p>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">08</span>
+                        <h3 class="wp-capability__title">Multi-Sector Experience</h3>
+                        <div class="wp-capability__body">
+                            <p>Cross-sector exposure strengthens our understanding of different quality, documentation, performance, and supply expectations.</p>
+                            <div class="wp-sector-grid" aria-label="Industries served">
+                                <div class="wp-sector">Automotive and Electric Mobility</div>
+                                <div class="wp-sector">Aerospace and Defence-Related Supply Chains</div>
+                                <div class="wp-sector">Electrical and Electronic Equipment</div>
+                                <div class="wp-sector">Infrastructure and Construction</div>
+                                <div class="wp-sector">Heavy Engineering and Industrial Machinery</div>
+                                <div class="wp-sector">Renewable and Clean-Energy Systems</div>
+                                <div class="wp-sector">Railways, Agriculture and Transportation</div>
+                                <div class="wp-sector">Precision and Specialised Industrial Assemblies</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="wp-capability wp-reveal">
+                        <span class="wp-capability__number">09</span>
+                        <h3 class="wp-capability__title">Scalable Capacity</h3>
+                        <div class="wp-capability__body">
+                            <p>Our manufacturing infrastructure is developed to support changing volumes, new product families, dedicated customer programs, and long-term international requirements.</p>
+                            <p>Capacity expansion, automation, tooling development, workforce capability, and process efficiency are aligned with future demand.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE ONE-LINER 03 -->
+        <section class="wp-statement wp-statement--coral" aria-label="Scale statement">
+            <div class="wp-statement__inner">
+                <span class="wp-statement__index wp-reveal">Scalable manufacturing</span>
+                <h2 class="wp-statement__text wp-reveal">
+                    Built for scale.
+                    <span class="wp-outline">Controlled for</span>
+                    <span class="wp-coral">consistency.</span>
+                </h2>
+            </div>
+        </section>
+
+        <!-- SCALE FEATURE -->
+        <section class="wp-feature" aria-labelledby="wpScaleTitle">
+            <div class="wp-container">
+                <div class="wp-feature__grid">
+                    <div class="wp-feature__media wp-reveal">
+                        <img
+                            src="/assets/images/global-presence/why-pradako/why-pradako-scale.jpg"
+                            alt="Scalable precision fastener manufacturing infrastructure"
+                            loading="lazy"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+
+                    <div class="wp-feature__content">
+                        <p class="wp-kicker wp-reveal">Built for Future Programs</p>
+                        <h2 class="wp-feature__title wp-reveal" id="wpScaleTitle">
+                            Capacity that grows with <span>your program.</span>
+                        </h2>
+                        <p class="wp-lead wp-reveal">
+                            Our infrastructure combines established manufacturing experience with progressive automation, process monitoring, specialised tooling, trained manpower, and capacity planning.
+                        </p>
+                        <p class="wp-copy wp-reveal">
+                            Whether the requirement involves product development, recurring production, high-volume supply, dedicated manufacturing arrangements, or market-specific packaging and documentation, our systems are designed to grow with the customer’s program.
+                        </p>
+
+                        <div class="wp-feature__points">
+                            <div class="wp-feature__point wp-reveal">
+                                <strong>Capacity Planning</strong>
+                                <span>Infrastructure and resources aligned with changing demand.</span>
+                            </div>
+                            <div class="wp-feature__point wp-reveal wp-reveal-delay-1">
+                                <strong>Progressive Automation</strong>
+                                <span>Efficiency and process stability developed for repeatable output.</span>
+                            </div>
+                            <div class="wp-feature__point wp-reveal">
+                                <strong>Dedicated Programs</strong>
+                                <span>Customer-specific workflows, tooling, planning and documentation.</span>
+                            </div>
+                            <div class="wp-feature__point wp-reveal wp-reveal-delay-1">
+                                <strong>Global Readiness</strong>
+                                <span>Production, packaging and documentation aligned to destination markets.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYSTEMS -->
+        <section class="wp-systems" aria-labelledby="wpSystemsTitle">
+            <div class="wp-container">
+                <div class="wp-systems__header">
+                    <div>
+                        <p class="wp-kicker wp-reveal">System-Driven Manufacturing</p>
+                        <h2 class="wp-section-title wp-reveal" id="wpSystemsTitle">
+                            Every stage.<br><span>Defined and controlled.</span>
+                        </h2>
+                    </div>
+                    <p class="wp-lead wp-reveal">
+                        From initial feasibility to final dispatch, structured systems are designed to deliver control, consistency, accountability, and repeatable performance.
+                    </p>
+                </div>
+
+                <div class="wp-systems__grid">
+                    <article class="wp-system wp-reveal">
+                        <div class="wp-system__index">01</div>
+                        <div>
+                            <strong class="wp-system__code">IMS</strong>
+                            <p class="wp-system__name">Integrated Management Systems</p>
+                        </div>
+                    </article>
+                    <article class="wp-system wp-reveal wp-reveal-delay-1">
+                        <div class="wp-system__index">02</div>
+                        <div>
+                            <strong class="wp-system__code">SOP</strong>
+                            <p class="wp-system__name">Defined Operating Procedures</p>
+                        </div>
+                    </article>
+                    <article class="wp-system wp-reveal wp-reveal-delay-2">
+                        <div class="wp-system__index">03</div>
+                        <div>
+                            <strong class="wp-system__code">Inspection</strong>
+                            <p class="wp-system__name">Stage-Wise Quality Controls</p>
+                        </div>
+                    </article>
+                    <article class="wp-system wp-reveal">
+                        <div class="wp-system__index">04</div>
+                        <div>
+                            <strong class="wp-system__code">Traceability</strong>
+                            <p class="wp-system__name">Documented Batch Identification</p>
+                        </div>
+                    </article>
+                    <article class="wp-system wp-reveal wp-reveal-delay-1">
+                        <div class="wp-system__index">05</div>
+                        <div>
+                            <strong class="wp-system__code">Control Plan</strong>
+                            <p class="wp-system__name">Product and Process Assurance</p>
+                        </div>
+                    </article>
+                    <article class="wp-system wp-reveal wp-reveal-delay-2">
+                        <div class="wp-system__index">06</div>
+                        <div>
+                            <strong class="wp-system__code">Improvement</strong>
+                            <p class="wp-system__name">Corrective Action and Process Development</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="wp-systems__footer">
+                    <strong>From feasibility to dispatch</strong>
+                    <p>Structured processes connect engineering, production, inspection, traceability, documentation, packaging, and delivery into one accountable manufacturing system.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE ONE-LINER 04 -->
+        <section class="wp-statement" aria-label="Trust statement">
+            <div class="wp-statement__inner">
+                <span class="wp-statement__index wp-reveal">Trust is earned in repetition</span>
+                <h2 class="wp-statement__text wp-reveal">
+                    Trust is not created
+                    <span class="wp-outline">by one successful</span>
+                    <span class="wp-coral">order.</span>
+                </h2>
+            </div>
+        </section>
+
+        <!-- TRUST -->
+        <section class="wp-trust" aria-labelledby="wpTrustTitle">
+            <div class="wp-container">
+                <div class="wp-trust__header">
+                    <div>
+                        <p class="wp-kicker wp-reveal">How We Build Trust</p>
+                        <h2 class="wp-section-title wp-reveal" id="wpTrustTitle">
+                            Long-term confidence.<br><span>Built into the relationship.</span>
+                        </h2>
+                    </div>
+                    <p class="wp-lead wp-reveal">
+                        Stability, ownership, documentation, confidentiality, responsiveness, and supply continuity work together to reduce sourcing risk.
+                    </p>
+                </div>
+
+                <div class="wp-trust-list">
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">01</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Six Decades of Continuity</h3>
+                        <p>Established in the 1960s, Pradako has grown through sustained customer relationships, manufacturing discipline, responsible maintenance, reinvestment, and consistent fulfilment of commitments. Our long operating history brings process knowledge, institutional experience, and stability for long-term programs.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal wp-reveal-delay-1">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">02</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Financial Stability</h3>
+                        <p>A financially stable and independently supported organisation provides greater continuity, responsible investment capacity, and confidence for customers planning long-duration sourcing programs.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">03</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Dedicated Functional Teams</h3>
+                        <p>Specialised ownership helps requirements move efficiently from enquiry to development, production, approval, and delivery.</p>
+                        <ul class="wp-inline-list">
+                            <li>Product development</li>
+                            <li>Production planning</li>
+                            <li>Quality assurance</li>
+                            <li>Export coordination</li>
+                            <li>Documentation</li>
+                            <li>Packaging and logistics</li>
+                            <li>Commercial follow-up</li>
+                            <li>Customer communication</li>
+                        </ul>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal wp-reveal-delay-1">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">04</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Dedicated Customer Programs</h3>
+                        <p>Where volume, complexity, confidentiality, or continuity requires it, manufacturing resources and workflows can be aligned around specific programs—including dedicated tooling, controlled raw-material planning, agreed inspection methods, customised packaging, documentation, and production-capacity planning.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">05</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Zero-Defect Mindset</h3>
+                        <p>Our quality philosophy is centred on prevention rather than correction. Process controls, inspection planning, operator training, root-cause analysis, mistake-proofing, traceability, and continuous improvement are used to reduce variation and move production towards zero-defect performance.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal wp-reveal-delay-1">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">06</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Supply Continuity</h3>
+                        <p>Production planning, preventive maintenance, tooling readiness, material coordination, capacity management, and structured follow-up help reduce interruptions. Strategic programs may include raw-material stocking, finished-goods planning, alternate process arrangements, and coordinated logistics support.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">07</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Global Documentation Readiness</h3>
+                        <p>Documentation can be structured according to applicable customer, industry, and destination-market requirements.</p>
+                        <ul class="wp-inline-list">
+                            <li>Inspection reports</li>
+                            <li>Material certificates</li>
+                            <li>Coating certificates</li>
+                            <li>Heat-treatment records</li>
+                            <li>Dimensional reports</li>
+                            <li>Traceability records</li>
+                            <li>PPAP-related documents</li>
+                            <li>Control plans</li>
+                            <li>Process flow information</li>
+                            <li>Packaging identification</li>
+                            <li>Third-party test reports</li>
+                        </ul>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal wp-reveal-delay-1">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">08</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Export and Logistics Capability</h3>
+                        <p>Our export support extends beyond manufacturing. We coordinate packaging, marking, documentation, freight planning, customs-related paperwork, shipment tracking, and customer communication to support reliable international delivery.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">09</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Strategic Manufacturing Location</h3>
+                        <p>India offers a strong engineering talent base, a developed industrial ecosystem, competitive manufacturing capability, access to major ports, and connectivity with markets across Europe, North America, Asia, Africa, and the Middle East.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal wp-reveal-delay-1">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">10</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Confidentiality and Ethical Conduct</h3>
+                        <p>Customer drawings, specifications, commercial information, tooling, product developments, and application details are handled with professional responsibility. We value confidentiality, transparent communication, ethical business practices, and respect across every relationship.</p>
+                    </article>
+
+                    <article class="wp-trust-item wp-reveal">
+                        <div class="wp-trust-item__top"><span class="wp-trust-item__number">11</span><span class="wp-trust-item__line"></span></div>
+                        <h3>Responsible Enterprise</h3>
+                        <p>As a multi-generational and inclusively led manufacturing enterprise, we believe industrial growth must be supported by responsible governance, workforce development, environmental awareness, and long-term value creation.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE ONE-LINER 05 -->
+        <section class="wp-statement wp-statement--soft" aria-label="Delivery statement">
+            <div class="wp-statement__inner">
+                <span class="wp-statement__index wp-reveal">Once. Twice. Consistently.</span>
+                <h2 class="wp-statement__text wp-reveal">
+                    It is built by
+                    <span class="wp-coral">delivering.</span>
+                    Again. And again.
+                </h2>
+                <p class="wp-statement__support wp-reveal">
+                    Year after year, trust remains intact when engineering intent, process discipline, communication, and commitment continue to meet the responsibility of every program.
+                </p>
+            </div>
+        </section>
+
+        <!-- CUSTOMER GAINS -->
+        <section class="wp-gain" aria-labelledby="wpGainTitle">
+            <div class="wp-container">
+                <div class="wp-gain__header">
+                    <p class="wp-kicker wp-reveal">What Our Customers Gain</p>
+                    <h2 class="wp-section-title wp-reveal" id="wpGainTitle">
+                        Less sourcing risk.<br><span>Greater operating confidence.</span>
+                    </h2>
+                </div>
+
+                <div class="wp-gain__grid">
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Consistency</h3>
+                        <p>Controlled production systems designed to deliver repeatable quality across recurring batches.</p>
+                        <span class="wp-gain-item__index">01</span>
+                    </article>
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Reliability</h3>
+                        <p>Engineering and manufacturing practices aligned with the performance expectations of critical applications.</p>
+                        <span class="wp-gain-item__index">02</span>
+                    </article>
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Visibility</h3>
+                        <p>Structured communication, traceability, documentation, and follow-up throughout the program.</p>
+                        <span class="wp-gain-item__index">03</span>
+                    </article>
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Responsiveness</h3>
+                        <p>Dedicated teams capable of addressing development, production, quality, documentation, and delivery requirements.</p>
+                        <span class="wp-gain-item__index">04</span>
+                    </article>
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Scalability</h3>
+                        <p>Infrastructure and capacity planning aligned with expanding volumes and long-term global programs.</p>
+                        <span class="wp-gain-item__index">05</span>
+                    </article>
+                    <article class="wp-gain-item wp-reveal">
+                        <h3>Confidence</h3>
+                        <p>A manufacturing partner with established experience, structured systems, financial stability, and a commitment to protecting customer trust.</p>
+                        <span class="wp-gain-item__index">06</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMITMENT -->
+        <section class="wp-commitment" aria-labelledby="wpCommitmentTitle">
+            <div class="wp-container">
+                <div class="wp-commitment__layout">
+                    <aside class="wp-commitment__sticky">
+                        <p class="wp-kicker wp-reveal">Our Commitment</p>
+                        <h2 class="wp-section-title wp-reveal" id="wpCommitmentTitle">
+                            Every<br>
+                            program<br>
+                            is a
+                            <span class="wp-commitment__long-word">responsibility.</span>
+                        </h2>
+                        <p class="wp-reveal">We serve industries with respect for quality, volume commitments, confidentiality, timelines, commercial responsibility, and long-term relationships.</p>
+                    </aside>
+
+                    <div>
+                        <div class="wp-commitment__lines">
+                            <div class="wp-commitment-line wp-reveal"><p>Every enquiry is treated as a responsibility.</p></div>
+                            <div class="wp-commitment-line wp-reveal"><p>Every drawing is studied with engineering intent.</p></div>
+                            <div class="wp-commitment-line wp-reveal"><p>Every production batch is approached with discipline.</p></div>
+                            <div class="wp-commitment-line wp-reveal"><p>Every commitment is followed through with dedicated effort.</p></div>
+                        </div>
+                        <p class="wp-commitment__closing wp-reveal">
+                            Because trust is not created through a single successful order. It is built by delivering—once, twice, and consistently, year after year.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL PARTNERSHIP CTA -->
+        <section class="wp-final" id="partnership" aria-labelledby="wpFinalTitle">
+            <div class="wp-container">
+                <div class="wp-final__grid">
+                    <div>
+                        <p class="wp-kicker wp-reveal">A Partner Built for Long-Term Manufacturing Excellence</p>
+                        <h2 class="wp-final__title wp-reveal" id="wpFinalTitle">
+                            Let us build the next program
+                            <span>together.</span>
+                        </h2>
+                        <div class="wp-final__cta wp-reveal">
+                            <a class="wp-btn wp-btn--primary" href="/pages/contact/contact-us.html">
+                                Start a Partnership
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a class="wp-btn wp-btn--outline" href="mailto:info@pradakomechanicals.com">
+                                Send an Enquiry
+                                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <p class="wp-final__micro wp-reveal">Engineering trust · Structured quality · Global readiness · Since 1960</p>
+                    </div>
+
+                    <ul class="wp-final__list wp-reveal" aria-label="Partnership strengths">
+                        <li>Engineering Capability</li>
+                        <li>Structured Quality</li>
+                        <li>Scalable Manufacturing</li>
+                        <li>Global Readiness</li>
+                        <li>Generational Commitment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PMEW GLOBAL FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- PMEW GLOBAL SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const revealItems = document.querySelectorAll(".wp-reveal");
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, instance) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            instance.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -7% 0px"
+                });
+
+                revealItems.forEach((item) => observer.observe(item));
+            } else {
+                revealItems.forEach((item) => item.classList.add("is-visible"));
+            }
+        });
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

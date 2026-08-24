@@ -1,0 +1,3192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       SECTION 1: META & TITLE
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradako IS / BIS Indian Standards Fastener Library</title>
+  <meta name="description" content="Structured IS / BIS Indian fastener standards reference library covering bolts, screws, nuts, washers, rivets, studs, threaded fasteners and supporting ISO references." />
+
+  <!-- ============================================================
+       SECTION 2: FONTS & ICONS
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- ============================================================
+       SECTION 3: EXTERNAL STYLES
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 4: CUSTOM STYLES
+       ============================================================ -->
+  <style>
+    /* ============================================================
+       SUBSECTION 4.1: CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --white: #fff;
+      --navy: #24343b;
+      --blue: #28766a;
+      --gold: #f08080;
+      --line: #dde5e7;
+      --text: #26343b;
+      --muted: #6d7b82;
+      --soft-blue: #eef7f4;
+      --soft: #f7faf9;
+      --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+      --dynamic-row-height: 126px;
+      --dynamic-cell-x: 8px;
+      --dynamic-cell-y: 10px;
+      --title-clamp: 3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.2: HERO / HEADER
+       ============================================================ */
+    .top-hero {
+      padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-route {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 17px;
+    }
+
+    .hero-route-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font: 800 9.5px "Montserrat", sans-serif;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .top-hero h1 {
+      margin: 0;
+      max-width: 1250px;
+      font-family: "Space Grotesk", Georgia, serif;
+      font-size: clamp(42px, 4.1vw, 72px);
+      line-height: 1;
+      letter-spacing: -1.6px;
+      color: var(--navy);
+    }
+
+    .hero-subtitle {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(17px, 1.55vw, 24px);
+      line-height: 1.25;
+      letter-spacing: -.35px;
+      color: var(--blue);
+      font-weight: 650;
+    }
+
+    .top-hero p.hero-intro {
+      max-width: 1160px;
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      font: 850 10px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-item i {
+      color: var(--blue);
+      font-size: 10px;
+    }
+
+    .engineering-use-note {
+      margin: 14px clamp(24px, 3.1vw, 58px) 0;
+      padding: 13px 15px;
+      border: 1px solid #d7e4e1;
+      border-left: 3px solid var(--blue);
+      border-radius: 10px;
+      background: #f8fbfa;
+      color: var(--text);
+      font-size: 11.5px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .engineering-use-note strong {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .engineering-use-note .note-label {
+      display: inline-flex;
+      margin-right: 8px;
+      color: var(--blue);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: .75px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.3: CONTROLS
+       ============================================================ */
+    .control-zone {
+      position: relative;
+      z-index: 20;
+      padding: 12px 32px 10px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-wrap,
+    .family-wrap {
+      position: relative;
+    }
+
+    .search-wrap input,
+    .family-filter {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      outline: 0;
+      font: 700 12.5px "Montserrat", sans-serif;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    .search-wrap input {
+      padding: 0 18px 0 46px;
+    }
+
+    .family-filter {
+      padding: 0 14px;
+    }
+
+    .search-wrap input:focus,
+    .family-filter:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px var(--soft-blue);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 17px;
+      color: var(--navy);
+    }
+
+    .btn {
+      height: 40px;
+      border-radius: 12px;
+      padding: 0 14px;
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-soft {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+    }
+
+    .btn-soft:hover,
+    .btn-soft.active {
+      background: var(--soft-blue);
+      border-color: var(--blue);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .stat-pills,
+    .stats-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--navy);
+      font-size: 10.5px;
+      font-weight: 900;
+      background: #fff;
+    }
+
+    .duplicate-mode-pill {
+      display: none;
+    }
+
+    .duplicate-mode-pill.show {
+      display: inline-flex;
+    }
+
+    .duplicate-check-btn {
+      border-color: #f08080;
+      background: #fff2f2;
+      color: #493538;
+    }
+
+    .duplicate-check-btn.active {
+      background: #f08080;
+      color: #fff;
+      border-color: #f08080;
+    }
+
+    /* ---- View Panel ---- */
+    .view-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff, var(--soft));
+      box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+    }
+
+    .view-panel.open {
+      display: block;
+    }
+
+    .view-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .view-panel-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .preset-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      padding: 0 11px;
+      font: 900 10px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .mini-btn.active,
+    .mini-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .view-groups {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+
+    .view-group {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .view-group h4 {
+      margin: 0 0 8px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .column-checks {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .check-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: #94c2b5;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .check-item input {
+      accent-color: var(--navy);
+    }
+
+    /* ---- Density Switch ---- */
+    .density-switch {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+    }
+
+    .density-btn {
+      height: 30px;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: 900 9.5px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .density-btn.active {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.4: STICKY HEADER & TABLE
+       ============================================================ */
+    .sticky-table-head-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1450;
+      margin: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+    }
+
+    .sticky-table-head-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .sticky-table-head-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sticky-head-table,
+    #standardsTable {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .sticky-head-table thead th {
+      background: var(--navy);
+    }
+
+    #standardsTable thead {
+      display: none;
+    }
+
+    .table-zone {
+      position: relative;
+      background: #fff;
+    }
+
+    .table-scroll {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-scroll:not(.has-horizontal-scroll),
+    .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+      overflow-x: hidden;
+    }
+
+    .sticky-head-table th,
+    #standardsTable th,
+    #standardsTable td {
+      box-sizing: border-box;
+    }
+
+    thead th {
+      padding: 10px var(--dynamic-cell-x);
+      text-align: left;
+      font-size: 9.5px;
+      letter-spacing: .5px;
+      color: #fff;
+      background: var(--navy);
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      cursor: pointer;
+      user-select: none;
+      white-space: normal;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    thead th.not-sortable {
+      cursor: default;
+    }
+
+    tbody tr {
+      height: var(--dynamic-row-height);
+    }
+
+    tbody td {
+      padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+      vertical-align: middle;
+      font-size: 11.5px;
+      line-height: 1.4;
+      background: #fff;
+      color: var(--text);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    tbody tr:hover td {
+      background: #f3f9f7;
+    }
+
+    /* ---- Sticky Columns ---- */
+    .sticky-col {
+      position: sticky !important;
+      left: var(--sticky-left, 0) !important;
+      background: #fff;
+      box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+    }
+
+    tbody tr:hover td.sticky-col {
+      background: #f3f9f7;
+    }
+
+    .sticky-head-table th.sticky-col {
+      z-index: 40;
+      background: var(--navy);
+      box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+    }
+
+    #standardsTable td.sticky-col {
+      z-index: 12;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.5: CELL TYPES
+       ============================================================ */
+    .media-cell {
+      padding: 10px 14px !important;
+    }
+
+    .media-card {
+      width: 210px;
+      height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+      cursor: pointer;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      padding: 9px;
+      background: #fff;
+      transition: .22s;
+    }
+
+    .media-card:hover {
+      border-color: var(--blue);
+    }
+
+    .media-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .media-empty {
+      width: 210px;
+      height: 104px;
+      border: 1px dashed #c8d5d7;
+      border-radius: 13px;
+      background: #fbfcfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .media-empty i {
+      font-size: 17px;
+      color: #82959b;
+    }
+
+    .pradako-id {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid #cad6d8;
+      border-radius: 7px;
+      background: #f6f9f8;
+      color: var(--navy);
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .15px;
+      white-space: nowrap;
+    }
+
+    .standard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: normal;
+    }
+
+    .standard-link:hover {
+      background: var(--blue);
+    }
+
+    .standard-link i {
+      font-size: 9px;
+    }
+
+    .body-pill {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .title-cell {
+      font-weight: 750;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: var(--title-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .family-pill {
+      display: inline-flex;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .scope-cell {
+      color: var(--text);
+    }
+
+    .density-comfortable .media-card,
+    .density-comfortable .media-empty {
+      height: 140px;
+    }
+
+    mark {
+      background: #dcefe9;
+      color: var(--navy);
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .footer-note {
+      padding: 16px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.6: MODALS
+       ============================================================ */
+    .modal-overlay,
+    .image-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(24, 34, 39, .84);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.show,
+    .image-preview-overlay.show {
+      display: flex;
+    }
+
+    .modal-card,
+    .image-preview-card {
+      position: relative;
+      width: min(620px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+    }
+
+    .image-preview-card {
+      width: min(1000px, 96vw);
+    }
+
+    .modal-top,
+    .image-preview-head {
+      padding: 22px 26px;
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .modal-top h2,
+    .image-preview-head h3 {
+      margin: 0;
+    }
+
+    .modal-top p {
+      margin: 9px 0 0;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .modal-body,
+    .image-preview-body {
+      padding: 24px;
+    }
+
+    .image-preview-body img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close,
+    .image-preview-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .work-message {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .email-line {
+      margin-top: 8px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .modal-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font: 900 11px "Montserrat";
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .modal-btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .modal-btn-soft {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .copy-status {
+      display: none;
+      margin-top: 10px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .copy-status.show {
+      display: block;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.7: BACK TO TOP
+       ============================================================ */
+    .pradako-back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px);
+      box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+      transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .pradako-back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .pradako-back-to-top:hover {
+      background: var(--blue);
+    }
+
+    /* ============================================================
+       SUBSECTION 4.8: RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1350px) {
+      .controls-grid {
+        grid-template-columns: 1fr 1fr auto auto;
+      }
+      .stats-row {
+        align-items: flex-start;
+      }
+      .view-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .sticky-col {
+        position: static !important;
+        left: auto !important;
+        box-shadow: none !important;
+      }
+
+      .sticky-head-table th.sticky-col,
+      #standardsTable td.sticky-col {
+        position: static !important;
+        left: auto !important;
+      }
+
+      .sticky-table-head-scroll,
+      .table-scroll {
+        overflow-x: auto !important;
+        overscroll-behavior-x: contain;
+      }
+
+      .top-hero {
+        padding: 28px 18px 24px;
+      }
+
+      .top-hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: 1.04;
+        letter-spacing: -1px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      .top-hero p.hero-intro {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .engineering-use-note {
+        margin: 12px 18px 0;
+        padding: 12px;
+        font-size: 10.5px;
+      }
+
+      .control-zone {
+        padding: 12px;
+      }
+
+      .controls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-wrap,
+      .family-filter,
+      #viewOptionsBtn {
+        grid-column: 1 / -1;
+      }
+
+      .search-wrap input,
+      .family-filter {
+        height: 42px;
+        font-size: 12px;
+      }
+
+      .controls-grid .btn {
+        width: 100%;
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .stat-pills {
+        width: 100%;
+        gap: 5px;
+      }
+
+      .stat-pill {
+        padding: 5px 8px;
+        font-size: 9px;
+      }
+
+      .stats-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .density-switch {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .density-btn,
+      .stats-actions>.btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .view-panel {
+        padding: 9px;
+        border-radius: 12px;
+      }
+
+      .view-panel-head {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+
+      .mini-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0 5px;
+        font-size: 8.5px;
+      }
+
+      .view-groups {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .view-group {
+        padding: 9px;
+      }
+
+      .check-item {
+        padding: 6px 7px;
+        font-size: 9.5px;
+      }
+
+      thead th {
+        padding: 8px 6px;
+        font-size: 8px;
+      }
+
+      tbody td {
+        padding: 8px 6px;
+        font-size: 10px;
+      }
+
+      .media-cell {
+        padding: 7px !important;
+      }
+
+      .media-card,
+      .media-empty {
+        width: 126px !important;
+        height: 88px !important;
+      }
+
+      .density-comfortable .media-card,
+      .density-comfortable .media-empty {
+        height: 105px !important;
+      }
+
+      .pradako-id {
+        font-size: 8.5px;
+        padding: 4px 5px;
+      }
+
+      .standard-link {
+        padding: 4px 6px;
+        font-size: 9px;
+      }
+
+      .family-pill,
+      .body-pill {
+        font-size: 9px;
+      }
+
+      .footer-note {
+        padding: 14px 16px;
+        font-size: 9.5px;
+      }
+
+      .pradako-back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .engineering-use-note {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .hero-route-pill {
+        font-size: 7.5px;
+        padding: 0 8px;
+      }
+      .hero-trust-item {
+        font-size: 7.8px;
+        padding: 0 8px;
+      }
+      .media-card,
+      .media-empty {
+        width: 116px !important;
+        height: 82px !important;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/is/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako IS / BIS Indian Standards Fastener Library">
+    <meta property="og:description" content="Structured IS / BIS Indian fastener standards reference library covering bolts, screws, nuts, washers, rivets, studs, threaded fasteners and supporting ISO references.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/is/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako IS / BIS Indian Standards Fastener Library">
+    <meta name="twitter:description" content="Structured IS / BIS Indian fastener standards reference library covering bolts, screws, nuts, washers, rivets, studs, threaded fasteners and supporting ISO references.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako IS / BIS Indian Standards Fastener Library",
+  "url": "https://www.pradako.co/pages/standards/is/index.html",
+  "description": "Structured IS / BIS Indian fastener standards reference library covering bolts, screws, nuts, washers, rivets, studs, threaded fasteners and supporting ISO references.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+  <!-- ============================================================
+       SECTION 5: NAVBAR
+       ============================================================ -->
+  <div id="navbar-container"></div>
+
+  <!-- ============================================================
+       SECTION 6: PAGE CONTENT
+       ============================================================ -->
+  <section class="page">
+
+    <!-- ============================================================
+       SUBSECTION 6.1: HERO
+       ============================================================ -->
+    <header class="top-hero">
+      <div class="hero-kicker">
+        <i class="fa-solid fa-gears"></i> Pradako Standards Library · IS / BIS · India
+      </div>
+      <div class="hero-route" aria-label="Standard series represented">
+        <span class="hero-route-pill">IS</span>
+        <span class="hero-route-pill">BIS</span>
+        <span class="hero-route-pill">ISO References</span>
+        <span class="hero-route-pill">Fasteners</span>
+      </div>
+      <h1>
+        IS / Indian Fastener Standards
+        <span class="hero-subtitle">Engineering Reference Library</span>
+      </h1>
+      <p class="hero-intro">
+        A structured IS / BIS reference library for aerospace, defence and precision-engineering research.
+        Explore the supplied Indian fastener standards with IS designations, supplied BIS titles, editions or years,
+        product families, sub-family or item descriptions, ISO references and controlled Pradako standard identities
+        through the same engineering reference interface used across the standards library.
+      </p>
+      <div class="hero-trust" aria-label="Library features">
+        <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 120 Standard Records</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 120 Pradako Standard IDs</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-industry"></i> IS / BIS Reference</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-link"></i> Independent Standard Pages</span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       SUBSECTION 6.2: USE NOTE
+       ============================================================ -->
+    <div class="engineering-use-note" role="note">
+      <span class="note-label">Engineering Use Note</span>
+      <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+      Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements should be confirmed
+      against the governing specification and current official publication before design, procurement or release.
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.3: CONTROLS
+       ============================================================ -->
+    <section class="control-zone">
+
+      <!-- ---- Controls Grid ---- -->
+      <div class="controls-grid">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input id="searchInput" type="text" placeholder="Search IS standard, BIS title, Pradako ID, ISO reference, sub-family or product family..." />
+        </div>
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+          <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+        </button>
+      </div>
+
+      <!-- ---- Stats Row ---- -->
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+          <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+        <div class="stats-actions">
+          <div class="density-switch">
+            <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+            <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+          </div>
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+          <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+            <span>⧉</span>&nbsp; Check Duplicates
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- View Panel ---- -->
+      <div class="view-panel open" id="viewPanel">
+        <div class="view-panel-head">
+          <div class="view-panel-title">Choose the information you want visible</div>
+          <div class="preset-actions">
+            <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+            <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+            <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+          </div>
+        </div>
+        <div class="view-groups" id="viewGroups"></div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+       SUBSECTION 6.4: STICKY TABLE HEAD
+       ============================================================ -->
+    <div class="sticky-table-head-wrap">
+      <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+        <table class="sticky-head-table" aria-hidden="true">
+          <thead>
+            <tr id="stickyTableHeadRow"></tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.5: TABLE
+       ============================================================ -->
+    <section class="table-zone">
+      <div class="table-scroll" id="tableScroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState">
+          <h3>No standards found</h3>
+          <p>Try another IS standard, BIS title, Pradako ID, ISO reference, sub-family or product family.</p>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: EXPORT MODAL
+       ============================================================ -->
+  <section class="modal-overlay" id="exportModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+      <div class="modal-top">
+        <h2>Export Request</h2>
+        <p>The export feature is currently being upgraded for the complete standards database.</p>
+      </div>
+      <div class="modal-body">
+        <div class="work-message">
+          We are working on it.<br />
+          Please email us on:
+          <div class="email-line">info@pradakomechanicals.com</div>
+        </div>
+        <div class="modal-actions">
+          <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=IS%20BIS%20Indian%20Standards%20Library%20Export%20Request">Email Us</a>
+          <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+          <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+        </div>
+        <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: IMAGE PREVIEW MODAL
+       ============================================================ -->
+  <section class="image-preview-overlay" id="imagePreviewModal">
+    <div class="image-preview-card">
+      <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+      <div class="image-preview-head">
+        <h3 id="imagePreviewTitle">Standard Media</h3>
+      </div>
+      <div class="image-preview-body">
+        <img id="imagePreviewImg" src="" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: FOOTER
+       ============================================================ -->
+  <div id="footer-container"></div>
+
+  <!-- ============================================================
+       SECTION 10: BACK TO TOP BUTTON
+       ============================================================ -->
+  <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============================================================
+       SECTION 11: SCRIPTS
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 12: MAIN APPLICATION
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       SUBSECTION 12.1: COMPONENT LOADER
+       ============================================================ */
+    
+    
+    
+
+    /* ============================================================
+       SUBSECTION 12.2: COLUMN DEFINITIONS
+       ============================================================ */
+    const COLUMNS = [{
+      key: "imageSrc",
+      label: "Photo / 2D / 3D",
+      width: 240,
+      minWidth: 240,
+      maxWidth: 240,
+      fixed: true,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "media",
+      searchable: false,
+      sortable: false,
+      weight: 0
+    }, {
+      key: "pradakoId",
+      label: "Pradako Standard ID",
+      width: 145,
+      minWidth: 124,
+      maxWidth: 190,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "id",
+      searchable: true,
+      sortable: true,
+      weight: .55
+    }, {
+      key: "standardCode",
+      label: "Indian Standard No.",
+      width: 235,
+      minWidth: 165,
+      maxWidth: 360,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "standard",
+      searchable: true,
+      sortable: true,
+      weight: .95
+    }, {
+      key: "title",
+      label: "Original BIS Title",
+      width: 500,
+      minWidth: 270,
+      maxWidth: 840,
+      core: true,
+      group: "core",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: 2.65
+    }, {
+      key: "productFamily",
+      label: "Product Family",
+      width: 220,
+      minWidth: 145,
+      maxWidth: 350,
+      core: true,
+      group: "core",
+      type: "family",
+      searchable: true,
+      sortable: true,
+      weight: 1.0
+    }, {
+      key: "editionYear",
+      label: "Edition / Year",
+      width: 195,
+      minWidth: 135,
+      maxWidth: 290,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: .7
+    }, {
+      key: "subFamilyItem",
+      label: "Sub-family / Item",
+      width: 300,
+      minWidth: 190,
+      maxWidth: 460,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: 1.15
+    }, {
+      key: "isoReference",
+      label: "ISO / Reference",
+      width: 230,
+      minWidth: 155,
+      maxWidth: 340,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "standardref",
+      searchable: true,
+      sortable: true,
+      weight: .8
+    }, {
+      key: "sourceId",
+      label: "Source Record ID",
+      width: 225,
+      minWidth: 160,
+      maxWidth: 330,
+      core: false,
+      technical: false,
+      group: "source",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: .7
+    }];
+
+    const GROUP_META = {
+      core: { label: "Core Information" },
+      technical: { label: "IS / BIS Technical Reference" },
+      source: { label: "Source Record" }
+    };
+
+    /* ============================================================
+       SUBSECTION 12.3: UTILITY FUNCTIONS
+       ============================================================ */
+    function slugify(text) {
+      return String(text || "").toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/\+/g, "plus")
+        .replace(/,/g, " ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function escapeHTML(v) {
+      return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
+
+    function escapeRegex(v) {
+      return v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(v, q) {
+      const t = escapeHTML(v);
+      if (!q.trim()) return t;
+      const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+      return t.replace(r, "<mark>$1</mark>");
+    }
+
+    function normalizeDuplicateKey(v) {
+      return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    /* ============================================================
+       SUBSECTION 12.4: SOURCE DATA (preserved exactly as supplied)
+       ============================================================ */
+    const SOURCE_STANDARDS_DATA = [{
+      "id": "is-1363-part-1-001",
+      "standardCode": "IS 1363 (Part 1)",
+      "editionYear": "2019",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Hexagon head bolts - product grade C",
+      "isoReference": "",
+      "title": "Hexagon Head Bolts, Screws and Nuts of product Grade C Hexagon Head Bolts (Size Range M 5 to M 64)"
+    }, {
+      "id": "is-1363-part-2-002",
+      "standardCode": "IS 1363 (Part 2)",
+      "editionYear": "2018 / LIMS shows 2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon head screws - product grade C",
+      "isoReference": "",
+      "title": "Hexagon Head Screw (Size ranges from M 5 to 64)"
+    }, {
+      "id": "is-1363-part-3-003",
+      "standardCode": "IS 1363 (Part 3)",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon nuts - product grade C",
+      "isoReference": "ISO 4034",
+      "title": "Hexagon Head Bolts, Screws and Nuts of product Grade C - Hexagon Nuts (Size Range M5 to M64)"
+    }, {
+      "id": "is-1364-part-1-004",
+      "standardCode": "IS 1364 (Part 1)",
+      "editionYear": "2018 / LIMS shows 2023",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Hexagon head bolts - product grades A and B",
+      "isoReference": "",
+      "title": "Hexagon Head Bolts, Screws and Nuts of product Grades A and B - Hexagon Head Bolts (Size Range M 1.6 To M 64)"
+    }, {
+      "id": "is-1364-part-2-005",
+      "standardCode": "IS 1364 (Part 2)",
+      "editionYear": "2018 / LIMS shows 2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon head screws - product grades A and B",
+      "isoReference": "",
+      "title": "Hexagon Head Bolts, Screws and Nuts of Product Grades A and B - Hexagon Head Screws (Size Range M 1.6 to M 64)"
+    }, {
+      "id": "is-1364-part-3-006",
+      "standardCode": "IS 1364 (Part 3)",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon nuts style 1 - product grades A and B",
+      "isoReference": "ISO 4032:2012",
+      "title": "Hexagon head bolts, screws and nuts of product grades A and B Part 3 Hexagon Nuts, Style 1 (Size Range M 1.6 To M 64)"
+    }, {
+      "id": "is-1364-part-4-007",
+      "standardCode": "IS 1364 (Part 4)",
+      "editionYear": "2003",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon thin nuts, chamfered",
+      "isoReference": "ISO 4035:1999",
+      "title": "Hexagon head bolts, screws and nuts of product grades A and B part 4 hexagon thin nuts (chamfered) (size range M1.6 to M64)"
+    }, {
+      "id": "is-1364-part-5-008",
+      "standardCode": "IS 1364 (Part 5)",
+      "editionYear": "2002",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon thin nuts, unchamfered",
+      "isoReference": "ISO 4036:1999",
+      "title": "Hexagon head bolts, screws and nuts of product grades A and B part 5 hexagon thin nuts - product grade B (unchamfered) (size range M1.6 to M10)"
+    }, {
+      "id": "is-1364-part-6-009",
+      "standardCode": "IS 1364 (Part 6)",
+      "editionYear": "2025",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon nuts style 2 / high nuts",
+      "isoReference": "ISO 4033:2023",
+      "title": "Hexagon head bolts, screws and nuts of product grades A and B Part 6 Hexagon Nuts, Style 2 (Size range M5 to M39)"
+    }, {
+      "id": "is-10238-010",
+      "standardCode": "IS 10238",
+      "editionYear": "2001",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Step bolts for steel structures",
+      "isoReference": "",
+      "title": "Fasteners - Threaded Steel Fasteners - Step Bolts for Steel Structures"
+    }, {
+      "id": "is-12427-011",
+      "standardCode": "IS 12427",
+      "editionYear": "2001",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Transmission tower bolts",
+      "isoReference": "",
+      "title": "Fasteners - Threaded Steel Fasteners - Hexagon Head Transmission Tower Bolts"
+    }, {
+      "id": "is-3757-012",
+      "standardCode": "IS 3757",
+      "editionYear": "1985",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "High strength structural bolts",
+      "isoReference": "",
+      "title": "High strength structural bolts"
+    }, {
+      "id": "is-6623-013",
+      "standardCode": "IS 6623",
+      "editionYear": "2004",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "High strength structural nuts",
+      "isoReference": "",
+      "title": "High strength structural nuts"
+    }, {
+      "id": "is-6649-014",
+      "standardCode": "IS 6649",
+      "editionYear": "1985",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Hardened and tempered washers for structural bolting",
+      "isoReference": "",
+      "title": "Specification for hardened and tempered washers for high strength structural bolts and nuts"
+    }, {
+      "id": "is-3063-015",
+      "standardCode": "IS 3063",
+      "editionYear": "1994",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Spring lock washers",
+      "isoReference": "",
+      "title": "Fasteners - Single coil rectangular section spring lock washers specification"
+    }, {
+      "id": "is-2016-016",
+      "standardCode": "IS 2016",
+      "editionYear": "1967",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Plain washers",
+      "isoReference": "",
+      "title": "Specification for plain washers"
+    }, {
+      "id": "is-18471-part-1-017",
+      "standardCode": "IS 18471 (Part 1)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed drilling screws - pan head",
+      "isoReference": "ISO 15481:1999",
+      "title": "Fasteners - Cross Recessed Drilling Screws with Tapping Screw Thread Part 1 Pan Head"
+    }, {
+      "id": "is-18471-part-2-018",
+      "standardCode": "IS 18471 (Part 2)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed drilling screws - countersunk head",
+      "isoReference": "ISO 15482:1999",
+      "title": "Fasteners - Cross Recessed Drilling Screws with Tapping Screw Thread Part 2 Countersunk Head"
+    }, {
+      "id": "is-18471-part-3-019",
+      "standardCode": "IS 18471 (Part 3)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed drilling screws - raised countersunk head",
+      "isoReference": "ISO 15483:1999",
+      "title": "Fasteners - Cross Recessed Drilling Screws with Tapping Screw Thread Part 3 Raised Countersunk Head"
+    }, {
+      "id": "is-18471-020",
+      "standardCode": "IS 18471",
+      "editionYear": "2025",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Drilling screws with tapping screw thread",
+      "isoReference": "",
+      "title": "Fasteners - Drilling Screws with Tapping Screw Thread - Specification"
+    }, {
+      "id": "is-18476-021",
+      "standardCode": "IS 18476",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon washer head drilling screws",
+      "isoReference": "ISO 15480:2019",
+      "title": "Fasteners - Hexagon Washer Head Drilling Screws with Tapping Screw Thread"
+    }, {
+      "id": "is-18480-part-1-022",
+      "standardCode": "IS 18480 (Part 1)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed tapping screws - pan head",
+      "isoReference": "ISO 7049",
+      "title": "Cross Recessed Tapping Screws: Part 1 Pan Head"
+    }, {
+      "id": "is-18480-part-2-023",
+      "standardCode": "IS 18480 (Part 2)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed tapping screws - countersunk flat head",
+      "isoReference": "ISO 7050",
+      "title": "Cross Recessed Tapping Screws Part 2 Countersunk Flat Head"
+    }, {
+      "id": "is-18480-part-3-024",
+      "standardCode": "IS 18480 (Part 3)",
+      "editionYear": "2023",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross recessed tapping screws - raised countersunk oval head",
+      "isoReference": "ISO 7051",
+      "title": "Cross Recessed Tapping Screw Part 3 Raised Countersunk Oval Head"
+    }, {
+      "id": "is-18480-025",
+      "standardCode": "IS 18480",
+      "editionYear": "2025",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Self-tapping screws",
+      "isoReference": "",
+      "title": "Self-Tapping Screws - Specification"
+    }, {
+      "id": "is-7483-026",
+      "standardCode": "IS 7483",
+      "editionYear": "2018",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Pan head screws with Type H/Z cross recess",
+      "isoReference": "ISO 7045",
+      "title": "Pan Head Screws With Type H or Type Z Cross Recess - Product Grade A"
+    }, {
+      "id": "is-7485-part-1-027",
+      "standardCode": "IS 7485 (Part 1)",
+      "editionYear": "2018",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Countersunk flat head screws - steel 4.8",
+      "isoReference": "ISO 7046-1",
+      "title": "Countersunk Flat Head Screws (Common Head Style) With Type H or Type Z Cross Recess - Product Grade A Part 1 Steel Screws of Property Class 4.8"
+    }, {
+      "id": "is-7485-part-2-028",
+      "standardCode": "IS 7485 (Part 2)",
+      "editionYear": "2018",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Countersunk flat head screws - steel 8.8, stainless and non-ferrous",
+      "isoReference": "ISO 7046-2",
+      "title": "Countersunk flat head screws (common head style) with type H or Type Z Cross Recess - Product Grade A Part 2 Steel Screws of Property Class 8.8, Stainless Steel Screws and Non-Ferrous Metal Screws"
+    }, {
+      "id": "is-7486-029",
+      "standardCode": "IS 7486",
+      "editionYear": "2018",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Raised countersunk head screws",
+      "isoReference": "ISO 7047",
+      "title": "Raised countersunk head screws with Type H or Type Z Cross Recess - Product Grade A"
+    }, {
+      "id": "is-18507-030",
+      "standardCode": "IS 18507",
+      "editionYear": "2024",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Drywall screws",
+      "isoReference": "",
+      "title": "Drywall Screws - Specification"
+    }, {
+      "id": "is-18508-031",
+      "standardCode": "IS 18508",
+      "editionYear": "2024",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Chipboard screws",
+      "isoReference": "",
+      "title": "Chipboard Screws - Specification"
+    }, {
+      "id": "is-18509-032",
+      "standardCode": "IS 18509",
+      "editionYear": "2024",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Cross-recessed countersunk head wood screws",
+      "isoReference": "",
+      "title": "Cross-recessed Countersunk Head Wood Screws - Specification"
+    }, {
+      "id": "is-2269-033",
+      "standardCode": "IS 2269",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon socket head cap screws",
+      "isoReference": "ISO 4762:2004",
+      "title": "Hexagon Socket Head Cap Screws"
+    }, {
+      "id": "is-7173-034",
+      "standardCode": "IS 7173",
+      "editionYear": "2018",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted pan head tapping screws",
+      "isoReference": "",
+      "title": "Slotted pan head tapping screws"
+    }, {
+      "id": "is-6760-035",
+      "standardCode": "IS 6760",
+      "editionYear": "1972",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted countersunk head wood screws",
+      "isoReference": "",
+      "title": "Specification for slotted countersunk head wood screws"
+    }, {
+      "id": "is-15581-036",
+      "standardCode": "IS 15581",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon nuts with flange",
+      "isoReference": "",
+      "title": "Hexagon nuts with flange, style 2 - Coarse thread"
+    }, {
+      "id": "is-13722-037",
+      "standardCode": "IS 13722",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon regular nuts with metric fine pitch thread",
+      "isoReference": "ISO 8673:2012",
+      "title": "Hexagon regular nuts (style 1) with metric fine pitch thread - product grades A and B"
+    }, {
+      "id": "is-13723-038",
+      "standardCode": "IS 13723",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon high nuts with metric fine pitch thread",
+      "isoReference": "ISO 8674:2012",
+      "title": "Hexagon high nuts (style 2) with metric fine pitch thread - product grades A and B"
+    }, {
+      "id": "is-13724-039",
+      "standardCode": "IS 13724",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon thin nuts chamfered with metric fine pitch thread",
+      "isoReference": "ISO 8675:2012",
+      "title": "Hexagon thin nuts chamfered (style 0) with metric fine pitch thread - product grades A and B"
+    }, {
+      "id": "is-14394-040",
+      "standardCode": "IS 14394",
+      "editionYear": "1996",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hot-dip galvanized hexagon nuts",
+      "isoReference": "",
+      "title": "Industrial fasteners - Hexagon nuts of product grade C - Hot-dip galvanized - Specification (size range M12 to M36)"
+    }, {
+      "id": "is-7795-041",
+      "standardCode": "IS 7795",
+      "editionYear": "2004",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon nuts with collar",
+      "isoReference": "",
+      "title": "Hexagon nuts with collar - Specification"
+    }, {
+      "id": "is-2585-042",
+      "standardCode": "IS 2585",
+      "editionYear": "2006",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Square nuts / square head fasteners",
+      "isoReference": "",
+      "title": "Square head bolts, screws and square nuts of product grade C"
+    }, {
+      "id": "is-8856-043",
+      "standardCode": "IS 8856",
+      "editionYear": "1991",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Hexagon weld nuts",
+      "isoReference": "",
+      "title": "Hexagon weld nuts"
+    }, {
+      "id": "is-2687-044",
+      "standardCode": "IS 2687",
+      "editionYear": "1997",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Cap nuts",
+      "isoReference": "",
+      "title": "Cap nuts of product grade A"
+    }, {
+      "id": "is-3460-045",
+      "standardCode": "IS 3460",
+      "editionYear": "1991",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Knurled nuts",
+      "isoReference": "",
+      "title": "Knurled nuts"
+    }, {
+      "id": "is-2636-046",
+      "standardCode": "IS 2636",
+      "editionYear": "1972",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Wing nuts",
+      "isoReference": "",
+      "title": "Wing nuts (Type A and B)"
+    }, {
+      "id": "is-3468-047",
+      "standardCode": "IS 3468",
+      "editionYear": "1991",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Pipe nuts",
+      "isoReference": "",
+      "title": "Pipe nuts"
+    }, {
+      "id": "is-5368-048",
+      "standardCode": "IS 5368",
+      "editionYear": "1969",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Thin slotted and castle nuts",
+      "isoReference": "",
+      "title": "Thin slotted and castle nuts"
+    }, {
+      "id": "is-7790-049",
+      "standardCode": "IS 7790",
+      "editionYear": "1991",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Domed cap nuts",
+      "isoReference": "",
+      "title": "Domed cap nuts - Specification"
+    }, {
+      "id": "is-2232-050",
+      "standardCode": "IS 2232",
+      "editionYear": "1969",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Slotted and castle nuts",
+      "isoReference": "",
+      "title": "Specification for Slotted and Castle Nuts"
+    }, {
+      "id": "is-7002-051",
+      "standardCode": "IS 7002",
+      "editionYear": "2018",
+      "productFamily": ["Nuts"],
+      "subFamilyItem": "Prevailing torque hexagon regular nuts with non-metallic insert",
+      "isoReference": "",
+      "title": "Prevailing Torque Type Hexagon Regular Nuts (With Non-Metallic Insert) - Property Classes 5, 8 and 10"
+    }, {
+      "id": "is-1862-052",
+      "standardCode": "IS 1862",
+      "editionYear": "1975",
+      "productFamily": ["Threaded Rods / Studs"],
+      "subFamilyItem": "Studs",
+      "isoReference": "",
+      "title": "Studs"
+    }, {
+      "id": "is-1368-053",
+      "standardCode": "IS 1368",
+      "editionYear": "2002",
+      "productFamily": ["Threaded Rods / Studs"],
+      "subFamilyItem": "External ISO metric thread ends",
+      "isoReference": "ISO 4753",
+      "title": "Fasteners - Ends of parts with external ISO metric thread"
+    }, {
+      "id": "is-4206-054",
+      "standardCode": "IS 4206",
+      "editionYear": "1987",
+      "productFamily": ["Threaded Rods / Studs"],
+      "subFamilyItem": "Nominal lengths and thread lengths",
+      "isoReference": "ISO 888:1976",
+      "title": "Dimensions for nominal lengths and thread lengths for bolts, screws and studs"
+    }, {
+      "id": "is-4499-055",
+      "standardCode": "IS 4499",
+      "editionYear": "1968",
+      "productFamily": ["Threaded Rods / Studs"],
+      "subFamilyItem": "Depth of holes for studs",
+      "isoReference": "",
+      "title": "Dimensions for Depth of Holes for Studs"
+    }, {
+      "id": "is-8536-056",
+      "standardCode": "IS 8536",
+      "editionYear": "1987",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Symbols and designations",
+      "isoReference": "ISO 225",
+      "title": "Fasteners - Bolts, screws, studs and nuts - Symbols and designations of dimensions"
+    }, {
+      "id": "is-1367-part-1-057",
+      "standardCode": "IS 1367 (Part 1)",
+      "editionYear": "2002",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Technical supply conditions - general",
+      "isoReference": "ISO 8992:1986",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 1 Introduction and general information"
+    }, {
+      "id": "is-1367-part-2-058",
+      "standardCode": "IS 1367 (Part 2)",
+      "editionYear": "2002",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Tolerances for fasteners",
+      "isoReference": "ISO 4759-1:2000",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 2 Tolerances for fasteners - Bolts, screws, studs and nuts - Product grades A, B and C"
+    }, {
+      "id": "is-1367-part-3-059",
+      "standardCode": "IS 1367 (Part 3)",
+      "editionYear": "2002 / later revisions exist",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Mechanical properties - bolts, screws and studs",
+      "isoReference": "ISO 898-1",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 3 Mechanical properties of fasteners made of carbon steel and alloy steel - Bolts, screws and studs"
+    }, {
+      "id": "is-1367-part-6-060",
+      "standardCode": "IS 1367 (Part 6)",
+      "editionYear": "",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Mechanical properties - nuts",
+      "isoReference": "",
+      "title": "Technical supply conditions for threaded steel fasteners - Mechanical properties of nuts"
+    }, {
+      "id": "is-1367-part-9-sec-1-061",
+      "standardCode": "IS 1367 (Part 9/Sec 1)",
+      "editionYear": "1993",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Surface discontinuities - bolts/screws/studs general",
+      "isoReference": "ISO 6157-1:1988",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 9 Surface discontinuities, Section 1 Bolts, screws and studs for general applications"
+    }, {
+      "id": "is-1367-part-9-sec-2-062",
+      "standardCode": "IS 1367 (Part 9/Sec 2)",
+      "editionYear": "1993",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Surface discontinuities - bolts/screws/studs special",
+      "isoReference": "ISO 6157-3:1988",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 9 Surface discontinuities, Section 2 Bolts, screws and studs for special applications"
+    }, {
+      "id": "is-1367-part-14-sec-1-063",
+      "standardCode": "IS 1367 (Part 14/Sec 1)",
+      "editionYear": "2002",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Stainless steel bolts, screws and studs",
+      "isoReference": "ISO 3506-1:1997",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 14 Mechanical properties of corrosion-resistant stainless-steel fasteners, Section 1 Bolts, screws and studs"
+    }, {
+      "id": "is-1367-part-11-064",
+      "standardCode": "IS 1367 (Part 11)",
+      "editionYear": "2002",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Electroplated coatings",
+      "isoReference": "ISO 4042:1999",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 11 Electroplated coatings"
+    }, {
+      "id": "is-1367-part-17-065",
+      "standardCode": "IS 1367 (Part 17)",
+      "editionYear": "2004",
+      "productFamily": ["General / Threaded Fasteners"],
+      "subFamilyItem": "Inspection and acceptance procedure",
+      "isoReference": "ISO 3269:2000",
+      "title": "Technical supply conditions for threaded steel fasteners: Part 17 Inspection, sampling and acceptance procedure"
+    }, {
+      "id": "is-451-066",
+      "standardCode": "IS 451",
+      "editionYear": "1999",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Technical supply conditions for wood screws",
+      "isoReference": "",
+      "title": "Technical Supply Conditions for Wood Screws"
+    }, {
+      "id": "is-866-067",
+      "standardCode": "IS 866",
+      "editionYear": "1957",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Tinmen's rivets",
+      "isoReference": "",
+      "title": "Tinmen's Rivets"
+    }, {
+      "id": "is-1120-068",
+      "standardCode": "IS 1120",
+      "editionYear": "1975",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Coach screws",
+      "isoReference": "",
+      "title": "Coach Screws"
+    }, {
+      "id": "is-1365-069",
+      "standardCode": "IS 1365",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted countersunk flat head screws",
+      "isoReference": "ISO 2009",
+      "title": "Slotted Countersunk Flat Head Screws (common head style) - Product Grade A"
+    }, {
+      "id": "is-1366-070",
+      "standardCode": "IS 1366",
+      "editionYear": "2002",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted cheese head screws",
+      "isoReference": "ISO 1207",
+      "title": "Slotted Cheese Head Screws - Product Grade A"
+    }, {
+      "id": "is-1928-071",
+      "standardCode": "IS 1928",
+      "editionYear": "1961",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Boiler rivets",
+      "isoReference": "",
+      "title": "Boiler Rivets (12 to 48 mm Diameter)"
+    }, {
+      "id": "is-1929-072",
+      "standardCode": "IS 1929",
+      "editionYear": "1982",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Hot forged steel rivets for hot closing",
+      "isoReference": "",
+      "title": "Hot Forged Steel Rivets for Hot Closing (12 to 36 mm Diameter)"
+    }, {
+      "id": "is-2155-073",
+      "standardCode": "IS 2155",
+      "editionYear": "1982",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Cold forged solid steel rivets for hot closing",
+      "isoReference": "",
+      "title": "Cold Forged Solid Steel Rivets for Hot Closing (6 to 16 mm Diameter)"
+    }, {
+      "id": "is-2585-074",
+      "standardCode": "IS 2585",
+      "editionYear": "2006",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Square head bolts, screws and square nuts",
+      "isoReference": "",
+      "title": "Square head bolts, screws and square nuts of product grade C"
+    }, {
+      "id": "is-2609-075",
+      "standardCode": "IS 2609",
+      "editionYear": "1972",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Coach bolts",
+      "isoReference": "",
+      "title": "Coach Bolts"
+    }, {
+      "id": "is-2907-076",
+      "standardCode": "IS 2907",
+      "editionYear": "1998",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Non-ferrous rivets",
+      "isoReference": "",
+      "title": "Non-Ferrous Rivets"
+    }, {
+      "id": "is-2998-077",
+      "standardCode": "IS 2998",
+      "editionYear": "1982",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Cold forged steel rivets for cold closing",
+      "isoReference": "",
+      "title": "Cold Forged Steel Rivets for Cold Closing (1 to 16 mm Diameter)"
+    }, {
+      "id": "is-3726-078",
+      "standardCode": "IS 3726",
+      "editionYear": "2003",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Thumb screws",
+      "isoReference": "",
+      "title": "Thumb Screws"
+    }, {
+      "id": "is-3727-079",
+      "standardCode": "IS 3727",
+      "editionYear": "1966",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Wing screws",
+      "isoReference": "",
+      "title": "Wing Screws"
+    }, {
+      "id": "is-3974-080",
+      "standardCode": "IS 3974",
+      "editionYear": "1967",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Bifurcated rivets",
+      "isoReference": "",
+      "title": "Bifurcated Rivets for General Purposes"
+    }, {
+      "id": "is-4040-081",
+      "standardCode": "IS 4040",
+      "editionYear": "1998",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Solid, drilled tubular and semi-tubular rivets",
+      "isoReference": "",
+      "title": "Fasteners - Solid Drilled Tubular and Semi-Tubular Rivets"
+    }, {
+      "id": "is-4732-082",
+      "standardCode": "IS 4732",
+      "editionYear": "1968",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Rivets for shipbuilding",
+      "isoReference": "",
+      "title": "Rivets for Shipbuilding"
+    }, {
+      "id": "is-5369-083",
+      "standardCode": "IS 5369",
+      "editionYear": "1975",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "General requirements for plain and lock washers",
+      "isoReference": "",
+      "title": "General Requirements for Plain Washers and Lock Washers"
+    }, {
+      "id": "is-5370-084",
+      "standardCode": "IS 5370",
+      "editionYear": "1969",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Plain washers 3 x ID",
+      "isoReference": "",
+      "title": "Plain Washers with Outside Diameter 3 X Inside Diameter"
+    }, {
+      "id": "is-5371-085",
+      "standardCode": "IS 5371",
+      "editionYear": "1982",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Multi-tooth lock washers",
+      "isoReference": "",
+      "title": "Multi-tooth Lock Washers"
+    }, {
+      "id": "is-5372-086",
+      "standardCode": "IS 5372",
+      "editionYear": "1975",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Taper washers for channels",
+      "isoReference": "",
+      "title": "Taper washers for channels (ISMC)"
+    }, {
+      "id": "is-5373-087",
+      "standardCode": "IS 5373",
+      "editionYear": "1969",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Square washers for wood fastenings",
+      "isoReference": "",
+      "title": "Square washers for wood fastenings"
+    }, {
+      "id": "is-5374-088",
+      "standardCode": "IS 5374",
+      "editionYear": "1975",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Taper washers for I-beams",
+      "isoReference": "",
+      "title": "Taper washers for I-beams (ISMB)"
+    }, {
+      "id": "is-5554-089",
+      "standardCode": "IS 5554",
+      "editionYear": "1991",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Lock washers with lug",
+      "isoReference": "",
+      "title": "Lock washers with lug"
+    }, {
+      "id": "is-5556-090",
+      "standardCode": "IS 5556",
+      "editionYear": "1991",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Serrated lock washers",
+      "isoReference": "",
+      "title": "Serrated Lock Washers"
+    }, {
+      "id": "is-5957-091",
+      "standardCode": "IS 5957",
+      "editionYear": "2003",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Thread forming tapping screw threads",
+      "isoReference": "ISO 1478",
+      "title": "Screw Threads for Thread Forming Tapping Screws - Dimensions"
+    }, {
+      "id": "is-6094-part-1-092",
+      "standardCode": "IS 6094 (Part 1)",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon socket set screws with flat point",
+      "isoReference": "ISO 4026",
+      "title": "Hexagon Socket Set Screws: Part 1 With flat point"
+    }, {
+      "id": "is-6094-part-2-093",
+      "standardCode": "IS 6094 (Part 2)",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon socket set screws with cone point",
+      "isoReference": "ISO 4027",
+      "title": "Hexagon Socket Set Screws: Part 2 With cone point"
+    }, {
+      "id": "is-6094-part-3-094",
+      "standardCode": "IS 6094 (Part 3)",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon socket set screws with dog point",
+      "isoReference": "ISO 4028",
+      "title": "Hexagon Socket Set Screws: Part 3 With dog point"
+    }, {
+      "id": "is-6094-part-4-095",
+      "standardCode": "IS 6094 (Part 4)",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hexagon socket set screws with cup point",
+      "isoReference": "ISO 4029",
+      "title": "Hexagon Socket Set Screws: Part 4 With cup point"
+    }, {
+      "id": "is-6101-096",
+      "standardCode": "IS 6101",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted pan head screws",
+      "isoReference": "ISO 1580",
+      "title": "Slotted Pan Head Screws - Product Grade A"
+    }, {
+      "id": "is-6610-097",
+      "standardCode": "IS 6610",
+      "editionYear": "1972",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Heavy washers for steel structures",
+      "isoReference": "",
+      "title": "Heavy Washers for Steel Structures"
+    }, {
+      "id": "is-6736-098",
+      "standardCode": "IS 6736",
+      "editionYear": "1972",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted raised countersunk head wood screws",
+      "isoReference": "",
+      "title": "Slotted Raised Countersunk Head Wood Screws"
+    }, {
+      "id": "is-6739-099",
+      "standardCode": "IS 6739",
+      "editionYear": "1972",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted round head wood screws",
+      "isoReference": "",
+      "title": "Slotted round head wood screws"
+    }, {
+      "id": "is-6735-100",
+      "standardCode": "IS 6735",
+      "editionYear": "1994",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Spring lock washers for cylindrical head screws",
+      "isoReference": "",
+      "title": "Fasteners - Spring lock washers for screws with cylindrical heads"
+    }, {
+      "id": "is-6755-101",
+      "standardCode": "IS 6755",
+      "editionYear": "1980",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Double coil helical spring washers",
+      "isoReference": "",
+      "title": "Double coil helical spring washers"
+    }, {
+      "id": "is-6761-102",
+      "standardCode": "IS 6761",
+      "editionYear": "1994",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Countersunk head screws with hexagon socket",
+      "isoReference": "",
+      "title": "Fasteners - Countersunk Head Screws with Hexagon Socket"
+    }, {
+      "id": "is-7169-103",
+      "standardCode": "IS 7169",
+      "editionYear": "1989",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted raised countersunk tapping screws",
+      "isoReference": "",
+      "title": "Slotted raised countersunk (oval) head tapping screws"
+    }, {
+      "id": "is-7170-104",
+      "standardCode": "IS 7170",
+      "editionYear": "1989",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted countersunk flat head tapping screws",
+      "isoReference": "",
+      "title": "Slotted countersunk flat head tapping screws"
+    }, {
+      "id": "is-7178-105",
+      "standardCode": "IS 7178",
+      "editionYear": "2002",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Heat-treated steel tapping screws",
+      "isoReference": "",
+      "title": "Heat-Treated Steel Tapping Screws - Mechanical Properties"
+    }, {
+      "id": "is-7519-106",
+      "standardCode": "IS 7519",
+      "editionYear": "1974",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Hammer drive screws",
+      "isoReference": "",
+      "title": "Hammer Drive Screws"
+    }, {
+      "id": "is-7800-107",
+      "standardCode": "IS 7800",
+      "editionYear": "1990",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Thread cutting tapping screws",
+      "isoReference": "",
+      "title": "Thread cutting tapping screw - Screw threads and ends - Dimensions"
+    }, {
+      "id": "is-8033-108",
+      "standardCode": "IS 8033",
+      "editionYear": "1976",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Round washers with square hole for wood fastenings",
+      "isoReference": "",
+      "title": "Round Washers with Square Hole for Wood Fastenings"
+    }, {
+      "id": "is-8068-109",
+      "standardCode": "IS 8068",
+      "editionYear": "1976",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Tab washers",
+      "isoReference": "",
+      "title": "Tab Washers"
+    }, {
+      "id": "is-8070-110",
+      "standardCode": "IS 8070",
+      "editionYear": "1991",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted capstan screws / tommy bolts",
+      "isoReference": "",
+      "title": "Screws - Slotted capstan (tommy bolts)"
+    }, {
+      "id": "is-8869-111",
+      "standardCode": "IS 8869",
+      "editionYear": "1978",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Washers for corrugated sheet roofing",
+      "isoReference": "",
+      "title": "Washers for Corrugated Sheet Roofing"
+    }, {
+      "id": "is-8911-112",
+      "standardCode": "IS 8911",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Countersunk slotted raised countersunk head screws",
+      "isoReference": "ISO 2020",
+      "title": "Countersunk Slotted Raised Countersunk Head Screws (common head style) - Product Grade A"
+    }, {
+      "id": "is-10102-113",
+      "standardCode": "IS 10102",
+      "editionYear": "1982",
+      "productFamily": ["Rivets"],
+      "subFamilyItem": "Technical supply conditions for rivets",
+      "isoReference": "",
+      "title": "Technical supply conditions for rivets"
+    }, {
+      "id": "is-15582-114",
+      "standardCode": "IS 15582",
+      "editionYear": "2005 / later revision likely",
+      "productFamily": ["Bolts"],
+      "subFamilyItem": "Hexagon flange bolts - small series",
+      "isoReference": "ISO 4162",
+      "title": "Hexagon Flange Bolts - Small Series"
+    }, {
+      "id": "is-15628-115",
+      "standardCode": "IS 15628",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted set screws with flat point",
+      "isoReference": "ISO 4766",
+      "title": "Slotted set screws with flat point"
+    }, {
+      "id": "is-15629-116",
+      "standardCode": "IS 15629",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted set screws with cone point",
+      "isoReference": "ISO 7434",
+      "title": "Slotted set screws with cone point"
+    }, {
+      "id": "is-15630-117",
+      "standardCode": "IS 15630",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted set screws with long dog point",
+      "isoReference": "ISO 7435",
+      "title": "Slotted set screws with long dog point"
+    }, {
+      "id": "is-15631-118",
+      "standardCode": "IS 15631",
+      "editionYear": "2005",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Slotted set screws with cup point",
+      "isoReference": "ISO 7436",
+      "title": "Slotted set screws with cup point"
+    }, {
+      "id": "is-15274-119",
+      "standardCode": "IS 15274",
+      "editionYear": "2003",
+      "productFamily": ["Washers"],
+      "subFamilyItem": "Tolerances for plain washers",
+      "isoReference": "ISO 4759-3",
+      "title": "Tolerances for Fasteners - Plain Washers for Bolts, Screws and Nuts - Product Grades A and C"
+    }, {
+      "id": "is-15705-120",
+      "standardCode": "IS 15705",
+      "editionYear": "2006",
+      "productFamily": ["Screws"],
+      "subFamilyItem": "Gauging of hexagon sockets",
+      "isoReference": "ISO 23429",
+      "title": "Gauging of hexagon sockets"
+    }];
+
+    /* ============================================================
+       SUBSECTION 12.5: ENRICH DATA WITH PRADAKO IDs & PAGE URLs
+       ============================================================ */
+    const PAGE_SLUG_COUNTERS = {};
+    const standardsData = SOURCE_STANDARDS_DATA.map((row, index) => {
+      const base = slugify(row.standardCode);
+      PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+      const pageSlug = PAGE_SLUG_COUNTERS[base] === 1 ? base : `${base}-${String(PAGE_SLUG_COUNTERS[base]).padStart(2, "0")}`;
+      return {
+        ...row,
+        sourceId: row.id,
+        pradakoId: `PRA-STD-IS-${String(index + 1).padStart(4, "0")}`,
+        imageSrc: `/assets/images/products/standards-products/${base}.png`,
+        imageAltPresentation: `${row.standardCode} standard media`,
+        pageUrl: `/pages/standards/is/${pageSlug}.html`
+      };
+    });
+
+    /* ============================================================
+       SUBSECTION 12.6: DOM REFERENCES & STATE
+       ============================================================ */
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+    const tableBody = document.getElementById("standardsTableBody");
+    const searchInput = document.getElementById("searchInput");
+    const familyFilter = document.getElementById("familyFilter");
+    const emptyState = document.getElementById("emptyState");
+    const viewPanel = document.getElementById("viewPanel");
+    const viewGroups = document.getElementById("viewGroups");
+    const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+    const exportModal = document.getElementById("exportModal");
+    const copyStatus = document.getElementById("copyStatus");
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const imagePreviewImg = document.getElementById("imagePreviewImg");
+    const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+    const visibleCount = document.getElementById("visibleCount");
+    const totalCount = document.getElementById("totalCount");
+    const pageCount = document.getElementById("pageCount");
+    const visibleColumnCount = document.getElementById("visibleColumnCount");
+    const duplicateModePill = document.getElementById("duplicateModePill");
+    const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+    const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+    const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+    let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+    let currentFilteredData = [...standardsData];
+    let duplicateMode = false;
+    let duplicateBaseData = [];
+    let sortState = { key: null, direction: "asc" };
+    let currentDensity = "compact";
+    let searchTimer;
+
+    /* ============================================================
+       SUBSECTION 12.7: VIEW & FILTER HELPERS
+       ============================================================ */
+    function getVisibleColumns() {
+      return COLUMNS.filter(c => visibleColumns.has(c.key));
+    }
+
+    function buildFamilyFilter() {
+      const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      familyFilter.innerHTML = '<option value="">All Product Families</option>';
+      fs.forEach(f => {
+        const o = document.createElement("option");
+        o.value = f;
+        o.textContent = f;
+        familyFilter.appendChild(o);
+      });
+    }
+
+    function buildViewPanel() {
+      viewGroups.innerHTML = "";
+      Object.entries(GROUP_META).forEach(([key, meta]) => {
+        const cols = COLUMNS.filter(c => c.group === key);
+        if (!cols.length) return;
+        const g = document.createElement("div");
+        g.className = "view-group";
+        const h = document.createElement("h4");
+        h.textContent = meta.label;
+        const wrap = document.createElement("div");
+        wrap.className = "column-checks";
+        cols.forEach(c => {
+          const label = document.createElement("label");
+          label.className = "check-item";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.checked = visibleColumns.has(c.key);
+          input.addEventListener("change", () => {
+            if (input.checked) {
+              visibleColumns.add(c.key);
+            } else {
+              if (visibleColumns.size === 1) { input.checked = true; return; }
+              visibleColumns.delete(c.key);
+            }
+            setPresetState("custom");
+            buildViewPanel();
+            renderTable(currentFilteredData);
+          });
+          const span = document.createElement("span");
+          span.textContent = c.label;
+          label.append(input, span);
+          wrap.appendChild(label);
+        });
+        g.append(h, wrap);
+        viewGroups.appendChild(g);
+      });
+    }
+
+    function toggleViewPanel() {
+      viewPanel.classList.toggle("open");
+      const open = viewPanel.classList.contains("open");
+      viewOptionsBtn.classList.toggle("active", open);
+      viewOptionsBtn.setAttribute("aria-expanded", String(open));
+    }
+
+    function setPresetState(which) {
+      ["Core", "Technical", "All"].forEach(n =>
+        document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+      );
+    }
+
+    function applyViewPreset(which) {
+      if (which === "core") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+      } else if (which === "technical") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c.key));
+      } else {
+        visibleColumns = new Set(COLUMNS.map(c => c.key));
+      }
+      setPresetState(which);
+      buildViewPanel();
+      renderTable(currentFilteredData);
+    }
+
+    function setDensity(mode) {
+      currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+      try { localStorage.setItem("pradakoIsDensity", currentDensity); } catch (_) {}
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.8: RENDERING ENGINE
+       ============================================================ */
+    function renderMediaCell(item) {
+      const src = item.imageSrc || "";
+      const alt = item.imageAlt || item.standardCode || "Standard media";
+      return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'" />
+              </div>`;
+    }
+
+    function resolveColumnWidths(list) {
+      const scroller = document.querySelector(".table-scroll");
+      const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+
+      if (window.innerWidth <= 900) {
+        const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, title: 315, productFamily: 190, editionYear: 150,
+          subFamilyItem: 230, isoReference: 190, sourceId: 180 };
+        const widths = list.map(c => mobile[c.key] || 160);
+        const total = widths.reduce((a, b) => a + b, 0);
+        return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total > viewport };
+      }
+
+      const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+      const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+      let total = widths.reduce((a, b) => a + b, 0);
+      const minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+      if (total > viewport) {
+        let excess = total - viewport;
+        let guard = 0;
+        while (excess > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x.room > 0);
+          if (!active.length) break;
+          const rt = active.reduce((s, x) => s + x.room, 0);
+          let removed = 0;
+          active.forEach((x, idx) => {
+            let cut = idx === active.length - 1 ?
+              Math.min(x.room, Math.max(0, excess - removed)) :
+              Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+            widths[x.i] -= cut;
+            removed += cut;
+          });
+          if (!removed) break;
+          excess -= removed;
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+
+      if (total < viewport) {
+        let spare = viewport - total;
+        let guard = 0;
+        while (spare > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({
+            i,
+            weight: c.fixed ? 0 : Math.max(.1, c.weight || 1),
+            room: c.fixed ? 0 : Math.max(0, c.maxWidth - widths[i])
+          })).filter(x => x.weight > 0 && x.room > 0);
+          if (!active.length) break;
+          const wt = active.reduce((s, x) => s + x.weight, 0);
+          let added = 0;
+          active.forEach((x, idx) => {
+            const grow = Math.min(x.room, idx === active.length - 1 ?
+              Math.max(0, spare - added) :
+              Math.max(1, Math.floor(spare * (x.weight / wt))));
+            widths[x.i] += grow;
+            added += grow;
+          });
+          if (!added) break;
+          spare -= added;
+        }
+        total = widths.reduce((a, b) => a + b, 0);
+        spare = Math.max(0, viewport - total);
+        if (spare > 0) {
+          const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+            .filter(x => x.weight > 0);
+          const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+          let added = 0;
+          elastic.forEach((x, idx) => {
+            const grow = idx === elastic.length - 1 ?
+              spare - added :
+              Math.floor(spare * (x.weight / wt));
+            widths[x.i] += Math.max(0, grow);
+            added += Math.max(0, grow);
+          });
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+      return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal > viewport };
+    }
+
+    function getStickyLeftOffset(list, widths, index) {
+      let left = 0;
+      for (let i = 0; i < index; i++) {
+        if (list[i].sticky) left += widths[i];
+      }
+      return left;
+    }
+
+    function applyAdaptiveRowSizing(count) {
+      let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+      let clamp = count <= 6 ? 3 : 4;
+      let x = count <= 6 ? 8 : 7;
+      let y = count <= 6 ? 10 : 11;
+      if (currentDensity === "comfortable") { row += 38;
+        clamp += 2;
+        y += 3; }
+      document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+      document.documentElement.style.setProperty("--title-clamp", String(clamp));
+      document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+      document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+    }
+
+    function applyExactColumnLayout(list) {
+      const layout = resolveColumnWidths(list);
+      const body = document.getElementById("standardsTable");
+      const head = document.querySelector(".sticky-head-table");
+      const bodyScroll = document.querySelector(".table-scroll");
+      const headScroll = document.getElementById("stickyTableHeadScroll");
+      const rendered = Math.max(layout.total, layout.viewport);
+
+      bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+      headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+
+      [body, head].forEach(t => {
+        if (!t) return;
+        t.style.width = rendered + "px";
+        t.style.minWidth = rendered + "px";
+        t.querySelector("colgroup")?.remove();
+        const cg = document.createElement("colgroup");
+        layout.widths.forEach(w => {
+          const col = document.createElement("col");
+          col.style.width = w + "px";
+          cg.appendChild(col);
+        });
+        t.insertBefore(cg, t.firstChild);
+      });
+
+      return layout;
+    }
+
+    function renderTable(data) {
+      const q = searchInput.value.trim();
+      const list = getVisibleColumns();
+      const layout = applyExactColumnLayout(list);
+      applyAdaptiveRowSizing(list.length);
+
+      visibleColumnCount.textContent = list.length;
+      visibleCount.textContent = data.length;
+
+      tableHeadRow.innerHTML = "";
+      stickyTableHeadRow.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      function thFor(c, i) {
+        const th = document.createElement("th");
+        th.textContent = sortState.key === c.key ?
+          c.label + (sortState.direction === "asc" ? " ▲" : " ▼") :
+          c.label;
+        th.style.width = layout.widths[i] + "px";
+        if (c.sticky && window.innerWidth > 900) {
+          th.classList.add("sticky-col");
+          th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+        }
+        if (c.sortable === false) {
+          th.classList.add("not-sortable");
+        } else {
+          th.addEventListener("click", () => sortByColumn(c.key));
+        }
+        return th;
+      }
+
+      list.forEach((c, i) => {
+        tableHeadRow.appendChild(thFor(c, i));
+        stickyTableHeadRow.appendChild(thFor(c, i));
+      });
+
+      const frag = document.createDocumentFragment();
+      data.forEach(item => {
+        const tr = document.createElement("tr");
+        list.forEach((c, i) => {
+          const td = document.createElement("td");
+          const v = item[c.key] !== undefined ? item[c.key] : "—";
+          td.style.width = layout.widths[i] + "px";
+          if (c.sticky && window.innerWidth > 900) {
+            td.classList.add("sticky-col");
+            td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+          }
+          if (c.type === "media") {
+            td.classList.add("media-cell");
+            td.innerHTML = renderMediaCell(item);
+          } else if (c.type === "id") {
+            td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+          } else if (c.type === "standard") {
+            td.innerHTML =
+              `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+          } else if (c.type === "body") {
+            td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+          } else if (c.type === "family") {
+            const a = Array.isArray(v) ? v : [v];
+            td.innerHTML = a.map(x => `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+          } else {
+            td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+          }
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      });
+      tableBody.appendChild(frag);
+      emptyState.style.display = data.length ? "none" : "block";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.9: DUPLICATE DETECTION
+       ============================================================ */
+    function getDuplicateGroups() {
+      const m = new Map();
+      standardsData.forEach(x => {
+        const k = normalizeDuplicateKey(x.standardCode);
+        if (!k) return;
+        if (!m.has(k)) m.set(k, []);
+        m.get(k).push(x);
+      });
+      return [...m.values()].filter(g => g.length > 1)
+        .sort((a, b) => a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true,
+        sensitivity: "base" }));
+    }
+
+    function updateDuplicateViewPill(gc, rc) {
+      if (!duplicateMode) {
+        duplicateModePill.classList.remove("show");
+        duplicateGroupsCount.textContent = "0";
+        duplicateRowsCount.textContent = "0";
+        return;
+      }
+      duplicateGroupsCount.textContent = gc;
+      duplicateRowsCount.textContent = rc;
+      duplicateModePill.classList.add("show");
+    }
+
+    function showDuplicateEntriesInTable() {
+      const groups = getDuplicateGroups();
+      const r = groups.flat();
+      duplicateMode = true;
+      duplicateBaseData = r;
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      currentFilteredData = [...r];
+      updateDuplicateViewPill(groups.length, r.length);
+      duplicateCheckBtn.classList.add("active");
+      searchInput.placeholder = "Search within duplicate IS / BIS entries...";
+      renderTable(currentFilteredData);
+    }
+
+    function hideDuplicateView() {
+      duplicateMode = false;
+      duplicateBaseData = [];
+      updateDuplicateViewPill(0, 0);
+      duplicateCheckBtn.classList.remove("active");
+      searchInput.placeholder = "Search IS standard, BIS title, Pradako ID, ISO reference, sub-family or product family...";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.10: SEARCH / SORT
+       ============================================================ */
+    function searchStandards() {
+      const q = searchInput.value.trim().toLowerCase();
+      const f = familyFilter.value;
+      const src = duplicateMode ? duplicateBaseData : standardsData;
+      currentFilteredData = src.filter(item => {
+        const ms = !q || COLUMNS.some(c => {
+          if (c.searchable === false) return false;
+          const v = item[c.key];
+          if (v == null) return false;
+          if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+          return String(v).toLowerCase().includes(q);
+        });
+        const mf = !f || item.productFamily.includes(f);
+        return ms && mf;
+      });
+      if (sortState.key) {
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+      }
+      renderTable(currentFilteredData);
+    }
+
+    function clearSearch() {
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      hideDuplicateView();
+      currentFilteredData = [...standardsData];
+      renderTable(currentFilteredData);
+    }
+
+    function sortData(data, key, direction) {
+      return [...data].sort((a, b) => {
+        let A = a[key],
+          B = b[key];
+        if (Array.isArray(A)) A = A.join(", ");
+        if (Array.isArray(B)) B = B.join(", ");
+        A = String(A ?? "").toLowerCase();
+        B = String(B ?? "").toLowerCase();
+        return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+      });
+    }
+
+    function sortByColumn(key) {
+      const c = COLUMNS.find(x => x.key === key);
+      if (!c || c.sortable === false) return;
+      if (sortState.key === key) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+      } else {
+        sortState = { key, direction: "asc" };
+      }
+      currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.11: MODALS / POPUPS
+       ============================================================ */
+    function openExportPopup() {
+      exportModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+      copyStatus.classList.remove("show");
+    }
+
+    function closeExportPopup() {
+      exportModal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function copyEmail() {
+      const e = "info@pradakomechanicals.com";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+      } else {
+        const t = document.createElement("textarea");
+        t.value = e;
+        t.style.position = "fixed";
+        t.style.left = "-9999px";
+        document.body.appendChild(t);
+        t.select();
+        try {
+          document.execCommand("copy");
+          copyStatus.classList.add("show");
+        } catch (_) {
+          copyStatus.textContent = "Please copy manually: " + e;
+          copyStatus.classList.add("show");
+        }
+        t.remove();
+      }
+    }
+
+    function openImagePreview(src, alt, title) {
+      imagePreviewImg.src = src;
+      imagePreviewImg.alt = alt;
+      imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+      imagePreviewModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImagePreview() {
+      imagePreviewModal.classList.remove("show");
+      imagePreviewImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.12: SCROLL SYNC
+       ============================================================ */
+    function syncScroll() {
+      const b = document.querySelector(".table-scroll");
+      const h = document.getElementById("stickyTableHeadScroll");
+      let syncing = false;
+
+      const sync = (from, to) => {
+        if (syncing) return;
+        syncing = true;
+        to.scrollLeft = from.scrollLeft;
+        syncing = false;
+      };
+
+      b.addEventListener("scroll", () => sync(b, h), { passive: true });
+      h.addEventListener("scroll", () => sync(h, b), { passive: true });
+    }
+
+    /* ============================================================
+       SUBSECTION 12.13: EVENT LISTENERS & INITIALISATION
+       ============================================================ */
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(searchStandards, 160);
+    });
+
+    familyFilter.addEventListener("change", searchStandards);
+
+    tableBody.addEventListener("click", e => {
+      const box = e.target.closest(".media-card");
+      if (box) {
+        openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+      }
+    });
+
+    exportModal.addEventListener("click", e => {
+      if (e.target === exportModal) closeExportPopup();
+    });
+
+    imagePreviewModal.addEventListener("click", e => {
+      if (e.target === imagePreviewModal) closeImagePreview();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") { closeExportPopup();
+        closeImagePreview(); }
+    });
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+    });
+
+    function init() {
+      try {
+        if (localStorage.getItem("pradakoIsDensity") === "comfortable") currentDensity = "comfortable";
+      } catch (_) {}
+
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+
+      totalCount.textContent = standardsData.length;
+      pageCount.textContent = standardsData.length;
+
+      buildFamilyFilter();
+      buildViewPanel();
+      renderTable(currentFilteredData);
+      syncScroll();
+
+      // Back to top
+      const button = document.getElementById("pradakoBackToTop");
+      if (button) {
+        const update = () => {
+          const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          button.classList.toggle("is-visible", y > 300);
+        };
+        button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      }
+    }
+
+    /* ============================================================
+       SUBSECTION 12.14: GLOBAL EXPOSURE
+       ============================================================ */
+    window.searchStandards = searchStandards;
+    window.clearSearch = clearSearch;
+    window.toggleViewPanel = toggleViewPanel;
+    window.setDensity = setDensity;
+    window.applyViewPreset = applyViewPreset;
+    window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+    window.openExportPopup = openExportPopup;
+    window.closeExportPopup = closeExportPopup;
+    window.copyEmail = copyEmail;
+    window.openImagePreview = openImagePreview;
+    window.closeImagePreview = closeImagePreview;
+
+    /* ============================================================
+       SUBSECTION 12.15: START
+       ============================================================ */
+    init();
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

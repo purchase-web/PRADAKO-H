@@ -1,0 +1,878 @@
+@import url('./design-system.css');
+
+
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+
+/* ==========================================================
+   APPLICATION PAGE FRAMEWORK
+========================================================== */
+
+.pradako-app-page {
+    width: 100%;
+    background: #f4f5f7;
+}
+
+/* ==========================================================
+  HERO SECTION
+========================================================== */
+.pradako-app-hero{
+    position:relative;
+    width:100vw;
+    height:750px;
+    overflow:hidden;
+
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+}
+
+.pradako-app-hero-image{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center center;
+
+    display:block;
+}
+
+.pradako-app-overlay{
+    position:absolute;
+
+    left:90px;
+    right:90px;
+    bottom:90px;
+
+    z-index:5;
+    color:#fff;
+
+    max-width:900px;
+}
+
+/* .pradako-app-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.0) 0%,
+            rgba(0,0,0,.0) 45%,
+            rgba(0,0,0,.0) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.28)
+        );
+
+    z-index: 1;
+} */
+
+.pradako-app-badge {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(14px);
+    color: #9fd7ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pradako-app-title {
+    margin: 0 0 18px;
+    font-size: clamp(44px, 5vw, 86px);
+    line-height: .98;
+    letter-spacing: -3px;
+    font-weight: 850;
+    color: #ffffff;
+}
+
+.pradako-app-description {
+    margin-top: 24px;
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,.84);
+}
+
+/* ==========================================================
+  APPLICATION TABLE
+========================================================== */
+
+.pradako-app-table-section {
+    padding: 70px 80px 90px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255,255,255,.9),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #f8f8f9,
+            #e9eaec
+        );
+}
+
+.pradako-app-table-header {
+    margin-bottom: 34px;
+}
+
+.pradako-app-table-badge {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(197,160,40,.12);
+    color: var(--color-gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pradako-app-table-title {
+    margin: 10px 0 0;
+    font-size: 46px;
+    letter-spacing: -1.8px;
+    color: var(--color-navy);
+}
+
+.pradako-app-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 26px;
+    background: #ffffff;
+    box-shadow:
+        0 28px 80px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.pradako-app-table {
+    width: 100%;
+    min-width: 1450px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* ==========================================================
+  TABLE HEADER
+========================================================== */
+
+.pradako-app-table thead th {
+    background: var(--color-navy);
+    color: #ffffff;
+    padding: 20px 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 750;
+    border-right:
+        1px solid rgba(255,255,255,.14);
+}
+
+/* ==========================================================
+  TABLE BODY
+========================================================== */
+
+.pradako-app-table tbody td {
+    padding: 18px;
+    vertical-align: top;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #222222;
+    border-right: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.pradako-app-table tbody tr:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+.pradako-app-table tbody tr:nth-child(even) {
+    background: #e9e9e9;
+}
+
+.pradako-app-table tbody tr:hover {
+    background: #dcdcdc;
+}
+
+.pradako-app-table tbody td:first-child {
+
+    width: 80px;
+    text-align: center;
+    font-weight: 800;
+    color: #111111;
+}
+
+.pradako-app-table tbody td:nth-child(2) {
+
+    font-weight: 800;
+    color: var(--color-navy);
+}
+
+.pradako-app-table tbody td:nth-child(3) {
+
+    font-weight: 650;
+    color: var(--color-navy);
+}
+
+
+/* ================================
+    Considerations Section
+================================ */
+
+.pradako-app-considerations-section {
+    padding: 80px 0;
+}
+
+.pradako-considerations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.pradako-consideration-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding: 32px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.pradako-considerations-grid .pradako-consideration-card:last-child:nth-child(7) {
+    grid-column: 2 / 3;
+}
+
+.pradako-considerations-grid .pradako-consideration-card:nth-child(8) {
+    grid-column: 2 / 3;
+}
+
+.pradako-considerations-grid .pradako-consideration-card:last-child:nth-child(10) {
+    grid-column: 2 / 3;
+}
+
+
+.pradako-consideration-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.pradako-consideration-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.pradako-consideration-number {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.pradako-consideration-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.pradako-consideration-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
+}
+
+
+/* ==========================================================
+   BUSINESS CONTENT SECTION
+========================================================== */
+
+.pradako-business-section{
+    margin-top:80px;
+}
+
+.pradako-business-header{
+    max-width:900px;
+    margin:0 auto 60px;
+    text-align:center;
+}
+
+.pradako-business-title{
+    margin-top:20px;
+    font-size:42px;
+    line-height:1.2;
+    color:#0b2f4e;
+}
+
+.pradako-business-description{
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.8;
+    color:#5b6770;
+}
+
+/* ==========================================================
+   TABLE BLOCK
+========================================================== */
+
+.pradako-business-table-wrapper{
+    margin-top:70px;
+}
+
+.pradako-business-table-heading{
+    margin-bottom:20px;
+    font-size:28px;
+    color:#0b2f4e;
+}
+
+.pradako-business-table-container{
+    overflow-x:auto;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.pradako-business-table{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+.pradako-business-table thead{
+    background:#0b2f4e;
+}
+
+.pradako-business-table th{
+    color:#fff;
+    text-align:left;
+    padding:18px 20px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.pradako-business-table td{
+    padding:18px 20px;
+    border-bottom:1px solid #e8edf2;
+    font-size:15px;
+    line-height:1.7;
+    color:#4f5963;
+}
+
+.pradako-business-table tbody tr:nth-child(even){
+    background:#fafbfd;
+}
+
+.pradako-business-table tbody tr:hover{
+    background:#f4f8fb;
+}
+
+/* ==========================================================
+  LARGE DESKTOP
+========================================================== */
+
+@media (max-width: 1400px) {
+
+    .pradako-app-hero{
+        height:700px;
+    }
+
+    .pradako-app-overlay{
+        left:70px;
+        right:70px;
+        bottom:70px;
+    }
+
+}
+
+/* ==========================================================
+  LAPTOP
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .pradako-app-table-section {
+        padding: 60px;
+    }
+
+}
+
+/* ==========================================================
+  TABLET LANDSCAPE
+========================================================== */
+
+@media (max-width: 991px) {
+
+    .pradako-app-hero {
+        height: 500px;
+    }
+
+    .pradako-app-overlay {
+        left: 40px;
+        right: 40px;
+        bottom: 40px;
+        width: auto;
+    }
+
+    .pradako-app-title{
+        font-size: 42px;
+        line-height: 1.15;
+    }
+
+    .pradako-app-description {
+        font-size: 17px;
+        line-height: 1.6;
+        max-width: 90%;
+    }
+
+    .pradako-app-table-section {
+        padding: 45px 22px 60px;
+    }
+
+    .pradako-app-table-title {
+        font-size: 34px;
+    }
+
+    .pradako-considerations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pradako-considerations-grid .pradako-consideration-card:last-child:nth-child(7) {
+        grid-column: auto;
+    }
+
+    .pradako-considerations-grid .pradako-consideration-card:nth-child(8) {
+        grid-column: auto;
+    }
+
+    .pradako-considerations-grid .pradako-consideration-card:last-child:nth-child(10) {
+        grid-column: auto;
+    }
+}
+
+
+/* ==========================================================
+  TABLET PORTRAIT
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .pradako-app-hero{
+        height:500px;
+    }
+
+    .pradako-app-overlay{
+        left:20px;
+        right:20px;
+        bottom:25px;
+    }
+
+    .pradako-app-title{
+        font-size:32px;
+        line-height:1.2;
+        letter-spacing:-1px;
+    }
+
+    .pradako-app-description{
+        font-size:15px;
+        line-height:1.5;
+    }
+
+    .pradako-considerations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pradako-consideration-card {
+        padding: 24px;
+    }
+
+        .pradako-business-title{
+        font-size:32px;
+    }
+
+    .pradako-business-description{
+        font-size:16px;
+    }
+
+    .pradako-business-table-heading{
+        font-size:24px;
+    }
+
+    .pradako-business-table{
+        min-width:800px;
+    }
+
+}
+
+/* ==========================================================
+  MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .pradako-app-hero-image {
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .pradako-app-hero{
+        height:420px;
+    }
+
+    .pradako-app-title{
+        font-size:28px;
+    }
+
+    .pradako-app-description{
+        font-size:14px;
+    }
+
+    .pradako-app-badge {
+        font-size: 11px;
+        padding: 6px 12px;
+        margin-bottom: 12px;
+    }
+
+    .pradako-business-title{
+        font-size:28px;
+    }
+
+    .pradako-business-description{
+        font-size:15px;
+    }
+
+    .pradako-business-table-heading{
+        font-size:22px;
+    }
+}
+
+
+/* ==========================================================
+  SMALL MOBILE
+========================================================== */
+
+@media (max-width: 420px) {
+
+    .pradako-app-hero {
+        height: 360px;
+    }
+
+    .pradako-app-overlay {
+        left: 15px;
+        right: 15px;
+        bottom: 20px;
+    }
+    
+
+    .pradako-app-badge {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+    .pradako-app-title {
+        font-size: 24px;
+    }
+
+    .pradako-app-description {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .pradako-app-table-title {
+        font-size: 28px;
+    }
+
+}
+
+
+/* ==========================================================
+    EXTRA SMALL
+========================================================== */
+
+@media (max-width: 360px) {
+
+    .pradako-app-hero {
+        height: 320px;
+    }
+
+    .pradako-app-title {
+        font-size: 20px;
+    }
+
+    .pradako-app-description {
+        font-size: 12px;
+    }
+
+    .pradako-app-overlay {
+        bottom: 15px;
+    }
+
+}
+
+/* ==========================================================
+   MIGRATED RESPONSIVE RULES
+   Consolidated from the retired responsive.css file.
+   ========================================================== */
+
+/* Migrated shared/base component rules */
+.application-sticky-nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(10, 61, 98, 0.08);
+  border-bottom: 1px solid rgba(10, 61, 98, 0.08);
+  box-shadow: 0 12px 28px rgba(10, 61, 98, 0.06);
+  overflow: hidden;
+}
+.application-sticky-nav {
+  width: min(100%, 1180px);
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.application-sticky-nav::-webkit-scrollbar {
+  display: none;
+}
+.application-sticky-nav a {
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  padding: 18px clamp(8px, 1.1vw, 18px);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(11px, 1.05vw, 13px);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: #242424;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+.application-sticky-nav a:hover {
+  color: #d17a00;
+}
+.application-sticky-nav a.active {
+  color: #d17a00;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .application-sticky-nav-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+    overflow: hidden;
+  }
+  .application-sticky-nav {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .application-sticky-nav a {
+    padding: 18px 7px;
+    font-size: 12px;
+    letter-spacing: -0.15px;
+  }
+  .application-sticky-nav a:first-child {
+    margin-left: 0;
+  }
+  .application-sticky-nav a:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .application-sticky-nav-wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+    overflow: hidden;
+  }
+  .application-sticky-nav {
+    justify-content: flex-start;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 1px;
+  }
+  .application-sticky-nav a {
+    padding: 16px 14px;
+    font-size: 12px;
+    border-radius: 999px;
+  }
+  .application-sticky-nav a.active {
+    background: rgba(209, 122, 0, 0.08);
+  }
+  .application-sticky-nav a.active::after {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .application-sticky-nav-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .application-sticky-nav {
+    gap: 5px;
+  }
+  .application-sticky-nav a {
+    padding: 14px 12px;
+    font-size: 11px;
+  }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE OWNERSHIP MIGRATED FROM responsive.css
+   ========================================================================== */
+.application-sticky-nav-wrapper {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 900 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-top: 1px solid rgba(10, 61, 98, 0.08) !important;
+  border-bottom: 1px solid rgba(10, 61, 98, 0.08) !important;
+  box-shadow: 0 12px 28px rgba(10, 61, 98, 0.06) !important;
+  overflow: hidden !important;
+}.application-sticky-nav {
+  width: min(100%, 1180px) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: nowrap !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}.application-sticky-nav::-webkit-scrollbar {
+  display: none !important;
+}.application-sticky-nav a {
+  position: relative !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: max-content !important;
+  padding: 18px clamp(8px, 1.1vw, 18px) !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: clamp(11px, 1.05vw, 13px) !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  color: #242424 !important;
+  transition: color 0.25s ease, background 0.25s ease !important;
+}.application-sticky-nav a:hover,
+.application-sticky-nav a.active {
+  color: #d17a00 !important;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+.application-sticky-nav-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    overflow: hidden !important;
+  }.application-sticky-nav {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    overflow-x: auto !important;
+  }.application-sticky-nav a {
+    padding: 18px 7px !important;
+    font-size: 12px !important;
+    letter-spacing: -0.15px !important;
+  }.application-sticky-nav a:first-child {
+    margin-left: 0 !important;
+  }.application-sticky-nav a:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+.application-sticky-nav-wrapper {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: hidden !important;
+  }.application-sticky-nav {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    padding-bottom: 1px !important;
+  }.application-sticky-nav a {
+    padding: 16px 14px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+  }.application-sticky-nav a.active {
+    background: rgba(209, 122, 0, 0.08) !important;
+  }.application-sticky-nav a.active::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+.application-sticky-nav-wrapper {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }.application-sticky-nav {
+    gap: 5px !important;
+  }.application-sticky-nav a {
+    padding: 14px 12px !important;
+    font-size: 11px !important;
+  }
+}

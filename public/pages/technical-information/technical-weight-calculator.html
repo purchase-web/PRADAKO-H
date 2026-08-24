@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PMEW Fastener Engineering Calculator</title>
+
+    <!-- ===== EXTERNAL LINKS (your requested) ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- ===== CALCULATOR FONTS (Manrope + Cormorant) ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================
+           PMEW CALCULATOR STYLES — all prefixed with .pmc-
+           ========================================================== */
+        :root {
+            --pmc-blue: #063b78;
+            --pmc-blue2: #0a5fb4;
+            --pmc-navy: #07192f;
+            --pmc-text: #1d2939;
+            --pmc-muted: #667085;
+            --pmc-line: #dce8f5;
+            --pmc-line2: #edf3f9;
+            --pmc-soft: #f7fbff;
+            --pmc-white: #ffffff;
+            --pmc-green: #0f9f6e;
+            --pmc-gold: #b88934;
+            --pmc-orange: #d46b08;
+            --pmc-red: #b42318;
+            --pmc-shadow: 0 24px 78px rgba(6, 59, 120, 0.12);
+            --pmc-shadow2: 0 16px 44px rgba(15, 38, 70, 0.08);
+            --pmc-r-xl: 34px;
+            --pmc-r-lg: 24px;
+            --pmc-r-md: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            color: var(--pmc-text);
+            background:
+                radial-gradient(circle at 8% 0%, rgba(10, 95, 180, 0.10), transparent 30%),
+                radial-gradient(circle at 92% 8%, rgba(184, 137, 52, 0.10), transparent 22%),
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 52%, #ffffff 100%);
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .pmc-page {
+            width: min(1500px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .pmc-hero {
+            position: relative;
+            padding: 76px 0 38px;
+        }
+
+        .pmc-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 15px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid var(--pmc-line);
+            box-shadow: 0 12px 32px rgba(6,59,120,0.07);
+            color: var(--pmc-blue);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            backdrop-filter: blur(16px);
+        }
+
+        .pmc-kicker::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--pmc-green);
+            box-shadow: 0 0 0 6px rgba(15,159,110,0.11);
+        }
+
+        .pmc-hero h1 {
+            max-width: 1180px;
+            margin: 24px 0 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(42px, 6.3vw, 92px);
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            color: var(--pmc-navy);
+        }
+
+        .pmc-hero h1 span {
+            color: var(--pmc-blue);
+        }
+
+        .pmc-hero p {
+            max-width: 1040px;
+            margin: 0;
+            color: var(--pmc-muted);
+            font-size: clamp(15px, 1.45vw, 19px);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .pmc-hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 20px;
+            margin-top: 34px;
+            align-items: stretch;
+        }
+
+        .pmc-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .pmc-stat,
+        .pmc-formula-card {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid var(--pmc-line);
+            border-radius: var(--pmc-r-lg);
+            box-shadow: var(--pmc-shadow2);
+            backdrop-filter: blur(18px);
+        }
+
+        .pmc-stat {
+            padding: 20px;
+        }
+
+        .pmc-stat b {
+            display: block;
+            color: var(--pmc-blue);
+            font-size: 22px;
+            letter-spacing: -0.04em;
+            margin-bottom: 4px;
+        }
+
+        .pmc-stat span {
+            color: var(--pmc-muted);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .pmc-formula-card {
+            padding: 24px;
+        }
+
+        .pmc-formula-card small {
+            display: block;
+            color: var(--pmc-gold);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .pmc-formula-card code {
+            display: block;
+            padding: 16px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #f8fbff, #ffffff);
+            border: 1px solid var(--pmc-line2);
+            color: var(--pmc-navy);
+            line-height: 1.8;
+            font-size: 13px;
+            white-space: normal;
+        }
+
+        .pmc-shell {
+            margin: 26px 0 90px;
+            padding: 18px;
+            border-radius: 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,251,255,0.97));
+            border: 1px solid rgba(6, 59, 120, 0.10);
+            box-shadow: var(--pmc-shadow);
+        }
+
+        .pmc-tabs {
+            display: flex;
+            gap: 10px;
+            padding: 8px;
+            overflow-x: auto;
+            border-radius: 26px;
+            background: #f2f7fc;
+            border: 1px solid var(--pmc-line);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .pmc-tab {
+            border: 0;
+            border-radius: 19px;
+            padding: 14px 18px;
+            background: transparent;
+            color: var(--pmc-muted);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: 0.24s ease;
+        }
+
+        .pmc-tab:hover {
+            color: var(--pmc-blue);
+            background: rgba(255,255,255,0.72);
+        }
+
+        .pmc-tab.pmc-active {
+            color: var(--pmc-blue);
+            background: #ffffff;
+            box-shadow: 0 10px 26px rgba(6,59,120,0.10);
+        }
+
+        .pmc-panel {
+            display: none;
+            padding: 22px 6px 6px;
+        }
+
+        .pmc-panel.pmc-active {
+            display: block;
+        }
+
+        .pmc-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 430px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .pmc-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid var(--pmc-line);
+            border-radius: var(--pmc-r-xl);
+            box-shadow: var(--pmc-shadow2);
+            overflow: hidden;
+        }
+
+        .pmc-card-head {
+            padding: 26px 28px;
+            background: linear-gradient(135deg, rgba(234,244,255,0.96), rgba(255,255,255,1));
+            border-bottom: 1px solid var(--pmc-line2);
+        }
+
+        .pmc-card-head h2 {
+            margin: 0;
+            color: var(--pmc-navy);
+            font-size: clamp(24px, 2.2vw, 36px);
+            letter-spacing: -0.05em;
+        }
+
+        .pmc-card-head p {
+            margin: 8px 0 0;
+            color: var(--pmc-muted);
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .pmc-card-body {
+            padding: 26px 28px 28px;
+        }
+
+        .pmc-section-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 22px 0 14px;
+            color: var(--pmc-blue);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .pmc-section-label:first-child {
+            margin-top: 0;
+        }
+
+        .pmc-section-label::before {
+            content: "";
+            width: 26px;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--pmc-gold);
+        }
+
+        .pmc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .pmc-grid.pmc-two {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .pmc-grid.pmc-four {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .pmc-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pmc-field label {
+            color: var(--pmc-navy);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .pmc-field input,
+        .pmc-field select,
+        .pmc-field textarea {
+            width: 100%;
+            border: 1px solid var(--pmc-line);
+            border-radius: 16px;
+            background: #ffffff;
+            color: var(--pmc-text);
+            font-size: 14px;
+            font-weight: 750;
+            outline: none;
+            transition: 0.22s ease;
+        }
+
+        .pmc-field input,
+        .pmc-field select {
+            height: 48px;
+            padding: 0 14px;
+        }
+
+        .pmc-field textarea {
+            min-height: 124px;
+            padding: 14px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .pmc-field input:focus,
+        .pmc-field select:focus,
+        .pmc-field textarea:focus {
+            border-color: rgba(10,95,180,0.55);
+            box-shadow: 0 0 0 4px rgba(10,95,180,0.10);
+        }
+
+        .pmc-field small {
+            color: var(--pmc-muted);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        .pmc-result-card {
+            position: sticky;
+            top: 96px;
+            overflow: hidden;
+            border-radius: var(--pmc-r-xl);
+            background:
+                radial-gradient(circle at top right, rgba(10,95,180,0.10), transparent 38%),
+                linear-gradient(180deg, #ffffff, #f7fbff);
+            border: 1px solid rgba(6,59,120,0.13);
+            box-shadow: var(--pmc-shadow);
+        }
+
+        .pmc-result-head {
+            padding: 24px 26px 20px;
+            border-bottom: 1px solid var(--pmc-line2);
+        }
+
+        .pmc-result-row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .pmc-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--pmc-green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .pmc-live::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--pmc-green);
+            box-shadow: 0 0 0 6px rgba(15,159,110,0.10);
+        }
+
+        .pmc-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: #eef8f4;
+            color: var(--pmc-green);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pmc-badge.pmc-approx {
+            background: #fff7e8;
+            color: #a75f00;
+        }
+
+        .pmc-badge.pmc-reference {
+            background: #edf4ff;
+            color: var(--pmc-blue);
+        }
+
+        .pmc-result-head h3 {
+            margin: 12px 0 0;
+            color: var(--pmc-navy);
+            font-size: 28px;
+            letter-spacing: -0.05em;
+        }
+
+        .pmc-result-body {
+            padding: 20px 26px 26px;
+        }
+
+        .pmc-result-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--pmc-line2);
+        }
+
+        .pmc-result-line:last-child {
+            border-bottom: 0;
+        }
+
+        .pmc-result-line span {
+            color: var(--pmc-muted);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .pmc-result-line b {
+            color: var(--pmc-blue);
+            font-size: 16px;
+            text-align: right;
+        }
+
+        .pmc-result-line.pmc-result-hero b {
+            color: var(--pmc-navy);
+            font-size: 29px;
+            letter-spacing: -0.04em;
+        }
+
+        .pmc-formula-box {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 22px;
+            background: #ffffff;
+            border: 1px dashed rgba(6,59,120,0.24);
+        }
+
+        .pmc-formula-box strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--pmc-gold);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .pmc-formula-box code {
+            display: block;
+            color: var(--pmc-navy);
+            font-size: 12px;
+            line-height: 1.72;
+            white-space: pre-wrap;
+        }
+
+        .pmc-warning {
+            margin-top: 18px;
+            padding: 15px 16px;
+            border-radius: 20px;
+            background: #fffaf0;
+            border: 1px solid rgba(184,137,52,0.24);
+            color: #694500;
+            font-size: 12px;
+            font-weight: 750;
+            line-height: 1.65;
+        }
+
+        .pmc-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .pmc-btn,
+        .pmc-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            border-radius: 999px;
+            padding: 0 17px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: 0.24s ease;
+        }
+
+        .pmc-btn {
+            border: 1px solid var(--pmc-line);
+            background: #ffffff;
+            color: var(--pmc-blue);
+        }
+
+        .pmc-btn-primary {
+            border: 1px solid var(--pmc-blue);
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--pmc-blue), var(--pmc-blue2));
+            box-shadow: 0 16px 30px rgba(6,59,120,0.22);
+        }
+
+        .pmc-btn:hover,
+        .pmc-btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .pmc-full {
+            grid-column: 1 / -1;
+        }
+
+        .pmc-table-wrap {
+            overflow: auto;
+            border-radius: 24px;
+            border: 1px solid var(--pmc-line);
+            background: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--pmc-line2);
+            text-align: left;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #f6fbff;
+            color: var(--pmc-blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: var(--pmc-text);
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .pmc-mini-note {
+            margin-top: 14px;
+            color: var(--pmc-muted);
+            font-size: 12px;
+            line-height: 1.7;
+            font-weight: 650;
+        }
+
+        .pmc-density-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .pmc-density-pill {
+            padding: 16px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid var(--pmc-line);
+            box-shadow: 0 12px 30px rgba(6,59,120,0.05);
+        }
+
+        .pmc-density-pill b {
+            display: block;
+            color: var(--pmc-navy);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .pmc-density-pill span {
+            color: var(--pmc-muted);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .pmc-toast {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 999;
+            padding: 14px 18px;
+            border-radius: 999px;
+            background: var(--pmc-navy);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: var(--pmc-shadow);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: 0.24s ease;
+        }
+
+        .pmc-toast.pmc-show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pmc-hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 1180px) {
+            .pmc-layout,
+            .pmc-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmc-result-card {
+                position: static;
+            }
+
+            .pmc-stat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 860px) {
+            .pmc-page {
+                width: min(100% - 20px, 1500px);
+            }
+
+            .pmc-hero {
+                padding-top: 44px;
+            }
+
+            .pmc-stat-grid,
+            .pmc-density-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pmc-grid,
+            .pmc-grid.pmc-two,
+            .pmc-grid.pmc-four {
+                grid-template-columns: 1fr;
+            }
+
+            .pmc-card-head,
+            .pmc-card-body,
+            .pmc-result-head,
+            .pmc-result-body {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .pmc-shell {
+                padding: 10px;
+                border-radius: 30px;
+            }
+
+            .pmc-tab {
+                padding: 12px 14px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .pmc-stat-grid,
+            .pmc-density-grid,
+            .pmc-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .pmc-full {
+                grid-column: auto;
+            }
+
+            .pmc-hero h1 {
+                font-size: 42px;
+            }
+
+            .pmc-result-line.pmc-result-hero b {
+                font-size: 23px;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="PMEW Fastener Engineering Calculator from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/technical-weight-calculator.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PMEW Fastener Engineering Calculator">
+    <meta property="og:description" content="PMEW Fastener Engineering Calculator from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/technical-weight-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PMEW Fastener Engineering Calculator">
+    <meta name="twitter:description" content="PMEW Fastener Engineering Calculator from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PMEW Fastener Engineering Calculator",
+  "url": "https://www.pradako.co/pages/technical-information/technical-weight-calculator.html",
+  "description": "PMEW Fastener Engineering Calculator from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ==========================================================
+         HEADER (loaded from navbar-container)
+         ========================================================== -->
+    <div id="navbar-container"></div>
+
+    <!-- ==========================================================
+         TOAST NOTIFICATION
+         ========================================================== -->
+    <div class="pmc-toast" id="pmc-toast">Copied</div>
+
+    <!-- ==========================================================
+         CALCULATOR MAIN
+         ========================================================== -->
+    <main class="pmc-page">
+
+        <section class="pmc-hero">
+            <div class="pmc-kicker">PMEW Engineering Tool V3</div>
+
+            <h1>Fastener <span>Engineering Calculator</span></h1>
+
+            <p>
+                Calculate fastener weight, assembly weight, coating surface area, coating consumption, bolt grade comparison,
+                metric-imperial conversions, torque reference and thread pitch data in one premium engineering page.
+            </p>
+
+            <div class="pmc-hero-grid">
+                <div class="pmc-stat-grid">
+                    <div class="pmc-stat">
+                        <b>mm³</b>
+                        <span>Weight Volume</span>
+                    </div>
+                    <div class="pmc-stat">
+                        <b>m²</b>
+                        <span>Surface Area</span>
+                    </div>
+                    <div class="pmc-stat">
+                        <b>Nm</b>
+                        <span>Torque Ref.</span>
+                    </div>
+                    <div class="pmc-stat">
+                        <b>MPa</b>
+                        <span>Grade Data</span>
+                    </div>
+                    <div class="pmc-stat">
+                        <b>TPI</b>
+                        <span>Thread Pitch</span>
+                    </div>
+                </div>
+
+                <div class="pmc-formula-card">
+                    <small>Core Formula</small>
+                    <code>
+                        Weight kg = Volume mm³ × Density g/cm³ / 1,000,000<br>
+                        Coating kg = Surface Area m² × Thickness µm × Density × 0.001<br>
+                        Torque Nm ≈ K × Clamp Force N × Diameter m
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <section class="pmc-shell">
+
+            <div class="pmc-tabs">
+                <button class="pmc-tab pmc-active" data-tab="weight">Weight / Assembly</button>
+                <button class="pmc-tab" data-tab="surface">Surface Area + Coating</button>
+                <button class="pmc-tab" data-tab="grades">Bolt Grade Comparison</button>
+                <button class="pmc-tab" data-tab="converter">Metric / Imperial</button>
+                <button class="pmc-tab" data-tab="torque">Torque Reference</button>
+                <button class="pmc-tab" data-tab="pitch">Thread Pitch</button>
+                <button class="pmc-tab" data-tab="density">Density</button>
+            </div>
+
+            <!-- WEIGHT PANEL -->
+            <article class="pmc-panel pmc-active" id="pmc-tab-weight">
+                <div class="pmc-layout">
+                    <div class="pmc-card">
+                        <div class="pmc-card-head">
+                            <h2>Fastener Weight & Assembly Calculator</h2>
+                            <p>
+                                Select product type and enter dimensions. For best accuracy, use exact dimensions from standard drawing or product sample.
+                            </p>
+                        </div>
+
+                        <div class="pmc-card-body">
+                            <div class="pmc-section-label">Product Selection</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Product Type</label>
+                                    <select id="pmc-wProduct">
+                                        <option value="bolt">Bolt / Screw with Hex Head</option>
+                                        <option value="assembly">Bolt + Nut + Washer Assembly</option>
+                                        <option value="screw">Screw / Socket / CSK / Pan</option>
+                                        <option value="nut">Nut</option>
+                                        <option value="washer">Washer</option>
+                                        <option value="wire">Wire / Rod / Stud</option>
+                                    </select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Metric Size</label>
+                                    <select id="pmc-wSize"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Material</label>
+                                    <select id="pmc-wMaterial"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Quantity pcs / sets</label>
+                                    <input id="pmc-wQty" type="number" value="1000" min="1" step="1">
+                                </div>
+
+                                <div class="pmc-field pmc-w-length">
+                                    <label>Length mm</label>
+                                    <input id="pmc-wLength" type="number" value="50" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-wire-length pmc-hidden">
+                                    <label>Wire / Rod Length meter</label>
+                                    <input id="pmc-wWireLength" type="number" value="100" min="0" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="pmc-section-label">Engineering Dimensions</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Diameter D mm</label>
+                                    <input id="pmc-wD" type="number" value="10" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-bolt pmc-w-assembly">
+                                    <label>Thread Length mm</label>
+                                    <input id="pmc-wThreadLength" type="number" value="26" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Thread Factor</label>
+                                    <input id="pmc-wThreadFactor" type="number" value="0.90" min="0.60" max="1" step="0.01">
+                                    <small>For threaded body effective diameter.</small>
+                                </div>
+
+                                <div class="pmc-field pmc-w-bolt pmc-w-assembly pmc-w-nut">
+                                    <label>Across Flats AF mm</label>
+                                    <input id="pmc-wAF" type="number" value="17" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-bolt pmc-w-assembly">
+                                    <label>Head Height mm</label>
+                                    <input id="pmc-wHeadH" type="number" value="6.4" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-bolt pmc-w-assembly">
+                                    <label>Head Factor</label>
+                                    <input id="pmc-wHeadFactor" type="number" value="0.92" min="0.50" max="1" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-screw">
+                                    <label>Screw Head Type</label>
+                                    <select id="pmc-wScrewHeadType">
+                                        <option value="pan">Pan</option>
+                                        <option value="cheese">Cheese</option>
+                                        <option value="csk">Countersunk</option>
+                                        <option value="socket">Socket Head</option>
+                                        <option value="button">Button</option>
+                                        <option value="round">Round</option>
+                                    </select>
+                                </div>
+
+                                <div class="pmc-field pmc-w-screw">
+                                    <label>Screw Head Dia mm</label>
+                                    <input id="pmc-wScrewHeadD" type="number" value="9.5" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-screw">
+                                    <label>Screw Head Height mm</label>
+                                    <input id="pmc-wScrewHeadH" type="number" value="3.2" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-screw">
+                                    <label>Recess Deduction %</label>
+                                    <input id="pmc-wRecess" type="number" value="5" min="0" max="30" step="0.1">
+                                </div>
+
+                                <div class="pmc-field pmc-w-nut pmc-w-assembly">
+                                    <label>Nut Height mm</label>
+                                    <input id="pmc-wNutH" type="number" value="8" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-nut pmc-w-assembly">
+                                    <label>Nut Hole Factor</label>
+                                    <input id="pmc-wNutHoleFactor" type="number" value="0.88" min="0.60" max="1" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-nut">
+                                    <label>Nut Chamfer Factor</label>
+                                    <input id="pmc-wNutChamfer" type="number" value="0.92" min="0.60" max="1" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-washer pmc-w-assembly">
+                                    <label>Washer OD mm</label>
+                                    <input id="pmc-wWasherOD" type="number" value="20" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-washer pmc-w-assembly">
+                                    <label>Washer ID mm</label>
+                                    <input id="pmc-wWasherID" type="number" value="10.5" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-washer pmc-w-assembly">
+                                    <label>Washer Thickness mm</label>
+                                    <input id="pmc-wWasherT" type="number" value="2" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field pmc-w-assembly">
+                                    <label>Washer Count</label>
+                                    <select id="pmc-wWasherCount">
+                                        <option value="1">1 Washer</option>
+                                        <option value="2" selected>2 Washers</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button type="button" class="pmc-btn" onclick="applyWeightPreset()">Apply Size Preset</button>
+                                <button type="button" class="pmc-btn" onclick="resetWeight()">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="pmc-result-card">
+                        <div class="pmc-result-head">
+                            <div class="pmc-result-row-top">
+                                <span class="pmc-live">Live Result</span>
+                                <span class="pmc-badge pmc-reference">Engineering Approx</span>
+                            </div>
+                            <h3>Weight Result</h3>
+                        </div>
+
+                        <div class="pmc-result-body">
+                            <div id="pmc-weightResult"></div>
+
+                            <div class="pmc-formula-box">
+                                <strong>Formula Used</strong>
+                                <code id="pmc-weightFormula"></code>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button class="pmc-btn" type="button" onclick="copyResult()">Copy</button>
+                                <button class="pmc-btn" type="button" onclick="copyEnquiry()">Enquiry Text</button>
+                                <button class="pmc-btn-primary pmc-full" type="button" onclick="openWhatsApp()">Send on WhatsApp</button>
+                            </div>
+
+                            <div class="pmc-warning">
+                                Weight is accurate when exact dimensions are entered. Final commercial weight should be verified from standard database or sample weighing.
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+
+            <!-- SURFACE + COATING PANEL -->
+            <article class="pmc-panel" id="pmc-tab-surface">
+                <div class="pmc-layout">
+                    <div class="pmc-card">
+                        <div class="pmc-card-head">
+                            <h2>Coating Surface Area & Coating Weight Calculator</h2>
+                            <p>
+                                Calculates approximate fastener surface area first, then uses coating thickness and density to estimate coating weight.
+                            </p>
+                        </div>
+
+                        <div class="pmc-card-body">
+                            <div class="pmc-section-label">Surface Area Inputs</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Product Shape</label>
+                                    <select id="pmc-saProduct">
+                                        <option value="bolt">Bolt / Hex Head</option>
+                                        <option value="screw">Screw / Round Head</option>
+                                        <option value="nut">Nut</option>
+                                        <option value="washer">Washer</option>
+                                        <option value="cylinder">Wire / Rod / Cylinder</option>
+                                        <option value="manual">Manual Surface Area</option>
+                                    </select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Metric Size</label>
+                                    <select id="pmc-saSize"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Quantity pcs</label>
+                                    <input id="pmc-saQty" type="number" value="1000" min="1" step="1">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Diameter D mm</label>
+                                    <input id="pmc-saD" type="number" value="10" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Length mm</label>
+                                    <input id="pmc-saLength" type="number" value="50" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>AF mm</label>
+                                    <input id="pmc-saAF" type="number" value="17" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Head / Nut Height mm</label>
+                                    <input id="pmc-saHeadH" type="number" value="6.4" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Washer OD mm</label>
+                                    <input id="pmc-saWasherOD" type="number" value="20" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Washer ID mm</label>
+                                    <input id="pmc-saWasherID" type="number" value="10.5" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Washer Thickness mm</label>
+                                    <input id="pmc-saWasherT" type="number" value="2" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Manual Area m²</label>
+                                    <input id="pmc-saManualArea" type="number" value="20" min="0" step="0.001">
+                                    <small>Used only when manual mode is selected.</small>
+                                </div>
+                            </div>
+
+                            <div class="pmc-section-label">Coating Inputs</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Coating Type</label>
+                                    <select id="pmc-coatType"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Thickness Microns</label>
+                                    <input id="pmc-coatThickness" type="number" value="8" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Base Product Weight kg</label>
+                                    <input id="pmc-coatBaseWeight" type="number" value="100" min="0" step="0.01">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Process Loss %</label>
+                                    <input id="pmc-coatLoss" type="number" value="15" min="0" max="100" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button type="button" class="pmc-btn" onclick="applySurfacePreset()">Apply Size Preset</button>
+                                <button type="button" class="pmc-btn" onclick="resetSurface()">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="pmc-result-card">
+                        <div class="pmc-result-head">
+                            <div class="pmc-result-row-top">
+                                <span class="pmc-live">Live Result</span>
+                                <span class="pmc-badge pmc-approx">Coating Approx</span>
+                            </div>
+                            <h3>Surface + Coating Result</h3>
+                        </div>
+
+                        <div class="pmc-result-body">
+                            <div id="pmc-surfaceResult"></div>
+
+                            <div class="pmc-formula-box">
+                                <strong>Formula Used</strong>
+                                <code id="pmc-surfaceFormula"></code>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button class="pmc-btn" type="button" onclick="copyResult()">Copy</button>
+                                <button class="pmc-btn" type="button" onclick="copyEnquiry()">Enquiry Text</button>
+                                <button class="pmc-btn-primary pmc-full" type="button" onclick="openWhatsApp()">Send on WhatsApp</button>
+                            </div>
+
+                            <div class="pmc-warning">
+                                Coating weight depends on actual surface condition, barrel/rack process, bath efficiency, drag-out and coating system.
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+
+            <!-- GRADES PANEL -->
+            <article class="pmc-panel" id="pmc-tab-grades">
+                <div class="pmc-card">
+                    <div class="pmc-card-head">
+                        <h2>Bolt Grade Comparison</h2>
+                        <p>
+                            Quick reference for common metric property classes and structural grades. Use this for comparison, not final certification.
+                        </p>
+                    </div>
+
+                    <div class="pmc-card-body">
+                        <div class="pmc-table-wrap">
+                            <table id="pmc-gradeTable"></table>
+                        </div>
+
+                        <div class="pmc-mini-note">
+                            Yield/proof values are practical reference values. For certified design, use the exact governing standard, certificate and project specification.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CONVERTER PANEL -->
+            <article class="pmc-panel" id="pmc-tab-converter">
+                <div class="pmc-layout">
+                    <div class="pmc-card">
+                        <div class="pmc-card-head">
+                            <h2>Metric / Imperial Conversion</h2>
+                            <p>
+                                Convert common engineering units used in fastener quotation, inspection and design communication.
+                            </p>
+                        </div>
+
+                        <div class="pmc-card-body">
+                            <div class="pmc-section-label">Conversion Tool</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Conversion Type</label>
+                                    <select id="pmc-convType">
+                                        <option value="mm_in">mm → inch</option>
+                                        <option value="in_mm">inch → mm</option>
+                                        <option value="kg_lb">kg → lb</option>
+                                        <option value="lb_kg">lb → kg</option>
+                                        <option value="g_oz">g → oz</option>
+                                        <option value="oz_g">oz → g</option>
+                                        <option value="nm_lbft">Nm → lb-ft</option>
+                                        <option value="lbft_nm">lb-ft → Nm</option>
+                                        <option value="kn_lbf">kN → lbf</option>
+                                        <option value="lbf_kn">lbf → kN</option>
+                                    </select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Input Value</label>
+                                    <input id="pmc-convInput" type="number" value="25.4" step="0.0001">
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Decimal Places</label>
+                                    <input id="pmc-convDigits" type="number" value="4" min="0" max="8" step="1">
+                                </div>
+                            </div>
+
+                            <div class="pmc-section-label">Common Quick Reference</div>
+
+                            <div class="pmc-table-wrap">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Imperial</th>
+                                            <th>Use</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>25.4 mm</td><td>1 inch</td><td>Length</td></tr>
+                                        <tr><td>1 kg</td><td>2.20462 lb</td><td>Weight</td></tr>
+                                        <tr><td>1 Nm</td><td>0.73756 lb-ft</td><td>Torque</td></tr>
+                                        <tr><td>1 kN</td><td>224.809 lbf</td><td>Force</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="pmc-result-card">
+                        <div class="pmc-result-head">
+                            <div class="pmc-result-row-top">
+                                <span class="pmc-live">Live Result</span>
+                                <span class="pmc-badge">Exact Conversion</span>
+                            </div>
+                            <h3>Conversion Result</h3>
+                        </div>
+
+                        <div class="pmc-result-body">
+                            <div id="pmc-converterResult"></div>
+
+                            <div class="pmc-formula-box">
+                                <strong>Formula Used</strong>
+                                <code id="pmc-converterFormula"></code>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button class="pmc-btn pmc-full" type="button" onclick="copyResult()">Copy Result</button>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+
+            <!-- TORQUE PANEL -->
+            <article class="pmc-panel" id="pmc-tab-torque">
+                <div class="pmc-layout">
+                    <div class="pmc-card">
+                        <div class="pmc-card-head">
+                            <h2>Torque Reference Calculator</h2>
+                            <p>
+                                Calculates indicative tightening torque from diameter, stress area, proof stress, preload percentage and nut factor.
+                            </p>
+                        </div>
+
+                        <div class="pmc-card-body">
+                            <div class="pmc-section-label">Torque Inputs</div>
+
+                            <div class="pmc-grid">
+                                <div class="pmc-field">
+                                    <label>Metric Size</label>
+                                    <select id="pmc-torqueSize"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Bolt Grade</label>
+                                    <select id="pmc-torqueGrade"></select>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Nut Factor K</label>
+                                    <input id="pmc-torqueK" type="number" value="0.20" min="0.08" max="0.40" step="0.01">
+                                    <small>Approx: 0.18 lubricated, 0.20 normal, 0.25 dry.</small>
+                                </div>
+
+                                <div class="pmc-field">
+                                    <label>Preload % of Proof</label>
+                                    <input id="pmc-torquePreloadPct" type="number" value="75" min="10" max="100" step="1">
+                                </div>
+                            </div>
+
+                            <div class="pmc-section-label">Torque Notes</div>
+
+                            <div class="pmc-warning">
+                                Torque is only a reference. Final tightening torque depends on lubrication, coating, friction, washer, thread condition, joint design and customer/project specification.
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="pmc-result-card">
+                        <div class="pmc-result-head">
+                            <div class="pmc-result-row-top">
+                                <span class="pmc-live">Live Result</span>
+                                <span class="pmc-badge pmc-approx">Reference Only</span>
+                            </div>
+                            <h3>Torque Result</h3>
+                        </div>
+
+                        <div class="pmc-result-body">
+                            <div id="pmc-torqueResult"></div>
+
+                            <div class="pmc-formula-box">
+                                <strong>Formula Used</strong>
+                                <code id="pmc-torqueFormula"></code>
+                            </div>
+
+                            <div class="pmc-actions">
+                                <button class="pmc-btn" type="button" onclick="copyResult()">Copy</button>
+                                <button class="pmc-btn-primary" type="button" onclick="copyEnquiry()">Enquiry Text</button>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+
+            <!-- THREAD PITCH PANEL -->
+            <article class="pmc-panel" id="pmc-tab-pitch">
+                <div class="pmc-card">
+                    <div class="pmc-card-head">
+                        <h2>Thread Pitch Reference</h2>
+                        <p>
+                            Quick reference for metric coarse/fine pitch and common UNC/UNF thread pitch values.
+                        </p>
+                    </div>
+
+                    <div class="pmc-card-body">
+                        <div class="pmc-grid pmc-two">
+                            <div class="pmc-field">
+                                <label>Filter</label>
+                                <select id="pmc-pitchFilter">
+                                    <option value="all">All</option>
+                                    <option value="metric">Metric</option>
+                                    <option value="imperial">UNC / UNF</option>
+                                </select>
+                            </div>
+
+                            <div class="pmc-field">
+                                <label>Search</label>
+                                <input id="pmc-pitchSearch" type="text" placeholder="Search M10, 1/2, UNC, fine...">
+                            </div>
+                        </div>
+
+                        <div style="height: 18px;"></div>
+
+                        <div class="pmc-table-wrap">
+                            <table id="pmc-pitchTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DENSITY PANEL -->
+            <article class="pmc-panel" id="pmc-tab-density">
+                <div class="pmc-card">
+                    <div class="pmc-card-head">
+                        <h2>Density Reference</h2>
+                        <p>
+                            Density values used in fastener weight and coating calculations.
+                        </p>
+                    </div>
+
+                    <div class="pmc-card-body">
+                        <div class="pmc-density-grid" id="pmc-densityGrid"></div>
+
+                        <div class="pmc-warning">
+                            Actual density varies by alloy, heat, grade and composition. For exact commercial weight, use mill certificate density or verified sample weight.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- ==========================================================
+         FOOTER (loaded from footer-container)
+         ========================================================== -->
+    <div id="footer-container"></div>
+
+    <!-- ==========================================================
+         EXTERNAL SCRIPTS
+         ========================================================== -->
+    <!-- ==========================================================
+         CALCULATOR JAVASCRIPT
+         ========================================================== -->
+    <script>
+        'use strict';
+
+        /* ==========================================================
+           PMEW FASTENER ENGINEERING CALCULATOR V3 (renamed classes/IDs)
+        ========================================================== */
+
+        const MATERIALS = {
+            "Carbon Steel / Mild Steel": 7.85,
+            "Alloy Steel": 7.85,
+            "Stainless Steel": 7.90,
+            "Brass": 8.50,
+            "Copper": 8.96,
+            "Aluminium": 2.70,
+            "Zinc": 7.14,
+            "Nickel": 8.90,
+            "Nylon / Plastic Approx": 1.15
+        };
+
+        const COATINGS = {
+            "Zinc Plating": 7.14,
+            "Zinc Nickel Approx": 7.70,
+            "Nickel Plating": 8.90,
+            "Tin Plating": 7.31,
+            "Copper Plating": 8.96,
+            "Zinc Flake Approx": 3.20,
+            "PTFE Approx": 2.20,
+            "Phosphate Approx": 2.90,
+            "Hot Dip Galvanizing Approx": 7.14
+        };
+
+        const METRIC = {
+            "M3": { d: 3, pitch: 0.5, stress: 5.03, af: 5.5, headH: 2.0, nutH: 2.4, washerID: 3.2, washerOD: 7,
+            washerT: 0.5 },
+            "M4": { d: 4, pitch: 0.7, stress: 8.78, af: 7, headH: 2.8, nutH: 3.2, washerID: 4.3, washerOD: 9,
+            washerT: 0.8 },
+            "M5": { d: 5, pitch: 0.8, stress: 14.2, af: 8, headH: 3.5, nutH: 4.0, washerID: 5.3, washerOD: 10,
+            washerT: 1.0 },
+            "M6": { d: 6, pitch: 1.0, stress: 20.1, af: 10, headH: 4.0, nutH: 5.0, washerID: 6.4, washerOD: 12,
+            washerT: 1.6 },
+            "M8": { d: 8, pitch: 1.25, stress: 36.6, af: 13, headH: 5.3, nutH: 6.5, washerID: 8.4, washerOD: 16,
+            washerT: 1.6 },
+            "M10": { d: 10, pitch: 1.5, stress: 58.0, af: 17, headH: 6.4, nutH: 8.0, washerID: 10.5, washerOD: 20,
+            washerT: 2.0 },
+            "M12": { d: 12, pitch: 1.75, stress: 84.3, af: 19, headH: 7.5, nutH: 10, washerID: 13, washerOD: 24,
+            washerT: 2.5 },
+            "M16": { d: 16, pitch: 2.0, stress: 157.0, af: 24, headH: 10, nutH: 13, washerID: 17, washerOD: 30,
+            washerT: 3.0 },
+            "M20": { d: 20, pitch: 2.5, stress: 245.0, af: 30, headH: 12.5, nutH: 16, washerID: 21, washerOD: 37,
+            washerT: 3.0 },
+            "M24": { d: 24, pitch: 3.0, stress: 353.0, af: 36, headH: 15, nutH: 19, washerID: 25, washerOD: 44,
+            washerT: 4.0 },
+            "M30": { d: 30, pitch: 3.5, stress: 561.0, af: 46, headH: 18.7, nutH: 24, washerID: 31, washerOD: 56,
+            washerT: 4.0 },
+            "M36": { d: 36, pitch: 4.0, stress: 817.0, af: 55, headH: 22.5, nutH: 29, washerID: 37, washerOD: 66,
+            washerT: 5.0 },
+            "M42": { d: 42, pitch: 4.5, stress: 1120.0, af: 65, headH: 26, nutH: 34, washerID: 43, washerOD: 78,
+            washerT: 7.0 },
+            "M48": { d: 48, pitch: 5.0, stress: 1470.0, af: 75, headH: 30, nutH: 38, washerID: 50, washerOD: 92,
+            washerT: 8.0 }
+        };
+
+        const GRADES = [
+            { grade: "4.6", tensile: 400, yield: 240, proof: 225, use: "General low tensile fasteners" },
+            { grade: "5.8", tensile: 500, yield: 400, proof: 380, use: "General machinery" },
+            { grade: "8.8", tensile: 800, yield: 640, proof: 580, use: "High tensile industrial fasteners" },
+            { grade: "10.9", tensile: 1000, yield: 900, proof: 830, use: "Automotive / high strength" },
+            { grade: "12.9", tensile: 1200, yield: 1080, proof: 970, use: "Very high strength socket / critical" },
+            { grade: "ASTM A325 / F3125 Gr A325", tensile: 830, yield: 660, proof: 600,
+            use: "Structural bolting reference" },
+            { grade: "ASTM A490 / F3125 Gr A490", tensile: 1040, yield: 940, proof: 830,
+            use: "High strength structural bolting" },
+            { grade: "Stainless A2-70", tensile: 700, yield: 450, proof: 450, use: "Stainless general fasteners" },
+            { grade: "Stainless A4-80", tensile: 800, yield: 600, proof: 600, use: "Marine / corrosion resistant" }
+        ];
+
+        const PITCH_DATA = [
+            { system: "metric", size: "M3", coarse: "0.50 mm", fine: "-", note: "Common small screw" },
+            { system: "metric", size: "M4", coarse: "0.70 mm", fine: "0.50 mm", note: "Machine screw" },
+            { system: "metric", size: "M5", coarse: "0.80 mm", fine: "0.50 mm", note: "Machine screw" },
+            { system: "metric", size: "M6", coarse: "1.00 mm", fine: "0.75 mm", note: "General fastener" },
+            { system: "metric", size: "M8", coarse: "1.25 mm", fine: "1.00 mm", note: "General fastener" },
+            { system: "metric", size: "M10", coarse: "1.50 mm", fine: "1.25 / 1.00 mm", note: "Automotive / machine" },
+            { system: "metric", size: "M12", coarse: "1.75 mm", fine: "1.50 / 1.25 mm", note: "General / structural" },
+            { system: "metric", size: "M16", coarse: "2.00 mm", fine: "1.50 mm", note: "Structural / machinery" },
+            { system: "metric", size: "M20", coarse: "2.50 mm", fine: "1.50 mm", note: "Heavy fastener" },
+            { system: "metric", size: "M24", coarse: "3.00 mm", fine: "2.00 mm", note: "Heavy / structural" },
+            { system: "metric", size: "M30", coarse: "3.50 mm", fine: "2.00 mm", note: "Heavy fastener" },
+            { system: "metric", size: "M36", coarse: "4.00 mm", fine: "3.00 mm", note: "Heavy fastener" },
+            { system: "imperial", size: "1/4", coarse: "UNC 20 TPI", fine: "UNF 28 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "5/16", coarse: "UNC 18 TPI", fine: "UNF 24 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "3/8", coarse: "UNC 16 TPI", fine: "UNF 24 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "7/16", coarse: "UNC 14 TPI", fine: "UNF 20 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "1/2", coarse: "UNC 13 TPI", fine: "UNF 20 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "5/8", coarse: "UNC 11 TPI", fine: "UNF 18 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "3/4", coarse: "UNC 10 TPI", fine: "UNF 16 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "7/8", coarse: "UNC 9 TPI", fine: "UNF 14 TPI", note: "Imperial fastener" },
+            { system: "imperial", size: "1", coarse: "UNC 8 TPI", fine: "UNF 12 TPI", note: "Imperial fastener" }
+        ];
+
+        const SCREW_HEAD = {
+            pan: { factor: 0.80, recess: 5 },
+            cheese: { factor: 0.95, recess: 3 },
+            csk: { factor: 0.40, recess: 4 },
+            socket: { factor: 0.95, recess: 10 },
+            button: { factor: 0.75, recess: 6 },
+            round: { factor: 0.70, recess: 4 }
+        };
+
+        let activeTab = "weight";
+        let lastResultText = "";
+
+        /* HELPERS */
+
+        const $ = id => document.getElementById(id);
+
+        function num(id) {
+            const value = parseFloat($(id)?.value);
+            return Number.isFinite(value) ? value : 0;
+        }
+
+        function val(id) {
+            return $(id)?.value || "";
+        }
+
+        function setVal(id, value) {
+            if ($(id)) $(id).value = value;
+        }
+
+        function fmt(value, digits = 3) {
+            if (!Number.isFinite(value)) return "0";
+            return Number(value.toFixed(digits)).toLocaleString("en-IN", {
+                maximumFractionDigits: digits
+            });
+        }
+
+        function circleArea(d) {
+            return Math.PI * d * d / 4;
+        }
+
+        function cylinderLateralArea(d, l) {
+            return Math.PI * d * l;
+        }
+
+        function hexAreaAF(af) {
+            return Math.sqrt(3) / 2 * af * af;
+        }
+
+        function hexPerimeterAF(af) {
+            return 2 * Math.sqrt(3) * af;
+        }
+
+        function kgFromVolume(volumeMm3, density) {
+            return volumeMm3 * density / 1000000;
+        }
+
+        function lines(target, arr) {
+            const container = $(target);
+            if (!container) return;
+            container.innerHTML = arr.map(item => `
+                    <div class="pmc-result-line ${item.hero ? "pmc-result-hero" : ""}">
+                        <span>${item.label}</span>
+                        <b>${item.value}</b>
+                    </div>
+                `).join("");
+        }
+
+        function optionText(id) {
+            const el = $(id);
+            if (!el) return "";
+            return el.options[el.selectedIndex]?.textContent || "";
+        }
+
+        function toast(message) {
+            const t = $("pmc-toast");
+            t.textContent = message;
+            t.classList.add("pmc-show");
+            setTimeout(() => t.classList.remove("pmc-show"), 1700);
+        }
+
+        /* INIT OPTIONS */
+
+        function populateOptions() {
+            const materialSelects = ["pmc-wMaterial"];
+
+            materialSelects.forEach(id => {
+                const select = $(id);
+                select.innerHTML = "";
+                Object.entries(MATERIALS).forEach(([name, density]) => {
+                    const opt = document.createElement("option");
+                    opt.value = density;
+                    opt.textContent = `${name} — ${density} g/cm³`;
+                    select.appendChild(opt);
+                });
+            });
+
+            ["pmc-wSize", "pmc-saSize", "pmc-torqueSize"].forEach(id => {
+                const select = $(id);
+                select.innerHTML = "";
+                Object.keys(METRIC).forEach(size => {
+                    const opt = document.createElement("option");
+                    opt.value = size;
+                    opt.textContent = size;
+                    select.appendChild(opt);
+                });
+            });
+
+            const coat = $("pmc-coatType");
+            coat.innerHTML = "";
+            Object.entries(COATINGS).forEach(([name, density]) => {
+                const opt = document.createElement("option");
+                opt.value = density;
+                opt.textContent = `${name} — ${density} g/cm³`;
+                coat.appendChild(opt);
+            });
+
+            const gradeSelect = $("pmc-torqueGrade");
+            gradeSelect.innerHTML = "";
+            GRADES.forEach(g => {
+                const opt = document.createElement("option");
+                opt.value = g.grade;
+                opt.textContent = `${g.grade} — Proof ${g.proof} MPa`;
+                gradeSelect.appendChild(opt);
+            });
+
+            const densityGrid = $("pmc-densityGrid");
+            densityGrid.innerHTML = Object.entries(MATERIALS).map(([name, density]) => `
+                    <div class="pmc-density-pill">
+                        <b>${name}</b>
+                        <span>${density} g/cm³</span>
+                    </div>
+                `).join("");
+
+            renderGradeTable();
+            renderPitchTable();
+        }
+
+        /* TABS */
+
+        function setupTabs() {
+            document.querySelectorAll(".pmc-tab").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    activeTab = btn.dataset.tab;
+
+                    document.querySelectorAll(".pmc-tab").forEach(x => x.classList.remove("pmc-active"));
+                    document.querySelectorAll(".pmc-panel").forEach(x => x.classList.remove("pmc-active"));
+
+                    btn.classList.add("pmc-active");
+                    $("pmc-tab-" + activeTab).classList.add("pmc-active");
+
+                    calculateAll();
+                });
+            });
+        }
+
+        /* WEIGHT CALCULATOR */
+
+        function applyWeightPreset() {
+            const size = val("pmc-wSize");
+            const m = METRIC[size] || METRIC.M10;
+
+            setVal("pmc-wD", m.d);
+            setVal("pmc-wAF", m.af);
+            setVal("pmc-wHeadH", m.headH);
+            setVal("pmc-wNutH", m.nutH);
+            setVal("pmc-wWasherID", m.washerID);
+            setVal("pmc-wWasherOD", m.washerOD);
+            setVal("pmc-wWasherT", m.washerT);
+
+            const length = num("pmc-wLength");
+            setVal("pmc-wThreadLength", Math.min(length, Math.max(2 * m.d + 6, 18)));
+
+            const screwHeadD = m.d * 1.9;
+            const screwHeadH = m.d * 0.6;
+            setVal("pmc-wScrewHeadD", fmt(screwHeadD, 2).replace(/,/g, ""));
+            setVal("pmc-wScrewHeadH", fmt(screwHeadH, 2).replace(/,/g, ""));
+
+            calculateAll();
+        }
+
+        function resetWeight() {
+            setVal("pmc-wProduct", "assembly");
+            setVal("pmc-wSize", "M10");
+            setVal("pmc-wMaterial", "7.85");
+            setVal("pmc-wQty", "1000");
+            setVal("pmc-wLength", "50");
+            setVal("pmc-wWireLength", "100");
+            setVal("pmc-wThreadFactor", "0.90");
+            setVal("pmc-wHeadFactor", "0.92");
+            setVal("pmc-wNutHoleFactor", "0.88");
+            setVal("pmc-wNutChamfer", "0.92");
+            setVal("pmc-wWasherCount", "2");
+            applyWeightPreset();
+        }
+
+        function updateWeightVisibility() {
+            const p = val("pmc-wProduct");
+            const classes = ["pmc-w-bolt", "pmc-w-assembly", "pmc-w-screw", "pmc-w-nut", "pmc-w-washer", "pmc-w-wire"];
+            classes.forEach(cls => {
+                document.querySelectorAll("." + cls).forEach(el => el.classList.add("pmc-hidden"));
+            });
+
+            document.querySelectorAll(".pmc-w-" + p).forEach(el => el.classList.remove("pmc-hidden"));
+
+            document.querySelectorAll(".pmc-w-length").forEach(el => {
+                el.classList.toggle("pmc-hidden", p === "washer" || p === "nut" || p === "wire");
+            });
+
+            document.querySelectorAll(".pmc-w-wire-length").forEach(el => {
+                el.classList.toggle("pmc-hidden", p !== "wire");
+            });
+
+            if (p === "bolt") {
+                document.querySelectorAll(".pmc-w-bolt").forEach(el => el.classList.remove("pmc-hidden"));
+            }
+        }
+
+        function calcBoltKg(density) {
+            const d = num("pmc-wD");
+            const length = num("pmc-wLength");
+            const threadLength = Math.min(num("pmc-wThreadLength"), length);
+            const plainLength = Math.max(length - threadLength, 0);
+            const af = num("pmc-wAF");
+            const headH = num("pmc-wHeadH");
+            const threadFactor = num("pmc-wThreadFactor");
+            const headFactor = num("pmc-wHeadFactor");
+
+            const headVol = hexAreaAF(af) * headH * headFactor;
+            const plainVol = circleArea(d) * plainLength;
+            const threadVol = circleArea(d * threadFactor) * threadLength;
+            const totalVol = headVol + plainVol + threadVol;
+
+            return {
+                kg: kgFromVolume(totalVol, density),
+                volume: totalVol,
+                formula:
+                    `Bolt Weight = Head + Plain Shank + Thread
+
+Head Volume = (√3 / 2 × AF²) × Head Height × Head Factor
+Plain Volume = π × D² / 4 × Plain Length
+Thread Volume = π × (D × Thread Factor)² / 4 × Thread Length
+
+D = ${fmt(d, 2)} mm
+Length = ${fmt(length, 2)} mm
+Thread Length = ${fmt(threadLength, 2)} mm
+AF = ${fmt(af, 2)} mm
+Head Height = ${fmt(headH, 2)} mm`
+            };
+        }
+
+        function calcScrewKg(density) {
+            const d = num("pmc-wD");
+            const length = num("pmc-wLength");
+            const threadFactor = num("pmc-wThreadFactor");
+            const headD = num("pmc-wScrewHeadD");
+            const headH = num("pmc-wScrewHeadH");
+            const headType = val("pmc-wScrewHeadType");
+            const headFactor = SCREW_HEAD[headType]?.factor || 0.8;
+            const recess = num("pmc-wRecess");
+
+            const bodyVol = circleArea(d * threadFactor) * length;
+            const headVol = circleArea(headD) * headH * headFactor;
+            const recessVol = headVol * recess / 100;
+            const totalVol = Math.max(bodyVol + headVol - recessVol, 0);
+
+            return {
+                kg: kgFromVolume(totalVol, density),
+                volume: totalVol,
+                formula:
+                    `Screw Weight = Thread Body + Head - Recess Deduction
+
+Thread Body Volume = π × (D × Thread Factor)² / 4 × Length
+Head Volume = π × Head Diameter² / 4 × Head Height × Head Factor
+Recess Deduction = Head Volume × Recess %
+
+D = ${fmt(d, 2)} mm
+Length = ${fmt(length, 2)} mm
+Head Diameter = ${fmt(headD, 2)} mm
+Head Height = ${fmt(headH, 2)} mm
+Recess = ${fmt(recess, 2)}%`
+            };
+        }
+
+        function calcNutKg(density) {
+            const d = num("pmc-wD");
+            const af = num("pmc-wAF");
+            const h = num("pmc-wNutH");
+            const holeFactor = num("pmc-wNutHoleFactor");
+            const chamfer = num("pmc-wNutChamfer");
+
+            const outer = hexAreaAF(af) * h;
+            const hole = circleArea(d * holeFactor) * h;
+            const vol = Math.max(outer - hole, 0) * chamfer;
+
+            return {
+                kg: kgFromVolume(vol, density),
+                volume: vol,
+                formula:
+                    `Nut Weight = Outer Hex Volume - Internal Hole Volume
+
+Outer Hex Volume = √3 / 2 × AF² × Nut Height
+Hole Volume = π × (D × Hole Factor)² / 4 × Nut Height
+Final Volume = (Outer - Hole) × Chamfer Factor
+
+D = ${fmt(d, 2)} mm
+AF = ${fmt(af, 2)} mm
+Nut Height = ${fmt(h, 2)} mm`
+            };
+        }
+
+        function calcWasherKg(density) {
+            const od = num("pmc-wWasherOD");
+            const id = num("pmc-wWasherID");
+            const t = num("pmc-wWasherT");
+
+            const vol = Math.max(circleArea(od) - circleArea(id), 0) * t;
+
+            return {
+                kg: kgFromVolume(vol, density),
+                volume: vol,
+                formula:
+                    `Washer Weight = Ring Volume × Density
+
+Ring Volume = π / 4 × (OD² - ID²) × Thickness
+
+OD = ${fmt(od, 2)} mm
+ID = ${fmt(id, 2)} mm
+Thickness = ${fmt(t, 2)} mm`
+            };
+        }
+
+        function calcWireKg(density) {
+            const d = num("pmc-wD");
+            const lengthM = num("pmc-wWireLength");
+            const factor = num("pmc-wThreadFactor");
+            const effectiveD = d * factor;
+            const kgPerMeter = circleArea(effectiveD) * density / 1000;
+            const kg = kgPerMeter * lengthM;
+
+            return {
+                kg,
+                kgPerMeter,
+                volume: circleArea(effectiveD) * lengthM * 1000,
+                formula:
+                    `Wire / Rod Weight per Meter = π × D² / 4 × Density / 1000
+
+For threaded rod:
+Effective D = D × Thread Factor
+
+D = ${fmt(d, 2)} mm
+Effective D = ${fmt(effectiveD, 2)} mm
+Length = ${fmt(lengthM, 2)} meter`
+            };
+        }
+
+        function calculateWeight() {
+            updateWeightVisibility();
+
+            const p = val("pmc-wProduct");
+            const density = num("pmc-wMaterial");
+            const qty = Math.max(num("pmc-wQty"), 1);
+
+            let pieceKg = 0;
+            let formula = "";
+            let extraLines = [];
+
+            if (p === "bolt") {
+                const bolt = calcBoltKg(density);
+                pieceKg = bolt.kg;
+                formula = bolt.formula;
+            }
+
+            if (p === "screw") {
+                const screw = calcScrewKg(density);
+                pieceKg = screw.kg;
+                formula = screw.formula;
+            }
+
+            if (p === "nut") {
+                const nut = calcNutKg(density);
+                pieceKg = nut.kg;
+                formula = nut.formula;
+            }
+
+            if (p === "washer") {
+                const washer = calcWasherKg(density);
+                pieceKg = washer.kg;
+                formula = washer.formula;
+            }
+
+            if (p === "wire") {
+                const wire = calcWireKg(density);
+                pieceKg = wire.kg;
+                formula = wire.formula;
+                extraLines.push({ label: "Weight per meter", value: `${fmt(wire.kgPerMeter, 4)} kg/m` });
+                extraLines.push({ label: "Meters per kg", value: `${fmt(1 / wire.kgPerMeter, 3)} m/kg` });
+            }
+
+            if (p === "assembly") {
+                const bolt = calcBoltKg(density);
+                const nut = calcNutKg(density);
+                const washer = calcWasherKg(density);
+                const washerCount = parseInt(val("pmc-wWasherCount"), 10) || 2;
+
+                pieceKg = bolt.kg + nut.kg + washer.kg * washerCount;
+
+                formula =
+                    `Assembly Weight = Bolt + Nut + Washer Count
+
+${bolt.formula}
+
+Nut Weight and Washer Weight are added from their respective formulas.
+Washer Count = ${washerCount}`;
+
+                extraLines.push({ label: "Bolt only", value: `${fmt(bolt.kg * 1000, 3)} g` });
+                extraLines.push({ label: "Nut only", value: `${fmt(nut.kg * 1000, 3)} g` });
+                extraLines.push({ label: "Washer each", value: `${fmt(washer.kg * 1000, 3)} g` });
+            }
+
+            const pieceG = pieceKg * 1000;
+            const totalKg = pieceKg * qty;
+            const kg1000 = pieceKg * 1000;
+            const pcsPerKg = pieceKg > 0 ? 1 / pieceKg : 0;
+
+            lines("pmc-weightResult", [
+                { label: p === "wire" ? "Total rod / wire weight" : "Weight per piece / set", value: p === "wire" ?
+                        `${fmt(pieceKg, 3)} kg` : `${fmt(pieceG, 3)} g`, hero: true },
+                ...extraLines,
+                { label: "Weight per 1000 pcs / sets", value: `${fmt(kg1000, 3)} kg` },
+                { label: "Total quantity weight", value: `${fmt(totalKg, 3)} kg` },
+                { label: "Pieces / sets per kg", value: `${fmt(pcsPerKg, 0)} pcs/kg` }
+            ]);
+
+            $("pmc-weightFormula").textContent =
+                `${formula}
+
+Weight kg = Volume mm³ × Density g/cm³ / 1,000,000
+Density = ${fmt(density, 3)} g/cm³`;
+
+            if (activeTab === "weight") {
+                lastResultText =
+                    `PMEW Fastener Weight Calculation
+
+Product: ${optionText("pmc-wProduct")}
+Size: ${val("pmc-wSize")}
+Material Density: ${fmt(density, 3)} g/cm³
+Quantity: ${fmt(qty, 0)}
+
+Weight per piece/set: ${fmt(pieceG, 3)} g
+Weight per 1000: ${fmt(kg1000, 3)} kg
+Total Weight: ${fmt(totalKg, 3)} kg
+Pieces/Sets per kg: ${fmt(pcsPerKg, 0)}`;
+            }
+        }
+
+        /* SURFACE AREA + COATING */
+
+        function applySurfacePreset() {
+            const m = METRIC[val("pmc-saSize")] || METRIC.M10;
+
+            setVal("pmc-saD", m.d);
+            setVal("pmc-saAF", m.af);
+            setVal("pmc-saHeadH", m.headH);
+            setVal("pmc-saWasherID", m.washerID);
+            setVal("pmc-saWasherOD", m.washerOD);
+            setVal("pmc-saWasherT", m.washerT);
+
+            calculateAll();
+        }
+
+        function resetSurface() {
+            setVal("pmc-saProduct", "bolt");
+            setVal("pmc-saSize", "M10");
+            setVal("pmc-saQty", "1000");
+            setVal("pmc-saLength", "50");
+            setVal("pmc-coatThickness", "8");
+            setVal("pmc-coatBaseWeight", "100");
+            setVal("pmc-coatLoss", "15");
+            applySurfacePreset();
+        }
+
+        function surfaceAreaPerPiece() {
+            const product = val("pmc-saProduct");
+            const d = num("pmc-saD");
+            const length = num("pmc-saLength");
+            const af = num("pmc-saAF");
+            const h = num("pmc-saHeadH");
+            const od = num("pmc-saWasherOD");
+            const id = num("pmc-saWasherID");
+            const t = num("pmc-saWasherT");
+
+            if (product === "manual") {
+                return {
+                    areaMm2: num("pmc-saManualArea") * 1000000,
+                    formula: "Manual surface area used."
+                };
+            }
+
+            if (product === "cylinder") {
+                const area = cylinderLateralArea(d, length) + 2 * circleArea(d);
+                return {
+                    areaMm2: area,
+                    formula:
+                        `Cylinder Surface Area = π × D × Length + 2 × End Area
+
+D = ${fmt(d, 2)} mm
+Length = ${fmt(length, 2)} mm`
+                };
+            }
+
+            if (product === "bolt") {
+                const body = cylinderLateralArea(d, length);
+                const headSide = hexPerimeterAF(af) * h;
+                const headTopBottom = 2 * hexAreaAF(af);
+                const area = body + headSide + headTopBottom;
+
+                return {
+                    areaMm2: area,
+                    formula:
+                        `Bolt Surface Area Approx = Body Lateral Area + Hex Head Side Area + Head Top/Bottom Area
+
+Body Area = π × D × Length
+Hex Side Area = Hex Perimeter × Head Height
+Hex Area = √3 / 2 × AF²
+
+D = ${fmt(d, 2)} mm
+Length = ${fmt(length, 2)} mm
+AF = ${fmt(af, 2)} mm
+Head Height = ${fmt(h, 2)} mm`
+                };
+            }
+
+            if (product === "screw") {
+                const body = cylinderLateralArea(d, length);
+                const head = 2 * circleArea(af) + Math.PI * af * h;
+                const area = body + head;
+
+                return {
+                    areaMm2: area,
+                    formula:
+                        `Screw Surface Area Approx = Body Lateral Area + Round Head Area
+
+Body Area = π × D × Length
+Head Area Approx = 2 × Circle Area + π × Head Diameter × Head Height
+
+D = ${fmt(d, 2)} mm
+Length = ${fmt(length, 2)} mm
+Head Diameter = ${fmt(af, 2)} mm
+Head Height = ${fmt(h, 2)} mm`
+                };
+            }
+
+            if (product === "nut") {
+                const side = hexPerimeterAF(af) * h;
+                const topBottom = 2 * Math.max(hexAreaAF(af) - circleArea(d), 0);
+                const inner = Math.PI * d * h;
+                const area = side + topBottom + inner;
+
+                return {
+                    areaMm2: area,
+                    formula:
+                        `Nut Surface Area Approx = Hex Side + Top/Bottom Ring + Internal Hole Area
+
+Hex Side = Hex Perimeter × Nut Height
+Top/Bottom Ring = 2 × (Hex Area - Hole Area)
+Internal Hole Area = π × D × Nut Height`
+                };
+            }
+
+            if (product === "washer") {
+                const topBottom = 2 * Math.max(circleArea(od) - circleArea(id), 0);
+                const outerEdge = Math.PI * od * t;
+                const innerEdge = Math.PI * id * t;
+                const area = topBottom + outerEdge + innerEdge;
+
+                return {
+                    areaMm2: area,
+                    formula:
+                        `Washer Surface Area = Top/Bottom Ring + Outer Edge + Inner Edge
+
+Top/Bottom = 2 × π / 4 × (OD² - ID²)
+Outer Edge = π × OD × Thickness
+Inner Edge = π × ID × Thickness`
+                };
+            }
+
+            return { areaMm2: 0, formula: "" };
+        }
+
+        function calculateSurfaceCoating() {
+            const qty = Math.max(num("pmc-saQty"), 1);
+            const coatingDensity = num("pmc-coatType");
+            const thickness = num("pmc-coatThickness");
+            const baseWeight = num("pmc-coatBaseWeight");
+            const loss = num("pmc-coatLoss");
+
+            const sa = surfaceAreaPerPiece();
+
+            const areaPerPieceMm2 = sa.areaMm2;
+            const totalAreaM2 = areaPerPieceMm2 * qty / 1000000;
+
+            const coatingKg = totalAreaM2 * thickness * coatingDensity * 0.001;
+            const requiredKg = coatingKg * (1 + loss / 100);
+            const finalKg = baseWeight + coatingKg;
+
+            lines("pmc-surfaceResult", [
+                { label: "Surface area per piece", value: `${fmt(areaPerPieceMm2, 2)} mm²`, hero: true },
+                { label: "Total surface area", value: `${fmt(totalAreaM2, 4)} m²` },
+                { label: "Coating weight added", value: `${fmt(coatingKg, 3)} kg` },
+                { label: "Required metal with loss", value: `${fmt(requiredKg, 3)} kg` },
+                { label: "Final coated weight", value: `${fmt(finalKg, 3)} kg` }
+            ]);
+
+            $("pmc-surfaceFormula").textContent =
+                `${sa.formula}
+
+Coating Weight kg = Surface Area m² × Thickness µm × Coating Density × 0.001
+Required Metal = Coating Weight × (1 + Process Loss %)
+
+Coating Density = ${fmt(coatingDensity, 3)} g/cm³
+Thickness = ${fmt(thickness, 2)} µm
+Loss = ${fmt(loss, 2)}%`;
+
+            if (activeTab === "surface") {
+                lastResultText =
+                    `PMEW Surface Area + Coating Calculation
+
+Product: ${optionText("pmc-saProduct")}
+Quantity: ${fmt(qty, 0)} pcs
+Total Surface Area: ${fmt(totalAreaM2, 4)} m²
+Coating: ${optionText("pmc-coatType")}
+Thickness: ${fmt(thickness, 2)} microns
+
+Coating Weight Added: ${fmt(coatingKg, 3)} kg
+Required Metal With Loss: ${fmt(requiredKg, 3)} kg
+Final Coated Weight: ${fmt(finalKg, 3)} kg`;
+            }
+        }
+
+        /* GRADE TABLE */
+
+        function renderGradeTable() {
+            $("pmc-gradeTable").innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>Grade / Class</th>
+                            <th>Min Tensile MPa</th>
+                            <th>Yield / Proof Ref. MPa</th>
+                            <th>Proof Stress MPa</th>
+                            <th>Typical Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${GRADES.map(g => `
+                            <tr>
+                                <td>${g.grade}</td>
+                                <td>${g.tensile}</td>
+                                <td>${g.yield}</td>
+                                <td>${g.proof}</td>
+                                <td>${g.use}</td>
+                            </tr>
+                        `).join("")}
+                    </tbody>
+                `;
+        }
+
+        /* CONVERTER */
+
+        function calculateConverter() {
+            const type = val("pmc-convType");
+            const input = num("pmc-convInput");
+            const digits = Math.max(0, Math.min(num("pmc-convDigits"), 8));
+
+            const data = {
+                mm_in: { factor: 1 / 25.4, from: "mm", to: "inch", formula: "inch = mm / 25.4" },
+                in_mm: { factor: 25.4, from: "inch", to: "mm", formula: "mm = inch × 25.4" },
+                kg_lb: { factor: 2.2046226218, from: "kg", to: "lb", formula: "lb = kg × 2.2046226218" },
+                lb_kg: { factor: 1 / 2.2046226218, from: "lb", to: "kg", formula: "kg = lb / 2.2046226218" },
+                g_oz: { factor: 0.0352739619, from: "g", to: "oz", formula: "oz = g × 0.0352739619" },
+                oz_g: { factor: 28.349523125, from: "oz", to: "g", formula: "g = oz × 28.349523125" },
+                nm_lbft: { factor: 0.7375621493, from: "Nm", to: "lb-ft", formula: "lb-ft = Nm × 0.7375621493" },
+                lbft_nm: { factor: 1 / 0.7375621493, from: "lb-ft", to: "Nm", formula: "Nm = lb-ft / 0.7375621493" },
+                kn_lbf: { factor: 224.80894387, from: "kN", to: "lbf", formula: "lbf = kN × 224.80894387" },
+                lbf_kn: { factor: 1 / 224.80894387, from: "lbf", to: "kN", formula: "kN = lbf / 224.80894387" }
+            };
+
+            const c = data[type];
+            const result = input * c.factor;
+
+            lines("pmc-converterResult", [
+                { label: "Input", value: `${fmt(input, digits)} ${c.from}` },
+                { label: "Converted Value", value: `${fmt(result, digits)} ${c.to}`, hero: true }
+            ]);
+
+            $("pmc-converterFormula").textContent =
+                `${c.formula}
+
+Input = ${input} ${c.from}
+Result = ${result} ${c.to}`;
+
+            if (activeTab === "converter") {
+                lastResultText =
+                    `PMEW Unit Conversion
+
+${fmt(input, digits)} ${c.from} = ${fmt(result, digits)} ${c.to}
+
+Formula: ${c.formula}`;
+            }
+        }
+
+        /* TORQUE */
+
+        function calculateTorque() {
+            const size = val("pmc-torqueSize");
+            const gradeName = val("pmc-torqueGrade");
+            const m = METRIC[size] || METRIC.M10;
+            const grade = GRADES.find(g => g.grade === gradeName) || GRADES[2];
+            const k = num("pmc-torqueK");
+            const preloadPct = num("pmc-torquePreloadPct") / 100;
+
+            const proofLoadN = grade.proof * m.stress;
+            const preloadN = proofLoadN * preloadPct;
+            const torqueNm = k * preloadN * (m.d / 1000);
+            const torqueLbft = torqueNm * 0.7375621493;
+
+            lines("pmc-torqueResult", [
+                { label: "Recommended reference torque", value: `${fmt(torqueNm, 2)} Nm`, hero: true },
+                { label: "Torque in lb-ft", value: `${fmt(torqueLbft, 2)} lb-ft` },
+                { label: "Stress area", value: `${fmt(m.stress, 2)} mm²` },
+                { label: "Proof load", value: `${fmt(proofLoadN / 1000, 2)} kN` },
+                { label: "Target preload", value: `${fmt(preloadN / 1000, 2)} kN` },
+                { label: "Nut factor K", value: `${fmt(k, 2)}` }
+            ]);
+
+            $("pmc-torqueFormula").textContent =
+                `Torque Reference Formula:
+T = K × F × D
+
+Where:
+T = Torque in Nm
+K = Nut factor / friction factor
+F = Target clamp force in N
+D = Nominal diameter in meter
+
+Proof Load = Proof Stress MPa × Tensile Stress Area mm²
+Target Clamp Force = Proof Load × Preload %
+
+Current:
+Size = ${size}
+Grade = ${grade.grade}
+D = ${fmt(m.d, 2)} mm
+Pitch = ${fmt(m.pitch, 2)} mm
+Stress Area = ${fmt(m.stress, 2)} mm²
+Proof Stress = ${fmt(grade.proof, 2)} MPa
+Preload = ${fmt(preloadPct * 100, 1)}%
+K = ${fmt(k, 2)}`;
+
+            if (activeTab === "torque") {
+                lastResultText =
+                    `PMEW Torque Reference
+
+Size: ${size}
+Grade: ${grade.grade}
+Pitch: ${fmt(m.pitch, 2)} mm
+Stress Area: ${fmt(m.stress, 2)} mm²
+Nut Factor K: ${fmt(k, 2)}
+Target Preload: ${fmt(preloadN / 1000, 2)} kN
+
+Reference Torque: ${fmt(torqueNm, 2)} Nm
+Reference Torque: ${fmt(torqueLbft, 2)} lb-ft
+
+Note: Torque is reference only and depends on lubrication, coating, friction and joint design.`;
+            }
+        }
+
+        /* THREAD PITCH */
+
+        function renderPitchTable() {
+            const filter = val("pmc-pitchFilter") || "all";
+            const search = (val("pmc-pitchSearch") || "").toLowerCase();
+
+            const rows = PITCH_DATA.filter(row => {
+                const matchesFilter = filter === "all" || row.system === filter;
+                const combined = `${row.system} ${row.size} ${row.coarse} ${row.fine} ${row.note}`.toLowerCase();
+                const matchesSearch = !search || combined.includes(search);
+                return matchesFilter && matchesSearch;
+            });
+
+            $("pmc-pitchTable").innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Size</th>
+                            <th>Coarse</th>
+                            <th>Fine</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rows.map(r => `
+                            <tr>
+                                <td>${r.system === "metric" ? "Metric" : "Imperial"}</td>
+                                <td>${r.size}</td>
+                                <td>${r.coarse}</td>
+                                <td>${r.fine}</td>
+                                <td>${r.note}</td>
+                            </tr>
+                        `).join("")}
+                    </tbody>
+                `;
+        }
+
+        /* COPY / WHATSAPP */
+
+        async function copyResult() {
+            calculateAll();
+            try {
+                await navigator.clipboard.writeText(lastResultText);
+                toast("Result copied");
+            } catch (err) {
+                toast("Copy not supported");
+            }
+        }
+
+        async function copyEnquiry() {
+            calculateAll();
+
+            const text =
+                `${lastResultText}
+
+Please share quotation / technical confirmation for the above calculation.
+
+Pradako Mechanical & Engineering Works`;
+
+            try {
+                await navigator.clipboard.writeText(text);
+                toast("Enquiry copied");
+            } catch (err) {
+                toast("Copy not supported");
+            }
+        }
+
+        function openWhatsApp() {
+            calculateAll();
+
+            const text =
+                `${lastResultText}
+
+Please share quotation / technical confirmation for the above calculation.`;
+
+            window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+        }
+
+        /* MASTER CALC */
+
+        function calculateAll() {
+            calculateWeight();
+            calculateSurfaceCoating();
+            calculateConverter();
+            calculateTorque();
+        }
+
+        /* EVENT SETUP */
+
+        function setupEvents() {
+            document.querySelectorAll("input, select, textarea").forEach(el => {
+                el.addEventListener("input", () => {
+                    renderPitchTable();
+                    calculateAll();
+                });
+
+                el.addEventListener("change", () => {
+                    renderPitchTable();
+                    calculateAll();
+                });
+            });
+
+            $("pmc-wSize").addEventListener("change", applyWeightPreset);
+            $("pmc-saSize").addEventListener("change", applySurfacePreset);
+            $("pmc-wProduct").addEventListener("change", updateWeightVisibility);
+        }
+
+        /* INIT */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            populateOptions();
+            setupTabs();
+            setupEvents();
+
+            setVal("pmc-wSize", "M10");
+            setVal("pmc-saSize", "M10");
+            setVal("pmc-torqueSize", "M10");
+            setVal("pmc-torqueGrade", "8.8");
+
+            applyWeightPreset();
+            applySurfacePreset();
+            updateWeightVisibility();
+            calculateAll();
+        });
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

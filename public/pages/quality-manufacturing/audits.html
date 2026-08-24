@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Internal Quality Audits | Pradako - Quality Fasteners Since 1960</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- PMEW WEBSITE CSS -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+/* ==========================================================================
+   PRADAKO SPECTRUM DATUM — INTERNAL QUALITY AUDITS
+   Page accent: GREEN (quality) · secondary: PETROL (verification)
+   Ultra-white canvas · ink type · zero gradients · classes prefixed pmew-iqa-
+   ========================================================================== */
+
+.pmew-iqa-page{
+  --pmew-iqa-paper:#FFFFFF;
+  --pmew-iqa-ink:#0B0B0C;
+  --pmew-iqa-ink-60:rgba(11,11,12,.6);
+  --pmew-iqa-ink-40:rgba(11,11,12,.4);
+  --pmew-iqa-rule:rgba(11,11,12,.14);
+  --pmew-iqa-rule-soft:rgba(11,11,12,.08);
+
+  --pmew-iqa-sp1:#D7263D;  --pmew-iqa-sp2:#F4570C;  --pmew-iqa-sp3:#EFA400;  --pmew-iqa-sp4:#A6B80B;
+  --pmew-iqa-sp5:#128C45;  --pmew-iqa-sp6:#0E8F84;  --pmew-iqa-sp7:#0F6E75;  --pmew-iqa-sp8:#6B33C8;
+  --pmew-iqa-sp9:#C2186B;  --pmew-iqa-sp10:#A87B2D; --pmew-iqa-sp11:#5A6270; --pmew-iqa-sp12:#0B0B0C;
+
+  --pmew-iqa-acc:#128C45;      /* page accent — quality green */
+  --pmew-iqa-acc2:#0F6E75;     /* secondary — petrol          */
+  --pmew-iqa-acc-soft:rgba(18,140,69,.07);
+
+  --pmew-iqa-font-display:'Space Grotesk',sans-serif;
+  --pmew-iqa-font-body:'Inter',sans-serif;
+  --pmew-iqa-wrap:1240px;
+}
+
+.pmew-iqa-page *{box-sizing:border-box;margin:0;padding:0}
+.pmew-iqa-page{background:var(--pmew-iqa-paper);color:var(--pmew-iqa-ink);font-family:var(--pmew-iqa-font-body);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.pmew-iqa-page img{max-width:100%;display:block}
+.pmew-iqa-page a{color:inherit;text-decoration:none}
+.pmew-iqa-page ul{list-style:none}
+.pmew-iqa-page button{font-family:var(--pmew-iqa-font-display);cursor:pointer;background:none;border:none}
+
+.pmew-iqa-wrap{max-width:var(--pmew-iqa-wrap);margin:0 auto;padding:0 32px}
+.pmew-iqa-section{
+  padding:100px 0;
+  border-top:1px solid var(--pmew-iqa-rule-soft);
+  scroll-margin-top:calc(
+    var(--pmew-iqa-sticky-top, 0px) +
+    var(--pmew-iqa-pagenav-height, 62px) +
+    18px
+  );
+}
+
+/* ---------- SPECTRUM DATUM STRIP ---------- */
+.pmew-iqa-strip{display:flex;height:5px;width:100%}
+.pmew-iqa-strip span{flex:1;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.9,.3,1)}
+.pmew-iqa-strip.pmew-iqa-on span{transform:scaleX(1)}
+.pmew-iqa-strip span:nth-child(1){background:var(--pmew-iqa-sp1);transition-delay:.00s}
+.pmew-iqa-strip span:nth-child(2){background:var(--pmew-iqa-sp2);transition-delay:.04s}
+.pmew-iqa-strip span:nth-child(3){background:var(--pmew-iqa-sp3);transition-delay:.08s}
+.pmew-iqa-strip span:nth-child(4){background:var(--pmew-iqa-sp4);transition-delay:.12s}
+.pmew-iqa-strip span:nth-child(5){background:var(--pmew-iqa-sp5);transition-delay:.16s}
+.pmew-iqa-strip span:nth-child(6){background:var(--pmew-iqa-sp6);transition-delay:.20s}
+.pmew-iqa-strip span:nth-child(7){background:var(--pmew-iqa-sp7);transition-delay:.24s}
+.pmew-iqa-strip span:nth-child(8){background:var(--pmew-iqa-sp8);transition-delay:.28s}
+.pmew-iqa-strip span:nth-child(9){background:var(--pmew-iqa-sp9);transition-delay:.32s}
+.pmew-iqa-strip span:nth-child(10){background:var(--pmew-iqa-sp10);transition-delay:.36s}
+.pmew-iqa-strip span:nth-child(11){background:var(--pmew-iqa-sp11);transition-delay:.40s}
+.pmew-iqa-strip span:nth-child(12){background:var(--pmew-iqa-sp12);transition-delay:.44s}
+
+/* ---------- TITLE BLOCKS ---------- */
+.pmew-iqa-tb{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--pmew-iqa-rule);
+  padding-bottom:14px;margin-bottom:14px;flex-wrap:wrap}
+.pmew-iqa-tb-sec{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:13px;
+  letter-spacing:.22em;color:var(--pmew-iqa-ink)}
+.pmew-iqa-tb-chip{width:22px;height:8px;background:var(--pmew-iqa-acc);align-self:center}
+.pmew-iqa-tb-name{font-family:var(--pmew-iqa-font-display);font-weight:500;font-size:13px;
+  letter-spacing:.3em;color:var(--pmew-iqa-ink-60);text-transform:uppercase}
+.pmew-iqa-h2{font-family:var(--pmew-iqa-font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(32px,4.4vw,54px);line-height:1.03;letter-spacing:-.01em;margin:26px 0 20px}
+.pmew-iqa-h2 em{font-style:normal;color:var(--pmew-iqa-acc)}
+.pmew-iqa-lead{max-width:780px;font-size:17px;color:var(--pmew-iqa-ink-60)}
+
+/* ---------- REVEAL ---------- */
+.pmew-iqa-rv{opacity:0;transform:translateY(26px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.9,.3,1)}
+.pmew-iqa-rv.pmew-iqa-in{opacity:1;transform:none}
+
+/* ==========================================================================
+   HERO + BANNER
+   ========================================================================== */
+.pmew-iqa-hero{padding:150px 0 0}
+.pmew-iqa-hero-kicker{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:13px;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--pmew-iqa-ink-60);margin-bottom:34px;
+  display:flex;align-items:center;gap:16px}
+.pmew-iqa-hero-kicker::before{content:"";width:56px;height:2px;background:var(--pmew-iqa-ink)}
+.pmew-iqa-hero h1{font-family:var(--pmew-iqa-font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(46px,8.6vw,118px);line-height:.96;letter-spacing:-.02em}
+.pmew-iqa-hero h1 .pmew-iqa-line{display:block;overflow:hidden}
+.pmew-iqa-hero h1 .pmew-iqa-line > span{display:block;transform:none;opacity:1;visibility:visible;transition:none}
+.pmew-iqa-hero.pmew-iqa-go h1 .pmew-iqa-line:nth-child(1) > span{transform:none;opacity:1;visibility:visible}
+.pmew-iqa-hero.pmew-iqa-go h1 .pmew-iqa-line:nth-child(2) > span{transform:none;opacity:1;visibility:visible}
+.pmew-iqa-hero h1 .pmew-iqa-hollow{color:transparent;-webkit-text-stroke:2px var(--pmew-iqa-acc)}
+.pmew-iqa-hero .pmew-iqa-strip{margin:44px 0 40px}
+.pmew-iqa-hero-lead{max-width:840px;font-size:clamp(16.5px,1.5vw,20px);color:var(--pmew-iqa-ink-60)}
+.pmew-iqa-hero-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.pmew-iqa-hero-badges span{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;padding:13px 22px;
+  border:1px solid var(--pmew-iqa-ink);display:inline-flex;align-items:center;gap:12px}
+.pmew-iqa-hero-badges span::before{content:"";width:10px;height:10px;background:var(--pmew-iqa-acc)}
+
+/* Banner plate */
+.pmew-iqa-banner{padding:64px 0 0}
+.pmew-iqa-banner-frame{border:1px solid var(--pmew-iqa-rule);padding:18px;position:relative}
+.pmew-iqa-banner-frame img{width:100%;aspect-ratio:21/8;object-fit:cover}
+.pmew-iqa-banner-cap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding:16px 4px 0;font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--pmew-iqa-ink-60)}
+.pmew-iqa-banner-cap b{color:var(--pmew-iqa-ink)}
+
+/* Coverage chips */
+.pmew-iqa-coverage{margin-top:52px;border:1px solid var(--pmew-iqa-rule);display:grid;
+  grid-template-columns:1.4fr repeat(4,1fr)}
+.pmew-iqa-coverage-head{padding:26px 28px;border-right:1px solid var(--pmew-iqa-rule)}
+.pmew-iqa-coverage-head b{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:14px;
+  letter-spacing:.14em;text-transform:uppercase;display:block}
+.pmew-iqa-coverage-head span{font-size:13px;color:var(--pmew-iqa-ink-60);display:block;margin-top:6px}
+.pmew-iqa-coverage-item{padding:26px 22px;border-right:1px solid var(--pmew-iqa-rule);
+  font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:15px;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;transition:background .2s,color .2s}
+.pmew-iqa-coverage-item:last-child{border-right:none}
+.pmew-iqa-coverage-item::before{content:"";width:9px;height:9px;background:var(--pmew-iqa-cc,var(--pmew-iqa-acc));flex:none}
+.pmew-iqa-coverage-item:hover{background:var(--pmew-iqa-cc,var(--pmew-iqa-acc));color:var(--pmew-iqa-paper)}
+.pmew-iqa-coverage-item:hover::before{background:var(--pmew-iqa-paper)}
+.pmew-iqa-coverage-item:nth-child(2){--pmew-iqa-cc:var(--pmew-iqa-sp5)}
+.pmew-iqa-coverage-item:nth-child(3){--pmew-iqa-cc:var(--pmew-iqa-sp7)}
+.pmew-iqa-coverage-item:nth-child(4){--pmew-iqa-cc:var(--pmew-iqa-sp3)}
+.pmew-iqa-coverage-item:nth-child(5){--pmew-iqa-cc:var(--pmew-iqa-sp10)}
+
+/* ==========================================================================
+   STICKY PAGE NAV — On This Page
+   ========================================================================== */
+.pmew-iqa-pagenav{
+  position:-webkit-sticky;
+  position:sticky;
+  top:var(--pmew-iqa-sticky-top, 0px);
+  z-index:900;
+  width:100%;
+  background:rgba(255,255,255,.98);
+  border-top:1px solid var(--pmew-iqa-rule);
+  border-bottom:1px solid var(--pmew-iqa-rule);
+  margin-top:70px;
+  box-shadow:0 1px 0 rgba(11,11,12,.03);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+.pmew-iqa-pagenav .pmew-iqa-wrap{max-width:var(--pmew-iqa-wrap)}
+.pmew-iqa-pagenav-in{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  min-height:62px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  overscroll-behavior-inline:contain;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.pmew-iqa-pagenav-in::-webkit-scrollbar{display:none}
+.pmew-iqa-pagenav-label{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--pmew-iqa-ink-60);
+  padding:18px 26px 18px 0;border-right:1px solid var(--pmew-iqa-rule);white-space:nowrap;flex:none;
+  display:flex;align-items:center}
+.pmew-iqa-pagenav a{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;padding:18px 22px;white-space:nowrap;
+  color:var(--pmew-iqa-ink-60);border-bottom:3px solid transparent;transition:color .2s,border-color .2s;
+  display:flex;align-items:center;flex:none}
+.pmew-iqa-pagenav a:hover{color:var(--pmew-iqa-ink)}
+.pmew-iqa-pagenav a.pmew-iqa-active{color:var(--pmew-iqa-acc);border-bottom-color:var(--pmew-iqa-acc)}
+
+/* ==========================================================================
+   SEC 01 · OVERVIEW
+   ========================================================================== */
+.pmew-iqa-ov-state{font-family:var(--pmew-iqa-font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(26px,3.4vw,44px);line-height:1.08;max-width:900px;margin:26px 0 40px}
+.pmew-iqa-ov-state em{font-style:normal;color:var(--pmew-iqa-acc)}
+.pmew-iqa-ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.pmew-iqa-ov-grid p{margin-bottom:20px;color:var(--pmew-iqa-ink-60);font-size:15.5px}
+.pmew-iqa-check{margin-top:56px;border:1px solid var(--pmew-iqa-rule);padding:44px 40px}
+.pmew-iqa-check h3{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:19px;
+  text-transform:uppercase;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.pmew-iqa-check h3::before{content:"";width:30px;height:9px;background:var(--pmew-iqa-acc)}
+.pmew-iqa-check ul{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.pmew-iqa-check li{padding:12px 0 12px 34px;border-bottom:1px solid var(--pmew-iqa-rule-soft);
+  font-size:15px;position:relative;font-weight:500}
+.pmew-iqa-check li::before{content:"";position:absolute;left:0;top:16px;width:16px;height:9px;
+  border-left:3px solid var(--pmew-iqa-acc);border-bottom:3px solid var(--pmew-iqa-acc);transform:rotate(-45deg)}
+
+/* ==========================================================================
+   SEC 02 · FRAMEWORK
+   ========================================================================== */
+.pmew-iqa-fw-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:52px}
+.pmew-iqa-fw-intro p{color:var(--pmew-iqa-ink-60);font-size:15.5px}
+.pmew-iqa-fw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--pmew-iqa-rule)}
+.pmew-iqa-fw-item{padding:24px 26px;border-right:1px solid var(--pmew-iqa-rule);border-bottom:1px solid var(--pmew-iqa-rule);
+  font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:14px;line-height:1.4;
+  display:flex;gap:14px;align-items:flex-start;transition:background .2s}
+.pmew-iqa-fw-item:nth-child(3n){border-right:none}
+.pmew-iqa-fw-item:nth-child(n+10){border-bottom:none}
+.pmew-iqa-fw-item:hover{background:var(--pmew-iqa-acc-soft)}
+.pmew-iqa-fw-item i{font-style:normal;font-weight:700;font-size:12px;letter-spacing:.1em;
+  color:var(--pmew-iqa-acc);flex:none;padding-top:2px}
+
+/* ==========================================================================
+   SEC 03 · WHAT WE AUDIT — 8 domains
+   ========================================================================== */
+.pmew-iqa-aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
+.pmew-iqa-aud-card{border:1px solid var(--pmew-iqa-rule);padding:38px 34px;position:relative;overflow:hidden;
+  transition:border-color .25s}
+.pmew-iqa-aud-card:hover{border-color:var(--pmew-iqa-ac,var(--pmew-iqa-acc))}
+.pmew-iqa-aud-card::before{content:"";position:absolute;left:0;top:0;right:0;height:8px;background:var(--pmew-iqa-ac,var(--pmew-iqa-acc))}
+.pmew-iqa-aud-num{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:13px;
+  letter-spacing:.2em;color:var(--pmew-iqa-ac,var(--pmew-iqa-acc))}
+.pmew-iqa-aud-card h3{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:21px;
+  text-transform:uppercase;line-height:1.2;margin:12px 0 12px}
+.pmew-iqa-aud-card > p{font-size:14px;color:var(--pmew-iqa-ink-60);margin-bottom:20px}
+.pmew-iqa-aud-card ul li{font-size:13.5px;color:var(--pmew-iqa-ink-60);padding:8px 0 8px 20px;
+  border-bottom:1px solid var(--pmew-iqa-rule-soft);position:relative}
+.pmew-iqa-aud-card ul li:last-child{border-bottom:none}
+.pmew-iqa-aud-card ul li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;
+  background:var(--pmew-iqa-ac,var(--pmew-iqa-acc))}
+.pmew-iqa-aud-card:nth-child(1){--pmew-iqa-ac:var(--pmew-iqa-sp5)}  .pmew-iqa-aud-card:nth-child(2){--pmew-iqa-ac:var(--pmew-iqa-sp7)}
+.pmew-iqa-aud-card:nth-child(3){--pmew-iqa-ac:var(--pmew-iqa-sp3)}  .pmew-iqa-aud-card:nth-child(4){--pmew-iqa-ac:var(--pmew-iqa-sp6)}
+.pmew-iqa-aud-card:nth-child(5){--pmew-iqa-ac:var(--pmew-iqa-sp10)} .pmew-iqa-aud-card:nth-child(6){--pmew-iqa-ac:var(--pmew-iqa-sp8)}
+.pmew-iqa-aud-card:nth-child(7){--pmew-iqa-ac:var(--pmew-iqa-sp2)}  .pmew-iqa-aud-card:nth-child(8){--pmew-iqa-ac:var(--pmew-iqa-sp1)}
+
+/* ==========================================================================
+   SEC 04 · RISK-BASED APPROACH
+   ========================================================================== */
+.pmew-iqa-risk-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;margin-top:44px;align-items:start}
+.pmew-iqa-risk-grid > div > p{color:var(--pmew-iqa-ink-60);margin-bottom:20px;font-size:15.5px}
+.pmew-iqa-risk-pull{border-left:6px solid var(--pmew-iqa-acc);padding:6px 0 6px 26px;margin-top:34px}
+.pmew-iqa-risk-pull b{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:clamp(19px,2vw,25px);
+  text-transform:uppercase;line-height:1.25;display:block}
+.pmew-iqa-risk-pull span{font-size:14px;color:var(--pmew-iqa-ink-60);display:block;margin-top:10px}
+.pmew-iqa-risk-tags{display:flex;flex-wrap:wrap;gap:10px}
+.pmew-iqa-risk-tags span{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:13px;
+  letter-spacing:.05em;padding:12px 18px;border:1px solid var(--pmew-iqa-rule);transition:all .2s}
+.pmew-iqa-risk-tags span:hover{background:var(--pmew-iqa-acc);color:var(--pmew-iqa-paper);border-color:var(--pmew-iqa-acc)}
+
+/* ==========================================================================
+   SEC 05 · AUDIT CYCLE — 6 steps on a rail
+   ========================================================================== */
+.pmew-iqa-cycle{counter-reset:cy}
+.pmew-iqa-cycle-rail{margin-top:52px;position:relative;border-left:2px solid var(--pmew-iqa-rule);
+  margin-left:44px;padding-left:0}
+.pmew-iqa-cycle-step{position:relative;padding:0 0 46px 56px}
+.pmew-iqa-cycle-step:last-child{padding-bottom:0}
+.pmew-iqa-cycle-num{position:absolute;left:-45px;top:-6px;width:88px;height:88px;background:var(--pmew-iqa-paper);
+  border:2px solid var(--pmew-iqa-acc);display:flex;align-items:center;justify-content:center;
+  font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:26px;color:var(--pmew-iqa-acc)}
+.pmew-iqa-cycle-step h3{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:22px;
+  text-transform:uppercase;margin-bottom:10px;padding-top:14px}
+.pmew-iqa-cycle-step p{font-size:14.5px;color:var(--pmew-iqa-ink-60);max-width:760px}
+.pmew-iqa-cycle-duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:64px}
+.pmew-iqa-cycle-box{border:1px solid var(--pmew-iqa-rule);padding:38px 34px;border-top:8px solid var(--pmew-iqa-cb,var(--pmew-iqa-acc))}
+.pmew-iqa-cycle-box.b2{--pmew-iqa-cb:var(--pmew-iqa-acc2)}
+.pmew-iqa-cycle-box h3{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:19px;
+  text-transform:uppercase;line-height:1.25;margin-bottom:12px}
+.pmew-iqa-cycle-box > p{font-size:14px;color:var(--pmew-iqa-ink-60);margin-bottom:20px}
+.pmew-iqa-cycle-box ul li{font-size:13.5px;color:var(--pmew-iqa-ink-60);padding:8px 0 8px 20px;
+  border-bottom:1px solid var(--pmew-iqa-rule-soft);position:relative}
+.pmew-iqa-cycle-box ul li:last-child{border-bottom:none}
+.pmew-iqa-cycle-box ul li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;
+  background:var(--pmew-iqa-cb,var(--pmew-iqa-acc))}
+
+/* ==========================================================================
+   SEC 06 · PERFORMANCE MONITORING
+   ========================================================================== */
+.pmew-iqa-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--pmew-iqa-rule);margin-top:52px}
+.pmew-iqa-kpi{padding:32px 28px;border-right:1px solid var(--pmew-iqa-rule);border-bottom:1px solid var(--pmew-iqa-rule);
+  display:flex;gap:18px;align-items:flex-start;transition:background .2s}
+.pmew-iqa-kpi:nth-child(3n){border-right:none}
+.pmew-iqa-kpi:nth-child(n+7){border-bottom:none}
+.pmew-iqa-kpi:hover{background:var(--pmew-iqa-acc-soft)}
+.pmew-iqa-kpi i{font-style:normal;font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:14px;
+  letter-spacing:.1em;color:var(--pmew-iqa-acc);flex:none;padding-top:2px}
+.pmew-iqa-kpi b{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:14.5px;line-height:1.4}
+
+/* ==========================================================================
+   SEC 07 · ASSURANCE + COMMITMENT
+   ========================================================================== */
+.pmew-iqa-ass-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;align-items:start}
+.pmew-iqa-ass-grid > div > p{color:var(--pmew-iqa-ink-60);margin-bottom:20px;font-size:15.5px}
+.pmew-iqa-ass-pull{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:clamp(20px,2.2vw,28px);
+  text-transform:uppercase;line-height:1.2;border-left:6px solid var(--pmew-iqa-acc);padding-left:24px;margin:30px 0}
+.pmew-iqa-ass-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.pmew-iqa-ass-list li{padding:12px 0 12px 30px;border-bottom:1px solid var(--pmew-iqa-rule-soft);
+  font-size:14.5px;font-weight:500;position:relative}
+.pmew-iqa-ass-list li::before{content:"";position:absolute;left:0;top:16px;width:14px;height:8px;
+  border-left:3px solid var(--pmew-iqa-acc);border-bottom:3px solid var(--pmew-iqa-acc);transform:rotate(-45deg)}
+.pmew-iqa-commit{margin-top:80px;border:2px solid var(--pmew-iqa-ink);padding:64px 56px;position:relative;text-align:center}
+.pmew-iqa-commit::before,.pmew-iqa-commit::after{content:"";position:absolute;left:50%;
+  transform:translateX(-50%);width:2px;height:32px;background:var(--pmew-iqa-ink)}
+.pmew-iqa-commit::before{top:-34px}.pmew-iqa-commit::after{bottom:-34px}
+.pmew-iqa-commit-kick{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:12px;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--pmew-iqa-ink-60);margin-bottom:24px}
+.pmew-iqa-commit p{max-width:820px;margin:0 auto 26px;color:var(--pmew-iqa-ink-60);font-size:15.5px}
+.pmew-iqa-commit-line{font-family:var(--pmew-iqa-font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(22px,3vw,38px);line-height:1.15;max-width:900px;margin:0 auto}
+.pmew-iqa-commit-line em{font-style:normal;color:var(--pmew-iqa-acc)}
+
+/* ==========================================================================
+   SEC 08 · FAQ
+   ========================================================================== */
+.pmew-iqa-faq{margin-top:52px;border-top:2px solid var(--pmew-iqa-ink)}
+.pmew-iqa-faq-item{border-bottom:1px solid var(--pmew-iqa-rule)}
+.pmew-iqa-faq-q{width:100%;text-align:left;display:flex;justify-content:space-between;gap:24px;
+  align-items:center;padding:28px 4px;font-family:var(--pmew-iqa-font-display);font-weight:700;
+  font-size:clamp(16px,1.8vw,21px);text-transform:uppercase;line-height:1.3;transition:color .2s}
+.pmew-iqa-faq-q:hover{color:var(--pmew-iqa-acc)}
+.pmew-iqa-faq-ic{flex:none;width:38px;height:38px;border:1px solid var(--pmew-iqa-ink);position:relative;transition:all .25s}
+.pmew-iqa-faq-ic::before,.pmew-iqa-faq-ic::after{content:"";position:absolute;background:currentColor;
+  top:50%;left:50%;transform:translate(-50%,-50%)}
+.pmew-iqa-faq-ic::before{width:14px;height:2px}
+.pmew-iqa-faq-ic::after{width:2px;height:14px;transition:transform .25s}
+.pmew-iqa-faq-item.pmew-iqa-open .pmew-iqa-faq-ic{background:var(--pmew-iqa-acc);border-color:var(--pmew-iqa-acc);color:var(--pmew-iqa-paper)}
+.pmew-iqa-faq-item.pmew-iqa-open .pmew-iqa-faq-ic::after{transform:translate(-50%,-50%) scaleY(0)}
+.pmew-iqa-faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.9,.3,1)}
+.pmew-iqa-faq-a p{padding:0 4px 30px;max-width:840px;color:var(--pmew-iqa-ink-60);font-size:15px}
+
+/* ==========================================================================
+   CLOSING
+   ========================================================================== */
+.pmew-iqa-close{text-align:center;padding:130px 0}
+.pmew-iqa-close-kick{font-family:var(--pmew-iqa-font-display);font-weight:600;font-size:12px;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--pmew-iqa-ink-60);margin-bottom:30px}
+.pmew-iqa-close-line{font-family:var(--pmew-iqa-font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(26px,4vw,52px);line-height:1.1;max-width:980px;margin:0 auto}
+.pmew-iqa-close-line em{font-style:normal;color:var(--pmew-iqa-acc)}
+.pmew-iqa-close-words{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:44px}
+.pmew-iqa-close-words span{font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:13px;
+  letter-spacing:.2em;text-transform:uppercase;padding:14px 26px;color:var(--pmew-iqa-paper)}
+.pmew-iqa-close-words span:nth-child(1){background:var(--pmew-iqa-sp5)}
+.pmew-iqa-close-words span:nth-child(2){background:var(--pmew-iqa-sp7)}
+.pmew-iqa-close-words span:nth-child(3){background:var(--pmew-iqa-sp10)}
+.pmew-iqa-close .pmew-iqa-strip{margin-top:64px}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media(max-width:1080px){
+  .pmew-iqa-coverage{grid-template-columns:1fr 1fr}
+  .pmew-iqa-coverage-head{grid-column:span 2;border-right:none;border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-coverage-item:nth-child(3){border-right:none}
+  .pmew-iqa-coverage-item:nth-child(2),.pmew-iqa-coverage-item:nth-child(3){border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-fw-grid{grid-template-columns:1fr 1fr}
+  .pmew-iqa-fw-item:nth-child(3n){border-right:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-fw-item:nth-child(2n){border-right:none}
+  .pmew-iqa-fw-item:nth-child(n+10){border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-fw-item:nth-child(n+11){border-bottom:none}
+  .pmew-iqa-aud-grid,.pmew-iqa-cycle-duo{grid-template-columns:1fr}
+  .pmew-iqa-kpi-grid{grid-template-columns:1fr 1fr}
+  .pmew-iqa-kpi:nth-child(3n){border-right:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-kpi:nth-child(2n){border-right:none}
+  .pmew-iqa-kpi:nth-child(n+7){border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-kpi:nth-child(n+8){border-bottom:none}
+  .pmew-iqa-risk-grid,.pmew-iqa-ass-grid,.pmew-iqa-ov-grid,.pmew-iqa-fw-intro{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:760px){
+  .pmew-iqa-wrap{padding:0 20px}
+  .pmew-iqa-section{padding:68px 0}
+  .pmew-iqa-hero{padding:110px 0 0}
+  .pmew-iqa-check ul,.pmew-iqa-ass-list{grid-template-columns:1fr}
+  .pmew-iqa-coverage{grid-template-columns:1fr}
+  .pmew-iqa-coverage-head{grid-column:span 1;border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-coverage-item{border-right:none;border-bottom:1px solid var(--pmew-iqa-rule)}
+  .pmew-iqa-coverage-item:last-child{border-bottom:none}
+  .pmew-iqa-fw-grid{grid-template-columns:1fr}
+  .pmew-iqa-fw-item{border-right:none!important;border-bottom:1px solid var(--pmew-iqa-rule)!important}
+  .pmew-iqa-fw-item:last-child{border-bottom:none!important}
+  .pmew-iqa-kpi-grid{grid-template-columns:1fr}
+  .pmew-iqa-kpi{border-right:none!important;border-bottom:1px solid var(--pmew-iqa-rule)!important}
+  .pmew-iqa-kpi:last-child{border-bottom:none!important}
+  .pmew-iqa-cycle-rail{margin-left:26px}
+  .pmew-iqa-cycle-num{left:-27px;width:52px;height:52px;font-size:17px}
+  .pmew-iqa-cycle-step{padding-left:44px}
+  .pmew-iqa-commit{padding:44px 24px}
+  .pmew-iqa-banner-frame img{aspect-ratio:16/10}
+}
+@media(max-width:760px){
+  .pmew-iqa-pagenav{margin-top:48px}
+  .pmew-iqa-pagenav .pmew-iqa-wrap{padding:0 14px}
+  .pmew-iqa-pagenav-in{min-height:56px}
+  .pmew-iqa-pagenav-label{padding:15px 18px 15px 0}
+  .pmew-iqa-pagenav a{padding:15px 17px;font-size:12px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .pmew-iqa-page *,.pmew-iqa-page *::before,.pmew-iqa-page *::after{
+    animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .pmew-iqa-rv,.pmew-iqa-hero h1 .pmew-iqa-line > span,.pmew-iqa-strip span{opacity:1;transform:none}
+}
+
+/* ---------- PAGE ISOLATION / PMEW COMPONENT SAFETY ---------- */
+.pmew-iqa-page{
+  --pmew-iqa-sticky-top:0px;
+  --pmew-iqa-pagenav-height:62px;
+  width:100%;
+  max-width:100%;
+  /* A sticky element must not sit inside a vertically clipping/scrolling ancestor. */
+  overflow:visible;
+  isolation:isolate;
+}
+.pmew-iqa-page,
+.pmew-iqa-page *{
+  box-sizing:border-box;
+}
+#navbar-container,
+#footer-container{
+  position:relative;
+  z-index:1000;
+}
+
+/* =========================================================
+   RELIABLE FIXED PAGE NAVIGATION
+   Add this AFTER all existing page-navigation CSS
+   ========================================================= */
+
+:root{
+  --pmew-iqa-main-nav-offset: 0px;
+  --pmew-iqa-page-nav-height: 62px;
+}
+
+/* Prevent page wrappers from blocking the navigation */
+.pmew-iqa-page{
+  overflow: visible !important;
+  transform: none !important;
+  filter: none !important;
+  perspective: none !important;
+  contain: none !important;
+}
+
+/* Holder preserves the navigation's original position */
+.pmew-iqa-pagenav-holder{
+  position: relative;
+  width: 100%;
+  margin-top: 70px;
+}
+
+/* Override the previous sticky positioning */
+.pmew-iqa-pagenav{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100%;
+  margin-top: 0 !important;
+
+  z-index: 9998;
+  background: #ffffff;
+  border-top: 1px solid rgba(11, 11, 12, 0.14);
+  border-bottom: 1px solid rgba(11, 11, 12, 0.14);
+}
+
+/* Applied by JavaScript after the nav reaches the viewport */
+.pmew-iqa-pagenav.pmew-iqa-nav-fixed{
+  position: fixed !important;
+  top: var(--pmew-iqa-main-nav-offset) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+
+  z-index: 9998 !important;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 18px rgba(11, 11, 12, 0.08);
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Prevent section headings from hiding behind both navbars */
+.pmew-iqa-section{
+  scroll-margin-top: calc(
+    var(--pmew-iqa-main-nav-offset) +
+    var(--pmew-iqa-page-nav-height) +
+    24px
+  ) !important;
+}
+
+@media (max-width: 760px){
+  .pmew-iqa-pagenav-holder{
+    margin-top: 48px;
+  }
+
+  .pmew-iqa-pagenav.pmew-iqa-nav-fixed{
+    box-shadow: 0 3px 14px rgba(11, 11, 12, 0.08);
+  }
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Internal Quality Audits from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/quality-manufacturing/audits.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Internal Quality Audits | Pradako - Quality Fasteners Since 1960">
+    <meta property="og:description" content="Internal Quality Audits from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/quality-manufacturing/audits.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Internal Quality Audits | Pradako - Quality Fasteners Since 1960">
+    <meta name="twitter:description" content="Internal Quality Audits from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Internal Quality Audits | Pradako - Quality Fasteners Since 1960",
+  "url": "https://www.pradako.co/pages/quality-manufacturing/audits.html",
+  "description": "Internal Quality Audits from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ========== HEADER (injected component) ========== -->
+<div id="navbar-container"></div>
+
+<!-- ========== PAGE-SCOPED CONTENT ========== -->
+<div class="pmew-iqa-page">
+
+<!-- ======================================================
+     HERO + BANNER
+======================================================= -->
+<section class="pmew-iqa-hero" id="pmewIqaHero">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-hero-kicker">Engineering Trust · Excellence Since 1960</div>
+    <h1>
+      <span class="pmew-iqa-line"><span>Internal Quality</span></span>
+      <span class="pmew-iqa-line"><span class="pmew-iqa-hollow">Audits</span></span>
+    </h1>
+    <div class="pmew-iqa-strip" data-pmew-iqa-strip>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="pmew-iqa-hero-lead">At Pradako Mechanical &amp; Engineering Works, Internal Quality Audits are not routine compliance exercises. They are structured evaluations designed to confirm process effectiveness, identify operational risks, strengthen manufacturing controls, and drive measurable improvement across the organisation.</p>
+    <div class="pmew-iqa-hero-badges">
+      <span>Independent Verification</span>
+      <span>Continuous Improvement</span>
+      <span>Manufacturing Confidence</span>
+    </div>
+
+    <!-- HERO BANNER PLATE — save your audit / lab / plant image to this path -->
+    <div class="pmew-iqa-banner">
+      <div class="pmew-iqa-banner-frame pmew-iqa-rv">
+        <img src="/assets/images/quality/banners/iqa-hero.jpg" alt="PMEW internal quality audit in progress" loading="eager">
+        <div class="pmew-iqa-banner-cap">
+          <span><b>IQA FRAMEWORK</b> — INTERNAL AUDIT COVERAGE</span>
+          <span>EVERY PROCESS EXAMINED · EVERY RISK UNDERSTOOD</span>
+        </div>
+      </div>
+
+      <div class="pmew-iqa-coverage pmew-iqa-rv">
+        <div class="pmew-iqa-coverage-head">
+          <b>Internal Audit Coverage</b>
+          <span>Every process examined. Every risk understood.</span>
+        </div>
+        <div class="pmew-iqa-coverage-item">System Audits</div>
+        <div class="pmew-iqa-coverage-item">Process Audits</div>
+        <div class="pmew-iqa-coverage-item">Product Audits</div>
+        <div class="pmew-iqa-coverage-item">Compliance Audits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY ON-THIS-PAGE NAV (page-level so it sticks throughout) -->
+<nav class="pmew-iqa-pagenav" aria-label="On this page">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-pagenav-in">
+      <span class="pmew-iqa-pagenav-label">On This Page</span>
+      <a href="#overview" class="pmew-iqa-active">Overview</a>
+      <a href="#framework">Framework</a>
+      <a href="#what-we-audit">What We Audit</a>
+      <a href="#risk-approach">Risk Approach</a>
+      <a href="#audit-cycle">Audit Cycle</a>
+      <a href="#performance">Performance</a>
+      <a href="#assurance">Assurance</a>
+      <a href="#faqs">FAQs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================================================
+     SEC 01 · OVERVIEW
+======================================================= -->
+<section class="pmew-iqa-section" id="overview">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 01</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Quality at Every Level</span>
+    </div>
+    <h2 class="pmew-iqa-ov-state pmew-iqa-rv">Quality is verified through the <em>complete manufacturing system.</em></h2>
+
+    <div class="pmew-iqa-ov-grid">
+      <div class="pmew-iqa-rv">
+        <p>Our Internal Quality Audit programme provides objective evidence that every relevant process — from incoming material and production to inspection, testing, traceability, packaging, and final release — is operating in accordance with defined procedures, customer requirements, applicable standards, and PMEW's quality expectations.</p>
+        <p>Internal Quality Audits help us look beyond the final product. They evaluate the complete system behind every fastener and engineered component, including the people, machines, methods, materials, measurements, records, controls, and decisions that influence product quality.</p>
+      </div>
+      <div class="pmew-iqa-rv">
+        <p>The objective is not only to identify nonconformities, but to prevent recurrence, reduce process variation, strengthen accountability, and improve overall manufacturing performance.</p>
+      </div>
+    </div>
+
+    <div class="pmew-iqa-check pmew-iqa-rv">
+      <h3>Every audited process must be</h3>
+      <ul>
+        <li>Properly defined and documented</li>
+        <li>Consistently implemented</li>
+        <li>Effectively controlled</li>
+        <li>Supported by objective records</li>
+        <li>Capable of meeting customer and regulatory requirements</li>
+        <li>Continuously improved through corrective and preventive action</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 02 · FRAMEWORK
+======================================================= -->
+<section class="pmew-iqa-section" id="framework">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 02</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Structured Governance</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">Our Internal <em>Audit Framework</em></h2>
+
+    <div class="pmew-iqa-fw-intro">
+      <p class="pmew-iqa-rv">Audits are planned according to process importance, product risk, previous performance, customer concerns, operational changes, and the results of earlier audits.</p>
+      <p class="pmew-iqa-rv"><strong>Aligned with management systems, customer requirements, internal procedures, and industry expectations.</strong> PMEW's Internal Quality Audit programme supports the requirements of applicable quality management systems, customer-specific requirements, internal procedures, and industry expectations.</p>
+    </div>
+
+    <div class="pmew-iqa-fw-grid pmew-iqa-rv">
+      <div class="pmew-iqa-fw-item"><i>01</i>ISO 9001 Quality Management Systems</div>
+      <div class="pmew-iqa-fw-item"><i>02</i>IATF 16949 Automotive Quality Management</div>
+      <div class="pmew-iqa-fw-item"><i>03</i>AS9100 Aerospace Quality Management</div>
+      <div class="pmew-iqa-fw-item"><i>04</i>ISO 22163 Railway Quality Management</div>
+      <div class="pmew-iqa-fw-item"><i>05</i>ISO 14001 Environmental Management</div>
+      <div class="pmew-iqa-fw-item"><i>06</i>ISO 45001 Occupational Health and Safety</div>
+      <div class="pmew-iqa-fw-item"><i>07</i>ISO 50001 Energy Management</div>
+      <div class="pmew-iqa-fw-item"><i>08</i>Customer-Specific Quality Requirements</div>
+      <div class="pmew-iqa-fw-item"><i>09</i>Product and Process-Specific Standards</div>
+      <div class="pmew-iqa-fw-item"><i>10</i>Internal Manufacturing Procedures</div>
+      <div class="pmew-iqa-fw-item"><i>11</i>Internal Inspection Procedures</div>
+      <div class="pmew-iqa-fw-item"><i>12</i>Applicable Regulatory Requirements</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 03 · WHAT WE AUDIT
+======================================================= -->
+<section class="pmew-iqa-section" id="what-we-audit">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 03</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Comprehensive Coverage</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">What We <em>Audit</em></h2>
+    <p class="pmew-iqa-lead pmew-iqa-rv">Our audit programme evaluates the systems, processes, controls, equipment, records, and decisions that influence product conformity and manufacturing performance.</p>
+
+    <div class="pmew-iqa-aud-grid">
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 01</span>
+        <h3>Quality Management Systems</h3>
+        <p>We evaluate the effectiveness of documented systems, responsibilities, procedures, records, performance monitoring, management controls, and continual improvement activities.</p>
+        <ul>
+          <li>Documented system implementation</li>
+          <li>Defined roles and responsibilities</li>
+          <li>Management controls and reviews</li>
+          <li>Performance monitoring</li>
+          <li>Continual improvement activities</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 02</span>
+        <h3>Manufacturing Processes</h3>
+        <p>Production audits evaluate whether manufacturing operations are performed under controlled conditions and in accordance with approved process parameters.</p>
+        <ul>
+          <li>Wire drawing and material preparation</li>
+          <li>Cold, warm, and hot forging</li>
+          <li>Thread rolling and nut tapping</li>
+          <li>Precision machining</li>
+          <li>Heat treatment</li>
+          <li>Surface treatment and coating</li>
+          <li>Sorting, inspection, assembly, and packaging</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 03</span>
+        <h3>Product Quality Controls</h3>
+        <p>Product audits verify that finished and in-process products conform to drawings, standards, specifications, control plans, inspection requirements, and customer expectations.</p>
+        <ul>
+          <li>Dimensional conformity</li>
+          <li>Mechanical properties and material verification</li>
+          <li>Thread quality and surface finish</li>
+          <li>Coating thickness and hardness</li>
+          <li>Torque and corrosion resistance</li>
+          <li>Packaging, labelling, identification, and traceability</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 04</span>
+        <h3>Inspection and Testing</h3>
+        <p>We audit inspection methods, testing procedures, acceptance criteria, laboratory records, equipment condition, operator competency, and result traceability.</p>
+        <ul>
+          <li>Universal testing machines</li>
+          <li>Hardness and microhardness testing</li>
+          <li>Salt spray testing</li>
+          <li>Coating thickness measurement</li>
+          <li>Spectrometer and optical inspection</li>
+          <li>Eddy current, torque, dimensional, and thread verification</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 05</span>
+        <h3>Calibration and Measurement Systems</h3>
+        <p>Audits confirm that measuring and testing equipment is suitable, calibrated, identified, protected, and used correctly.</p>
+        <ul>
+          <li>Calibration status and frequency</li>
+          <li>Equipment identification</li>
+          <li>Traceability to recognised standards</li>
+          <li>Gauge handling and storage</li>
+          <li>Measurement system analysis</li>
+          <li>Control of damaged or overdue equipment</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 06</span>
+        <h3>Documentation and Traceability</h3>
+        <p>Document and traceability audits verify that the correct specifications, drawings, work instructions, control plans, inspection standards, and revision levels are available at the point of use.</p>
+        <ul>
+          <li>Raw material identification</li>
+          <li>Batch and manufacturing traceability</li>
+          <li>Heat treatment and coating records</li>
+          <li>Inspection and packaging records</li>
+          <li>Final dispatch traceability</li>
+          <li>Controlled document revision status</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 07</span>
+        <h3>Supplier and Incoming Material Controls</h3>
+        <p>Internal audits review the processes used to approve, monitor, and evaluate suppliers and subcontracted processes.</p>
+        <ul>
+          <li>Supplier qualification and approved status</li>
+          <li>Incoming material inspection</li>
+          <li>Material test certificates</li>
+          <li>Supplier performance monitoring</li>
+          <li>Corrective actions</li>
+          <li>Special process verification</li>
+        </ul>
+      </div>
+
+      <div class="pmew-iqa-aud-card pmew-iqa-rv">
+        <span class="pmew-iqa-aud-num">AREA 08</span>
+        <h3>Nonconformity and Corrective Action</h3>
+        <p>We evaluate whether nonconforming products and processes are identified, segregated, controlled, investigated, and corrected.</p>
+        <ul>
+          <li>Containment actions</li>
+          <li>Root cause analysis</li>
+          <li>Corrective action plans</li>
+          <li>Responsibility and completion timelines</li>
+          <li>Effectiveness verification</li>
+          <li>Recurrence prevention and lessons learned</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 04 · RISK-BASED APPROACH
+======================================================= -->
+<section class="pmew-iqa-section" id="risk-approach">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 04</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Focused Audit Priority</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">A Risk-Based <em>Audit Approach</em></h2>
+
+    <div class="pmew-iqa-risk-grid">
+      <div class="pmew-iqa-rv">
+        <p>PMEW uses a risk-based approach to determine audit frequency, depth, and priority. Processes with a greater influence on safety, product conformity, customer satisfaction, or regulatory compliance receive increased audit attention.</p>
+        <p>Not every process carries the same level of risk. Audit resources are focused where they can create the greatest improvement and risk-reduction impact.</p>
+        <div class="pmew-iqa-risk-pull">
+          <b>Audit deeper where the impact is greater.</b>
+          <span>Risk-based planning ensures that audit frequency and technical depth reflect the true importance of each process and its influence on customer requirements.</span>
+        </div>
+      </div>
+      <div class="pmew-iqa-rv">
+        <p style="font-family:var(--pmew-iqa-font-display);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--pmew-iqa-ink);margin-bottom:18px">Audit priorities may be influenced by:</p>
+        <div class="pmew-iqa-risk-tags">
+          <span>Process criticality</span><span>Product safety requirements</span>
+          <span>Customer complaints</span><span>Internal rejection trends</span>
+          <span>Supplier performance</span><span>Previous nonconformities</span>
+          <span>New product development</span><span>Process changes</span>
+          <span>New machinery or technology</span><span>Employee competency changes</span>
+          <span>Production volume</span><span>Special process requirements</span>
+          <span>Corrective action effectiveness</span><span>Regulatory or customer updates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 05 · AUDIT CYCLE
+======================================================= -->
+<section class="pmew-iqa-section pmew-iqa-cycle" id="audit-cycle">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 05</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Structured Evaluation</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">Our Internal Quality <em>Audit Cycle</em></h2>
+    <p class="pmew-iqa-lead pmew-iqa-rv">From planning and evidence collection to corrective action and effectiveness verification, every audit follows a disciplined and traceable process.</p>
+
+    <div class="pmew-iqa-cycle-rail">
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">01</div>
+        <h3>Audit Planning</h3>
+        <p>The audit programme is prepared based on process risk, organisational priorities, applicable requirements, previous findings, and customer expectations. Each audit defines its scope, objectives, criteria, timing, and responsible auditor.</p>
+      </div>
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">02</div>
+        <h3>Audit Preparation</h3>
+        <p>The auditor reviews procedures, process documents, previous reports, performance data, complaints, nonconformities, corrective actions, and applicable customer requirements.</p>
+      </div>
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">03</div>
+        <h3>On-Site Evaluation</h3>
+        <p>Objective evidence is gathered through observation, interviews, record verification, document review, product sampling, traceability checks, equipment verification, and process parameter review.</p>
+      </div>
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">04</div>
+        <h3>Findings and Reporting</h3>
+        <p>Findings are documented clearly and communicated to process owners. They may include conformity, opportunities for improvement, observations, minor nonconformities, major nonconformities, or systemic concerns.</p>
+      </div>
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">05</div>
+        <h3>Corrective Action</h3>
+        <p>Responsible teams contain immediate risk, determine the root cause, and implement appropriate corrective action. Actions are expected to address the underlying weakness — not only the visible symptom.</p>
+      </div>
+      <div class="pmew-iqa-cycle-step pmew-iqa-rv">
+        <div class="pmew-iqa-cycle-num">06</div>
+        <h3>Verification and Closure</h3>
+        <p>Findings are closed only after evidence confirms that the required action has been completed and is effective — through follow-up audits, record review, product verification, performance analysis, or recurrence monitoring.</p>
+      </div>
+    </div>
+
+    <div class="pmew-iqa-cycle-duo">
+      <div class="pmew-iqa-cycle-box pmew-iqa-rv">
+        <h3>Auditor Independence and Competence</h3>
+        <p>Internal auditors are selected based on knowledge, training, process understanding, objectivity, and audit competence. Where practical, auditors do not audit their own work.</p>
+        <ul>
+          <li>Quality management systems</li>
+          <li>Manufacturing processes and product standards</li>
+          <li>Customer-specific requirements</li>
+          <li>Core quality tools and risk-based thinking</li>
+          <li>Root cause analysis and corrective action methods</li>
+          <li>Professional audit techniques</li>
+        </ul>
+      </div>
+      <div class="pmew-iqa-cycle-box b2 pmew-iqa-rv">
+        <h3>From Findings to Measurable Improvement</h3>
+        <p>The value of an audit is determined by what happens after the report is issued. Findings become direct inputs for stronger processes and improved manufacturing performance.</p>
+        <ul>
+          <li>Corrective and preventive action</li>
+          <li>Process improvement and employee training</li>
+          <li>Procedure and control plan revision</li>
+          <li>Error-proofing and automation opportunities</li>
+          <li>Supplier development and maintenance planning</li>
+          <li>Management review and resource allocation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 06 · PERFORMANCE MONITORING
+======================================================= -->
+<section class="pmew-iqa-section" id="performance">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 06</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Measured Effectiveness</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">Audit Performance <em>Monitoring</em></h2>
+    <p class="pmew-iqa-lead pmew-iqa-rv">The effectiveness of the Internal Quality Audit programme is monitored through performance indicators that show whether the audit process is creating meaningful operational improvement.</p>
+
+    <div class="pmew-iqa-kpi-grid pmew-iqa-rv">
+      <div class="pmew-iqa-kpi"><i>KPI 01</i><b>Audit completion against plan</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 02</i><b>Number and category of findings</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 03</i><b>Corrective action closure status</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 04</i><b>Corrective action completion time</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 05</i><b>Repeat nonconformities</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 06</i><b>Overdue actions</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 07</i><b>Process-specific trends</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 08</i><b>Effectiveness of implemented actions</b></div>
+      <div class="pmew-iqa-kpi"><i>KPI 09</i><b>Customer and internal rejection trends</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 07 · ASSURANCE + COMMITMENT
+======================================================= -->
+<section class="pmew-iqa-section" id="assurance">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 07</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Stakeholder Confidence</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">Customer and <em>Stakeholder Assurance</em></h2>
+
+    <div class="pmew-iqa-ass-grid">
+      <div class="pmew-iqa-rv">
+        <p>A strong Internal Quality Audit programme gives customers confidence that PMEW regularly evaluates its systems, identifies risks before they affect product performance, and acts on opportunities for improvement.</p>
+        <div class="pmew-iqa-ass-pull">Confidence built through disciplined internal control.</div>
+        <p>For automotive, aerospace, railway, construction, renewable energy, and industrial applications, this level of internal control is essential to delivering dependable products and long-term manufacturing confidence.</p>
+      </div>
+      <div class="pmew-iqa-rv">
+        <ul class="pmew-iqa-ass-list">
+          <li>Consistent product conformity</li>
+          <li>Stronger process discipline</li>
+          <li>Reliable traceability</li>
+          <li>Reduced process variation</li>
+          <li>Faster issue resolution</li>
+          <li>Improved customer confidence</li>
+          <li>Effective risk management</li>
+          <li>Sustainable operational excellence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pmew-iqa-commit pmew-iqa-rv">
+      <div class="pmew-iqa-commit-kick">Our Commitment</div>
+      <p>Internal Quality Audits are an essential part of PMEW's commitment to precision, transparency, accountability, and continual improvement. They help us verify that standards are followed, processes remain effective, risks are controlled, and every improvement becomes part of a stronger manufacturing system.</p>
+      <div class="pmew-iqa-commit-line">We do not audit only to find gaps. We audit to build <em>better processes</em>, <em>stronger products</em>, and <em>greater customer trust</em>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SEC 08 · FAQ
+======================================================= -->
+<section class="pmew-iqa-section" id="faqs">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-tb pmew-iqa-rv">
+      <span class="pmew-iqa-tb-sec">SEC 08</span><span class="pmew-iqa-tb-chip"></span>
+      <span class="pmew-iqa-tb-name">Common Questions</span>
+    </div>
+    <h2 class="pmew-iqa-h2 pmew-iqa-rv">Frequently Asked <em>Questions</em></h2>
+    <p class="pmew-iqa-lead pmew-iqa-rv">Clear answers about how PMEW plans, conducts, reports, and follows up its Internal Quality Audits.</p>
+
+    <div class="pmew-iqa-faq pmew-iqa-rv">
+      <div class="pmew-iqa-faq-item pmew-iqa-open">
+        <button class="pmew-iqa-faq-q" type="button" aria-expanded="true">
+          What is an Internal Quality Audit?
+          <span class="pmew-iqa-faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="pmew-iqa-faq-a">
+          <p>An Internal Quality Audit is a planned and independent evaluation used to determine whether processes, systems, records, and activities comply with defined requirements and are effectively implemented.</p>
+        </div>
+      </div>
+
+      <div class="pmew-iqa-faq-item">
+        <button class="pmew-iqa-faq-q" type="button" aria-expanded="false">
+          How frequently are internal audits conducted?
+          <span class="pmew-iqa-faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="pmew-iqa-faq-a">
+          <p>Audits follow a planned annual programme in which every relevant process is audited at least once per cycle. Frequency is risk-based: processes with higher influence on safety, product conformity, or customer requirements are audited more often, and additional audits are triggered by process changes, new products, customer concerns, or performance trends.</p>
+        </div>
+      </div>
+
+      <div class="pmew-iqa-faq-item">
+        <button class="pmew-iqa-faq-q" type="button" aria-expanded="false">
+          Are internal audits limited to the quality department?
+          <span class="pmew-iqa-faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="pmew-iqa-faq-a">
+          <p>No. The programme covers every function that influences product quality — production, stores and incoming material, maintenance, calibration, purchasing and supplier management, training records, packaging, and dispatch. Audits are performed by trained cross-functional auditors, and wherever practical, auditors do not audit their own work, ensuring objectivity across the organisation.</p>
+        </div>
+      </div>
+
+      <div class="pmew-iqa-faq-item">
+        <button class="pmew-iqa-faq-q" type="button" aria-expanded="false">
+          What happens when a nonconformity is identified?
+          <span class="pmew-iqa-faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="pmew-iqa-faq-a">
+          <p>The finding is documented and communicated to the process owner, immediate risk is contained, and a root cause analysis is carried out. Corrective action is assigned with clear responsibility and completion timelines, and the finding is closed only after follow-up evidence confirms the action is effective and recurrence is prevented. Every nonconformity is treated as an input for a stronger process.</p>
+        </div>
+      </div>
+
+      <div class="pmew-iqa-faq-item">
+        <button class="pmew-iqa-faq-q" type="button" aria-expanded="false">
+          How do internal audits benefit customers?
+          <span class="pmew-iqa-faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="pmew-iqa-faq-a">
+          <p>Customers benefit directly: risks are identified and resolved before they can affect product performance, conformity stays consistent from batch to batch, traceability remains reliable, and issues are resolved faster. For automotive, aerospace, railway, and other critical sectors, this disciplined internal control is a foundation of dependable supply and long-term manufacturing confidence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     CLOSING
+======================================================= -->
+<section class="pmew-iqa-section pmew-iqa-close">
+  <div class="pmew-iqa-wrap">
+    <div class="pmew-iqa-close-kick pmew-iqa-rv">Strengthening Quality From Within</div>
+    <h2 class="pmew-iqa-close-line pmew-iqa-rv">Verify the <em>process.</em> Control the <em>risk.</em> Improve the <em>system.</em></h2>
+    <div class="pmew-iqa-close-words pmew-iqa-rv">
+      <span>Precision</span><span>Transparency</span><span>Improvement</span>
+    </div>
+    <div class="pmew-iqa-strip" data-pmew-iqa-strip>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ========== END PAGE-SCOPED CONTENT ========== -->
+
+<!-- ========== FOOTER (injected component) ========== -->
+<div id="footer-container"></div>
+
+<!-- ========== SITE JS (kept for navbar / footer injection) ========== -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pageNav = document.querySelector(".pmew-iqa-pagenav");
+
+  if (!pageNav || pageNav.dataset.fixedNavigationReady === "true") {
+    return;
+  }
+
+  pageNav.dataset.fixedNavigationReady = "true";
+
+  /* Create a holder around the page navigation.
+     The holder prevents the page from jumping when the nav becomes fixed. */
+  const holder = document.createElement("div");
+  holder.className = "pmew-iqa-pagenav-holder";
+
+  pageNav.parentNode.insertBefore(holder, pageNav);
+  holder.appendChild(pageNav);
+
+  let animationFrame = null;
+
+  function getMainNavbarBottom() {
+    const navbarContainer = document.querySelector("#navbar-container");
+
+    if (!navbarContainer) {
+      return 0;
+    }
+
+    const possibleHeaders = [
+      navbarContainer,
+      ...navbarContainer.querySelectorAll(
+        [
+          "header",
+          "nav",
+          ".navbar",
+          ".site-header",
+          ".main-header",
+          ".header",
+          "[class*='navbar']",
+          "[class*='site-header']",
+          "[class*='main-header']"
+        ].join(",")
+      )
+    ];
+
+    let navbarBottom = 0;
+
+    possibleHeaders.forEach(function (element) {
+      if (!element || !element.getBoundingClientRect) {
+        return;
+      }
+
+      const styles = window.getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+
+      const isVisible =
+        styles.display !== "none" &&
+        styles.visibility !== "hidden" &&
+        rect.height > 0 &&
+        rect.bottom > 0;
+
+      const isPinned =
+        styles.position === "fixed" ||
+        styles.position === "sticky";
+
+      if (
+        isVisible &&
+        isPinned &&
+        rect.top <= 10 &&
+        rect.bottom < window.innerHeight * 0.6
+      ) {
+        navbarBottom = Math.max(navbarBottom, rect.bottom);
+      }
+    });
+
+    /* Fallback when the injected navbar container itself has the height */
+    if (navbarBottom === 0) {
+      const containerRect = navbarContainer.getBoundingClientRect();
+
+      if (
+        containerRect.height > 0 &&
+        containerRect.top <= 10 &&
+        containerRect.bottom > 0 &&
+        containerRect.bottom < window.innerHeight * 0.6
+      ) {
+        navbarBottom = containerRect.bottom;
+      }
+    }
+
+    return Math.max(0, Math.round(navbarBottom));
+  }
+
+  function updatePageNavigation() {
+    animationFrame = null;
+
+    const mainNavbarOffset = getMainNavbarBottom();
+    const pageNavHeight = Math.ceil(pageNav.offsetHeight || 62);
+    const holderTop = holder.getBoundingClientRect().top;
+
+    document.documentElement.style.setProperty(
+      "--pmew-iqa-main-nav-offset",
+      mainNavbarOffset + "px"
+    );
+
+    document.documentElement.style.setProperty(
+      "--pmew-iqa-page-nav-height",
+      pageNavHeight + "px"
+    );
+
+    const shouldFix = holderTop <= mainNavbarOffset;
+
+    pageNav.classList.toggle("pmew-iqa-nav-fixed", shouldFix);
+
+    /* Preserve the exact space occupied by the navigation */
+    holder.style.height = shouldFix
+      ? pageNavHeight + "px"
+      : "auto";
+  }
+
+  function requestNavigationUpdate() {
+    if (animationFrame !== null) {
+      return;
+    }
+
+    animationFrame = window.requestAnimationFrame(
+      updatePageNavigation
+    );
+  }
+
+  window.addEventListener("scroll", requestNavigationUpdate, {
+    passive: true
+  });
+
+  window.addEventListener("resize", requestNavigationUpdate, {
+    passive: true
+  });
+
+  window.addEventListener(
+    "orientationchange",
+    requestNavigationUpdate,
+    { passive: true }
+  );
+
+  window.addEventListener("load", function () {
+    requestNavigationUpdate();
+
+    /* Recheck after the global navbar has been injected */
+    window.setTimeout(requestNavigationUpdate, 150);
+    window.setTimeout(requestNavigationUpdate, 500);
+    window.setTimeout(requestNavigationUpdate, 1000);
+  });
+
+  /* Detect an asynchronously injected main navbar */
+  const navbarContainer =
+    document.querySelector("#navbar-container");
+
+  if (navbarContainer && "MutationObserver" in window) {
+    const navbarObserver = new MutationObserver(
+      requestNavigationUpdate
+    );
+
+    navbarObserver.observe(navbarContainer, {
+      childList: true,
+      subtree: true,
+      attributes: true
+    });
+  }
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(
+      requestNavigationUpdate
+    );
+
+    resizeObserver.observe(pageNav);
+    resizeObserver.observe(holder);
+
+    if (navbarContainer) {
+      resizeObserver.observe(navbarContainer);
+    }
+  }
+
+  updatePageNavigation();
+});
+</script>
+
+<script>
+/* ==========================================================================
+   INTERNAL QUALITY AUDITS — PAGE JS
+   ========================================================================== */
+(function(){
+"use strict";
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- HERO ENTRANCE ---------- */
+window.addEventListener("load", function(){
+  var hero = document.getElementById("pmewIqaHero");
+  if (hero) requestAnimationFrame(function(){ hero.classList.add("pmew-iqa-go"); });
+});
+
+/* ---------- REVEAL + STRIP OBSERVER ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (!e.isIntersecting) return;
+    if (e.target.hasAttribute("data-pmew-iqa-strip")) e.target.classList.add("pmew-iqa-on");
+    else e.target.classList.add("pmew-iqa-in");
+    io.unobserve(e.target);
+  });
+},{threshold:.12});
+document.querySelectorAll(".pmew-iqa-rv,[data-pmew-iqa-strip]").forEach(function(el){ io.observe(el); });
+
+/* ---------- FAQ ACCORDION ---------- */
+document.querySelectorAll(".pmew-iqa-faq-item").forEach(function(item){
+  var btn = item.querySelector(".pmew-iqa-faq-q");
+  var panel = item.querySelector(".pmew-iqa-faq-a");
+  /* set initial open state height */
+  if (item.classList.contains("pmew-iqa-open")) panel.style.maxHeight = panel.scrollHeight + "px";
+  btn.addEventListener("click", function(){
+    var isOpen = item.classList.contains("pmew-iqa-open");
+    /* close others for a clean index feel */
+    document.querySelectorAll(".pmew-iqa-faq-item.pmew-iqa-open").forEach(function(other){
+      other.classList.remove("pmew-iqa-open");
+      other.querySelector(".pmew-iqa-faq-q").setAttribute("aria-expanded","false");
+      other.querySelector(".pmew-iqa-faq-a").style.maxHeight = "0";
+    });
+    if (!isOpen){
+      item.classList.add("pmew-iqa-open");
+      btn.setAttribute("aria-expanded","true");
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+});
+
+/* ---------- STICKY PAGE NAV — robust header offset + active section ---------- */
+(function(){
+  var page = document.querySelector(".pmew-iqa-page");
+  var pageNav = document.querySelector(".pmew-iqa-pagenav");
+  var navBar = pageNav ? pageNav.querySelector(".pmew-iqa-pagenav-in") : null;
+  var headerHost = document.getElementById("navbar-container");
+  var links = Array.prototype.slice.call(document.querySelectorAll(".pmew-iqa-pagenav a"));
+  if (!page || !pageNav || !links.length) return;
+
+  var ids = ["overview","framework","what-we-audit","risk-approach","audit-cycle","performance","assurance","faqs"];
+  var sections = ids.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var linkMap = {};
+  links.forEach(function(link){ linkMap[link.getAttribute("href").slice(1)] = link; });
+
+  var ticking = false;
+  var activeId = "";
+
+  function visibleFixedHeaderBottom(){
+    if (!headerHost) return 0;
+
+    var candidates = [headerHost].concat(Array.prototype.slice.call(
+      headerHost.querySelectorAll("header, nav, .navbar, .site-header, .main-header, [data-navbar], [class*='navbar'], [class*='header']")
+    ));
+
+    var bottom = 0;
+    candidates.forEach(function(el){
+      if (!el || !el.getBoundingClientRect) return;
+      var style = window.getComputedStyle(el);
+      var rect = el.getBoundingClientRect();
+      var isPinned = style.position === "fixed" || style.position === "sticky";
+      var isVisible = style.display !== "none" && style.visibility !== "hidden" && rect.height > 0;
+
+      if (isPinned && isVisible && rect.top <= 12 && rect.bottom > 0 && rect.bottom < window.innerHeight * 0.55){
+        bottom = Math.max(bottom, rect.bottom);
+      }
+    });
+
+    /* Supports a normal-flow header before it scrolls out of view. */
+    if (!bottom){
+      var hostRect = headerHost.getBoundingClientRect();
+      if (hostRect.height > 0 && hostRect.top >= -2 && hostRect.bottom > 0 && hostRect.bottom < window.innerHeight * 0.55){
+        bottom = hostRect.bottom;
+      }
+    }
+
+    return Math.max(0, Math.round(bottom));
+  }
+
+  function syncStickyMetrics(){
+    var headerBottom = visibleFixedHeaderBottom();
+    var navHeight = Math.ceil(pageNav.getBoundingClientRect().height || 62);
+    page.style.setProperty("--pmew-iqa-sticky-top", headerBottom + "px");
+    page.style.setProperty("--pmew-iqa-pagenav-height", navHeight + "px");
+  }
+
+  function setActive(id){
+    if (!id || id === activeId) return;
+    activeId = id;
+    links.forEach(function(link){
+      link.classList.toggle("pmew-iqa-active", linkMap[id] === link);
+      if (linkMap[id] === link) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+
+    var activeLink = linkMap[id];
+    if (activeLink && navBar){
+      var desiredLeft = activeLink.offsetLeft - (navBar.clientWidth - activeLink.offsetWidth) / 2;
+      navBar.scrollTo({left:Math.max(0, desiredLeft), behavior:reduceMotion ? "auto" : "smooth"});
+    }
+  }
+
+  function updateActiveSection(){
+    var stickyTop = parseFloat(getComputedStyle(page).getPropertyValue("--pmew-iqa-sticky-top")) || 0;
+    var navHeight = pageNav.getBoundingClientRect().height || 62;
+    var probeLine = stickyTop + navHeight + Math.min(160, window.innerHeight * 0.22);
+    var current = sections[0];
+
+    sections.forEach(function(section){
+      if (section.getBoundingClientRect().top <= probeLine) current = section;
+    });
+
+    if (current) setActive(current.id);
+  }
+
+  function updateAll(){
+    ticking = false;
+    syncStickyMetrics();
+    updateActiveSection();
+  }
+
+  function requestUpdate(){
+    if (!ticking){
+      ticking = true;
+      requestAnimationFrame(updateAll);
+    }
+  }
+
+  links.forEach(function(link){
+    link.addEventListener("click", function(event){
+      var targetId = link.getAttribute("href").slice(1);
+      var target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      syncStickyMetrics();
+
+      var stickyTop = parseFloat(getComputedStyle(page).getPropertyValue("--pmew-iqa-sticky-top")) || 0;
+      var navHeight = pageNav.getBoundingClientRect().height || 62;
+      var targetTop = target.getBoundingClientRect().top + window.scrollY - stickyTop - navHeight - 16;
+
+      window.scrollTo({
+        top:Math.max(0, targetTop),
+        behavior:reduceMotion ? "auto" : "smooth"
+      });
+      setActive(targetId);
+    });
+  });
+
+  window.addEventListener("scroll", requestUpdate, {passive:true});
+  window.addEventListener("resize", requestUpdate, {passive:true});
+  window.addEventListener("orientationchange", requestUpdate, {passive:true});
+  window.addEventListener("load", function(){
+    requestUpdate();
+    setTimeout(requestUpdate, 120);
+    setTimeout(requestUpdate, 500);
+  });
+
+  /* The global navbar is injected asynchronously, so remeasure when it changes. */
+  if (headerHost && "MutationObserver" in window){
+    new MutationObserver(requestUpdate).observe(headerHost, {childList:true, subtree:true, attributes:true});
+  }
+  if ("ResizeObserver" in window){
+    var resizeObserver = new ResizeObserver(requestUpdate);
+    resizeObserver.observe(pageNav);
+    if (headerHost) resizeObserver.observe(headerHost);
+  }
+
+  updateAll();
+})();
+
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

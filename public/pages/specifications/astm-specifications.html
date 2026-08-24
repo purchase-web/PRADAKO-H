@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTM Specifications | Pradako Mechanical & Engineering Works</title>
+
+  <!-- Your existing navbar/footer CSS can remain here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Page CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/astm-specifications.css" />
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Engineering specification reference for ASTM Specifications from Pradako, supporting fastener material, mechanical, coating and application requirements.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/specifications/astm-specifications.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ASTM Specifications | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Engineering specification reference for ASTM Specifications from Pradako, supporting fastener material, mechanical, coating and application requirements.">
+    <meta property="og:url" content="https://www.pradako.co/pages/specifications/astm-specifications.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ASTM Specifications | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Engineering specification reference for ASTM Specifications from Pradako, supporting fastener material, mechanical, coating and application requirements.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "ASTM Specifications | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/specifications/astm-specifications.html",
+  "description": "Engineering specification reference for ASTM Specifications from Pradako, supporting fastener material, mechanical, coating and application requirements.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+
+  <!-- Navbar is fetched from JS / common website loader -->
+  <div id="navbar-container"></div>
+
+  <main class="spec-page">
+    <section class="spec-hero">
+      <div class="spec-container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="eyebrow">ASTM Specifications Command Centre</div>
+            <h1 class="hero-title">
+              ASTM Fastener & Material Specifications, <span>Structured for Critical Engineering.</span>
+            </h1>
+            <p class="hero-desc">
+              Explore ASTM specifications for bolting, screws, nuts, washers, rivets, coatings, raw materials, castings,
+              forgings, QA, testing, structural assemblies and special high-performance applications.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="button" id="goLibraryBtn">Explore Library</button>
+              <button class="btn btn-secondary" type="button" id="exportCsvBtn">Export Filtered CSV</button>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong id="totalStandards">0</strong>
+              <span>Total ASTM Specifications</span>
+            </div>
+            <div class="stat-card">
+              <strong id="totalFamilies">0</strong>
+              <span>Product / Technical Families</span>
+            </div>
+            <div class="stat-card">
+              <strong id="totalStatus">0</strong>
+              <span>Specification Categories</span>
+            </div>
+            <div class="stat-card">
+              <strong>IATF</strong>
+              <span>Engineering Reference Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="control-wrap">
+      <div class="spec-container">
+        <div class="control-panel">
+          <input
+            id="searchInput"
+            class="search-box"
+            type="text"
+            placeholder="Search ASTM A193, F3125, F606, zinc flake, socket screws, washers, raw material, testing..."
+          />
+
+          <select id="familyFilter" class="select-box">
+            <option value="All">All Families</option>
+          </select>
+
+          <select id="statusFilter" class="select-box">
+            <option value="All">All Categories</option>
+          </select>
+
+          <div class="view-switch" role="tablist" aria-label="Specification views">
+            <button class="view-btn active" type="button" data-view="familyView">Family Map</button>
+            <button class="view-btn" type="button" data-view="authorityView">Authority</button>
+            <button class="view-btn" type="button" data-view="libraryView">Library</button>
+            <button class="view-btn" type="button" data-view="matrixView">Matrix</button>
+            <button class="view-btn" type="button" data-view="tableView">Table</button>
+          </div>
+        </div>
+
+        <div id="authorityRow" class="filter-strip"></div>
+      </div>
+    </section>
+
+    <section class="spec-main">
+      <div class="spec-container">
+
+        <section id="familyView" class="view-section active">
+          <div class="section-head">
+            <div>
+              <h2>Product Family Specification Map</h2>
+              <p>
+                A customer-friendly structure where each ASTM specification is grouped by the correct product or technical family.
+              </p>
+            </div>
+            <div id="familyResultCount" class="result-count">0 Results</div>
+          </div>
+          <div class="premium-shell">
+            <div id="familyGrid" class="family-grid"></div>
+            <div id="familyEmpty" class="empty-state">No matching specifications found.</div>
+          </div>
+        </section>
+
+        <section id="authorityView" class="view-section">
+          <div class="section-head">
+            <div>
+              <h2>Authority-Wise Standards Library</h2>
+              <p>
+                Designed so this same page can later accept ISO, DIN, ASME, IS, BS, EN, JIS, SAE, NAS and MIL data.
+              </p>
+            </div>
+            <div id="authorityResultCount" class="result-count">0 Results</div>
+          </div>
+          <div class="premium-shell">
+            <div id="authorityGrid" class="authority-grid"></div>
+            <div id="authorityEmpty" class="empty-state">No matching authorities found.</div>
+          </div>
+        </section>
+
+        <section id="libraryView" class="view-section">
+          <div class="section-head">
+            <div>
+              <h2>Complete ASTM Specification Library</h2>
+              <p>
+                Searchable technical cards with ASTM number, original title, product family, category badges, details and engineering notes.
+              </p>
+            </div>
+            <div id="libraryResultCount" class="result-count">0 Results</div>
+          </div>
+          <div id="libraryGrid" class="library-grid"></div>
+          <div id="libraryEmpty" class="empty-state">No matching specifications found.</div>
+        </section>
+
+        <section id="matrixView" class="view-section">
+          <div class="section-head">
+            <div>
+              <h2>Family × Specification Matrix</h2>
+              <p>
+                Compact technical distribution chart for engineering, purchase, quality and customer review teams.
+              </p>
+            </div>
+            <div id="matrixResultCount" class="result-count">0 Results</div>
+          </div>
+          <div class="matrix-card">
+            <div class="matrix-scroll">
+              <table class="matrix-table">
+                <thead>
+                  <tr id="matrixHeadRow"></tr>
+                </thead>
+                <tbody id="matrixBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="tableView" class="view-section">
+          <div class="section-head">
+            <div>
+              <h2>Technical Table View</h2>
+              <p>
+                Full data view for quick checking, copying and export.
+              </p>
+            </div>
+            <div id="tableResultCount" class="result-count">0 Results</div>
+          </div>
+          <div class="table-card">
+            <div class="table-scroll">
+              <table class="spec-table">
+                <thead>
+                  <tr>
+                    <th>Sr.</th>
+                    <th>Standard</th>
+                    <th>Title</th>
+                    <th>Family</th>
+                    <th>Category</th>
+                    <th>Details</th>
+                    <th>Engineering View</th>
+                    <th>Note</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div class="verification-note">
+          <div class="note-icon">!</div>
+          <div>
+            <h3>Important Specification Verification Note</h3>
+            <p>
+              Standard titles and details are provided for technical website classification and customer reference.
+              Final supply shall always be as per the latest official ASTM standard edition, customer drawing,
+              purchase specification, approved material grade, coating requirement, inspection plan and mutually approved quality documentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="specModalOverlay" class="spec-modal-overlay" aria-hidden="true">
+    <div class="spec-modal" role="dialog" aria-modal="true" aria-labelledby="modalNumber">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalNumber"></h3>
+          <p id="modalTitle"></p>
+        </div>
+        <button class="close-modal" type="button" id="closeModalBtn" aria-label="Close specification details">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="detail-row"><strong>Authority</strong><span id="modalAuthority"></span></div>
+        <div class="detail-row"><strong>Product Family</strong><span id="modalFamily"></span></div>
+        <div class="detail-row"><strong>Category</strong><span id="modalStatus"></span></div>
+        <div class="detail-row"><strong>Details</strong><span id="modalDetails"></span></div>
+        <div class="detail-row"><strong>Engineering View</strong><span id="modalView"></span></div>
+        <div class="detail-row"><strong>Note</strong><span id="modalNote"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="specBackTop" class="spec-back-top" type="button" aria-label="Back to top">↑</button>
+
+  <!-- Footer is fetched from JS / common website loader -->
+  <div id="footer-container"></div>
+
+  <!-- Data first, then page JS -->
+  <script src="/assets/js/astm-specifications-data.js"></script>
+  <script src="/assets/js/astm-specifications.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

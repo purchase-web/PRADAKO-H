@@ -1,0 +1,3432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Threading Theory — The Engineering of the Screw Thread | Pradako Mechanical &amp; Engineering Works</title>
+<meta name="description" content="A working reference on screw thread theory: helix geometry, the ISO 68-1 basic profile, thread form families, tolerance and fit, tensile stress area, length of engagement, torque and preload, rolled versus cut threads, fatigue and locking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <!-- Existing website shell styles. -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/threading-theory.css">
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/threading-theory.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Threading Theory — The Engineering of the Screw Thread | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="A working reference on screw thread theory: helix geometry, the ISO 68-1 basic profile, thread form families, tolerance and fit, tensile stress area, length of engagement, torque and preload, rolled versus cut threads, fatigue and locking.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/threading-theory.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Threading Theory — The Engineering of the Screw Thread | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="A working reference on screw thread theory: helix geometry, the ISO 68-1 basic profile, thread form families, tolerance and fit, tensile stress area, length of engagement, torque and preload, rolled versus cut threads, fatigue and locking.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Threading Theory — The Engineering of the Screw Thread | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/threading-theory.html",
+  "description": "A working reference on screw thread theory: helix geometry, the ISO 68-1 basic profile, thread form families, tolerance and fit, tensile stress area, length of engagement, torque and preload, rolled versus cut threads, fatigue and locking.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="tt-page">
+
+<div id="navbar-container"></div>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════════════ -->
+<header class="tt-sec tt-hero">
+  <div class="tt-shell">
+    <div class="tt-hero-grid">
+      <div>
+        <p class="tt-hero-kicker">Engineering Reference · Pradako Technical Library</p>
+        <h1>Threading<br><em>Theory</em></h1>
+        <p class="tt-hero-sub">
+          A screw thread is an inclined plane wrapped around a cylinder.
+          <b>Every property that matters — clamp load, self-locking, fatigue life, assembly
+          torque, stripping strength — falls out of that one piece of geometry.</b>
+          This page works through it from the helix outward.
+        </p>
+      </div>
+
+      <figure class="tt-helix-figure">
+        <!-- Axial helix: single-start right-hand thread developed on a cylinder -->
+        <svg viewBox="0 0 340 400" role="img" aria-label="A single-start right-hand helix wrapped on a cylinder, showing lead, pitch and helix angle">
+          <defs>
+            <clipPath id="tt-cyl"><rect x="70" y="40" width="200" height="320"/></clipPath>
+          </defs>
+          <!-- cylinder outline -->
+          <ellipse cx="170" cy="40" rx="100" ry="26" fill="none" stroke="rgba(10,10,11,.14)" stroke-width="1"/>
+          <line x1="70" y1="40" x2="70" y2="360" stroke="rgba(10,10,11,.14)" stroke-width="1"/>
+          <line x1="270" y1="40" x2="270" y2="360" stroke="rgba(10,10,11,.14)" stroke-width="1"/>
+          <ellipse cx="170" cy="360" rx="100" ry="26" fill="none" stroke="rgba(10,10,11,.14)" stroke-width="1"/>
+          <!-- axis -->
+          <line x1="170" y1="16" x2="170" y2="392" stroke="rgba(10,10,11,.28)" stroke-width=".7" stroke-dasharray="7 3 1.5 3"/>
+          <!-- helix, drawn as stacked half-ellipses: front solid, back faded -->
+          <g clip-path="url(#tt-cyl)" fill="none" stroke-width="2.4" stroke-linecap="round" class="spin">
+            <g stroke="#5B3DF5">
+              <path d="M70 80 A100 26 0 0 0 270 80"/>
+              <path d="M70 136 A100 26 0 0 0 270 136"/>
+              <path d="M70 192 A100 26 0 0 0 270 192"/>
+              <path d="M70 248 A100 26 0 0 0 270 248"/>
+              <path d="M70 304 A100 26 0 0 0 270 304"/>
+            </g>
+            <g stroke="#5B3DF5" opacity=".22">
+              <path d="M270 80 A100 26 0 0 0 70 136"/>
+              <path d="M270 136 A100 26 0 0 0 70 192"/>
+              <path d="M270 192 A100 26 0 0 0 70 248"/>
+              <path d="M270 248 A100 26 0 0 0 70 304"/>
+            </g>
+          </g>
+          <!-- pitch dimension -->
+          <g stroke="rgba(10,10,11,.34)" stroke-width=".7">
+            <line x1="292" y1="80" x2="292" y2="136"/>
+            <line x1="286" y1="80" x2="298" y2="80"/>
+            <line x1="286" y1="136" x2="298" y2="136"/>
+          </g>
+          <text x="304" y="112" font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#5B3DF5" font-weight="600">P</text>
+          <!-- helix angle marker -->
+          <path d="M70 304 l52 -13.5" stroke="rgba(10,10,11,.40)" stroke-width=".8" fill="none"/>
+          <path d="M70 304 h52" stroke="rgba(10,10,11,.40)" stroke-width=".8"/>
+          <path d="M104 304 a34 34 0 0 0 -3 -8.4" fill="none" stroke="rgba(10,10,11,.40)" stroke-width=".8"/>
+          <text x="112" y="318" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="rgba(10,10,11,.55)">λ</text>
+        </svg>
+        <figcaption class="tt-helix-cap">Single start · right hand · lead = pitch</figcaption>
+      </figure>
+    </div>
+
+    <nav class="tt-index" aria-label="Sections on this page">
+      <a href="#helix"><span>01</span> The helix</a>
+      <a href="#profile"><span>02</span> Basic profile</a>
+      <a href="#forms"><span>03</span> Thread forms</a>
+      <a href="#tolerance"><span>04</span> Tolerance &amp; fit</a>
+      <a href="#stress"><span>05</span> Stress area</a>
+      <a href="#engagement"><span>06</span> Engagement</a>
+      <a href="#torque"><span>07</span> Torque &amp; preload</a>
+      <a href="#manufacture"><span>08</span> Rolled vs cut</a>
+      <a href="#fatigue"><span>09</span> Fatigue</a>
+      <a href="#locking"><span>10</span> Locking</a>
+      <a href="#machine-screws"><span>11</span> Machine screws</a>
+      <a href="#tapping-screws"><span>12</span> Tapping screws</a>
+      <a href="#self-drilling"><span>13</span> Self-drilling</a>
+      <a href="#plastic-threads"><span>14</span> Plastics · PT</a>
+      <a href="#high-low"><span>15</span> High-Low</a>
+      <a href="#double-thread"><span>16</span> Double lead</a>
+      <a href="#wood-threads"><span>17</span> Wood</a>
+      <a href="#structural"><span>18</span> Structural</a>
+      <a href="#internal-threads"><span>19</span> Internal</a>
+      <a href="#pipe-threads"><span>20</span> Pipe</a>
+      <a href="#aerospace-threads"><span>21</span> Aerospace</a>
+      <a href="#selection"><span>22</span> Selection</a>
+      <a href="#gauging"><span>23</span> Gauging</a>
+      <a href="#tapping"><span>24</span> Tapping</a>
+      <a href="#galling"><span>25</span> Galling</a>
+      <a href="#taxonomy"><span>26</span> Taxonomy</a>
+      <a href="#data-engine"><span>27</span> Dimension library</a>
+      <a href="#identifier"><span>28</span> Identifier</a>
+      <a href="#calculators"><span>29</span> Calculators</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     THREAD SERIES NAVIGATOR
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="navigator" data-accent="nav">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">Navigator — every series on one screen</p>
+    <h2 class="tt-h2 tt-rev">The thread landscape</h2>
+    <p class="tt-lede tt-rev">
+      Five systems, roughly thirty series between them. Filter by family, or jump straight to
+      the section that explains the one you are working with.
+    </p>
+
+    <div class="tt-navwrap tt-rev">
+      <div class="tt-navfilter" role="group" aria-label="Filter thread families">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="metric" aria-pressed="false">Metric</button>
+        <button type="button" data-filter="inch" aria-pressed="false">Inch</button>
+        <button type="button" data-filter="pipe" aria-pressed="false">Pipe</button>
+        <button type="button" data-filter="power" aria-pressed="false">Power</button>
+        <button type="button" data-filter="app" aria-pressed="false">Application</button>
+      </div>
+
+      <div class="tt-navgrid">
+        <div class="tt-navcol">
+          <h4>Metric ISO</h4>
+          <ul>
+            <li data-fam="metric"><a href="#profile">M coarse <em>ISO 261</em></a></li>
+            <li data-fam="metric"><a href="#profile">M fine <em>ISO 262</em></a></li>
+            <li data-fam="metric"><a href="#tolerance">Tolerance 6H/6g <em>ISO 965</em></a></li>
+            <li data-fam="metric"><a href="#aerospace-threads">MJ aerospace <em>ISO 5855</em></a></li>
+            <li data-fam="metric app"><a href="#tapping-screws">ST tapping <em>ISO 1478</em></a></li>
+          </ul>
+        </div>
+
+        <div class="tt-navcol">
+          <h4>Unified inch</h4>
+          <ul>
+            <li data-fam="inch"><a href="#forms">UNC / UNRC <em>coarse</em></a></li>
+            <li data-fam="inch"><a href="#forms">UNF / UNRF <em>fine</em></a></li>
+            <li data-fam="inch"><a href="#forms">UNEF <em>extra fine</em></a></li>
+            <li data-fam="inch"><a href="#selection">UNS <em>special</em></a></li>
+            <li data-fam="inch"><a href="#structural">8UN <em>fixed pitch</em></a></li>
+            <li data-fam="inch"><a href="#selection">12UN · 16UN · 20UN</a></li>
+            <li data-fam="inch"><a href="#selection">28UN · 32UN</a></li>
+            <li data-fam="inch"><a href="#aerospace-threads">UNJC · UNJF · UNJEF</a></li>
+            <li data-fam="inch"><a href="#aerospace-threads">8UNJ · 12UNJ · 16UNJ</a></li>
+          </ul>
+        </div>
+
+        <div class="tt-navcol">
+          <h4>British imperial</h4>
+          <ul>
+            <li data-fam="inch"><a href="#selection">BSW <em>BS 84 coarse</em></a></li>
+            <li data-fam="inch"><a href="#selection">BSF <em>BS 84 fine</em></a></li>
+            <li data-fam="pipe"><a href="#pipe-threads">BSPP · G <em>ISO 228</em></a></li>
+            <li data-fam="pipe"><a href="#pipe-threads">BSPT · R <em>ISO 7-1</em></a></li>
+            <li data-fam="pipe"><a href="#pipe-threads">BSPF <em>parallel fine</em></a></li>
+            <li data-fam="pipe"><a href="#pipe-threads">NPT <em>ASME B1.20.1</em></a></li>
+            <li data-fam="pipe"><a href="#pipe-threads">NPTF <em>dryseal</em></a></li>
+          </ul>
+        </div>
+
+        <div class="tt-navcol">
+          <h4>Power &amp; motion</h4>
+          <ul>
+            <li data-fam="power"><a href="#forms">Trapezoidal Tr <em>ISO 2901</em></a></li>
+            <li data-fam="power"><a href="#forms">Acme general purpose <em>2G/3G/4G</em></a></li>
+            <li data-fam="power"><a href="#forms">Acme centralizing</a></li>
+            <li data-fam="power"><a href="#forms">Stub Acme <em>29°</em></a></li>
+            <li data-fam="power"><a href="#forms">Buttress <em>7°/45°</em></a></li>
+            <li data-fam="power"><a href="#double-thread">Multi-start leads</a></li>
+          </ul>
+        </div>
+
+        <div class="tt-navcol">
+          <h4>Application threads</h4>
+          <ul>
+            <li data-fam="app"><a href="#machine-screws">Machine screw</a></li>
+            <li data-fam="app"><a href="#tapping-screws">Type AB · B · A · C</a></li>
+            <li data-fam="app"><a href="#tapping-screws">Type 17 · 23 · 25</a></li>
+            <li data-fam="app"><a href="#tapping-screws">Trilobular forming</a></li>
+            <li data-fam="app"><a href="#self-drilling">Self-drilling points 1–5</a></li>
+            <li data-fam="app"><a href="#plastic-threads">PT · Delta PT · Y-type</a></li>
+            <li data-fam="app"><a href="#high-low">High-Low</a></li>
+            <li data-fam="app"><a href="#wood-threads">Wood · chipboard · decking</a></li>
+            <li data-fam="app"><a href="#structural">HSFG · TC bolt · anchor</a></li>
+            <li data-fam="app"><a href="#internal-threads">Nuts · inserts · coils</a></li>
+          </ul>
+        </div>
+
+        <div class="tt-navcol">
+          <h4>Data &amp; tools</h4>
+          <ul>
+            <li data-fam="metric inch pipe power app"><a href="#data-engine">Dimension library <em>2450 rows</em></a></li>
+            <li data-fam="metric inch pipe power app"><a href="#identifier">Thread identifier</a></li>
+            <li data-fam="metric inch app"><a href="#calculators">Torque &amp; preload</a></li>
+            <li data-fam="metric inch app"><a href="#calculators">Engagement length</a></li>
+            <li data-fam="metric inch app"><a href="#tapping">Tap drill calculator</a></li>
+            <li data-fam="metric inch app"><a href="#gauging">Three-wire calculator</a></li>
+            <li data-fam="metric inch pipe power"><a href="#taxonomy">Systems taxonomy</a></li>
+            <li data-fam="metric inch app"><a href="#galling">Galling &amp; seizure</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     01 · THE HELIX
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="helix" data-accent="helix">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">01 — The helix</p>
+    <h2 class="tt-h2 tt-rev">Pitch, lead and the angle everything depends on</h2>
+    <p class="tt-lede tt-rev">
+      Unroll one turn of a thread and you get a right triangle. Its base is the circumference
+      at the pitch diameter; its height is the lead. The angle between them is the helix angle,
+      and it decides how much of your input torque becomes clamp load, and whether the joint
+      stays tight when you let go of the spanner.
+    </p>
+
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">P</span>
+        <h3 class="tt-h4">Pitch</h3>
+        <p>Axial distance from one thread crest to the next. The single dimension that defines
+        the whole profile — every other basic diameter is derived from it.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">L</span>
+        <h3 class="tt-h4">Lead</h3>
+        <p>Axial travel in one full turn. <b>L = n × P</b>, where n is the number of starts.
+        On the single-start threads used for fasteners, lead and pitch are identical.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">n</span>
+        <h3 class="tt-h4">Starts</h3>
+        <p>Independent helices cut side by side. Multi-start threads travel further per turn
+        at the same profile depth — fast to actuate, but they lose self-locking.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">λ</span>
+        <h3 class="tt-h4">Helix angle</h3>
+        <p>The lead angle measured at the pitch diameter. For ISO metric coarse threads it sits
+        between roughly 1.8° and 4.6° — small, and deliberately so.</p>
+      </div>
+    </div>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">tan λ = L / (π · d₂)&nbsp;&nbsp;=&nbsp;&nbsp;n · P / (π · d₂)</span>
+      <p class="where">
+        <b>λ</b> helix (lead) angle at the pitch diameter &nbsp;·&nbsp;
+        <b>L</b> lead, mm &nbsp;·&nbsp; <b>P</b> pitch, mm &nbsp;·&nbsp;
+        <b>n</b> number of starts &nbsp;·&nbsp; <b>d₂</b> pitch diameter, mm
+      </p>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Why the angle is kept small</h3>
+    <p class="tt-p tt-rev">
+      A fastener is a screw jack you want to stay jacked. The thread stays put under
+      static load when the friction angle at the flanks exceeds the helix angle — so a
+      shallow helix is what makes a bolt a fastener rather than a lead screw.
+      Fine-pitch threads have a smaller λ than coarse, which is why they hold marginally
+      better under vibration and give finer preload control per degree of rotation.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">Self-locking when&nbsp;&nbsp; λ &lt; arctan( μ / cos(α/2) )</span>
+      <p class="where">
+        <b>μ</b> coefficient of friction at the thread flanks &nbsp;·&nbsp;
+        <b>α</b> included thread angle (60° for ISO metric)
+        <br>With μ = 0.12 and α = 60°, the limiting angle is about 7.9° — comfortably above
+        the 1.8–4.6° range of ISO metric coarse threads. Self-locking under static load is
+        therefore inherent. It is <b>not</b> a defence against transverse vibration; see §10.
+      </p>
+    </div>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <p class="tt-metric">4.64<small>°</small></p>
+        <p>Steepest helix in the ISO metric coarse series — M1.6 × 0.35.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">1.82<small>°</small></p>
+        <p>Shallowest in the coarse series — M64 × 6. Large threads are proportionally flatter.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">7.9<small>° limit</small></p>
+        <p>Self-locking threshold at μ = 0.12. Every standard fastener thread sits well below it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     STATEMENT BAND
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-band">
+  <div class="tt-shell">
+    <p>ONE PROFILE. SIX DIAMETERS. EVERY NUMBER DERIVED FROM PITCH.</p>
+    <p class="tt-band-note">
+      ISO 68-1 defines a single theoretical triangle. Truncate its crest by H/8 and its root by
+      H/4 and you have the basic profile that every ISO metric fastener in the world is built to.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     02 · BASIC PROFILE + PROFILE STUDIO (signature)
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="profile" data-accent="profile">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">02 — The ISO 68-1 basic profile</p>
+    <h2 class="tt-h2 tt-rev">The fundamental triangle and its truncations</h2>
+    <p class="tt-lede tt-rev">
+      Start with an equilateral triangle of 60° included angle, repeated at the pitch.
+      Its full height H is the fundamental triangle height. Cut H/8 off the crest and H/4
+      off the root, and what remains is the basic profile. Nothing else is arbitrary —
+      every basic diameter is H, and therefore P, multiplied by a constant.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">H = (√3 / 2) · P = 0.866025 · P</span>
+      <span class="eq">d₂ = D₂ = d − 0.649519 · P&nbsp;&nbsp;(= d − 3H/4)</span>
+      <span class="eq">d₁ = D₁ = d − 1.082532 · P&nbsp;&nbsp;(= d − 5H/4)</span>
+      <span class="eq">d₃ = d₁ − H/6 = d − 1.226869 · P</span>
+      <p class="where">
+        <b>d</b> nominal (major) diameter &nbsp;·&nbsp;
+        <b>d₂ / D₂</b> pitch diameter, external / internal &nbsp;·&nbsp;
+        <b>d₁ / D₁</b> minor diameter, external / internal &nbsp;·&nbsp;
+        <b>d₃</b> external minor diameter at the rounded root, used for stress area
+      </p>
+    </div>
+
+    <!-- ───── Profile Studio ───── -->
+    <h3 class="tt-h3 tt-rev">Profile studio</h3>
+    <p class="tt-p tt-rev">
+      Choose a designation. The profile below is redrawn to true relative scale from the
+      formulae above, and every derived value recalculated.
+    </p>
+
+    <div class="tt-studio tt-rev">
+      <div class="tt-studio-controls">
+        <div class="tt-field">
+          <label for="tt-series">Series</label>
+          <div class="tt-seg" role="group" aria-label="Thread series">
+            <button type="button" data-series="coarse" aria-pressed="true">Coarse</button>
+            <button type="button" data-series="fine" aria-pressed="false">Fine</button>
+          </div>
+        </div>
+
+        <div class="tt-field">
+          <label for="tt-size">Designation</label>
+          <select id="tt-size"></select>
+          <p class="hint">ISO 261 / ISO 262 preferred sizes.</p>
+        </div>
+
+        <div class="tt-field">
+          <label for="tt-starts">Number of starts</label>
+          <input type="number" id="tt-starts" min="1" max="6" step="1" value="1">
+          <p class="hint">Affects lead and helix angle only — the profile is unchanged.</p>
+        </div>
+
+        <div class="tt-readout">
+          <dl>
+            <dt>H · triangle height</dt><dd id="ro-H">—</dd>
+            <dt>d₂ · pitch dia</dt><dd id="ro-d2" class="hi">—</dd>
+            <dt>d₁ · minor dia (nut)</dt><dd id="ro-d1">—</dd>
+            <dt>d₃ · minor dia (bolt)</dt><dd id="ro-d3">—</dd>
+            <dt>Aₛ · stress area</dt><dd id="ro-As" class="hi">—</dd>
+            <dt>λ · helix angle</dt><dd id="ro-lam">—</dd>
+            <dt>L · lead</dt><dd id="ro-lead">—</dd>
+            <dt>Tap drill (≈76%)</dt><dd id="ro-tap">—</dd>
+            <dt>es · position g</dt><dd id="ro-es">—</dd>
+            <dt>Threads per 25.4 mm</dt><dd id="ro-tpi">—</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tt-studio-stage">
+        <svg id="tt-profile-svg" viewBox="0 0 640 380" role="img"
+             aria-label="Scaled cross-section of the ISO 68-1 basic thread profile with labelled diameters"></svg>
+        <p class="tt-studio-note">
+          Section through the axis. Dashed grey shows the fundamental triangle before truncation;
+          the solid line is the basic profile. Vertical scale is exaggerated for the axis break —
+          radial proportions between the diameters are true.
+        </p>
+      </div>
+    </div>
+
+    <!-- ───── Full geometry table ───── -->
+    <h3 class="tt-h3 tt-rev" style="margin-top:64px">Derived geometry — ISO metric series</h3>
+
+    <div class="tt-tabs tt-rev" role="tablist" aria-label="Thread series tables">
+      <button class="tt-tab" role="tab" id="tab-coarse" aria-controls="panel-coarse" aria-selected="true">Coarse pitch</button>
+      <button class="tt-tab" role="tab" id="tab-fine" aria-controls="panel-fine" aria-selected="false">Fine pitch</button>
+    </div>
+
+    <div class="tt-tablewrap tt-rev" id="panel-coarse" role="tabpanel" aria-labelledby="tab-coarse">
+      <table class="tt-table">
+        <caption>ISO metric coarse — computed from ISO 68-1 basic profile</caption>
+        <thead>
+          <tr>
+            <th scope="col">Designation</th>
+            <th scope="col">d₂ = D₂ (mm)</th>
+            <th scope="col">d₁ = D₁ (mm)</th>
+            <th scope="col">d₃ (mm)</th>
+            <th scope="col">Aₛ (mm²)</th>
+            <th scope="col">λ (°)</th>
+            <th scope="col">Tap drill (mm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>M1.6 × 0.35</td><td>1.373</td><td>1.221</td><td>1.171</td><td>1.27</td><td>4.64</td><td>1.25</td></tr>
+          <tr><td>M2 × 0.4</td><td>1.740</td><td>1.567</td><td>1.509</td><td>2.07</td><td>4.18</td><td>1.60</td></tr>
+          <tr><td>M2.5 × 0.45</td><td>2.208</td><td>2.013</td><td>1.948</td><td>3.39</td><td>3.71</td><td>2.05</td></tr>
+          <tr><td>M3 × 0.5</td><td>2.675</td><td>2.459</td><td>2.387</td><td>5.03</td><td>3.40</td><td>2.50</td></tr>
+          <tr><td>M4 × 0.7</td><td>3.545</td><td>3.242</td><td>3.141</td><td>8.78</td><td>3.60</td><td>3.30</td></tr>
+          <tr><td>M5 × 0.8</td><td>4.480</td><td>4.134</td><td>4.019</td><td>14.18</td><td>3.25</td><td>4.20</td></tr>
+          <tr class="is-hi"><td>M6 × 1</td><td>5.350</td><td>4.917</td><td>4.773</td><td>20.12</td><td>3.40</td><td>5.00</td></tr>
+          <tr class="is-hi"><td>M8 × 1.25</td><td>7.188</td><td>6.647</td><td>6.466</td><td>36.61</td><td>3.17</td><td>6.75</td></tr>
+          <tr class="is-hi"><td>M10 × 1.5</td><td>9.026</td><td>8.376</td><td>8.160</td><td>57.99</td><td>3.03</td><td>8.50</td></tr>
+          <tr class="is-hi"><td>M12 × 1.75</td><td>10.863</td><td>10.106</td><td>9.853</td><td>84.27</td><td>2.94</td><td>10.25</td></tr>
+          <tr><td>M14 × 2</td><td>12.701</td><td>11.835</td><td>11.546</td><td>115.44</td><td>2.87</td><td>12.00</td></tr>
+          <tr class="is-hi"><td>M16 × 2</td><td>14.701</td><td>13.835</td><td>13.546</td><td>156.67</td><td>2.48</td><td>14.00</td></tr>
+          <tr class="is-hi"><td>M20 × 2.5</td><td>18.376</td><td>17.294</td><td>16.933</td><td>244.79</td><td>2.48</td><td>17.50</td></tr>
+          <tr class="is-hi"><td>M24 × 3</td><td>22.051</td><td>20.752</td><td>20.319</td><td>352.50</td><td>2.48</td><td>21.00</td></tr>
+          <tr><td>M30 × 3.5</td><td>27.727</td><td>26.211</td><td>25.706</td><td>560.59</td><td>2.30</td><td>26.50</td></tr>
+          <tr><td>M36 × 4</td><td>33.402</td><td>31.670</td><td>31.093</td><td>816.72</td><td>2.18</td><td>32.00</td></tr>
+          <tr><td>M42 × 4.5</td><td>39.077</td><td>37.129</td><td>36.479</td><td>1120.91</td><td>2.10</td><td>37.50</td></tr>
+          <tr><td>M48 × 5</td><td>44.752</td><td>42.587</td><td>41.866</td><td>1473.15</td><td>2.04</td><td>43.00</td></tr>
+          <tr><td>M56 × 5.5</td><td>52.428</td><td>50.046</td><td>49.252</td><td>2030.02</td><td>1.91</td><td>50.50</td></tr>
+          <tr><td>M64 × 6</td><td>60.103</td><td>57.505</td><td>56.639</td><td>2675.97</td><td>1.82</td><td>58.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-tablewrap tt-rev" id="panel-fine" role="tabpanel" aria-labelledby="tab-fine" hidden>
+      <table class="tt-table">
+        <caption>ISO metric fine — computed from ISO 68-1 basic profile</caption>
+        <thead>
+          <tr>
+            <th scope="col">Designation</th>
+            <th scope="col">d₂ = D₂ (mm)</th>
+            <th scope="col">d₁ = D₁ (mm)</th>
+            <th scope="col">d₃ (mm)</th>
+            <th scope="col">Aₛ (mm²)</th>
+            <th scope="col">λ (°)</th>
+            <th scope="col">Tap drill (mm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>M8 × 1</td><td>7.350</td><td>6.917</td><td>6.773</td><td>39.17</td><td>2.48</td><td>7.00</td></tr>
+          <tr><td>M10 × 1.25</td><td>9.188</td><td>8.647</td><td>8.466</td><td>61.20</td><td>2.48</td><td>8.75</td></tr>
+          <tr><td>M10 × 1</td><td>9.350</td><td>8.917</td><td>8.773</td><td>64.49</td><td>1.95</td><td>9.00</td></tr>
+          <tr><td>M12 × 1.5</td><td>11.026</td><td>10.376</td><td>10.160</td><td>88.13</td><td>2.48</td><td>10.50</td></tr>
+          <tr><td>M12 × 1.25</td><td>11.188</td><td>10.647</td><td>10.466</td><td>92.07</td><td>2.04</td><td>10.75</td></tr>
+          <tr><td>M14 × 1.5</td><td>13.026</td><td>12.376</td><td>12.160</td><td>124.55</td><td>2.10</td><td>12.50</td></tr>
+          <tr><td>M16 × 1.5</td><td>15.026</td><td>14.376</td><td>14.160</td><td>167.25</td><td>1.82</td><td>14.50</td></tr>
+          <tr><td>M20 × 1.5</td><td>19.026</td><td>18.376</td><td>18.160</td><td>271.50</td><td>1.44</td><td>18.50</td></tr>
+          <tr><td>M24 × 2</td><td>22.701</td><td>21.835</td><td>21.546</td><td>384.42</td><td>1.61</td><td>22.00</td></tr>
+          <tr><td>M30 × 2</td><td>28.701</td><td>27.835</td><td>27.546</td><td>621.20</td><td>1.27</td><td>28.00</td></tr>
+          <tr><td>M36 × 3</td><td>34.051</td><td>32.752</td><td>32.319</td><td>864.94</td><td>1.61</td><td>33.00</td></tr>
+          <tr><td>M42 × 3</td><td>40.051</td><td>38.752</td><td>38.319</td><td>1205.98</td><td>1.37</td><td>39.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Note on fine pitch</h4>
+      <p>
+        A fine thread has a larger stress area than a coarse thread of the same nominal
+        diameter — M10 × 1 carries about 11% more section than M10 × 1.5. It also has a
+        shallower helix and finer preload resolution. What it loses is tolerance to damage,
+        speed of assembly, and depth of engagement per turn in soft or tapped materials.
+        Coarse remains the default for general assembly; fine earns its place in thin-walled
+        sections, adjustment threads, and vibration-exposed joints.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     03 · THREAD FORM FAMILIES
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="forms" data-accent="forms">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">03 — Thread form families</p>
+    <h2 class="tt-h2 tt-rev">Different jobs, different triangles</h2>
+    <p class="tt-lede tt-rev">
+      The 60° symmetric profile is optimised for clamping. Change the job — sealing,
+      power transmission, one-directional thrust, forming its own mating thread — and
+      the profile changes with it.
+    </p>
+
+    <div class="tt-forms tt-rev">
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L20 14 L40 58 L60 14 L80 58 L100 14 L120 58 L140 14 L160 58"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">60° SYMMETRIC</p>
+        <h3 class="tt-h4">ISO metric — M</h3>
+        <p>The world default for clamping fasteners. Flat crest, rounded root, equal flank angles.
+        Coarse and fine series under one profile definition.</p>
+        <ul>
+          <li><b>Standard</b> ISO 68-1 / 261 / 262</li>
+          <li><b>Angle</b> 60° included</li>
+          <li><b>Use</b> General clamped joints</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L22 16 L34 16 L56 58 L78 16 L90 16 L112 58 L134 16 L146 16 L160 44"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">60° · FLAT CREST</p>
+        <h3 class="tt-h4">Unified — UNC / UNF / UNEF</h3>
+        <p>Inch equivalent of ISO metric, sharing the 60° angle but specified in threads per
+        inch with its own tolerance classes. Not interchangeable with metric.</p>
+        <ul>
+          <li><b>Standard</b> ASME B1.1</li>
+          <li><b>Classes</b> 1A/2A/3A · 1B/2B/3B</li>
+          <li><b>Use</b> North American assemblies</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 Q10 58 18 34 Q26 14 34 14 Q42 14 50 34 Q58 58 66 58 Q74 58 82 34
+                   Q90 14 98 14 Q106 14 114 34 Q122 58 130 58 Q138 58 146 34 Q152 18 160 16"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">55° ROUNDED</p>
+        <h3 class="tt-h4">Whitworth — BSW / BSF</h3>
+        <p>Rounded crests and roots on a 55° angle. Largely superseded for new design, but
+        essential for legacy plant, heritage rail and repair work.</p>
+        <ul>
+          <li><b>Standard</b> BS 84</li>
+          <li><b>Angle</b> 55° included</li>
+          <li><b>Use</b> Legacy &amp; restoration</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 56 Q8 56 15 34 Q22 16 30 16 Q38 16 45 34 Q52 56 60 56 Q68 56 75 34
+                   Q82 16 90 16 Q98 16 105 34 Q112 56 120 56 Q128 56 135 34 Q142 16 150 16"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="60" x2="160" y2="48" stroke="rgba(10,10,11,.30)" stroke-width=".9" stroke-dasharray="4 3"/>
+        </svg>
+        <p class="ang">55° TAPER 1:16</p>
+        <h3 class="tt-h4">Pipe — BSPT / NPT</h3>
+        <p>Taper threads that seal on the flanks themselves as they wedge. Parallel variants
+        (BSPP) seal on a face or washer instead.</p>
+        <ul>
+          <li><b>Standard</b> ISO 7-1 · ASME B1.20.1</li>
+          <li><b>Taper</b> 1 in 16 on diameter</li>
+          <li><b>Use</b> Pressure-tight joints</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L14 18 L44 18 L58 58 L86 58 L100 18 L130 18 L144 58 L160 58"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">30° TRAPEZOIDAL</p>
+        <h3 class="tt-h4">Trapezoidal — Tr</h3>
+        <p>Broad flat flanks carry high axial load with low flank pressure. The metric power
+        thread — presses, jacks, lead screws, clamping devices.</p>
+        <ul>
+          <li><b>Standard</b> ISO 2901–2904</li>
+          <li><b>Angle</b> 30° included</li>
+          <li><b>Use</b> Power transmission</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L10 18 L46 18 L56 58 L82 58 L92 18 L128 18 L138 58 L160 58"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">29° ACME</p>
+        <h3 class="tt-h4">Acme / Stub Acme</h3>
+        <p>The inch power thread. Slightly steeper flanks than trapezoidal, with general-purpose
+        and centralising classes. Stub Acme uses a reduced depth.</p>
+        <ul>
+          <li><b>Standard</b> ASME B1.5 / B1.8</li>
+          <li><b>Angle</b> 29° included</li>
+          <li><b>Use</b> Machine tool screws</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L8 18 L44 18 L60 58 L68 58 L76 18 L112 18 L128 58 L136 58 L144 18 L160 18"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">7° / 45° ASYMMETRIC</p>
+        <h3 class="tt-h4">Buttress</h3>
+        <p>One near-vertical load flank and one steep clearance flank. Carries very high thrust
+        in a single direction with minimal radial bursting force.</p>
+        <ul>
+          <li><b>Standard</b> DIN 513 · ASME B1.9</li>
+          <li><b>Angle</b> 7° load / 45° clearance</li>
+          <li><b>Use</b> Presses, breech rings</li>
+        </ul>
+      </article>
+
+      <article class="tt-form-card">
+        <svg viewBox="0 0 160 66" aria-hidden="true">
+          <path d="M0 58 L24 10 L48 58 L72 10 L96 58 L120 10 L144 58 L160 40"
+                fill="none" stroke="#B26A00" stroke-width="2.2" stroke-linejoin="round"/>
+          <line x1="0" y1="58" x2="160" y2="58" stroke="rgba(10,10,11,.16)" stroke-width=".8"/>
+        </svg>
+        <p class="ang">30–48° · DEEP, SHARP</p>
+        <h3 class="tt-h4">Tapping &amp; thread-forming</h3>
+        <p>Deep, sharp, widely spaced threads that cut or cold-form their own mating thread in
+        sheet, casting or plastic. Trilobular forms reduce driving torque.</p>
+        <ul>
+          <li><b>Standard</b> ISO 1478 · DIN 7500</li>
+          <li><b>Action</b> Cutting or forming</li>
+          <li><b>Use</b> Sheet, castings, polymer</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     04 · TOLERANCE & FIT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="tolerance" data-accent="tol">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">04 — Tolerance, allowance and fit</p>
+    <h2 class="tt-h2 tt-rev">Nothing is made to basic size</h2>
+    <p class="tt-lede tt-rev">
+      The basic profile is a theoretical reference. Real threads are displaced away from
+      it and given a tolerance band. In ISO 965 the displacement is a letter — the
+      fundamental deviation — and the band width is a number, the tolerance grade.
+      Together they make a tolerance class such as <b>6g</b> or <b>6H</b>.
+    </p>
+
+    <div class="tt-grid c2 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">LETTER</span>
+        <h3 class="tt-h4">Fundamental deviation — where the band sits</h3>
+        <p>
+          External threads use lower-case: <b>e</b>, <b>f</b>, <b>g</b>, <b>h</b>. Internal use
+          upper-case: <b>G</b>, <b>H</b>. Position <b>h</b> and <b>H</b> sit exactly on basic size,
+          with zero allowance. The other positions pull material away from the mating part to
+          leave room for coating, for hot-dip galvanizing, or simply for assembly clearance.
+        </p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">NUMBER</span>
+        <h3 class="tt-h4">Tolerance grade — how wide the band is</h3>
+        <p>
+          Grades run 3 to 9; larger number, wider band. Grade 6 is the medium reference,
+          equivalent in intent to a general commercial fit. Grades 3–5 are fine, 7–9 coarse.
+          A class may carry two grades — <b>5g6g</b> means grade 5 on the pitch diameter and
+          grade 6 on the major diameter.
+        </p>
+      </div>
+    </div>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">External · position g:&nbsp; es = − (15 + 11 · P) µm</span>
+      <span class="eq">External · position f:&nbsp; es = − (30 + 11 · P) µm</span>
+      <span class="eq">External · position e:&nbsp; es = − (50 + 11 · P) µm</span>
+      <span class="eq">Internal · position G:&nbsp; EI = + (15 + 11 · P) µm&nbsp;&nbsp;·&nbsp;&nbsp;h and H: 0</span>
+      <p class="where">
+        <b>es</b> upper deviation of the external thread &nbsp;·&nbsp;
+        <b>EI</b> lower deviation of the internal thread &nbsp;·&nbsp;
+        <b>P</b> pitch in mm. The deviation applies equally to the major, pitch and minor diameters.
+      </p>
+    </div>
+
+    <div class="tt-tablewrap tt-rev">
+      <table class="tt-table">
+        <caption>Fundamental deviation by pitch — µm</caption>
+        <thead>
+          <tr><th scope="col">Pitch P (mm)</th><th scope="col">es · e</th><th scope="col">es · f</th><th scope="col">es · g</th><th scope="col">es · h</th><th scope="col">EI · G</th><th scope="col">EI · H</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0.35</td><td>−53.9</td><td>−33.9</td><td>−18.9</td><td>0</td><td>+18.9</td><td>0</td></tr>
+          <tr><td>0.50</td><td>−55.5</td><td>−35.5</td><td>−20.5</td><td>0</td><td>+20.5</td><td>0</td></tr>
+          <tr><td>0.70</td><td>−57.7</td><td>−37.7</td><td>−22.7</td><td>0</td><td>+22.7</td><td>0</td></tr>
+          <tr><td>0.80</td><td>−58.8</td><td>−38.8</td><td>−23.8</td><td>0</td><td>+23.8</td><td>0</td></tr>
+          <tr class="is-hi"><td>1.00</td><td>−61.0</td><td>−41.0</td><td>−26.0</td><td>0</td><td>+26.0</td><td>0</td></tr>
+          <tr class="is-hi"><td>1.25</td><td>−63.8</td><td>−43.8</td><td>−28.8</td><td>0</td><td>+28.8</td><td>0</td></tr>
+          <tr class="is-hi"><td>1.50</td><td>−66.5</td><td>−46.5</td><td>−31.5</td><td>0</td><td>+31.5</td><td>0</td></tr>
+          <tr class="is-hi"><td>1.75</td><td>−69.3</td><td>−49.3</td><td>−34.3</td><td>0</td><td>+34.3</td><td>0</td></tr>
+          <tr class="is-hi"><td>2.00</td><td>−72.0</td><td>−52.0</td><td>−37.0</td><td>0</td><td>+37.0</td><td>0</td></tr>
+          <tr><td>2.50</td><td>−77.5</td><td>−57.5</td><td>−42.5</td><td>0</td><td>+42.5</td><td>0</td></tr>
+          <tr><td>3.00</td><td>−83.0</td><td>−63.0</td><td>−48.0</td><td>0</td><td>+48.0</td><td>0</td></tr>
+          <tr><td>3.50</td><td>−88.5</td><td>−68.5</td><td>−53.5</td><td>0</td><td>+53.5</td><td>0</td></tr>
+          <tr><td>4.00</td><td>−94.0</td><td>−74.0</td><td>−59.0</td><td>0</td><td>+59.0</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Reading a class designation</h3>
+    <p class="tt-p tt-rev">
+      <b>M10 × 1.5 – 6g</b> is an external thread, grade 6, position g. <b>M10 × 1.5 – 6H</b>
+      is the mating nut. Together they form the fit written as <b>6H/6g</b> — the general-purpose
+      combination that covers the overwhelming majority of commercial fasteners. Where a class
+      is written twice, as in <b>5g6g</b>, the first pair applies to the pitch diameter and the
+      second to the crest diameter.
+    </p>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">FINE</span>
+        <h3 class="tt-h4">4H / 4h — 5H / 5h6h</h3>
+        <p>Close fits for precision assemblies, adjustment threads and instruments. Requires
+        controlled process capability and gauging discipline.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">MEDIUM</span>
+        <h3 class="tt-h4">6H / 6g</h3>
+        <p>The commercial default. Assumes a normal length of engagement and permits a light
+        electroplated coating within the g allowance.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">COARSE</span>
+        <h3 class="tt-h4">7H / 8g</h3>
+        <p>Hot-dip galvanized work, hot-formed threads, structural assemblies and anywhere
+        contamination or thick coating must be tolerated.</p>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Coating allowance — the practical rule</h4>
+      <p>
+        A coating of thickness <b>t</b> deposited on both flanks increases the pitch diameter by
+        approximately <b>4 t</b> — the flanks are inclined at 30° to the axis, so radial build-up
+        is amplified. A 8 µm zinc plate therefore consumes about 32 µm of pitch diameter.
+        Compare that against the g allowance for the pitch: at P = 1.5, es(g) is −31.5 µm,
+        so 8 µm of plating uses essentially the whole allowance. Heavier coatings —
+        hot-dip galvanizing at 45–85 µm — require the nut to be tapped oversize per
+        ISO 10684 rather than relying on the bolt tolerance class.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     STATEMENT BAND
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-band">
+  <div class="tt-shell">
+    <p>A BOLT DOES NOT CARRY LOAD ON ITS NOMINAL DIAMETER.</p>
+    <p class="tt-band-note">
+      It carries load on the tensile stress area — an effective section lying between the
+      pitch diameter and the root. Design against the nominal and you will overestimate
+      capacity by roughly a quarter.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     05 · STRESS AREA & STRENGTH
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="stress" data-accent="stress">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">05 — Tensile stress area and strength</p>
+    <h2 class="tt-h2 tt-rev">The effective section</h2>
+    <p class="tt-lede tt-rev">
+      A threaded bar loaded in tension does not fail at the minor diameter, as a plain
+      notched bar would, and it does not carry the full pitch-diameter section either.
+      ISO 898-1 resolves this with an empirical effective diameter — the mean of the pitch
+      diameter and the rounded-root minor diameter.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">Aₛ = (π / 4) · [ (d₂ + d₃) / 2 ]²</span>
+      <span class="eq">where&nbsp; d₃ = d₁ − H/6 &nbsp;=&nbsp; d − 1.226869 · P</span>
+      <p class="where">
+        <b>Aₛ</b> nominal tensile stress area, mm² &nbsp;·&nbsp;
+        <b>d₂</b> basic pitch diameter &nbsp;·&nbsp;
+        <b>d₃</b> minor diameter of the external thread at the rounded root.
+        <br>For M10 × 1.5: d₂ = 9.026, d₃ = 8.160, mean = 8.593, Aₛ = 58.0 mm².
+        The nominal-diameter area would read 78.5 mm² — an overestimate of 35%.
+      </p>
+    </div>
+
+    <div class="tt-tablewrap tt-rev">
+      <table class="tt-table">
+        <caption>Load capacity — ISO 898-1 property classes, coarse pitch</caption>
+        <thead>
+          <tr>
+            <th scope="col">Size</th>
+            <th scope="col">Aₛ (mm²)</th>
+            <th scope="col">Proof 8.8 (kN)</th>
+            <th scope="col">Proof 10.9 (kN)</th>
+            <th scope="col">Proof 12.9 (kN)</th>
+            <th scope="col">Tensile 8.8 (kN)</th>
+            <th scope="col">Tensile 10.9 (kN)</th>
+            <th scope="col">Tensile 12.9 (kN)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>M6</td><td>20.1</td><td>11.7</td><td>16.7</td><td>19.5</td><td>16.1</td><td>20.9</td><td>24.6</td></tr>
+          <tr><td>M8</td><td>36.6</td><td>21.2</td><td>30.4</td><td>35.5</td><td>29.3</td><td>38.1</td><td>44.7</td></tr>
+          <tr class="is-hi"><td>M10</td><td>58.0</td><td>33.6</td><td>48.1</td><td>56.2</td><td>46.4</td><td>60.3</td><td>70.7</td></tr>
+          <tr><td>M12</td><td>84.3</td><td>48.9</td><td>69.9</td><td>81.7</td><td>67.4</td><td>87.6</td><td>102.8</td></tr>
+          <tr><td>M16</td><td>156.7</td><td>90.9</td><td>130.0</td><td>152.0</td><td>125.3</td><td>162.9</td><td>191.1</td></tr>
+          <tr><td>M20</td><td>244.8</td><td>146.9</td><td>203.2</td><td>237.5</td><td>195.8</td><td>254.6</td><td>298.6</td></tr>
+          <tr><td>M24</td><td>352.5</td><td>211.5</td><td>292.6</td><td>341.9</td><td>282.0</td><td>366.6</td><td>430.1</td></tr>
+          <tr><td>M30</td><td>560.6</td><td>336.4</td><td>465.3</td><td>543.8</td><td>448.5</td><td>583.0</td><td>683.9</td></tr>
+          <tr><td>M36</td><td>816.7</td><td>490.0</td><td>677.9</td><td>792.2</td><td>653.4</td><td>849.4</td><td>996.4</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tt-p tt-rev">
+      Proof loads use the ISO 898-1 proof stresses — 580 MPa for class 8.8 up to M16 and
+      600 MPa above it, 830 MPa for 10.9, 970 MPa for 12.9. Tensile figures use the minimum
+      ultimate strengths of 800, 1040 and 1220 MPa respectively. <b>Proof load is the working
+      ceiling</b>: a bolt loaded to proof must show no measurable permanent set on release.
+      Target preload for a critical joint is normally set at 70–75% of proof load, leaving
+      headroom for external load and for scatter in the torque method.
+    </p>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <p class="tt-metric">8.8</p>
+        <p>First digit × 100 = minimum tensile strength in MPa. Second digit × 10 = yield as a
+        percentage of tensile. So 8.8 means 800 MPa ultimate, 640 MPa yield.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">10.9</p>
+        <p>1040 MPa ultimate, 940 MPa yield. Quenched and tempered alloy steel. Sensitive to
+        hydrogen embrittlement — plating process control is not optional.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">12.9</p>
+        <p>1220 MPa ultimate, 1100 MPa yield. Highest common class. Demands controlled
+        surface finish, decarburisation limits and rolled-after-heat-treat threads.</p>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Match the nut to the bolt</h4>
+      <p>
+        ISO 898-2 nut property classes are numbered to match: a class 8 nut is proof-loaded
+        against a class 8.8 bolt, class 10 against 10.9, class 12 against 12.9. The intent of
+        the pairing is that the <b>bolt breaks in tension before the threads strip</b> — a
+        visible, diagnosable failure rather than a silent loss of clamp. Fitting a class 8 nut
+        on a 12.9 screw inverts that logic and puts the failure where you cannot see it.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     06 · LENGTH OF ENGAGEMENT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="engagement" data-accent="engage">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">06 — Length of engagement</p>
+    <h2 class="tt-h2 tt-rev">How deep is deep enough</h2>
+    <p class="tt-lede tt-rev">
+      Thread stripping is a shear failure across a helical surface. Its capacity grows with
+      engaged length; the bolt's tensile capacity does not. There is therefore a minimum
+      engagement above which the bolt is guaranteed to be the weaker member — which is
+      exactly where you want the failure to occur.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">A<sub>th,n</sub> = π · d₁ · (L<sub>E</sub> / P) · [ P/2 + (d₂ − D₁) · tan(30°) ]&nbsp;&nbsp;— nut thread shear</span>
+      <span class="eq">A<sub>th,b</sub> = π · D₁ · (L<sub>E</sub> / P) · [ P/2 + (d₂ − D₁) · tan(30°) ]&nbsp;&nbsp;— bolt thread shear</span>
+      <p class="where">
+        <b>L<sub>E</sub></b> length of engagement &nbsp;·&nbsp;
+        <b>d₁</b> external minor diameter &nbsp;·&nbsp;
+        <b>D₁</b> internal minor diameter.
+        Stripping strength is then the shear area multiplied by the shear strength of the
+        weaker material, conventionally taken as 0.6 × its ultimate tensile strength.
+      </p>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">The material strength ratio</h3>
+    <p class="tt-p tt-rev">
+      When bolt and tapped component are different materials, the required engagement scales
+      with their strength ratio. A steel screw into aluminium needs roughly twice the
+      engagement of the same screw into steel; into a magnesium or zinc casting, more again.
+      The practical starting points below assume a class 8.8 screw and full-form threads.
+    </p>
+
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <p class="tt-metric">1.0<small>× d</small></p>
+        <p><b>Steel into steel.</b> One nominal diameter of engagement, the basis of standard
+        nut heights, which are typically 0.8 d.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">1.5<small>× d</small></p>
+        <p><b>Into cast iron.</b> Allows for the lower shear strength and the risk of a
+        partially formed first thread at the surface.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">2.0<small>× d</small></p>
+        <p><b>Into aluminium alloy.</b> The most common engagement failure in production —
+        specified on nominal length rather than usable thread depth.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">2.5<small>× d</small></p>
+        <p><b>Into magnesium, zinc and reinforced polymer.</b> Consider a threaded insert
+        instead where the joint will be repeatedly disassembled.</p>
+      </div>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Short, normal and long — the S / N / L groups</h3>
+    <p class="tt-p tt-rev">
+      ISO 965-1 recognises that tolerance requirements change with engagement length, and
+      divides them into three groups. Group <b>N</b> — normal — spans roughly 2.24 P · d<sup>0.2</sup>
+      to 6.7 P · d<sup>0.2</sup> and covers ordinary nut-and-bolt assembly; a tolerance class
+      quoted without a group letter is understood to be N. Group <b>S</b> covers engagements
+      shorter than that band and generally warrants a finer grade, because there is less thread
+      available to average out pitch and flank-angle error. Group <b>L</b> covers longer
+      engagements, where accumulated pitch deviation over many threads makes a coarser grade
+      the realistic choice.
+    </p>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Count usable threads, not hole depth</h4>
+      <p>
+        A tapped hole loses thread at both ends: an incomplete first thread from the chamfer,
+        and an unusable run-out at the bottom of a blind hole. Both are real, and both are
+        routinely left out of the drawing note. Specify <b>minimum full-form thread depth</b>
+        and let the driller work backwards from it, rather than dimensioning the drilled depth
+        and hoping.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     07 · TORQUE, FRICTION AND PRELOAD
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="torque" data-accent="torque">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">07 — Torque, friction and preload</p>
+    <h2 class="tt-h2 tt-rev">Most of your torque never becomes clamp load</h2>
+    <p class="tt-lede tt-rev">
+      Tightening torque is spent in three places: overcoming friction under the bearing face,
+      overcoming friction on the thread flanks, and doing the useful work of stretching the
+      bolt. In a typical dry steel joint the split is roughly 50 / 40 / 10 — only about a
+      tenth of the applied torque generates preload.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">T = F · [ 0.16 · P + 0.58 · μ<sub>th</sub> · d₂ + μ<sub>b</sub> · D<sub>Km</sub> / 2 ]</span>
+      <p class="where">
+        <b>T</b> tightening torque, N·mm &nbsp;·&nbsp; <b>F</b> preload, N &nbsp;·&nbsp;
+        <b>P</b> pitch &nbsp;·&nbsp; <b>μ<sub>th</sub></b> thread friction coefficient &nbsp;·&nbsp;
+        <b>μ<sub>b</sub></b> bearing-face friction coefficient &nbsp;·&nbsp;
+        <b>d₂</b> pitch diameter &nbsp;·&nbsp;
+        <b>D<sub>Km</sub></b> effective mean bearing diameter under the head or nut.
+        <br>The 0.16 P term is the pure helix work; 0.58 is 1 / (2 cos 30°), converting flank
+        friction to the axial direction.
+      </p>
+    </div>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">T ≈ K · d · F&nbsp;&nbsp;— the short form</span>
+      <p class="where">
+        <b>K</b> nut factor, dimensionless. Convenient, but it is an empirical lumped constant,
+        not a material property: it changes with coating, lubricant, surface finish, speed and
+        the number of times the joint has been used. Use it for a first estimate and verify by
+        test. Typical values: <b>0.20</b> plain steel dry · <b>0.18</b> zinc plated ·
+        <b>0.14</b> waxed or lubricated · <b>0.12</b> PTFE coated · <b>0.10</b> molybdenum
+        disulphide.
+      </p>
+    </div>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag lose">Torque control</span>
+        <h3 class="tt-h3">±25–35% preload scatter</h3>
+        <p class="tt-p">
+          The universal method, because it needs nothing but a wrench. Its weakness is that it
+          measures the sum of three quantities and infers the smallest one. A change in friction
+          the operator cannot see moves the resulting preload by a third.
+        </p>
+        <ul>
+          <li>Cheap, fast, auditable</li>
+          <li>Highly sensitive to lubrication state</li>
+          <li>Requires a specified, controlled surface condition to be meaningful</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag win">Angle &amp; yield control</span>
+        <h3 class="tt-h3">±10% or better</h3>
+        <p class="tt-p">
+          Snug to a defined torque, then rotate a specified angle. Past snug, rotation maps
+          almost linearly onto bolt extension, and extension maps onto preload — friction
+          largely drops out of the measurement.
+        </p>
+        <ul>
+          <li>Torque-plus-angle is the automotive standard for critical joints</li>
+          <li>Yield control detects the knee in the torque–angle curve directly</li>
+          <li>Bolt tension by ultrasonic length or load-indicating washer is better still</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tt-p tt-rev">
+      <b>Coarse or fine for preload control?</b> Fine threads develop more preload per unit
+      torque, because the 0.16 P helix term shrinks while the friction terms barely move.
+      That makes them useful where torque capacity is limited — but it also makes them less
+      forgiving of over-torque, since the same wrench error travels further up the load curve.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     STATEMENT BAND
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-band">
+  <div class="tt-shell">
+    <p>HOW THE THREAD IS MADE CHANGES HOW LONG IT LIVES.</p>
+    <p class="tt-band-note">
+      Two threads to the same drawing, one cut and one rolled, are not the same component.
+      Grain flow, root compressive stress and surface finish differ — and so does fatigue life,
+      by a factor that is not marginal.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     08 · MANUFACTURE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="manufacture" data-accent="make">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">08 — How threads are made</p>
+    <h2 class="tt-h2 tt-rev">Rolled, cut, ground and formed</h2>
+    <p class="tt-lede tt-rev">
+      Cutting removes metal to leave a thread. Rolling displaces metal to raise one.
+      The distinction is not a manufacturing preference — it determines where the grain runs,
+      what residual stress sits in the root, and how the part behaves under cyclic load.
+    </p>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag win">Cold rolled</span>
+        <h3 class="tt-h3">Displaced, not removed</h3>
+        <p class="tt-p">
+          The blank is rolled between hardened dies carrying the negative profile. Metal flows
+          from what becomes the root into what becomes the crest. Grain follows the profile
+          continuously around the root radius, and the cold work leaves compressive residual
+          stress exactly where fatigue cracks would otherwise initiate.
+        </p>
+        <ul>
+          <li>Uninterrupted grain flow around the root</li>
+          <li>Compressive residual stress at the fatigue-critical radius</li>
+          <li>Work-hardened, burnished flank surface</li>
+          <li>No swarf; blank diameter close to pitch diameter</li>
+          <li>Substantially faster in volume production</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag lose">Cut or ground</span>
+        <h3 class="tt-h3">Severed grain</h3>
+        <p class="tt-p">
+          Single-point turning, die-cutting, tapping or thread grinding remove material to the
+          finished profile. Grain lines are cut through where they meet the flank, and the
+          machined root carries tool marks. Indispensable for large diameters, short runs,
+          hardened material and internal threads — but it starts from a weaker fatigue baseline.
+        </p>
+        <ul>
+          <li>Grain terminated at the flank surface</li>
+          <li>Neutral or tensile residual stress in the root</li>
+          <li>Surface finish set by tool condition</li>
+          <li>Free choice of pitch and form without dedicated tooling</li>
+          <li>The only practical route for most internal threads</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Roll before or after heat treatment?</h4>
+      <p>
+        Rolling before quenching and tempering is the standard route — the blank is soft, die
+        life is long, and it suits volume production. Rolling <b>after</b> heat treatment
+        retains the compressive root stress in the finished part instead of relieving it in
+        the furnace, and is the recognised route to the highest fatigue performance in high
+        strength classes. It costs more in die wear and is worth specifying only where cyclic
+        load, not static strength, sets the design.
+      </p>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Rolling process routes</h3>
+    <ol class="tt-steps tt-rev">
+      <li><div>
+        <h4 class="tt-h4">Flat die rolling</h4>
+        <p>One fixed and one reciprocating die. The blank rolls between them and leaves fully
+        threaded in a single pass. The highest-volume route for standard fastener sizes, and the
+        cheapest per piece once set.</p>
+      </div></li>
+      <li><div>
+        <h4 class="tt-h4">Cylindrical die rolling — two or three roll</h4>
+        <p>Rotating dies close radially on the blank. Handles longer parts, larger diameters and
+        threads placed away from the end, and gives closer control of the finished pitch diameter.</p>
+      </div></li>
+      <li><div>
+        <h4 class="tt-h4">Planetary rolling</h4>
+        <p>A rotating centre die inside a fixed segment feeds parts continuously. Very high
+        throughput on small-to-medium screws where cycle time dominates cost.</p>
+      </div></li>
+      <li><div>
+        <h4 class="tt-h4">Thread rolling attachment</h4>
+        <p>Axial or tangential heads mounted on a lathe or screw machine, rolling the thread as
+        part of the turning cycle. Bridges the gap between machining and dedicated rolling.</p>
+      </div></li>
+    </ol>
+
+    <h3 class="tt-h3 tt-rev">Blank diameter and tapping allowance</h3>
+    <div class="tt-formula tt-rev">
+      <span class="eq">Rolling blank ≈ d₂ + (0.1 to 0.3) · (d − d₂)&nbsp;&nbsp;— material dependent</span>
+      <span class="eq">Tap drill ≈ d − P&nbsp;&nbsp;→ approximately 76% thread engagement</span>
+      <span class="eq">Engagement % = (d − D<sub>drill</sub>) / (1.0825 · P) × 100</span>
+      <p class="where">
+        The rolling blank is close to, but slightly above, the pitch diameter — the exact figure
+        depends on how much the material work-hardens and flows. Blank diameter is the single
+        most important control variable in thread rolling and the usual root cause of oversize
+        or undersize pitch diameter.
+        <br><br>
+        On tapping: going from 65% to 75% engagement adds roughly 5% to the stripping strength
+        but can double the tapping torque. <b>Higher engagement is not automatically better</b> —
+        75% is the practical optimum for steel, and 60–70% is often the right answer in tough
+        or gummy materials where tap breakage is the real risk.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     09 · FATIGUE & FAILURE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="fatigue" data-accent="fatigue">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">09 — Fatigue and failure modes</p>
+    <h2 class="tt-h2 tt-rev">Where threads actually break</h2>
+    <p class="tt-lede tt-rev">
+      Load does not distribute evenly along an engaged thread. The first engaged thread —
+      the one at the nut bearing face — takes something like a third of the total, and each
+      thread beyond it takes progressively less. Past about six engaged threads the additional
+      ones contribute almost nothing. That is why nuts do not get taller indefinitely, and why
+      the first thread root is where cracks start.
+    </p>
+
+    <div class="tt-fail tt-rev">
+      <article>
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <path d="M6 44 L20 16 L34 44 L48 16 L62 44 L76 16 L90 44 L104 16"
+                fill="none" stroke="#3A3D9E" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="34" cy="44" r="7" fill="none" stroke="#3A3D9E" stroke-width="1.4"/>
+          <path d="M34 44 l8 6" stroke="#3A3D9E" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <h4>First-thread root crack</h4>
+        <p>Fatigue initiation at the root of the first engaged thread, where both stress
+        concentration and load share peak simultaneously.</p>
+        <p class="fix">→ Rolled root · larger root radius · tapered or flanged nut</p>
+      </article>
+
+      <article>
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <path d="M6 40 L20 12 L34 40 L48 12 L62 40" fill="none" stroke="#3A3D9E" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M62 40 L76 30 L90 40 L104 34" fill="none" stroke="#3A3D9E" stroke-width="2" stroke-dasharray="3 2.5"/>
+          <line x1="62" y1="46" x2="104" y2="46" stroke="#3A3D9E" stroke-width="1.2"/>
+        </svg>
+        <h4>Thread stripping</h4>
+        <p>Shear failure of the engaged flanks. Silent, progressive, and it removes clamp load
+        without any external sign that the joint has failed.</p>
+        <p class="fix">→ Engagement length · matched property classes · check tapped depth</p>
+      </article>
+
+      <article>
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <rect x="14" y="16" width="92" height="24" fill="none" stroke="#3A3D9E" stroke-width="1.6"/>
+          <path d="M56 16 l6 12 l-6 12" fill="none" stroke="#3A3D9E" stroke-width="2.4" stroke-linejoin="round"/>
+          <line x1="6" y1="28" x2="14" y2="28" stroke="#3A3D9E" stroke-width="2" stroke-linecap="round"/>
+          <line x1="106" y1="28" x2="114" y2="28" stroke="#3A3D9E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h4>Run-out fracture</h4>
+        <p>Failure at the thread run-out or the head-to-shank fillet — the two other stress
+        raisers competing with the first engaged thread.</p>
+        <p class="fix">→ Generous under-head radius · avoid run-out in the clamped length</p>
+      </article>
+
+      <article>
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <path d="M6 40 L20 14 L34 40 L48 14 L62 40 L76 14 L90 40 L104 14"
+                fill="none" stroke="#3A3D9E" stroke-width="2" stroke-linejoin="round"/>
+          <g stroke="#3A3D9E" stroke-width="1.3" stroke-dasharray="2 2.2">
+            <path d="M20 14 l0 -8"/><path d="M48 14 l0 -8"/><path d="M76 14 l0 -8"/>
+          </g>
+          <circle cx="48" cy="14" r="3.4" fill="#3A3D9E"/>
+        </svg>
+        <h4>Hydrogen embrittlement</h4>
+        <p>Delayed brittle fracture in high-strength classes, hours or days after installation.
+        Hydrogen from pickling or electroplating diffuses to the stressed root.</p>
+        <p class="fix">→ Bake within 4 h of plating · consider mechanical zinc or Zn-flake</p>
+      </article>
+    </div>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <p class="tt-metric">~34<small>%</small></p>
+        <p>Share of total load carried by the first engaged thread in a conventional nut.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">6</p>
+        <p>Engaged threads beyond which additional engagement adds very little load capacity.</p>
+      </div>
+      <div class="tt-cell">
+        <p class="tt-metric">0.8<small>× d</small></p>
+        <p>Standard hexagon nut height — set by that distribution, not by arbitrary convention.</p>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">The counter-intuitive one: high preload improves fatigue life</h4>
+      <p>
+        In a properly designed joint, a fluctuating external load is largely absorbed by the
+        clamped members, not by the bolt. The higher the preload, the smaller the share of the
+        cyclic load that reaches the bolt, and the lower its stress amplitude. Under-tightening
+        is therefore a fatigue problem, not a conservative safety margin — a loose bolt in a
+        cyclically loaded joint sees the full alternating load and fails long before a
+        correctly tensioned one.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     10 · LOCKING & VIBRATION
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="locking" data-accent="lock">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">10 — Locking and vibration</p>
+    <h2 class="tt-h2 tt-rev">Two different failures, often confused</h2>
+    <p class="tt-lede tt-rev">
+      A joint can lose clamp load in two entirely different ways. In <b>rotational
+      loosening</b>, the nut actually turns. In <b>non-rotational loss</b>, it does not — the
+      preload disappears through embedding, gasket creep, or relaxation of the clamped members.
+      Fitting a locking device to a joint suffering the second problem accomplishes nothing.
+    </p>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag win">Rotational loosening</span>
+        <h3 class="tt-h3">The nut turns</h3>
+        <p class="tt-p">
+          Transverse vibration is the dominant cause. Cyclic side load makes the joint faces slip
+          microscopically; during slip, thread and bearing friction fall to near zero, and the
+          helix — which is a wedge under axial load — drives rotation. Self-locking under
+          static load offers no protection at all against this mechanism.
+        </p>
+        <ul>
+          <li>Reproduced by the Junker transverse vibration test, DIN 65151</li>
+          <li>Answered by prevailing torque, adhesive or geometric locking</li>
+          <li>Anything that prevents slip in the first place also solves it</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag lose">Non-rotational loss</span>
+        <h3 class="tt-h3">The nut stays put</h3>
+        <p class="tt-p">
+          Surface asperities flatten under load — embedding — typically consuming a few
+          micrometres per interface. Gaskets creep. Coatings compress. In a short-grip joint
+          those few micrometres can be a large fraction of the total bolt extension, and
+          therefore a large fraction of the preload.
+        </p>
+        <ul>
+          <li>Worst in short grip lengths, soft coatings and multi-interface stacks</li>
+          <li>Answered by longer grip, fewer interfaces, harder surfaces, re-torque</li>
+          <li>A locking device does not address it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">TYPE 01</span>
+        <h3 class="tt-h4">Prevailing torque</h3>
+        <p>Nylon insert or deformed thread. Resistance to rotation independent of clamp load,
+        so it still functions if preload is partly lost. Temperature-limited for nylon,
+        and reusability is finite.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">TYPE 02</span>
+        <h3 class="tt-h4">Chemical locking</h3>
+        <p>Anaerobic adhesive, either applied at assembly or pre-applied as a patch or
+        microencapsulated coating. Fills the clearance and prevents slip. Strength grade must
+        match the intended service and disassembly needs.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">TYPE 03</span>
+        <h3 class="tt-h4">Geometric wedge locking</h3>
+        <p>Paired washers with cam faces steeper than the thread helix, so any attempted
+        rotation must lift the bolt against its own preload. Effective under severe transverse
+        vibration; requires correct pairing and orientation.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">TYPE 04</span>
+        <h3 class="tt-h4">Positive mechanical locking</h3>
+        <p>Split pins, castellated nuts, lock wire, tab washers. Cannot rotate more than a
+        defined amount regardless of preload. The default where a loosening event is
+        unacceptable — aerospace and defence practice.</p>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">On split ring lock washers</h4>
+      <p>
+        The helical spring washer is the most widely fitted and least effective locking device
+        in general use. Under any realistic preload it flattens solid and behaves as a plain
+        washer; controlled transverse vibration testing has repeatedly shown it to give little
+        or no benefit, and in some configurations to loosen faster than a plain washer by
+        introducing an extra interface to embed. It survives on habit. If a joint genuinely
+        needs locking, choose from the four types above and qualify the choice by test.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ONE-LINER A
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-oneliner" data-accent="forming">
+  <div class="tt-oneliner-ghost" aria-hidden="true">
+    <svg viewBox="0 0 800 300">
+      <path d="M0 220 L50 90 L100 220 L150 90 L200 220 L250 90 L300 220 L350 90 L400 220 L450 90 L500 220 L550 90 L600 220 L650 90 L700 220 L750 90 L800 220"
+            fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="tt-shell">
+    <p class="tt-oneliner-eyebrow">Part two — threads by application</p>
+    <h2>The mating material chooses the <em>thread</em>. Not the catalogue.</h2>
+    <p class="sub">
+      A 60° symmetric profile is right for clamping steel to steel and wrong for almost
+      everything else. Change the material — thermoplastic, sheet, casting, timber, masonry —
+      and flank angle, pitch, core diameter and point geometry all have to move with it.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     11 · MACHINE SCREW THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="machine-screws" data-accent="machine">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">11 — Machine screw threads</p>
+    <h2 class="tt-h2 tt-rev">Threads that mate with a thread</h2>
+    <p class="tt-lede tt-rev">
+      The machine screw is the only family on this page that does not create its own
+      counterpart. It assumes a nut or a tapped hole already exists, made to the same
+      standard and the same tolerance class. Everything in Part One applies here directly.
+    </p>
+
+    <div class="tt-atlas tt-rev">
+      <figure class="tt-atlas-visual">
+        <svg viewBox="0 0 300 190" role="img" aria-label="Machine screw with uniform 60 degree thread and blunt end">
+          <rect x="18" y="62" width="30" height="66" fill="none" stroke="#2E5AAC" stroke-width="2"/>
+          <line x1="18" y1="95" x2="48" y2="95" stroke="#2E5AAC" stroke-width="1"/>
+          <rect x="48" y="78" width="26" height="34" fill="none" stroke="#2E5AAC" stroke-width="2"/>
+          <path d="M74 112 L92 78 L110 112 L128 78 L146 112 L164 78 L182 112 L200 78 L218 112 L236 78 L254 112 L272 78"
+                fill="none" stroke="#2E5AAC" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M74 78 L92 112 L110 78 L128 112 L146 78 L164 112 L182 78 L200 112 L218 78 L236 112 L254 78 L272 112"
+                fill="none" stroke="#2E5AAC" stroke-width="2.2" stroke-linejoin="round" opacity=".35"/>
+          <line x1="272" y1="78" x2="272" y2="112" stroke="#2E5AAC" stroke-width="2.2"/>
+          <line x1="10" y1="95" x2="290" y2="95" stroke="rgba(10,10,11,.3)" stroke-width=".7" stroke-dasharray="7 3 1.5 3"/>
+          <text x="150" y="152" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="rgba(10,10,11,.5)">CONSTANT MAJOR &amp; MINOR DIAMETER · BLUNT END</text>
+        </svg>
+        <figcaption>Uniform profile · no point · requires a mating internal thread</figcaption>
+      </figure>
+
+      <div>
+        <h3 class="tt-h3">What defines the family</h3>
+        <p class="tt-p">
+          Full-form 60° threads running at constant major and minor diameter from the head to
+          a blunt or chamfered end. There is no lead point, no flute, no gap in the thread —
+          the screw is designed to be started by hand into an existing thread and to develop
+          its full stripping capacity across the whole engagement.
+        </p>
+
+        <dl class="tt-spec">
+          <dt>Profile</dt><dd>60° symmetric — ISO 68-1 metric, or ASME B1.1 Unified</dd>
+          <dt>Series</dt><dd>M coarse and fine · UNC, UNF, UNEF, UNS · BSW, BSF for legacy</dd>
+          <dt>Class</dt><dd>6g/6H metric · 2A/2B general, 3A/3B close, 1A/1B loose</dd>
+          <dt>Mates with</dt><dd>Nut, tapped hole, threaded insert, weld nut, clinch nut</dd>
+          <dt>Head standards</dt><dd>DIN 84, DIN 963, DIN 965, ISO 1207, ISO 7045, ASME B18.6.3</dd>
+          <dt>Point styles</dt><dd>Flat, chamfered, dog, cone, cup, oval — ISO 4753</dd>
+        </dl>
+
+        <div class="tt-usecase">
+          <span>ELECTRONICS</span><span>PANEL ASSEMBLY</span><span>MACHINE BUILD</span>
+          <span>INSTRUMENTATION</span><span>SWITCHGEAR</span><span>WHITE GOODS</span>
+        </div>
+
+        <div class="tt-callout" style="margin-top:32px">
+          <h4 class="tt-h4">The most common field failure is not the screw</h4>
+          <p>
+            Cross-threading accounts for a large share of machine-screw assembly loss. It is a
+            starting-alignment problem, not a strength problem — and it is why coarse pitch,
+            with its steeper flank spacing and greater tolerance to misalignment, remains the
+            correct default for hand and robotic assembly alike. A dog point or a lead-in
+            chamfer on the mating thread solves more assembly defects than a tolerance change.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     12 · TAPPING SCREW THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="tapping-screws" data-accent="tapping">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">12 — Tapping screw threads</p>
+    <h2 class="tt-h2 tt-rev">Threads that make their own hole thread</h2>
+    <p class="tt-lede tt-rev">
+      A tapping screw arrives at a plain pilot hole and leaves a threaded one. Two mechanisms
+      exist and they are routinely confused: <b>thread-cutting</b> screws remove material
+      through a flute, and <b>thread-forming</b> screws displace it. The choice governs driving
+      torque, holding power, reusability and whether swarf ends up inside the assembly.
+    </p>
+
+    <div class="tt-strip tt-rev">
+      <div><b>ST2.2</b><span>Smallest ISO 1478 tapping screw thread — through ST9.5</span></div>
+      <div><b>60°</b><span>Included flank angle, but deeper and wider-pitched than machine screws</span></div>
+      <div><b>0 swarf</b><span>Thread-forming produces none; thread-cutting always does</span></div>
+      <div><b>2×</b><span>Typical strip-to-drive torque ratio needed for a safe assembly window</span></div>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Point and thread designations</h3>
+    <div class="tt-matrix tt-rev">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Type</th><th scope="col">Mechanism</th><th scope="col">Point geometry</th>
+            <th scope="col">Designed for</th><th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Type AB</th><td>Forming</td>
+            <td>Sharp gimlet point, ~40–50° cone</td>
+            <td>Sheet metal 0.4–2 mm, resin board, asbestos board</td>
+            <td>The general-purpose sheet screw. Spaced thread, sharp point starts in a punched or drilled hole without a tap.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type B</th><td>Forming</td>
+            <td>Blunt, truncated point</td>
+            <td>Heavier sheet, non-ferrous castings, plastics</td>
+            <td>Same thread as AB with a blunt end. Needed where a sharp point would foul components behind the panel.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type A</th><td>Forming</td>
+            <td>Sharp gimlet, coarser spacing than AB</td>
+            <td>Thin sheet and soft materials</td>
+            <td>Largely superseded by AB in new design; still specified for legacy assemblies.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type C</th><td>Forming</td>
+            <td>Blunt, full machine-screw thread</td>
+            <td>Where a machine screw must be substituted later</td>
+            <td>Same pitch as a machine screw, so the formed hole accepts a standard screw on rework.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type 17</th><td>Cutting</td>
+            <td>Sharp point with a slot cut through the tip</td>
+            <td>Timber, chipboard, decking, thin steel</td>
+            <td>The slot acts as a cutting edge and swarf pocket. Eliminates splitting near edges.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type 23 / BT</th><td>Cutting</td>
+            <td>Blunt point with a wide single flute</td>
+            <td>Aluminium, zinc, brass, plastics</td>
+            <td>Thread-cutting into low-ductility material where forming would crack the boss.</td>
+          </tr>
+          <tr>
+            <th scope="row">Type 25 / BF</th><td>Cutting</td>
+            <td>Blunt point, wide flute, spaced thread</td>
+            <td>Tough and fibrous plastics</td>
+            <td>Spaced thread gives swarf room and reduces the chance of a packed flute.</td>
+          </tr>
+          <tr>
+            <th scope="row">Trilobular</th><td>Forming</td>
+            <td>Lobed cross-section, tapered lead threads</td>
+            <td>Steel, aluminium, castings — metal-to-metal</td>
+            <td>Three-lobe body contacts intermittently. Cuts driving torque sharply and leaves cold-worked, prevailing-torque threads.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag win">Thread forming</span>
+        <h3 class="tt-h3">Displaces the material</h3>
+        <p class="tt-p">
+          No chips, so nothing loose ends up inside a gearbox or an electrical enclosure.
+          The cold-worked hole thread is stronger than the parent material and grips back
+          against the screw, giving inherent prevailing torque and vibration resistance.
+        </p>
+        <ul>
+          <li>Higher pull-out and stripping strength</li>
+          <li>Built-in resistance to loosening</li>
+          <li>Requires ductile material and correct pilot hole</li>
+          <li>Higher driving torque than cutting</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag lose">Thread cutting</span>
+        <h3 class="tt-h3">Removes the material</h3>
+        <p class="tt-p">
+          The flute severs a chip. Low driving torque and no radial burst pressure, which is
+          what makes it the correct choice for brittle castings and filled plastics — at the
+          cost of swarf and a weaker, non-work-hardened thread.
+        </p>
+        <ul>
+          <li>Low driving torque, low boss stress</li>
+          <li>Suits brittle and low-ductility material</li>
+          <li>Produces swarf that must be managed</li>
+          <li>No inherent prevailing torque</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">The pilot hole is the specification</h4>
+      <p>
+        Every tapping screw has a narrow band of correct hole size. Too small and driving
+        torque climbs until the screw shears or the boss splits; too large and stripping
+        torque falls until the joint has no holding power. The number that matters is the
+        <b>ratio of stripping torque to driving torque</b> — aim for at least 2:1 in a
+        hand-assembled joint and higher where automated drivers with torque scatter are used.
+        Pradako supplies pilot-hole and torque-window data with every thread-forming part number.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     13 · SELF-DRILLING SCREWS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="self-drilling" data-accent="drilling">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">13 — Self-drilling screw threads</p>
+    <h2 class="tt-h2 tt-rev">Drill, tap and fasten in one motion</h2>
+    <p class="tt-lede tt-rev">
+      A self-drilling screw carries its own twist-drill point. It must complete three
+      operations in sequence during a single driver cycle — drill through, form the thread,
+      then seat and clamp — and each has to finish before the next begins. Get the sequence
+      wrong and the screw either burns out its point or strips the hole it just made.
+    </p>
+
+    <div class="tt-atlas tt-rev">
+      <figure class="tt-atlas-visual">
+        <svg viewBox="0 0 300 210" role="img" aria-label="Self-drilling screw showing hex washer head, threaded shank, unthreaded flute length and drill point">
+          <rect x="16" y="58" width="26" height="70" fill="none" stroke="#0F7B5A" stroke-width="2"/>
+          <rect x="10" y="120" width="38" height="10" fill="none" stroke="#0F7B5A" stroke-width="2"/>
+          <path d="M48 118 L64 76 L80 118 L96 76 L112 118 L128 76 L144 118 L160 76 L176 118 L192 76 L208 118"
+                fill="none" stroke="#0F7B5A" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M208 118 L208 76" stroke="#0F7B5A" stroke-width="2.2"/>
+          <rect x="208" y="82" width="42" height="30" fill="none" stroke="#0F7B5A" stroke-width="2"/>
+          <path d="M250 82 L282 97 L250 112 Z" fill="none" stroke="#0F7B5A" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M214 82 l10 30 M228 82 l10 30" stroke="#0F7B5A" stroke-width="1.3" opacity=".6"/>
+          <g stroke="rgba(10,10,11,.34)" stroke-width=".7">
+            <line x1="208" y1="128" x2="208" y2="146"/><line x1="282" y1="128" x2="282" y2="146"/>
+            <line x1="208" y1="140" x2="282" y2="140"/>
+          </g>
+          <text x="245" y="162" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9.5" fill="#0F7B5A">DRILL FLUTE LENGTH</text>
+          <text x="130" y="190" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9.5" fill="rgba(10,10,11,.5)">MUST EXCEED TOTAL STEEL THICKNESS BEFORE THE FIRST THREAD ENGAGES</text>
+        </svg>
+        <figcaption>Point sizes 1–5 · flute length is the governing dimension</figcaption>
+      </figure>
+
+      <div>
+        <h3 class="tt-h3">Point classification and steel capacity</h3>
+        <div class="tt-matrix" style="margin-top:22px">
+          <table style="min-width:520px">
+            <thead>
+              <tr><th scope="col">Point</th><th scope="col">Steel capacity</th><th scope="col">Typical use</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Point 1</th><td>Up to ~0.9 mm</td><td>Light gauge sheet, flashing, trim</td></tr>
+              <tr><th scope="row">Point 2</th><td>~0.9 – 2.0 mm</td><td>Purlin fixing, cladding to light steel</td></tr>
+              <tr><th scope="row">Point 3</th><td>~2.0 – 4.5 mm</td><td>Roof sheet to structural purlin, decking</td></tr>
+              <tr><th scope="row">Point 4</th><td>~4.5 – 6.0 mm</td><td>Heavier structural steel, rail</td></tr>
+              <tr><th scope="row">Point 5</th><td>~6.0 – 12.5 mm</td><td>Hot-rolled section, heavy plate</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="tt-h3" style="margin-top:36px">The three failures</h3>
+        <ol class="tt-steps">
+          <li><div>
+            <h4 class="tt-h4">Point burn-out</h4>
+            <p>Drilling continues past the point's thermal limit because the driver speed is
+            too high or the steel too thick for the point class. The tip work-hardens the hole
+            and stops cutting. Correct by dropping to a lower driver speed, not by pushing harder.</p>
+          </div></li>
+          <li><div>
+            <h4 class="tt-h4">Premature thread engagement</h4>
+            <p>The first thread reaches the top sheet before the drill point has broken
+            through the bottom one. The screw then tries to pull itself through material it has
+            not yet drilled, and either shears or lifts the sheets apart. This is a flute-length
+            selection error and the most common self-drilling fault on site.</p>
+          </div></li>
+          <li><div>
+            <h4 class="tt-h4">Over-drive and strip</h4>
+            <p>The driver keeps turning after seating. Thin-gauge steel strips at the formed
+            thread almost instantly. Depth-sensing nose cones and clutch settings exist for
+            exactly this reason.</p>
+          </div></li>
+        </ol>
+
+        <div class="tt-usecase">
+          <span>ROOFING</span><span>CLADDING</span><span>PURLIN FIXING</span>
+          <span>METAL DECK</span><span>HVAC DUCTING</span><span>SOLAR MOUNTING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BANNER — CONSTRUCTION / ROOFING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-banner" data-accent="drilling">
+  <div class="tt-shell">
+    <span class="tt-banner-tag">Sector capability · Construction &amp; roofing</span>
+    <h2>Self-drilling threads engineered for the roof, the purlin and the solar rail</h2>
+    <p>
+      Pradako manufactures self-drilling and self-tapping fasteners across point classes 1
+      through 5, with drill flute length matched to the declared steel thickness rather than
+      to a catalogue nominal — the single specification that decides whether the screw seats
+      or shears on site. Case-hardened carbon steel, bimetallic austenitic-tip constructions
+      for coastal and corrosive exposure, and coating systems qualified to cyclic salt-spray
+      test regimes.
+    </p>
+    <div class="tt-banner-caps">
+      <div>
+        <h4>Points 1–5</h4>
+        <p>Full range from 0.9 mm sheet to 12.5 mm hot-rolled section, with flute length
+        verified against stated total steel thickness.</p>
+      </div>
+      <div>
+        <h4>Bimetallic construction</h4>
+        <p>Austenitic stainless body with a hardened carbon-steel drill tip — corrosion
+        performance without losing drilling capacity.</p>
+      </div>
+      <div>
+        <h4>Sealed washer assemblies</h4>
+        <p>Bonded EPDM and vulcanised washer assemblies for weathertight sheet fixing,
+        supplied pre-assembled to the screw.</p>
+      </div>
+      <div>
+        <h4>Solar mounting</h4>
+        <p>Threads and coatings specified for rooftop PV rail and clamp assemblies, including
+        dissimilar-metal isolation requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     14 · THREADS FOR THERMOPLASTICS — PT / DELTA PT / Y-TYPE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="plastic-threads" data-accent="forming">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">14 — Threads for thermoplastics</p>
+    <h2 class="tt-h2 tt-rev">Narrow flank angles, because plastic bursts</h2>
+    <p class="tt-lede tt-rev">
+      Driving a screw into a moulded boss generates radial pressure. A conventional 60°
+      profile directs a large part of the forming force outwards, and the boss cracks —
+      sometimes immediately, more often weeks later under thermal cycling. The answer is a
+      narrower flank angle, a deeper thread and a smaller core.
+    </p>
+
+    <div class="tt-atlas tt-rev">
+      <figure class="tt-atlas-visual">
+        <svg viewBox="0 0 300 210" role="img" aria-label="Comparison of a 60 degree profile and a 30 degree PT profile showing radial force direction">
+          <text x="20" y="26" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="rgba(10,10,11,.5)">60° CONVENTIONAL</text>
+          <path d="M20 84 L46 40 L72 84 L98 40 L124 84 L150 40 L176 84"
+                fill="none" stroke="rgba(10,10,11,.30)" stroke-width="2.2" stroke-linejoin="round"/>
+          <g stroke="rgba(10,10,11,.45)" stroke-width="1.4">
+            <path d="M46 44 l30 0"/><path d="M70 40 l8 4 l-8 4"/>
+            <path d="M98 44 l30 0"/><path d="M122 40 l8 4 l-8 4"/>
+          </g>
+          <text x="196" y="48" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="rgba(10,10,11,.45)">HIGH RADIAL</text>
+          <text x="196" y="60" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="rgba(10,10,11,.45)">FORCE</text>
+
+          <text x="20" y="130" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#7A2E8E">30° PT PROFILE</text>
+          <path d="M20 190 L40 142 L60 190 L80 142 L100 190 L120 142 L140 190 L160 142 L180 190"
+                fill="none" stroke="#7A2E8E" stroke-width="2.4" stroke-linejoin="round"/>
+          <g stroke="#7A2E8E" stroke-width="1.4">
+            <path d="M40 148 l14 0"/><path d="M50 144 l6 4 l-6 4"/>
+            <path d="M80 148 l14 0"/><path d="M90 144 l6 4 l-6 4"/>
+          </g>
+          <text x="200" y="150" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#7A2E8E">RADIAL FORCE</text>
+          <text x="200" y="162" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#7A2E8E">ROUGHLY HALVED</text>
+        </svg>
+        <figcaption>Flank angle governs the split between axial hold and radial burst</figcaption>
+      </figure>
+
+      <div>
+        <h3 class="tt-h3">The families</h3>
+
+        <h4 class="tt-h4" style="margin-top:20px">PT — 30° symmetric, wide pitch</h4>
+        <p class="tt-p">
+          The reference thread form for thermoplastic assembly. A 30° flank angle cuts radial
+          pressure to roughly half that of a 60° profile, and a widely spaced, deep thread on
+          a slim core gives the displaced polymer somewhere to flow. The practical result is a
+          wider torque window — a bigger gap between the torque needed to drive and the torque
+          that strips — which is what makes automated assembly repeatable.
+        </p>
+
+        <h4 class="tt-h4" style="margin-top:22px">Delta PT and asymmetric derivatives</h4>
+        <p class="tt-p">
+          Refinements of the PT concept with modified root radii and asymmetric flanks that
+          direct polymer flow towards the core rather than outwards. Intended for glass-filled,
+          mineral-filled and higher-modulus engineering resins where plain PT begins to crack
+          the boss.
+        </p>
+
+        <h4 class="tt-h4" style="margin-top:22px">Y-type and 45° forming threads</h4>
+        <p class="tt-p">
+          A narrow-flank asymmetric family used where the resin is stiff enough to resist a
+          30° form but too brittle for 60°. These are proprietary geometries rather than
+          ISO- or DIN-defined forms, so they are made and gauged to customer drawing —
+          Pradako holds the tooling for the profiles it manufactures and controls them against
+          the customer's own print, not against a public standard.
+        </p>
+
+        <dl class="tt-spec">
+          <dt>Flank angle</dt><dd>30° soft resins · 45° medium · asymmetric variants for filled grades</dd>
+          <dt>Boss OD</dt><dd>Typically 2.0–2.5 × screw nominal diameter</dd>
+          <dt>Boss depth</dt><dd>Engagement typically 2.0–2.5 × nominal, plus a lead-in relief</dd>
+          <dt>Pilot hole</dt><dd>Sized on the screw's pitch diameter and the resin's modulus, not on the core</dd>
+          <dt>Torque window</dt><dd>Strip / drive ratio of 2.5:1 or better for automated assembly</dd>
+          <dt>Failure mode</dt><dd>Boss cracking (radial) · thread strip (axial) · creep relaxation (time)</dd>
+        </dl>
+
+        <div class="tt-usecase">
+          <span>INSTRUMENT CLUSTERS</span><span>ECU HOUSINGS</span><span>HVAC MODULES</span>
+          <span>DOOR TRIM</span><span>BATTERY ENCLOSURES</span><span>WHITE GOODS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Reassembly is the design case nobody specifies</h4>
+      <p>
+        A thread-forming screw into plastic is at its strongest the first time. Every
+        subsequent removal and refit into the same boss loses holding power, because the
+        formed thread is cold-worked polymer, not metal. If the joint will be opened in
+        service — a serviceable module, a warranty repair, an end-of-life disassembly — the
+        correct answer is a moulded-in or ultrasonically installed brass insert with a
+        standard machine screw, not a larger forming screw.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     15 · HIGH-LOW THREAD
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="high-low" data-accent="highlow">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">15 — High-Low thread</p>
+    <h2 class="tt-h2 tt-rev">Two thread heights on one helix</h2>
+    <p class="tt-lede tt-rev">
+      The High-Low form alternates a tall, sharp 30° thread with a short intermediate one on
+      the same lead. The high thread cuts deep into low-density material to generate shear
+      area; the low thread sits between, supporting the formed material and stopping it from
+      collapsing back. The core diameter is smaller than a conventional screw of the same
+      nominal size, so there is more material engaged and less displaced.
+    </p>
+
+    <div class="tt-atlas tt-rev">
+      <figure class="tt-atlas-visual">
+        <svg viewBox="0 0 300 200" role="img" aria-label="High-Low thread profile with alternating tall and short threads on a reduced core">
+          <path d="M16 150 L38 40 L60 150 L82 92 L104 150 L126 40 L148 150 L170 92 L192 150 L214 40 L236 150 L258 92 L280 150"
+                fill="none" stroke="#A8611B" stroke-width="2.4" stroke-linejoin="round"/>
+          <line x1="10" y1="150" x2="290" y2="150" stroke="rgba(10,10,11,.22)" stroke-width="1"/>
+          <line x1="10" y1="40" x2="290" y2="40" stroke="rgba(10,10,11,.14)" stroke-width=".8" stroke-dasharray="4 3"/>
+          <line x1="10" y1="92" x2="290" y2="92" stroke="rgba(10,10,11,.14)" stroke-width=".8" stroke-dasharray="4 3"/>
+          <text x="286" y="36" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#A8611B">HIGH THREAD</text>
+          <text x="286" y="88" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="rgba(10,10,11,.5)">LOW THREAD</text>
+          <text x="286" y="166" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="rgba(10,10,11,.5)">REDUCED CORE</text>
+        </svg>
+        <figcaption>30° high thread · intermediate low thread · slim core</figcaption>
+      </figure>
+
+      <div>
+        <h3 class="tt-h3">Why it works in low-density material</h3>
+        <p class="tt-p">
+          In plastic, timber, chipboard and drywall the limit is never the screw — it is the
+          shear strength of the surrounding material. High-Low attacks that directly: the tall
+          sharp thread increases the axial shear area engaged per unit length, while the 30°
+          included angle keeps radial bursting pressure to roughly half that of a conventional
+          60° form. That combination is what allows a smaller boss, a fixing closer to a board
+          edge, and a usable thread in brittle phenolic or glass-filled material.
+        </p>
+
+        <dl class="tt-spec">
+          <dt>High thread</dt><dd>30° included, deep, sharp crest — carries the pull-out load</dd>
+          <dt>Low thread</dt><dd>Intermediate height between each high thread — supports formed material</dd>
+          <dt>Core</dt><dd>Reduced minor diameter, increasing available thread depth</dd>
+          <dt>Best in</dt><dd>Low-density plastics, phenolic, chipboard, drywall, soft timber, masonry plugs</dd>
+          <dt>Avoid in</dt><dd>Steel and other high-modulus material — no benefit, and driving torque rises</dd>
+          <dt>Key benefit</dt><dd>Higher pull-out per unit engagement with reduced splitting and boss cracking</dd>
+        </dl>
+
+        <div class="tt-usecase">
+          <span>PHENOLIC MOULDINGS</span><span>GLASS-FILLED NYLON</span><span>CHIPBOARD</span>
+          <span>DRYWALL</span><span>APPLIANCE HOUSINGS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     16 · DOUBLE-START / TWIN-LEAD THREAD
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="double-thread" data-accent="double">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">16 — Double-start and twin-lead threads</p>
+    <h2 class="tt-h2 tt-rev">Two helices, twice the travel per turn</h2>
+    <p class="tt-lede tt-rev">
+      Cut a second thread starting 180° round from the first, at the same pitch, and the lead
+      doubles while the profile depth stays the same. The screw drives in half the revolutions.
+      Section 01 already gives the consequence: the helix angle roughly doubles too, and the
+      thread moves closer to the self-locking limit.
+    </p>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">L = 2P</span>
+        <h3 class="tt-h4">Half the drive time</h3>
+        <p>The dominant reason for specifying twin lead in high-volume assembly. Fewer driver
+        revolutions per fastener translates directly into line cycle time.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">λ ×2</span>
+        <h3 class="tt-h4">Steeper helix</h3>
+        <p>Lead angle roughly doubles. Still self-locking on a typical fastener, but the
+        margin against the friction angle shrinks — verify where vibration is present.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">Ø core</span>
+        <h3 class="tt-h4">Same section</h3>
+        <p>Profile depth and core diameter are unchanged, so tensile capacity is unchanged.
+        What changes is engagement density: fewer thread turns engaged per unit length.</p>
+      </div>
+    </div>
+
+    <p class="tt-p tt-rev">
+      Twin-lead is standard on drywall screws, chipboard and decking screws, plastic-forming
+      screws for deep bosses, and on assembly-critical automotive fasteners where takt time
+      governs. It is <b>not</b> appropriate where fine preload resolution is needed, because
+      the same angular error at the driver now produces twice the extension error in the bolt.
+    </p>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Designation discipline</h4>
+      <p>
+        A multi-start thread must be designated by both lead and pitch — for example
+        <b>Tr 20 × 8 (P4) LH-2N</b>, meaning trapezoidal, 20 mm nominal, 8 mm lead, 4 mm
+        pitch, left hand, two starts. Writing only the lead is the classic source of a gauge
+        mismatch between the customer's drawing and the supplier's tooling. Pradako quotes
+        multi-start work with lead, pitch and start count stated separately on the order
+        acknowledgement.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BANNER — AUTOMOTIVE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-banner" data-accent="forming">
+  <div class="tt-shell">
+    <span class="tt-banner-tag">Sector capability · Automotive</span>
+    <h2>PT, Delta-type, Y-type, High-Low and double-lead threads for vehicle assembly</h2>
+    <p>
+      Vehicle interiors, electronic modules and battery enclosures are assembled overwhelmingly
+      into moulded thermoplastic. Those joints fail through boss cracking, torque-window
+      collapse and creep relaxation — not through screw strength. Pradako manufactures the
+      narrow-flank forming threads that address each of those mechanisms, to customer drawing
+      and under IATF 16949 control, with PPAP documentation and torque-window data supplied
+      against the actual resin and boss geometry.
+    </p>
+    <div class="tt-banner-caps">
+      <div>
+        <h4>PT &amp; 30° forming threads</h4>
+        <p>Wide-pitch, slim-core geometry for soft and medium thermoplastic bosses, with
+        strip-to-drive ratio validated on the customer's own moulding.</p>
+      </div>
+      <div>
+        <h4>Y-type &amp; asymmetric profiles</h4>
+        <p>Narrow-flank asymmetric forms for glass- and mineral-filled resins, tooled and
+        gauged to the customer print where no public standard exists.</p>
+      </div>
+      <div>
+        <h4>High-Low threads</h4>
+        <p>Dual-height profile for low-density and brittle mouldings — greater shear area
+        with roughly half the radial burst pressure of a 60° form.</p>
+      </div>
+      <div>
+        <h4>Double-lead threads</h4>
+        <p>Twin-start geometry for takt-time-driven assembly lines, with lead, pitch and
+        start count controlled separately on every order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     17 · WOOD, CHIPBOARD AND DECKING THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="wood-threads" data-accent="wood">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">17 — Wood, chipboard and decking threads</p>
+    <h2 class="tt-h2 tt-rev">A thread that must not split the material it holds</h2>
+    <p class="tt-lede tt-rev">
+      Timber fails by splitting along the grain, and the splitting force is the radial
+      component the thread generates as it drives. Every feature of a modern wood screw
+      exists to reduce that component while keeping shear area high: a sharp narrow thread,
+      a slim core, a partially unthreaded shank, and a cutting slot at the tip.
+    </p>
+
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">POINT</span>
+        <h3 class="tt-h4">Type 17 cut</h3>
+        <p>A slot milled through the tip turns the point into a cutting edge with a chip
+        pocket. Starts without a pilot hole and dramatically reduces edge splitting.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">SHANK</span>
+        <h3 class="tt-h4">Unthreaded upper shank</h3>
+        <p>The thread must engage only the lower member. A plain shank through the top piece
+        lets the two boards be pulled together instead of being jacked apart.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">RIBS</span>
+        <h3 class="tt-h4">Nibs under the head</h3>
+        <p>Cutting ribs on the underside of a countersunk head clear a seat in the surface
+        fibre so the head sits flush without crushing or lifting the grain.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">SERRATION</span>
+        <h3 class="tt-h4">Serrated thread crest</h3>
+        <p>Notched crests on the leading threads cut rather than push, lowering driving torque
+        in dense hardwood and treated timber.</p>
+      </div>
+    </div>
+
+    <p class="tt-p tt-rev">
+      <b>Chipboard and decking</b> screws take this further with twin-lead threads for speed
+      and a very slim core for maximum thread depth in a weak, non-fibrous board. <b>Structural
+      timber</b> screws move in the opposite direction — larger core, full-length thread, and
+      qualified withdrawal and shear capacities to a technical approval such as ETA, because
+      they are carrying a designed load rather than simply holding a board down.
+    </p>
+
+    <div class="tt-usecase tt-rev">
+      <span>FURNITURE</span><span>DECKING</span><span>ROOF BATTEN</span>
+      <span>TIMBER FRAME</span><span>PACKING CASE</span><span>PALLET</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ONE-LINER B
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-oneliner" data-accent="struct">
+  <div class="tt-oneliner-ghost" aria-hidden="true">
+    <svg viewBox="0 0 800 300">
+      <circle cx="400" cy="150" r="130" fill="none" stroke="#fff" stroke-width="4"/>
+      <circle cx="400" cy="150" r="92" fill="none" stroke="#fff" stroke-width="4"/>
+      <path d="M270 150 h260 M400 20 v260" stroke="#fff" stroke-width="2"/>
+      <path d="M308 58 L492 242 M492 58 L308 242" stroke="#fff" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="tt-shell">
+    <p class="tt-oneliner-eyebrow">Part three — the loaded joint</p>
+    <h2>Every thread is a compromise between going in <em>easily</em> and staying in <em>forever</em>.</h2>
+    <p class="sub">
+      Driving torque and holding power are the same geometry read in two directions.
+      Structural, aerospace and pressure work sit at the far end of that trade — assembly
+      convenience is surrendered entirely in favour of predictable, verifiable capacity.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     18 · STRUCTURAL FASTENERS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="structural" data-accent="struct">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">18 — Structural bolting</p>
+    <h2 class="tt-h2 tt-rev">Where the thread must be out of the shear plane</h2>
+    <p class="tt-lede tt-rev">
+      In a structural connection the designer decides not only the bolt grade but where the
+      thread is permitted to be. A shear plane passing through the threads uses the tensile
+      stress area; a plane through the plain shank uses the full nominal section — a capacity
+      difference of roughly a quarter, decided entirely by grip length and thread length.
+    </p>
+
+    <div class="tt-matrix tt-rev">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">System</th><th scope="col">Standard</th><th scope="col">Thread</th>
+            <th scope="col">Preload method</th><th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">HSFG / preloaded</th><td>EN 14399, IS 3757</td><td>M coarse, 8.8 and 10.9</td>
+            <td>Torque, combined torque-angle, or DTI washer</td>
+            <td>Slip resistance depends on preload, so the tightening method is part of the structural design, not a site decision.</td>
+          </tr>
+          <tr>
+            <th scope="row">Tension control bolt</th><td>EN 14399-10, ASTM F3125 Gr. F1852</td><td>M coarse with splined tail</td>
+            <td>Spline shears at calibrated preload</td>
+            <td>The bolt certifies its own installation. The severed spline is the visual record that preload was reached.</td>
+          </tr>
+          <tr>
+            <th scope="row">Heavy hex structural</th><td>ASTM F3125 Gr. A325 / A490</td><td>UNC, Class 2A</td>
+            <td>Turn-of-nut, calibrated wrench, DTI</td>
+            <td>Thread length is specified so that threads can be excluded from the shear plane where the design requires it.</td>
+          </tr>
+          <tr>
+            <th scope="row">Anchor bolt</th><td>ASTM F1554, IS 5624</td><td>UNC Class 1A or 2A</td>
+            <td>Snug plus specified rotation</td>
+            <td>Threads may be rolled, cut or ground at the manufacturer's option — the specification permits all three.</td>
+          </tr>
+          <tr>
+            <th scope="row">Stud bolt, flanged joint</th><td>ASTM A193 / A194</td><td>UNC to 1", 8UN above</td>
+            <td>Torque or hydraulic tensioning</td>
+            <td>A194 nuts to 1" use UNC Class 2B; over 1", 8UN Class 2B is furnished unless otherwise specified.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">The 8-thread series exists for a reason</h4>
+      <p>
+        Above one inch, UNC pitch grows steeply — a 2" UNC bolt has a 4.5 TPI thread, deep
+        enough to remove a significant part of the section and to make preload control coarse.
+        The <b>8UN series</b> holds pitch constant at 8 threads per inch regardless of
+        diameter, preserving stress area and giving finer control on large-diameter studs.
+        It is the specified series for several ASTM pressure and structural standards,
+        including A193 B7, A193 B8/B8M and A320.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     19 · INTERNAL THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="internal-threads" data-accent="internal">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">19 — Internal threads</p>
+    <h2 class="tt-h2 tt-rev">The half of the joint that fails silently</h2>
+    <p class="tt-lede tt-rev">
+      A bolt that breaks announces itself. A nut whose threads have stripped looks exactly
+      like a nut that is doing its job. ISO 898-2 exists to make the first outcome the likely
+      one — nut heights and property classes are set so the bolt reaches tensile failure
+      before the threads shear.
+    </p>
+
+    <div class="tt-tablewrap tt-rev">
+      <table class="tt-table">
+        <caption>ISO 898-2 — nut class and maximum mating bolt class</caption>
+        <thead>
+          <tr><th scope="col">Nut property class</th><th scope="col">Maximum mating bolt, screw or stud class</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>5</td><td>5.8</td></tr>
+          <tr><td>6</td><td>6.8</td></tr>
+          <tr class="is-hi"><td>8</td><td>8.8</td></tr>
+          <tr><td>9</td><td>9.8</td></tr>
+          <tr class="is-hi"><td>10</td><td>10.9</td></tr>
+          <tr class="is-hi"><td>12</td><td>12.9</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">STYLE 0</span>
+        <h3 class="tt-h4">Thin nut</h3>
+        <p>Reduced height, reduced loadability. Not intended to give full stripping resistance.
+        Used as a jam nut — tightened first, with the regular nut then tightened against it.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">STYLE 1</span>
+        <h3 class="tt-h4">Regular nut</h3>
+        <p>The standard height of approximately 0.8 d, set by the load distribution across the
+        first six engaged threads rather than by convention.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">STYLE 2</span>
+        <h3 class="tt-h4">High nut</h3>
+        <p>Increased height for higher property classes and for sizes where a 0.8 d nut can no
+        longer guarantee bolt failure before stripping — a concern specifically noted above M39.</p>
+      </div>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Overtapping for coatings</h3>
+    <p class="tt-p tt-rev">
+      A coated nut cannot be tapped to the same limits as a bare one. Hot-dip galvanized nuts
+      are tapped <b>after</b> coating, to oversize tolerance classes such as 6AZ and 6AX under
+      ISO 10684. Mechanically zinc-coated nuts may be tapped oversize before coating and need
+      no retapping. Both routes cost stripping strength: fundamental deviation greater than
+      zero from 6H reduces thread-stripping capacity, and that reduction has to be accepted in
+      the joint design rather than discovered on assembly.
+    </p>
+
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">01</span>
+        <h3 class="tt-h4">Tapped hole</h3>
+        <p>Cheapest, and adequate where the parent material is strong enough and the joint is
+        not repeatedly opened.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">02</span>
+        <h3 class="tt-h4">Helical coil insert</h3>
+        <p>Wire coil in an oversize tapped hole. Restores full thread strength in aluminium and
+        magnesium, and is the standard field repair for a stripped hole.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">03</span>
+        <h3 class="tt-h4">Solid bushing insert</h3>
+        <p>Self-tapping or keyed solid inserts. Higher radial strength than a coil and better
+        suited to thin bosses and repeated disassembly.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">04</span>
+        <h3 class="tt-h4">Moulded-in insert</h3>
+        <p>Brass insert installed by heat, ultrasonic or moulding into thermoplastic. The
+        correct answer whenever a plastic joint must be serviceable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     20 · PIPE & SEALING THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="pipe-threads" data-accent="pipe">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">20 — Pipe and sealing threads</p>
+    <h2 class="tt-h2 tt-rev">Threads that hold pressure, not load</h2>
+    <p class="tt-lede tt-rev">
+      A pipe thread is not a fastener. Its job is to close a leak path, and the two families
+      do it in fundamentally different ways: a taper thread seals on the flanks as it wedges,
+      a parallel thread does not seal at all and needs a washer, an O-ring or a bonded seat.
+    </p>
+
+    <div class="tt-matrix tt-rev">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Designation</th><th scope="col">Standard</th><th scope="col">Form</th>
+            <th scope="col">Seals on</th><th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">BSPT · R</th><td>ISO 7-1</td><td>55° Whitworth, taper 1:16</td>
+            <td>Thread flanks, with sealant</td>
+            <td>Rounded crest and root. Mates with a parallel Rp or a taper Rc internal thread.</td>
+          </tr>
+          <tr>
+            <th scope="row">BSPP · G</th><td>ISO 228-1</td><td>55° Whitworth, parallel</td>
+            <td>Nothing — needs a seal</td>
+            <td>Mechanical joint only. Sealed by bonded washer, O-ring in a machined seat, or a cone.</td>
+          </tr>
+          <tr>
+            <th scope="row">NPT</th><td>ASME B1.20.1</td><td>60°, taper 1:16</td>
+            <td>Thread flanks, with sealant</td>
+            <td>Truncated crest and root, so a small spiral leak path remains — sealant is mandatory, not optional.</td>
+          </tr>
+          <tr>
+            <th scope="row">NPTF · dryseal</th><td>ASME B1.20.3</td><td>60°, taper 1:16, controlled truncation</td>
+            <td>Crest-to-root interference</td>
+            <td>Crest and root deform into each other to close the spiral path. Intended to seal without compound.</td>
+          </tr>
+          <tr>
+            <th scope="row">Metric parallel · M</th><td>ISO 9974, ISO 6149</td><td>60° parallel</td>
+            <td>Face seal or O-ring</td>
+            <td>The hydraulic port standard across most of Europe and increasingly in Indian OEM design.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">NPT and BSPT are not interchangeable</h4>
+      <p>
+        They share the same 1:16 taper and look nearly identical in the hand. They differ in
+        flank angle — 60° against 55° — and in threads per inch at most sizes. Assembling one
+        into the other produces a joint that starts, feels tight and leaks under pressure,
+        often only after commissioning. The failure is common enough in imported assemblies
+        that it is worth gauging rather than assuming.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     21 · AEROSPACE THREADS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="aerospace-threads" data-accent="aero">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">21 — Aerospace and high-fatigue threads</p>
+    <h2 class="tt-h2 tt-rev">The controlled root radius</h2>
+    <p class="tt-lede tt-rev">
+      Section 09 identified the root of the first engaged thread as where fatigue cracks start.
+      The UNJ and MJ series address it in the only way a standard can: by making a generous,
+      mandatory root radius part of the thread definition rather than leaving it to the tool.
+    </p>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag win">UNJ · inch</span>
+        <h3 class="tt-h3">ASME B1.15 · MIL-S-8879</h3>
+        <p class="tt-p">
+          A Unified thread with a mandatory enlarged root radius on the external thread, and a
+          correspondingly increased minor diameter on the internal thread to clear it.
+          Available in coarse, fine and extra-fine variants — UNJC, UNJF, UNJEF — plus the
+          fixed-pitch 8UNJ, 12UNJ and 16UNJ series.
+        </p>
+        <ul>
+          <li>Larger root radius lowers the stress concentration factor</li>
+          <li>Rolled after heat treatment as standard practice</li>
+          <li>Internal thread must be relieved to accept the larger external root</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag win">MJ · metric</span>
+        <h3 class="tt-h3">ISO 5855 · ISO 965-1</h3>
+        <p class="tt-p">
+          The metric counterpart, intended for aerospace threaded parts and other highly
+          stressed applications requiring high temperature or high fatigue strength, and for
+          no-allowance applications. Tolerance classes are close by design — 4h6h external,
+          4H5H and 4H6H internal.
+        </p>
+        <ul>
+          <li>Same controlled root radius principle as UNJ</li>
+          <li>Close tolerance classes with zero allowance</li>
+          <li>Not interchangeable with standard M threads</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">An MJ bolt will not fit a standard M nut correctly</h4>
+      <p>
+        The enlarged external root radius means the mating internal thread needs a larger minor
+        diameter. A standard 6H nut may start on an MJ bolt and will interfere at the root —
+        the assembly is not a qualified joint, and on an airframe it is a non-conformance.
+        The same applies between UNJ and standard UN. These are separate systems, not
+        upgraded variants of the same one.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     22 · SELECTION MATRIX + CROSS-REFERENCE DATA
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="selection" data-accent="data">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">22 — Selection and cross-reference</p>
+    <h2 class="tt-h2 tt-rev">Choosing by mating material</h2>
+    <p class="tt-lede tt-rev">
+      One table, read left to right: what you are fixing into, what thread family answers it,
+      and what governs the specification once the family is chosen.
+    </p>
+
+    <div class="tt-matrix tt-rev">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Fixing into</th><th scope="col">Thread family</th>
+            <th scope="col">Flank angle</th><th scope="col">Governing variable</th><th scope="col">Principal failure mode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Nut or tapped steel</th><td>Machine screw, M / UNC / UNF</td><td>60°</td><td>Preload accuracy and engagement length</td><td>Bolt tensile fracture, thread strip</td></tr>
+          <tr><th scope="row">Sheet steel 0.4–2 mm</th><td>Tapping screw, Type AB or B</td><td>60° spaced</td><td>Pilot hole diameter</td><td>Pull-out, sheet tear</td></tr>
+          <tr><th scope="row">Steel 2–12.5 mm</th><td>Self-drilling, points 3–5</td><td>60°</td><td>Drill flute length vs total thickness</td><td>Point burn-out, premature engagement</td></tr>
+          <tr><th scope="row">Aluminium, zinc, brass</th><td>Thread-cutting, Type 23 / BT, or trilobular</td><td>60°</td><td>Boss wall thickness</td><td>Boss cracking, thread strip</td></tr>
+          <tr><th scope="row">Soft thermoplastic</th><td>PT-style forming, 30°</td><td>30°</td><td>Boss OD and pilot diameter</td><td>Boss cracking, creep relaxation</td></tr>
+          <tr><th scope="row">Filled or brittle resin</th><td>Y-type asymmetric, 45°, or thread-cutting</td><td>30–45° asym.</td><td>Resin modulus and fill content</td><td>Radial split at the boss</td></tr>
+          <tr><th scope="row">Low-density plastic, phenolic</th><td>High-Low</td><td>30° high thread</td><td>Available shear area</td><td>Pull-out</td></tr>
+          <tr><th scope="row">Timber and chipboard</th><td>Type 17 point, twin lead</td><td>Narrow, sharp</td><td>Edge distance and shank length</td><td>Grain split, withdrawal</td></tr>
+          <tr><th scope="row">Structural steel connection</th><td>HSFG, TC bolt, heavy hex</td><td>60°</td><td>Thread position relative to shear plane</td><td>Slip, shear at reduced section</td></tr>
+          <tr><th scope="row">Pressure-tight pipe joint</th><td>BSPT / NPT taper, or BSPP with seal</td><td>55° / 60°</td><td>Sealant and engagement turns</td><td>Spiral leak path</td></tr>
+          <tr><th scope="row">Cyclic-load airframe joint</th><td>UNJ / MJ controlled root</td><td>60°</td><td>Root radius and rolling sequence</td><td>Root fatigue crack</td></tr>
+          <tr><th scope="row">Axial power transmission</th><td>Trapezoidal Tr, Acme, Buttress</td><td>30° / 29° / 7°</td><td>Flank bearing pressure, wear</td><td>Flank wear, backlash</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="tt-h3 tt-rev" style="margin-top:56px">Inch series cross-reference — BSW, BSF, UNC, UNF</h3>
+    <p class="tt-p tt-rev">
+      Threads per inch and the corresponding metric pitch for No. 1 through No. 12 and
+      1/8" through 6". Where a size does not exist in a series the cell is left empty rather
+      than approximated.
+    </p>
+
+    <div class="tt-tablewrap tt-rev">
+      <table class="tt-table" id="tt-xref">
+        <caption>Verified against BS 84 and ASME B1.1 — pitch computed as 25.4 / TPI</caption>
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">Size</th><th scope="col" rowspan="2">Equiv. mm</th>
+            <th scope="col" colspan="2">BSW</th><th scope="col" colspan="2">BSF</th>
+            <th scope="col" colspan="2">UNC</th><th scope="col" colspan="2">UNF</th>
+          </tr>
+          <tr>
+            <th scope="col">TPI</th><th scope="col">Pitch mm</th>
+            <th scope="col">TPI</th><th scope="col">Pitch mm</th>
+            <th scope="col">TPI</th><th scope="col">Pitch mm</th>
+            <th scope="col">TPI</th><th scope="col">Pitch mm</th>
+          </tr>
+        </thead>
+        <tbody id="tt-xref-body"></tbody>
+      </table>
+    </div>
+
+    <!-- ── CHARTS ── -->
+    <div class="tt-chart tt-rev">
+      <h4>Tensile stress area against nominal diameter</h4>
+      <p class="cap">
+        Coarse against fine pitch across the ISO metric range. The gap is the section a fine
+        thread recovers by cutting shallower into the shank — around 11% at M10.
+      </p>
+      <svg id="tt-chart-as" viewBox="0 0 720 320" role="img"
+           aria-label="Line chart comparing tensile stress area of coarse and fine metric threads against nominal diameter"></svg>
+      <div class="tt-legend">
+        <span><i style="background:#12525E"></i> Coarse pitch</span>
+        <span><i style="background:#C1461E"></i> Fine pitch</span>
+      </div>
+    </div>
+
+    <div class="tt-chart tt-rev">
+      <h4>Where the tightening torque goes</h4>
+      <p class="cap">
+        Typical dry steel joint. Only the third band does useful work; the other two are
+        friction, and both are variables the assembler cannot see.
+      </p>
+      <svg id="tt-chart-torque" viewBox="0 0 720 200" role="img"
+           aria-label="Stacked bar showing tightening torque split between bearing friction, thread friction and bolt stretch"></svg>
+      <div class="tt-legend">
+        <span><i style="background:#D2521E"></i> Bearing face friction ≈ 50%</span>
+        <span><i style="background:#8A6212"></i> Thread flank friction ≈ 40%</span>
+        <span><i style="background:#1F7A3D"></i> Bolt extension — useful work ≈ 10%</span>
+      </div>
+    </div>
+
+    <div class="tt-chart tt-rev">
+      <h4>Load share across engaged threads</h4>
+      <p class="cap">
+        Conventional nut under tensile load. The first engaged thread carries roughly a third
+        of the total; beyond the sixth, additional engagement contributes almost nothing.
+      </p>
+      <svg id="tt-chart-share" viewBox="0 0 720 260" role="img"
+           aria-label="Bar chart of load share per engaged thread, decreasing from about 34 percent at the first thread"></svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ONE-LINER C
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-oneliner" data-accent="gauge">
+  <div class="tt-oneliner-ghost" aria-hidden="true">
+    <svg viewBox="0 0 800 300">
+      <circle cx="240" cy="150" r="118" fill="none" stroke="#fff" stroke-width="5"/>
+      <circle cx="240" cy="150" r="70" fill="none" stroke="#fff" stroke-width="5"/>
+      <circle cx="560" cy="150" r="118" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="14 10"/>
+      <circle cx="560" cy="150" r="70" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="14 10"/>
+    </svg>
+  </div>
+  <div class="tt-shell">
+    <p class="tt-oneliner-eyebrow">Part four — verification</p>
+    <h2>A thread is not made to a drawing. It is made to a <em>gauge</em>.</h2>
+    <p class="sub">
+      Pitch diameter cannot be measured directly — it is a theoretical cylinder inside the
+      metal. Everything downstream of that fact is why thread inspection has its own
+      standards, its own instruments and its own vocabulary.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     23 · GAUGING & MEASUREMENT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="gauging" data-accent="gauge">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">23 — Gauging and measurement</p>
+    <h2 class="tt-h2 tt-rev">Functional size, and why GO is not the opposite of NO-GO</h2>
+    <p class="tt-lede tt-rev">
+      A thread has more independent errors than it has tolerances. Pitch diameter, lead,
+      flank angle and roundness can each be wrong on their own — but the pitch-diameter
+      tolerance has to absorb all of them. That single fact is the basis of Taylor's
+      principle and of every gauge on the shop floor.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">Functional size&nbsp; = &nbsp;simple pitch diameter&nbsp; + &nbsp;lead error&nbsp; + &nbsp;flank angle error</span>
+      <span class="eq">δ<sub>lead</sub> = 1.732 · |Δp|&nbsp;&nbsp;·&nbsp;&nbsp;δ<sub>angle</sub> ≈ 0.0115 · P · (|Δα₁| + |Δα₂|)</span>
+      <p class="where">
+        <b>Δp</b> cumulative lead deviation over the length of engagement, mm &nbsp;·&nbsp;
+        <b>Δα</b> flank half-angle deviation, in minutes of arc &nbsp;·&nbsp;
+        <b>P</b> pitch, mm.
+        <br>Both errors consume pitch-diameter tolerance without ever appearing on a
+        pitch-micrometer reading. A thread can measure perfectly on simple pitch diameter and
+        still fail a GO ring.
+      </p>
+    </div>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag win">GO gauge</span>
+        <h3 class="tt-h3">Checks maximum material — full form, full length</h3>
+        <p class="tt-p">
+          The GO gauge carries the complete thread profile over a length at least equal to the
+          length of engagement. It must assemble freely. Because it engages the whole form
+          over the whole length, it checks all the errors together — pitch diameter, lead,
+          flank angle and straightness in one operation.
+        </p>
+        <ul>
+          <li>Must enter and pass the full thread length under its own weight or light hand force</li>
+          <li>Verifies functional size, not simple pitch diameter</li>
+          <li>Wear is inward on a ring, outward on a plug — a worn GO passes bad work</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag lose">NO-GO gauge</span>
+        <h3 class="tt-h3">Checks minimum material — truncated, short</h3>
+        <p class="tt-p">
+          The NO-GO is deliberately truncated on crest and root and only two or three threads
+          long, so that it responds to pitch diameter alone and not to lead or flank-angle
+          error. It is permitted to enter — the acceptance criterion is a limited number of
+          turns, not zero entry.
+        </p>
+        <ul>
+          <li>Entry of up to about three turns is normally acceptable on external threads</li>
+          <li>Truncated form deliberately blind to lead and angle error</li>
+          <li>A NO-GO that will not start at all can indicate an undersize thread, not a good one</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">Taylor's principle, stated properly</h4>
+      <p>
+        The GO gauge checks the <b>maximum material condition of all dimensions
+        simultaneously</b>; the NO-GO gauge checks the <b>minimum material condition of one
+        dimension at a time</b>. Every correct thread gauge design follows from that sentence.
+        It is also why a NO-GO ring is short and truncated rather than simply being a GO ring
+        cut to a different size — a full-form NO-GO would reject good parts on lead error that
+        the tolerance was never meant to catch twice.
+      </p>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Gauging systems — ASME B1.3</h3>
+    <div class="tt-matrix tt-rev">
+      <table>
+        <thead>
+          <tr><th scope="col">System</th><th scope="col">What is verified</th><th scope="col">Typical application</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">System 21</th>
+            <td>Functional size at maximum material limit only, plus minimum material pitch diameter</td>
+            <td>General commercial fasteners. The lightest inspection that still guarantees assembly.</td>
+          </tr>
+          <tr>
+            <th scope="row">System 22</th>
+            <td>System 21 plus minimum material at major and minor diameter, plus thread form checks</td>
+            <td>Higher-integrity work where form and crest condition matter as well as fit.</td>
+          </tr>
+          <tr>
+            <th scope="row">System 23</th>
+            <td>Full evaluation of every element — functional and simple pitch diameter, lead, flank angle, form, crest and root</td>
+            <td>Aerospace, nuclear, pressure and defence work. Element-by-element traceability.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Three-wire measurement</h3>
+    <p class="tt-p tt-rev">
+      The reference method for simple pitch diameter on an external thread. Three precision
+      wires are seated in the thread grooves — one on one side, two on the other — and the
+      distance over the wires is measured with a micrometer. Pitch diameter follows from the
+      geometry of the wire sitting on the flanks.
+    </p>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">M = d₂ + w · ( 1 + cosec(α/2) ) − ( P/2 ) · cot(α/2)</span>
+      <span class="eq">For α = 60°:&nbsp;&nbsp; M = d₂ + 3 w − 0.866025 · P</span>
+      <span class="eq">Best wire size:&nbsp;&nbsp; w<sub>best</sub> = P / ( 2 · cos(α/2) ) = 0.577350 · P</span>
+      <p class="where">
+        <b>M</b> measurement over wires &nbsp;·&nbsp; <b>d₂</b> pitch diameter &nbsp;·&nbsp;
+        <b>w</b> wire diameter &nbsp;·&nbsp; <b>α</b> included thread angle &nbsp;·&nbsp;
+        <b>P</b> pitch.
+        <br>The best-wire size touches the flank exactly at the pitch line, which makes the
+        result insensitive to small flank-angle error. Any other wire size still works, but
+        angle error then biases the reading.
+      </p>
+    </div>
+
+    <!-- THREE-WIRE CALCULATOR -->
+    <div class="tt-calc tt-rev">
+      <div class="tt-calc-in">
+        <h4>Three-wire calculator</h4>
+        <p class="lead">Enter pitch, thread angle and target pitch diameter. Returns best wire
+        size and the measurement over wires you should read.</p>
+        <div class="row">
+          <div>
+            <label for="w-P">Pitch P (mm)</label>
+            <input type="number" id="w-P" value="1.5" step="0.05" min="0.1">
+          </div>
+          <div>
+            <label for="w-a">Thread angle α</label>
+            <select id="w-a">
+              <option value="60">60° — M, UN, MJ</option>
+              <option value="55">55° — Whitworth, BSP</option>
+              <option value="30">30° — Trapezoidal, PT</option>
+              <option value="29">29° — Acme, Stub Acme</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="w-d2">Target d₂ (mm)</label>
+            <input type="number" id="w-d2" value="9.026" step="0.001">
+          </div>
+          <div>
+            <label for="w-w">Wire used (mm)</label>
+            <input type="number" id="w-w" value="0" step="0.001" min="0">
+          </div>
+        </div>
+      </div>
+      <div class="tt-calc-out">
+        <h4>Result</h4>
+        <p class="lead">Blank wire field uses the best wire size automatically.</p>
+        <dl>
+          <dt>Best wire size w<sub>best</sub></dt><dd id="w-best" class="hi">—</dd>
+          <dt>Wire applied</dt><dd id="w-used">—</dd>
+          <dt>Measurement over wires M</dt><dd id="w-M" class="hi">—</dd>
+          <dt>Constant · w multiplier</dt><dd id="w-k1">—</dd>
+          <dt>Constant · P multiplier</dt><dd id="w-k2">—</dd>
+          <dt>Reverse check — d₂ from M</dt><dd id="w-rev">—</dd>
+        </dl>
+        <p class="note" id="w-note">
+          Wires must be hardened, of known diameter, and seated without spring. Measure at
+          constant temperature — 20 °C is the reference — and use a constant-force micrometer.
+          This gives simple pitch diameter only, not functional size.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     24 · TAPPING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="tapping" data-accent="tap">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">24 — Tapping the internal thread</p>
+    <h2 class="tt-h2 tt-rev">Cutting taps and forming taps need different holes</h2>
+    <p class="tt-lede tt-rev">
+      This is the single most common production error in internal threading. A forming tap
+      displaces material rather than removing it, so the hole must be larger — drilled to
+      the pitch-diameter region rather than to the minor diameter. Use a cutting-tap drill
+      chart on a forming tap and the tap breaks.
+    </p>
+
+    <div class="tt-split tt-rev">
+      <div>
+        <span class="tt-tag lose">Cutting tap</span>
+        <h3 class="tt-h3">Removes a chip</h3>
+        <p class="tt-p">
+          Fluted, with cutting edges that sever material and flutes that evacuate it. Works in
+          almost any machinable material including cast iron and free-cutting steels, and is
+          the only option in brittle or non-ductile material.
+        </p>
+        <ul>
+          <li>Drill ≈ <b>d − P</b> for about 76% thread</li>
+          <li>Produces swarf that must be cleared, especially in blind holes</li>
+          <li>Lower torque than forming, but a weaker, non-work-hardened thread</li>
+          <li>Spiral point for through holes, spiral flute for blind</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tt-tag win">Forming tap</span>
+        <h3 class="tt-h3">Displaces material</h3>
+        <p class="tt-p">
+          Lobed and fluteless. It cold-forms the thread, work-hardening the surface and
+          producing an uninterrupted grain flow. Stronger thread, no chips, longer tool life
+          — but it needs a ductile material and a materially different hole size.
+        </p>
+        <ul>
+          <li>Drill ≈ <b>d − 0.5 P</b> for about 65% thread</li>
+          <li>No swarf — correct for blind holes and sealed assemblies</li>
+          <li>Higher torque; unsuitable for cast iron and brittle material</li>
+          <li>Thread stronger than the parent material at the surface</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tt-formula tt-rev">
+      <span class="eq">Cutting tap:&nbsp;&nbsp; D<sub>drill</sub> = d − ( %E / 76.98 ) · P</span>
+      <span class="eq">Forming tap:&nbsp;&nbsp; D<sub>drill</sub> = d − ( %E / 100 ) · 1.082532 · P · 0.5</span>
+      <span class="eq">Engagement achieved:&nbsp;&nbsp; %E = ( d − D<sub>drill</sub> ) / ( 1.082532 · P ) × 100</span>
+      <p class="where">
+        <b>%E</b> percentage of full thread depth engaged &nbsp;·&nbsp;
+        <b>d</b> nominal diameter &nbsp;·&nbsp; <b>P</b> pitch.
+        <br>Going from 65% to 75% engagement adds roughly 5% to stripping strength but can
+        double tapping torque. <b>Higher engagement is not automatically better.</b> 70–75%
+        is the practical optimum in steel; 60–65% is often correct in tough, gummy or
+        thin-walled work where tap breakage is the real risk.
+      </p>
+    </div>
+
+    <!-- TAP DRILL CALCULATOR -->
+    <div class="tt-calc tt-rev">
+      <div class="tt-calc-in">
+        <h4>Tap drill calculator</h4>
+        <p class="lead">Both tap types, with the achieved engagement shown for whatever drill
+        you actually have.</p>
+        <div class="row">
+          <div>
+            <label for="t-d">Nominal d (mm)</label>
+            <input type="number" id="t-d" value="10" step="0.1" min="0.5">
+          </div>
+          <div>
+            <label for="t-P">Pitch P (mm)</label>
+            <input type="number" id="t-P" value="1.5" step="0.05" min="0.1">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="t-e">Target engagement %</label>
+            <input type="number" id="t-e" value="75" step="1" min="40" max="100">
+          </div>
+          <div>
+            <label for="t-have">Drill on hand (mm)</label>
+            <input type="number" id="t-have" value="0" step="0.05" min="0">
+          </div>
+        </div>
+      </div>
+      <div class="tt-calc-out">
+        <h4>Result</h4>
+        <p class="lead">Leave the drill-on-hand field at zero to see the theoretical size only.</p>
+        <dl>
+          <dt>Cutting tap drill</dt><dd id="t-cut" class="hi">—</dd>
+          <dt>Forming tap drill</dt><dd id="t-form" class="hi">—</dd>
+          <dt>Basic minor D₁</dt><dd id="t-D1">—</dd>
+          <dt>Basic pitch dia d₂</dt><dd id="t-d2">—</dd>
+          <dt>Engagement with your drill</dt><dd id="t-actual">—</dd>
+          <dt>Assessment</dt><dd id="t-verdict">—</dd>
+        </dl>
+        <p class="note">
+          Forming-tap sizes assume a ductile material with adequate elongation. Verify on the
+          actual alloy and temper — the required hole shifts with work-hardening behaviour, and
+          on thin-wall or near-edge bosses the correct answer is often a lower engagement, not
+          a larger tap.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="tt-h3 tt-rev">Tap geometry by hole type</h3>
+    <div class="tt-grid c4 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">TAPER</span>
+        <h3 class="tt-h4">7–10 lead threads</h3>
+        <p>Longest chamfer, most gradual entry, lowest torque. Through holes and hand tapping.
+        Cannot thread close to the bottom of a blind hole.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">PLUG</span>
+        <h3 class="tt-h4">3–5 lead threads</h3>
+        <p>The general-purpose machine tap. Balances entry torque against usable depth.
+        The default unless there is a reason otherwise.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">BOTTOMING</span>
+        <h3 class="tt-h4">1–2 lead threads</h3>
+        <p>Threads almost to the bottom of a blind hole. Normally used after a plug tap has
+        opened the thread, not as a first operation.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">SPIRAL</span>
+        <h3 class="tt-h4">Point or flute</h3>
+        <p>Spiral point pushes chips forward — through holes only. Spiral flute pulls chips
+        back out — the correct choice for blind holes in ductile material.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     25 · GALLING
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="galling" data-accent="galling">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">25 — Galling and cold welding</p>
+    <h2 class="tt-h2 tt-rev">The stainless failure that seizes mid-assembly</h2>
+    <p class="tt-lede tt-rev">
+      Stainless steel protects itself with a passive chromium oxide film a few nanometres
+      thick. Thread flanks sliding under load rupture that film, exposing clean metal to clean
+      metal at high local pressure. The two surfaces cold-weld, tear, and the joint locks
+      solid — often with the nut half-way down and the assembly scrap.
+    </p>
+
+    <div class="tt-strip tt-rev">
+      <div><b>A2 / A4</b><span>Austenitic grades are the most galling-prone in common use</span></div>
+      <div><b>Work-harden</b><span>Austenitic steel hardens as it tears, accelerating the seizure</span></div>
+      <div><b>Seconds</b><span>Onset to lock-up is typically a fraction of one assembly cycle</span></div>
+      <div><b>Scrap</b><span>A galled joint usually destroys both the bolt and the tapped part</span></div>
+    </div>
+
+    <div class="tt-grid c3 tt-rev">
+      <div class="tt-cell">
+        <span class="tt-num">CAUSE 01</span>
+        <h3 class="tt-h4">Speed</h3>
+        <p>Power-driving generates frictional heat faster than it can dissipate. Run stainless
+        threads slowly — hand assembly or a low-speed driver is a legitimate specification.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">CAUSE 02</span>
+        <h3 class="tt-h4">Identical alloys</h3>
+        <p>Like against like galls worst. Pairing dissimilar grades or hardnesses — for
+        example an A4 bolt with a harder nut — interrupts the cold-welding mechanism.</p>
+      </div>
+      <div class="tt-cell">
+        <span class="tt-num">CAUSE 03</span>
+        <h3 class="tt-h4">Surface and debris</h3>
+        <p>Rough flanks, burrs, damaged crests and grit all concentrate contact pressure.
+        Rolled threads gall less than cut threads for exactly this reason.</p>
+      </div>
+    </div>
+
+    <div class="tt-callout tt-rev">
+      <h4 class="tt-h4">What actually works</h4>
+      <p>
+        In order of effectiveness: an <b>anti-seize compound</b> or dry-film lubricant applied
+        to the thread; a <b>coating</b> such as PTFE, molybdenum disulphide or a zinc-flake
+        system that separates the surfaces; <b>dissimilar mating</b> grades or hardnesses;
+        <b>slow, steady driving</b> without interruption once started; and <b>rolled rather
+        than cut</b> threads for their burnished flank finish. Note that any lubricant changes
+        the nut factor substantially — if torque control is in use, the torque figure must be
+        re-derived for the lubricated condition, not carried over from the dry specification.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     26 · TAXONOMY
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="taxonomy" data-accent="taxo">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">26 — Systems taxonomy</p>
+    <h2 class="tt-h2 tt-rev">Five systems that must not be flattened into one list</h2>
+    <p class="tt-lede tt-rev">
+      Most thread charts fail because they put unlike systems at the same level. Metric M,
+      Unified inch, Whitworth-form, American pipe and power-transmission threads are separated
+      by engineering purpose and by geometry, not by convenience. Read this taxonomy as
+      form → family → governing reference → series.
+    </p>
+
+    <div class="tt-taxo tt-rev">
+      <div class="tt-taxo-row">
+        <div>
+          <h4>60° fastening</h4>
+          <p class="sys">ISO metric &amp; Unified inch</p>
+        </div>
+        <div>
+          <p>General-purpose clamping threads. Metric and Unified share the 60° included angle
+          but are separate systems with their own size lists, tolerance schemes and gauging —
+          they are not interchangeable at any diameter.</p>
+          <div class="tt-chips">
+            <span class="pri">ISO 68-1</span><span class="pri">ISO 261 / 262</span>
+            <span class="pri">ISO 724</span><span class="pri">ISO 965</span>
+            <span class="pri">ASME B1.1</span><span>ASME B1.13M</span>
+            <span>M coarse</span><span>M fine</span><span>UNC</span><span>UNF</span>
+            <span>UNEF</span><span>UNS</span><span>UNR</span>
+            <span>6UN</span><span>8UN</span><span>12UN</span><span>16UN</span>
+            <span>20UN</span><span>28UN</span><span>32UN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tt-taxo-row">
+        <div>
+          <h4>Aerospace profile</h4>
+          <p class="sys">Controlled root radius</p>
+        </div>
+        <div>
+          <p>Derived from the 60° fastening families but with a mandatory enlarged root radius
+          and a relieved internal minor diameter. A separate system — an MJ bolt is not an
+          upgraded M bolt, and the two must not be mated.</p>
+          <div class="tt-chips">
+            <span class="pri">ISO 5855</span><span class="pri">ASME B1.15</span>
+            <span>ASME B1.21M</span><span>MIL-S-8879</span>
+            <span>MJ</span><span>UNJC</span><span>UNJF</span><span>UNJEF</span>
+            <span>8UNJ</span><span>12UNJ</span><span>16UNJ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tt-taxo-row">
+        <div>
+          <h4>55° Whitworth form</h4>
+          <p class="sys">Legacy fastening &amp; British pipe</p>
+        </div>
+        <div>
+          <p>Rounded crest and root on a 55° angle. The fastening series are legacy; the pipe
+          series remain fully current and are among the most widely used thread families in
+          the world.</p>
+          <div class="tt-chips">
+            <span class="leg">BS 84 — BSW</span><span class="leg">BS 84 — BSF</span>
+            <span class="pri">ISO 228 — G parallel</span><span class="pri">ISO 7-1 — R taper</span>
+            <span>BSPP alias</span><span>BSPT alias</span><span>BSPF</span>
+            <span>Rp</span><span>Rc</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tt-taxo-row">
+        <div>
+          <h4>American pipe</h4>
+          <p class="sys">60° taper and parallel</p>
+        </div>
+        <div>
+          <p>A separate pipe-thread system on a 60° angle. Kept apart from the British and ISO
+          pipe families deliberately — they share the 1:16 taper and nothing else that matters.</p>
+          <div class="tt-chips">
+            <span class="pri">ASME B1.20.1</span><span class="pri">ASME B1.20.3</span>
+            <span>NPT</span><span>NPTF dryseal</span><span>NPSC</span>
+            <span>NPSM</span><span>NPSL</span><span>NPTR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tt-taxo-row">
+        <div>
+          <h4>Power &amp; motion</h4>
+          <p class="sys">Load transmission, not clamping</p>
+        </div>
+        <div>
+          <p>Broad flat flanks to carry axial load at low flank pressure. Trapezoidal is the
+          metric family and Acme the inch family — they are distinct standards, not translations
+          of each other.</p>
+          <div class="tt-chips">
+            <span class="pri">ISO 2901–2904</span><span class="pri">ASME B1.5</span>
+            <span class="pri">ASME B1.8</span><span>ASME B1.9</span><span>DIN 513</span>
+            <span>Tr 30°</span><span>Acme 29°</span><span>Stub Acme 29°</span>
+            <span>Buttress 7°/45°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tt-warn tt-rev">
+      <h4>Near-fit pairs — threads that start and then fail</h4>
+      <p>
+        These combinations will engage by hand for one or two turns. They are not compatible,
+        and the failure appears later, under load or under pressure. Gauge rather than assume,
+        particularly on imported or mixed-origin assemblies.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Pair</th><th>Pitch comparison</th><th>Why it starts</th><th>How it fails</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>M6×1 / ¼"-20 UNC</td><td>1.000 mm vs 1.270 mm</td>
+            <td>Major diameters 6.00 vs 6.35 mm</td><td>Progressive thread strip under load</td>
+          </tr>
+          <tr>
+            <td>M10×1.5 / ⅜"-16 UNC</td><td>1.500 mm vs 1.588 mm</td>
+            <td>Major diameters 10.00 vs 9.53 mm</td><td>Cross-threads, then strips</td>
+          </tr>
+          <tr>
+            <td>M12×1.75 / ½"-13 UNC</td><td>1.750 mm vs 1.954 mm</td>
+            <td>Major diameters 12.00 vs 12.70 mm</td><td>Damages both threads on assembly</td>
+          </tr>
+          <tr>
+            <td>NPT / BSPT</td><td>Same 1:16 taper</td>
+            <td>60° vs 55° flank angle</td><td>Feels tight, leaks under pressure</td>
+          </tr>
+          <tr>
+            <td>M / MJ · UN / UNJ</td><td>Identical pitch</td>
+            <td>Same nominal series</td><td>Root interference; non-conformance on airframe work</td>
+          </tr>
+          <tr>
+            <td>BSW / UNC at ½"</td><td>12 TPI vs 13 TPI</td>
+            <td>Identical 12.70 mm major diameter</td><td>Engages, then binds and galls</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     27 · DATA ENGINE
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="data-engine" data-accent="engine">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">27 — Dimension library</p>
+    <h2 class="tt-h2 tt-rev">2,450 verified rows across 32 tables</h2>
+    <p class="tt-lede tt-rev">
+      Basic dimensions, limit dimensions and form constants for every series on this page.
+      Every row was checked against the governing formula for its own thread form before it
+      was published here — rows that failed were removed rather than corrected, and the audit
+      is printed below the table.
+    </p>
+
+    <div class="tt-engine tt-rev">
+      <div class="tt-engine-bar">
+        <div>
+          <label for="dx-table">Table</label>
+          <select id="dx-table"></select>
+        </div>
+        <div>
+          <label for="dx-search">Filter designation</label>
+          <input type="search" id="dx-search" placeholder="M10, 1/4, TR20…" autocomplete="off">
+        </div>
+        <div>
+          <label for="dx-class">Tolerance class</label>
+          <select id="dx-class"><option value="">All classes</option></select>
+        </div>
+        <div class="tt-engine-count"><span id="dx-count">—</span></div>
+      </div>
+
+      <div class="tt-engine-meta">
+        <span class="tt-verified">
+          <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M2 6.5l2.6 2.6L10 3.6" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Formula verified
+        </span>
+        <span id="dx-std"></span>
+        <span id="dx-check"></span>
+      </div>
+
+      <div class="tt-engine-scroll">
+        <table class="tt-dt" id="dx-table-el">
+          <thead><tr id="dx-head"></tr></thead>
+          <tbody id="dx-body"></tbody>
+        </table>
+        <div class="tt-engine-empty" id="dx-empty" hidden>No rows match that filter.</div>
+      </div>
+
+      <div class="tt-engine-foot">
+        All dimensions in millimetres unless the column header states otherwise. Inch-series
+        tables carry limit dimensions converted to millimetres as published in the source
+        standard. Click any column header to sort. This library is a working reference —
+        the current edition of the governing standard remains the contractual authority.
+      </div>
+    </div>
+
+    <h3 class="tt-h3 tt-rev" style="margin-top:56px">Verification audit</h3>
+    <p class="tt-p tt-rev">
+      Each source table was parsed row by row and tested against the closure conditions of its
+      own thread form — profile geometry for basic dimensions, deviation and tolerance closure
+      for limit dimensions, exact pitch multiples for form constants. Rejected rows were
+      duplicates, header fragments, transcription damage, or values that did not close.
+    </p>
+    <div class="tt-audit tt-rev">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Source table</th><th scope="col">Rows found</th>
+            <th scope="col">Verified</th><th scope="col">Rejected</th><th scope="col">Test applied</th>
+          </tr>
+        </thead>
+        <tbody id="dx-audit"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     28 · THREAD IDENTIFIER
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="identifier" data-accent="tools">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">28 — Thread identifier</p>
+    <h2 class="tt-h2 tt-rev">Measure two things, identify the thread</h2>
+    <p class="tt-lede tt-rev">
+      Measure the major diameter across the crests with a caliper, and the pitch with a thread
+      gauge or by counting threads over a known length. The identifier searches every verified
+      series on this page and returns the candidates, closest first.
+    </p>
+
+    <div class="tt-calc tt-rev">
+      <div class="tt-calc-in">
+        <h4>Measured values</h4>
+        <p class="lead">Crest diameter of an external thread, or the tapped hole size plus
+        pitch for an internal one.</p>
+        <div class="row">
+          <div>
+            <label for="id-d">Major diameter</label>
+            <input type="number" id="id-d" value="9.85" step="0.01" min="0.5">
+          </div>
+          <div>
+            <label for="id-unit">Unit</label>
+            <select id="id-unit">
+              <option value="mm">Millimetres</option>
+              <option value="in">Inches</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="id-p">Pitch or TPI</label>
+            <input type="number" id="id-p" value="1.5" step="0.01" min="0">
+          </div>
+          <div>
+            <label for="id-pmode">Entered as</label>
+            <select id="id-pmode">
+              <option value="mm">Pitch in mm</option>
+              <option value="tpi">Threads per inch</option>
+              <option value="none">Unknown — diameter only</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="id-tol">Search tolerance</label>
+            <select id="id-tol">
+              <option value="0.35">Tight — ±0.35 mm</option>
+              <option value="0.7" selected>Normal — ±0.7 mm</option>
+              <option value="1.5">Wide — ±1.5 mm</option>
+            </select>
+          </div>
+          <div>
+            <label for="id-fam">Restrict to</label>
+            <select id="id-fam">
+              <option value="">All systems</option>
+              <option value="metric">Metric only</option>
+              <option value="inch">Inch only</option>
+              <option value="pipe">Pipe only</option>
+              <option value="power">Power / motion only</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="tt-calc-out">
+        <h4>Candidates</h4>
+        <p class="lead" id="id-summary">Ranked by combined diameter and pitch agreement.</p>
+        <div class="tt-idresults" id="id-results"></div>
+        <p class="note">
+          A worn or coated thread measures under nominal — an external thread is normally
+          0.1–0.4 mm below its nominal major diameter even when new, so widen the tolerance
+          before concluding a size does not exist. Confirm any identification with a gauge
+          before cutting metal.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     29 · TORQUE & ENGAGEMENT CALCULATORS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec" id="calculators" data-accent="torque">
+  <div class="tt-shell">
+    <p class="tt-eyebrow tt-rev">29 — Torque, preload and engagement</p>
+    <h2 class="tt-h2 tt-rev">Working the numbers from section 07</h2>
+    <p class="tt-lede tt-rev">
+      The long-form torque equation, applied. Change the friction coefficients and watch how
+      little of the answer is actually about the bolt.
+    </p>
+
+    <div class="tt-calc tt-rev">
+      <div class="tt-calc-in">
+        <h4>Torque and preload</h4>
+        <p class="lead">Preload is set as a percentage of proof load for the chosen class.</p>
+        <div class="row">
+          <div>
+            <label for="q-size">Thread</label>
+            <select id="q-size"></select>
+          </div>
+          <div>
+            <label for="q-cls">Property class</label>
+            <select id="q-cls">
+              <option value="8.8">8.8</option>
+              <option value="10.9">10.9</option>
+              <option value="12.9">12.9</option>
+              <option value="70">A2/A4-70 stainless</option>
+              <option value="80">A2/A4-80 stainless</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="q-pct">Preload % of proof</label>
+            <input type="number" id="q-pct" value="75" step="1" min="20" max="100">
+          </div>
+          <div>
+            <label for="q-mu">Thread friction μ<sub>th</sub></label>
+            <input type="number" id="q-mu" value="0.14" step="0.01" min="0.02" max="0.5">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="q-mub">Bearing friction μ<sub>b</sub></label>
+            <input type="number" id="q-mub" value="0.14" step="0.01" min="0.02" max="0.5">
+          </div>
+          <div>
+            <label for="q-dk">Mean bearing dia D<sub>Km</sub> (mm)</label>
+            <input type="number" id="q-dk" value="0" step="0.1" min="0">
+          </div>
+        </div>
+      </div>
+      <div class="tt-calc-out">
+        <h4>Result</h4>
+        <p class="lead">Leave bearing diameter at zero to use a standard hex head estimate.</p>
+        <dl>
+          <dt>Stress area Aₛ</dt><dd id="q-as">—</dd>
+          <dt>Proof load</dt><dd id="q-proof">—</dd>
+          <dt>Target preload F</dt><dd id="q-f" class="hi">—</dd>
+          <dt>Tightening torque T</dt><dd id="q-t" class="hi">—</dd>
+          <dt>Helix work component</dt><dd id="q-c1">—</dd>
+          <dt>Thread friction component</dt><dd id="q-c2">—</dd>
+          <dt>Bearing friction component</dt><dd id="q-c3">—</dd>
+          <dt>Useful work fraction</dt><dd id="q-eff">—</dd>
+          <dt>Implied nut factor K</dt><dd id="q-k">—</dd>
+        </dl>
+        <p class="note" id="q-note">
+          Friction coefficients are the dominant uncertainty. A dry, uncoated steel joint is
+          typically 0.16–0.20; zinc plated around 0.14–0.18; waxed or lubricated 0.10–0.14.
+          Torque control alone carries ±25–35% preload scatter regardless of how precisely
+          this figure is calculated — use it as a starting point and verify by test.
+        </p>
+      </div>
+    </div>
+
+    <div class="tt-calc tt-rev">
+      <div class="tt-calc-in">
+        <h4>Length of engagement</h4>
+        <p class="lead">Minimum engagement so that the bolt fails in tension before the
+        internal thread strips.</p>
+        <div class="row">
+          <div>
+            <label for="e-size">Thread</label>
+            <select id="e-size"></select>
+          </div>
+          <div>
+            <label for="e-rm">Bolt tensile Rm (MPa)</label>
+            <input type="number" id="e-rm" value="800" step="10" min="200">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="e-mat">Tapped material</label>
+            <select id="e-mat">
+              <option value="400">Mild steel — 400 MPa</option>
+              <option value="500">Medium carbon steel — 500 MPa</option>
+              <option value="250">Grey cast iron — 250 MPa</option>
+              <option value="310">Aluminium 6061-T6 — 310 MPa</option>
+              <option value="200">Aluminium cast — 200 MPa</option>
+              <option value="160">Magnesium alloy — 160 MPa</option>
+              <option value="280">Brass / bronze — 280 MPa</option>
+            </select>
+          </div>
+          <div>
+            <label for="e-sf">Safety factor</label>
+            <input type="number" id="e-sf" value="1.2" step="0.05" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="tt-calc-out">
+        <h4>Result</h4>
+        <p class="lead">Shear strength taken as 0.6 × ultimate tensile of the weaker member.</p>
+        <dl>
+          <dt>Stress area Aₛ</dt><dd id="e-as">—</dd>
+          <dt>Bolt tensile capacity</dt><dd id="e-cap">—</dd>
+          <dt>Shear area per mm engaged</dt><dd id="e-shear">—</dd>
+          <dt>Minimum engagement L<sub>E</sub></dt><dd id="e-le" class="hi">—</dd>
+          <dt>Expressed as × d</dt><dd id="e-xd" class="hi">—</dd>
+          <dt>Recommended tapped depth</dt><dd id="e-depth">—</dd>
+        </dl>
+        <p class="note">
+          Tapped depth adds an allowance for the incomplete first thread and the run-out at the
+          bottom of a blind hole. Specify <b>minimum full-form thread depth</b> on the drawing
+          and let the driller work backwards from it, rather than dimensioning the drilled depth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PRADAKO CAPABILITY / CTA
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-cta">
+  <div class="tt-shell">
+    <h2>We have been making threads since 1961</h2>
+    <p>
+      Cold-formed and rolled threads to ISO, DIN, ASME, BS and JIS profiles — including
+      roll-after-heat-treatment for fatigue-critical applications, thread forms to customer
+      drawing, and full gauging traceability under IATF 16949, AS9100D and ISO 22163.
+      If your application sits outside the standard series, it is a conversation worth having.
+    </p>
+    <div class="tt-cta-actions">
+      <a class="tt-btn solid" href="/pages/products/customised-products.html">
+        Discuss a custom thread form
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="tt-btn" href="/pages/specifications/specifications.html">Browse the standards library</a>
+      <a class="tt-btn" href="/pages/resources/torque-calculator.html">Torque &amp; preload calculator</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     REFERENCES
+     ══════════════════════════════════════════════════════════════ -->
+<section class="tt-sec tt-refs">
+  <div class="tt-shell">
+    <h3>Governing standards referenced on this page</h3>
+    <ul>
+      <li><b>ISO 68-1</b> — ISO general purpose screw threads, basic profile, metric</li>
+      <li><b>ISO 261</b> — General purpose metric screw threads, general plan</li>
+      <li><b>ISO 262</b> — Selected sizes for screws, bolts and nuts</li>
+      <li><b>ISO 724</b> — Basic dimensions of metric screw threads</li>
+      <li><b>ISO 965-1</b> — Tolerances, principles and basic data</li>
+      <li><b>ISO 965-2</b> — Limits of sizes, medium quality, external</li>
+      <li><b>ISO 898-1</b> — Mechanical properties, bolts, screws and studs</li>
+      <li><b>ISO 898-2</b> — Mechanical properties, nuts</li>
+      <li><b>ISO 10684</b> — Fasteners, hot dip galvanized coatings</li>
+      <li><b>ISO 7-1</b> — Pipe threads where pressure-tight joints are made</li>
+      <li><b>ISO 2901–2904</b> — ISO metric trapezoidal screw threads</li>
+      <li><b>ISO 1478</b> — Tapping screw threads</li>
+      <li><b>ASME B1.1</b> — Unified inch screw threads</li>
+      <li><b>ASME B1.5 / B1.8 / B1.9</b> — Acme, Stub Acme and Buttress threads</li>
+      <li><b>BS 84</b> — Parallel screw threads of Whitworth form</li>
+      <li><b>DIN 513</b> — Metric buttress threads</li>
+      <li><b>DIN 7500</b> — Thread-forming screws for metallic materials</li>
+      <li><b>DIN 65151</b> — Dynamic testing of the self-loosening of bolted connections</li>
+      <li><b>ASME B1.3</b> — Screw thread gauging systems 21, 22 and 23</li>
+      <li><b>ASME B1.13M</b> — Metric screw threads, M profile</li>
+      <li><b>ASME B1.15</b> — Unified inch screw threads, UNJ profile</li>
+      <li><b>ASME B1.20.3</b> — Dryseal pipe threads, inch</li>
+      <li><b>ISO 228-1</b> — Pipe threads where pressure-tight joints are not made</li>
+      <li><b>ISO 1502</b> — Metric screw threads, gauges and gauging</li>
+      <li><b>ISO 5855</b> — Aerospace, MJ threads</li>
+      <li><b>ISO 4042</b> — Fasteners, electroplated coating systems</li>
+      <li><b>ISO 2320</b> — Prevailing torque type steel nuts</li>
+      <li><b>ISO 3506-1 / -2 / -4</b> — Corrosion-resistant stainless steel fasteners</li>
+      <li><b>VDI 2230 Part 1</b> — Systematic calculation of highly stressed bolted joints</li>
+    </ul>
+    <p class="tt-disclaimer">
+      Geometry, stress area and helix angle values on this page are computed directly from the
+      ISO 68-1 basic profile formulae and the ISO 898-1 stress area definition, and are stated
+      to more decimal places than a drawing would normally carry. Tolerance limits, gauge sizes
+      and load values for a specific application must be taken from the current edition of the
+      governing standard. Friction coefficients, nut factors and engagement multipliers are
+      typical values for guidance and are not a substitute for validation on the actual joint,
+      surface condition and lubricant in use. Pradako Mechanical &amp; Engineering Works publishes
+      this reference for engineering education and accepts no liability for design decisions
+      taken from it.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<div id="footer-container"></div>
+
+<script src="/assets/js/threading-data.js"></script>
+<script src="/assets/js/threading-theory.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

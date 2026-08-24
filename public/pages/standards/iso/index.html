@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       SECTION 1: META & TITLE
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradako ISO Fastener Standards Library</title>
+  <meta name="description" content="Structured ISO fastener standards reference library covering supplied ISO product, mechanical-property, coating, inspection, pin, rivet, washer, nut, bolt, screw and related engineering references." />
+
+  <!-- ============================================================
+       SECTION 2: FONTS & ICONS
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- ============================================================
+       SECTION 3: EXTERNAL STYLES
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 4: CUSTOM STYLES
+       ============================================================ -->
+  <style>
+    /* ============================================================
+       SUBSECTION 4.1: CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --white: #fff;
+      --navy: #24343b;
+      --blue: #28766a;
+      --gold: #f08080;
+      --line: #dde5e7;
+      --text: #26343b;
+      --muted: #6d7b82;
+      --soft-blue: #eef7f4;
+      --soft: #f7faf9;
+      --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+      --dynamic-row-height: 126px;
+      --dynamic-cell-x: 8px;
+      --dynamic-cell-y: 10px;
+      --title-clamp: 3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.2: HERO / HEADER
+       ============================================================ */
+    .top-hero {
+      padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-route {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 17px;
+    }
+
+    .hero-route-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font: 800 9.5px "Montserrat", sans-serif;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .top-hero h1 {
+      margin: 0;
+      max-width: 1250px;
+      font-family: "Space Grotesk", Georgia, serif;
+      font-size: clamp(42px, 4.1vw, 72px);
+      line-height: 1;
+      letter-spacing: -1.6px;
+      color: var(--navy);
+    }
+
+    .hero-subtitle {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(17px, 1.55vw, 24px);
+      line-height: 1.25;
+      letter-spacing: -.35px;
+      color: var(--blue);
+      font-weight: 650;
+    }
+
+    .top-hero p.hero-intro {
+      max-width: 1160px;
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      font: 850 10px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-item i {
+      color: var(--blue);
+      font-size: 10px;
+    }
+
+    .engineering-use-note {
+      margin: 14px clamp(24px, 3.1vw, 58px) 0;
+      padding: 13px 15px;
+      border: 1px solid #d7e4e1;
+      border-left: 3px solid var(--blue);
+      border-radius: 10px;
+      background: #f8fbfa;
+      color: var(--text);
+      font-size: 11.5px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .engineering-use-note strong {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .engineering-use-note .note-label {
+      display: inline-flex;
+      margin-right: 8px;
+      color: var(--blue);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: .75px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.3: CONTROLS
+       ============================================================ */
+    .control-zone {
+      position: relative;
+      z-index: 20;
+      padding: 12px 32px 10px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-wrap,
+    .family-wrap {
+      position: relative;
+    }
+
+    .search-wrap input,
+    .family-filter {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      outline: 0;
+      font: 700 12.5px "Montserrat", sans-serif;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    .search-wrap input {
+      padding: 0 18px 0 46px;
+    }
+
+    .family-filter {
+      padding: 0 14px;
+    }
+
+    .search-wrap input:focus,
+    .family-filter:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px var(--soft-blue);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 17px;
+      color: var(--navy);
+    }
+
+    .btn {
+      height: 40px;
+      border-radius: 12px;
+      padding: 0 14px;
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-soft {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+    }
+
+    .btn-soft:hover,
+    .btn-soft.active {
+      background: var(--soft-blue);
+      border-color: var(--blue);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .stat-pills,
+    .stats-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--navy);
+      font-size: 10.5px;
+      font-weight: 900;
+      background: #fff;
+    }
+
+    .duplicate-mode-pill {
+      display: none;
+    }
+
+    .duplicate-mode-pill.show {
+      display: inline-flex;
+    }
+
+    .duplicate-check-btn {
+      border-color: #f08080;
+      background: #fff2f2;
+      color: #493538;
+    }
+
+    .duplicate-check-btn.active {
+      background: #f08080;
+      color: #fff;
+      border-color: #f08080;
+    }
+
+    /* ---- View Panel ---- */
+    .view-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff, var(--soft));
+      box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+    }
+
+    .view-panel.open {
+      display: block;
+    }
+
+    .view-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .view-panel-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .preset-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      padding: 0 11px;
+      font: 900 10px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .mini-btn.active,
+    .mini-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .view-groups {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+
+    .view-group {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .view-group h4 {
+      margin: 0 0 8px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .column-checks {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .check-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: #94c2b5;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .check-item input {
+      accent-color: var(--navy);
+    }
+
+    /* ---- Density Switch ---- */
+    .density-switch {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+    }
+
+    .density-btn {
+      height: 30px;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: 900 9.5px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .density-btn.active {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.4: STICKY HEADER & TABLE
+       ============================================================ */
+    .sticky-table-head-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1450;
+      margin: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+    }
+
+    .sticky-table-head-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .sticky-table-head-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sticky-head-table,
+    #standardsTable {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .sticky-head-table thead th {
+      background: var(--navy);
+    }
+
+    #standardsTable thead {
+      display: none;
+    }
+
+    .table-zone {
+      position: relative;
+      background: #fff;
+    }
+
+    .table-scroll {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-scroll:not(.has-horizontal-scroll),
+    .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+      overflow-x: hidden;
+    }
+
+    .sticky-head-table th,
+    #standardsTable th,
+    #standardsTable td {
+      box-sizing: border-box;
+    }
+
+    thead th {
+      padding: 10px var(--dynamic-cell-x);
+      text-align: left;
+      font-size: 9.5px;
+      letter-spacing: .5px;
+      color: #fff;
+      background: var(--navy);
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      cursor: pointer;
+      user-select: none;
+      white-space: normal;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    thead th.not-sortable {
+      cursor: default;
+    }
+
+    tbody tr {
+      height: var(--dynamic-row-height);
+    }
+
+    tbody td {
+      padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+      vertical-align: middle;
+      font-size: 11.5px;
+      line-height: 1.4;
+      background: #fff;
+      color: var(--text);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    tbody tr:hover td {
+      background: #f3f9f7;
+    }
+
+    /* ---- Sticky Columns ---- */
+    .sticky-col {
+      position: sticky !important;
+      left: var(--sticky-left, 0) !important;
+      background: #fff;
+      box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+    }
+
+    tbody tr:hover td.sticky-col {
+      background: #f3f9f7;
+    }
+
+    .sticky-head-table th.sticky-col {
+      z-index: 40;
+      background: var(--navy);
+      box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+    }
+
+    #standardsTable td.sticky-col {
+      z-index: 12;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.5: CELL TYPES
+       ============================================================ */
+    .media-cell {
+      padding: 10px 14px !important;
+    }
+
+    .media-card {
+      width: 210px;
+      height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+      cursor: pointer;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      padding: 9px;
+      background: #fff;
+      transition: .22s;
+    }
+
+    .media-card:hover {
+      border-color: var(--blue);
+    }
+
+    .media-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .media-empty {
+      width: 210px;
+      height: 104px;
+      border: 1px dashed #c8d5d7;
+      border-radius: 13px;
+      background: #fbfcfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .media-empty i {
+      font-size: 17px;
+      color: #82959b;
+    }
+
+    .pradako-id {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid #cad6d8;
+      border-radius: 7px;
+      background: #f6f9f8;
+      color: var(--navy);
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .15px;
+      white-space: nowrap;
+    }
+
+    .standard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: normal;
+    }
+
+    .standard-link:hover {
+      background: var(--blue);
+    }
+
+    .standard-link i {
+      font-size: 9px;
+    }
+
+    .body-pill {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .title-cell {
+      font-weight: 750;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: var(--title-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .family-pill {
+      display: inline-flex;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .scope-cell {
+      color: var(--text);
+    }
+
+    .density-comfortable .media-card,
+    .density-comfortable .media-empty {
+      height: 140px;
+    }
+
+    mark {
+      background: #dcefe9;
+      color: var(--navy);
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .footer-note {
+      padding: 16px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.6: MODALS
+       ============================================================ */
+    .modal-overlay,
+    .image-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(24, 34, 39, .84);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.show,
+    .image-preview-overlay.show {
+      display: flex;
+    }
+
+    .modal-card,
+    .image-preview-card {
+      position: relative;
+      width: min(620px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+    }
+
+    .image-preview-card {
+      width: min(1000px, 96vw);
+    }
+
+    .modal-top,
+    .image-preview-head {
+      padding: 22px 26px;
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .modal-top h2,
+    .image-preview-head h3 {
+      margin: 0;
+    }
+
+    .modal-top p {
+      margin: 9px 0 0;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .modal-body,
+    .image-preview-body {
+      padding: 24px;
+    }
+
+    .image-preview-body img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close,
+    .image-preview-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .work-message {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .email-line {
+      margin-top: 8px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .modal-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font: 900 11px "Montserrat";
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .modal-btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .modal-btn-soft {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .copy-status {
+      display: none;
+      margin-top: 10px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .copy-status.show {
+      display: block;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.7: BACK TO TOP
+       ============================================================ */
+    .pradako-back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px);
+      box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+      transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .pradako-back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .pradako-back-to-top:hover {
+      background: var(--blue);
+    }
+
+    /* ============================================================
+       SUBSECTION 4.8: RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1350px) {
+      .controls-grid {
+        grid-template-columns: 1fr 1fr auto auto;
+      }
+      .stats-row {
+        align-items: flex-start;
+      }
+      .view-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .sticky-col {
+        position: static !important;
+        left: auto !important;
+        box-shadow: none !important;
+      }
+
+      .sticky-head-table th.sticky-col,
+      #standardsTable td.sticky-col {
+        position: static !important;
+        left: auto !important;
+      }
+
+      .sticky-table-head-scroll,
+      .table-scroll {
+        overflow-x: auto !important;
+        overscroll-behavior-x: contain;
+      }
+
+      .top-hero {
+        padding: 28px 18px 24px;
+      }
+
+      .top-hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: 1.04;
+        letter-spacing: -1px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      .top-hero p.hero-intro {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .engineering-use-note {
+        margin: 12px 18px 0;
+        padding: 12px;
+        font-size: 10.5px;
+      }
+
+      .control-zone {
+        padding: 12px;
+      }
+
+      .controls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-wrap,
+      .family-filter,
+      #viewOptionsBtn {
+        grid-column: 1 / -1;
+      }
+
+      .search-wrap input,
+      .family-filter {
+        height: 42px;
+        font-size: 12px;
+      }
+
+      .controls-grid .btn {
+        width: 100%;
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .stat-pills {
+        width: 100%;
+        gap: 5px;
+      }
+
+      .stat-pill {
+        padding: 5px 8px;
+        font-size: 9px;
+      }
+
+      .stats-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .density-switch {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .density-btn,
+      .stats-actions>.btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .view-panel {
+        padding: 9px;
+        border-radius: 12px;
+      }
+
+      .view-panel-head {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+
+      .mini-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0 5px;
+        font-size: 8.5px;
+      }
+
+      .view-groups {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .view-group {
+        padding: 9px;
+      }
+
+      .check-item {
+        padding: 6px 7px;
+        font-size: 9.5px;
+      }
+
+      thead th {
+        padding: 8px 6px;
+        font-size: 8px;
+      }
+
+      tbody td {
+        padding: 8px 6px;
+        font-size: 10px;
+      }
+
+      .media-cell {
+        padding: 7px !important;
+      }
+
+      .media-card,
+      .media-empty {
+        width: 126px !important;
+        height: 88px !important;
+      }
+
+      .density-comfortable .media-card,
+      .density-comfortable .media-empty {
+        height: 105px !important;
+      }
+
+      .pradako-id {
+        font-size: 8.5px;
+        padding: 4px 5px;
+      }
+
+      .standard-link {
+        padding: 4px 6px;
+        font-size: 9px;
+      }
+
+      .family-pill,
+      .body-pill {
+        font-size: 9px;
+      }
+
+      .footer-note {
+        padding: 14px 16px;
+        font-size: 9.5px;
+      }
+
+      .pradako-back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .engineering-use-note {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .hero-route-pill {
+        font-size: 7.5px;
+        padding: 0 8px;
+      }
+      .hero-trust-item {
+        font-size: 7.8px;
+        padding: 0 8px;
+      }
+      .media-card,
+      .media-empty {
+        width: 116px !important;
+        height: 82px !important;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/iso/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako ISO Fastener Standards Library">
+    <meta property="og:description" content="Structured ISO fastener standards reference library covering supplied ISO product, mechanical-property, coating, inspection, pin, rivet, washer, nut, bolt, screw and related engineering references.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/iso/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako ISO Fastener Standards Library">
+    <meta name="twitter:description" content="Structured ISO fastener standards reference library covering supplied ISO product, mechanical-property, coating, inspection, pin, rivet, washer, nut, bolt, screw and related engineering references.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako ISO Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standards/iso/index.html",
+  "description": "Structured ISO fastener standards reference library covering supplied ISO product, mechanical-property, coating, inspection, pin, rivet, washer, nut, bolt, screw and related engineering references.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+  <!-- ============================================================
+       SECTION 5: NAVBAR
+       ============================================================ -->
+  <div id="navbar-container"></div>
+
+  <!-- ============================================================
+       SECTION 6: PAGE CONTENT
+       ============================================================ -->
+  <section class="page">
+
+    <!-- ============================================================
+       SUBSECTION 6.1: HERO
+       ============================================================ -->
+    <header class="top-hero">
+      <div class="hero-kicker">
+        <i class="fa-solid fa-globe"></i> Pradako Standards Library · ISO
+      </div>
+      <div class="hero-route" aria-label="ISO standards library coverage">
+        <span class="hero-route-pill">ISO</span>
+        <span class="hero-route-pill">Fasteners</span>
+        <span class="hero-route-pill">Product Standards</span>
+        <span class="hero-route-pill">Engineering References</span>
+      </div>
+      <h1>
+        ISO Fastener Standards
+        <span class="hero-subtitle">Engineering Reference Library</span>
+      </h1>
+      <p class="hero-intro">
+        A structured ISO standards reference library for engineering and procurement research.
+        Explore the supplied ISO standard numbers and editions, status notes, official/original English titles,
+        product families and website notes through the same controlled Pradako standards-library architecture.
+      </p>
+      <div class="hero-trust" aria-label="Library reference features">
+        <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 340 Standard Records</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 340 Pradako Standard IDs</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-layer-group"></i> ISO Edition + Status Reference</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-file-lines"></i> Independent Standard Pages</span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       SUBSECTION 6.2: USE NOTE
+       ============================================================ -->
+    <div class="engineering-use-note" role="note">
+      <span class="note-label">Engineering Use Note</span>
+      <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+      Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements should be confirmed
+      against the governing specification and current official publication before design, procurement or release.
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.3: CONTROLS
+       ============================================================ -->
+    <section class="control-zone">
+
+      <!-- ---- Controls Grid ---- -->
+      <div class="controls-grid">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input id="searchInput" type="text" placeholder="Search ISO standard, edition, title, status, Pradako ID or product family..." />
+        </div>
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+          <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+        </button>
+      </div>
+
+      <!-- ---- Stats Row ---- -->
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+          <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+        <div class="stats-actions">
+          <div class="density-switch">
+            <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+            <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+          </div>
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+          <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+            <span>⧉</span>&nbsp; Check Duplicates
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- View Panel ---- -->
+      <div class="view-panel open" id="viewPanel">
+        <div class="view-panel-head">
+          <div class="view-panel-title">Choose the information you want visible</div>
+          <div class="preset-actions">
+            <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+            <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+            <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+          </div>
+        </div>
+        <div class="view-groups" id="viewGroups"></div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+       SUBSECTION 6.4: STICKY TABLE HEAD
+       ============================================================ -->
+    <div class="sticky-table-head-wrap">
+      <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+        <table class="sticky-head-table" aria-hidden="true">
+          <thead>
+            <tr id="stickyTableHeadRow"></tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.5: TABLE
+       ============================================================ -->
+    <section class="table-zone">
+      <div class="table-scroll" id="tableScroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState">
+          <h3>No standards found</h3>
+          <p>Try another ISO standard, edition, title, status, Pradako ID or product family.</p>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: EXPORT MODAL
+       ============================================================ -->
+  <section class="modal-overlay" id="exportModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+      <div class="modal-top">
+        <h2>Export Request</h2>
+        <p>The export feature is currently being upgraded for the complete standards database.</p>
+      </div>
+      <div class="modal-body">
+        <div class="work-message">
+          We are working on it.<br />
+          Please email us on:
+          <div class="email-line">info@pradakomechanicals.com</div>
+        </div>
+        <div class="modal-actions">
+          <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=ISO%20Standards%20Library%20Export%20Request">Email Us</a>
+          <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+          <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+        </div>
+        <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: IMAGE PREVIEW MODAL
+       ============================================================ -->
+  <section class="image-preview-overlay" id="imagePreviewModal">
+    <div class="image-preview-card">
+      <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+      <div class="image-preview-head">
+        <h3 id="imagePreviewTitle">Standard Media</h3>
+      </div>
+      <div class="image-preview-body">
+        <img id="imagePreviewImg" src="" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: FOOTER
+       ============================================================ -->
+  <div id="footer-container"></div>
+
+  <!-- ============================================================
+       SECTION 10: BACK TO TOP BUTTON
+       ============================================================ -->
+  <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============================================================
+       SECTION 11: SCRIPTS
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 12: MAIN APPLICATION
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       SUBSECTION 12.1: COMPONENT LOADER
+       ============================================================ */
+    
+    
+    
+
+    /* ============================================================
+       SUBSECTION 12.2: COLUMN DEFINITIONS
+       ============================================================ */
+    const COLUMNS = [{
+      key: "imageSrc",
+      label: "Photo / 2D / 3D",
+      width: 240,
+      minWidth: 240,
+      maxWidth: 240,
+      fixed: true,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "media",
+      searchable: false,
+      sortable: false,
+      weight: 0
+    }, {
+      key: "pradakoId",
+      label: "Pradako Standard ID",
+      width: 145,
+      minWidth: 124,
+      maxWidth: 190,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "id",
+      searchable: true,
+      sortable: true,
+      weight: .55
+    }, {
+      key: "standardCode",
+      label: "Given ISO Standard",
+      width: 235,
+      minWidth: 165,
+      maxWidth: 360,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "standard",
+      searchable: true,
+      sortable: true,
+      weight: 1.0
+    }, {
+      key: "officialEnglishTitle",
+      label: "Official / Original Title",
+      width: 500,
+      minWidth: 280,
+      maxWidth: 840,
+      core: true,
+      group: "core",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: 2.7
+    }, {
+      key: "productFamily",
+      label: "Product Family",
+      width: 245,
+      minWidth: 155,
+      maxWidth: 390,
+      core: true,
+      group: "core",
+      type: "family",
+      searchable: true,
+      sortable: true,
+      weight: 1.0
+    }, {
+      key: "correctStandard",
+      label: "ISO Standard Number with Edition",
+      width: 290,
+      minWidth: 190,
+      maxWidth: 460,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "body",
+      searchable: true,
+      sortable: true,
+      weight: 1.1
+    }, {
+      key: "statusNote",
+      label: "ISO Status",
+      width: 290,
+      minWidth: 180,
+      maxWidth: 460,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "scope",
+      searchable: true,
+      sortable: true,
+      weight: 1.1
+    }, {
+      key: "websiteNote",
+      label: "Website Note",
+      width: 330,
+      minWidth: 200,
+      maxWidth: 540,
+      core: false,
+      technical: true,
+      group: "technical",
+      type: "scope",
+      searchable: true,
+      sortable: true,
+      weight: 1.3
+    }, {
+      key: "sourceRowId",
+      label: "Source Row",
+      width: 180,
+      minWidth: 145,
+      maxWidth: 240,
+      core: false,
+      technical: false,
+      group: "source",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: .55
+    }];
+
+    const GROUP_META = {
+      core: { label: "Core Information" },
+      technical: { label: "ISO Reference Details" },
+      source: { label: "Source Record" }
+    };
+
+    /* ============================================================
+       SUBSECTION 12.3: UTILITY FUNCTIONS
+       ============================================================ */
+    function slugify(text) {
+      return String(text || "").toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/\+/g, "plus")
+        .replace(/,/g, " ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function escapeHTML(v) {
+      return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
+
+    function escapeRegex(v) {
+      return v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(v, q) {
+      const t = escapeHTML(v);
+      if (!q.trim()) return t;
+      const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+      return t.replace(r, "<mark>$1</mark>");
+    }
+
+    function normalizeDuplicateKey(v) {
+      return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    /* ============================================================
+       SUBSECTION 12.4: SOURCE DATA (preserved exactly as supplied)
+       ============================================================ */
+    const SOURCE_RAW_ISO_TSV =
+      `Given ISO Standard	ISO Standard Number with Edition	ISO Status	Official / Original Title	Product Family	Website Note
+    ISO 1051:1999; ISO 1234:1997	ISO 1051:1999; ISO 1234:1997	Existing ISO library entry — status not specified in old page data	Rivet shank diameters; Split pins	Rivets; Pins / rivet-adjacent fastening	Existing ISO library row preserved
+    ISO 10642:2019	ISO 10642:2019	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon socket countersunk head screws with reduced loadability	Socket screws / countersunk screws	Existing ISO library row preserved
+    ISO 1207:2011	ISO 1207:2011	Existing ISO library entry — status not specified in old page data	Slotted cheese head screws — Product grade A	Machine screws	Existing ISO library row preserved
+    ISO 14579:2011	ISO 14579:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket head cap screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14579:2011	ISO 14579:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket head cap screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14580:2011	ISO 14580:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket cheese head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14580:2011	ISO 14580:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket cheese head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14581:2022	ISO 14581:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexalobular socket countersunk flat head screws (common head style) with reduced loadability	Socket screws / countersunk six-lobe screws	Existing ISO library row preserved
+    ISO 14581:2022	ISO 14581:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexalobular socket countersunk flat head screws (common head style) with reduced loadability	Socket screws / countersunk six-lobe screws	Existing ISO library row preserved
+    ISO 14581:2022	ISO 14581:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexalobular socket countersunk flat head screws (common head style) with reduced loadability	Socket screws / countersunk six-lobe screws	Existing ISO library row preserved
+    ISO 14583:2011	ISO 14583:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket pan head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14583:2011	ISO 14583:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket pan head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14583:2011	ISO 14583:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket pan head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14584:2011	ISO 14584:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket raised countersunk head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14584:2011	ISO 14584:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket raised countersunk head screws	Socket screws / six-lobe screws	Existing ISO library row preserved
+    ISO 14585:2011	ISO 14585:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket pan head tapping screws	Tapping screws / six-lobe	Existing ISO library row preserved
+    ISO 14586:2011	ISO 14586:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket countersunk head tapping screws	Tapping screws / six-lobe	Existing ISO library row preserved
+    ISO 14586:2011	ISO 14586:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket countersunk head tapping screws	Tapping screws / six-lobe	Existing ISO library row preserved
+    ISO 14587:2011	ISO 14587:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket raised countersunk (oval) head tapping screws	Tapping screws / six-lobe	Existing ISO library row preserved
+    ISO 14587:2011	ISO 14587:2011	Existing ISO library entry — status not specified in old page data	Hexalobular socket raised countersunk (oval) head tapping screws	Tapping screws / six-lobe	Existing ISO library row preserved
+    ISO 1479:2011	ISO 1479:2011	Existing ISO library entry — status not specified in old page data	Hexagon head tapping screws	Tapping screws	Existing ISO library row preserved
+    ISO 1481:2011	ISO 1481:2011	Existing ISO library entry — status not specified in old page data	Slotted pan head tapping screws	Tapping screws	Existing ISO library row preserved
+    ISO 15480:2019	ISO 15480:2019	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon washer head drilling screws with tapping screw thread	Self-drilling screws	Existing ISO library row preserved
+    ISO 15481:1999	ISO 15481:1999	Existing ISO library entry — status not specified in old page data	Cross recessed pan head drilling screws with tapping screw thread	Self-drilling screws	Existing ISO library row preserved
+    ISO 1580:2011	ISO 1580:2011	Existing ISO library entry — status not specified in old page data	Slotted pan head screws — Product grade A	Machine screws	Existing ISO library row preserved
+    ISO 15973:2000	ISO 15973:2000	Existing ISO library entry — status not specified in old page data	Closed end blind rivets with break pull mandrel and protruding head — AlA/St	Blind rivets	Existing ISO library row preserved
+    ISO 15973:2000	ISO 15973:2000	Existing ISO library entry — status not specified in old page data	Closed end blind rivets with break pull mandrel and protruding head — AlA/St	Blind rivets	Existing ISO library row preserved
+    ISO 15977:2002; ISO 16585:2002	ISO 15977:2002; ISO 16585:2002	Existing ISO library entry — status not specified in old page data	Open end blind rivets with break pull mandrel and protruding head — AIA/St; Closed end blind rivets with pull mandrel and protruding head — A2/SSt	Blind rivets; Blind rivets	Existing ISO library row preserved
+    ISO 16585-2	—	Existing ISO library entry — status not specified in old page data	No matching ISO fastener/rivet record found in public ISO TC2 / ICS rivet catalogue	Blind rivets	Existing ISO library row preserved
+    ISO 2010:2011	ISO 2010:2011	Existing ISO library entry — status not specified in old page data	Slotted raised countersunk head screws — Product grade A	Machine screws	Existing ISO library row preserved
+    ISO 4014:2022	ISO 4014:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head bolts — Product grades A and B	Bolts	Existing ISO library row preserved
+    ISO 4017:2022	ISO 4017:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head screws — Product grades A and B	Hex head screws	Existing ISO library row preserved
+    ISO 4017:2022	ISO 4017:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head screws — Product grades A and B	Hex head screws	Existing ISO library row preserved
+    ISO 4017:2022	ISO 4017:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head screws — Product grades A and B	Hex head screws	Existing ISO library row preserved
+    ISO 4032:2023	ISO 4032:2023	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon regular nuts (style 1)	Nuts	Existing ISO library row preserved
+    ISO 4032:2023	ISO 4032:2023	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon regular nuts (style 1)	Nuts	Existing ISO library row preserved
+    ISO 4034:2012	ISO 4034:2012	Existing ISO library entry — status not specified in old page data	Hexagon regular nuts (style 1) — Product grade C	Nuts	Existing ISO library row preserved
+    ISO 4036:2012	ISO 4036:2012	Existing ISO library entry — status not specified in old page data	Hexagon thin nuts unchamfered (style 0) — Product grade B	Nuts	Existing ISO library row preserved
+    ISO 4161:2012	ISO 4161:2012	Existing ISO library entry — status not specified in old page data	Hexagon nuts with flange, style 2 — Coarse thread	Flange nuts	Existing ISO library row preserved
+    ISO 4762:2004	ISO 4762:2004	Existing ISO library entry — status not specified in old page data	Hexagon socket head cap screws	Socket head cap screws	Existing ISO library row preserved
+    ISO 4762:2004	ISO 4762:2004	Existing ISO library entry — status not specified in old page data	Hexagon socket head cap screws	Socket head cap screws	Existing ISO library row preserved
+    ISO 7046-1:2011 / ISO 7046-2:2011	ISO 7046-1:2011 / ISO 7046-2:2011	Existing ISO library entry — status not specified in old page data	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A	Machine screws / cross recess countersunk	Existing ISO library row preserved
+    ISO 7049:2011	ISO 7049:2011	Existing ISO library entry — status not specified in old page data	Cross-recessed pan head tapping screws	Tapping screws	Existing ISO library row preserved
+    ISO 7050:2011	ISO 7050:2011	Existing ISO library entry — status not specified in old page data	Cross-recessed countersunk (flat) head tapping screws	Tapping screws	Existing ISO library row preserved
+    ISO 7051:2011	ISO 7051:2011	Existing ISO library entry — status not specified in old page data	Cross-recessed raised countersunk (oval) head tapping screws	Tapping screws	Existing ISO library row preserved
+    ISO 7089:2000	ISO 7089:2000	Existing ISO library entry — status not specified in old page data	Plain washers — Normal series — Product grade A	Washers	Existing ISO library row preserved
+    ISO 7090:2000	ISO 7090:2000	Existing ISO library entry — status not specified in old page data	Plain washers, chamfered — Normal series — Product grade A	Washers	Existing ISO library row preserved
+    ISO 7094:2000	ISO 7094:2000	Existing ISO library entry — status not specified in old page data	Plain washers — Extra large series — Product grade C	Washers	Existing ISO library row preserved
+    ISO 7379:1983	ISO 7379:1983	Existing ISO library entry — status not specified in old page data	Hexagon socket head shoulder screws	Shoulder screws	Existing ISO library row preserved
+    ISO 7380:2004	ISO 7380:2004	Existing ISO library entry — status not specified in old page data	Hexagon socket button head screws	Button head screws	Existing ISO library row preserved
+    ISO 7380:2004	ISO 7380:2004	Existing ISO library entry — status not specified in old page data	Hexagon socket button head screws	Button head screws	Existing ISO library row preserved
+    ISO 7380-1:2022	ISO 7380-1:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Button head screws with reduced loadability — Part 1: Hexagon socket button head screws	Button head socket screws	Existing ISO library row preserved
+    ISO 7380-2:2022	ISO 7380-2:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Button head screws with reduced loadability — Part 2: Hexagon socket button head screws with collar	Button head socket screws with collar	Existing ISO library row preserved
+    ISO 7411:1984	ISO 7411:1984	Existing ISO library entry — status not specified in old page data	Hexagon bolts for high-strength structural bolting with large width across flats (thread lengths according to ISO 888) — Product grade C — Property classes 8.8 and 10.9	Structural bolts	Existing ISO library row preserved
+    ISO 7414:1984	ISO 7414:1984	Existing ISO library entry — status not specified in old page data	Hexagon nuts for structural bolting with large width across flats, style 1 — Product grade B — Property class 10	Structural nuts	Existing ISO library row preserved
+    ISO 7435:2024	ISO 7435:2024	Existing ISO library entry — status not specified in old page data	Fasteners — Slotted set screws with dog point	Set screws	Existing ISO library row preserved
+    ISO 7435:2024	ISO 7435:2024	Existing ISO library entry — status not specified in old page data	Fasteners — Slotted set screws with dog point	Set screws	Existing ISO library row preserved
+    ISO 8676:2022	ISO 8676:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head screws, with fine pitch thread — Product grades A and B	Hex head screws / fine pitch	Existing ISO library row preserved
+    ISO 8676:2022	ISO 8676:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head screws, with fine pitch thread — Product grades A and B	Hex head screws / fine pitch	Existing ISO library row preserved
+    ISO 8677:1986	ISO 8677:1986	Existing ISO library entry — status not specified in old page data	Cup head square neck bolts with large head — Product grade C	Carriage/cup head bolts	Existing ISO library row preserved
+    ISO 8765:2022	ISO 8765:2022	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon head bolts, with fine pitch thread — Product grades A and B	Hex head bolts / fine pitch	Existing ISO library row preserved
+    ISO 898-1:2013	ISO 898-1:2013	Existing ISO library entry — status not specified in old page data	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 1: Bolts, screws and studs with specified property classes — Coarse thread and fine pitch thread	Mechanical properties — bolts, screws, studs	Existing ISO library row preserved
+    ISO 3266	ISO 3266:2010 + ISO 3266:2010/Amd 1:2015	Published / current	Forged steel eyebolts grade 4 for general lifting purposes	Lifting eye bolts	New ISO update row added
+    ISO 4035	ISO 4035:2023	Published / current	Fasteners — Hexagon thin nuts (style 0)	Hexagon thin nuts / jam nuts	New ISO update row added
+    ISO 2936	ISO 2936:2014	Published / current	Assembly tools for screws and nuts — Hexagon socket screw keys	Hex keys / Allen keys	New ISO update row added
+    ISO 2338	ISO 2338:1997	Published / current	Parallel pins, of unhardened steel and austenitic stainless steel	Parallel pins / dowel pins	New ISO update row added
+    ISO 8734	ISO 8734:1997	Published / current	Parallel pins, of hardened steel and martensitic stainless steel (Dowel pins)	Hardened parallel pins / dowel pins	New ISO update row added
+    ISO 8675	ISO 8675:2023	Published / current	Fasteners — Hexagon thin nuts (style 0), with fine pitch thread	Hexagon thin nuts, fine pitch	New ISO update row added
+    ISO 8735 A	ISO 8735:1997	Published / current	Parallel pins with internal thread, of hardened steel and martensitic stainless steel	Internally threaded hardened parallel pins	New ISO update row added
+    ISO 8739	ISO 8739:2025	Published / current	Fasteners — Parallel grooved pins, with pilot point — Full-length diamond grooves	Grooved pins	New ISO update row added
+    ISO 8744	ISO 8744:2025	Published / current	Fasteners — Taper grooved pins — Full-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8745	ISO 8745:2025	Published / current	Fasteners — Taper grooved pins — Half-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8740	ISO 8740:2025	Published / current	Fasteners — Parallel grooved pins, with chamfer point — Full-length diamond grooves	Grooved pins	New ISO update row added
+    ISO 8741	ISO 8741:2025	Published / current	Fasteners — Reverse-taper grooved pins — Half-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8742	ISO 8742:1997	Needs final ISO account confirmation	Grooved pins — One-third-length centre-grooved	Grooved pins	New ISO update row added
+    ISO 8746	ISO 8746:2025	Published / current	Fasteners — Grooved pins with round head — Full-length diamond grooves	Grooved pins with round head	New ISO update row added
+    ISO 8747	ISO 8747:2025	Published / current	Fasteners — Grooved pins with countersunk head — Full-length diamond grooves	Countersunk grooved pins	New ISO update row added
+    ISO R 773 / ISO 773	ISO/R 773:1969	Withdrawn / legacy	Rectangular or square parallel keys and their corresponding keyways OR taper-key reference needs final confirmation	Keys / keyways	New ISO update row added
+    ISO 3912	ISO 3912:1977	Needs final ISO account confirmation	Clevis pins with head / pin product family needs final ISO title confirmation	Clevis pins	New ISO update row added
+    ISO 8750	ISO 8750:2007	Published / current	Spring-type straight pins — Coiled, standard duty	Coiled spring pins, standard duty	New ISO update row added
+    ISO 8748	ISO 8748:2007	Published / current	Spring-type straight pins — Coiled, heavy duty	Coiled spring pins, heavy duty	New ISO update row added
+    ISO 8752	ISO 8752:2009	Published / current	Spring-type straight pins — Slotted, heavy duty	Slotted spring pins, heavy duty	New ISO update row added
+    ISO 13337	ISO 13337:2009	Published / current	Spring-type straight pins — Slotted, light duty	Slotted spring pins, light duty	New ISO update row added
+    ISO 8736 A	ISO 8736:1986	Published / current	Taper pins with internal thread, unhardened	Internally threaded taper pins	New ISO update row added
+    ISO 2339 A	ISO 2339:1986	Published / current	Taper pins, unhardened	Taper pins	New ISO update row added
+    ISO 2339 B	ISO 2339:1986	Published / current	Taper pins, unhardened	Taper pins	New ISO update row added
+    ISO 8737	ISO 8737:1986	Published / current	Taper pins with external thread, unhardened	Externally threaded taper pins	New ISO update row added
+    ISO 7093-1	ISO 7093-1:2000	Published / current; under revision	Plain washers — Large series — Part 1: Product grade A	Large series plain washers	New ISO update row added
+    ISO 4018	ISO 4018:2022	Published / current	Fasteners — Hexagon head screws — Product grade C	Hexagon head screws	New ISO update row added
+    ISO 4016	ISO 4016:2022	Published / current	Fasteners — Hexagon head bolts — Product grade C	Hexagon head bolts	New ISO update row added
+    ISO 7093	ISO 7093:1983 withdrawn; use ISO 7093-1:2000 / ISO 7093-2:2000	Withdrawn / replaced by parts	Plain washers — Large series — Product grades A and C	Large series plain washers	New ISO update row added
+    ISO 8673	ISO 8673:2023	Published / current	Fasteners — Hexagon regular nuts (style 1), with fine pitch thread	Hexagon regular nuts, fine pitch	New ISO update row added
+    ISO 7091	ISO 7091:2000	Published / current; under revision	Plain washers — Normal series — Product grade C	Normal series plain washers	New ISO update row added
+    ISO 8738	ISO 8738:1986	Published / current	Plain washers for clevis pins	Washers for clevis pins	New ISO update row added
+    ISO 4033	ISO 4033:2023	Published / current	Fasteners — Hexagon high nuts (style 2)	Hexagon high nuts	New ISO update row added
+    ISO 2982	ISO 2982-2:2013	Published / current	Rolling bearings — Accessories — Part 2: Dimensions for locknuts and locking devices	Bearing locknuts and locking devices	New ISO update row added
+    ISO 2009	ISO 2009:2011	Published / current	Slotted countersunk flat head screws — Product grade A	Slotted countersunk machine screws	New ISO update row added
+    ISO 7048	ISO 7048:2011	Published / current	Cross-recessed cheese head screws	Cross recessed cheese head screws	New ISO update row added
+    ISO 7045	ISO 7045:2011	Published / current	Pan head screws with type H or type Z cross recess — Product grade A	Cross recessed pan head screws	New ISO update row added
+    ISO 7047	ISO 7047:2011	Published / current	Raised countersunk head screws (common head style) with type H or type Z cross recess — Product grade A	Cross recessed raised countersunk screws	New ISO update row added
+    ISO 4026	ISO 4026:2026	Published / current	Fasteners — Hexagon socket set screws with flat point	Socket set screws, flat point	New ISO update row added
+    ISO 4027	ISO 4027:2026	Published / current	Fasteners — Hexagon socket set screws with truncated cone point	Socket set screws, cone point	New ISO update row added
+    ISO 4028	ISO 4028:2026	Published / current	Fasteners — Hexagon socket set screws with dog point	Socket set screws, dog point	New ISO update row added
+    ISO 4029	ISO 4029:2026	Published / current	Fasteners — Hexagon socket set screws with cup point	Socket set screws, cup point	New ISO update row added
+    ISO 2342	ISO 2342:2003	Published / current	Slotted headless screws with shank	Slotted headless screws	New ISO update row added
+    ISO 4766	ISO 4766:2024	Published / current	Fasteners — Slotted set screws with flat point	Slotted set screws, flat point	New ISO update row added
+    ISO 7434	ISO 7434:2024	Published / current	Fasteners — Slotted set screws with cone point	Slotted set screws, cone point	New ISO update row added
+    ISO 7436	ISO 7436:2024	Published / current	Fasteners — Slotted set screws with cup point	Slotted set screws, cup point	New ISO update row added
+    ISO 1482	ISO 1482:2011	Published / current	Slotted countersunk (flat) head tapping screws	Slotted countersunk tapping screws	New ISO update row added
+    ISO 1483	ISO 1483:2011	Published / current	Slotted raised countersunk (oval) head tapping screws	Slotted raised countersunk tapping screws	New ISO update row added
+    ISO 10511	ISO 10511:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — Thin nuts (with non-metallic insert)	Prevailing torque thin nuts with insert	New ISO update row added
+    ISO 10512	ISO 10512:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — Regular nuts (with non-metallic insert), with fine pitch thread	Prevailing torque regular nuts with insert, fine pitch	New ISO update row added
+    ISO 10513	ISO 10513:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal), with fine pitch thread	All-metal prevailing torque high nuts, fine pitch	New ISO update row added
+    ISO 10670	ISO 10670	Not verified on ISO public catalogue	Conical spring washers / disc spring washers for bolted connections	Conical spring washers	New ISO update row added
+    ISO 13918	ISO 13918:2017 + ISO 13918:2017/Amd 1:2021	Published / current	Welding — Studs and ceramic ferrules for arc stud welding	Weld studs / arc stud welding	New ISO update row added
+    ISO 14582	ISO 14582:2013	Published / current	Fasteners — Hexalobular socket countersunk head screws, high head	Hexalobular countersunk screws, high head	New ISO update row added
+    ISO 15071	ISO 15071:2011	Published / current	Hexagon bolts with flange — Small series — Product grade A	Hex flange bolts, small series	New ISO update row added
+    ISO 15072	ISO 15072:2012	Published / current	Hexagon bolts with flange with metric fine pitch thread — Small series — Product grade A	Hex flange bolts, fine pitch	New ISO update row added
+    ISO 15482	ISO 15482:1999	Needs final ISO account confirmation	Cross recessed countersunk head drilling screws with tapping screw thread	Drilling screws / countersunk	New ISO update row added
+    ISO 15983	ISO 15983:2002	Published / current	Open end blind rivets with break pull mandrel and protruding head — A2/A2	Open-end blind rivets	New ISO update row added
+    ISO 299	ISO 299:1987	Published / current	Machine tool tables — T-slots and corresponding bolts	T-slot bolts / machine table bolts	New ISO update row added
+    ISO 2139	ISO 2139:1975	Published / current, but not fastener standard	Continuous mechanical handling equipment for loose bulk materials — Oscillating conveyors and shaking or reciprocating feeders with tubular trough	Not fastener product family	New ISO update row added
+    ISO 2340	ISO 2340:1986	Published / current	Clevis pins without head	Clevis pins without head	New ISO update row added
+    ISO 2341	ISO 2341:1986	Published / current	Clevis pins with head	Clevis pins with head	New ISO update row added
+    ISO 2491	ISO 2491:1974	Withdrawn / legacy	Thin parallel keys and their corresponding keyways (Dimensions in millimetres)	Thin parallel keys / keyways	New ISO update row added
+    ISO 4775	ISO 4775:1984	Withdrawn / legacy	Hexagon nuts for high-strength structural bolting with large width across flats — Product grade B — Property classes 8 and 10	Structural bolting nuts	New ISO update row added
+    ISO 774	ISO/R 774:1969	Withdrawn / legacy	Taper keys with or without gib head and their corresponding keyways (Dimensions in millimetres)	Taper keys / gib-head keys	New ISO update row added
+    ISO 7035	ISO 7035	Not verified on ISO public catalogue	Hexagon slotted castle nuts	Slotted / castle nuts	New ISO update row added
+    ISO 7036	ISO 7036	Not verified on ISO public catalogue	Hexagon slotted nuts / castle nuts, low or related type	Slotted / castle nuts	New ISO update row added
+    ISO 7037	ISO 7037	Not verified on ISO public catalogue	Hexagon slotted/castle nut family	Slotted / castle nuts	New ISO update row added
+    ISO 7038	ISO 7038	Not verified on ISO public catalogue	Hexagon slotted castle nuts, low type / related type	Slotted / castle nuts	New ISO update row added
+    ISO 7040	ISO 7040:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — Regular nuts (with non-metallic insert)	Prevailing torque regular nuts with insert	New ISO update row added
+    ISO 7041	ISO 7041:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — High nuts (with non-metallic insert)	Prevailing torque high nuts with insert	New ISO update row added
+    ISO 7042	ISO 7042:2025	Published / current	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal)	All-metal prevailing torque high nuts	New ISO update row added
+    ISO 7092	ISO 7092:2000	Published / current; under revision	Plain washers — Small series — Product grade A	Small series plain washers	New ISO update row added
+    ISO 7416	ISO 7416:1984	Withdrawn / legacy	Plain washers, chamfered, hardened and tempered for high-strength structural bolting	Structural bolting washers	New ISO update row added
+    ISO 8733	ISO 8733:1997	Published / current	Parallel pins with internal thread, of unhardened steel and austenitic stainless steel	Internally threaded parallel pins	New ISO update row added
+    ISO 8735	ISO 8735:1997	Published / current	Parallel pins with internal thread, of hardened steel and martensitic stainless steel	Internally threaded hardened parallel pins	New ISO update row added
+    ISO 8736	ISO 8736:1986	Published / current	Taper pins with internal thread, unhardened	Internally threaded taper pins	New ISO update row added
+    ISO 21269	ISO 21269:2004	Withdrawn / legacy	Hexagon socket head cap screws with metric fine pitch thread	Socket head cap screws, fine pitch	New ISO update row added
+    ISO 1051:1999; ISO 1234:1997	ISO 1051:1999; ISO 1234:1997	Existing ISO library entry — status not specified in old page data	Rivet shank diameters; Split pins	Rivets; Pins / rivet-adjacent fastening	Existing ISO library row preserved
+    ISO 10642:2019	ISO 10642:2019	Existing ISO library entry — status not specified in old page data	Fasteners — Hexagon socket countersunk head screws with reduced loadability	Socket screws / countersunk screws	Existing ISO library row preserved
+    ISO 1207:2011	ISO 1207:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Slotted cheese head screws — Product grade A	Machine screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Machine Screws | Keywords: Slotted; Cheese Head; Machine Screw
+    ISO 14579:2011	ISO 14579:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket head cap screws	Socket screws / six-lobe screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; Torx; Socket Head Cap Screw
+    ISO 14580:2011	ISO 14580:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket cheese head screws	Socket screws / six-lobe screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; Torx; Cheese Head
+    ISO 14581:2022	ISO 14581:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexalobular socket countersunk flat head screws (common head style) with reduced loadability	Socket screws / countersunk six-lobe screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; Torx; Countersunk; Reduced Loadability
+    ISO 14583:2011	ISO 14583:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket pan head screws	Socket screws / six-lobe screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; Pan Head; Torx
+    ISO 14584:2011	ISO 14584:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket raised countersunk head screws	Socket screws / six-lobe screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; Raised Countersunk; Torx
+    ISO 14585:2011	ISO 14585:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket pan head tapping screws	Tapping screws / six-lobe; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Hexalobular; Torx; Tapping Screw; Pan Head
+    ISO 14586:2011	ISO 14586:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket countersunk head tapping screws	Tapping screws / six-lobe; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Hexalobular; Torx; Tapping Screw; Countersunk
+    ISO 14587:2011	ISO 14587:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexalobular socket raised countersunk (oval) head tapping screws	Tapping screws / six-lobe; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Hexalobular; Torx; Tapping Screw; Oval Head
+    ISO 1479:2011	ISO 1479:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexagon head tapping screws	Tapping screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Hexagon Head
+    ISO 1481:2011	ISO 1481:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Slotted pan head tapping screws	Tapping screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Slotted; Pan Head
+    ISO 15480:2019	ISO 15480:2019	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon washer head drilling screws with tapping screw thread	Self-drilling screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Drilling Screws | Keywords: Drilling Screw; Washer Head; Hexagon Head
+    ISO 15481:1999	ISO 15481:1999	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Cross recessed pan head drilling screws with tapping screw thread	Self-drilling screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Drilling Screws | Keywords: Drilling Screw; Cross Recess; Pan Head
+    ISO 1580:2011	ISO 1580:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Slotted pan head screws — Product grade A	Machine screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Machine Screws | Keywords: Machine Screw; Slotted; Pan Head
+    ISO 15973:2000	ISO 15973:2000	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Closed end blind rivets with break pull mandrel and protruding head — AlA/St	Blind rivets; Rivets	Existing ISO library row preserved | Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Closed End; Protruding Head
+    ISO 15977:2002; ISO 16585:2002	ISO 15977:2002; ISO 16585:2002	Existing ISO library entry — status not specified in old page data	Open end blind rivets with break pull mandrel and protruding head — AIA/St; Closed end blind rivets with pull mandrel and protruding head — A2/SSt	Blind rivets; Blind rivets	Existing ISO library row preserved
+    ISO 16585-2	—	Existing ISO library entry — status not specified in old page data	No matching ISO fastener/rivet record found in public ISO TC2 / ICS rivet catalogue	Blind rivets	Existing ISO library row preserved
+    ISO 2010:2011	ISO 2010:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Slotted raised countersunk head screws — Product grade A	Machine screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Machine Screws | Keywords: Machine Screw; Raised Countersunk; Oval Head
+    ISO 4014:2022	ISO 4014:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon head bolts — Product grades A and B	Bolts	Existing ISO library row preserved | Merged from second HTML file | Category: Hexagon Bolts | Keywords: Hexagon Bolt; Bolts; Grade A; Grade B
+    ISO 4017:2022	ISO 4017:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon head screws — Product grades A and B	Hex head screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexagon Screws | Keywords: Hexagon Screw; Grade A; Grade B
+    ISO 4032:2023	ISO 4032:2023	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon regular nuts (style 1)	Nuts	Existing ISO library row preserved | Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; Regular Nut; Style 1
+    ISO 4034:2012	ISO 4034:2012	Existing ISO library entry — status not specified in old page data	Hexagon regular nuts (style 1) — Product grade C	Nuts	Existing ISO library row preserved
+    ISO 4036:2012	ISO 4036:2012	Existing ISO library entry — status not specified in old page data	Hexagon thin nuts unchamfered (style 0) — Product grade B	Nuts	Existing ISO library row preserved
+    ISO 4161:2012	ISO 4161:2012	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexagon nuts with flange, style 2 — Coarse thread	Flange nuts; Nuts	Existing ISO library row preserved | Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; Coarse Thread
+    ISO 4762:2004	ISO 4762:2004	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexagon socket head cap screws	Socket head cap screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Socket Head Cap Screws | Keywords: Socket Head Cap Screw; Hexagon Socket
+    ISO 7046-1:2011 / ISO 7046-2:2011	ISO 7046-1:2011 / ISO 7046-2:2011	Existing ISO library entry — status not specified in old page data	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A	Machine screws / cross recess countersunk	Existing ISO library row preserved
+    ISO 7049:2011	ISO 7049:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Cross-recessed pan head tapping screws	Tapping screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Cross Recess; Pan Head
+    ISO 7050:2011	ISO 7050:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Cross-recessed countersunk (flat) head tapping screws	Tapping screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Cross Recess; Countersunk
+    ISO 7051:2011	ISO 7051:2011	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Cross-recessed raised countersunk (oval) head tapping screws	Tapping screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Oval Head; Cross Recess
+    ISO 7089:2000	ISO 7089:2000	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Plain washers — Normal series — Product grade A	Washers	Existing ISO library row preserved | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Normal Series; Grade A
+    ISO 7090:2000	ISO 7090:2000	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Plain washers, chamfered — Normal series — Product grade A	Washers	Existing ISO library row preserved | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Chamfered; Grade A
+    ISO 7094:2000	ISO 7094:2000	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Plain washers — Extra large series — Product grade C	Washers	Existing ISO library row preserved | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Extra Large Series; Grade C
+    ISO 7379:1983	ISO 7379:1983	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Hexagon socket head shoulder screws	Shoulder screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Shoulder Screws | Keywords: Shoulder Screw; Hexagon Socket
+    ISO 7380:2004	ISO 7380:2004	Existing ISO library entry — status not specified in old page data	Hexagon socket button head screws	Button head screws	Existing ISO library row preserved
+    ISO 7380-1:2022	ISO 7380-1:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Button head screws with reduced loadability — Part 1: Hexagon socket button head screws	Button head socket screws; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Button Head Screws | Keywords: Button Head; Hexagon Socket; Reduced Loadability
+    ISO 7380-2:2022	ISO 7380-2:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Button head screws with reduced loadability — Part 2: Hexagon socket button head screws with collar	Button head socket screws with collar; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Button Head Screws | Keywords: Button Head; Collar; Hexagon Socket
+    ISO 7411:1984	ISO 7411:1984	Existing ISO library entry — status not specified in old page data	Hexagon bolts for high-strength structural bolting with large width across flats (thread lengths according to ISO 888) — Product grade C — Property classes 8.8 and 10.9	Structural bolts	Existing ISO library row preserved
+    ISO 7414:1984	ISO 7414:1984	Existing ISO library entry — status not specified in old page data	Hexagon nuts for structural bolting with large width across flats, style 1 — Product grade B — Property class 10	Structural nuts	Existing ISO library row preserved
+    ISO 7435:2024	ISO 7435:2024	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Slotted set screws with dog point	Set screws	Existing ISO library row preserved | Merged from second HTML file | Category: Slotted Set Screws | Keywords: Set Screw; Slotted; Dog Point
+    ISO 8676:2022	ISO 8676:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon head screws, with fine pitch thread — Product grades A and B	Hex head screws / fine pitch; Screws	Existing ISO library row preserved | Merged from second HTML file | Category: Hexagon Screws | Keywords: Hexagon Screw; Fine Pitch; Grade A; Grade B
+    ISO 8677:1986	ISO 8677:1986	Existing ISO library entry — status not specified in old page data	Cup head square neck bolts with large head — Product grade C	Carriage/cup head bolts	Existing ISO library row preserved
+    ISO 8765:2022	ISO 8765:2022	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Fasteners — Hexagon head bolts, with fine pitch thread — Product grades A and B	Hex head bolts / fine pitch; Bolts	Existing ISO library row preserved | Merged from second HTML file | Category: Hexagon Bolts | Keywords: Hexagon Bolt; Fine Pitch; Grade A; Grade B
+    ISO 898-1:2013	ISO 898-1:2013	Existing ISO library entry — status not specified in old page data | Existing standards library entry	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 1: Bolts, screws and studs with specified property classes — Coarse thread and fine pitch thread	Mechanical properties — bolts, screws, studs; Bolts; Screws; Studs; Threaded Rods	Existing ISO library row preserved | Merged from second HTML file | Category: Mechanical Properties | Keywords: Mechanical Properties; Carbon Steel; Alloy Steel; Bolts; Screws; Studs
+    ISO 3266	ISO 3266:2010 + ISO 3266:2010/Amd 1:2015	Published / current	Forged steel eyebolts grade 4 for general lifting purposes	Lifting eye bolts	New ISO update row added
+    ISO 4035	ISO 4035:2023	Published / current | Existing standards library entry	Fasteners — Hexagon thin nuts (style 0)	Hexagon thin nuts / jam nuts; Nuts	New ISO update row added | Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; Thin Nut; Style 0
+    ISO 2936	ISO 2936:2014	Published / current	Assembly tools for screws and nuts — Hexagon socket screw keys	Hex keys / Allen keys	New ISO update row added
+    ISO 2338	ISO 2338:1997	Published / current	Parallel pins, of unhardened steel and austenitic stainless steel	Parallel pins / dowel pins	New ISO update row added
+    ISO 8734	ISO 8734:1997	Published / current	Parallel pins, of hardened steel and martensitic stainless steel (Dowel pins)	Hardened parallel pins / dowel pins	New ISO update row added
+    ISO 8675	ISO 8675:2023	Published / current | Existing standards library entry	Fasteners — Hexagon thin nuts (style 0), with fine pitch thread	Hexagon thin nuts, fine pitch; Nuts	New ISO update row added | Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; Fine Pitch; Style 0
+    ISO 8735 A	ISO 8735:1997	Published / current	Parallel pins with internal thread, of hardened steel and martensitic stainless steel	Internally threaded hardened parallel pins	New ISO update row added
+    ISO 8739	ISO 8739:2025	Published / current	Fasteners — Parallel grooved pins, with pilot point — Full-length diamond grooves	Grooved pins	New ISO update row added
+    ISO 8744	ISO 8744:2025	Published / current	Fasteners — Taper grooved pins — Full-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8745	ISO 8745:2025	Published / current	Fasteners — Taper grooved pins — Half-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8740	ISO 8740:2025	Published / current	Fasteners — Parallel grooved pins, with chamfer point — Full-length diamond grooves	Grooved pins	New ISO update row added
+    ISO 8741	ISO 8741:2025	Published / current	Fasteners — Reverse-taper grooved pins — Half-length progressive grooves	Grooved pins	New ISO update row added
+    ISO 8742	ISO 8742:1997	Needs final ISO account confirmation	Grooved pins — One-third-length centre-grooved	Grooved pins	New ISO update row added
+    ISO 8746	ISO 8746:2025	Published / current	Fasteners — Grooved pins with round head — Full-length diamond grooves	Grooved pins with round head	New ISO update row added
+    ISO 8747	ISO 8747:2025	Published / current	Fasteners — Grooved pins with countersunk head — Full-length diamond grooves	Countersunk grooved pins	New ISO update row added
+    ISO R 773 / ISO 773	ISO/R 773:1969	Withdrawn / legacy	Rectangular or square parallel keys and their corresponding keyways OR taper-key reference needs final confirmation	Keys / keyways	New ISO update row added
+    ISO 3912	ISO 3912:1977	Needs final ISO account confirmation	Clevis pins with head / pin product family needs final ISO title confirmation	Clevis pins	New ISO update row added
+    ISO 8750	ISO 8750:2007	Published / current	Spring-type straight pins — Coiled, standard duty	Coiled spring pins, standard duty	New ISO update row added
+    ISO 8748	ISO 8748:2007	Published / current	Spring-type straight pins — Coiled, heavy duty	Coiled spring pins, heavy duty	New ISO update row added
+    ISO 8752	ISO 8752:2009	Published / current	Spring-type straight pins — Slotted, heavy duty	Slotted spring pins, heavy duty	New ISO update row added
+    ISO 13337	ISO 13337:2009	Published / current	Spring-type straight pins — Slotted, light duty	Slotted spring pins, light duty	New ISO update row added
+    ISO 8736 A	ISO 8736:1986	Published / current	Taper pins with internal thread, unhardened	Internally threaded taper pins	New ISO update row added
+    ISO 2339 A	ISO 2339:1986	Published / current	Taper pins, unhardened	Taper pins	New ISO update row added
+    ISO 8737	ISO 8737:1986	Published / current	Taper pins with external thread, unhardened	Externally threaded taper pins	New ISO update row added
+    ISO 7093-1	ISO 7093-1:2000	Published / current; under revision | Existing standards library entry	Plain washers — Large series — Part 1: Product grade A	Large series plain washers; Washers	New ISO update row added | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Large Series; Grade A
+    ISO 4018	ISO 4018:2022	Published / current | Existing standards library entry	Fasteners — Hexagon head screws — Product grade C	Hexagon head screws; Screws	New ISO update row added | Merged from second HTML file | Category: Hexagon Screws | Keywords: Hexagon Screw; Grade C
+    ISO 4016	ISO 4016:2022	Published / current | Existing standards library entry	Fasteners — Hexagon head bolts — Product grade C	Hexagon head bolts; Bolts	New ISO update row added | Merged from second HTML file | Category: Hexagon Bolts | Keywords: Hexagon Bolt; Grade C
+    ISO 7093	ISO 7093:1983 withdrawn; use ISO 7093-1:2000 / ISO 7093-2:2000	Withdrawn / replaced by parts	Plain washers — Large series — Product grades A and C	Large series plain washers	New ISO update row added
+    ISO 8673	ISO 8673:2023	Published / current | Existing standards library entry	Fasteners — Hexagon regular nuts (style 1), with fine pitch thread	Hexagon regular nuts, fine pitch; Nuts	New ISO update row added | Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; Fine Pitch; Style 1
+    ISO 7091	ISO 7091:2000	Published / current; under revision | Existing standards library entry	Plain washers — Normal series — Product grade C	Normal series plain washers; Washers	New ISO update row added | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Normal Series; Grade C
+    ISO 8738	ISO 8738:1986	Published / current | Existing standards library entry	Plain washers for clevis pins	Washers for clevis pins; Washers	New ISO update row added | Merged from second HTML file | Category: Special Washers | Keywords: Clevis Pin; Plain Washer; Grade A
+    ISO 4033	ISO 4033:2023	Published / current | Existing standards library entry	Fasteners — Hexagon high nuts (style 2)	Hexagon high nuts; Nuts	New ISO update row added | Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; High Nut; Style 2
+    ISO 2982	ISO 2982-2:2013	Published / current	Rolling bearings — Accessories — Part 2: Dimensions for locknuts and locking devices	Bearing locknuts and locking devices	New ISO update row added
+    ISO 2009	ISO 2009:2011	Published / current | Existing standards library entry	Slotted countersunk flat head screws — Product grade A	Slotted countersunk machine screws; Screws	New ISO update row added | Merged from second HTML file | Category: Machine Screws | Keywords: Machine Screw; Countersunk; Flat Head
+    ISO 7048	ISO 7048:2011	Published / current | Existing standards library entry	Cross-recessed cheese head screws	Cross recessed cheese head screws; Screws	New ISO update row added | Merged from second HTML file | Category: Cross Recessed Screws | Keywords: Cross Recess; Cheese Head
+    ISO 7045	ISO 7045:2011	Published / current | Existing standards library entry	Pan head screws with type H or type Z cross recess — Product grade A	Cross recessed pan head screws; Screws	New ISO update row added | Merged from second HTML file | Category: Cross Recessed Screws | Keywords: Cross Recess; Pan Head; Machine Screw
+    ISO 7047	ISO 7047:2011	Published / current | Existing standards library entry	Raised countersunk head screws (common head style) with type H or type Z cross recess — Product grade A	Cross recessed raised countersunk screws; Screws	New ISO update row added | Merged from second HTML file | Category: Cross Recessed Screws | Keywords: Cross Recess; Raised Countersunk; Oval Head
+    ISO 4026	ISO 4026:2026	Published / current | Existing standards library entry	Fasteners — Hexagon socket set screws with flat point	Socket set screws, flat point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Hexagon Socket Set Screws | Keywords: Set Screw; Hexagon Socket; Flat Point
+    ISO 4027	ISO 4027:2026	Published / current | Existing standards library entry	Fasteners — Hexagon socket set screws with truncated cone point	Socket set screws, cone point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Hexagon Socket Set Screws | Keywords: Set Screw; Hexagon Socket; Cone Point
+    ISO 4028	ISO 4028:2026	Published / current | Existing standards library entry	Fasteners — Hexagon socket set screws with dog point	Socket set screws, dog point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Hexagon Socket Set Screws | Keywords: Set Screw; Hexagon Socket; Dog Point
+    ISO 4029	ISO 4029:2026	Published / current | Existing standards library entry	Fasteners — Hexagon socket set screws with cup point	Socket set screws, cup point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Hexagon Socket Set Screws | Keywords: Set Screw; Hexagon Socket; Cup Point
+    ISO 2342	ISO 2342:2003	Published / current | Existing standards library entry	Slotted headless screws with shank	Slotted headless screws; Screws	New ISO update row added | Merged from second HTML file | Category: Special Screws | Keywords: Headless Screw; Shank; Slotted
+    ISO 4766	ISO 4766:2024	Published / current | Existing standards library entry	Fasteners — Slotted set screws with flat point	Slotted set screws, flat point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Slotted Set Screws | Keywords: Slotted Set Screw; Flat Point
+    ISO 7434	ISO 7434:2024	Published / current | Existing standards library entry	Fasteners — Slotted set screws with cone point	Slotted set screws, cone point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Slotted Set Screws | Keywords: Set Screw; Slotted; Cone Point
+    ISO 7436	ISO 7436:2024	Published / current | Existing standards library entry	Fasteners — Slotted set screws with cup point	Slotted set screws, cup point; Set Screws	New ISO update row added | Merged from second HTML file | Category: Slotted Set Screws | Keywords: Set Screw; Slotted; Cup Point
+    ISO 1482	ISO 1482:2011	Published / current | Existing standards library entry	Slotted countersunk (flat) head tapping screws	Slotted countersunk tapping screws; Screws	New ISO update row added | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Countersunk; Flat Head
+    ISO 1483	ISO 1483:2011	Published / current | Existing standards library entry	Slotted raised countersunk (oval) head tapping screws	Slotted raised countersunk tapping screws; Screws	New ISO update row added | Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Oval Head; Raised Countersunk
+    ISO 10511	ISO 10511:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — Thin nuts (with non-metallic insert)	Prevailing torque thin nuts with insert; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Thin Nut; Non Metallic Insert
+    ISO 10512	ISO 10512:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — Regular nuts (with non-metallic insert), with fine pitch thread	Prevailing torque regular nuts with insert, fine pitch; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Fine Pitch; Regular Nut
+    ISO 10513	ISO 10513:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal), with fine pitch thread	All-metal prevailing torque high nuts, fine pitch; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Fine Pitch; High Nut; All Metal
+    ISO 10670	ISO 10670	Not verified on ISO public catalogue	Conical spring washers / disc spring washers for bolted connections	Conical spring washers	New ISO update row added
+    ISO 13918	ISO 13918:2017 + ISO 13918:2017/Amd 1:2021	Published / current	Welding — Studs and ceramic ferrules for arc stud welding	Weld studs / arc stud welding	New ISO update row added
+    ISO 14582	ISO 14582:2013	Published / current | Existing standards library entry	Fasteners — Hexalobular socket countersunk head screws, high head	Hexalobular countersunk screws, high head; Screws	New ISO update row added | Merged from second HTML file | Category: Hexalobular Socket Screws | Keywords: Hexalobular; High Head; Countersunk
+    ISO 15071	ISO 15071:2011	Published / current | Existing standards library entry	Hexagon bolts with flange — Small series — Product grade A	Hex flange bolts, small series; Bolts	New ISO update row added | Merged from second HTML file | Category: Flange Bolts | Keywords: Flange Bolt; Hexagon Bolt; Small Series
+    ISO 15072	ISO 15072:2012	Published / current | Existing standards library entry	Hexagon bolts with flange with metric fine pitch thread — Small series — Product grade A	Hex flange bolts, fine pitch; Bolts	New ISO update row added | Merged from second HTML file | Category: Flange Bolts | Keywords: Flange Bolt; Fine Pitch; Hexagon Bolt
+    ISO 15482	ISO 15482:1999	Needs final ISO account confirmation | Existing standards library entry	Cross recessed countersunk head drilling screws with tapping screw thread	Drilling screws / countersunk; Screws	New ISO update row added | Merged from second HTML file | Category: Drilling Screws | Keywords: Drilling Screw; Countersunk; Cross Recess
+    ISO 15983	ISO 15983:2002	Published / current | Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — A2/A2	Open-end blind rivets; Rivets	New ISO update row added | Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Stainless Steel
+    ISO 299	ISO 299:1987	Published / current	Machine tool tables — T-slots and corresponding bolts	T-slot bolts / machine table bolts	New ISO update row added
+    ISO 2139	ISO 2139:1975	Published / current, but not fastener standard	Continuous mechanical handling equipment for loose bulk materials — Oscillating conveyors and shaking or reciprocating feeders with tubular trough	Not fastener product family	New ISO update row added
+    ISO 2340	ISO 2340:1986	Published / current	Clevis pins without head	Clevis pins without head	New ISO update row added
+    ISO 2341	ISO 2341:1986	Published / current	Clevis pins with head	Clevis pins with head	New ISO update row added
+    ISO 2491	ISO 2491:1974	Withdrawn / legacy	Thin parallel keys and their corresponding keyways (Dimensions in millimetres)	Thin parallel keys / keyways	New ISO update row added
+    ISO 4775	ISO 4775:1984	Withdrawn / legacy	Hexagon nuts for high-strength structural bolting with large width across flats — Product grade B — Property classes 8 and 10	Structural bolting nuts	New ISO update row added
+    ISO 774	ISO/R 774:1969	Withdrawn / legacy	Taper keys with or without gib head and their corresponding keyways (Dimensions in millimetres)	Taper keys / gib-head keys	New ISO update row added
+    ISO 7035	ISO 7035	Not verified on ISO public catalogue	Hexagon slotted castle nuts	Slotted / castle nuts	New ISO update row added
+    ISO 7036	ISO 7036	Not verified on ISO public catalogue	Hexagon slotted nuts / castle nuts, low or related type	Slotted / castle nuts	New ISO update row added
+    ISO 7037	ISO 7037	Not verified on ISO public catalogue	Hexagon slotted/castle nut family	Slotted / castle nuts	New ISO update row added
+    ISO 7038	ISO 7038	Not verified on ISO public catalogue	Hexagon slotted castle nuts, low type / related type	Slotted / castle nuts	New ISO update row added
+    ISO 7040	ISO 7040:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — Regular nuts (with non-metallic insert)	Prevailing torque regular nuts with insert; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Regular Nut; Non Metallic Insert
+    ISO 7041	ISO 7041:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — High nuts (with non-metallic insert)	Prevailing torque high nuts with insert; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; High Nut; Non Metallic Insert
+    ISO 7042	ISO 7042:2025	Published / current | Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal)	All-metal prevailing torque high nuts; Nuts	New ISO update row added | Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; All Metal; High Nut
+    ISO 7092	ISO 7092:2000	Published / current; under revision | Existing standards library entry	Plain washers — Small series — Product grade A	Small series plain washers; Washers	New ISO update row added | Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Small Series; Grade A
+    ISO 7416	ISO 7416:1984	Withdrawn / legacy	Plain washers, chamfered, hardened and tempered for high-strength structural bolting	Structural bolting washers	New ISO update row added
+    ISO 8733	ISO 8733:1997	Published / current	Parallel pins with internal thread, of unhardened steel and austenitic stainless steel	Internally threaded parallel pins	New ISO update row added
+    ISO 21269	ISO 21269:2004	Withdrawn / legacy	Hexagon socket head cap screws with metric fine pitch thread	Socket head cap screws, fine pitch	New ISO update row added
+    ISO 225:2010	ISO 225:2010	Existing standards library entry	Fasteners — Bolts, screws, studs and nuts — Symbols and descriptions of dimensions	Bolts; Screws; Studs; Threaded Rods	Merged from second HTML file | Category: Dimensions & Symbols | Keywords: Dimensions; Symbols; Bolts; Screws; Studs; Nuts
+    ISO 885:2000	ISO 885:2000	Existing standards library entry	General purpose bolts and screws — Metric series — Radii under the head	Bolts; Screws	Merged from second HTML file | Category: Geometry | Keywords: Geometry; Head Radius; Bolts; Screws; Metric Series
+    ISO 888:2012	ISO 888:2012	Existing standards library entry	Fasteners — Bolts, screws and studs — Nominal lengths and thread lengths	Bolts; Screws; Studs; Threaded Rods	Merged from second HTML file | Category: Thread Dimensions | Keywords: Thread Length; Nominal Length; Bolts; Screws; Studs
+    ISO 898-1:2013/Cor 1:2013	ISO 898-1:2013/Cor 1:2013	Existing standards library entry	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 1: Bolts, screws and studs with specified property classes — Coarse thread and fine pitch thread — Technical Corrigendum 1	Bolts; Screws; Studs; Threaded Rods	Merged from second HTML file | Category: Technical Corrigendum | Keywords: Corrigendum; Mechanical Properties; Carbon Steel; Alloy Steel
+    ISO 898-5:2012	ISO 898-5:2012	Existing standards library entry	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 5: Set screws and similar threaded fasteners with specified hardness classes — Coarse thread and fine pitch thread	Set Screws; Threaded Fasteners	Merged from second HTML file | Category: Mechanical Properties | Keywords: Set Screws; Hardness Classes; Mechanical Properties
+    ISO 898-7:1992	ISO 898-7:1992	Existing standards library entry	Mechanical properties of fasteners — Part 7: Torsional test and minimum torques for bolts and screws with nominal diameters 1 mm to 10 mm	Bolts; Screws	Merged from second HTML file | Category: Mechanical Testing | Keywords: Torsional Test; Torque; Mechanical Testing; Bolts; Screws
+    ISO 2702:2022	ISO 2702:2022	Existing standards library entry	Fasteners — Heat treated tapping screws — Mechanical and physical properties	Screws	Merged from second HTML file | Category: Mechanical Properties | Keywords: Heat Treated; Mechanical Properties; Physical Properties; Tapping Screws
+    ISO 3506-1:2020	ISO 3506-1:2020	Existing standards library entry	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 1: Bolts, screws and studs with specified grades and property classes	Bolts; Screws; Studs; Threaded Rods	Merged from second HTML file | Category: Stainless Steel Mechanical Properties | Keywords: Stainless Steel; Mechanical Properties; Bolts; Screws; Studs
+    ISO 3506-3:2025	ISO 3506-3:2025	Existing standards library entry	Fasteners — Mechanical properties of corrosion resistant stainless steel fasteners — Part 3: Set screws (and similar fasteners not under tensile stress) with specified grades and hardness classes	Set Screws	Merged from second HTML file | Category: Stainless Steel Mechanical Properties | Keywords: Stainless Steel; Set Screws; Hardness Classes
+    ISO 3506-4:2025	ISO 3506-4:2025	Existing standards library entry	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 4: Tapping screws with specified grades and hardness classes	Screws	Merged from second HTML file | Category: Stainless Steel Mechanical Properties | Keywords: Stainless Steel; Tapping Screws; Hardness Classes
+    ISO 4015:2022	ISO 4015:2022	Existing standards library entry	Fasteners — Hexagon head bolts with reduced shank (shank diameter ≈ pitch diameter) — Product grade B	Bolts	Merged from second HTML file | Category: Hexagon Bolts | Keywords: Hexagon Bolt; Reduced Shank; Grade B
+    ISO 4162:2012	ISO 4162:2012	Existing standards library entry	Hexagon bolts with flange — Small series — Product grade A with driving feature of product grade B	Bolts	Merged from second HTML file | Category: Flange Bolts | Keywords: Flange Bolt; Hexagon Bolt; Small Series
+    ISO 4757:1983	ISO 4757:1983	Existing standards library entry	Cross recesses for screws	Screws	Merged from second HTML file | Category: Drive Systems | Keywords: Cross Recess; Drive Feature; Screws
+    ISO 4759-1:2000	ISO 4759-1:2000	Existing standards library entry	Tolerances for fasteners — Part 1: Bolts, screws, studs and nuts — Product grades A, B and C	Bolts; Screws; Studs; Nuts	Merged from second HTML file | Category: Tolerances | Keywords: Tolerances; Fasteners; Bolts; Screws; Studs; Nuts; Grades A B C
+    ISO 6157-1:1988	ISO 6157-1:1988	Existing standards library entry	Fasteners — Surface discontinuities — Part 1: Bolts, screws and studs for general requirements	Bolts; Screws; Studs	Merged from second HTML file | Category: Surface Quality | Keywords: Surface Discontinuities; Quality; Bolts; Screws; Studs
+    ISO 6157-3:1988	ISO 6157-3:1988	Existing standards library entry	Fasteners — Surface discontinuities — Part 3: Bolts, screws and studs for special requirements	Bolts; Screws; Studs	Merged from second HTML file | Category: Surface Quality | Keywords: Surface Discontinuities; Special Requirements
+    ISO 7046-1:2011	ISO 7046-1:2011	Existing standards library entry	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A — Part 1: Steel screws of property class 4.8	Screws	Merged from second HTML file | Category: Cross Recessed Screws | Keywords: Cross Recess; Countersunk; Flat Head; Property Class 4.8
+    ISO 7046-2:2011	ISO 7046-2:2011	Existing standards library entry	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A — Part 2: Steel screws of property class 8.8, stainless steel screws and non-ferrous metal screws	Screws	Merged from second HTML file | Category: Cross Recessed Screws | Keywords: Cross Recess; Countersunk; Property Class 8.8; Stainless Steel
+    ISO 7053:2019	ISO 7053:2019	Existing standards library entry	Fasteners — Hexagon washer head tapping screws	Screws	Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Hexagon Washer Head
+    ISO 7378:1983	ISO 7378:1983	Existing standards library entry	Fasteners — Bolts, screws and studs — Split pin holes and wire holes	Bolts; Screws; Studs	Merged from second HTML file | Category: Special Features | Keywords: Split Pin Holes; Wire Holes; Bolts; Screws; Studs
+    ISO 7380-3:2026	ISO 7380-3:2026	Existing standards library entry	Fasteners — Button head screws with reduced loadability — Part 3: Hexalobular socket button head screws	Screws	Merged from second HTML file | Category: Button Head Screws | Keywords: Button Head; Hexalobular; Torx
+    ISO 7380-4:2026	ISO 7380-4:2026	Existing standards library entry	Fasteners — Button head screws with reduced loadability — Part 4: Hexalobular socket button head screws with collar	Screws	Merged from second HTML file | Category: Button Head Screws | Keywords: Button Head; Hexalobular; Collar; Reduced Loadability
+    ISO 7721:1983	ISO 7721:1983	Existing standards library entry	Countersunk head screws — Head configuration and gauging	Screws	Merged from second HTML file | Category: Geometry | Keywords: Countersunk; Geometry; Gauging; Head Configuration
+    ISO 7721-2:1990	ISO 7721-2:1990	Existing standards library entry	Countersunk flat head screws — Part 2: Penetration depth of cross recesses	Screws	Merged from second HTML file | Category: Geometry | Keywords: Countersunk; Cross Recess; Penetration Depth
+    ISO 8678:1988	ISO 8678:1988	Existing standards library entry	Cup head square neck bolts with small head and short neck — Product grade B	Bolts	Merged from second HTML file | Category: Special Bolts | Keywords: Cup Head; Square Neck; Bolt
+    ISO 8992:2005	ISO 8992:2005	Existing standards library entry	Fasteners — General requirements for bolts, screws, studs and nuts	Bolts; Screws; Studs; Nuts	Merged from second HTML file | Category: General Requirements | Keywords: General Requirements; Fasteners; Bolts; Screws; Studs; Nuts
+    ISO 10509:2012	ISO 10509:2012	Existing standards library entry	Hexagon flange head tapping screws	Screws	Merged from second HTML file | Category: Tapping Screws | Keywords: Tapping Screw; Flange Head; Hexagon Head
+    ISO 10510:2011	ISO 10510:2011	Existing standards library entry	Tapping screw and washer assemblies with plain washers	Screws; Washer Assemblies	Merged from second HTML file | Category: Assemblies | Keywords: Assembly; Tapping Screw; Washer
+    ISO 10642:2026	ISO 10642:2026	Existing standards library entry	Fasteners — Hexagon socket countersunk head screws with reduced loadability	Screws	Merged from second HTML file | Category: Socket Screws | Keywords: Hexagon Socket; Countersunk; Reduced Loadability
+    ISO 10664:2014	ISO 10664:2014	Existing standards library entry	Hexalobular internal driving feature for bolts and screws	Bolts; Screws	Merged from second HTML file | Category: Drive Systems | Keywords: Hexalobular; Torx; Drive Feature
+    ISO 10666:1999	ISO 10666:1999	Existing standards library entry	Drilling screws with tapping screw thread — Mechanical and functional properties	Screws	Merged from second HTML file | Category: Drilling Screws | Keywords: Drilling Screw; Mechanical Properties; Functional Properties
+    ISO 12474:2010	ISO 12474:2010	Existing standards library entry	Hexagon socket head cap screws with metric fine pitch thread	Screws	Merged from second HTML file | Category: Socket Head Cap Screws | Keywords: Socket Head Cap Screw; Fine Pitch; Hexagon Socket
+    ISO 13809:2026	ISO 13809:2026	Existing standards library entry	Fasteners — Hexalobular socket set screws	Set Screws	Merged from second HTML file | Category: Set Screws | Keywords: Hexalobular; Torx; Set Screw
+    ISO 13918:2017	ISO 13918:2017	Existing standards library entry	Welding — Studs and ceramic ferrules for arc stud welding	Studs; Threaded Rods	Merged from second HTML file | Category: Stud Welding | Keywords: Stud Welding; Ceramic Ferrules; Studs
+    ISO 13918:2017/Amd 1:2021	ISO 13918:2017/Amd 1:2021	Existing standards library entry	Welding — Studs and ceramic ferrules for arc stud welding — Amendment 1	Studs; Threaded Rods	Merged from second HTML file | Category: Amendments | Keywords: Stud Welding; Amendment; Ceramic Ferrules
+    ISO 15065:2005	ISO 15065:2005	Existing standards library entry	Countersinks for countersunk head screws with head configuration in accordance with ISO 7721	Screws	Merged from second HTML file | Category: Geometry | Keywords: Countersink; Geometry; Countersunk Head
+    ISO 15483:1999	ISO 15483:1999	Existing standards library entry	Cross recessed raised countersunk head drilling screws with tapping screw thread	Screws	Merged from second HTML file | Category: Drilling Screws | Keywords: Drilling Screw; Raised Countersunk; Cross Recess
+    ISO 23429:2004	ISO 23429:2004	Existing standards library entry	Gauging of hexagon sockets	Screws	Merged from second HTML file | Category: Inspection & Gauging | Keywords: Gauging; Inspection; Hexagon Socket
+    ISO 898-2:2022	ISO 898-2:2022	Existing standards library entry	Fasteners — Mechanical properties of fasteners made of carbon steel and alloy steel — Part 2: Nuts with specified property classes	Nuts	Merged from second HTML file | Category: Mechanical Properties | Keywords: Nuts; Mechanical Properties; Carbon Steel; Alloy Steel
+    ISO 2320:2015	ISO 2320:2015	Existing standards library entry	Fasteners — Prevailing torque steel nuts — Functional properties	Nuts	Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Steel Nuts; Functional Properties
+    ISO 3506-2:2020	ISO 3506-2:2020	Existing standards library entry	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 2: Nuts with specified grades and property classes	Nuts	Merged from second HTML file | Category: Stainless Steel Mechanical Properties | Keywords: Stainless Steel; Nuts; Mechanical Properties
+    ISO 6157-2:1995	ISO 6157-2:1995	Existing standards library entry	Fasteners — Surface discontinuities — Part 2: Nuts	Nuts	Merged from second HTML file | Category: Surface Quality | Keywords: Surface Discontinuities; Nuts; Quality
+    ISO 7043:2012	ISO 7043:2012	Existing standards library entry	Prevailing torque type hexagon nuts with flange (with non-metallic insert), style 2 — Product grades A and B	Nuts	Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; Prevailing Torque; Non Metallic Insert
+    ISO 7044:2012	ISO 7044:2012	Existing standards library entry	Prevailing torque type all-metal hexagon nuts with flange, style 2 — Product grades A and B	Nuts	Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; All Metal; Prevailing Torque
+    ISO 7719:2025	ISO 7719:2025	Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — Regular nuts (all metal)	Nuts	Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; Regular Nut; All Metal
+    ISO 7720:2025	ISO 7720:2025	Existing standards library entry	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal) with slot(s)	Nuts	Merged from second HTML file | Category: Prevailing Torque Nuts | Keywords: Prevailing Torque; High Nut; All Metal; Slotted
+    ISO 8674:2023	ISO 8674:2023	Existing standards library entry	Fasteners — Hexagon high nuts (style 2), with fine pitch thread	Nuts	Merged from second HTML file | Category: Hexagon Nuts | Keywords: Hexagon Nut; Fine Pitch; Style 2
+    ISO 10663:2012	ISO 10663:2012	Existing standards library entry	Hexagon nuts with flange, style 2 — Fine pitch thread	Nuts	Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; Fine Pitch; Style 2
+    ISO 12125:2012	ISO 12125:2012	Existing standards library entry	Prevailing torque type hexagon nuts with flange (with non-metallic insert) with metric fine pitch thread, style 2 — Product grades A and B	Nuts	Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; Prevailing Torque; Fine Pitch
+    ISO 12126:2012	ISO 12126:2012	Existing standards library entry	Prevailing torque type all-metal hexagon nuts with flange with metric fine pitch thread, style 2 — Product grades A and B	Nuts	Merged from second HTML file | Category: Flange Nuts | Keywords: Flange Nut; All Metal; Fine Pitch
+    ISO/TR 16224:2012	ISO/TR 16224:2012	Existing standards library entry	Technical aspects of nut design	Nuts	Merged from second HTML file | Category: Technical Reports | Keywords: Technical Report; Nut Design; Engineering
+    ISO 21670:2014	ISO 21670:2014	Existing standards library entry	Fasteners — Hexagon weld nuts with flange	Nuts	Merged from second HTML file | Category: Weld Nuts | Keywords: Weld Nut; Flange; Hexagon
+    ISO 887:2000	ISO 887:2000	Existing standards library entry	Plain washers for metric bolts, screws and nuts for general purposes — General plan	Washers	Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; General Plan; Metric
+    ISO 887:2000/Cor 1:2006	ISO 887:2000/Cor 1:2006	Existing standards library entry	Plain washers for metric bolts, screws and nuts for general purposes — General plan — Technical Corrigendum 1	Washers	Merged from second HTML file | Category: Technical Corrigendum | Keywords: Corrigendum; Plain Washer
+    ISO 898-3:2018	ISO 898-3:2018	Existing standards library entry	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 3: Flat washers with specified property classes	Washers	Merged from second HTML file | Category: Mechanical Properties | Keywords: Mechanical Properties; Flat Washer; Carbon Steel; Alloy Steel
+    ISO 898-3:2018/Amd 1:2020	ISO 898-3:2018/Amd 1:2020	Existing standards library entry	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 3: Flat washers with specified property classes — Amendment 1	Washers	Merged from second HTML file | Category: Amendments | Keywords: Amendment; Flat Washer; Mechanical Properties
+    ISO 3506-7:2024	ISO 3506-7:2024	Existing standards library entry	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 7: Flat washers with specified grades and property classes	Washers	Merged from second HTML file | Category: Stainless Steel Mechanical Properties | Keywords: Stainless Steel; Flat Washer; Mechanical Properties
+    ISO 4759-3:2016	ISO 4759-3:2016	Existing standards library entry	Tolerances for fasteners — Part 3: Washers for bolts, screws and nuts — Product grades A, C and F	Washers	Merged from second HTML file | Category: Tolerances | Keywords: Tolerances; Washers; Grades A C F
+    ISO 7093-2:2000	ISO 7093-2:2000	Existing standards library entry	Plain washers — Large series — Part 2: Product grade C	Washers	Merged from second HTML file | Category: Plain Washers | Keywords: Plain Washer; Large Series; Grade C
+    ISO 7094:2000/Cor 1:2000	ISO 7094:2000/Cor 1:2000	Existing standards library entry	Plain washers — Extra large series — Product grade C — Technical Corrigendum 1	Washers	Merged from second HTML file | Category: Technical Corrigendum | Keywords: Corrigendum; Plain Washer
+    ISO 10644:2009	ISO 10644:2009	Existing standards library entry	Screw and washer assemblies made of steel with plain washers — Washer hardness classes 200 HV and 300 HV	Washers	Merged from second HTML file | Category: Assemblies | Keywords: Washer Assembly; Steel; 200 HV; 300 HV
+    ISO 10669:1999	ISO 10669:1999	Existing standards library entry	Plain washers for tapping screw and washer assemblies — Normal and large series — Product grade A	Washers	Merged from second HTML file | Category: Assemblies | Keywords: Plain Washer; Tapping Screw; Assembly
+    ISO 10673:2009	ISO 10673:2009	Existing standards library entry	Plain washers for screw and washer assemblies — Small, normal and large series — Product grade A	Washers	Merged from second HTML file | Category: Assemblies | Keywords: Plain Washer; Screw Assembly; Grade A
+    ISO 1051:1999	ISO 1051:1999	Existing standards library entry	Rivet shank diameters	Rivets	Merged from second HTML file | Category: General Dimensions | Keywords: Rivet; Shank Diameter; Dimensions
+    ISO 14588:2000	ISO 14588:2000	Existing standards library entry	Blind rivets — Terminology and definitions	Rivets	Merged from second HTML file | Category: Terminology | Keywords: Blind Rivet; Terminology; Definitions
+    ISO 14589:2000	ISO 14589:2000	Existing standards library entry	Blind rivets — Mechanical testing	Rivets	Merged from second HTML file | Category: Testing | Keywords: Blind Rivet; Mechanical Testing
+    ISO 15974:2000	ISO 15974:2000	Existing standards library entry	Closed end blind rivets with break pull mandrel and countersunk head — AlA/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Closed End; Countersunk Head
+    ISO 15975:2002	ISO 15975:2002	Existing standards library entry	Closed end blind rivets with break pull mandrel and protruding head — AI/AIA	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Closed End; AIA
+    ISO 15976:2002	ISO 15976:2002	Existing standards library entry	Closed end blind rivets with break pull mandrel and protruding head — St/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Closed End; Steel
+    ISO 15977:2002	ISO 15977:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — AIA/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Protruding Head
+    ISO 15978:2002	ISO 15978:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and countersunk head — AIA/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Countersunk Head
+    ISO 15979:2002	ISO 15979:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — St/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Steel
+    ISO 15980:2002	ISO 15980:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and countersunk head — St/St	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Countersunk
+    ISO 15981:2002	ISO 15981:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — AIA/AIA	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Aluminium
+    ISO 15982:2002	ISO 15982:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and countersunk head — AIA/AIA	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Countersunk
+    ISO 15984:2002	ISO 15984:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and countersunk head — A2/A2	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Open End; Countersunk; Stainless Steel
+    ISO 16582:2002	ISO 16582:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — Cu/St or Cu/Br or Cu/SSt	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Copper; Open End
+    ISO 16583:2002	ISO 16583:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and countersunk head — Cu/St or Cu/Br or Cu/SSt	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Copper; Countersunk
+    ISO 16584:2002	ISO 16584:2002	Existing standards library entry	Open end blind rivets with break pull mandrel and protruding head — NiCu/St or NiCu/SSt	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Nickel Copper; Open End
+    ISO 16585:2002	ISO 16585:2002	Existing standards library entry	Closed end blind rivets with pull mandrel and protruding head — A2/SSt	Rivets	Merged from second HTML file | Category: Blind Rivets | Keywords: Blind Rivet; Closed End; Stainless Steel`;
+
+    const SOURCE_ROWS = SOURCE_RAW_ISO_TSV.split("\n").slice(1).filter(line => line.length).map((line, index) => {
+      const [standardCode, correctStandard, statusNote, officialEnglishTitle, family, websiteNote] = line.split("\t");
+      return { standardCode, correctStandard, statusNote, officialEnglishTitle, family, websiteNote, sourceRow: index + 1 };
+    });
+
+    /* ============================================================
+       SUBSECTION 12.5: ENRICH DATA WITH PRADAKO IDs & PAGE URLs
+       ============================================================ */
+    const PAGE_SLUG_COUNTERS = {};
+    const standardsData = SOURCE_ROWS.map((row, index) => {
+      const base = slugify(row.standardCode);
+      PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+      const pageSlug = PAGE_SLUG_COUNTERS[base] === 1 ? base : `${base}-${String(PAGE_SLUG_COUNTERS[base]).padStart(2, "0")}`;
+      return {
+        ...row,
+        sourceRowId: `ISO-SRC-${String(index + 1).padStart(4, "0")}`,
+        pradakoId: `PRA-STD-ISO-${String(index + 1).padStart(4, "0")}`,
+        imageSrc: `/assets/images/products/standards-products/${base}.png`,
+        imageAltPresentation: `${row.standardCode} standard media`,
+        productFamily: [row.family],
+        pageUrl: `/pages/standards/iso/${pageSlug}.html`
+      };
+    });
+
+    /* ============================================================
+       SUBSECTION 12.6: DOM REFERENCES & STATE
+       ============================================================ */
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+    const tableBody = document.getElementById("standardsTableBody");
+    const searchInput = document.getElementById("searchInput");
+    const familyFilter = document.getElementById("familyFilter");
+    const emptyState = document.getElementById("emptyState");
+    const viewPanel = document.getElementById("viewPanel");
+    const viewGroups = document.getElementById("viewGroups");
+    const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+    const exportModal = document.getElementById("exportModal");
+    const copyStatus = document.getElementById("copyStatus");
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const imagePreviewImg = document.getElementById("imagePreviewImg");
+    const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+    const visibleCount = document.getElementById("visibleCount");
+    const totalCount = document.getElementById("totalCount");
+    const pageCount = document.getElementById("pageCount");
+    const visibleColumnCount = document.getElementById("visibleColumnCount");
+    const duplicateModePill = document.getElementById("duplicateModePill");
+    const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+    const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+    const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+    let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+    let currentFilteredData = [...standardsData];
+    let duplicateMode = false;
+    let duplicateBaseData = [];
+    let sortState = { key: null, direction: "asc" };
+    let currentDensity = "compact";
+    let searchTimer;
+
+    /* ============================================================
+       SUBSECTION 12.7: VIEW & FILTER HELPERS
+       ============================================================ */
+    function getVisibleColumns() {
+      return COLUMNS.filter(c => visibleColumns.has(c.key));
+    }
+
+    function buildFamilyFilter() {
+      const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      familyFilter.innerHTML = '<option value="">All Product Families</option>';
+      fs.forEach(f => {
+        const o = document.createElement("option");
+        o.value = f;
+        o.textContent = f;
+        familyFilter.appendChild(o);
+      });
+    }
+
+    function buildViewPanel() {
+      viewGroups.innerHTML = "";
+      Object.entries(GROUP_META).forEach(([key, meta]) => {
+        const cols = COLUMNS.filter(c => c.group === key);
+        if (!cols.length) return;
+        const g = document.createElement("div");
+        g.className = "view-group";
+        const h = document.createElement("h4");
+        h.textContent = meta.label;
+        const wrap = document.createElement("div");
+        wrap.className = "column-checks";
+        cols.forEach(c => {
+          const label = document.createElement("label");
+          label.className = "check-item";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.checked = visibleColumns.has(c.key);
+          input.addEventListener("change", () => {
+            if (input.checked) {
+              visibleColumns.add(c.key);
+            } else {
+              if (visibleColumns.size === 1) { input.checked = true; return; }
+              visibleColumns.delete(c.key);
+            }
+            setPresetState("custom");
+            buildViewPanel();
+            renderTable(currentFilteredData);
+          });
+          const span = document.createElement("span");
+          span.textContent = c.label;
+          label.append(input, span);
+          wrap.appendChild(label);
+        });
+        g.append(h, wrap);
+        viewGroups.appendChild(g);
+      });
+    }
+
+    function toggleViewPanel() {
+      viewPanel.classList.toggle("open");
+      const open = viewPanel.classList.contains("open");
+      viewOptionsBtn.classList.toggle("active", open);
+      viewOptionsBtn.setAttribute("aria-expanded", String(open));
+    }
+
+    function setPresetState(which) {
+      ["Core", "Technical", "All"].forEach(n =>
+        document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+      );
+    }
+
+    function applyViewPreset(which) {
+      if (which === "core") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+      } else if (which === "technical") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c.key));
+      } else {
+        visibleColumns = new Set(COLUMNS.map(c => c.key));
+      }
+      setPresetState(which);
+      buildViewPanel();
+      renderTable(currentFilteredData);
+    }
+
+    function setDensity(mode) {
+      currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+      try { localStorage.setItem("pradakoIsoDensity", currentDensity); } catch (_) {}
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.8: RENDERING ENGINE
+       ============================================================ */
+    function renderMediaCell(item) {
+      const src = item.imageSrc || "";
+      const alt = item.imageAlt || item.standardCode || "Standard media";
+      return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'" />
+              </div>`;
+    }
+
+    function resolveColumnWidths(list) {
+      const scroller = document.querySelector(".table-scroll");
+      const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+
+      if (window.innerWidth <= 900) {
+        const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, officialEnglishTitle: 320, productFamily: 190,
+          correctStandard: 210, statusNote: 220, websiteNote: 260, sourceRowId: 165 };
+        const widths = list.map(c => mobile[c.key] || 160);
+        const total = widths.reduce((a, b) => a + b, 0);
+        return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total > viewport };
+      }
+
+      const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+      const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+      let total = widths.reduce((a, b) => a + b, 0);
+      const minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+      if (total > viewport) {
+        let excess = total - viewport;
+        let guard = 0;
+        while (excess > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x.room > 0);
+          if (!active.length) break;
+          const rt = active.reduce((s, x) => s + x.room, 0);
+          let removed = 0;
+          active.forEach((x, idx) => {
+            let cut = idx === active.length - 1 ?
+              Math.min(x.room, Math.max(0, excess - removed)) :
+              Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+            widths[x.i] -= cut;
+            removed += cut;
+          });
+          if (!removed) break;
+          excess -= removed;
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+
+      if (total < viewport) {
+        let spare = viewport - total;
+        let guard = 0;
+        while (spare > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({
+            i,
+            weight: c.fixed ? 0 : Math.max(.1, c.weight || 1),
+            room: c.fixed ? 0 : Math.max(0, c.maxWidth - widths[i])
+          })).filter(x => x.weight > 0 && x.room > 0);
+          if (!active.length) break;
+          const wt = active.reduce((s, x) => s + x.weight, 0);
+          let added = 0;
+          active.forEach((x, idx) => {
+            const grow = Math.min(x.room, idx === active.length - 1 ?
+              Math.max(0, spare - added) :
+              Math.max(1, Math.floor(spare * (x.weight / wt))));
+            widths[x.i] += grow;
+            added += grow;
+          });
+          if (!added) break;
+          spare -= added;
+        }
+        total = widths.reduce((a, b) => a + b, 0);
+        spare = Math.max(0, viewport - total);
+        if (spare > 0) {
+          const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+            .filter(x => x.weight > 0);
+          const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+          let added = 0;
+          elastic.forEach((x, idx) => {
+            const grow = idx === elastic.length - 1 ?
+              spare - added :
+              Math.floor(spare * (x.weight / wt));
+            widths[x.i] += Math.max(0, grow);
+            added += Math.max(0, grow);
+          });
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+      return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal > viewport };
+    }
+
+    function getStickyLeftOffset(list, widths, index) {
+      let left = 0;
+      for (let i = 0; i < index; i++) {
+        if (list[i].sticky) left += widths[i];
+      }
+      return left;
+    }
+
+    function applyAdaptiveRowSizing(count) {
+      let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+      let clamp = count <= 6 ? 3 : 4;
+      let x = count <= 6 ? 8 : 7;
+      let y = count <= 6 ? 10 : 11;
+      if (currentDensity === "comfortable") { row += 38;
+        clamp += 2;
+        y += 3; }
+      document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+      document.documentElement.style.setProperty("--title-clamp", String(clamp));
+      document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+      document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+    }
+
+    function applyExactColumnLayout(list) {
+      const layout = resolveColumnWidths(list);
+      const body = document.getElementById("standardsTable");
+      const head = document.querySelector(".sticky-head-table");
+      const bodyScroll = document.querySelector(".table-scroll");
+      const headScroll = document.getElementById("stickyTableHeadScroll");
+      const rendered = Math.max(layout.total, layout.viewport);
+
+      bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+      headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+
+      [body, head].forEach(t => {
+        if (!t) return;
+        t.style.width = rendered + "px";
+        t.style.minWidth = rendered + "px";
+        t.querySelector("colgroup")?.remove();
+        const cg = document.createElement("colgroup");
+        layout.widths.forEach(w => {
+          const col = document.createElement("col");
+          col.style.width = w + "px";
+          cg.appendChild(col);
+        });
+        t.insertBefore(cg, t.firstChild);
+      });
+
+      return layout;
+    }
+
+    function renderTable(data) {
+      const q = searchInput.value.trim();
+      const list = getVisibleColumns();
+      const layout = applyExactColumnLayout(list);
+      applyAdaptiveRowSizing(list.length);
+
+      visibleColumnCount.textContent = list.length;
+      visibleCount.textContent = data.length;
+
+      tableHeadRow.innerHTML = "";
+      stickyTableHeadRow.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      function thFor(c, i) {
+        const th = document.createElement("th");
+        th.textContent = sortState.key === c.key ?
+          c.label + (sortState.direction === "asc" ? " ▲" : " ▼") :
+          c.label;
+        th.style.width = layout.widths[i] + "px";
+        if (c.sticky && window.innerWidth > 900) {
+          th.classList.add("sticky-col");
+          th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+        }
+        if (c.sortable === false) {
+          th.classList.add("not-sortable");
+        } else {
+          th.addEventListener("click", () => sortByColumn(c.key));
+        }
+        return th;
+      }
+
+      list.forEach((c, i) => {
+        tableHeadRow.appendChild(thFor(c, i));
+        stickyTableHeadRow.appendChild(thFor(c, i));
+      });
+
+      const frag = document.createDocumentFragment();
+      data.forEach(item => {
+        const tr = document.createElement("tr");
+        list.forEach((c, i) => {
+          const td = document.createElement("td");
+          const v = item[c.key] !== undefined ? item[c.key] : "—";
+          td.style.width = layout.widths[i] + "px";
+          if (c.sticky && window.innerWidth > 900) {
+            td.classList.add("sticky-col");
+            td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+          }
+          if (c.type === "media") {
+            td.classList.add("media-cell");
+            td.innerHTML = renderMediaCell(item);
+          } else if (c.type === "id") {
+            td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+          } else if (c.type === "standard") {
+            td.innerHTML =
+              `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+          } else if (c.type === "body") {
+            td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+          } else if (c.type === "family") {
+            const a = Array.isArray(v) ? v : [v];
+            td.innerHTML = a.map(x => `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+          } else {
+            td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+          }
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      });
+      tableBody.appendChild(frag);
+      emptyState.style.display = data.length ? "none" : "block";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.9: DUPLICATE DETECTION
+       ============================================================ */
+    function getDuplicateGroups() {
+      const m = new Map();
+      standardsData.forEach(x => {
+        const k = normalizeDuplicateKey(x.standardCode);
+        if (!k) return;
+        if (!m.has(k)) m.set(k, []);
+        m.get(k).push(x);
+      });
+      return [...m.values()].filter(g => g.length > 1)
+        .sort((a, b) => a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true,
+        sensitivity: "base" }));
+    }
+
+    function updateDuplicateViewPill(gc, rc) {
+      if (!duplicateMode) {
+        duplicateModePill.classList.remove("show");
+        duplicateGroupsCount.textContent = "0";
+        duplicateRowsCount.textContent = "0";
+        return;
+      }
+      duplicateGroupsCount.textContent = gc;
+      duplicateRowsCount.textContent = rc;
+      duplicateModePill.classList.add("show");
+    }
+
+    function showDuplicateEntriesInTable() {
+      const groups = getDuplicateGroups();
+      const r = groups.flat();
+      duplicateMode = true;
+      duplicateBaseData = r;
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      currentFilteredData = [...r];
+      updateDuplicateViewPill(groups.length, r.length);
+      duplicateCheckBtn.classList.add("active");
+      searchInput.placeholder = "Search within duplicate ISO entries...";
+      renderTable(currentFilteredData);
+    }
+
+    function hideDuplicateView() {
+      duplicateMode = false;
+      duplicateBaseData = [];
+      updateDuplicateViewPill(0, 0);
+      duplicateCheckBtn.classList.remove("active");
+      searchInput.placeholder = "Search ISO standard, edition, title, status, Pradako ID or product family...";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.10: SEARCH / SORT
+       ============================================================ */
+    function searchStandards() {
+      const q = searchInput.value.trim().toLowerCase();
+      const f = familyFilter.value;
+      const src = duplicateMode ? duplicateBaseData : standardsData;
+      currentFilteredData = src.filter(item => {
+        const ms = !q || COLUMNS.some(c => {
+          if (c.searchable === false) return false;
+          const v = item[c.key];
+          if (v == null) return false;
+          if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+          return String(v).toLowerCase().includes(q);
+        });
+        const mf = !f || item.productFamily.includes(f);
+        return ms && mf;
+      });
+      if (sortState.key) {
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+      }
+      renderTable(currentFilteredData);
+    }
+
+    function clearSearch() {
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      hideDuplicateView();
+      currentFilteredData = [...standardsData];
+      renderTable(currentFilteredData);
+    }
+
+    function sortData(data, key, direction) {
+      return [...data].sort((a, b) => {
+        let A = a[key],
+          B = b[key];
+        if (Array.isArray(A)) A = A.join(", ");
+        if (Array.isArray(B)) B = B.join(", ");
+        A = String(A ?? "").toLowerCase();
+        B = String(B ?? "").toLowerCase();
+        return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+      });
+    }
+
+    function sortByColumn(key) {
+      const c = COLUMNS.find(x => x.key === key);
+      if (!c || c.sortable === false) return;
+      if (sortState.key === key) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+      } else {
+        sortState = { key, direction: "asc" };
+      }
+      currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.11: MODALS / POPUPS
+       ============================================================ */
+    function openExportPopup() {
+      exportModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+      copyStatus.classList.remove("show");
+    }
+
+    function closeExportPopup() {
+      exportModal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function copyEmail() {
+      const e = "info@pradakomechanicals.com";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+      } else {
+        const t = document.createElement("textarea");
+        t.value = e;
+        t.style.position = "fixed";
+        t.style.left = "-9999px";
+        document.body.appendChild(t);
+        t.select();
+        try {
+          document.execCommand("copy");
+          copyStatus.classList.add("show");
+        } catch (_) {
+          copyStatus.textContent = "Please copy manually: " + e;
+          copyStatus.classList.add("show");
+        }
+        t.remove();
+      }
+    }
+
+    function openImagePreview(src, alt, title) {
+      imagePreviewImg.src = src;
+      imagePreviewImg.alt = alt;
+      imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+      imagePreviewModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImagePreview() {
+      imagePreviewModal.classList.remove("show");
+      imagePreviewImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.12: SCROLL SYNC
+       ============================================================ */
+    function syncScroll() {
+      const b = document.querySelector(".table-scroll");
+      const h = document.getElementById("stickyTableHeadScroll");
+      let syncing = false;
+
+      const sync = (from, to) => {
+        if (syncing) return;
+        syncing = true;
+        to.scrollLeft = from.scrollLeft;
+        syncing = false;
+      };
+
+      b.addEventListener("scroll", () => sync(b, h), { passive: true });
+      h.addEventListener("scroll", () => sync(h, b), { passive: true });
+    }
+
+    /* ============================================================
+       SUBSECTION 12.13: EVENT LISTENERS & INITIALISATION
+       ============================================================ */
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(searchStandards, 160);
+    });
+
+    familyFilter.addEventListener("change", searchStandards);
+
+    tableBody.addEventListener("click", e => {
+      const box = e.target.closest(".media-card");
+      if (box) {
+        openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+      }
+    });
+
+    exportModal.addEventListener("click", e => {
+      if (e.target === exportModal) closeExportPopup();
+    });
+
+    imagePreviewModal.addEventListener("click", e => {
+      if (e.target === imagePreviewModal) closeImagePreview();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") { closeExportPopup();
+        closeImagePreview(); }
+    });
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+    });
+
+    function init() {
+      try {
+        if (localStorage.getItem("pradakoIsoDensity") === "comfortable") currentDensity = "comfortable";
+      } catch (_) {}
+
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+
+      totalCount.textContent = standardsData.length;
+      pageCount.textContent = standardsData.length;
+
+      buildFamilyFilter();
+      buildViewPanel();
+      renderTable(currentFilteredData);
+      syncScroll();
+
+      // Back to top
+      const button = document.getElementById("pradakoBackToTop");
+      if (button) {
+        const update = () => {
+          const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          button.classList.toggle("is-visible", y > 300);
+        };
+        button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      }
+    }
+
+    /* ============================================================
+       SUBSECTION 12.14: GLOBAL EXPOSURE
+       ============================================================ */
+    window.searchStandards = searchStandards;
+    window.clearSearch = clearSearch;
+    window.toggleViewPanel = toggleViewPanel;
+    window.setDensity = setDensity;
+    window.applyViewPreset = applyViewPreset;
+    window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+    window.openExportPopup = openExportPopup;
+    window.closeExportPopup = closeExportPopup;
+    window.copyEmail = copyEmail;
+    window.openImagePreview = openImagePreview;
+    window.closeImagePreview = closeImagePreview;
+
+    /* ============================================================
+       SUBSECTION 12.15: START
+       ============================================================ */
+    init();
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

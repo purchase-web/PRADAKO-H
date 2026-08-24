@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PMEW Engineering Response Desk</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+
+    <style>
+        /* =========================================================
+        PAGE RESET / DEMO WRAPPER
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #061a33;
+            font-family: "Manrope", "Montserrat", Arial, sans-serif;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* =========================================================
+        PMEW ENGINEERING RESPONSE DESK
+        Full Mobile-Ready Ultra Premium Section
+        ========================================================= */
+
+        .pmew-erd {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: clamp(72px, 8vw, 138px) 20px;
+            background:
+                radial-gradient(circle at 11% 12%, rgba(18, 83, 156, 0.09), transparent 34%),
+                radial-gradient(circle at 92% 6%, rgba(198, 162, 91, 0.14), transparent 32%),
+                linear-gradient(180deg, #ffffff 0%, #f8fbff 42%, #ffffff 100%);
+            color: #061a33;
+        }
+
+        .pmew-erd__background {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .pmew-erd__mesh {
+            position: absolute;
+            inset: 0;
+            opacity: 0.42;
+            background-image:
+                linear-gradient(rgba(9, 53, 101, 0.052) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(9, 53, 101, 0.052) 1px, transparent 1px);
+            background-size: 46px 46px;
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 78%, transparent 100%);
+            animation: pmewErdGridMove 7s linear infinite;
+        }
+
+        .pmew-erd__halo {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border-radius: 999px;
+            filter: blur(28px);
+        }
+
+        .pmew-erd__halo--left {
+            top: 190px;
+            left: -210px;
+            background: rgba(16, 83, 154, 0.11);
+            animation: pmewErdFloatLeft 4.8s ease-in-out infinite;
+        }
+
+        .pmew-erd__halo--right {
+            right: -230px;
+            bottom: 120px;
+            background: rgba(198, 162, 91, 0.16);
+            animation: pmewErdFloatRight 5.2s ease-in-out infinite;
+        }
+
+        .pmew-erd__line {
+            position: absolute;
+            height: 1px;
+            width: 560px;
+            background: linear-gradient(90deg, transparent, rgba(9, 53, 101, 0.22), transparent);
+            transform: rotate(-18deg);
+        }
+
+        .pmew-erd__line--one {
+            top: 150px;
+            right: -140px;
+            animation: pmewErdLineSweepOne 4.4s ease-in-out infinite;
+        }
+
+        .pmew-erd__line--two {
+            bottom: 210px;
+            left: -150px;
+            animation: pmewErdLineSweepTwo 4.8s ease-in-out infinite;
+        }
+
+        .pmew-erd__container {
+            width: min(1220px, 100%);
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        .pmew-erd__header {
+            max-width: 930px;
+            margin: 0 auto clamp(34px, 5vw, 64px);
+            text-align: center;
+        }
+
+        .pmew-erd__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            padding: 10px 16px;
+            border: 1px solid rgba(9, 53, 101, 0.13);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.88);
+            color: #0b4d8c;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            box-shadow: 0 18px 44px rgba(6, 26, 51, 0.055);
+            backdrop-filter: blur(14px);
+        }
+
+        .pmew-erd__eyebrow span {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: #c6a25b;
+            box-shadow: 0 0 0 7px rgba(198, 162, 91, 0.15);
+            animation: pmewErdDotPulse 1.35s ease-in-out infinite;
+        }
+
+        .pmew-erd__header h2 {
+            margin: 24px 0 18px;
+            color: #061a33;
+            font-size: clamp(40px, 5.6vw, 82px);
+            line-height: 0.94;
+            letter-spacing: -0.07em;
+            font-weight: 950;
+            animation: pmewErdTitleEntrance 0.78s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .pmew-erd__header h2 em {
+            display: block;
+            color: #0b4d8c;
+            font-style: normal;
+            font-weight: 950;
+        }
+
+        .pmew-erd__header p {
+            max-width: 790px;
+            margin: 0 auto;
+            color: #53657a;
+            font-size: clamp(15px, 1.45vw, 18px);
+            line-height: 1.82;
+            font-weight: 560;
+            animation: pmewErdSoftRise 0.72s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+        }
+
+        /* REVEAL */
+
+        .pmew-erd__motion-item {
+            opacity: 0;
+            transform: translateY(30px) scale(0.985);
+            filter: blur(8px);
+            transition:
+                opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.68s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--motion-delay, 0ms);
+        }
+
+        .pmew-erd__motion-item.is-motion-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        /* BUYER PROBLEM STRIP */
+
+        .pmew-erd__problem-strip {
+            margin-bottom: 24px;
+            padding: 18px;
+            border: 1px solid rgba(9, 53, 101, 0.11);
+            border-radius: 30px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(248, 251, 255, 0.82)),
+                radial-gradient(circle at 0% 0%, rgba(11, 77, 140, 0.07), transparent 38%);
+            box-shadow: 0 28px 80px rgba(6, 26, 51, 0.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .pmew-erd__problem-head {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            padding: 0 8px 14px;
+            color: #0b4d8c;
+            font-size: 11px;
+            font-weight: 950;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erd__problem-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .pmew-erd__problem-item {
+            position: relative;
+            overflow: hidden;
+            min-height: 122px;
+            padding: 18px;
+            border: 1px solid rgba(9, 53, 101, 0.10);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.82);
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .pmew-erd__problem-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    115deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.8) 42%,
+                    transparent 62%
+                );
+            transform: translateX(-130%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pmew-erd__problem-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(11, 77, 140, 0.22);
+            box-shadow: 0 20px 46px rgba(6, 26, 51, 0.08);
+        }
+
+        .pmew-erd__problem-item:hover::before {
+            animation: pmewErdShine 0.78s ease;
+            opacity: 1;
+        }
+
+        .pmew-erd__problem-item p {
+            margin: 0 0 12px;
+            color: #657487;
+            font-size: 13px;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .pmew-erd__problem-item strong {
+            display: block;
+            color: #061a33;
+            font-size: 15px;
+            line-height: 1.3;
+            font-weight: 950;
+            letter-spacing: -0.025em;
+        }
+
+        /* CARDS */
+
+        .pmew-erd__cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-bottom: 28px;
+        }
+
+        .pmew-erd__card {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            padding: 30px;
+            border: 1px solid rgba(9, 53, 101, 0.11);
+            border-radius: 32px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.78)),
+                radial-gradient(circle at top right, rgba(11, 77, 140, 0.08), transparent 36%);
+            box-shadow:
+                0 30px 86px rgba(6, 26, 51, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.96);
+            transition:
+                transform 0.42s ease,
+                box-shadow 0.42s ease,
+                border-color 0.42s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .pmew-erd__card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pmew-erd__card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(
+                    circle at var(--mx, 70%) var(--my, 18%),
+                    rgba(11, 77, 140, 0.16),
+                    transparent 34%
+                );
+            transition: opacity 0.28s ease;
+        }
+
+        .pmew-erd__card::after {
+            content: "";
+            position: absolute;
+            inset: -80px;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(
+                    120deg,
+                    transparent 28%,
+                    rgba(255, 255, 255, 0.72) 48%,
+                    transparent 68%
+                );
+            transform: translateX(-110%) rotate(8deg);
+        }
+
+        .pmew-erd__card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(11, 77, 140, 0.24);
+            box-shadow:
+                0 42px 110px rgba(6, 26, 51, 0.14),
+                inset 0 1px 0 rgba(255, 255, 255, 0.96);
+        }
+
+        .pmew-erd__card:hover::before {
+            opacity: 1;
+        }
+
+        .pmew-erd__card:hover::after {
+            animation: pmewErdCardSweep 0.82s ease;
+        }
+
+        .pmew-erd__card-glow {
+            position: absolute;
+            inset: auto -80px -120px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 999px;
+            background: rgba(11, 77, 140, 0.09);
+            filter: blur(14px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-glow {
+            opacity: 1;
+        }
+
+        .pmew-erd__card--featured {
+            border-color: rgba(198, 162, 91, 0.42);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.88)),
+                radial-gradient(circle at top right, rgba(198, 162, 91, 0.2), transparent 40%);
+            box-shadow:
+                0 38px 112px rgba(6, 26, 51, 0.13),
+                inset 0 1px 0 rgba(255, 255, 255, 0.98);
+            animation: pmewErdFeaturedBreath 2.4s ease-in-out infinite;
+        }
+
+        .pmew-erd__featured-badge {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            z-index: 3;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #061a33;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 950;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erd__card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .pmew-erd__icon {
+            display: grid;
+            place-items: center;
+            width: 70px;
+            height: 70px;
+            border: 1px solid rgba(9, 53, 101, 0.12);
+            border-radius: 24px;
+            background:
+                linear-gradient(145deg, #ffffff, #eef5ff);
+            box-shadow: 0 20px 44px rgba(6, 26, 51, 0.085);
+            transition:
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pmew-erd__icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: #0b4d8c;
+            stroke-width: 1.85;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .pmew-erd__card:hover .pmew-erd__icon {
+            transform: translateY(-4px) scale(1.06) rotate(-2deg);
+            box-shadow: 0 26px 58px rgba(11, 77, 140, 0.16);
+        }
+
+        .pmew-erd__card-top > span {
+            color: rgba(6, 26, 51, 0.105);
+            font-size: 58px;
+            line-height: 1;
+            font-weight: 950;
+            letter-spacing: -0.085em;
+        }
+
+        .pmew-erd__card h3 {
+            margin: 0 0 14px;
+            color: #061a33;
+            font-size: 26px;
+            line-height: 1.12;
+            letter-spacing: -0.045em;
+            font-weight: 950;
+        }
+
+        .pmew-erd__card p {
+            margin: 0 0 22px;
+            color: #53657a;
+            font-size: 15px;
+            line-height: 1.76;
+            font-weight: 560;
+        }
+
+        .pmew-erd__card-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 28px;
+        }
+
+        .pmew-erd__card-points span {
+            padding: 9px 11px;
+            border: 1px solid rgba(9, 53, 101, 0.11);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            color: #263a51;
+            font-size: 12px;
+            font-weight: 850;
+            transition:
+                transform 0.28s ease,
+                background 0.28s ease,
+                border-color 0.28s ease;
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-points span {
+            background: rgba(248, 251, 255, 0.96);
+            border-color: rgba(11, 77, 140, 0.22);
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-points span:nth-child(1) {
+            transform: translateY(-3px);
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-points span:nth-child(2) {
+            transform: translateY(-5px);
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-points span:nth-child(3) {
+            transform: translateY(-4px);
+        }
+
+        .pmew-erd__card:hover .pmew-erd__card-points span:nth-child(4) {
+            transform: translateY(-6px);
+        }
+
+        .pmew-erd__card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            height: 52px;
+            border: 0;
+            border-radius: 17px;
+            background: #061a33;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 950;
+            letter-spacing: 0.095em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition:
+                transform 0.32s ease,
+                background 0.32s ease,
+                box-shadow 0.32s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pmew-erd__card-btn::before,
+        .pmew-erd__submit::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    120deg,
+                    transparent 25%,
+                    rgba(255, 255, 255, 0.34) 46%,
+                    transparent 68%
+                );
+            transform: translateX(-120%);
+            pointer-events: none;
+        }
+
+        .pmew-erd__card-btn:hover::before,
+        .pmew-erd__submit:hover::before {
+            animation: pmewErdButtonShimmer 0.68s ease;
+        }
+
+        .pmew-erd__card-btn small {
+            font-size: 17px;
+            line-height: 1;
+        }
+
+        .pmew-erd__card-btn:hover {
+            transform: translateY(-2px);
+            background: #0b4d8c;
+            box-shadow: 0 20px 46px rgba(11, 77, 140, 0.26);
+        }
+
+        /* COMMAND PANEL */
+
+        .pmew-erd__command {
+            display: grid;
+            grid-template-columns: 1.02fr 0.98fr;
+            gap: 26px;
+            align-items: stretch;
+            padding: clamp(22px, 3vw, 36px);
+            border: 1px solid rgba(9, 53, 101, 0.12);
+            border-radius: 36px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.84)),
+                radial-gradient(circle at 0% 0%, rgba(11, 77, 140, 0.08), transparent 38%),
+                radial-gradient(circle at 100% 100%, rgba(198, 162, 91, 0.13), transparent 38%);
+            box-shadow: 0 36px 104px rgba(6, 26, 51, 0.105);
+            backdrop-filter: blur(18px);
+            transition:
+                transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.38s ease,
+                border-color 0.38s ease;
+        }
+
+        .pmew-erd__command:hover {
+            transform: translateY(-4px);
+            border-color: rgba(11, 77, 140, 0.18);
+            box-shadow: 0 44px 120px rgba(6, 26, 51, 0.13);
+        }
+
+        .pmew-erd__command-left {
+            padding: clamp(10px, 2vw, 22px);
+        }
+
+        .pmew-erd__mini-eyebrow {
+            margin-bottom: 18px;
+            color: #0b4d8c;
+            font-size: 12px;
+            font-weight: 950;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erd__command-left h3 {
+            max-width: 620px;
+            margin: 0 0 18px;
+            color: #061a33;
+            font-size: clamp(31px, 3.5vw, 50px);
+            line-height: 1.02;
+            letter-spacing: -0.058em;
+            font-weight: 950;
+        }
+
+        .pmew-erd__command-left p {
+            max-width: 650px;
+            margin: 0;
+            color: #53657a;
+            font-size: 16px;
+            line-height: 1.86;
+            font-weight: 560;
+        }
+
+        .pmew-erd__flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 11px;
+            margin-top: 30px;
+        }
+
+        .pmew-erd__flow div {
+            position: relative;
+            overflow: hidden;
+            min-height: 112px;
+            padding: 16px 14px;
+            border: 1px solid rgba(9, 53, 101, 0.11);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.74);
+            transition:
+                transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.32s ease,
+                box-shadow 0.32s ease;
+        }
+
+        .pmew-erd__flow div::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 0;
+            height: 3px;
+            border-radius: 999px 999px 0 0;
+            background: linear-gradient(90deg, #0b4d8c, #c6a25b);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.32s ease;
+        }
+
+        .pmew-erd__flow div:hover {
+            transform: translateY(-5px);
+            border-color: rgba(11, 77, 140, 0.24);
+            box-shadow: 0 18px 42px rgba(6, 26, 51, 0.08);
+        }
+
+        .pmew-erd__flow div:hover::after {
+            transform: scaleX(1);
+        }
+
+        .pmew-erd__flow strong {
+            display: block;
+            margin-bottom: 16px;
+            color: #c6a25b;
+            font-size: 23px;
+            line-height: 1;
+            font-weight: 950;
+            letter-spacing: -0.06em;
+            animation: pmewErdNumberPulse 1.8s ease-in-out infinite;
+        }
+
+        .pmew-erd__flow span {
+            display: block;
+            color: #263a51;
+            font-size: 13px;
+            line-height: 1.35;
+            font-weight: 850;
+        }
+
+        .pmew-erd__trust-note {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-left: 4px solid #c6a25b;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.76);
+            color: #42566e;
+            font-size: 14px;
+            line-height: 1.65;
+            font-weight: 700;
+        }
+
+        /* FORM */
+
+        .pmew-erd__form {
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            border: 1px solid rgba(9, 53, 101, 0.12);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow:
+                0 24px 70px rgba(6, 26, 51, 0.085),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        .pmew-erd__form::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            z-index: 0;
+            opacity: 0.75;
+            pointer-events: none;
+            background:
+                conic-gradient(
+                    from 180deg,
+                    transparent,
+                    rgba(11, 77, 140, 0.20),
+                    transparent,
+                    rgba(198, 162, 91, 0.20),
+                    transparent
+                );
+            animation: pmewErdFormRotate 4s linear infinite;
+        }
+
+        .pmew-erd__form::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            z-index: 0;
+            border-radius: 29px;
+            background: rgba(255, 255, 255, 0.92);
+            pointer-events: none;
+        }
+
+        .pmew-erd__form > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pmew-erd__form-head {
+            margin-bottom: 20px;
+        }
+
+        .pmew-erd__form-head span {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #0b4d8c;
+            font-size: 11px;
+            font-weight: 950;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erd__form-head h4 {
+            margin: 0 0 6px;
+            color: #061a33;
+            font-size: 25px;
+            line-height: 1.12;
+            letter-spacing: -0.05em;
+            font-weight: 950;
+        }
+
+        .pmew-erd__form-head p {
+            margin: 0;
+            color: #657487;
+            font-size: 13px;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .pmew-erd__field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .pmew-erd__field {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .pmew-erd__field label {
+            color: #263a51;
+            font-size: 11px;
+            font-weight: 950;
+            letter-spacing: 0.095em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erd__field input,
+        .pmew-erd__field select,
+        .pmew-erd__field textarea {
+            width: 100%;
+            border: 1px solid rgba(9, 53, 101, 0.13);
+            border-radius: 16px;
+            background: #ffffff;
+            color: #061a33;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 650;
+            outline: none;
+            transition:
+                transform 0.24s ease,
+                border-color 0.24s ease,
+                box-shadow 0.24s ease,
+                background 0.24s ease;
+        }
+
+        .pmew-erd__field input,
+        .pmew-erd__field select {
+            height: 50px;
+            padding: 0 14px;
+        }
+
+        .pmew-erd__field textarea {
+            resize: vertical;
+            min-height: 118px;
+            padding: 14px;
+        }
+
+        .pmew-erd__field input:focus,
+        .pmew-erd__field select:focus,
+        .pmew-erd__field textarea:focus {
+            transform: translateY(-2px);
+            border-color: rgba(11, 77, 140, 0.46);
+            box-shadow: 0 0 0 4px rgba(11, 77, 140, 0.08);
+            background: #ffffff;
+        }
+
+        .pmew-erd__attachment-note {
+            margin: 2px 0 18px;
+            padding: 14px 15px;
+            border: 1px dashed rgba(11, 77, 140, 0.28);
+            border-radius: 17px;
+            background: rgba(248, 251, 255, 0.92);
+            color: #53657a;
+            font-size: 13px;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .pmew-erd__attachment-note strong {
+            color: #061a33;
+        }
+
+        .pmew-erd__submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            height: 56px;
+            border: 0;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #061a33, #0b4d8c);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 950;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 22px 50px rgba(11, 77, 140, 0.25);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pmew-erd__submit span {
+            font-size: 18px;
+        }
+
+        .pmew-erd__submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 28px 62px rgba(11, 77, 140, 0.32);
+        }
+
+        /* RESULT */
+
+        .pmew-erd__result-wrap {
+            display: none;
+            margin-top: 17px;
+            padding: 16px;
+            border: 1px solid rgba(11, 77, 140, 0.14);
+            border-radius: 20px;
+            background: #f5f9ff;
+        }
+
+        .pmew-erd__result-wrap.is-visible {
+            display: block;
+            animation: pmewErdResultPop 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .pmew-erd__result-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .pmew-erd__result-head strong {
+            color: #061a33;
+            font-size: 14px;
+            font-weight: 950;
+        }
+
+        .pmew-erd__result-head span {
+            color: #657487;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .pmew-erd__result {
+            min-height: 120px;
+            padding: 14px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(9, 53, 101, 0.09);
+            color: #263a51;
+            font-size: 13px;
+            line-height: 1.68;
+            font-weight: 650;
+            white-space: pre-line;
+        }
+
+        .pmew-erd__actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .pmew-erd__actions button {
+            min-height: 42px;
+            border: 1px solid rgba(9, 53, 101, 0.14);
+            border-radius: 14px;
+            background: #ffffff;
+            color: #061a33;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 950;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition:
+                transform 0.24s ease,
+                background 0.24s ease,
+                color 0.24s ease,
+                border-color 0.24s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pmew-erd__actions button:hover {
+            transform: translateY(-2px);
+            border-color: #0b4d8c;
+            background: #0b4d8c;
+            color: #ffffff;
+        }
+
+        .pmew-erd__btn-ripple {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.42);
+            transform: translate(-50%, -50%) scale(1);
+            animation: pmewErdRipple 0.55s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* KEYFRAMES */
+
+        @keyframes pmewErdGridMove {
+            0% {
+                background-position: 0 0, 0 0;
+            }
+            100% {
+                background-position: 46px 46px, 46px 46px;
+            }
+        }
+
+        @keyframes pmewErdFloatLeft {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            50% {
+                transform: translate3d(34px, -24px, 0) scale(1.08);
+            }
+        }
+
+        @keyframes pmewErdFloatRight {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            50% {
+                transform: translate3d(-28px, 26px, 0) scale(1.07);
+            }
+        }
+
+        @keyframes pmewErdLineSweepOne {
+            0%, 100% {
+                transform: rotate(-18deg) translateX(0);
+                opacity: 0.45;
+            }
+            50% {
+                transform: rotate(-18deg) translateX(-80px);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes pmewErdLineSweepTwo {
+            0%, 100% {
+                transform: rotate(-18deg) translateX(0);
+                opacity: 0.35;
+            }
+            50% {
+                transform: rotate(-18deg) translateX(90px);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes pmewErdDotPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 7px rgba(198, 162, 91, 0.15);
+            }
+            50% {
+                transform: scale(1.22);
+                box-shadow: 0 0 0 12px rgba(198, 162, 91, 0.05);
+            }
+        }
+
+        @keyframes pmewErdTitleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(22px) scale(0.98);
+                filter: blur(10px);
+                letter-spacing: -0.09em;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes pmewErdSoftRise {
+            0% {
+                opacity: 0;
+                transform: translateY(16px);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes pmewErdShine {
+            0% {
+                transform: translateX(-130%);
+            }
+            100% {
+                transform: translateX(130%);
+            }
+        }
+
+        @keyframes pmewErdCardSweep {
+            0% {
+                opacity: 0;
+                transform: translateX(-120%) rotate(8deg);
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(120%) rotate(8deg);
+            }
+        }
+
+        @keyframes pmewErdFeaturedBreath {
+            0%, 100% {
+                box-shadow:
+                    0 38px 112px rgba(6, 26, 51, 0.13),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.98);
+            }
+            50% {
+                box-shadow:
+                    0 46px 126px rgba(11, 77, 140, 0.17),
+                    0 0 0 1px rgba(198, 162, 91, 0.24),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.98);
+            }
+        }
+
+        @keyframes pmewErdNumberPulse {
+            0%, 100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 0.72;
+                transform: translateY(-2px);
+            }
+        }
+
+        @keyframes pmewErdFormRotate {
+            0% {
+                transform: rotate(0deg) scale(1.3);
+            }
+            100% {
+                transform: rotate(360deg) scale(1.3);
+            }
+        }
+
+        @keyframes pmewErdButtonShimmer {
+            0% {
+                transform: translateX(-120%);
+            }
+            100% {
+                transform: translateX(120%);
+            }
+        }
+
+        @keyframes pmewErdRipple {
+            0% {
+                opacity: 0.65;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(28);
+            }
+        }
+
+        @keyframes pmewErdResultPop {
+            0% {
+                opacity: 0;
+                transform: translateY(12px) scale(0.98);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 1060px) {
+            .pmew-erd__problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pmew-erd__cards,
+            .pmew-erd__command {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-erd__card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .pmew-erd {
+                padding: 64px 14px;
+            }
+
+            .pmew-erd__mesh {
+                animation-duration: 10s;
+            }
+
+            .pmew-erd__halo {
+                width: 360px;
+                height: 360px;
+                filter: blur(36px);
+            }
+
+            .pmew-erd__halo--left {
+                left: -220px;
+                top: 220px;
+            }
+
+            .pmew-erd__halo--right {
+                right: -220px;
+                bottom: 220px;
+            }
+
+            .pmew-erd__header {
+                text-align: left;
+                margin-bottom: 30px;
+            }
+
+            .pmew-erd__header h2 {
+                font-size: clamp(39px, 11vw, 52px);
+                letter-spacing: -0.06em;
+                line-height: 0.98;
+            }
+
+            .pmew-erd__header p {
+                font-size: 15px;
+                line-height: 1.72;
+            }
+
+            .pmew-erd__eyebrow {
+                font-size: 10px;
+                letter-spacing: 0.11em;
+                padding: 9px 12px;
+            }
+
+            .pmew-erd__problem-head {
+                display: none;
+            }
+
+            .pmew-erd__problem-grid,
+            .pmew-erd__flow,
+            .pmew-erd__field-row,
+            .pmew-erd__actions {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-erd__problem-strip {
+                padding: 14px;
+                border-radius: 24px;
+            }
+
+            .pmew-erd__problem-item {
+                min-height: auto;
+            }
+
+            .pmew-erd__card {
+                padding: 24px;
+                border-radius: 26px;
+            }
+
+            .pmew-erd__card--featured {
+                animation: none;
+            }
+
+            .pmew-erd__featured-badge {
+                position: static;
+                display: inline-flex;
+                width: max-content;
+                margin-bottom: 16px;
+            }
+
+            .pmew-erd__card-top > span {
+                font-size: 48px;
+            }
+
+            .pmew-erd__card h3 {
+                font-size: 24px;
+            }
+
+            .pmew-erd__command {
+                padding: 18px;
+                border-radius: 28px;
+            }
+
+            .pmew-erd__command-left {
+                padding: 6px;
+            }
+
+            .pmew-erd__command-left h3 {
+                font-size: 33px;
+            }
+
+            .pmew-erd__command-left p {
+                font-size: 15px;
+                line-height: 1.72;
+            }
+
+            .pmew-erd__form {
+                padding: 18px;
+                border-radius: 24px;
+            }
+
+            .pmew-erd__form::after {
+                border-radius: 23px;
+            }
+
+            .pmew-erd__result-head {
+                display: block;
+            }
+
+            .pmew-erd__result-head span {
+                display: block;
+                margin-top: 4px;
+                text-align: left;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+                filter: none !important;
+            }
+
+            .pmew-erd__motion-item {
+                opacity: 1 !important;
+            }
+        }
+    </style>
+    <meta name="description" content="PMEW Engineering Response Desk from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/forms/enquiry-sample.html">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="PMEW Engineering Response Desk">
+    <meta property="og:description" content="PMEW Engineering Response Desk from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1.">
+    <meta property="og:url" content="https://www.pradako.co/pages/forms/enquiry-sample.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PMEW Engineering Response Desk">
+    <meta name="twitter:description" content="PMEW Engineering Response Desk from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PMEW Engineering Response Desk",
+  "url": "https://www.pradako.co/pages/forms/enquiry-sample.html",
+  "description": "PMEW Engineering Response Desk from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<section class="pmew-erd" id="pmew-engineering-response-desk">
+    <div class="pmew-erd__background">
+        <span class="pmew-erd__mesh"></span>
+        <span class="pmew-erd__halo pmew-erd__halo--left"></span>
+        <span class="pmew-erd__halo pmew-erd__halo--right"></span>
+        <span class="pmew-erd__line pmew-erd__line--one"></span>
+        <span class="pmew-erd__line pmew-erd__line--two"></span>
+    </div>
+
+    <div class="pmew-erd__container">
+
+        <div class="pmew-erd__header">
+            <div class="pmew-erd__eyebrow">
+                <span></span>
+                PMEW ENGINEERING RESPONSE DESK
+            </div>
+
+            <h2>
+                Samples, Technical Audit
+                <em>&amp; Priority Air Dispatch</em>
+            </h2>
+
+            <p>
+                A premium buyer-response system for OEMs, purchase teams, R&amp;D teams,
+                vendor development teams and export customers who need faster approval,
+                technical clarity and urgent shipment feasibility before production begins.
+            </p>
+        </div>
+
+        <div class="pmew-erd__problem-strip">
+            <div class="pmew-erd__problem-head">
+                <span>Buyer Situation</span>
+                <span>PMEW Response</span>
+            </div>
+
+            <div class="pmew-erd__problem-grid">
+                <div class="pmew-erd__problem-item">
+                    <p>Need approval before bulk order</p>
+                    <strong>Sample Approval Support</strong>
+                </div>
+
+                <div class="pmew-erd__problem-item">
+                    <p>Unsure about standard, grade or coating</p>
+                    <strong>Technical Fastener Audit</strong>
+                </div>
+
+                <div class="pmew-erd__problem-item">
+                    <p>Line-down, export urgency or critical timeline</p>
+                    <strong>Priority Air Dispatch Request</strong>
+                </div>
+
+                <div class="pmew-erd__problem-item">
+                    <p>Drawing, BOM or sample needs review</p>
+                    <strong>Engineering Feasibility Check</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="pmew-erd__cards">
+
+            <article class="pmew-erd__card" data-erd-card>
+                <div class="pmew-erd__card-glow"></div>
+
+                <div class="pmew-erd__card-top">
+                    <div class="pmew-erd__icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 8.5 12 3 3 8.5l9 5.5 9-5.5Z"></path>
+                            <path d="M3 8.5V16l9 5 9-5V8.5"></path>
+                            <path d="M12 14v7"></path>
+                        </svg>
+                    </div>
+
+                    <span>01</span>
+                </div>
+
+                <h3>Sample Approval Support</h3>
+
+                <p>
+                    For product validation, drawing approval, fitment trials, PPAP,
+                    R&amp;D testing, customer approval and vendor qualification.
+                </p>
+
+                <div class="pmew-erd__card-points">
+                    <span>Standard samples</span>
+                    <span>Custom samples</span>
+                    <span>Fitment trials</span>
+                    <span>QC-based clearance</span>
+                </div>
+
+                <button type="button" class="pmew-erd__card-btn" data-erd-select="Sample Approval Support">
+                    Request Samples
+                    <small>→</small>
+                </button>
+            </article>
+
+            <article class="pmew-erd__card pmew-erd__card--featured" data-erd-card>
+                <div class="pmew-erd__featured-badge">Signature Support</div>
+                <div class="pmew-erd__card-glow"></div>
+
+                <div class="pmew-erd__card-top">
+                    <div class="pmew-erd__icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 6h8"></path>
+                            <path d="M8 10h8"></path>
+                            <path d="M8 17h5"></path>
+                            <path d="M5 3h14v18H5z"></path>
+                            <path d="m14 16 2 2 4-5"></path>
+                        </svg>
+                    </div>
+
+                    <span>02</span>
+                </div>
+
+                <h3>Technical Fastener Audit</h3>
+
+                <p>
+                    Upload a drawing, BOM, standard number, existing fastener detail
+                    or sample photo. PMEW can review technical suitability before
+                    production or approval.
+                </p>
+
+                <div class="pmew-erd__card-points">
+                    <span>Standard equivalence</span>
+                    <span>Grade review</span>
+                    <span>Coating check</span>
+                    <span>Feasibility risk</span>
+                </div>
+
+                <button type="button" class="pmew-erd__card-btn" data-erd-select="Technical Fastener Audit">
+                    Start Audit Request
+                    <small>→</small>
+                </button>
+            </article>
+
+            <article class="pmew-erd__card" data-erd-card>
+                <div class="pmew-erd__card-glow"></div>
+
+                <div class="pmew-erd__card-top">
+                    <div class="pmew-erd__icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 12 21 4l-5 16-4-7-7-1Z"></path>
+                            <path d="M12 13 21 4"></path>
+                        </svg>
+                    </div>
+
+                    <span>03</span>
+                </div>
+
+                <h3>Priority Air Dispatch Request</h3>
+
+                <p>
+                    For urgent samples, export dispatches, line-down situations,
+                    critical project schedules and buyer-side emergency timelines.
+                </p>
+
+                <div class="pmew-erd__card-points">
+                    <span>Air shipment request</span>
+                    <span>Export urgency</span>
+                    <span>Line-down support</span>
+                    <span>Dispatch feasibility</span>
+                </div>
+
+                <button type="button" class="pmew-erd__card-btn" data-erd-select="Priority Air Dispatch Request">
+                    Request Air Dispatch
+                    <small>→</small>
+                </button>
+            </article>
+
+        </div>
+
+        <div class="pmew-erd__command">
+
+            <div class="pmew-erd__command-left">
+                <div class="pmew-erd__mini-eyebrow">ENGINEERING-LED RESPONSE FLOW</div>
+
+                <h3>
+                    From enquiry to approval,
+                    with better clarity before production.
+                </h3>
+
+                <p>
+                    Share your product standard, drawing, BOM, sample photo, grade,
+                    coating, quantity or urgency. PMEW will review the request based on
+                    product complexity, stock, tooling, production load, QC clearance
+                    and logistics feasibility.
+                </p>
+
+                <div class="pmew-erd__flow">
+                    <div>
+                        <strong>01</strong>
+                        <span>Share Requirement</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <span>Technical Review</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <span>Feasibility Check</span>
+                    </div>
+
+                    <div>
+                        <strong>04</strong>
+                        <span>Next Step Guidance</span>
+                    </div>
+                </div>
+
+                <div class="pmew-erd__trust-note">
+                    No blind commitment. Every response is reviewed through practical
+                    feasibility: stock, tooling, QC, production and logistics clearance.
+                </div>
+            </div>
+
+            <form class="pmew-erd__form" id="pmewErdForm">
+                <div class="pmew-erd__form-head">
+                    <span>Quick Requirement</span>
+                    <h4>Generate Buyer Enquiry</h4>
+                    <p>
+                        Create ready-to-send enquiry text for samples, audit or urgent air dispatch.
+                    </p>
+                </div>
+
+                <div class="pmew-erd__field">
+                    <label for="erdService">Requirement Type</label>
+                    <select id="erdService" name="service">
+                        <option value="Sample Approval Support">Sample Approval Support</option>
+                        <option value="Technical Fastener Audit">Technical Fastener Audit</option>
+                        <option value="Priority Air Dispatch Request">Priority Air Dispatch Request</option>
+                        <option value="Drawing / BOM Review">Drawing / BOM Review</option>
+                        <option value="Standard Equivalence Review">Standard Equivalence Review</option>
+                        <option value="Other Requirement">Other Requirement</option>
+                    </select>
+                </div>
+
+                <div class="pmew-erd__field-row">
+                    <div class="pmew-erd__field">
+                        <label for="erdCompany">Name / Company</label>
+                        <input id="erdCompany" name="company" type="text" placeholder="Enter company name">
+                    </div>
+
+                    <div class="pmew-erd__field">
+                        <label for="erdContact">Email / Phone</label>
+                        <input id="erdContact" name="contact" type="text" placeholder="Enter contact detail">
+                    </div>
+                </div>
+
+                <div class="pmew-erd__field-row">
+                    <div class="pmew-erd__field">
+                        <label for="erdProduct">Product / Standard</label>
+                        <input id="erdProduct" name="product" type="text" placeholder="DIN 933 / ISO 4017 / Custom screw">
+                    </div>
+
+                    <div class="pmew-erd__field">
+                        <label for="erdQuantity">Quantity / Urgency</label>
+                        <input id="erdQuantity" name="quantity" type="text" placeholder="10,000 pcs / urgent / sample qty">
+                    </div>
+                </div>
+
+                <div class="pmew-erd__field">
+                    <label for="erdDetails">Requirement Details</label>
+                    <textarea id="erdDetails" name="details" rows="5" placeholder="Mention size, material, grade, coating, drawing availability, application, delivery location, approval stage or urgency..."></textarea>
+                </div>
+
+                <div class="pmew-erd__attachment-note">
+                    <strong>Attach separately:</strong>
+                    drawing, BOM, sample photo, enquiry sheet, inspection report or standard reference.
+                </div>
+
+                <button type="submit" class="pmew-erd__submit">
+                    Generate Enquiry Text
+                    <span>→</span>
+                </button>
+
+                <div class="pmew-erd__result-wrap" id="pmewErdResultWrap">
+                    <div class="pmew-erd__result-head">
+                        <strong>Generated Enquiry</strong>
+                        <span>Ready to copy / WhatsApp / email</span>
+                    </div>
+
+                    <div class="pmew-erd__result" id="pmewErdResult" aria-live="polite"></div>
+
+                    <div class="pmew-erd__actions">
+                        <button type="button" id="pmewErdCopy">Copy Enquiry</button>
+                        <button type="button" id="pmewErdWhatsapp">Send on WhatsApp</button>
+                        <button type="button" id="pmewErdEmail">Send by Email</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+    (function () {
+        "use strict";
+
+        const section = document.getElementById("pmew-engineering-response-desk");
+        if (!section) return;
+
+        const PMEW_EMAIL = "purchase@pradakomechanicals.com";
+
+        const form = section.querySelector("#pmewErdForm");
+        const serviceSelect = section.querySelector("#erdService");
+        const resultWrap = section.querySelector("#pmewErdResultWrap");
+        const resultBox = section.querySelector("#pmewErdResult");
+
+        const copyBtn = section.querySelector("#pmewErdCopy");
+        const whatsappBtn = section.querySelector("#pmewErdWhatsapp");
+        const emailBtn = section.querySelector("#pmewErdEmail");
+
+        let latestEnquiryText = "";
+
+        function getValue(selector) {
+            const element = section.querySelector(selector);
+            return element ? element.value.trim() : "";
+        }
+
+        function buildEnquiryText() {
+            const service = getValue("#erdService");
+            const company = getValue("#erdCompany");
+            const contact = getValue("#erdContact");
+            const product = getValue("#erdProduct");
+            const quantity = getValue("#erdQuantity");
+            const details = getValue("#erdDetails");
+
+            return `PMEW Engineering Response Desk Enquiry
+
+Requirement Type:
+${service || "Not specified"}
+
+Name / Company:
+${company || "Not specified"}
+
+Email / Phone:
+${contact || "Not specified"}
+
+Product / Standard:
+${product || "Not specified"}
+
+Quantity / Urgency:
+${quantity || "Not specified"}
+
+Requirement Details:
+${details || "Not specified"}
+
+Attachments to be shared separately:
+Drawing / BOM / Sample Photo / Enquiry Sheet / Inspection Report / Standard Reference
+
+Request:
+Please review the above requirement and guide the next step based on stock, tooling, production feasibility, QC clearance and logistics feasibility.`;
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand("copy");
+            } catch (error) {
+                console.warn("Copy failed", error);
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+
+            fallbackCopy(text);
+            return Promise.resolve();
+        }
+
+        function updateButtonText(button, text, resetText) {
+            if (!button) return;
+
+            button.textContent = text;
+
+            window.setTimeout(function () {
+                button.textContent = resetText;
+            }, 1600);
+        }
+
+        section.querySelectorAll("[data-erd-select]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const selectedService = button.getAttribute("data-erd-select");
+
+                if (serviceSelect && selectedService) {
+                    serviceSelect.value = selectedService;
+                }
+
+                form.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                window.setTimeout(function () {
+                    if (serviceSelect) serviceSelect.focus();
+                }, 500);
+            });
+        });
+
+        if (form) {
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                latestEnquiryText = buildEnquiryText();
+
+                if (resultBox) {
+                    resultBox.textContent = latestEnquiryText;
+                }
+
+                if (resultWrap) {
+                    resultWrap.classList.add("is-visible");
+                }
+
+                copyText(latestEnquiryText)
+                    .then(function () {
+                        updateButtonText(copyBtn, "Copied", "Copy Enquiry");
+                    })
+                    .catch(function () {
+                        updateButtonText(copyBtn, "Copy Manually", "Copy Enquiry");
+                    });
+            });
+        }
+
+        if (copyBtn) {
+            copyBtn.addEventListener("click", function () {
+                latestEnquiryText = latestEnquiryText || buildEnquiryText();
+
+                copyText(latestEnquiryText)
+                    .then(function () {
+                        updateButtonText(copyBtn, "Copied", "Copy Enquiry");
+                    })
+                    .catch(function () {
+                        updateButtonText(copyBtn, "Copy Failed", "Copy Enquiry");
+                    });
+            });
+        }
+
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener("click", function () {
+                latestEnquiryText = latestEnquiryText || buildEnquiryText();
+                const whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(latestEnquiryText);
+                window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+            });
+        }
+
+        if (emailBtn) {
+            emailBtn.addEventListener("click", function () {
+                latestEnquiryText = latestEnquiryText || buildEnquiryText();
+
+                const subject = "PMEW Engineering Response Desk Enquiry";
+                const mailtoUrl =
+                    "mailto:" + encodeURIComponent(PMEW_EMAIL) +
+                    "?subject=" + encodeURIComponent(subject) +
+                    "&body=" + encodeURIComponent(latestEnquiryText);
+
+                window.location.href = mailtoUrl;
+            });
+        }
+
+        /* Fast reveal animation */
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const motionTargets = [
+            ...section.querySelectorAll(".pmew-erd__header"),
+            ...section.querySelectorAll(".pmew-erd__problem-strip"),
+            ...section.querySelectorAll(".pmew-erd__problem-item"),
+            ...section.querySelectorAll(".pmew-erd__card"),
+            ...section.querySelectorAll(".pmew-erd__command"),
+            ...section.querySelectorAll(".pmew-erd__command-left"),
+            ...section.querySelectorAll(".pmew-erd__flow div"),
+            ...section.querySelectorAll(".pmew-erd__trust-note"),
+            ...section.querySelectorAll(".pmew-erd__form")
+        ];
+
+        motionTargets.forEach(function (item, index) {
+            item.classList.add("pmew-erd__motion-item");
+            const delay = Math.min(index * 34, 340);
+            item.style.setProperty("--motion-delay", delay + "ms");
+        });
+
+        if (reduceMotion) {
+            motionTargets.forEach(function (item) {
+                item.classList.add("is-motion-visible");
+            });
+        } else if ("IntersectionObserver" in window) {
+            const motionObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-motion-visible");
+                        motionObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: "0px 0px -8% 0px"
+            });
+
+            motionTargets.forEach(function (item) {
+                motionObserver.observe(item);
+            });
+        } else {
+            motionTargets.forEach(function (item) {
+                item.classList.add("is-motion-visible");
+            });
+        }
+
+        /* Desktop card tilt */
+
+        const cards = section.querySelectorAll(".pmew-erd__card");
+
+        cards.forEach(function (card) {
+            let rafId = null;
+
+            function updateCardTilt(event) {
+                const rect = card.getBoundingClientRect();
+
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((centerY - y) / centerY) * 4.5;
+                const rotateY = ((x - centerX) / centerX) * 5.5;
+
+                card.style.setProperty("--mx", x + "px");
+                card.style.setProperty("--my", y + "px");
+
+                card.style.transform =
+                    "perspective(1000px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-8px)";
+            }
+
+            card.addEventListener("pointermove", function (event) {
+                if (window.innerWidth < 900) return;
+
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                }
+
+                rafId = requestAnimationFrame(function () {
+                    updateCardTilt(event);
+                });
+            });
+
+            card.addEventListener("pointerleave", function () {
+                if (window.innerWidth < 900) return;
+
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                }
+
+                card.style.transform = "";
+            });
+        });
+
+        /* Button ripple */
+
+        const rippleButtons = section.querySelectorAll(
+            ".pmew-erd__card-btn, .pmew-erd__submit, .pmew-erd__actions button"
+        );
+
+        rippleButtons.forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                const rect = button.getBoundingClientRect();
+                const ripple = document.createElement("span");
+
+                ripple.className = "pmew-erd__btn-ripple";
+                ripple.style.left = event.clientX - rect.left + "px";
+                ripple.style.top = event.clientY - rect.top + "px";
+
+                button.appendChild(ripple);
+
+                window.setTimeout(function () {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>

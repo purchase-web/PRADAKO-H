@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Technical Bulletin | EN 14399 – HR vs HV Structural Bolting | Pradako Mechanical</title>
+
+<!-- GOOGLE FONTS --> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+/* ==========================================================
+   PRADAKO MECHANICALS — TECHNICAL BULLETIN PAGE
+   Layout enhanced. Existing bulletin content preserved.
+   ========================================================== */
+
+:root {
+    --pmew-white: #ffffff;
+    --pmew-off-white: #fafcff;
+    --pmew-soft-blue: #f3f8fc;
+    --pmew-blue-50: #eef6fb;
+    --pmew-blue-100: #dcecf6;
+    --pmew-blue-200: #b8d8ea;
+    --pmew-blue-700: #0a4b6e;
+    --pmew-blue-800: #0a3d62;
+    --pmew-blue-900: #08263f;
+    --pmew-navy: #071c31;
+    --pmew-text: #1f2a3e;
+    --pmew-muted: #63758a;
+    --pmew-line: #d9e6ef;
+    --pmew-gold: #c57c2c;
+    --pmew-red: #d9534f;
+    --pmew-radius-sm: 12px;
+    --pmew-radius-md: 18px;
+    --pmew-radius-lg: 26px;
+    --pmew-radius-xl: 34px;
+    --pmew-shadow-soft: 0 18px 45px rgba(8, 38, 63, 0.08);
+    --pmew-shadow-card: 0 14px 34px rgba(8, 38, 63, 0.07);
+    --pmew-shadow-hover: 0 22px 55px rgba(8, 38, 63, 0.12);
+    --pmew-font-primary: 'Montserrat', sans-serif;
+    --pmew-font-display: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    background:
+        radial-gradient(circle at top left, rgba(30, 111, 159, 0.08), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fbfd 38%, #ffffff 100%);
+    color: var(--pmew-text);
+    font-family: var(--pmew-font-primary);
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+a,
+button,
+.dropdown-toggle,
+.mobile-nav-link {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+::selection {
+    background: rgba(30, 111, 159, 0.18);
+    color: var(--pmew-blue-900);
+}
+
+/* ==========================================================
+   PAGE WRAPPER
+   ========================================================== */
+
+.bulletin-page {
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
+}
+
+.bulletin-page::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 440px;
+    background:
+        linear-gradient(135deg, #071c31 0%, #0a3d62 52%, #0b4d76 100%);
+    z-index: -2;
+}
+
+.bulletin-page::after {
+    content: "";
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    width: min(1180px, calc(100% - 32px));
+    height: 220px;
+    transform: translateX(-50%);
+    border-radius: 42px;
+    background: radial-gradient(circle at 78% 48%, rgba(255,255,255,0.08), transparent 19rem);
+    border: 1px solid rgba(255,255,255,0.08);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   HERO / HEADER
+   ========================================================== */
+
+.bulletin-hero {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: clamp(2.2rem, 4vw, 4rem) 2rem 2rem;
+}
+
+.bulletin-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.bulletin-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 330px;
+    border-radius: var(--pmew-radius-xl);
+    padding: clamp(2rem, 4vw, 3.6rem);
+    background:
+        radial-gradient(circle at 84% 58%, rgba(255,255,255,0.14), transparent 18rem),
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,0.10), transparent 20rem),
+        linear-gradient(135deg, #263f55 0%, #163c59 45%, #0c2d45 100%);
+    border: 1px solid rgba(255,255,255,0.20);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+}
+
+.bulletin-header::before {
+    content: "";
+    position: absolute;
+    right: -95px;
+    bottom: -115px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 42px solid rgba(255,255,255,0.055);
+    pointer-events: none;
+}
+
+.bulletin-header::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 110px;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.035));
+    pointer-events: none;
+}
+
+.bulletin-kicker {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.bulletin-kicker i {
+    color: #f8c982;
+}
+
+.bulletin-title {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    font-family: var(--pmew-font-display);
+    font-size: clamp(2.15rem, 4.4vw, 4.8rem);
+    font-weight: 700;
+    line-height: 0.98;
+    color: #ffffff;
+    letter-spacing: -0.045em;
+    text-shadow: 0 8px 28px rgba(0,0,0,0.20);
+}
+
+.bulletin-version {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin-top: 1.35rem;
+    font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+    color: rgba(255,255,255,0.92);
+    font-weight: 650;
+    line-height: 1.65;
+    text-shadow: 0 3px 14px rgba(0,0,0,0.22);
+}
+
+.bulletin-hero-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.7rem;
+}
+
+.bulletin-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 44px;
+    padding: 0.78rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.bulletin-link-btn.primary {
+    background: #ffffff;
+    color: var(--pmew-blue-900);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+}
+
+.bulletin-link-btn.secondary {
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.24);
+}
+
+.bulletin-link-btn:hover {
+    transform: translateY(-2px);
+}
+
+.bulletin-hero-card {
+    border-radius: var(--pmew-radius-xl);
+    padding: 1.4rem;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(255,255,255,0.75);
+}
+
+.bulletin-hero-card-top {
+    padding: 1.2rem;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #f7fbff, #ffffff);
+    border: 1px solid var(--pmew-line);
+}
+
+.bulletin-hero-card-top span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    background: var(--pmew-blue-50);
+    color: var(--pmew-blue-800);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.bulletin-hero-card-top h2 {
+    font-size: 1.05rem;
+    color: var(--pmew-blue-900);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
+}
+
+.bulletin-hero-card-top p {
+    font-size: 0.88rem;
+    color: var(--pmew-muted);
+    line-height: 1.65;
+}
+
+.bulletin-quick-links {
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.bulletin-quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e6eef5;
+    color: var(--pmew-blue-900);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 750;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.bulletin-quick-links a:hover {
+    transform: translateX(3px);
+    border-color: var(--pmew-blue-200);
+    background: var(--pmew-blue-50);
+}
+
+.bulletin-quick-links i {
+    color: var(--pmew-gold);
+}
+
+/* ==========================================================
+   MAIN DOCUMENT LAYOUT
+   ========================================================== */
+
+.bulletin-shell {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: 350px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.bulletin-sidebar {
+    position: sticky;
+    top: 96px;
+    border-radius: var(--pmew-radius-lg);
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--pmew-line);
+    box-shadow: var(--pmew-shadow-soft);
+    overflow: hidden;
+}
+
+.sidebar-title {
+    padding: 1.15rem 1.15rem 0.8rem;
+    border-bottom: 1px solid var(--pmew-line);
+}
+
+.sidebar-title span {
+    display: block;
+    margin-bottom: 0.32rem;
+    color: var(--pmew-gold);
+    font-size: 0.72rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+.sidebar-title strong {
+    display: block;
+    color: var(--pmew-blue-900);
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.bulletin-toc {
+    list-style: none;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+    padding: 0.6rem;
+}
+
+.bulletin-toc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bulletin-toc::-webkit-scrollbar-thumb {
+    background: #cbdbe8;
+    border-radius: 999px;
+}
+
+.bulletin-toc a {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.68rem 0.72rem;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #3d5167;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.35;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+
+.bulletin-toc a span {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 999px;
+    background: #f0f6fb;
+    color: var(--pmew-blue-800);
+    font-size: 0.68rem;
+    font-weight: 850;
+}
+
+.bulletin-toc a:hover,
+.bulletin-toc a.active {
+    background: var(--pmew-blue-50);
+    color: var(--pmew-blue-900);
+    transform: translateX(2px);
+}
+
+.bulletin-toc a.active span {
+    background: var(--pmew-blue-800);
+    color: #ffffff;
+}
+
+.bulletin-article {
+    min-width: 0;
+    border-radius: var(--pmew-radius-xl);
+    background: rgba(255,255,255,0.98);
+    border: 1px solid var(--pmew-line);
+    box-shadow: var(--pmew-shadow-soft);
+    overflow: hidden;
+}
+
+.bulletin-article-inner {
+    padding: clamp(1.25rem, 3.5vw, 3.3rem);
+}
+
+.bulletin-article section {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: clamp(1.2rem, 2.5vw, 2rem);
+    border: 1px solid #e3edf5;
+    border-radius: var(--pmew-radius-lg);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,253,255,0.98));
+    box-shadow: 0 10px 26px rgba(8, 38, 63, 0.035);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.bulletin-article section:hover {
+    transform: translateY(-2px);
+    border-color: #cddfed;
+    box-shadow: var(--pmew-shadow-card);
+}
+
+.bulletin-article section:last-child {
+    margin-bottom: 0;
+}
+
+/* REMOVED COLORFUL TOP STROKE FROM EACH SECTION CARD */
+/* .bulletin-article section::before removed */
+
+/* ==========================================================
+   ORIGINAL PAGE CONTENT STYLES — ENHANCED ONLY
+   ========================================================== */
+
+.hv-section-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    font-family: var(--pmew-font-display);
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.16;
+    margin-bottom: 1.15rem;
+    color: var(--pmew-blue-900);
+    letter-spacing: -0.025em;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* REMOVED COLORFUL VERTICAL STROKE BEFORE SECTION TITLE */
+/* .hv-section-title::before removed */
+
+.subsection-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1.02rem;
+    font-weight: 800;
+    margin: 1.3rem 0 0.75rem 0;
+    color: var(--pmew-blue-800);
+    letter-spacing: -0.01em;
+}
+
+.subsection-title::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pmew-gold);
+}
+
+.text-body {
+    font-size: 0.98rem;
+    color: #24394e;
+    margin-bottom: 0.95rem;
+    line-height: 1.75;
+}
+
+.text-body strong,
+.note-box strong,
+.warning-box strong,
+.highlight-box strong {
+    color: var(--pmew-blue-900);
+}
+
+.highlight-box,
+.warning-box,
+.note-box {
+    position: relative;
+    padding: 1.15rem 1.2rem 1.15rem 1.35rem;
+    margin: 1.15rem 0;
+    border-radius: 18px;
+    line-height: 1.68;
+    overflow: hidden;
+}
+
+.highlight-box::before,
+.warning-box::before,
+.note-box::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    border-radius: 999px;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #fffaf3, #ffffff);
+    border: 1px solid #f0dfc8;
+    color: #33465a;
+}
+
+.highlight-box::before {
+    background: var(--pmew-gold);
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff5ef, #ffffff);
+    border: 1px solid #f0d0ca;
+    color: #394b5f;
+}
+
+.warning-box::before {
+    background: var(--pmew-red);
+}
+
+.note-box {
+    background: linear-gradient(135deg, #eef7fc, #ffffff);
+    border: 1px solid #cde3f1;
+    color: #33465a;
+}
+
+.note-box::before {
+    background: var(--pmew-blue-800);
+}
+
+.data-table-wrapper {
+    overflow-x: auto;
+    margin: 1.2rem 0;
+    border-radius: 20px;
+    border: 1px solid #d2e2ee;
+    background: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.data-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.data-table-wrapper::-webkit-scrollbar-track {
+    background: #eef4f8;
+    border-radius: 999px;
+}
+
+.data-table-wrapper::-webkit-scrollbar-thumb {
+    background: #b9d0e1;
+    border-radius: 999px;
+}
+
+.tech-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tech-table th {
+    text-align: left;
+    padding: 1rem 1rem;
+    background: linear-gradient(180deg, #f3f8fc, #eaf3f9);
+    color: var(--pmew-blue-900);
+    font-weight: 850;
+    border-bottom: 1px solid #cbdbe8;
+    white-space: nowrap;
+}
+
+.tech-table td {
+    padding: 0.92rem 1rem;
+    border-bottom: 1px solid #e6eff6;
+    color: #263b50;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.tech-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tech-table tbody tr:hover {
+    background: #f8fbfd;
+}
+
+.tech-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.3rem 0;
+}
+
+.comp-card {
+    position: relative;
+    background:
+        linear-gradient(180deg, #ffffff, #fbfdff);
+    border: 1px solid #d7e6f1;
+    border-radius: 22px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 30px rgba(8, 38, 63, 0.045);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.comp-card:hover {
+    transform: translateY(-3px);
+    border-color: #bdd6e8;
+    box-shadow: var(--pmew-shadow-card);
+}
+
+.comp-card h3 {
+    font-size: 1.12rem;
+    font-weight: 850;
+    margin-bottom: 0.85rem;
+    color: var(--pmew-blue-900);
+    border-bottom: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.comp-card h3::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--pmew-blue-800);
+    box-shadow: 0 0 0 5px rgba(30, 111, 159, 0.1);
+}
+
+.comp-card ul {
+    list-style: none;
+    margin-top: 0.8rem;
+}
+
+.comp-card li {
+    margin-bottom: 0.65rem;
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.91rem;
+    line-height: 1.62;
+    color: #33475c;
+}
+
+.comp-card li:last-child {
+    margin-bottom: 0;
+}
+
+.comp-card li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--pmew-gold);
+    font-weight: 900;
+}
+
+.badge-list {
+    list-style: none;
+    margin: 0.8rem 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.badge-list li {
+    position: relative;
+    margin-bottom: 0;
+    padding: 0.72rem 0.85rem 0.72rem 2.25rem;
+    border-radius: 14px;
+    background: #f8fbfd;
+    border: 1px solid #e2edf5;
+    color: #31465b;
+    line-height: 1.55;
+}
+
+.badge-list li::before {
+    content: "•";
+    position: absolute;
+    left: 1rem;
+    top: 0.7rem;
+    color: var(--pmew-blue-800);
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+hr {
+    margin: 1rem 0;
+    border: none;
+    height: 1px;
+    background: #cde0ed;
+}
+
+.small-meta {
+    font-size: 0.8rem;
+    color: #6a8aaa;
+}
+
+/* ==========================================================
+   MOBILE RESPONSIVE CUSTOM INDEX DROPDOWN
+   ========================================================== */
+
+.mobile-toc-wrap {
+    display: none;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem 1rem;
+    position: relative;
+    z-index: 40;
+}
+
+.mobile-toc-custom {
+    position: relative;
+    width: 100%;
+}
+
+.mobile-toc-button {
+    width: 100%;
+    min-height: 52px;
+    border-radius: 16px;
+    border: 1px solid var(--pmew-line);
+    background: #ffffff;
+    color: var(--pmew-blue-900);
+    font-family: var(--pmew-font-primary);
+    font-size: 0.92rem;
+    font-weight: 800;
+    padding: 0.85rem 1rem;
+    box-shadow: var(--pmew-shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-toc-button span {
+    min-width: 0;
+    line-height: 1.35;
+}
+
+.mobile-toc-button i {
+    flex: 0 0 auto;
+    transition: transform 0.25s ease;
+}
+
+.mobile-toc-custom.is-open .mobile-toc-button i {
+    transform: rotate(180deg);
+}
+
+.mobile-toc-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    max-height: min(420px, 62vh);
+    overflow-y: auto;
+    border-radius: 18px;
+    border: 1px solid var(--pmew-line);
+    background: #ffffff;
+    box-shadow: 0 24px 60px rgba(8, 38, 63, 0.18);
+    padding: 0.5rem;
+    z-index: 99;
+}
+
+.mobile-toc-custom.is-open .mobile-toc-menu {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.mobile-toc-option {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: var(--pmew-blue-900);
+    font-family: var(--pmew-font-primary);
+    font-size: 0.92rem;
+    font-weight: 650;
+    line-height: 1.35;
+    text-align: left;
+    padding: 0.82rem 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+.mobile-toc-option:hover,
+.mobile-toc-option.is-active {
+    background: var(--pmew-blue-50);
+    color: var(--pmew-blue-900);
+    font-weight: 800;
+}
+
+.mobile-toc-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mobile-toc-menu::-webkit-scrollbar-thumb {
+    background: #bfd3e3;
+    border-radius: 999px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1180px) {
+    .bulletin-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bulletin-hero-card {
+        display: none;
+    }
+
+    .bulletin-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .bulletin-sidebar {
+        display: none;
+    }
+
+    .mobile-toc-wrap {
+        display: block;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        scroll-padding-top: 82px;
+    }
+
+    .bulletin-page::before {
+        height: 400px;
+    }
+
+    .bulletin-page::after {
+        display: none;
+    }
+
+    .bulletin-hero {
+        padding: 1.4rem 1rem 1rem;
+    }
+
+    .bulletin-header {
+        min-height: auto;
+        padding: 1.45rem;
+        border-radius: 24px;
+    }
+
+    .bulletin-header::before {
+        width: 220px;
+        height: 220px;
+        right: -120px;
+        bottom: -120px;
+    }
+
+    .bulletin-kicker {
+        font-size: 0.68rem;
+        padding: 0.48rem 0.68rem;
+    }
+
+    .bulletin-title {
+        font-size: clamp(2rem, 11vw, 3.1rem);
+        line-height: 1.02;
+    }
+
+    .bulletin-version {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.95);
+    }
+
+    .bulletin-hero-actions {
+        gap: 0.65rem;
+    }
+
+    .bulletin-link-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .mobile-toc-wrap {
+        padding: 0 1rem 1rem;
+    }
+
+    .bulletin-shell {
+        padding: 0 1rem 3rem;
+    }
+
+    .bulletin-article {
+        border-radius: 24px;
+    }
+
+    .bulletin-article-inner {
+        padding: 1rem;
+    }
+
+    .bulletin-article section {
+        padding: 1.1rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .hv-section-title {
+        font-size: 1.35rem;
+        gap: 0;
+    }
+
+    .text-body {
+        font-size: 0.92rem;
+    }
+
+    .highlight-box,
+    .warning-box,
+    .note-box {
+        padding: 1rem 1rem 1rem 1.15rem;
+        font-size: 0.9rem;
+        border-radius: 16px;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .comp-card {
+        padding: 1rem;
+        border-radius: 18px;
+    }
+
+    .tech-table {
+        min-width: 680px;
+        font-size: 0.84rem;
+    }
+
+    .tech-table th,
+    .tech-table td {
+        padding: 0.78rem 0.85rem;
+    }
+
+    .badge-list li {
+        font-size: 0.9rem;
+    }
+
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bulletin-title {
+        font-size: 2rem;
+    }
+
+    .bulletin-version {
+        line-height: 1.55;
+    }
+
+    .hv-section-title {
+        font-size: 1.24rem;
+    }
+
+    .subsection-title {
+        font-size: 0.96rem;
+    }
+}
+
+@media print {
+    body {
+        background: #ffffff;
+    }
+
+    #navbar-container,
+    #footer-container,
+    .bulletin-hero-actions,
+    .bulletin-sidebar,
+    .mobile-toc-wrap,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .bulletin-page::before,
+    .bulletin-page::after {
+        display: none;
+    }
+
+    .bulletin-hero,
+    .bulletin-shell {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .bulletin-header,
+    .bulletin-article,
+    .bulletin-article section {
+        box-shadow: none;
+        border: 1px solid #d9e6ef;
+    }
+
+    .bulletin-header {
+        background: #ffffff;
+        color: #000000;
+        border-radius: 0;
+        min-height: auto;
+    }
+
+    .bulletin-title,
+    .bulletin-version {
+        color: #000000;
+    }
+
+    .bulletin-article section {
+        break-inside: avoid;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Technical Bulletin | EN 14399 – HR vs HV Structural Bolting from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manu.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/en-14399-hr-hv-bolts.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Technical Bulletin | EN 14399 – HR vs HV Structural Bolting | Pradako Mechanical">
+    <meta property="og:description" content="Technical Bulletin | EN 14399 – HR vs HV Structural Bolting from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manu.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/en-14399-hr-hv-bolts.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Technical Bulletin | EN 14399 – HR vs HV Structural Bolting | Pradako Mechanical">
+    <meta name="twitter:description" content="Technical Bulletin | EN 14399 – HR vs HV Structural Bolting from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manu.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Technical Bulletin | EN 14399 – HR vs HV Structural Bolting | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/technical-information/en-14399-hr-hv-bolts.html",
+  "description": "Technical Bulletin | EN 14399 – HR vs HV Structural Bolting from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manu.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ======================================================= 
+HEADER WITH PROPER LOGO & HAMBURGER 
+======================================================== --> 
+<div id="navbar-container"></div>
+
+<main class="bulletin-page" id="top">
+
+    <!-- ======================================================
+        HERO / PAGE HEADER
+    ======================================================= -->
+    <header class="bulletin-hero">
+        <div class="bulletin-hero-grid">
+            <div class="bulletin-header">
+                <div class="bulletin-kicker">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Technical Bulletin
+                </div>
+
+                <div class="bulletin-title">TECHNICAL BULLETIN: EN 14399 – HR vs. HV Structural Bolting Assemblies</div>
+                <div class="bulletin-version">Version: 2.0 (Compliant with EN 14399-3:2015, EN 14399-4:2015, EN 1090-2:2018)</div>
+
+                <div class="bulletin-hero-actions">
+                    <a class="bulletin-link-btn primary" href="#section-11">
+                        Quick Selection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a class="bulletin-link-btn secondary" href="/pages/products/products.html">
+                        Structural Bolts
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="bulletin-link-btn secondary" href="/pages/contact/contact-us.html">
+                        Send Enquiry
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+
+            <aside class="bulletin-hero-card" aria-label="Bulletin quick links">
+                <div class="bulletin-hero-card-top">
+                    <span><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                    <h2>EN 14399 Structural Bolting</h2>
+                    <p>Use the quick links below to move directly to the most important technical sections.</p>
+                </div>
+
+                <ul class="bulletin-quick-links">
+                    <li>
+                        <a href="#section-2">
+                            Standard References
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-5">
+                            Installation & Tightening
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-6">
+                            Washer Configuration
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-11">
+                            Comparative Table
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </header>
+
+
+    <!-- ======================================================
+        MOBILE SECTION JUMP
+    ======================================================= -->
+    <div class="mobile-toc-wrap">
+        <div class="mobile-toc-custom" id="mobileTocCustom">
+            <button class="mobile-toc-button" id="mobileTocButton" type="button" aria-expanded="false">
+                <span id="mobileTocLabel">1. Executive Summary</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="mobile-toc-menu" id="mobileTocMenu">
+                <button type="button" class="mobile-toc-option is-active" data-target="#section-1">1. Executive Summary</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-2">2. Standard References & Certification</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-3">3. Geometry & Anti-Rotation Mechanism</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-4">4. Mechanical & Preload Requirements</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-5">5. Installation & Tightening</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-6">6. Washer Configuration</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-7">7. Surface Finish & Coating Requirements</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-8">8. Marking Requirements</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-9">9. Single Manufacturer Requirement</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-10">10. Inspection & Acceptance Criteria</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-11">11. Comparative Table</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-12">12. Practical Example</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-13">13. Final Technical Verdict</button>
+                <button type="button" class="mobile-toc-option" data-target="#section-14">14. References</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================
+        MAIN CONTENT: TECHNICAL BULLETIN PAGE
+    ======================================================= -->
+    <div class="bulletin-shell">
+
+        <aside class="bulletin-sidebar" aria-label="Technical bulletin sections">
+            <div class="sidebar-title">
+                <span>Page Index</span>
+                <strong>HR vs HV Bulletin</strong>
+            </div>
+
+            <ul class="bulletin-toc" id="bulletinToc">
+                <li><a href="#section-1"><span>1</span>Executive Summary</a></li>
+                <li><a href="#section-2"><span>2</span>Standard References & Certification</a></li>
+                <li><a href="#section-3"><span>3</span>Geometry & Anti-Rotation Mechanism</a></li>
+                <li><a href="#section-4"><span>4</span>Mechanical & Preload Requirements</a></li>
+                <li><a href="#section-5"><span>5</span>Installation & Tightening</a></li>
+                <li><a href="#section-6"><span>6</span>Washer Configuration</a></li>
+                <li><a href="#section-7"><span>7</span>Surface Finish & Coating Requirements</a></li>
+                <li><a href="#section-8"><span>8</span>Marking Requirements</a></li>
+                <li><a href="#section-9"><span>9</span>Single Manufacturer Requirement</a></li>
+                <li><a href="#section-10"><span>10</span>Inspection & Acceptance Criteria</a></li>
+                <li><a href="#section-11"><span>11</span>Comparative Table</a></li>
+                <li><a href="#section-12"><span>12</span>Practical Example</a></li>
+                <li><a href="#section-13"><span>13</span>Final Technical Verdict</a></li>
+                <li><a href="#section-14"><span>14</span>References</a></li>
+            </ul>
+        </aside>
+
+        <article class="bulletin-article">
+            <div class="bulletin-article-inner">
+
+                <!-- 1. Executive Summary -->
+                <section id="section-1">
+                    <div class="hv-section-title">1. Executive Summary</div>
+                    <div class="text-body">
+                        Under EN 14399 (European standard for high-strength structural bolting), two primary assembly types dominate preloaded bolted joints: <strong>HR</strong> (Round head with cup square neck) and <strong>HV</strong> (Heavy hexagon head). While both deliver preload and ductility, their geometry, tightening methods, and inspection protocols differ critically. Selecting the wrong assembly leads to joint relaxation, hidden gaps, or non-compliant slip factors.
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Key Principle:</strong> EN 14399 mandates that HR and HV assemblies are system components—the bolt, nut, and washer(s) are tested as a set. Mixing components from different manufacturers or standards voids compliance.
+                    </div>
+                </section>
+
+                <!-- 2. Standard References & Certification -->
+                <section id="section-2">
+                    <div class="hv-section-title">2. Standard References & Certification</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Parameter</th><th>HR Assembly</th><th>HV Assembly</th></tr></thead>
+                            <tbody>
+                                <tr><td>Primary Standard</td><td>EN 14399-3</td><td>EN 14399-4</td></tr>
+                                <tr><td>Bolt Head Type</td><td>Cup square neck (round head)</td><td>Heavy hexagon (wide across flats)</td></tr>
+                                <tr><td>Thread Tolerance</td><td>6h (external), 6H (internal)</td><td>6g (external), 6H / 6AZ (internal)</td></tr>
+                                <tr><td>Property Class</td><td>8.8 / 10.9</td><td>8.8 / 10.9</td></tr>
+                                <tr><td>Nut Type</td><td>HR nut (style 1, reduced height possible)</td><td>HV nut (style 1, standard height)</td></tr>
+                                <tr><td>Washer Requirement</td><td>2 washers (under nut + under head) unless friction surfaces tested</td><td>1 washer (under rotated element — nut or bolt)</td></tr>
+                                <tr><td>Washer Standard</td><td>EN 14399-5 or EN 14399-6</td><td>EN 14399-5 or EN 14399-6</td></tr>
+                                <tr><td>Washer Marking</td><td>H</td><td>H</td></tr>
+                                <tr><td>CE Marking</td><td>Mandatory on bolt, nut, washer</td><td>Mandatory</td></tr>
+                                <tr><td>Suitability Test</td><td>EN 14399-2</td><td>EN 14399-2</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note-box">✅ EN 14399-3:2015 (HR) and EN 14399-4:2015 (HV) are the active versions. Older references to EN 14399-1 alone are insufficient.</div>
+                </section>
+
+                <!-- 3. Geometry & Anti-Rotation Mechanism -->
+                <section id="section-3">
+                    <div class="hv-section-title">3. Geometry & Anti-Rotation Mechanism (Critical Difference)</div>
+                    <div class="comparison-grid">
+                        <div class="comp-card">
+                            <h3>HR Bolt (EN 14399-3)</h3>
+                            <ul>
+                                <li>Cup square neck directly under the round head.</li>
+                                <li>Square neck engages fitted hole or punched square recess.</li>
+                                <li><strong>Result:</strong> No need to hold bolt head during tightening — ideal for blind assembly or single-sided access.</li>
+                            </ul>
+                        </div>
+                        <div class="comp-card">
+                            <h3>HV Bolt (EN 14399-4)</h3>
+                            <ul>
+                                <li>Standard heavy hex head (larger bearing area).</li>
+                                <li>Unique width across flats: M12=22mm, M20=32mm (deviates from ISO 272).</li>
+                                <li>Large under-head radius → improves fatigue strength.</li>
+                                <li><strong>Result:</strong> Requires torque wrench or backup wrench on bolt head (unless rotation-controlled).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="warning-box">⚠️ Common mistake: Using an HV bolt in a clearance hole without a backup wrench causes the bolt to spin, preventing preload.</div>
+                </section>
+
+                <!-- 4. Mechanical & Preload Requirements -->
+                <section id="section-4">
+                    <div class="hv-section-title">4. Mechanical & Preload Requirements (EN 14399-2)</div>
+                    <div class="text-body">Both assemblies must meet preload values defined in EN 14399-2. Preload is a force (Fp,C) verified by: torque method, combined method (torque+angle), DTI/S10T, or hydraulic tensioning.</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Property class</th><th>Diameter range</th><th>Fp,C (kN) example M20</th><th>Elongation at fracture</th></tr></thead>
+                            <tbody>
+                                <tr><td>8.8</td><td>M12–M36</td><td>129 kN (M20)</td><td>≥ 0.6 mm (nut test)</td></tr>
+                                <tr><td>10.9</td><td>M12–M36</td><td>181 kN (M20)</td><td>≥ 0.5 mm (nut test)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="subsection-title">Additional HV-Specific Mechanical Requirements</div>
+                    <ul class="badge-list">
+                        <li>Nut property class 10 (for bolt class 10.9) — EN 20898-2</li>
+                        <li>Nut decarburization limit G ≤ 0.015 mm — EN ISO 898-1</li>
+                        <li>Impact strength (bolt) KV min = 27 J at –20°C — EN 10045-1</li>
+                        <li>Surface discontinuities as per EN 26157-1 (bolt) and EN 493 (nut)</li>
+                        <li>Acceptability EN ISO 3269</li>
+                    </ul>
+                    <div class="note-box">The nut decarburization limit is unique to EN 14399 — not found in general-purpose nut standards — and ensures ductility under preload.</div>
+                </section>
+
+                <!-- 5. Installation & Tightening -->
+                <section id="section-5">
+                    <div class="hv-section-title">5. Installation & Tightening — Which One to Specify?</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Condition</th><th>Recommended Assembly</th><th>Reasoning</th></tr></thead>
+                            <tbody>
+                                <tr><td>Single-side access (hollow section, closed box girder)</td><td>HR</td><td>Cup square neck locks into plate; no backup wrench needed.</td></tr>
+                                <tr><td>Two-sided access (open flange)</td><td>HV or HR</td><td>HV is more common, cheaper, easier to inspect visually.</td></tr>
+                                <tr><td>Slip-critical joint (friction grip)</td><td>Either (with correct washers)</td><td>Preload identical; slip factor depends on surface treatment.</td></tr>
+                                <tr><td>Oversized or slotted holes (EN 1090-2)</td><td>HR preferred</td><td>Square neck reduces bolt rotation in slotted holes.</td></tr>
+                                <tr><td>Galvanized assemblies</td><td>HR or HV with EN 14399-10</td><td>Special thread clearance and washer requirements apply.</td></tr>
+                                <tr><td>Dynamically loaded connections (bridges, cranes, wind)</td><td>HV (advantage)</td><td>Larger under-head radius improves fatigue strength.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 6. Washer Configuration — Most Common Error -->
+                <section id="section-6">
+                    <div class="hv-section-title">6. Washer Configuration — Most Common Error</div>
+                    <div class="comparison-grid">
+                        <div class="comp-card"><h3>HR</h3><ul><li>One under nut + one under head (2 washers total)</li><li>Exception: friction surfaces tested & approved for direct bearing (rare)</li></ul></div>
+                        <div class="comp-card"><h3>HV</h3><ul><li>One under the rotated element (usually nut)</li><li>If bolt head rotated → place washer under head instead</li></ul></div>
+                    </div>
+                    <div class="warning-box">❌ Incorrect: Placing only one washer under the nut for an HR bolt. That violates EN 14399-3 clause 6.2.</div>
+                    <div class="text-body"><strong>Washer Standards:</strong> EN 14399-5 (hardened flat washers) / EN 14399-6 (chamfered washers) — Marking: <strong>H</strong> on all EN 14399 washers.</div>
+                </section>
+
+                <!-- 7. Surface Finish & Coating Requirements -->
+                <section id="section-7">
+                    <div class="hv-section-title">7. Surface Finish & Coating Requirements</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Condition</th><th>HV Bolt Thread</th><th>HV Nut Thread</th><th>Notes</th></tr></thead>
+                            <tbody>
+                                <tr><td>As processed (light oil coating)</td><td>6g</td><td>6H</td><td>Normal finish</td></tr>
+                                <tr><td>Hot-dip galvanized</td><td>6g (before coating)</td><td>6AZ (oversize tapped)</td><td>EN ISO 10684</td></tr>
+                                <tr><td>Other coatings</td><td colspan="2">By agreement</td><td>Cadmium or cadmium alloys not permitted</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="warning-box">⚠️ Critical note for property class 10.9 HV bolts: Risk of hydrogen embrittlement when selecting surface treatment processes (cleaning, coating).</div>
+                </section>
+
+                <!-- 8. Marking Requirements -->
+                <section id="section-8">
+                    <div class="hv-section-title">8. Marking Requirements — Visual Identification</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Component</th><th>Mandatory Marking</th><th>Example</th></tr></thead>
+                            <tbody>
+                                <tr><td>HR Bolt</td><td>Property class + HR + manufacturer ID</td><td>8.8 HR</td></tr>
+                                <tr><td>HV Bolt</td><td>Property class + HV + manufacturer ID</td><td>10.9 HV</td></tr>
+                                <tr><td>HR Nut</td><td>Property class + HR + manufacturer ID</td><td>8 HR</td></tr>
+                                <tr><td>HV Nut</td><td>Property class + HV + manufacturer ID</td><td>10 HV</td></tr>
+                                <tr><td>Washer (both systems)</td><td>H</td><td>H</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 9. Single Manufacturer Requirement -->
+                <section id="section-9">
+                    <div class="hv-section-title">9. Single Manufacturer Requirement — Mandatory</div>
+                    <div class="highlight-box">
+                        "Preloaded bolted assemblies are very sensitive to differences in manufacture and lubrication. Therefore it is important that the assembly is supplied by one manufacturer who is always responsible for the function of the assembly."
+                    </div>
+                    <div class="warning-box"><strong>Consequence:</strong> Mixing bolts from Manufacturer A with nuts from Manufacturer B — even if both meet EN 14399 individually — is non-compliant unless tested as a complete system per EN 14399-2.</div>
+                </section>
+
+                <!-- 10. Inspection & Acceptance Criteria -->
+                <section id="section-10">
+                    <div class="hv-section-title">10. Inspection & Acceptance Criteria (EN 1090-2 + EN 14399)</div>
+                    <div class="subsection-title">Mandatory checks after tightening:</div>
+                    <ul class="badge-list">
+                        <li>No gap visible between joint plies (0.2 mm feeler gauge rejection).</li>
+                        <li>Nut rotation from snug-tight condition meets specified angle (e.g., 120° for M20 10.9).</li>
+                        <li>Striking test (hammer test) — allowed only as quick check, not final QA.</li>
+                        <li>Calibrated torque checking (only if torque-angle was used for installation).</li>
+                    </ul>
+                    <div class="subsection-title">Rejection conditions:</div>
+                    <ul class="badge-list">
+                        <li>Mixed HR / HV components.</li>
+                        <li>Missing washers.</li>
+                        <li>Thread damage (galvanized spatter, cross-threading).</li>
+                        <li>Bolt shank not extending beyond nut ≥ 1 thread.</li>
+                        <li>Missing or incorrect marking (e.g., HV bolt without "HV").</li>
+                        <li>Components from different manufacturers in same assembly.</li>
+                    </ul>
+                </section>
+
+                <!-- 11. Comparative Table — Quick Selection -->
+                <section id="section-11">
+                    <div class="hv-section-title">11. Comparative Table — Quick Selection</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Feature</th><th>HR (EN 14399-3)</th><th>HV (EN 14399-4)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Anti-rotation</td><td>✅ Cup square neck</td><td>❌ None</td></tr>
+                                <tr><td>Single-side install</td><td>✅ Yes</td><td>❌ No (unless head welded — prohibited)</td></tr>
+                                <tr><td>Washer count</td><td>2</td><td>1 (typical)</td></tr>
+                                <tr><td>Unique width across flats</td><td>N/A</td><td>M12=22mm, M20=32mm</td></tr>
+                                <tr><td>Large under-head radius</td><td>Standard</td><td>✅ Enhanced (fatigue benefit)</td></tr>
+                                <tr><td>Nut decarburization limit</td><td>G ≤ 0.015 mm</td><td>G ≤ 0.015 mm</td></tr>
+                                <tr><td>Cost</td><td>Higher</td><td>Lower</td></tr>
+                                <tr><td>Availability</td><td>Stocked less widely</td><td>Widely stocked</td></tr>
+                                <tr><td>Preferred for</td><td>Blind joints, slotted holes, seismic</td><td>General structural steel, wind towers, bridges, dynamic loads</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 12. Practical Example — Specification Clause -->
+                <section id="section-12">
+                    <div class="hv-section-title">12. Practical Example — Specification Clause (for tender)</div>
+                    <div class="note-box">
+                        "All preloaded bolted joints shall comply with EN 1090-2. Bolting assemblies shall be either HR (EN 14399-3) or HV (EN 14399-4) as shown on drawings. For connections marked 'HR assembly' — use cup square neck bolts with two washers. For HV assemblies — use one washer under the turned element. Do not mix HR and HV components. Do not mix components from different manufacturers. Provide batch certificates EN 10204 3.1 for each assembly part. All HV bolts of property class 10.9 shall be marked '10.9 HV' and nuts marked '10 HV'."
+                    </div>
+                </section>
+
+                <!-- 13. Final Technical Verdict -->
+                <section id="section-13">
+                    <div class="hv-section-title">13. Final Technical Verdict</div>
+                    <div class="text-body">
+                        • <strong>Choose HR when:</strong> single-side access, slotted holes, or high seismic risk (anti-rotation backup).<br>
+                        • <strong>Choose HV when:</strong> open access, cost sensitivity, dynamic loads (fatigue benefit), or standard torque tools are available.<br>
+                        Both achieve the same preload and same slip factor if EN 14399 system components are used correctly. The difference is mechanical installation geometry — not strength.
+                    </div>
+                </section>
+
+                <!-- 14. References -->
+                <section id="section-14">
+                    <div class="hv-section-title">14. References</div>
+                    <div class="data-table-wrapper">
+                        <table class="tech-table">
+                            <thead><tr><th>Standard</th><th>Title</th></tr></thead>
+                            <tbody>
+                                <tr><td>EN 14399-1:2015</td><td>High-strength structural bolting assemblies for preloading — General requirements</td></tr>
+                                <tr><td>EN 14399-2:2015</td><td>Suitability test for preloading</td></tr>
+                                <tr><td>EN 14399-3:2015</td><td>System HR — Cup square neck bolt and nut assemblies</td></tr>
+                                <tr><td>EN 14399-4:2015</td><td>System HV — Hexagon bolt and nut assemblies</td></tr>
+                                <tr><td>EN 14399-5:2015</td><td>Hardened and tempered flat washers</td></tr>
+                                <tr><td>EN 14399-6:2015</td><td>Hardened and tempered chamfered washers</td></tr>
+                                <tr><td>EN 14399-10:2017</td><td>System HR or HV with hot-dip galvanized components</td></tr>
+                                <tr><td>EN 1090-2:2018</td><td>Execution of steel structures — Technical requirements</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </article>
+    </div>
+
+</main>
+
+<!-- <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</a> -->
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tocLinks = Array.from(document.querySelectorAll(".bulletin-toc a"));
+    const sections = Array.from(document.querySelectorAll(".bulletin-article section"));
+
+    const mobileTocCustom = document.getElementById("mobileTocCustom");
+    const mobileTocButton = document.getElementById("mobileTocButton");
+    const mobileTocLabel = document.getElementById("mobileTocLabel");
+    const mobileTocOptions = Array.from(document.querySelectorAll(".mobile-toc-option"));
+
+    const backToTop = document.getElementById("backToTop");
+
+    const closeMobileToc = () => {
+        if (!mobileTocCustom || !mobileTocButton) return;
+        mobileTocCustom.classList.remove("is-open");
+        mobileTocButton.setAttribute("aria-expanded", "false");
+    };
+
+    if (mobileTocButton && mobileTocCustom) {
+        mobileTocButton.addEventListener("click", function () {
+            const isOpen = mobileTocCustom.classList.toggle("is-open");
+            mobileTocButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+    }
+
+    mobileTocOptions.forEach(option => {
+        option.addEventListener("click", function () {
+            const targetSelector = this.getAttribute("data-target");
+            const target = document.querySelector(targetSelector);
+
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+
+            if (mobileTocLabel) {
+                mobileTocLabel.textContent = this.textContent.trim();
+            }
+
+            closeMobileToc();
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!mobileTocCustom) return;
+
+        if (!mobileTocCustom.contains(event.target)) {
+            closeMobileToc();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMobileToc();
+        }
+    });
+
+    const setActiveLink = () => {
+        let currentId = sections[0] ? sections[0].id : "";
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+
+            if (sectionTop <= 150) {
+                currentId = section.id;
+            }
+        });
+
+        tocLinks.forEach(link => {
+            const isActive = link.getAttribute("href") === "#" + currentId;
+            link.classList.toggle("active", isActive);
+        });
+
+        mobileTocOptions.forEach(option => {
+            const isActive = option.getAttribute("data-target") === "#" + currentId;
+            option.classList.toggle("is-active", isActive);
+
+            if (isActive && mobileTocLabel) {
+                mobileTocLabel.textContent = option.textContent.trim();
+            }
+        });
+    };
+
+    const toggleBackToTop = () => {
+        if (!backToTop) return;
+        backToTop.classList.toggle("is-visible", window.scrollY > 600);
+    };
+
+    setActiveLink();
+    toggleBackToTop();
+
+    window.addEventListener("scroll", function () {
+        setActiveLink();
+        toggleBackToTop();
+    }, { passive: true });
+});
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

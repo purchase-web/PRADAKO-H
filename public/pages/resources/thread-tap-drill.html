@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thread Pitch &amp; Tap Drill Calculator | Pradako Engineering Tools</title>
+<meta name="description" content="Metric coarse, metric fine and UN inch thread data: pitch, pitch diameter, minor diameter, stress area, tap drill for 65/75/100% engagement and ISO 273 clearance holes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- PMEW GLOBAL STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" >
+<style>
+.fastener-tool-page{--tk-white:#fff;--tk-off:#f4f5f7;--tk-ink:#0E2033;--tk-ink-deep:#081522;--tk-muted:#5f6875;--tk-line:#dde1e7;
+ --tk-ac:#C2540C;--tk-ac-bright:#FF8A2B;--tk-ac-soft:#fdf1e7;--tk-ok:#0B7A4B;--tk-ok-soft:#e9f7f0;--tk-warn:#B3261E;--tk-warn-soft:#fdf3f2;
+ --tk-d:"Montserrat",Arial,sans-serif;--tk-b:"Space Grotesk",Arial,sans-serif;--tk-m:"JetBrains Mono",ui-monospace,monospace;
+ --tk-max:1320px;--tk-e:cubic-bezier(.2,.8,.2,1)}
+.fastener-tool-page,.fastener-tool-page *{margin:0;padding:0;box-sizing:border-box}
+.fastener-tool-page{background:var(--tk-white);color:#30363f;font-family:var(--tk-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.fastener-tool-page ::selection{background:var(--tk-ac);color:#fff}
+.fastener-tool-page a{color:inherit;text-decoration:none}
+.fastener-tool-page :focus-visible{outline:3px solid var(--tk-ac);outline-offset:3px}
+.fastener-tool-page .tk-wrap{max-width:var(--tk-max);margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+.fastener-tool-page .tk-sec{padding:clamp(38px,4.4vw,64px) 0}
+.fastener-tool-page .tk-paper{background:var(--tk-off);border-top:1px solid var(--tk-line);border-bottom:1px solid var(--tk-line)}
+
+.fastener-tool-page .tk-bar{background:var(--tk-ink);position:sticky;top:0;z-index:20}
+.fastener-tool-page .tk-bar__in{display:flex;align-items:center;gap:18px;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.fastener-tool-page .tk-bar__in::-webkit-scrollbar{display:none}
+.fastener-tool-page .tk-bar__id{font-family:var(--tk-d);font-weight:900;color:#fff;font-size:14px;letter-spacing:-.01em;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.16)}
+.fastener-tool-page .tk-bar__id span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar a{font-family:var(--tk-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.fastener-tool-page .tk-bar a:hover,.fastener-tool-page .tk-bar a.on{color:var(--tk-ac-bright);border-bottom-color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar__sp{flex:1}
+.fastener-tool-page .tk-units{display:inline-flex;border:1.5px solid rgba(255,255,255,.28)}
+.fastener-tool-page .tk-units button{font-family:var(--tk-m);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer}
+.fastener-tool-page .tk-units button.on{background:var(--tk-ac);color:#fff!important;border-color:var(--tk-ac)!important}
+
+.fastener-tool-page .tk-hero{padding:clamp(34px,4vw,58px) 0 clamp(20px,2.4vw,32px);position:relative;overflow:hidden;background:var(--tk-white)}
+.fastener-tool-page .tk-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(194,84,12,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(194,84,12,.07) 1px,transparent 1px);background-size:44px 44px;
+ mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%)}
+.fastener-tool-page .tk-hero .tk-wrap{position:relative;z-index:2}
+.fastener-tool-page .tk-eyebrow{font-family:var(--tk-m);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-ac);display:inline-flex;align-items:center;gap:11px;margin-bottom:14px}
+.fastener-tool-page .tk-eyebrow::before{content:"";width:26px;border-top:3px double var(--tk-ac)}
+.fastener-tool-page h1{font-family:var(--tk-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;font-size:clamp(32px,5.4vw,68px);color:var(--tk-ink)}
+.fastener-tool-page h1 em{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-sub{margin-top:14px;font-size:15.5px;color:var(--tk-muted);max-width:720px}
+
+.fastener-tool-page .tk-panel{border:2px solid var(--tk-ink);background:var(--tk-white)}
+.fastener-tool-page .tk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--tk-ink)}
+@media(max-width:900px){.fastener-tool-page .tk-grid2{grid-template-columns:1fr}}
+.fastener-tool-page .tk-in{padding:clamp(20px,2.6vw,34px);border-right:1px solid var(--tk-line)}
+@media(max-width:900px){.fastener-tool-page .tk-in{border-right:none;border-bottom:1px solid var(--tk-line)}}
+.fastener-tool-page .tk-out{padding:clamp(20px,2.6vw,34px);background:var(--tk-ink);color:#fff}
+.fastener-tool-page .tk-field{margin-bottom:15px}
+.fastener-tool-page .tk-field label{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tk-muted);font-weight:700;margin-bottom:6px}
+.fastener-tool-page .tk-field label i{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-field select,.fastener-tool-page .tk-field input{width:100%;font-family:var(--tk-b);font-size:15px;color:var(--tk-ink);padding:11px 13px;border:2px solid var(--tk-line);background:var(--tk-white);outline:none;transition:border-color .16s}
+.fastener-tool-page .tk-field select:focus,.fastener-tool-page .tk-field input:focus{border-color:var(--tk-ac)}
+.fastener-tool-page .tk-r2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fastener-tool-page .tk-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:560px){.fastener-tool-page .tk-r2,.fastener-tool-page .tk-r3{grid-template-columns:1fr}}
+.fastener-tool-page .tk-res{margin-bottom:20px}
+.fastener-tool-page .tk-res b{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:700}
+.fastener-tool-page .tk-res span{font-family:var(--tk-d);font-weight:900;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.045em;line-height:.95;display:block}
+.fastener-tool-page .tk-res span em{font-style:normal;font-size:.42em;color:var(--tk-ac-bright);margin-left:6px}
+.fastener-tool-page .tk-res--hi span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-top:18px}
+.fastener-tool-page .tk-mini div{background:var(--tk-ink);padding:11px 13px}
+.fastener-tool-page .tk-mini b{display:block;font-family:var(--tk-m);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;font-weight:700}
+.fastener-tool-page .tk-mini span{font-family:var(--tk-m);font-size:13px;font-weight:700;color:#fff}
+.fastener-tool-page .tk-note{font-family:var(--tk-m);font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;border-top:1px solid rgba(255,255,255,.16);padding-top:13px;margin-top:16px}
+
+.fastener-tool-page .tk-warn{border-left:4px solid var(--tk-warn);background:var(--tk-warn-soft);padding:14px 16px;margin-top:22px}
+.fastener-tool-page .tk-warn b{font-family:var(--tk-d);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--tk-warn);letter-spacing:.02em;display:block;margin-bottom:5px}
+.fastener-tool-page .tk-warn p{font-size:13px;color:#5a4340;line-height:1.6}
+
+.fastener-tool-page .tk-tblwrap{margin-top:22px;border:2px solid var(--tk-ink);overflow:hidden}
+.fastener-tool-page .tk-tblscroll{overflow-x:auto}
+.fastener-tool-page table.tk-tbl{border-collapse:collapse;width:100%;font-family:var(--tk-m);font-size:12.5px}
+.fastener-tool-page table.tk-tbl th,.fastener-tool-page table.tk-tbl td{padding:9px 12px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--tk-line);border-right:1px solid var(--tk-line)}
+.fastener-tool-page table.tk-tbl thead th{background:var(--tk-ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;position:sticky;top:0;z-index:3}
+.fastener-tool-page table.tk-tbl td:first-child,.fastener-tool-page table.tk-tbl thead th:first-child{position:sticky;left:0;background:var(--tk-off);font-weight:700;color:var(--tk-ink);text-align:left;z-index:2}
+.fastener-tool-page table.tk-tbl thead th:first-child{background:var(--tk-ink);color:#fff;z-index:4}
+.fastener-tool-page table.tk-tbl tbody tr:hover td{background:var(--tk-ac-soft)}
+.fastener-tool-page table.tk-tbl tbody tr.hl td{background:var(--tk-ac-soft);color:var(--tk-ac);font-weight:700}
+.fastener-tool-page .tk-filter{display:flex;align-items:center;gap:10px;border:2px solid var(--tk-line);padding:0 14px;background:var(--tk-white);max-width:380px;margin-top:20px}
+.fastener-tool-page .tk-filter input{flex:1;border:none;outline:none;font-family:var(--tk-b);font-size:14.5px;padding:11px 0;background:transparent}
+.fastener-tool-page .tk-filter svg{width:17px;height:17px;color:var(--tk-muted)}
+.fastener-tool-page .tk-btn{font-family:var(--tk-d);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:800;padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--tk-e),background .16s,color .16s}
+.fastener-tool-page .tk-btn--ac{background:var(--tk-ac);color:#fff;border-color:var(--tk-ac)}
+.fastener-tool-page .tk-btn--ac:hover{transform:translateY(-2px)}
+.fastener-tool-page .tk-btn--line{background:transparent;border-color:var(--tk-line);color:var(--tk-ink)}
+.fastener-tool-page .tk-btn--line:hover{border-color:var(--tk-ac);color:var(--tk-ac)}
+.fastener-tool-page .tk-foot{background:var(--tk-ink);color:rgba(255,255,255,.6);padding:26px 0;font-family:var(--tk-m);font-size:11px;letter-spacing:.06em}
+.fastener-tool-page .tk-foot a{color:var(--tk-ac-bright)}
+@media print{.fastener-tool-page .tk-bar,.fastener-tool-page .tk-btn{display:none!important}}
+@media(prefers-reduced-motion:reduce){.fastener-tool-page,.fastener-tool-page *{transition:none!important;animation:none!important}}
+
+/* ==========================================================
+   LIGHT ENGINEERING-TOOLS SUB-NAVIGATION
+   Keeps the utility bar distinct without a heavy dark strip.
+   ========================================================== */
+.fastener-tool-page .tk-bar {
+    background: #ffffff;
+    border-top: 1px solid #e8edf1;
+    border-bottom: 1px solid #dfe5ea;
+    box-shadow: 0 5px 16px rgba(20, 39, 55, 0.045);
+}
+.fastener-tool-page .tk-bar__in {
+    gap: clamp(14px, 1.35vw, 24px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fastener-tool-page .tk-bar__id {
+    color: #24394a;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-right-color: #dce3e8;
+}
+.fastener-tool-page .tk-bar__id span {
+    color: #c75b18;
+}
+.fastener-tool-page .tk-bar a {
+    color: #647481;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-bottom-color: transparent;
+}
+.fastener-tool-page .tk-bar a:hover,
+.fastener-tool-page .tk-bar a.on {
+    color: #c2540c;
+    border-bottom-color: #c2540c;
+}
+.fastener-tool-page .tk-units {
+    border-color: #ccd5dc;
+    background: #f8fafb;
+}
+.fastener-tool-page .tk-units button {
+    color: #61717e;
+    font-weight: 600;
+}
+.fastener-tool-page .tk-units button.on {
+    color: #b64e0e !important;
+    background: #fff2e9;
+    border-color: #f0c7ab !important;
+}
+@media (max-width: 760px) {
+    .fastener-tool-page .tk-bar__in {
+        gap: 16px;
+    }
+    .fastener-tool-page .tk-bar__id {
+        font-size: 12px;
+        padding-right: 13px;
+    }
+    .fastener-tool-page .tk-bar a {
+        font-size: 9.5px;
+    }
+}
+
+
+
+/* ==========================================================
+   PMEW PAGE-LOCAL NAVIGATION LAYER SAFEGUARD
+   Kept in every tool page to prevent stale cached CSS from
+   allowing the sticky tools bar to cover a mega dropdown.
+   ========================================================== */
+#navbar-container{position:relative;z-index:50000;isolation:isolate;overflow:visible!important}
+#navbar-container .main-header{position:relative;z-index:50000!important;isolation:isolate;overflow:visible!important}
+#navbar-container .navbar{position:relative;z-index:50001!important;overflow:visible!important}
+#navbar-container .dropdown .mega-menu{top:calc(100% - 1px)!important;z-index:50010!important}
+.pmew-main{position:relative;z-index:1;isolation:isolate}
+.fastener-tool-page .tk-bar{z-index:20!important}
+body.pmew-mega-open .fastener-tool-page .tk-bar{z-index:0!important;pointer-events:none}
+@media(max-width:768px){#navbar-container{z-index:60000}#navbar-container .mobile-menu-overlay{z-index:60010!important}#navbar-container .mobile-menu-container{z-index:60020!important}}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/resources/thread-tap-drill.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Thread Pitch &amp; Tap Drill Calculator | Pradako Engineering Tools">
+    <meta property="og:description" content="Metric coarse, metric fine and UN inch thread data: pitch, pitch diameter, minor diameter, stress area, tap drill for 65/75/100% engagement and ISO 273 clearance holes.">
+    <meta property="og:url" content="https://www.pradako.co/pages/resources/thread-tap-drill.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thread Pitch &amp; Tap Drill Calculator | Pradako Engineering Tools">
+    <meta name="twitter:description" content="Metric coarse, metric fine and UN inch thread data: pitch, pitch diameter, minor diameter, stress area, tap drill for 65/75/100% engagement and ISO 273 clearance holes.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Thread Pitch & Tap Drill Calculator | Pradako Engineering Tools",
+  "url": "https://www.pradako.co/pages/resources/thread-tap-drill.html",
+  "description": "Metric coarse, metric fine and UN inch thread data: pitch, pitch diameter, minor diameter, stress area, tap drill for 65/75/100% engagement and ISO 273 clearance holes.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head><body class="page-products page-fastener-tools">
+<!-- PMEW GLOBAL NAVBAR: injected by /js/navbar.js -->
+<div id="navbar-container"></div>
+
+<main class="pmew-main" id="main-content">
+<div class="fastener-tool-page">
+  <div class="tk-bar">
+    <div class="tk-wrap tk-bar__in">
+      <div class="tk-bar__id">PRADAKO <span>TOOLS</span></div>
+        <a href="/pages/resources/torque-calculator.html">Torque &amp; Preload</a>
+        <a href="/pages/resources/thread-tap-drill.html"  class="on">Thread &amp; Tap Drill</a>
+        <a href="/pages/resources/weight-calculator.html">Weight Calculator</a>
+        <a href="/pages/resources/container-load.html">Container Load</a>
+        <a href="/pages/resources/head-marking.html">Head Marking</a>
+        <a href="/pages/resources/galvanic-compatibility.html">Galvanic</a>
+        <a href="/pages/resources/unit-converter.html">Unit Converter</a>
+        <span class="tk-bar__sp"></span>
+      </div>
+    </div>
+<header class="tk-hero"><div class="tk-hero__grid"></div><div class="tk-wrap">
+<div class="tk-eyebrow">Engineering tool 02</div>
+<h1>Thread pitch &amp; <em>tap drill</em></h1>
+<p class="tk-sub">Metric coarse, metric fine and UN inch series. Tap drill sizes for 65%, 75% and 100% thread engagement, plus ISO&nbsp;273 clearance holes in fine, medium and coarse fit.</p>
+</div></header>
+
+<section class="tk-sec"><div class="tk-wrap">
+<div class="tk-grid2">
+ <div class="tk-in">
+  <div class="tk-r2">
+   <div class="tk-field"><label for="series">Thread series</label><select id="series">
+     <option value="coarse">Metric coarse</option><option value="fine">Metric fine</option><option value="un">UN inch</option></select></div>
+   <div class="tk-field"><label for="size">Size</label><select id="size"></select></div>
+  </div>
+  <div class="tk-field"><label for="eng">Thread engagement</label><select id="eng">
+    <option value="std" selected>d &minus; P — metric shop standard (&asymp;92%)</option>
+    <option value="65">65% — easy tapping, ~90% of strength</option>
+    <option value="75">75% — inch-practice convention</option>
+    <option value="85">85%</option>
+    <option value="100">100% — theoretical full thread</option></select></div>
+  <p style="font-family:var(--tk-m);font-size:10.5px;color:var(--tk-muted);line-height:1.65">
+   The metric shop standard <b>d &minus; P</b> is about <b>92%</b> engagement — not 75%, despite what many charts claim. The 75% figure is an inch-practice convention. Going from 75% to 100% roughly doubles tapping torque and tap breakage for only a few percent more strength; it is almost never worth it in production.</p>
+  <div class="tk-warn" style="margin-top:18px">
+   <b>Ductile materials cut oversize</b>
+   <p>In aluminium, copper and mild steel the tap displaces material and the finished hole runs undersize on thread. Drill trials on the actual material before committing a production tapping operation.</p>
+  </div>
+ </div>
+ <div class="tk-out">
+  <div class="tk-res tk-res--hi"><b>Tap drill diameter</b><span id="oTap">—<em id="uTap">mm</em></span></div>
+  <div class="tk-res"><b>Pitch</b><span id="oP">—<em id="uP">mm</em></span></div>
+  <div class="tk-mini">
+   <div><b>Major dia d</b><span id="oD">—</span></div>
+   <div><b>Pitch dia d2</b><span id="oD2">—</span></div>
+   <div><b>Minor dia d3</b><span id="oD3">—</span></div>
+   <div><b>Stress area As</b><span id="oAs">—</span></div>
+   <div><b>Threads per inch</b><span id="oTPI">—</span></div>
+   <div><b>Thread depth</b><span id="oDep">—</span></div>
+  </div>
+  <div class="tk-mini" style="margin-top:14px">
+   <div><b>Clearance — fine</b><span id="oCF">—</span></div>
+   <div><b>Clearance — medium</b><span id="oCM">—</span></div>
+   <div><b>Clearance — coarse</b><span id="oCC">—</span></div>
+   <div><b>Recommended tap</b><span id="oTapNom">—</span></div>
+  </div>
+  <p class="tk-note" id="oBasis">—</p>
+ </div>
+</div>
+
+<h2 style="font-family:var(--tk-d);font-weight:900;text-transform:uppercase;font-size:22px;color:var(--tk-ink);margin-top:44px;letter-spacing:-.02em">Full reference table</h2>
+<label class="tk-filter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+<input id="filter" type="search" placeholder="Filter by size — e.g. M12, 1/2"></label>
+<div class="tk-tblwrap"><div class="tk-tblscroll"><table class="tk-tbl" id="tbl"></table></div></div>
+</div></section>
+
+<script>
+(function(){
+"use strict";
+var D={"coarse": [{"d": 1.6, "P": 0.35, "d2": 1.373, "d3": 1.171, "As": 1.27}, {"d": 2, "P": 0.4, "d2": 1.74, "d3": 1.509, "As": 2.07}, {"d": 2.5, "P": 0.45, "d2": 2.208, "d3": 1.948, "As": 3.39}, {"d": 3, "P": 0.5, "d2": 2.675, "d3": 2.387, "As": 5.03}, {"d": 3.5, "P": 0.6, "d2": 3.11, "d3": 2.764, "As": 6.78}, {"d": 4, "P": 0.7, "d2": 3.545, "d3": 3.141, "As": 8.78}, {"d": 5, "P": 0.8, "d2": 4.48, "d3": 4.019, "As": 14.2}, {"d": 6, "P": 1.0, "d2": 5.35, "d3": 4.773, "As": 20.1}, {"d": 8, "P": 1.25, "d2": 7.188, "d3": 6.466, "As": 36.6}, {"d": 10, "P": 1.5, "d2": 9.026, "d3": 8.16, "As": 58.0}, {"d": 12, "P": 1.75, "d2": 10.863, "d3": 9.853, "As": 84.3}, {"d": 14, "P": 2.0, "d2": 12.701, "d3": 11.546, "As": 115.0}, {"d": 16, "P": 2.0, "d2": 14.701, "d3": 13.546, "As": 157.0}, {"d": 18, "P": 2.5, "d2": 16.376, "d3": 14.933, "As": 192.0}, {"d": 20, "P": 2.5, "d2": 18.376, "d3": 16.933, "As": 245.0}, {"d": 22, "P": 2.5, "d2": 20.376, "d3": 18.933, "As": 303.0}, {"d": 24, "P": 3.0, "d2": 22.051, "d3": 20.319, "As": 353.0}, {"d": 27, "P": 3.0, "d2": 25.051, "d3": 23.319, "As": 459.0}, {"d": 30, "P": 3.5, "d2": 27.727, "d3": 25.706, "As": 561.0}, {"d": 33, "P": 3.5, "d2": 30.727, "d3": 28.706, "As": 694.0}, {"d": 36, "P": 4.0, "d2": 33.402, "d3": 31.093, "As": 817.0}, {"d": 39, "P": 4.0, "d2": 36.402, "d3": 34.093, "As": 976.0}, {"d": 42, "P": 4.5, "d2": 39.077, "d3": 36.479, "As": 1120.0}, {"d": 45, "P": 4.5, "d2": 42.077, "d3": 39.479, "As": 1300.0}, {"d": 48, "P": 5.0, "d2": 44.752, "d3": 41.866, "As": 1470.0}], "fine": [{"d": 8, "P": 1.0, "d2": 7.35, "d3": 6.773, "As": 39.2}, {"d": 10, "P": 1.25, "d2": 9.188, "d3": 8.466, "As": 61.2}, {"d": 10, "P": 1.0, "d2": 9.35, "d3": 8.773, "As": 64.5}, {"d": 12, "P": 1.5, "d2": 11.026, "d3": 10.16, "As": 88.1}, {"d": 12, "P": 1.25, "d2": 11.188, "d3": 10.466, "As": 92.1}, {"d": 14, "P": 1.5, "d2": 13.026, "d3": 12.16, "As": 125.0}, {"d": 16, "P": 1.5, "d2": 15.026, "d3": 14.16, "As": 167.0}, {"d": 18, "P": 1.5, "d2": 17.026, "d3": 16.16, "As": 216.0}, {"d": 20, "P": 1.5, "d2": 19.026, "d3": 18.16, "As": 272.0}, {"d": 22, "P": 1.5, "d2": 21.026, "d3": 20.16, "As": 333.0}, {"d": 24, "P": 2.0, "d2": 22.701, "d3": 21.546, "As": 384.0}, {"d": 27, "P": 2.0, "d2": 25.701, "d3": 24.546, "As": 496.0}, {"d": 30, "P": 2.0, "d2": 28.701, "d3": 27.546, "As": 621.0}, {"d": 33, "P": 2.0, "d2": 31.701, "d3": 30.546, "As": 761.0}, {"d": 36, "P": 3.0, "d2": 34.051, "d3": 32.319, "As": 865.0}], "clear": {"1.6": [1.7, 1.8, 2.0], "2": [2.2, 2.4, 2.6], "2.5": [2.7, 2.9, 3.1], "3": [3.2, 3.4, 3.6], "3.5": [3.7, 3.9, 4.2], "4": [4.3, 4.5, 4.8], "5": [5.3, 5.5, 5.8], "6": [6.4, 6.6, 7.0], "8": [8.4, 9.0, 10.0], "10": [10.5, 11.0, 12.0], "12": [13.0, 13.5, 14.5], "14": [15.0, 15.5, 16.5], "16": [17.0, 17.5, 18.5], "18": [19.0, 20.0, 21.0], "20": [21.0, 22.0, 24.0], "22": [23.0, 24.0, 26.0], "24": [25.0, 26.0, 28.0], "27": [28.0, 30.0, 32.0], "30": [31.0, 33.0, 35.0], "33": [34.0, 36.0, 38.0], "36": [37.0, 39.0, 42.0], "39": [40.0, 42.0, 45.0], "42": [43.0, 45.0, 48.0], "45": [46.0, 48.0, 51.0], "48": [50.0, 52.0, 56.0]}, "un": [{"n": "#4-40", "tpi": 40, "maj": 0.112, "tap": 0.089, "cl": 0.116}, {"n": "#6-32", "tpi": 32, "maj": 0.138, "tap": 0.1065, "cl": 0.144}, {"n": "#8-32", "tpi": 32, "maj": 0.164, "tap": 0.136, "cl": 0.1695}, {"n": "#10-24", "tpi": 24, "maj": 0.19, "tap": 0.1495, "cl": 0.1935}, {"n": "#10-32", "tpi": 32, "maj": 0.19, "tap": 0.159, "cl": 0.1935}, {"n": "1/4-20", "tpi": 20, "maj": 0.25, "tap": 0.201, "cl": 0.257}, {"n": "1/4-28", "tpi": 28, "maj": 0.25, "tap": 0.213, "cl": 0.257}, {"n": "5/16-18", "tpi": 18, "maj": 0.3125, "tap": 0.257, "cl": 0.323}, {"n": "5/16-24", "tpi": 24, "maj": 0.3125, "tap": 0.272, "cl": 0.323}, {"n": "3/8-16", "tpi": 16, "maj": 0.375, "tap": 0.3125, "cl": 0.3906}, {"n": "3/8-24", "tpi": 24, "maj": 0.375, "tap": 0.332, "cl": 0.3906}, {"n": "7/16-14", "tpi": 14, "maj": 0.4375, "tap": 0.368, "cl": 0.4531}, {"n": "1/2-13", "tpi": 13, "maj": 0.5, "tap": 0.4219, "cl": 0.5156}, {"n": "1/2-20", "tpi": 20, "maj": 0.5, "tap": 0.4531, "cl": 0.5156}, {"n": "5/8-11", "tpi": 11, "maj": 0.625, "tap": 0.5312, "cl": 0.6406}, {"n": "3/4-10", "tpi": 10, "maj": 0.75, "tap": 0.6562, "cl": 0.7656}, {"n": "7/8-9", "tpi": 9, "maj": 0.875, "tap": 0.7656, "cl": 0.8906}, {"n": "1-8", "tpi": 8, "maj": 1.0, "tap": 0.875, "cl": 1.0156}]}, $=function(i){return document.getElementById(i);}, imp=false, MM=25.4;
+function rows(){return D[$('series').value];}
+function isUN(){return $('series').value==='un';}
+function cur(){return rows()[+$('size').value]||rows()[0];}
+function f(v,d){return v==null?'—':(+v).toFixed(d);}
+function len(mm,d){return imp?f(mm/MM,d==null?4:d)+' in':f(mm,d==null?2:d)+' mm';}
+
+function tapDia(r,pct){
+  if(pct==='std') return isUN() ? (r.maj-1/r.tpi)*MM : r.d-r.P;   // d - P
+  if(isUN()) return (r.maj-(pct/100)*(1.0825/r.tpi))*MM;          // inch series -> mm
+  return r.d-(pct/100)*1.0825*r.P;                                 // ISO 60 deg form
+}
+function engPct(r,drill){ var P=isUN()?MM/r.tpi:r.P, d=isUN()?r.maj*MM:r.d;
+  return (d-drill)/(1.0825*P)*100; }
+function fill(){
+  $('size').innerHTML=rows().map(function(r,i){
+    return '<option value="'+i+'">'+(isUN()?r.n:'M'+r.d+($('series').value==='fine'?' × '+r.P:''))+'</option>';
+  }).join('');
+}
+function calc(){
+  var r=cur(), pct=$('eng').value==='std'?'std':+$('eng').value, tap=tapDia(r,pct);
+  $('oTap').innerHTML=(imp?f(tap/MM,4):f(tap,2))+'<em>'+(imp?'in':'mm')+'</em>';
+  var P=isUN()?MM/r.tpi:r.P;
+  $('oP').innerHTML=(imp?f(P/MM,4):f(P,2))+'<em>'+(imp?'in':'mm')+'</em>';
+  $('oD').textContent=len(isUN()?r.maj*MM:r.d);
+  $('oD2').textContent=isUN()?'—':len(r.d2,3);
+  $('oD3').textContent=isUN()?'—':len(r.d3,3);
+  $('oAs').textContent=isUN()?'—':(imp?f(r.As/645.16,4)+' in²':r.As+' mm²');
+  $('oTPI').textContent=isUN()?r.tpi:f(MM/r.P,1);
+  $('oDep').textContent=len(0.6134*P,3);
+  var c=isUN()?null:D.clear[String(r.d)];
+  $('oCF').textContent=c?len(c[0]):(imp?f(r.cl,4)+' in':f(r.cl*MM,2)+' mm');
+  $('oCM').textContent=c?len(c[1]):'—';
+  $('oCC').textContent=c?len(c[2]):'—';
+  $('oTapNom').textContent=(isUN()?f(r.tap,4)+' in':f(Math.round(tap*20)/20,2)+' mm')+'  ('+f(engPct(r,tap),0)+'%)';
+  $('oBasis').textContent=isUN()
+    ? 'UN inch series. Tap drill = major − (engagement% × 1.0825 / TPI). Clearance shown is close fit.'
+    : 'ISO 60° metric thread. Tap drill = d − (engagement% × 1.0825 × P). Clearance holes to ISO 273 fine / medium / coarse. Thread depth = 0.6134 × P.';
+  table();
+}
+function table(){
+  var q=$('filter').value.trim().toLowerCase(), pct=$('eng').value==='std'?'std':+$('eng').value;
+  var uu=imp?'in':'mm';
+  var h='<thead><tr><th>Size</th><th>Pitch / TPI</th><th>Tap drill '+(pct==='std'?'d−P':pct+'%')+' ('+uu+')</th><th>65%</th><th>100%</th><th>Clear fine</th><th>Clear med</th><th>Clear coarse</th></tr></thead><tbody>';
+  rows().forEach(function(r,i){
+    var label=isUN()?r.n:'M'+r.d+($('series').value==='fine'?'×'+r.P:'');
+    if(q && label.toLowerCase().indexOf(q)===-1) return;
+    var c=isUN()?null:D.clear[String(r.d)];
+    var cv=function(v){return v==null?'—':(imp?f(v/MM,4):f(v,2));};
+    h+='<tr'+(i===+$('size').value?' class="hl"':'')+'><td>'+label+'</td>'+
+      '<td>'+(isUN()?r.tpi+' TPI':f(r.P,2)+' mm')+'</td>'+
+      '<td><b>'+cv(tapDia(r,pct))+'</b></td>'+
+      '<td>'+cv(tapDia(r,65))+'</td><td>'+cv(tapDia(r,100))+'</td>'+
+      '<td>'+(c?cv(c[0]):cv(r.cl*MM))+'</td><td>'+(c?cv(c[1]):'—')+'</td><td>'+(c?cv(c[2]):'—')+'</td></tr>';
+  });
+  $('tbl').innerHTML=h+'</tbody>';
+}
+fill(); $('size').value=9; calc();
+$('series').addEventListener('change',function(){fill();$('size').value=0;calc();});
+['size','eng'].forEach(function(id){$(id).addEventListener('change',calc);});
+$('filter').addEventListener('input',table);
+document.querySelectorAll('#unitToggle button').forEach(function(b){
+  b.addEventListener('click',function(){imp=b.dataset.u==='imp';
+    document.querySelectorAll('#unitToggle button').forEach(function(x){x.classList.toggle('on',x===b);});calc();});
+});
+})();
+</script>
+
+</div>
+</main>
+
+<!-- PMEW GLOBAL FOOTER: injected by /js/footer.js -->
+<div id="footer-container"></div>
+
+<!-- PMEW GLOBAL SCRIPTS -->
+<script ></script>
+<script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

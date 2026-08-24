@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Traceability | Pradako Mechanical</title>
+
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- FONT LINKS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- ICON LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- YOUR GLOBAL WEBSITE CSS LINKS -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+
+/***** ⭐ MODERN COLOR SYSTEM WITH RESPONSIVE TOUCH ⭐ *****/
+:root {
+    --hero-dark: #0A1C2F;
+    --section-grey: #F8F6F2;
+    --font-black: #1F2A3E;
+    --card-white: #FFFFFF;
+    --divider: #E2DCD2;
+    --accent-gold: #C57C2C;
+    --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+    --radius-card: 24px;
+    --radius-element: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    color: #2C2C2C;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========== HEADER WITH PROPER LOGO ========== */
+.main-header {
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    overflow: visible;
+}
+
+.topbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: auto;
+    max-height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* SECTION BASE */
+section {
+    min-height: auto;
+    padding: clamp(50px, 8vw, 80px) clamp(20px, 5vw, 8%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    isolation: isolate;
+    padding: 0;
+    background: #eef3f7;
+}
+
+/* REAL IMAGE LAYER - MORE RELIABLE THAN ONLY CSS BACKGROUND */
+.hero-bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* SOFT PREMIUM OVERLAY - IMAGE WILL STILL BE VISIBLE */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg,
+            rgba(255,255,255,0.08) 0%,
+            rgba(255,255,255,0.03) 45%,
+            rgba(255,255,255,0.08) 100%
+        ),
+        linear-gradient(180deg,
+            rgba(10,61,98,0.02) 0%,
+            rgba(10,61,98,0.08) 100%
+        );
+}
+
+/* BOTTOM FADE */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 160px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* KEEP THIS IF YOU ADD HERO TEXT AGAIN LATER */
+.hero h1,
+.hero p {
+    position: relative;
+    z-index: 3;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 72px);
+    font-weight: 700;
+    color: #202020;
+    line-height: 1.08;
+    max-width: 1000px;
+    text-shadow: 0 1px 18px rgba(255,255,255,0.45);
+}
+
+.hero p {
+    margin-top: 30px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: #111827;
+    max-width: 900px;
+    line-height: 1.8;
+    text-shadow: 0 1px 16px rgba(255,255,255,0.50);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero-bg-img {
+        object-position: center center;
+    }
+
+    .hero::before {
+        background:
+            linear-gradient(180deg,
+                rgba(255,255,255,0.04) 0%,
+                rgba(255,255,255,0.08) 100%
+            );
+    }
+
+    .hero::after {
+        height: 120px;
+    }
+
+    .hero p {
+        line-height: 1.7;
+    }
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.grid p {
+    color: var(--muted, #516173);
+    line-height: 1.8;
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+/* TITLE */
+.title {
+    font-size: clamp(28px, 5vw, 36px);
+    font-weight: 700;
+    color: var(--brand, #0A3D62);
+    margin-bottom: 20px;
+}
+
+/* CONTENT HEADING INSIDE FIRST SECTION */
+.fade h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 66px);
+    line-height: 1.12;
+    color: #202020;
+    margin-bottom: 28px;
+    max-width: 1100px;
+}
+
+/* PARAGRAPH */
+section p {
+    color: #172033;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.85;
+    max-width: 1180px;
+}
+
+section p + p {
+    margin-top: 18px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    padding: clamp(20px, 3vw, 25px);
+    border: 1px solid var(--line, #e4e9f0);
+    border-radius: 14px;
+    transition: .4s;
+    background: #fff;
+    font-size: clamp(13px, 2vw, 14px);
+    line-height: 1.5;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+}
+
+/* FLOW */
+.flow {
+    counter-reset: traceabilityFlow;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.flow div {
+    position: relative;
+    padding: clamp(18px, 2.5vw, 22px);
+    padding-top: clamp(54px, 6vw, 62px);
+    border-left: 3px solid var(--brand, #0A3D62);
+    background: #fff;
+    font-size: clamp(12px, 1.8vw, 14px);
+    line-height: 1.6;
+    border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(10, 61, 98, 0.06);
+}
+
+.flow div::before {
+    counter-increment: traceabilityFlow;
+    content: counter(traceabilityFlow, decimal-leading-zero);
+    position: absolute;
+    top: 16px;
+    left: clamp(18px, 2.5vw, 22px);
+    min-width: 38px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #0A3D62;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.flow b {
+    display: block;
+    margin-bottom: 8px;
+    font-size: clamp(13px, 2vw, 14px);
+}
+
+/* TABLE */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 30px;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(12px, 2vw, 14px);
+    min-width: 600px;
+}
+
+th, td {
+    border: 1px solid var(--line, #e4e9f0);
+    padding: clamp(10px, 2vw, 16px);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f4f6f9;
+    font-weight: 600;
+}
+
+/* FADE ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* OPTIONAL SECTION BACKGROUND */
+section.fade:nth-of-type(even) {
+    background: #f8fafc;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 50px 20px;
+    }
+
+    .fade h1 {
+        font-size: clamp(32px, 10vw, 46px);
+    }
+
+    .flow {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 760px;
+    }
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Traceability from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/quality-manufacturing/traceability.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Traceability | Pradako Mechanical">
+    <meta property="og:description" content="Traceability from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/quality-manufacturing/traceability.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Traceability | Pradako Mechanical">
+    <meta name="twitter:description" content="Traceability from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Traceability | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/quality-manufacturing/traceability.html",
+  "description": "Traceability from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+
+<div id="navbar-container"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <img 
+        src="/assets/images/global-presence/warehouse-packing/packing-hero-img.png" 
+        alt="Pradako traceability packaging label in warehouse" 
+        class="hero-bg-img"
+    >
+</section>
+
+<!-- SYSTEM -->
+<section class="fade">
+    <h1>Traceability: <br> Ensuring Quality, Reliability and Full Lifecycle Accountability</h1>
+    <p>
+        At Pradako Mechanical and Engineering Works, traceability forms a cornerstone of our integrated quality management and manufacturing control systems, ensuring that every fastener produced within our facilities can be accurately identified, tracked, and documented throughout its entire lifecycle. Traceability enables complete visibility from raw material sourcing to final product delivery, supporting quality assurance, regulatory compliance, and customer confidence.
+    </p>
+
+    <div class="title">What our traceability system captures</div>
+    <p>
+        Our traceability system captures and links critical manufacturing data across every stage of production, including raw material heat numbers, supplier certifications, production batch numbers, process route cards, heat treatment records, coating batches, inspection reports, and final packaging identification. Through this integrated framework, every fastener is fully traceable backward to its material origin and forward to its final shipment and application.
+    </p>
+    <div class="cards">
+        <div class="card">Backward Traceability<br>to material origin</div>
+        <div class="card">Forward Traceability<br>to shipment & application</div>
+        <div class="card">Batch / Lot Control<br>across processes</div>
+        <div class="card">Audit-Ready Records<br>and retrieval</div>
+    </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="fade">
+    <div class="title">Traceability outcomes</div>
+    <p>Designed to strengthen consistency, accountability, and transparency across manufacturing and supply chain.</p>
+    <div class="cards">
+        <div class="card">Quality assurance &<br>root cause analysis</div>
+        <div class="card">Compliance<br>with global standards</div>
+        <div class="card">Customer confidence<br>via documentation</div>
+        <div class="card">Faster issue resolution<br>with batch identification</div>
+    </div>
+</section>
+
+<!-- FLOW -->
+<section class="fade">
+    <div class="title">1. Traceability Flow Across the Manufacturing Lifecycle</div>
+    <p>
+        Pradako follows a structured traceability flow that captures and links information at every stage of the manufacturing process. Each stage generates documented records connected to the final product batch.
+    </p>
+    <div class="flow">
+        <div><b>Raw Material Procurement</b><br>Supplier certifications<br>Heat / Cast number identification<br>Material grade verification</div>
+        <div><b>Incoming Material Inspection & Verification</b><br>Material Test Certificates (MTC)<br>Incoming inspection reports<br>Controlled material release</div>
+        <div><b>Material Processing & Preparation</b><br>Wire drawing / annealing records<br>Internal lot & batch coding<br>Material handling logs</div>
+        <div><b>Primary Manufacturing Operations</b><br>Cold forming / warm forming / hot forging<br>Precision machining<br>Nut tapping / thread generation</div>
+        <div><b>Secondary Operations</b><br>Thread rolling, drilling, broaching<br>Deburring, trimming, coining<br>In-process checks</div>
+        <div><b>Heat Treatment & Metallurgical Processing</b><br>Furnace batch identification<br>Time–temperature records<br>Hardness & metallurgical verification</div>
+        <div><b>Surface Treatment & Coating</b><br>Coating batch identification<br>Coating thickness & verification<br>Corrosion resistance testing</div>
+        <div><b>Quality Inspection & Testing</b><br>Dimensional inspection<br>Mechanical property verification<br>Surface & coating validation</div>
+        <div><b>Sorting, Packaging & Batch Identification</b><br>Automated sorting records<br>Batch coding & product identification<br>Packaging traceability</div>
+        <div><b>Final Dispatch & Customer Documentation</b><br>Inspection reports & certificates<br>Batch traceability records<br>Customer documentation pack</div>
+    </div>
+    <p style="margin-top:40px;">
+        <b>Full Lifecycle Traceability</b><br>
+        This integrated flow ensures every fastener is traceable backward to raw material origin and forward to its final shipment and application.
+    </p>
+</section>
+
+<!-- DIGITAL -->
+<section class="fade">
+    <div class="title">2. Digital Traceability at Pradako</div>
+    <div class="grid">
+        <p>
+            Pradako integrates barcode-based identification, batch coding, digital documentation, and real-time production tracking across production and quality operations.
+        </p>
+        <p>
+            <b>Digital + Documentation Continuity</b><br>
+            A single system links batch identification, process records, and inspection approvals to ensure consistent documentation continuity across the manufacturing lifecycle.
+        </p>
+    </div>
+    <div class="cards">
+        <div class="card">Barcode & Batch Identification</div>
+        <div class="card">Integrated Production Records</div>
+        <div class="card">Quality & Compliance Documentation</div>
+        <div class="card">Rapid Retrieval & Root Cause Analysis</div>
+        <div class="card">Real-Time Production Visibility</div>
+        <div class="card">Customer Transparency</div>
+    </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="fade">
+    <div class="title">3. Traceability for Critical Industries</div>
+    <p>
+        Our traceability framework supports industries where safety, reliability, and compliance are essential, providing full linkage from material origin to final shipment and application.
+    </p>
+    <div class="cards">
+        <div class="card"><b>Automotive & Mobility</b><br>Aligned with documentation expectations for IATF 16949, PPAP, ISIR, and IMDS.</div>
+        <div class="card"><b>Aerospace & Defense</b><br>Maintaining strict material traceability, process documentation, and inspection records.</div>
+        <div class="card"><b>Energy & Infrastructure</b><br>Supporting projects requiring long-term reliability in power, renewables, structural and infrastructure systems.</div>
+        <div class="card"><b>Heavy Engineering & Industrial Equipment</b><br>Documented traceability for machinery and industrial assemblies operating under demanding mechanical conditions.</div>
+    </div>
+    <p style="margin-top:40px;">
+        <b>Confidence Through Documented Manufacturing</b><br>
+        Every supplied batch can be supported with MTCs, inspection reports, heat treatment records, coating certifications, batch identification, and customer-specific quality documentation.
+    </p>
+</section>
+
+<!-- TABLE -->
+<section class="fade">
+    <div class="title">4. Traceability Documentation Matrix</div>
+    <p>
+        Documentation is linked through batch numbers, heat numbers, and production lot identifiers, enabling complete backward and forward traceability.
+    </p>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr><th>Manufacturing Stage</th><th>Records Maintained</th><th>Example Documentation / Data Captured</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Raw Material Procurement & Verification</td><td>Supplier certifications, raw material traceability, incoming inspection</td><td>Mother Test Certificate (Mother TC / Parent TC), Mill Test Certificate (MTC), Heat / Cast Number, chemical composition report, mechanical property report, supplier quality certificates, material grade verification, incoming inspection reports</td></tr>
+                <tr><td>Material Processing & Preparation</td><td>Material identification and internal batch tracking</td><td>Material batch identification, internal lot numbers, material issue records, wire drawing records, annealing batch reports, material handling logs</td></tr>
+                <tr><td>Primary Manufacturing Operations</td><td>Production batch records, process route documentation</td><td>Production route cards, machine identification records, operator identification, batch/lot numbers, production parameters, process sheets, setup sheets, production logs</td></tr>
+                <tr><td>Thread Generation & Secondary Operations</td><td>Process control and batch tracking</td><td>Thread rolling records, secondary operation logs, process inspection reports, dimensional verification records, in-process quality checks</td></tr>
+                <tr><td>Heat Treatment & Metallurgical Processing</td><td>Furnace batch records, metallurgical verification</td><td>Heat treatment batch identification, furnace temperature charts, time–temperature records, hardness test reports, metallurgical test reports, case depth verification reports, CQI-9 compliance records</td></tr>
+                <tr><td>Surface Treatment / Coating Processes</td><td>Coating batch records and corrosion testing</td><td>Coating batch numbers, plating / zinc flake records, phosphating reports, coating thickness reports, salt spray test reports (ASTM B117 / ISO 9227), surface treatment certificates</td></tr>
+                <tr><td>Sorting & Process Verification</td><td>Automated inspection and sorting records</td><td>Sorting machine reports, defect detection logs, sorting batch identification, quality sorting records</td></tr>
+                <tr><td>Final Quality Inspection & Testing</td><td>Final verification and QC approvals</td><td>Final inspection reports, dimensional inspection records, mechanical property verification reports, torque/tensile test reports, quality assurance checklists</td></tr>
+                <tr><td>Packaging & Batch Identification</td><td>Packaging traceability and dispatch readiness</td><td>Packaging batch codes, product identification labels, packing lists, batch identification records, barcode identification</td></tr>
+                <tr><td>Dispatch & Customer Documentation</td><td>Shipment traceability and customer documentation pack</td><td>Material Test Certificates (MTC), inspection certificates, certificate of conformance (COC), batch traceability records, customer-specific quality documents (PPAP, ISIR, IMDS)</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="margin-top:40px;">
+        <b>Full Lifecycle Traceability Assurance</b><br>
+        All documentation is securely maintained and can be retrieved through batch numbers, heat numbers, and production lot identifiers, enabling complete backward and forward traceability across the manufacturing lifecycle.
+    </p>
+</section>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+<script>
+
+// Fade animation
+const fades = document.querySelectorAll('.fade');
+
+function revealOnScroll() {
+    fades.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#0b2239">
+    <meta name="description" content="Send an enquiry to Pradako Mechanical & Engineering Works for standard fasteners, customised components, samples, drawings, technical reviews and production requirements.">
+    <title>Send Enquiry | Pradako Mechanical & Engineering Works</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Existing PMEW website files -->
+    <link rel="stylesheet" href="/assets/css/cookies.css">
+
+    <style>
+        :root {
+            --enq-ink: #0b2239;
+            --enq-ink-soft: #173b5e;
+            --enq-muted: #617286;
+            --enq-soft: #edf4fa;
+            --enq-panel: #f7fafd;
+            --enq-line: #d9e4ee;
+            --enq-line-dark: #bdccda;
+            --enq-accent: #1f66b3;
+            --enq-accent-dark: #164a82;
+            --enq-accent-soft: #e7f1fb;
+            --enq-white: #ffffff;
+            --enq-success: #28766a;
+            --enq-warning: #a96912;
+            --enq-danger: #aa3f45;
+            --enq-radius-lg: 30px;
+            --enq-radius-md: 18px;
+            --enq-radius-sm: 12px;
+            --enq-shadow: 0 24px 70px rgba(11, 34, 57, 0.10);
+            --enq-container: 1460px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            color: var(--enq-ink);
+            background: #f4f8fc;
+            font-family: Montserrat, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        body.enq-modal-open { overflow: hidden; }
+        button, input, select, textarea { font: inherit; }
+        button, a { -webkit-tap-highlight-color: transparent; }
+        img { max-width: 100%; }
+
+        /* PMEW shared navigation/footer mounting points */
+        #navbar-container,
+        #footer-container {
+            position: relative;
+            z-index: 50;
+            width: 100%;
+        }
+        #navbar-container:empty { min-height: 78px; background: #ffffff; }
+
+        .enq-visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        .enq-container {
+            width: min(var(--enq-container), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* HERO */
+        .enq-hero {
+            position: relative;
+            min-height: clamp(510px, 68vh, 760px);
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 82% 18%, rgba(31,102,179,.13), transparent 28%),
+                linear-gradient(135deg, #f9fcff 0%, #edf5fc 58%, #f7fbff 100%);
+            border-bottom: 1px solid var(--enq-line);
+        }
+        .enq-hero::before {
+            content: "ENQUIRY";
+            position: absolute;
+            z-index: -2;
+            right: -0.035em;
+            top: 50%;
+            transform: translateY(-52%);
+            color: rgba(31,102,179,.055);
+            font: 900 clamp(96px, 19vw, 350px)/.78 Montserrat, sans-serif;
+            letter-spacing: -.09em;
+            white-space: nowrap;
+            user-select: none;
+        }
+        .enq-hero::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: min(46vw, 720px);
+            aspect-ratio: 1;
+            right: -12%;
+            bottom: -65%;
+            border: 1px solid rgba(31,102,179,.26);
+            border-radius: 50%;
+            box-shadow: 0 0 0 72px rgba(31,102,179,.035), 0 0 0 144px rgba(31,102,179,.022);
+        }
+        .enq-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(300px, .55fr);
+            gap: clamp(50px, 8vw, 140px);
+            align-items: end;
+            padding: clamp(92px, 12vh, 150px) 0 clamp(70px, 9vh, 110px);
+        }
+        .enq-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0 0 26px;
+            color: #3e4249;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+        }
+        .enq-eyebrow::before {
+            content: "";
+            width: 48px;
+            height: 2px;
+            background: var(--enq-accent);
+        }
+        .enq-hero h1 {
+            max-width: 1000px;
+            margin: 0;
+            font-size: clamp(62px, 9.7vw, 176px);
+            line-height: .81;
+            letter-spacing: -.078em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .enq-hero h1 span { color: var(--enq-accent); }
+        .enq-hero-copy {
+            max-width: 780px;
+            margin: 34px 0 0;
+            color: #565b64;
+            font-size: clamp(14px, 1.2vw, 19px);
+            line-height: 1.75;
+            font-weight: 500;
+        }
+        .enq-hero-aside {
+            display: grid;
+            gap: 14px;
+            padding-bottom: 8px;
+        }
+        .enq-hero-stat {
+            display: grid;
+            grid-template-columns: 54px 1fr;
+            gap: 16px;
+            align-items: center;
+            padding: 18px 0;
+            border-top: 1px solid var(--enq-line-dark);
+        }
+        .enq-hero-stat:last-child { border-bottom: 1px solid var(--enq-line-dark); }
+        .enq-hero-stat strong {
+            color: var(--enq-accent);
+            font-family: Space Grotesk, Montserrat, sans-serif;
+            font-size: 13px;
+            letter-spacing: .12em;
+        }
+        .enq-hero-stat span {
+            color: #363a40;
+            font-size: 11px;
+            font-weight: 750;
+            line-height: 1.55;
+            letter-spacing: .075em;
+            text-transform: uppercase;
+        }
+
+        /* PAGE INTRO */
+        .enq-intro {
+            padding: 44px 0;
+            border-bottom: 1px solid var(--enq-line);
+            background: #ffffff;
+        }
+        .enq-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+        }
+        .enq-intro p {
+            max-width: 920px;
+            margin: 0;
+            color: var(--enq-muted);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+        .enq-intro-meta {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            color: #555a63;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .enq-intro-meta span { display: inline-flex; align-items: center; gap: 8px; }
+        .enq-intro-meta i { color: var(--enq-success); }
+
+        /* FORM LAYOUT */
+        .enq-main { padding: clamp(58px, 8vw, 118px) 0 120px; background: #f4f8fc; }
+        .enq-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: clamp(34px, 4vw, 64px);
+            align-items: start;
+        }
+        .enq-form-shell {
+            min-width: 0;
+            border: 1px solid var(--enq-line);
+            border-radius: var(--enq-radius-lg);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--enq-shadow);
+        }
+        .enq-form-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            min-height: 72px;
+            padding: 18px clamp(20px, 3vw, 38px);
+            border-bottom: 1px solid var(--enq-line);
+            background: var(--enq-panel);
+        }
+        .enq-form-topbar strong {
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+        .enq-form-topbar span {
+            color: var(--enq-muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .enq-form { padding: clamp(26px, 4vw, 54px); }
+
+        .enq-section {
+            padding: 0 0 clamp(44px, 5vw, 70px);
+            margin: 0 0 clamp(44px, 5vw, 70px);
+            border-bottom: 1px solid var(--enq-line);
+        }
+        .enq-section:last-of-type {
+            padding-bottom: 0;
+            margin-bottom: 40px;
+            border-bottom: 0;
+        }
+        .enq-section-heading {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 18px;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+        .enq-section-number {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--enq-accent);
+            font: 700 11px/1 Space Grotesk, sans-serif;
+            letter-spacing: .09em;
+        }
+        .enq-section-heading h2 {
+            margin: 0 0 7px;
+            font-size: clamp(22px, 2.2vw, 34px);
+            line-height: 1.05;
+            letter-spacing: -.04em;
+        }
+        .enq-section-heading p {
+            max-width: 740px;
+            margin: 0;
+            color: var(--enq-muted);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        /* TYPE CARDS */
+        .enq-type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .enq-type-option { position: relative; }
+        .enq-type-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .enq-type-card {
+            min-height: 178px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 24px;
+            border: 1px solid var(--enq-line);
+            border-radius: var(--enq-radius-md);
+            background: #fff;
+            cursor: pointer;
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .enq-type-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--enq-line-dark);
+            box-shadow: 0 12px 34px rgba(11,34,57,.08);
+        }
+        .enq-type-option input:focus-visible + .enq-type-card {
+            outline: 3px solid rgba(31,102,179,.22);
+            outline-offset: 3px;
+        }
+        .enq-type-option input:checked + .enq-type-card {
+            border-color: var(--enq-accent);
+            background: var(--enq-accent-soft);
+            box-shadow: inset 0 0 0 1px var(--enq-accent);
+        }
+        .enq-type-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--enq-ink);
+            background: var(--enq-soft);
+            font-size: 16px;
+        }
+        .enq-type-option input:checked + .enq-type-card .enq-type-icon {
+            color: #fff;
+            background: var(--enq-accent);
+        }
+        .enq-type-card strong {
+            font-size: 13px;
+            line-height: 1.35;
+            letter-spacing: -.01em;
+        }
+        .enq-type-card small {
+            color: var(--enq-muted);
+            font-size: 10px;
+            line-height: 1.55;
+            font-weight: 550;
+        }
+
+        /* FIELDS */
+        .enq-grid-2, .enq-grid-3, .enq-grid-4 {
+            display: grid;
+            gap: 16px;
+        }
+        .enq-grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .enq-grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .enq-grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+        .enq-field { min-width: 0; }
+        .enq-field--full { grid-column: 1 / -1; }
+        .enq-field label,
+        .enq-field .enq-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 0 0 9px;
+            color: #30343a;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .095em;
+            text-transform: uppercase;
+        }
+        .enq-field label small { color: #92969e; font-size: 8px; letter-spacing: .06em; }
+        .enq-control {
+            width: 100%;
+            min-height: 52px;
+            border: 1px solid var(--enq-line);
+            border-radius: 10px;
+            padding: 13px 15px;
+            color: var(--enq-ink);
+            background: #fff;
+            font-size: 12px;
+            line-height: 1.4;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        textarea.enq-control { min-height: 140px; resize: vertical; }
+        .enq-control:hover { border-color: var(--enq-line-dark); }
+        .enq-control:focus {
+            border-color: var(--enq-ink);
+            box-shadow: 0 0 0 3px rgba(11,34,57,.07);
+        }
+        .enq-control[aria-invalid="true"] {
+            border-color: var(--enq-danger);
+            box-shadow: 0 0 0 3px rgba(165,61,61,.08);
+        }
+        .enq-field-error {
+            display: none;
+            margin-top: 7px;
+            color: var(--enq-danger);
+            font-size: 9px;
+            font-weight: 650;
+        }
+        .enq-field.has-error .enq-field-error { display: block; }
+        .enq-help {
+            margin: 9px 0 0;
+            color: #898e96;
+            font-size: 9px;
+            line-height: 1.55;
+        }
+
+        /* PRODUCT TABLE */
+        .enq-product-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+        .enq-product-head p {
+            margin: 0;
+            color: var(--enq-muted);
+            font-size: 10px;
+            line-height: 1.5;
+        }
+        .enq-add-product {
+            min-height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 10px 16px;
+            border: 1px solid var(--enq-ink);
+            border-radius: 999px;
+            color: var(--enq-ink);
+            background: #fff;
+            cursor: pointer;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            transition: color .2s ease, background .2s ease, transform .2s ease;
+            white-space: nowrap;
+        }
+        .enq-add-product:hover { color: #fff; background: var(--enq-ink); transform: translateY(-2px); }
+        .enq-add-product:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+        .enq-product-list { display: grid; gap: 12px; }
+        .enq-product-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 44px minmax(150px, 1.2fr) minmax(120px, .85fr) minmax(110px, .75fr) minmax(90px, .58fr) 46px;
+            gap: 10px;
+            align-items: end;
+            padding: 18px;
+            border: 1px solid var(--enq-line);
+            border-radius: 15px;
+            background: var(--enq-panel);
+        }
+        .enq-product-index {
+            align-self: center;
+            color: var(--enq-accent-dark);
+            font: 700 11px/1 Space Grotesk, sans-serif;
+            letter-spacing: .1em;
+        }
+        .enq-product-item .enq-field label { font-size: 8px; }
+        .enq-product-item .enq-control { min-height: 46px; padding: 11px 12px; font-size: 11px; background: #fff; }
+        .enq-remove-product {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--enq-line);
+            border-radius: 50%;
+            color: #737780;
+            background: #fff;
+            cursor: pointer;
+            transition: color .2s ease, border-color .2s ease, background .2s ease;
+        }
+        .enq-remove-product:hover { color: #fff; border-color: var(--enq-danger); background: var(--enq-danger); }
+
+        /* CHIPS */
+        .enq-chip-grid { display: flex; flex-wrap: wrap; gap: 9px; }
+        .enq-chip { position: relative; }
+        .enq-chip input { position: absolute; opacity: 0; pointer-events: none; }
+        .enq-chip label {
+            min-height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 14px;
+            border: 1px solid var(--enq-line);
+            border-radius: 999px;
+            color: #555a63;
+            background: #fff;
+            cursor: pointer;
+            font-size: 9px;
+            font-weight: 750;
+            letter-spacing: .06em;
+            transition: color .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .enq-chip input:checked + label { color: #fff; border-color: var(--enq-ink); background: var(--enq-ink); }
+        .enq-chip input:focus-visible + label { outline: 3px solid rgba(31,102,179,.22); outline-offset: 2px; }
+
+        /* FILE UPLOAD */
+        .enq-upload {
+            position: relative;
+            min-height: 190px;
+            display: grid;
+            place-items: center;
+            padding: 28px;
+            border: 1px dashed #aebfd0;
+            border-radius: var(--enq-radius-md);
+            background: var(--enq-panel);
+            text-align: center;
+            transition: border-color .2s ease, background .2s ease;
+        }
+        .enq-upload.is-dragover { border-color: var(--enq-accent); background: var(--enq-accent-soft); }
+        .enq-upload input {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .enq-upload-content { pointer-events: none; }
+        .enq-upload-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--enq-ink);
+        }
+        .enq-upload strong { display: block; margin-bottom: 7px; font-size: 12px; }
+        .enq-upload p { margin: 0; color: var(--enq-muted); font-size: 9px; line-height: 1.6; }
+        .enq-file-list { display: grid; gap: 8px; margin-top: 12px; }
+        .enq-file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 11px 13px;
+            border: 1px solid var(--enq-line);
+            border-radius: 10px;
+            background: #fff;
+            font-size: 9px;
+        }
+        .enq-file-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+        .enq-file-meta { color: var(--enq-muted); white-space: nowrap; }
+
+        /* MODE PANELS */
+        .enq-mode-panel { display: none; }
+        .enq-mode-panel.is-active { display: block; animation: enqPanelIn .35s ease both; }
+        @keyframes enqPanelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+        /* SIDEBAR */
+        .enq-sidebar {
+            position: sticky;
+            top: 104px;
+            display: grid;
+            gap: 16px;
+        }
+        .enq-summary,
+        .enq-support {
+            border: 1px solid var(--enq-line);
+            border-radius: var(--enq-radius-md);
+            background: #fff;
+            overflow: hidden;
+        }
+        .enq-summary-head {
+            padding: 24px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--enq-ink) 0%, var(--enq-ink-soft) 100%);
+        }
+        .enq-summary-head span {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,.62);
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+        .enq-summary-head h3 { margin: 0; font-size: 24px; line-height: 1; letter-spacing: -.04em; }
+        .enq-summary-body { padding: 22px 24px; }
+        .enq-summary-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+        .enq-summary-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--enq-line);
+            color: #666b74;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        .enq-summary-list li:last-child { border-bottom: 0; }
+        .enq-summary-list strong { color: var(--enq-ink); font-size: 11px; text-align: right; }
+        .enq-summary-progress {
+            height: 4px;
+            margin-top: 18px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #e4edf5;
+        }
+        .enq-summary-progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--enq-accent);
+            transition: width .35s ease;
+        }
+        .enq-summary-caption { margin: 10px 0 0; color: #8a8f97; font-size: 8px; line-height: 1.5; }
+        .enq-support { padding: 24px; }
+        .enq-support h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: -.025em; }
+        .enq-support > p { margin: 0 0 20px; color: var(--enq-muted); font-size: 10px; line-height: 1.65; }
+        .enq-support-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-top: 1px solid var(--enq-line);
+            color: var(--enq-ink);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .enq-support-link i { width: 18px; color: var(--enq-accent-dark); text-align: center; }
+        .enq-trust {
+            padding: 20px 22px;
+            border-radius: var(--enq-radius-md);
+            color: #dce1e1;
+            background: var(--enq-success);
+        }
+        .enq-trust strong { display: block; margin-bottom: 8px; color: #fff; font-size: 11px; letter-spacing: .04em; }
+        .enq-trust p { margin: 0; font-size: 9px; line-height: 1.65; }
+
+        /* CONSENT + ACTIONS */
+        .enq-consent {
+            display: grid;
+            grid-template-columns: 20px 1fr;
+            gap: 12px;
+            align-items: start;
+            margin: 0 0 28px;
+        }
+        .enq-consent input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--enq-ink); }
+        .enq-consent label { color: #626770; font-size: 9px; line-height: 1.65; }
+        .enq-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid var(--enq-line);
+        }
+        .enq-save {
+            min-height: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 0;
+            border: 0;
+            color: #626770;
+            background: transparent;
+            cursor: pointer;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+        .enq-save:hover { color: var(--enq-ink); }
+        .enq-submit {
+            min-width: 220px;
+            min-height: 58px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 16px 24px;
+            border: 1px solid var(--enq-ink);
+            border-radius: 999px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--enq-ink) 0%, var(--enq-ink-soft) 100%);
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            transition: color .2s ease, background .2s ease, transform .2s ease;
+        }
+        .enq-submit:hover { color: #fff; border-color: var(--enq-accent-dark); background: var(--enq-accent-dark); transform: translateY(-2px); }
+        .enq-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+        /* SUCCESS / PREVIEW MODAL */
+        .enq-modal {
+            position: fixed;
+            z-index: 99999;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: rgba(6,22,38,.66);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .25s ease, visibility 0s linear .25s;
+        }
+        .enq-modal.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+        .enq-modal-dialog {
+            width: min(840px, 100%);
+            max-height: min(840px, calc(100vh - 48px));
+            display: grid;
+            grid-template-rows: auto minmax(0,1fr) auto;
+            border-radius: 26px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 32px 90px rgba(0,0,0,.26);
+            transform: translateY(16px) scale(.98);
+            transition: transform .3s cubic-bezier(.22,1,.36,1);
+        }
+        .enq-modal.is-open .enq-modal-dialog { transform: none; }
+        .enq-modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--enq-line);
+        }
+        .enq-modal-head span { display: block; margin-bottom: 5px; color: var(--enq-success); font-size: 8px; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+        .enq-modal-head h2 { margin: 0; font-size: 24px; letter-spacing: -.035em; }
+        .enq-modal-close {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--enq-line);
+            border-radius: 50%;
+            color: var(--enq-ink);
+            background: #fff;
+            cursor: pointer;
+        }
+        .enq-modal-body { overflow: auto; padding: 26px 28px; }
+        .enq-preview {
+            min-height: 330px;
+            margin: 0;
+            padding: 22px;
+            border: 1px solid var(--enq-line);
+            border-radius: 14px;
+            color: #26384a;
+            background: var(--enq-panel);
+            font: 500 11px/1.75 Montserrat, sans-serif;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .enq-modal-note { margin: 14px 0 0; color: var(--enq-muted); font-size: 9px; line-height: 1.55; }
+        .enq-modal-actions {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 10px;
+            padding: 20px 28px 26px;
+            border-top: 1px solid var(--enq-line);
+        }
+        .enq-modal-action {
+            min-height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 16px;
+            border: 1px solid var(--enq-line-dark);
+            border-radius: 999px;
+            color: var(--enq-ink);
+            background: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: color .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .enq-modal-action:hover { color: #fff; border-color: var(--enq-ink); background: var(--enq-ink); }
+        .enq-modal-action--primary { color: #fff; border-color: var(--enq-accent-dark); background: var(--enq-accent-dark); }
+
+        /* TOAST */
+        .enq-toast {
+            position: fixed;
+            z-index: 100000;
+            right: 22px;
+            bottom: 22px;
+            max-width: min(380px, calc(100vw - 44px));
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 18px;
+            border-radius: 14px;
+            color: #fff;
+            background: var(--enq-ink);
+            box-shadow: 0 18px 54px rgba(0,0,0,.2);
+            font-size: 10px;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(18px);
+            pointer-events: none;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+        .enq-toast.is-visible { opacity: 1; transform: none; }
+
+        @media (max-width: 1180px) {
+            .enq-layout { grid-template-columns: minmax(0,1fr) 300px; gap: 28px; }
+            .enq-product-item { grid-template-columns: 40px repeat(2, minmax(0,1fr)) 46px; }
+            .enq-product-item .enq-field:nth-of-type(3),
+            .enq-product-item .enq-field:nth-of-type(4) { grid-column: span 1; }
+            .enq-remove-product { grid-column: 4; grid-row: 1 / span 2; align-self: center; }
+        }
+
+        @media (max-width: 980px) {
+            .enq-hero-grid { grid-template-columns: 1fr; gap: 46px; }
+            .enq-hero-aside { grid-template-columns: repeat(3, minmax(0,1fr)); }
+            .enq-hero-stat { grid-template-columns: 42px 1fr; }
+            .enq-layout { grid-template-columns: 1fr; }
+            .enq-sidebar { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); }
+            .enq-trust { grid-column: 1 / -1; }
+            .enq-grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        }
+
+        @media (max-width: 760px) {
+            .enq-container { width: min(100% - 28px, var(--enq-container)); }
+            .enq-hero { min-height: 650px; }
+            .enq-hero::before { top: 24%; font-size: 28vw; }
+            .enq-hero-grid { padding-top: 90px; }
+            .enq-hero h1 { font-size: clamp(58px, 18vw, 112px); }
+            .enq-hero-aside { grid-template-columns: 1fr; gap: 0; }
+            .enq-intro-grid { grid-template-columns: 1fr; }
+            .enq-intro-meta { flex-wrap: wrap; white-space: normal; }
+            .enq-type-grid, .enq-grid-3 { grid-template-columns: 1fr; }
+            .enq-grid-2, .enq-grid-4 { grid-template-columns: 1fr; }
+            .enq-sidebar { grid-template-columns: 1fr; }
+            .enq-product-head { align-items: flex-start; flex-direction: column; }
+            .enq-product-item { grid-template-columns: 34px 1fr 42px; }
+            .enq-product-item .enq-field { grid-column: 2; }
+            .enq-product-index { grid-column: 1; grid-row: 1 / span 4; align-self: start; margin-top: 18px; }
+            .enq-remove-product { grid-column: 3; grid-row: 1 / span 4; }
+            .enq-actions { align-items: stretch; flex-direction: column-reverse; }
+            .enq-submit { width: 100%; }
+            .enq-save { justify-content: center; }
+            .enq-modal-actions { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .enq-form-shell { border-radius: 20px; }
+            .enq-form { padding: 24px 18px; }
+            .enq-form-topbar { padding-inline: 18px; }
+            .enq-form-topbar span { display: none; }
+            .enq-section-heading { grid-template-columns: 38px 1fr; gap: 13px; }
+            .enq-section-number { width: 38px; height: 38px; }
+            .enq-type-card { min-height: 150px; }
+            .enq-modal { padding: 10px; }
+            .enq-modal-dialog { max-height: calc(100vh - 20px); border-radius: 18px; }
+            .enq-modal-head, .enq-modal-body, .enq-modal-actions { padding-left: 18px; padding-right: 18px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/forms/send-enquiry.html">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Send Enquiry | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Send an enquiry to Pradako Mechanical &amp; Engineering Works for standard fasteners, customised components, samples, drawings, technical reviews and production requirements.">
+    <meta property="og:url" content="https://www.pradako.co/pages/forms/send-enquiry.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Send Enquiry | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Send an enquiry to Pradako Mechanical &amp; Engineering Works for standard fasteners, customised components, samples, drawings, technical reviews and production requirements.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Send Enquiry | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/forms/send-enquiry.html",
+  "description": "Send an enquiry to Pradako Mechanical & Engineering Works for standard fasteners, customised components, samples, drawings, technical reviews and production requirements.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+    <!-- PMEW NAVIGATION — loaded by /js/script.js -->
+    <div id="navbar-container"></div>
+
+    <main>
+        <section class="enq-hero" aria-labelledby="enq-page-title">
+            <div class="enq-container enq-hero-grid">
+                <div>
+                    <p class="enq-eyebrow">Engineering Response Desk</p>
+                    <h1 id="enq-page-title">Send<br><span>Enquiry.</span></h1>
+                    <p class="enq-hero-copy">
+                        Share your standard fastener requirement, customised component drawing, BOM,
+                        target specification, sample request or development brief. Our team can review
+                        manufacturability, material, grade, coating, testing, packing and delivery requirements.
+                    </p>
+                </div>
+
+                <aside class="enq-hero-aside" aria-label="Enquiry process highlights">
+                    <div class="enq-hero-stat"><strong>01</strong><span>Define the product or engineering requirement</span></div>
+                    <div class="enq-hero-stat"><strong>02</strong><span>Attach drawings, BOMs, standards or reference files</span></div>
+                    <div class="enq-hero-stat"><strong>03</strong><span>Generate a structured enquiry ready to send</span></div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="enq-intro" aria-label="Enquiry information">
+            <div class="enq-container enq-intro-grid">
+                <p>
+                    Complete the information available to you. Unknown fields may be left blank. For specialised parts,
+                    dimensions, material grades, surface finish, annual volume, inspection requirements and application
+                    details help our engineering and commercial teams respond more accurately.
+                </p>
+                <div class="enq-intro-meta">
+                    <span><i class="fa-solid fa-lock"></i> Confidential Review</span>
+                    <span><i class="fa-solid fa-list-check"></i> Maximum 20 Products</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="enq-main">
+            <div class="enq-container enq-layout">
+                <div class="enq-form-shell">
+                    <div class="enq-form-topbar">
+                        <strong>Buyer Enquiry Form</strong>
+                        <span>Fields marked * are required</span>
+                    </div>
+
+                    <form class="enq-form" id="enquiryForm" novalidate>
+                        <input type="text" name="website" class="enq-visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                        <section class="enq-section" aria-labelledby="enq-section-1">
+                            <div class="enq-section-heading">
+                                <span class="enq-section-number">01</span>
+                                <div>
+                                    <h2 id="enq-section-1">Select Enquiry Type</h2>
+                                    <p>Choose the route that best matches your current requirement.</p>
+                                </div>
+                            </div>
+
+                            <div class="enq-type-grid" role="radiogroup" aria-label="Enquiry type">
+                                <div class="enq-type-option">
+                                    <input type="radio" id="typeStandard" name="enquiryType" value="standard" checked>
+                                    <label class="enq-type-card" for="typeStandard">
+                                        <span class="enq-type-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                        <strong>Standard Products</strong>
+                                        <small>DIN, ISO, ASTM, ASME, EN, IS, BS, SAE and other defined fastener standards.</small>
+                                    </label>
+                                </div>
+                                <div class="enq-type-option">
+                                    <input type="radio" id="typeCustom" name="enquiryType" value="custom">
+                                    <label class="enq-type-card" for="typeCustom">
+                                        <span class="enq-type-icon"><i class="fa-solid fa-compass-drafting"></i></span>
+                                        <strong>Customised Products</strong>
+                                        <small>Drawing-based, sample-based, co-developed or application-specific fasteners and components.</small>
+                                    </label>
+                                </div>
+                                <div class="enq-type-option">
+                                    <input type="radio" id="typeGeneral" name="enquiryType" value="general">
+                                    <label class="enq-type-card" for="typeGeneral">
+                                        <span class="enq-type-icon"><i class="fa-regular fa-message"></i></span>
+                                        <strong>General Enquiry</strong>
+                                        <small>Capability, audit, quality, approval, logistics, collaboration or other business requirements.</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="enq-section" aria-labelledby="enq-section-2">
+                            <div class="enq-section-heading">
+                                <span class="enq-section-number">02</span>
+                                <div>
+                                    <h2 id="enq-section-2">Requirement Details</h2>
+                                    <p>Add the technical and commercial information available for the selected enquiry type.</p>
+                                </div>
+                            </div>
+
+                            <!-- STANDARD PRODUCTS -->
+                            <div class="enq-mode-panel is-active" data-enq-panel="standard">
+                                <div class="enq-product-head">
+                                    <p>Add one or more products. The page supports a maximum of 20 product lines.</p>
+                                    <button class="enq-add-product" type="button" id="addProductButton">
+                                        <i class="fa-solid fa-plus"></i> Add Product
+                                    </button>
+                                </div>
+                                <div class="enq-product-list" id="productList"></div>
+
+                                <div class="enq-grid-2" style="margin-top:22px;">
+                                    <div class="enq-field">
+                                        <label for="standardApplication">Application / Industry</label>
+                                        <input class="enq-control" id="standardApplication" name="standardApplication" type="text" placeholder="Automotive, aerospace, solar, construction...">
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="standardAnnualVolume">Estimated Annual Volume</label>
+                                        <input class="enq-control" id="standardAnnualVolume" name="standardAnnualVolume" type="text" placeholder="Example: 2,50,000 pieces per year">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CUSTOMISED PRODUCTS -->
+                            <div class="enq-mode-panel" data-enq-panel="custom">
+                                <div class="enq-grid-2">
+                                    <div class="enq-field">
+                                        <label for="customPartName">Part / Project Name *</label>
+                                        <input class="enq-control" id="customPartName" name="customPartName" type="text" placeholder="Internal part name or project reference">
+                                        <span class="enq-field-error">Please enter the part or project name.</span>
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="customReference">Drawing / Part Number</label>
+                                        <input class="enq-control" id="customReference" name="customReference" type="text" placeholder="Drawing number, revision or sample reference">
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="customMaterial">Material / Grade</label>
+                                        <input class="enq-control" id="customMaterial" name="customMaterial" type="text" placeholder="Steel, stainless, brass, alloy, class 10.9...">
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="customFinish">Coating / Finish</label>
+                                        <input class="enq-control" id="customFinish" name="customFinish" type="text" placeholder="Zinc, zinc flake, black oxide, passivation...">
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="customQuantity">Development / Order Quantity</label>
+                                        <input class="enq-control" id="customQuantity" name="customQuantity" type="text" placeholder="Prototype, sample, batch or annual quantity">
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="customApplication">Application / Assembly</label>
+                                        <input class="enq-control" id="customApplication" name="customApplication" type="text" placeholder="Where and how the part will be used">
+                                    </div>
+                                    <div class="enq-field enq-field--full">
+                                        <label for="customDetails">Technical Requirement *</label>
+                                        <textarea class="enq-control" id="customDetails" name="customDetails" placeholder="Mention dimensions, tolerances, thread, head/drive, material, mechanical properties, coating, inspection, packaging, approval stage and any critical characteristics..."></textarea>
+                                        <span class="enq-field-error">Please describe the customised requirement.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GENERAL -->
+                            <div class="enq-mode-panel" data-enq-panel="general">
+                                <div class="enq-grid-2">
+                                    <div class="enq-field">
+                                        <label for="generalSubject">Enquiry Subject *</label>
+                                        <select class="enq-control" id="generalSubject" name="generalSubject">
+                                            <option value="">Select a subject</option>
+                                            <option>Manufacturing Capability</option>
+                                            <option>Technical Fastener Audit</option>
+                                            <option>Drawing / BOM Review</option>
+                                            <option>Standard Equivalence Review</option>
+                                            <option>Sample Approval Support</option>
+                                            <option>Supplier Registration / Vendor Development</option>
+                                            <option>Plant Audit / Quality Systems</option>
+                                            <option>Testing / Inspection Requirement</option>
+                                            <option>Packaging / Logistics</option>
+                                            <option>Collaboration / Partnership</option>
+                                            <option>Other Requirement</option>
+                                        </select>
+                                        <span class="enq-field-error">Please select an enquiry subject.</span>
+                                    </div>
+                                    <div class="enq-field">
+                                        <label for="generalReference">Reference Number</label>
+                                        <input class="enq-control" id="generalReference" name="generalReference" type="text" placeholder="RFQ, project, tender or internal reference">
+                                    </div>
+                                    <div class="enq-field enq-field--full">
+                                        <label for="generalDetails">Enquiry Details *</label>
+                                        <textarea class="enq-control" id="generalDetails" name="generalDetails" placeholder="Describe the information, action, review, quotation or support you require..."></textarea>
+                                        <span class="enq-field-error">Please describe your enquiry.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:28px;">
+                                <div class="enq-field">
+                                    <span class="enq-label">Requirement Priority</span>
+                                    <div class="enq-chip-grid">
+                                        <div class="enq-chip"><input type="radio" name="priority" id="priorityNormal" value="Normal" checked><label for="priorityNormal">Normal Planning</label></div>
+                                        <div class="enq-chip"><input type="radio" name="priority" id="priorityDevelopment" value="Development"><label for="priorityDevelopment">Development Project</label></div>
+                                        <div class="enq-chip"><input type="radio" name="priority" id="prioritySample" value="Sample"><label for="prioritySample">Sample Requirement</label></div>
+                                        <div class="enq-chip"><input type="radio" name="priority" id="priorityUrgent" value="Urgent"><label for="priorityUrgent">Urgent Requirement</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="enq-section" aria-labelledby="enq-section-3">
+                            <div class="enq-section-heading">
+                                <span class="enq-section-number">03</span>
+                                <div>
+                                    <h2 id="enq-section-3">Technical Expectations</h2>
+                                    <p>Select the supporting engineering, quality and supply requirements relevant to the enquiry.</p>
+                                </div>
+                            </div>
+
+                            <div class="enq-grid-2">
+                                <div class="enq-field enq-field--full">
+                                    <span class="enq-label">Engineering &amp; Quality Requirements</span>
+                                    <div class="enq-chip-grid">
+                                        <div class="enq-chip"><input type="checkbox" id="reqDrawing" name="expectations" value="Drawing review"><label for="reqDrawing">Drawing Review</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqFeasibility" name="expectations" value="Manufacturing feasibility"><label for="reqFeasibility">Manufacturing Feasibility</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqSample" name="expectations" value="Sample development"><label for="reqSample">Sample Development</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqPPAP" name="expectations" value="PPAP documentation"><label for="reqPPAP">PPAP</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqFAI" name="expectations" value="First article inspection"><label for="reqFAI">First Article Inspection</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqMTC" name="expectations" value="Material test certificate"><label for="reqMTC">MTC / EN 10204</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqCoating" name="expectations" value="Coating validation"><label for="reqCoating">Coating Validation</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqSalt" name="expectations" value="Salt spray testing"><label for="reqSalt">Salt Spray Testing</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqTrace" name="expectations" value="Lot traceability"><label for="reqTrace">Lot Traceability</label></div>
+                                        <div class="enq-chip"><input type="checkbox" id="reqPacking" name="expectations" value="Custom packaging"><label for="reqPacking">Custom Packaging</label></div>
+                                    </div>
+                                </div>
+
+                                <div class="enq-field">
+                                    <label for="requiredDate">Required Delivery / Response Date</label>
+                                    <input class="enq-control" id="requiredDate" name="requiredDate" type="date">
+                                </div>
+                                <div class="enq-field">
+                                    <label for="deliveryLocation">Delivery Location</label>
+                                    <input class="enq-control" id="deliveryLocation" name="deliveryLocation" type="text" placeholder="City, state and country">
+                                </div>
+                                <div class="enq-field enq-field--full">
+                                    <label for="commercialNotes">Commercial / Packing / Logistics Notes</label>
+                                    <textarea class="enq-control" id="commercialNotes" name="commercialNotes" rows="4" placeholder="Target price, Incoterm, packaging, palletisation, label, inspection, dispatch mode or delivery schedule..."></textarea>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="enq-section" aria-labelledby="enq-section-4">
+                            <div class="enq-section-heading">
+                                <span class="enq-section-number">04</span>
+                                <div>
+                                    <h2 id="enq-section-4">Attach Reference Files</h2>
+                                    <p>Add drawings, BOMs, sample photographs, specification sheets, inspection reports or enquiry documents.</p>
+                                </div>
+                            </div>
+
+                            <div class="enq-upload" id="uploadZone">
+                                <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.xlsx,.xls,.csv,.doc,.docx,.png,.jpg,.jpeg,.webp,.zip">
+                                <div class="enq-upload-content">
+                                    <span class="enq-upload-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+                                    <strong>Drop files here or browse</strong>
+                                    <p>Maximum 5 files · 10 MB each · PDF, CAD, spreadsheet, document, image or ZIP</p>
+                                </div>
+                            </div>
+                            <div class="enq-file-list" id="fileList" aria-live="polite"></div>
+                        </section>
+
+                        <section class="enq-section" aria-labelledby="enq-section-5">
+                            <div class="enq-section-heading">
+                                <span class="enq-section-number">05</span>
+                                <div>
+                                    <h2 id="enq-section-5">Buyer &amp; Company Details</h2>
+                                    <p>Provide the contact information our commercial or engineering team should use.</p>
+                                </div>
+                            </div>
+
+                            <div class="enq-grid-2">
+                                <div class="enq-field">
+                                    <label for="contactName">Contact Name *</label>
+                                    <input class="enq-control" id="contactName" name="contactName" type="text" autocomplete="name" placeholder="Full name">
+                                    <span class="enq-field-error">Please enter your name.</span>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="designation">Designation / Department</label>
+                                    <input class="enq-control" id="designation" name="designation" type="text" placeholder="Purchase, engineering, quality, projects...">
+                                </div>
+                                <div class="enq-field">
+                                    <label for="companyName">Company Name *</label>
+                                    <input class="enq-control" id="companyName" name="companyName" type="text" autocomplete="organization" placeholder="Legal or trading name">
+                                    <span class="enq-field-error">Please enter the company name.</span>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="industry">Industry / Sector</label>
+                                    <select class="enq-control" id="industry" name="industry">
+                                        <option value="">Select industry</option>
+                                        <option>Automotive / EV</option>
+                                        <option>Aerospace / Defence</option>
+                                        <option>Railway</option>
+                                        <option>Construction / Infrastructure</option>
+                                        <option>Solar / Renewable Energy</option>
+                                        <option>Electrical / Electronics</option>
+                                        <option>Oil, Gas &amp; Energy</option>
+                                        <option>Industrial Machinery</option>
+                                        <option>Marine</option>
+                                        <option>Furniture / Hardware</option>
+                                        <option>Distribution / Trading</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="email">Business Email *</label>
+                                    <input class="enq-control" id="email" name="email" type="email" autocomplete="email" placeholder="name@company.com">
+                                    <span class="enq-field-error">Please enter a valid business email.</span>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="phone">Phone / WhatsApp *</label>
+                                    <input class="enq-control" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code">
+                                    <span class="enq-field-error">Please enter a valid phone number.</span>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="country">Country *</label>
+                                    <input class="enq-control" id="country" name="country" type="text" autocomplete="country-name" placeholder="Country">
+                                    <span class="enq-field-error">Please enter your country.</span>
+                                </div>
+                                <div class="enq-field">
+                                    <label for="preferredContact">Preferred Response Method</label>
+                                    <select class="enq-control" id="preferredContact" name="preferredContact">
+                                        <option>Email</option>
+                                        <option>Phone</option>
+                                        <option>WhatsApp</option>
+                                        <option>Video Meeting</option>
+                                    </select>
+                                </div>
+                                <div class="enq-field enq-field--full">
+                                    <label for="companyAddress">Company Address</label>
+                                    <textarea class="enq-control" id="companyAddress" name="companyAddress" rows="3" autocomplete="street-address" placeholder="Registered office, plant or delivery address"></textarea>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="enq-consent enq-field" id="consentField">
+                            <input type="checkbox" id="consent" name="consent">
+                            <label for="consent">
+                                I confirm that the information and files supplied may be reviewed by Pradako Mechanical &amp; Engineering Works for technical feasibility, quotation, development and communication relating to this enquiry. *
+                            </label>
+                            <span class="enq-field-error" style="grid-column:2;">Please provide consent to continue.</span>
+                        </div>
+
+                        <div class="enq-actions">
+                            <button type="button" class="enq-save" id="saveDraftButton"><i class="fa-regular fa-bookmark"></i> Save Draft</button>
+                            <button type="submit" class="enq-submit"><span>Review &amp; Send Enquiry</span><i class="fa-solid fa-arrow-right-long"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="enq-sidebar" aria-label="Enquiry summary and support">
+                    <section class="enq-summary">
+                        <header class="enq-summary-head">
+                            <span>Live Enquiry Summary</span>
+                            <h3>Requirement Status</h3>
+                        </header>
+                        <div class="enq-summary-body">
+                            <ul class="enq-summary-list">
+                                <li><span>Enquiry Type</span><strong id="summaryType">Standard Products</strong></li>
+                                <li><span>Product Lines</span><strong id="summaryProducts">01 / 20</strong></li>
+                                <li><span>Attachments</span><strong id="summaryFiles">00 / 05</strong></li>
+                                <li><span>Priority</span><strong id="summaryPriority">Normal</strong></li>
+                                <li><span>Completion</span><strong id="summaryCompletion">0%</strong></li>
+                            </ul>
+                            <div class="enq-summary-progress" aria-hidden="true"><span id="summaryProgress"></span></div>
+                            <p class="enq-summary-caption">Completion is an estimate based on key enquiry information.</p>
+                        </div>
+                    </section>
+
+                    <section class="enq-support">
+                        <h3>Need engineering guidance?</h3>
+                        <p>Use the general enquiry route when you need help identifying a standard, material, coating, test or product configuration.</p>
+                        <a class="enq-support-link" href="mailto:info@pradakomechanicals.com"><i class="fa-regular fa-envelope"></i> info@pradakomechanicals.com</a>
+                        <a class="enq-support-link" href="/pages/products/products.html"><i class="fa-solid fa-layer-group"></i> Explore Product Portfolio</a>
+                        <a class="enq-support-link" href="/pages/standards/technical-chart.html"><i class="fa-solid fa-chart-column"></i> Open Technical Charts</a>
+                    </section>
+
+                    <section class="enq-trust">
+                        <strong>Confidential engineering review</strong>
+                        <p>Drawing, sample and project information should be shared only when you are authorised to disclose it. NDA requirements may be mentioned in the enquiry.</p>
+                    </section>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- PMEW FOOTER — loaded by /js/script.js -->
+    <div id="footer-container"></div>
+
+    <!-- ENQUIRY PREVIEW -->
+    <div class="enq-modal" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle" aria-hidden="true">
+        <div class="enq-modal-dialog">
+            <header class="enq-modal-head">
+                <div>
+                    <span>Enquiry Ready</span>
+                    <h2 id="enquiryModalTitle">Review before sending</h2>
+                </div>
+                <button class="enq-modal-close" id="closeModalButton" type="button" aria-label="Close enquiry preview"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <div class="enq-modal-body">
+                <pre class="enq-preview" id="enquiryPreview"></pre>
+                <p class="enq-modal-note">Attachments are not added automatically to email or WhatsApp. Attach the selected files manually after opening your preferred channel.</p>
+            </div>
+            <footer class="enq-modal-actions">
+                <button class="enq-modal-action" id="copyEnquiryButton" type="button"><i class="fa-regular fa-copy"></i> Copy Enquiry</button>
+                <a class="enq-modal-action" id="whatsappEnquiryButton" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a class="enq-modal-action enq-modal-action--primary" id="emailEnquiryButton" href="#"><i class="fa-regular fa-envelope"></i> Send by Email</a>
+            </footer>
+        </div>
+    </div>
+
+    <div class="enq-toast" id="enquiryToast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span></span></div>
+
+    <template id="productRowTemplate">
+        <div class="enq-product-item" data-product-row>
+            <div class="enq-product-index" data-product-index>01</div>
+            <div class="enq-field">
+                <label>Product / Standard *</label>
+                <input class="enq-control" type="text" data-product-field="product" placeholder="DIN 912 / Socket head cap screw">
+                <span class="enq-field-error">Enter a product or standard.</span>
+            </div>
+            <div class="enq-field">
+                <label>Size / Specification</label>
+                <input class="enq-control" type="text" data-product-field="size" placeholder="M8 × 40 / thread / tolerance">
+            </div>
+            <div class="enq-field">
+                <label>Material / Grade / Finish</label>
+                <input class="enq-control" type="text" data-product-field="material" placeholder="10.9 · zinc flake">
+            </div>
+            <div class="enq-field">
+                <label>Quantity *</label>
+                <input class="enq-control" type="text" data-product-field="quantity" placeholder="10,000 pcs">
+                <span class="enq-field-error">Enter a quantity.</span>
+            </div>
+            <button type="button" class="enq-remove-product" data-remove-product aria-label="Remove product"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+    </template>
+
+    <!-- PMEW navbar and footer loader -->
+    <script>
+    (function () {
+        "use strict";
+
+        const MAX_PRODUCTS = 20;
+        const MAX_FILES = 5;
+        const MAX_FILE_SIZE = 10 * 1024 * 1024;
+        const DRAFT_KEY = "pmew-send-enquiry-draft-v1";
+
+        const form = document.getElementById("enquiryForm");
+        const productList = document.getElementById("productList");
+        const productTemplate = document.getElementById("productRowTemplate");
+        const addProductButton = document.getElementById("addProductButton");
+        const typeInputs = Array.from(document.querySelectorAll('input[name="enquiryType"]'));
+        const panels = Array.from(document.querySelectorAll("[data-enq-panel]"));
+        const attachmentInput = document.getElementById("attachments");
+        const uploadZone = document.getElementById("uploadZone");
+        const fileList = document.getElementById("fileList");
+        const modal = document.getElementById("enquiryModal");
+        const modalClose = document.getElementById("closeModalButton");
+        const preview = document.getElementById("enquiryPreview");
+        const copyButton = document.getElementById("copyEnquiryButton");
+        const whatsappButton = document.getElementById("whatsappEnquiryButton");
+        const emailButton = document.getElementById("emailEnquiryButton");
+        const saveDraftButton = document.getElementById("saveDraftButton");
+        const toast = document.getElementById("enquiryToast");
+
+        let selectedFiles = [];
+        let lastFocusedElement = null;
+        let toastTimer = null;
+
+        function pad(value) {
+            return String(value).padStart(2, "0");
+        }
+
+        function showToast(message) {
+            window.clearTimeout(toastTimer);
+            toast.querySelector("span").textContent = message;
+            toast.classList.add("is-visible");
+            toastTimer = window.setTimeout(function () {
+                toast.classList.remove("is-visible");
+            }, 2600);
+        }
+
+        function currentType() {
+            const checked = typeInputs.find(function (input) { return input.checked; });
+            return checked ? checked.value : "standard";
+        }
+
+        function typeLabel(type) {
+            return {
+                standard: "Standard Products",
+                custom: "Customised Products",
+                general: "General Enquiry"
+            }[type] || "General Enquiry";
+        }
+
+        function setType(type) {
+            typeInputs.forEach(function (input) { input.checked = input.value === type; });
+            panels.forEach(function (panel) {
+                panel.classList.toggle("is-active", panel.dataset.enqPanel === type);
+            });
+            updateSummary();
+        }
+
+        function createProductRow(data) {
+            if (productList.children.length >= MAX_PRODUCTS) return;
+            const row = productTemplate.content.firstElementChild.cloneNode(true);
+            const values = data || {};
+            row.querySelector('[data-product-field="product"]').value = values.product || "";
+            row.querySelector('[data-product-field="size"]').value = values.size || "";
+            row.querySelector('[data-product-field="material"]').value = values.material || "";
+            row.querySelector('[data-product-field="quantity"]').value = values.quantity || "";
+            productList.appendChild(row);
+            renumberProducts();
+        }
+
+        function renumberProducts() {
+            const rows = Array.from(productList.querySelectorAll("[data-product-row]"));
+            rows.forEach(function (row, index) {
+                row.querySelector("[data-product-index]").textContent = pad(index + 1);
+                const remove = row.querySelector("[data-remove-product]");
+                remove.disabled = rows.length === 1;
+                remove.setAttribute("aria-disabled", rows.length === 1 ? "true" : "false");
+            });
+            addProductButton.disabled = rows.length >= MAX_PRODUCTS;
+            updateSummary();
+        }
+
+        function getProducts() {
+            return Array.from(productList.querySelectorAll("[data-product-row]")).map(function (row) {
+                return {
+                    product: row.querySelector('[data-product-field="product"]').value.trim(),
+                    size: row.querySelector('[data-product-field="size"]').value.trim(),
+                    material: row.querySelector('[data-product-field="material"]').value.trim(),
+                    quantity: row.querySelector('[data-product-field="quantity"]').value.trim()
+                };
+            });
+        }
+
+        function renderFiles() {
+            fileList.innerHTML = "";
+            selectedFiles.forEach(function (file) {
+                const item = document.createElement("div");
+                item.className = "enq-file";
+                item.innerHTML = '<span class="enq-file-name"><i class="fa-regular fa-file" aria-hidden="true"></i> ' + escapeHtml(file.name) + '</span><span class="enq-file-meta">' + formatBytes(file.size) + "</span>";
+                fileList.appendChild(item);
+            });
+            document.getElementById("summaryFiles").textContent = pad(selectedFiles.length) + " / " + pad(MAX_FILES);
+            updateSummary();
+        }
+
+        function acceptFiles(fileCollection) {
+            const incoming = Array.from(fileCollection || []);
+            const accepted = [];
+            incoming.forEach(function (file) {
+                if (selectedFiles.length + accepted.length >= MAX_FILES) return;
+                if (file.size > MAX_FILE_SIZE) {
+                    showToast(file.name + " exceeds the 10 MB limit.");
+                    return;
+                }
+                const duplicate = selectedFiles.concat(accepted).some(function (existing) {
+                    return existing.name === file.name && existing.size === file.size && existing.lastModified === file.lastModified;
+                });
+                if (!duplicate) accepted.push(file);
+            });
+            selectedFiles = selectedFiles.concat(accepted).slice(0, MAX_FILES);
+            renderFiles();
+        }
+
+        function formatBytes(bytes) {
+            if (!bytes) return "0 KB";
+            if (bytes < 1024 * 1024) return Math.max(1, Math.round(bytes / 1024)) + " KB";
+            return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>'"]/g, function (char) {
+                return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char];
+            });
+        }
+
+        function fieldValue(id) {
+            const element = document.getElementById(id);
+            return element ? element.value.trim() : "";
+        }
+
+        function selectedValue(name) {
+            const checked = form.querySelector('[name="' + name + '"]:checked');
+            return checked ? checked.value : "";
+        }
+
+        function checkedValues(name) {
+            return Array.from(form.querySelectorAll('[name="' + name + '"]:checked')).map(function (input) { return input.value; });
+        }
+
+        function calculateCompletion() {
+            const type = currentType();
+            const checks = [
+                fieldValue("contactName"),
+                fieldValue("companyName"),
+                fieldValue("email"),
+                fieldValue("phone"),
+                fieldValue("country"),
+                document.getElementById("consent").checked
+            ];
+
+            if (type === "standard") {
+                const validProduct = getProducts().some(function (item) { return item.product && item.quantity; });
+                checks.push(validProduct);
+            } else if (type === "custom") {
+                checks.push(fieldValue("customPartName"), fieldValue("customDetails"));
+            } else {
+                checks.push(fieldValue("generalSubject"), fieldValue("generalDetails"));
+            }
+
+            const complete = checks.filter(Boolean).length;
+            return Math.round((complete / checks.length) * 100);
+        }
+
+        function updateSummary() {
+            const type = currentType();
+            const productCount = productList.querySelectorAll("[data-product-row]").length;
+            const priority = selectedValue("priority") || "Normal";
+            const completion = calculateCompletion();
+
+            document.getElementById("summaryType").textContent = typeLabel(type);
+            document.getElementById("summaryProducts").textContent = type === "standard" ? pad(productCount) + " / " + pad(MAX_PRODUCTS) : "—";
+            document.getElementById("summaryFiles").textContent = pad(selectedFiles.length) + " / " + pad(MAX_FILES);
+            document.getElementById("summaryPriority").textContent = priority;
+            document.getElementById("summaryCompletion").textContent = completion + "%";
+            document.getElementById("summaryProgress").style.width = completion + "%";
+        }
+
+        function clearErrors() {
+            form.querySelectorAll(".enq-field.has-error").forEach(function (field) { field.classList.remove("has-error"); });
+            form.querySelectorAll('[aria-invalid="true"]').forEach(function (control) { control.removeAttribute("aria-invalid"); });
+        }
+
+        function markInvalid(control) {
+            if (!control) return;
+            control.setAttribute("aria-invalid", "true");
+            const field = control.closest(".enq-field");
+            if (field) field.classList.add("has-error");
+        }
+
+        function validate() {
+            clearErrors();
+            const invalid = [];
+            const type = currentType();
+
+            if (type === "standard") {
+                const rows = Array.from(productList.querySelectorAll("[data-product-row]"));
+                let validRows = 0;
+                rows.forEach(function (row) {
+                    const product = row.querySelector('[data-product-field="product"]');
+                    const quantity = row.querySelector('[data-product-field="quantity"]');
+                    const hasAny = product.value.trim() || quantity.value.trim() || row.querySelector('[data-product-field="size"]').value.trim() || row.querySelector('[data-product-field="material"]').value.trim();
+                    if (hasAny) {
+                        if (!product.value.trim()) { markInvalid(product); invalid.push(product); }
+                        if (!quantity.value.trim()) { markInvalid(quantity); invalid.push(quantity); }
+                        if (product.value.trim() && quantity.value.trim()) validRows += 1;
+                    }
+                });
+                if (!validRows && rows.length) {
+                    const product = rows[0].querySelector('[data-product-field="product"]');
+                    const quantity = rows[0].querySelector('[data-product-field="quantity"]');
+                    markInvalid(product); markInvalid(quantity); invalid.push(product, quantity);
+                }
+            }
+
+            if (type === "custom") {
+                [document.getElementById("customPartName"), document.getElementById("customDetails")].forEach(function (control) {
+                    if (!control.value.trim()) { markInvalid(control); invalid.push(control); }
+                });
+            }
+
+            if (type === "general") {
+                [document.getElementById("generalSubject"), document.getElementById("generalDetails")].forEach(function (control) {
+                    if (!control.value.trim()) { markInvalid(control); invalid.push(control); }
+                });
+            }
+
+            ["contactName", "companyName", "email", "phone", "country"].forEach(function (id) {
+                const control = document.getElementById(id);
+                if (!control.value.trim()) { markInvalid(control); invalid.push(control); }
+            });
+
+            const email = document.getElementById("email");
+            if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                markInvalid(email); invalid.push(email);
+            }
+
+            const phone = document.getElementById("phone");
+            if (phone.value.trim() && phone.value.replace(/\D/g, "").length < 7) {
+                markInvalid(phone); invalid.push(phone);
+            }
+
+            const consent = document.getElementById("consent");
+            if (!consent.checked) {
+                document.getElementById("consentField").classList.add("has-error");
+                invalid.push(consent);
+            }
+
+            if (form.elements.website.value) return false;
+
+            if (invalid.length) {
+                invalid[0].focus({ preventScroll: true });
+                invalid[0].scrollIntoView({ behavior: "smooth", block: "center" });
+                showToast("Please complete the highlighted fields.");
+                return false;
+            }
+            return true;
+        }
+
+        function line(label, value) {
+            return value ? label + ": " + value : "";
+        }
+
+        function buildEnquiryText() {
+            const type = currentType();
+            const date = new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(new Date());
+            const expectations = checkedValues("expectations");
+            const attachments = selectedFiles.map(function (file) { return file.name; });
+            const lines = [];
+
+            lines.push("SEND ENQUIRY — PRADAKO MECHANICAL & ENGINEERING WORKS");
+            lines.push("Date: " + date);
+            lines.push("Enquiry Type: " + typeLabel(type));
+            lines.push("Priority: " + (selectedValue("priority") || "Normal"));
+            lines.push("");
+
+            if (type === "standard") {
+                lines.push("PRODUCT REQUIREMENTS");
+                getProducts().filter(function (item) { return item.product || item.quantity || item.size || item.material; }).forEach(function (item, index) {
+                    lines.push((index + 1) + ". " + (item.product || "Product not stated"));
+                    if (item.size) lines.push("   Size / Specification: " + item.size);
+                    if (item.material) lines.push("   Material / Grade / Finish: " + item.material);
+                    if (item.quantity) lines.push("   Quantity: " + item.quantity);
+                });
+                if (fieldValue("standardApplication")) lines.push("Application / Industry: " + fieldValue("standardApplication"));
+                if (fieldValue("standardAnnualVolume")) lines.push("Estimated Annual Volume: " + fieldValue("standardAnnualVolume"));
+            }
+
+            if (type === "custom") {
+                lines.push("CUSTOMISED PRODUCT REQUIREMENT");
+                [
+                    line("Part / Project Name", fieldValue("customPartName")),
+                    line("Drawing / Part Number", fieldValue("customReference")),
+                    line("Material / Grade", fieldValue("customMaterial")),
+                    line("Coating / Finish", fieldValue("customFinish")),
+                    line("Development / Order Quantity", fieldValue("customQuantity")),
+                    line("Application / Assembly", fieldValue("customApplication")),
+                    line("Technical Requirement", fieldValue("customDetails"))
+                ].filter(Boolean).forEach(function (entry) { lines.push(entry); });
+            }
+
+            if (type === "general") {
+                lines.push("GENERAL ENQUIRY");
+                [
+                    line("Subject", fieldValue("generalSubject")),
+                    line("Reference Number", fieldValue("generalReference")),
+                    line("Details", fieldValue("generalDetails"))
+                ].filter(Boolean).forEach(function (entry) { lines.push(entry); });
+            }
+
+            lines.push("");
+            lines.push("TECHNICAL / COMMERCIAL EXPECTATIONS");
+            if (expectations.length) lines.push("Required Support: " + expectations.join(", "));
+            if (fieldValue("requiredDate")) lines.push("Required Delivery / Response Date: " + fieldValue("requiredDate"));
+            if (fieldValue("deliveryLocation")) lines.push("Delivery Location: " + fieldValue("deliveryLocation"));
+            if (fieldValue("commercialNotes")) lines.push("Commercial / Packing / Logistics Notes: " + fieldValue("commercialNotes"));
+            if (!expectations.length && !fieldValue("requiredDate") && !fieldValue("deliveryLocation") && !fieldValue("commercialNotes")) lines.push("Not specified.");
+
+            lines.push("");
+            lines.push("ATTACHMENTS");
+            lines.push(attachments.length ? attachments.join(", ") : "No files selected.");
+
+            lines.push("");
+            lines.push("BUYER DETAILS");
+            [
+                line("Contact Name", fieldValue("contactName")),
+                line("Designation / Department", fieldValue("designation")),
+                line("Company", fieldValue("companyName")),
+                line("Industry / Sector", fieldValue("industry")),
+                line("Business Email", fieldValue("email")),
+                line("Phone / WhatsApp", fieldValue("phone")),
+                line("Country", fieldValue("country")),
+                line("Preferred Response Method", fieldValue("preferredContact")),
+                line("Company Address", fieldValue("companyAddress"))
+            ].filter(Boolean).forEach(function (entry) { lines.push(entry); });
+
+            lines.push("");
+            lines.push("Please review the requirement and advise feasibility, technical clarifications, commercial terms, tooling / development considerations and the next steps.");
+
+            return lines.join("\n");
+        }
+
+        function openModal(text) {
+            lastFocusedElement = document.activeElement;
+            preview.textContent = text;
+            const subject = "Send Enquiry — " + fieldValue("companyName") + " — " + typeLabel(currentType());
+            emailButton.href = "mailto:info@pradakomechanicals.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+            whatsappButton.href = "https://wa.me/?text=" + encodeURIComponent(text);
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("enq-modal-open");
+            modalClose.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("enq-modal-open");
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        function collectDraft() {
+            const data = {};
+            new FormData(form).forEach(function (value, key) {
+                if (key !== "attachments" && key !== "website") {
+                    if (Object.prototype.hasOwnProperty.call(data, key)) {
+                        data[key] = Array.isArray(data[key]) ? data[key].concat(value) : [data[key], value];
+                    } else {
+                        data[key] = value;
+                    }
+                }
+            });
+            data.products = getProducts();
+            data.type = currentType();
+            return data;
+        }
+
+        function saveDraft() {
+            try {
+                localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+                showToast("Enquiry draft saved on this device.");
+            } catch (error) {
+                showToast("The draft could not be saved in this browser.");
+            }
+        }
+
+        function restoreDraft() {
+            let data;
+            try { data = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch (error) { data = null; }
+            if (!data) return;
+
+            setType(data.type || "standard");
+            Object.keys(data).forEach(function (key) {
+                if (["products", "type", "expectations"].includes(key)) return;
+                const elements = Array.from(form.querySelectorAll('[name="' + CSS.escape(key) + '"]'));
+                elements.forEach(function (element) {
+                    if (element.type === "radio") {
+                        element.checked = Array.isArray(data[key]) ? data[key].includes(element.value) : element.value === data[key];
+                    } else if (element.type === "checkbox") {
+                        element.checked = Array.isArray(data[key]) ? data[key].includes(element.value) : Boolean(data[key]);
+                    } else if (typeof data[key] === "string") {
+                        element.value = data[key];
+                    }
+                });
+            });
+
+            if (Array.isArray(data.expectations)) {
+                data.expectations.forEach(function (value) {
+                    const input = form.querySelector('input[name="expectations"][value="' + CSS.escape(value) + '"]');
+                    if (input) input.checked = true;
+                });
+            }
+
+            productList.innerHTML = "";
+            const products = Array.isArray(data.products) && data.products.length ? data.products : [{}];
+            products.slice(0, MAX_PRODUCTS).forEach(createProductRow);
+            updateSummary();
+            showToast("Saved enquiry draft restored.");
+        }
+
+        addProductButton.addEventListener("click", function () { createProductRow({}); });
+        productList.addEventListener("click", function (event) {
+            const button = event.target.closest("[data-remove-product]");
+            if (!button || button.disabled) return;
+            button.closest("[data-product-row]").remove();
+            renumberProducts();
+        });
+        productList.addEventListener("input", function () { updateSummary(); });
+
+        typeInputs.forEach(function (input) {
+            input.addEventListener("change", function () { setType(input.value); });
+        });
+
+        form.addEventListener("input", updateSummary);
+        form.addEventListener("change", updateSummary);
+
+        attachmentInput.addEventListener("change", function () {
+            acceptFiles(attachmentInput.files);
+            attachmentInput.value = "";
+        });
+        ["dragenter", "dragover"].forEach(function (name) {
+            uploadZone.addEventListener(name, function (event) { event.preventDefault(); uploadZone.classList.add("is-dragover"); });
+        });
+        ["dragleave", "drop"].forEach(function (name) {
+            uploadZone.addEventListener(name, function (event) { event.preventDefault(); uploadZone.classList.remove("is-dragover"); });
+        });
+        uploadZone.addEventListener("drop", function (event) { acceptFiles(event.dataTransfer.files); });
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (!validate()) return;
+            openModal(buildEnquiryText());
+        });
+
+        saveDraftButton.addEventListener("click", saveDraft);
+        modalClose.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (event) { if (event.target === modal) closeModal(); });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+        });
+
+        copyButton.addEventListener("click", function () {
+            const text = preview.textContent;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function () { showToast("Enquiry copied to clipboard."); });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+                showToast("Enquiry copied to clipboard.");
+            }
+        });
+
+        createProductRow({});
+        restoreDraft();
+        updateSummary();
+    }());
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

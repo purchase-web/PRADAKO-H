@@ -1,0 +1,413 @@
+/* ======================================================
+   HERO
+====================================================== */
+
+.zinc-hero {
+    padding: 220px 0 120px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f8fa 0%,
+            #eef2f6 100%
+        );
+
+    text-align: center;
+}
+
+.zinc-hero-content {
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.zinc-hero h1 {
+    font-family: var(--font-primary);
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    font-weight: 700;
+
+    color: var(--color-navy);
+
+    margin: 24px 0;
+}
+
+.zinc-hero-subtitle {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    font-size: 1.1rem;
+
+    line-height: 1.9;
+}
+
+/* ======================================================
+   COMMON
+====================================================== */
+
+.zinc-technologies,
+.zinc-benefits,
+.zinc-process,
+.zinc-standards,
+.zinc-testing,
+.zinc-environment {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+
+    max-width: 850px;
+
+    margin: 0 auto 60px;
+}
+
+/* ======================================================
+   TECHNOLOGY GRID
+====================================================== */
+
+.zinc-tech-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.zinc-tech-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    box-shadow: var(--shadow-md);
+
+    transition: 0.3s ease;
+}
+
+.zinc-tech-card:hover {
+    transform: translateY(-6px);
+}
+
+.zinc-tech-card h3 {
+    color: var(--color-navy);
+
+    margin-bottom: 15px;
+}
+
+/* ======================================================
+   BENEFITS
+====================================================== */
+
+.zinc-benefits-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+.zinc-benefit-card {
+    background: white;
+
+    padding: 32px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-md);
+}
+
+.zinc-benefit-card i {
+    font-size: 2rem;
+
+    color: var(--color-gold);
+
+    margin-bottom: 20px;
+}
+
+/* ======================================================
+   PROCESS
+====================================================== */
+
+.zinc-process-timeline {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
+    gap: 20px;
+}
+
+.process-step {
+    background: white;
+
+    padding: 24px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-md);
+}
+
+.process-step span {
+    display: inline-flex;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: var(--color-gold);
+
+    color: white;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    font-weight: 700;
+}
+
+/* ======================================================
+   TABLE
+====================================================== */
+
+.zinc-table-wrapper {
+    overflow-x: auto;
+}
+
+.zinc-standards-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-md);
+}
+
+.zinc-standards-table th {
+    background: var(--color-navy);
+
+    color: white;
+
+    padding: 18px;
+}
+
+.zinc-standards-table td {
+    padding: 18px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* ======================================================
+   TESTING
+====================================================== */
+
+.zinc-testing-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+}
+
+.zinc-testing-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-md);
+}
+
+.zinc-testing-card i {
+    font-size: 2rem;
+
+    color: var(--color-gold);
+
+    margin-bottom: 18px;
+}
+
+/* ======================================================
+   ENVIRONMENT
+====================================================== */
+
+.zinc-environment-layout {
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.zinc-environment-list {
+    margin-top: 25px;
+
+    padding-left: 20px;
+}
+
+.zinc-environment-list li {
+    margin-bottom: 12px;
+}
+
+.zinc-environment-card {
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+/* ======================================================
+   CTA
+====================================================== */
+
+.zinc-cta {
+    padding: 100px 0 120px;
+}
+
+.zinc-cta-box {
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-navy),
+            #243b55
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 70px;
+
+    border-radius: 30px;
+}
+
+.zinc-cta-box h2 {
+    color: white;
+
+    margin: 20px 0;
+}
+
+.zinc-cta-box p {
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 992px) {
+
+    .zinc-environment-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .zinc-hero {
+        padding: 180px 0 90px;
+    }
+
+    .zinc-technologies,
+    .zinc-benefits,
+    .zinc-process,
+    .zinc-standards,
+    .zinc-testing,
+    .zinc-environment,
+    .zinc-cta {
+        padding: 80px 0;
+    }
+
+    .zinc-cta-box {
+        padding: 50px 30px;
+    }
+
+}
+
+/* ======================================================
+   REVEAL ANIMATION
+====================================================== */
+
+.reveal-element {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-element.revealed {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* ======================================================
+   PROCESS ACTIVE STATE
+====================================================== */
+
+.process-step {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.process-step.active {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+
+    border: 1px solid rgba(197,160,40,0.25);
+}
+
+/* ======================================================
+   CARD HOVER REFINEMENT
+====================================================== */
+
+.zinc-tech-card,
+.zinc-benefit-card,
+.zinc-testing-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.zinc-tech-card:hover,
+.zinc-benefit-card:hover,
+.zinc-testing-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+}

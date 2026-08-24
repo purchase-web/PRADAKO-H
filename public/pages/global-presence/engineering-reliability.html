@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Engineering Reliability at Pradako Mechanical & Engineering Works — disciplined manufacturing, verified materials, process assurance and dependable global supply."
+    >
+
+    <title>Engineering Reliability | PMEW</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- PMEW SHARED STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/sustainability-roadmap.css">
+    <link rel="stylesheet" href="/assets/css/pmew-engineering-response-desk.css?v=18">
+
+    <style>
+        /* =========================================================
+           PMEW ENGINEERING RELIABILITY
+           UNIQUE PREFIX: pmew-erx-
+        ========================================================= */
+
+        :root {
+            --pmew-erx-white: #ffffff;
+            --pmew-erx-soft-white: #f6f6f3;
+            --pmew-erx-warm-white: #fbfaf7;
+            --pmew-erx-ink: #111214;
+            --pmew-erx-charcoal: #25272a;
+            --pmew-erx-grey: #5a6270;
+            --pmew-erx-light-grey: #e9e9e5;
+            --pmew-erx-line: rgba(17, 18, 20, 0.12);
+            --pmew-erx-accent: #f2c94c;
+            --pmew-erx-accent-dark: #d8aa20;
+            --pmew-erx-radius: 34px;
+            --pmew-erx-container: 1480px;
+            --pmew-erx-section-space: clamp(92px, 10vw, 160px);
+        }
+
+        .pmew-erx-page,
+        .pmew-erx-page *,
+        .pmew-erx-page *::before,
+        .pmew-erx-page *::after {
+            box-sizing: border-box;
+        }
+
+        .pmew-erx-page * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .pmew-erx-site-page {
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--pmew-erx-ink);
+            background: var(--pmew-erx-white);
+            font-family: "Montserrat", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .pmew-erx-page a:not(.pmew-erx-btn) {
+            color: inherit;
+        }
+
+        .pmew-erx-page {
+            width: 100%;
+            overflow: hidden;
+            background: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-container {
+            position: relative;
+            z-index: 2;
+            width: min(calc(100% - 80px), var(--pmew-erx-container));
+            margin-inline: auto;
+        }
+
+        .pmew-erx-section-index {
+            position: absolute;
+            top: 34px;
+            right: 42px;
+            z-index: 3;
+            font-family: "Space Mono", monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(17, 18, 20, 0.36);
+        }
+
+        .pmew-erx-section-index-light {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .pmew-erx-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-eyebrow::before {
+            width: 42px;
+            height: 2px;
+            content: "";
+            background: var(--pmew-erx-accent);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .pmew-erx-hero {
+            position: relative;
+            display: flex;
+            min-height: 100svh;
+            align-items: center;
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-hero::before {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+            content: "";
+            opacity: 0.52;
+            background-image:
+                linear-gradient(
+                    rgba(17, 18, 20, 0.048) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(17, 18, 20, 0.048) 1px,
+                    transparent 1px
+                );
+            background-size: 76px 76px;
+            mask-image: linear-gradient(
+                90deg,
+                transparent 0%,
+                transparent 35%,
+                #000 74%,
+                #000 100%
+            );
+        }
+
+        .pmew-erx-hero-grid {
+            display: grid;
+            min-height: 100svh;
+            align-items: center;
+            gap: clamp(50px, 8vw, 130px);
+            grid-template-columns: minmax(0, 1.13fr) minmax(390px, 0.87fr);
+            padding-block: 125px 90px;
+        }
+
+        .pmew-erx-hero-copy {
+            position: relative;
+            z-index: 3;
+        }
+
+        .pmew-erx-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            font-family: "Space Mono", monospace;
+            font-size: clamp(0.68rem, 0.8vw, 0.8rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-hero-label-icon {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border: 1px solid var(--pmew-erx-line);
+            border-radius: 50%;
+            color: var(--pmew-erx-ink);
+            background: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-hero-title {
+            max-width: 1080px;
+            font-size: clamp(4rem, 8.3vw, 10rem);
+            font-weight: 800;
+            line-height: 0.82;
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erx-hero-title span {
+            display: block;
+        }
+
+        .pmew-erx-title-outline {
+            color: transparent;
+            -webkit-text-stroke: clamp(1px, 0.14vw, 2px) var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-title-highlight {
+            position: relative;
+            display: inline-block !important;
+            z-index: 1;
+        }
+
+        .pmew-erx-title-highlight::after {
+            position: absolute;
+            right: -1%;
+            bottom: 4%;
+            left: -1%;
+            z-index: -1;
+            height: 22%;
+            content: "";
+            background: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-hero-intro {
+            max-width: 760px;
+            margin-top: 46px;
+            font-size: clamp(1.02rem, 1.35vw, 1.3rem);
+            font-weight: 500;
+            line-height: 1.78;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-hero-intro strong {
+            color: var(--pmew-erx-ink);
+            font-weight: 700;
+        }
+
+        .pmew-erx-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 40px;
+        }
+
+        .pmew-erx-btn {
+            display: inline-flex;
+            min-height: 58px;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            padding: 15px 27px;
+            border: 1px solid var(--pmew-erx-ink);
+            border-radius: 100px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition:
+                transform 0.3s ease,
+                color 0.3s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        /* Explicit button colours prevent shared website CSS from
+           overriding the intended text and icon contrast. */
+        .pmew-erx-page .pmew-erx-btn-primary,
+        .pmew-erx-page .pmew-erx-btn-primary:link,
+        .pmew-erx-page .pmew-erx-btn-primary:visited {
+            color: var(--pmew-erx-white) !important;
+            background: var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-page .pmew-erx-btn-primary i {
+            color: var(--pmew-erx-white) !important;
+        }
+
+        .pmew-erx-page .pmew-erx-btn-secondary,
+        .pmew-erx-page .pmew-erx-btn-secondary:link,
+        .pmew-erx-page .pmew-erx-btn-secondary:visited {
+            color: var(--pmew-erx-ink) !important;
+            background: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-page .pmew-erx-btn-secondary i {
+            color: var(--pmew-erx-ink) !important;
+        }
+
+        .pmew-erx-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .pmew-erx-page .pmew-erx-btn-primary:hover,
+        .pmew-erx-page .pmew-erx-btn-primary:focus-visible {
+            border-color: var(--pmew-erx-accent);
+            color: var(--pmew-erx-ink) !important;
+            background: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-page .pmew-erx-btn-primary:hover i,
+        .pmew-erx-page .pmew-erx-btn-primary:focus-visible i {
+            color: var(--pmew-erx-ink) !important;
+        }
+
+        .pmew-erx-page .pmew-erx-btn-secondary:hover,
+        .pmew-erx-page .pmew-erx-btn-secondary:focus-visible {
+            color: var(--pmew-erx-ink) !important;
+            background: var(--pmew-erx-soft-white);
+        }
+
+        /* =========================================================
+           HERO PRODUCT VISUAL
+        ========================================================= */
+
+        .pmew-erx-hero-media {
+            position: relative;
+            display: flex;
+            min-height: 650px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pmew-erx-hero-media::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 0;
+            width: min(78%, 470px);
+            aspect-ratio: 1;
+            content: "";
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(242, 201, 76, 0.18) 0%,
+                rgba(242, 201, 76, 0.08) 36%,
+                rgba(242, 201, 76, 0) 70%
+            );
+            filter: blur(6px);
+        }
+
+        .pmew-erx-hero-media-shell {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 620px);
+            padding: 28px;
+            border: 1px solid rgba(17, 18, 20, 0.1);
+            border-radius: 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #fafaf7 100%);
+            box-shadow: 0 32px 90px rgba(17, 18, 20, 0.08);
+        }
+
+        .pmew-erx-hero-media-frame {
+            display: grid;
+            aspect-ratio: 1 / 1;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(17, 18, 20, 0.08);
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(242, 201, 76, 0.1) 0%, rgba(242, 201, 76, 0.03) 28%, rgba(255, 255, 255, 0) 54%),
+                linear-gradient(180deg, #ffffff 0%, #f6f6f3 100%);
+        }
+
+        .pmew-erx-hero-product-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 540px;
+            max-height: 540px;
+            object-fit: contain;
+            object-position: center;
+            padding: 25px;
+            filter: drop-shadow(20px 28px 24px rgba(17, 18, 20, 0.16));
+        }
+
+        .pmew-erx-hero-media-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 18px;
+        }
+
+        .pmew-erx-hero-media-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border: 1px solid rgba(17, 18, 20, 0.1);
+            border-radius: 100px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--pmew-erx-ink);
+            background: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-hero-media-chip i {
+            color: var(--pmew-erx-accent-dark);
+        }
+
+        .pmew-erx-hero-media-tag {
+            font-family: "Space Mono", monospace;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--pmew-erx-grey);
+        }
+
+        /* =========================================================
+           GLOBAL STATEMENT
+        ========================================================= */
+
+        .pmew-erx-global {
+            position: relative;
+            display: flex;
+            min-height: 100svh;
+            align-items: center;
+            isolation: isolate;
+            overflow: hidden;
+            color: var(--pmew-erx-white);
+            background: var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-global::before {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            content: "";
+            opacity: 0.22;
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.07) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.07) 1px,
+                    transparent 1px
+                );
+            background-size: 92px 92px;
+        }
+
+        .pmew-erx-global::after {
+            position: absolute;
+            top: 50%;
+            right: -17vw;
+            z-index: -1;
+            width: min(78vw, 1100px);
+            aspect-ratio: 1;
+            content: "";
+            transform: translateY(-50%);
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 105px rgba(255, 255, 255, 0.024),
+                0 0 0 210px rgba(255, 255, 255, 0.017),
+                0 0 0 315px rgba(255, 255, 255, 0.01);
+        }
+
+        .pmew-erx-global-inner {
+            padding-block: var(--pmew-erx-section-space);
+        }
+
+        .pmew-erx-global-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 44px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .pmew-erx-global-label::before {
+            width: 50px;
+            height: 2px;
+            content: "";
+            background: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-global-title {
+            max-width: 1300px;
+            font-size: clamp(4rem, 9.3vw, 11rem);
+            font-weight: 800;
+            line-height: 0.84;
+            letter-spacing: -0.078em;
+            text-transform: uppercase;
+            color: var(--pmew-erx-soft-white);
+        }
+
+        .pmew-erx-global-title span {
+            display: block;
+        }
+
+        .pmew-erx-global-accent {
+            color: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-global-bottom {
+            display: grid;
+            max-width: 1200px;
+            gap: 70px;
+            align-items: end;
+            margin-top: 68px;
+            grid-template-columns: 1.25fr 0.75fr;
+        }
+
+        .pmew-erx-global-copy {
+            font-size: clamp(1.04rem, 1.45vw, 1.38rem);
+            line-height: 1.82;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .pmew-erx-global-copy strong {
+            color: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-global-note {
+            padding-left: 28px;
+            border-left: 2px solid var(--pmew-erx-accent);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.4rem, 2vw, 2rem);
+            font-style: italic;
+            line-height: 1.45;
+            color: var(--pmew-erx-white);
+        }
+
+        /* =========================================================
+           FRAMEWORK
+        ========================================================= */
+
+        .pmew-erx-framework {
+            position: relative;
+            min-height: 100svh;
+            padding-block: var(--pmew-erx-section-space);
+            background: var(--pmew-erx-soft-white);
+        }
+
+        .pmew-erx-framework-header {
+            display: grid;
+            gap: 56px;
+            align-items: end;
+            margin-bottom: 72px;
+            padding: 0;
+            border: 0;
+            grid-template-columns: 1.1fr 0.9fr;
+            background: transparent;
+            box-shadow: none !important;
+            filter: none !important;
+        }
+
+        /* Prevent shared website styles from adding a card shadow,
+           glow or decorative layer to this section heading area. */
+        .pmew-erx-page .pmew-erx-framework-header,
+        .pmew-erx-page .pmew-erx-framework-header::before,
+        .pmew-erx-page .pmew-erx-framework-header::after {
+            background: transparent !important;
+            box-shadow: none !important;
+            filter: none !important;
+        }
+
+        .pmew-erx-page .pmew-erx-framework-header::before,
+        .pmew-erx-page .pmew-erx-framework-header::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        .pmew-erx-page .pmew-erx-framework-header *,
+        .pmew-erx-page .pmew-erx-framework-header *::before,
+        .pmew-erx-page .pmew-erx-framework-header *::after {
+            text-shadow: none !important;
+        }
+
+        .pmew-erx-framework-title {
+            max-width: 950px;
+            font-size: clamp(3.8rem, 7.4vw, 8.6rem);
+            font-weight: 800;
+            line-height: 0.88;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erx-framework-title span {
+            display: block;
+        }
+
+        .pmew-erx-framework-outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-framework-intro {
+            max-width: 610px;
+            font-size: clamp(1rem, 1.18vw, 1.18rem);
+            line-height: 1.8;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+
+        .pmew-erx-card {
+            position: relative;
+            display: flex;
+            min-height: 400px;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: clamp(30px, 3vw, 46px);
+            border: 1px solid rgba(17, 18, 20, 0.1);
+            border-radius: var(--pmew-erx-radius);
+            background: var(--pmew-erx-white);
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+        }
+
+        .pmew-erx-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(17, 18, 20, 0.22);
+            box-shadow: 0 30px 80px rgba(17, 18, 20, 0.09);
+        }
+
+        .pmew-erx-card:nth-child(1),
+        .pmew-erx-card:nth-child(4) {
+            grid-column: span 7;
+        }
+
+        .pmew-erx-card:nth-child(2),
+        .pmew-erx-card:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .pmew-erx-card:nth-child(5),
+        .pmew-erx-card:nth-child(6) {
+            grid-column: span 6;
+        }
+
+        .pmew-erx-card-dark {
+            color: var(--pmew-erx-white);
+            background: var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-card-accent {
+            background: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-card::after {
+            position: absolute;
+            right: -72px;
+            bottom: -92px;
+            width: 245px;
+            height: 245px;
+            content: "";
+            border: 1px solid rgba(17, 18, 20, 0.08);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 35px rgba(17, 18, 20, 0.018),
+                0 0 0 70px rgba(17, 18, 20, 0.011);
+        }
+
+        .pmew-erx-card-dark::after {
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 0 0 35px rgba(255, 255, 255, 0.025),
+                0 0 0 70px rgba(255, 255, 255, 0.014);
+        }
+
+        .pmew-erx-card-top {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pmew-erx-card-icon {
+            display: grid;
+            width: 64px;
+            height: 64px;
+            place-items: center;
+            border: 1px solid rgba(17, 18, 20, 0.13);
+            border-radius: 50%;
+            font-size: 1.25rem;
+            background: rgba(255, 255, 255, 0.64);
+        }
+
+        .pmew-erx-card-dark .pmew-erx-card-icon {
+            border-color: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .pmew-erx-card-index {
+            font-family: "Space Mono", monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-card-dark .pmew-erx-card-index {
+            color: rgba(255, 255, 255, 0.42);
+        }
+
+        .pmew-erx-card-content {
+            position: relative;
+            z-index: 2;
+            padding-top: 58px;
+        }
+
+        .pmew-erx-card-title {
+            max-width: 700px;
+            margin-bottom: 22px;
+            font-size: clamp(2rem, 2.9vw, 3.6rem);
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erx-card-copy {
+            max-width: 670px;
+            font-size: clamp(0.94rem, 1vw, 1.05rem);
+            line-height: 1.76;
+            color: var(--pmew-erx-grey);
+        }
+
+        .pmew-erx-card-dark .pmew-erx-card-copy {
+            color: rgba(255, 255, 255, 0.67);
+        }
+
+        .pmew-erx-card-accent .pmew-erx-card-copy {
+            color: rgba(17, 18, 20, 0.72);
+        }
+
+        /* =========================================================
+           FINAL STATEMENT
+        ========================================================= */
+
+        .pmew-erx-final {
+            position: relative;
+            display: flex;
+            min-height: 100svh;
+            align-items: center;
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--pmew-erx-accent);
+        }
+
+        .pmew-erx-final::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            width: min(82vw, 1150px);
+            aspect-ratio: 1;
+            content: "";
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(17, 18, 20, 0.13);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 100px rgba(17, 18, 20, 0.025),
+                0 0 0 200px rgba(17, 18, 20, 0.018),
+                0 0 0 300px rgba(17, 18, 20, 0.01);
+        }
+
+        .pmew-erx-final-inner {
+            padding-block: var(--pmew-erx-section-space);
+            text-align: center;
+        }
+
+        .pmew-erx-final-label {
+            margin-bottom: 42px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erx-final-title {
+            max-width: 1360px;
+            margin-inline: auto;
+            font-size: clamp(4rem, 9.5vw, 11rem);
+            font-weight: 800;
+            line-height: 0.82;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+        }
+
+        .pmew-erx-final-title span {
+            display: block;
+        }
+
+        .pmew-erx-final-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-final-copy {
+            max-width: 860px;
+            margin: 52px auto 0;
+            font-size: clamp(1.04rem, 1.4vw, 1.34rem);
+            font-weight: 500;
+            line-height: 1.82;
+            color: rgba(17, 18, 20, 0.74);
+        }
+
+        .pmew-erx-final-copy strong {
+            color: var(--pmew-erx-ink);
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           EXPLICIT TEXT COLOUR MAPPING
+           These declarations intentionally state the exact colour of
+           every key text group so shared PMEW styles cannot make the
+           page text invisible or apply an unintended colour.
+        ========================================================= */
+
+        /* Ink / black text on white and yellow surfaces */
+        .pmew-erx-page .pmew-erx-hero-title,
+        .pmew-erx-page .pmew-erx-hero-intro strong,
+        .pmew-erx-page .pmew-erx-hero-label-icon,
+        .pmew-erx-page .pmew-erx-hero-media-chip,
+        .pmew-erx-page .pmew-erx-framework-title,
+        .pmew-erx-page .pmew-erx-card:not(.pmew-erx-card-dark) .pmew-erx-card-title,
+        .pmew-erx-page .pmew-erx-card:not(.pmew-erx-card-dark) .pmew-erx-card-icon,
+        .pmew-erx-page .pmew-erx-final-label,
+        .pmew-erx-page .pmew-erx-final-title,
+        .pmew-erx-page .pmew-erx-final-copy strong {
+            color: var(--pmew-erx-ink);
+        }
+
+        /* Supporting grey text */
+        .pmew-erx-page .pmew-erx-section-index,
+        .pmew-erx-page .pmew-erx-eyebrow,
+        .pmew-erx-page .pmew-erx-hero-label,
+        .pmew-erx-page .pmew-erx-hero-intro,
+        .pmew-erx-page .pmew-erx-hero-media-tag,
+        .pmew-erx-page .pmew-erx-framework-intro,
+        .pmew-erx-page .pmew-erx-card:not(.pmew-erx-card-dark):not(.pmew-erx-card-accent) .pmew-erx-card-index,
+        .pmew-erx-page .pmew-erx-card:not(.pmew-erx-card-dark):not(.pmew-erx-card-accent) .pmew-erx-card-copy {
+            color: var(--pmew-erx-grey);
+        }
+
+        /* Ink text used on the yellow accent card and final section */
+        .pmew-erx-page .pmew-erx-card-accent,
+        .pmew-erx-page .pmew-erx-card-accent .pmew-erx-card-title,
+        .pmew-erx-page .pmew-erx-card-accent .pmew-erx-card-icon,
+        .pmew-erx-page .pmew-erx-card-accent .pmew-erx-card-index {
+            color: var(--pmew-erx-ink);
+        }
+
+        .pmew-erx-page .pmew-erx-card-accent .pmew-erx-card-copy,
+        .pmew-erx-page .pmew-erx-final-copy {
+            color: rgba(17, 18, 20, 0.74);
+        }
+
+        /* White text used on ink / dark surfaces */
+        .pmew-erx-page .pmew-erx-global,
+        .pmew-erx-page .pmew-erx-global-copy strong,
+        .pmew-erx-page .pmew-erx-global-note,
+        .pmew-erx-page .pmew-erx-card-dark,
+        .pmew-erx-page .pmew-erx-card-dark .pmew-erx-card-title,
+        .pmew-erx-page .pmew-erx-card-dark .pmew-erx-card-icon {
+            color: var(--pmew-erx-white);
+        }
+
+        .pmew-erx-page .pmew-erx-global-label {
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .pmew-erx-page .pmew-erx-global-copy,
+        .pmew-erx-page .pmew-erx-card-dark .pmew-erx-card-copy {
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .pmew-erx-page .pmew-erx-section-index-light,
+        .pmew-erx-page .pmew-erx-card-dark .pmew-erx-card-index {
+            color: rgba(255, 255, 255, 0.42);
+        }
+
+        /* Accent text */
+        .pmew-erx-page .pmew-erx-global-accent {
+            color: var(--pmew-erx-accent);
+        }
+
+        /* Outlined headings remain transparent with an ink stroke */
+        .pmew-erx-page .pmew-erx-title-outline,
+        .pmew-erx-page .pmew-erx-framework-outline,
+        .pmew-erx-page .pmew-erx-final-outline {
+            color: transparent;
+        }
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .pmew-erx-reveal {
+            opacity: 0;
+            transform: translateY(42px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+
+        .pmew-erx-reveal.pmew-erx-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pmewErxRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1180px) {
+            .pmew-erx-hero-grid {
+                grid-template-columns: 1fr;
+                padding-top: 140px;
+            }
+
+            .pmew-erx-hero-media {
+                min-height: 520px;
+            }
+
+            .pmew-erx-hero-media-shell {
+                width: min(74vw, 570px);
+            }
+
+            .pmew-erx-global-bottom,
+            .pmew-erx-framework-header {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-erx-framework-intro {
+                max-width: 760px;
+            }
+
+            .pmew-erx-global-bottom {
+                gap: 38px;
+            }
+
+            .pmew-erx-global-note {
+                max-width: 700px;
+            }
+
+            .pmew-erx-card:nth-child(n) {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --pmew-erx-radius: 25px;
+            }
+
+            .pmew-erx-container {
+                width: min(calc(100% - 36px), var(--pmew-erx-container));
+            }
+
+            .pmew-erx-section-index {
+                display: none;
+            }
+
+            .pmew-erx-hero,
+            .pmew-erx-global,
+            .pmew-erx-framework,
+            .pmew-erx-final {
+                min-height: auto;
+            }
+
+            .pmew-erx-hero-grid {
+                gap: 36px;
+                min-height: auto;
+                padding-block: 110px 72px;
+            }
+
+            .pmew-erx-hero-title {
+                font-size: clamp(3.45rem, 16.8vw, 5.8rem);
+                line-height: 0.84;
+            }
+
+            .pmew-erx-title-outline {
+                -webkit-text-stroke-width: 1.2px;
+            }
+
+            .pmew-erx-hero-intro {
+                margin-top: 34px;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .pmew-erx-hero-actions {
+                flex-direction: column;
+            }
+
+            .pmew-erx-btn {
+                width: 100%;
+            }
+
+            .pmew-erx-hero-media {
+                min-height: 420px;
+            }
+
+            .pmew-erx-hero-media-shell {
+                width: min(100%, 430px);
+                padding: 18px;
+                border-radius: 28px;
+            }
+
+            .pmew-erx-hero-media-frame {
+                border-radius: 22px;
+            }
+
+            .pmew-erx-hero-product-image {
+                max-width: 440px;
+                max-height: 440px;
+                padding: 18px;
+            }
+
+            .pmew-erx-hero-media-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pmew-erx-global-title,
+            .pmew-erx-framework-title,
+            .pmew-erx-final-title {
+                font-size: clamp(3.45rem, 15vw, 5.8rem);
+            }
+
+            .pmew-erx-global-bottom {
+                margin-top: 42px;
+            }
+
+            .pmew-erx-global-note {
+                font-size: 1.35rem;
+            }
+
+            .pmew-erx-framework-header {
+                gap: 30px;
+                margin-bottom: 45px;
+            }
+
+            .pmew-erx-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-erx-card:nth-child(n) {
+                min-height: 355px;
+                grid-column: auto;
+            }
+
+            .pmew-erx-card-title {
+                font-size: clamp(2rem, 9.6vw, 3rem);
+            }
+
+            .pmew-erx-final-outline {
+                -webkit-text-stroke-width: 1.2px;
+            }
+
+            .pmew-erx-final-copy {
+                margin-top: 38px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pmew-erx-hero-title {
+                font-size: clamp(3.1rem, 16.5vw, 4.3rem);
+            }
+
+            .pmew-erx-hero-media {
+                min-height: 350px;
+            }
+
+            .pmew-erx-hero-media-shell {
+                width: 100%;
+                padding: 16px;
+                border-radius: 24px;
+            }
+
+            .pmew-erx-hero-media-chip {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pmew-erx-hero-media-tag {
+                width: 100%;
+                text-align: center;
+            }
+
+            .pmew-erx-hero-product-image {
+                padding: 12px;
+            }
+
+            .pmew-erx-card {
+                min-height: 330px !important;
+                padding: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .pmew-erx-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/engineering-reliability.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Engineering Reliability | PMEW">
+    <meta property="og:description" content="Engineering Reliability at Pradako Mechanical &amp; Engineering Works — disciplined manufacturing, verified materials, process assurance and dependable global supply.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/engineering-reliability.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Engineering Reliability | PMEW">
+    <meta name="twitter:description" content="Engineering Reliability at Pradako Mechanical &amp; Engineering Works — disciplined manufacturing, verified materials, process assurance and dependable global supply.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Engineering Reliability | PMEW",
+  "url": "https://www.pradako.co/pages/global-presence/engineering-reliability.html",
+  "description": "Engineering Reliability at Pradako Mechanical & Engineering Works — disciplined manufacturing, verified materials, process assurance and dependable global supply.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="pmew-erx-site-page">
+
+    <!-- SHARED PMEW NAVBAR -->
+    <div id="navbar-container"></div>
+
+    <main class="pmew-erx-page">
+
+        <!-- =====================================================
+             SECTION 01 — HERO
+        ====================================================== -->
+
+        <section
+            class="pmew-erx-hero"
+            id="engineering-reliability"
+        >
+
+            <span class="pmew-erx-section-index">
+                Global Presence / 01
+            </span>
+
+            <div class="pmew-erx-container pmew-erx-hero-grid">
+
+                <div class="pmew-erx-hero-copy">
+
+                    <div class="pmew-erx-hero-label pmew-erx-reveal">
+
+                        <span class="pmew-erx-hero-label-icon">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+
+                        Engineering Reliability
+                    </div>
+
+                    <h1 class="pmew-erx-hero-title pmew-erx-reveal">
+
+                        <span>
+                            Precision
+                        </span>
+
+                        <span class="pmew-erx-title-outline">
+                            That Performs.
+                        </span>
+
+                        <span>
+                            Confidence
+                        </span>
+
+                        <span>
+                            That <span class="pmew-erx-title-highlight">Travels.</span>
+                        </span>
+
+                    </h1>
+
+                    <p class="pmew-erx-hero-intro pmew-erx-reveal">
+                        Global partnerships are strengthened by
+                        <strong>
+                            disciplined engineering, consistent manufacturing
+                            and dependable performance
+                        </strong>
+                        across every component, every production batch and every
+                        destination.
+                    </p>
+
+                    <div class="pmew-erx-hero-actions pmew-erx-reveal">
+
+                        <a
+                            href="#reliability-framework"
+                            class="pmew-erx-btn pmew-erx-btn-primary"
+                        >
+                            Explore the Framework
+
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+
+                        <a
+                            href="#reliability-commitment"
+                            class="pmew-erx-btn pmew-erx-btn-secondary"
+                        >
+                            Our Commitment
+
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pmew-erx-hero-media pmew-erx-reveal">
+
+                    <div class="pmew-erx-hero-media-shell">
+
+                        <div class="pmew-erx-hero-media-frame">
+
+                            <!--
+                                Replace the image path below whenever required.
+                                Recommended: transparent PNG/WebP or pure-white product image.
+                            -->
+                            <img
+                                src="/assets/images/global-presence/engineering-reliability/precision-screw.png"
+                                alt="Precision engineered screw"
+                                class="pmew-erx-hero-product-image"
+                                loading="eager"
+                                decoding="async"
+                            >
+
+                        </div>
+
+                        <div class="pmew-erx-hero-media-bar">
+                            <span class="pmew-erx-hero-media-chip">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                Precision Fastener
+                            </span>
+
+                            <span class="pmew-erx-hero-media-tag">Representative Product Visual</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 02 — HERO ONE-LINER
+        ====================================================== -->
+
+        <section class="pmew-erx-global">
+
+            <span class="pmew-erx-section-index pmew-erx-section-index-light">
+                Global Presence / 02
+            </span>
+
+            <div class="pmew-erx-container pmew-erx-global-inner">
+
+                <div class="pmew-erx-global-label pmew-erx-reveal">
+                    The Foundation of International Confidence
+                </div>
+
+                <h2 class="pmew-erx-global-title pmew-erx-reveal">
+
+                    <span>
+                        Consistency
+                    </span>
+
+                    <span>
+                        Across Every
+                    </span>
+
+                    <span class="pmew-erx-global-accent">
+                        Border.
+                    </span>
+
+                </h2>
+
+                <div class="pmew-erx-global-bottom">
+
+                    <p class="pmew-erx-global-copy pmew-erx-reveal">
+                        At Pradako Mechanical & Engineering Works, reliability
+                        is built through
+                        <strong>
+                            verified materials, controlled manufacturing,
+                            documented processes, inspection discipline and
+                            coordinated global supply support.
+                        </strong>
+                    </p>
+
+                    <div class="pmew-erx-global-note pmew-erx-reveal">
+                        “The destination may change. The engineering standard
+                        remains constant.”
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 03 — RELIABILITY FRAMEWORK
+        ====================================================== -->
+
+        <section
+            class="pmew-erx-framework"
+            id="reliability-framework"
+        >
+
+            <span class="pmew-erx-section-index">
+                Global Presence / 03
+            </span>
+
+            <div class="pmew-erx-container">
+
+                <div class="pmew-erx-framework-header">
+
+                    <div>
+
+                        <div class="pmew-erx-eyebrow pmew-erx-reveal">
+                            Our Reliability Framework
+                        </div>
+
+                        <h2 class="pmew-erx-framework-title pmew-erx-reveal">
+
+                            <span>
+                                Six Pillars.
+                            </span>
+
+                            <span class="pmew-erx-framework-outline">
+                                One Standard.
+                            </span>
+
+                        </h2>
+
+                    </div>
+
+                    <p class="pmew-erx-framework-intro pmew-erx-reveal">
+                        Our fasteners are engineered to deliver consistent
+                        dimensional accuracy, dependable mechanical performance,
+                        production repeatability and confidence throughout the
+                        complete international sourcing experience.
+                    </p>
+
+                </div>
+
+                <div class="pmew-erx-grid">
+
+                    <!-- CARD 01 -->
+
+                    <article class="pmew-erx-card pmew-erx-card-dark pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                01 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Precision Manufacturing
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Controlled forging, machining, threading,
+                                heat-treatment and finishing processes developed to
+                                support consistent dimensions, defined tolerances
+                                and repeatable production quality.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 02 -->
+
+                    <article class="pmew-erx-card pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                02 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Material Integrity
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Material selection, verification and traceability
+                                aligned with product specifications, mechanical
+                                requirements and intended operating conditions.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 03 -->
+
+                    <article class="pmew-erx-card pmew-erx-card-accent pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                03 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Process Assurance
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Structured quality planning, stage-wise inspection,
+                                testing, process monitoring and documented controls
+                                across the complete manufacturing cycle.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 04 -->
+
+                    <article class="pmew-erx-card pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                04 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Application-Focused Engineering
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Technical collaboration to understand performance
+                                requirements, assess manufacturing feasibility and
+                                develop suitable standard or application-specific
+                                fastening solutions.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 05 -->
+
+                    <article class="pmew-erx-card pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                05 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Global Standards Alignment
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Manufacturing capabilities aligned with applicable
+                                international specifications, customer drawings,
+                                technical requirements and market expectations.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 06 -->
+
+                    <article class="pmew-erx-card pmew-erx-card-dark pmew-erx-reveal">
+
+                        <div class="pmew-erx-card-top">
+
+                            <div class="pmew-erx-card-icon">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+
+                            <span class="pmew-erx-card-index">
+                                06 / 06
+                            </span>
+
+                        </div>
+
+                        <div class="pmew-erx-card-content">
+
+                            <h3 class="pmew-erx-card-title">
+                                Dependable Supply Support
+                            </h3>
+
+                            <p class="pmew-erx-card-copy">
+                                Responsive technical communication, production
+                                planning, documentation, traceability and logistics
+                                coordination supporting customers across global
+                                markets.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 04 — FINAL STATEMENT
+        ====================================================== -->
+
+        <section
+            class="pmew-erx-final"
+            id="reliability-commitment"
+        >
+
+            <span class="pmew-erx-section-index">
+                Global Presence / 04
+            </span>
+
+            <div class="pmew-erx-container pmew-erx-final-inner">
+
+                <div class="pmew-erx-final-label pmew-erx-reveal">
+                    Our Engineering Commitment
+                </div>
+
+                <h2 class="pmew-erx-final-title pmew-erx-reveal">
+
+                    <span>
+                        Every Component.
+                    </span>
+
+                    <span class="pmew-erx-final-outline">
+                        Every Batch.
+                    </span>
+
+                    <span>
+                        Every Destination.
+                    </span>
+
+                </h2>
+
+                <p class="pmew-erx-final-copy pmew-erx-reveal">
+                    Our commitment is to provide
+                    <strong>
+                        precision-engineered fastening solutions
+                    </strong>
+                    that customers can specify with confidence, integrate with
+                    assurance and rely upon across markets worldwide.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- SHARED PMEW FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- PMEW SHARED SCRIPTS -->
+    <script  defer></script>
+    <script src="/assets/js/pradako-global-animations.js" defer></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const revealElements =
+                document.querySelectorAll(".pmew-erx-reveal");
+
+            if (!("IntersectionObserver" in window)) {
+                revealElements.forEach(function (element) {
+                    element.classList.add("pmew-erx-visible");
+                });
+
+                return;
+            }
+
+            const revealObserver = new IntersectionObserver(
+                function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("pmew-erx-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.14,
+                    rootMargin: "0px 0px -45px 0px"
+                }
+            );
+
+            revealElements.forEach(function (element, index) {
+                element.style.transitionDelay =
+                    Math.min(index % 5, 4) * 65 + "ms";
+
+                revealObserver.observe(element);
+            });
+        });
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

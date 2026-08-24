@@ -1,0 +1,168 @@
+:root {
+    --pmew-work-ink: #082f49;
+    --pmew-work-text: #4f6475;
+    --pmew-work-line: #dbe4ea;
+    --pmew-work-coral: #f08080;
+    --pmew-work-white: #ffffff;
+}
+
+.pmew-work-page {
+    min-height: calc(100vh - 120px);
+    padding: clamp(74px, 9vw, 128px) 24px 72px;
+    background: var(--pmew-work-white);
+    color: var(--pmew-work-ink);
+}
+
+.pmew-work-page__inner {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.pmew-work-page__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 24px;
+    font: 800 11px/1.2 Montserrat, Arial, sans-serif;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.pmew-work-page__eyebrow span {
+    width: 26px;
+    height: 1px;
+    background: var(--pmew-work-coral);
+}
+
+.pmew-work-page h1 {
+    margin: 0;
+    max-width: 720px;
+    color: var(--pmew-work-ink);
+    font: 700 clamp(3.6rem, 9vw, 7.8rem)/.82 "Playfair Display", Georgia, serif;
+    letter-spacing: -.055em;
+}
+
+.pmew-work-page__standard {
+    margin-top: 34px;
+    font: 800 clamp(1.5rem, 3vw, 2.3rem)/1.1 Montserrat, Arial, sans-serif;
+    letter-spacing: -.025em;
+}
+
+.pmew-work-page__status {
+    margin-top: 12px;
+    color: var(--pmew-work-text);
+    font: 800 11px/1.4 Montserrat, Arial, sans-serif;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.pmew-work-page__copy {
+    max-width: 650px;
+    margin: 28px 0 0;
+    color: var(--pmew-work-text);
+    font: 500 16px/1.75 Montserrat, Arial, sans-serif;
+}
+
+.pmew-work-page__copy--secondary {
+    margin-top: 9px;
+}
+
+.pmew-work-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+}
+
+.pmew-work-page__button {
+    min-height: 50px;
+    padding: 0 24px;
+    border: 1px solid var(--pmew-work-ink);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pmew-work-ink);
+    background: transparent;
+    text-decoration: none;
+    font: 800 11px/1 Montserrat, Arial, sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.pmew-work-page__button--primary {
+    background: var(--pmew-work-ink);
+    color: var(--pmew-work-white);
+}
+
+.pmew-work-page__button:hover,
+.pmew-work-page__button:focus-visible,
+.pmew-work-page__check:hover,
+.pmew-work-page__check:focus-visible {
+    opacity: .78;
+}
+
+.pmew-work-page__check {
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: transparent;
+    color: var(--pmew-work-ink);
+    cursor: pointer;
+    font: 700 13px/1.5 Montserrat, Arial, sans-serif;
+}
+
+.pmew-work-page__check[aria-busy="true"] {
+    cursor: wait;
+    opacity: .58;
+}
+
+.pmew-work-page__message {
+    min-height: 24px;
+    max-width: 620px;
+    margin: 12px 0 0;
+    color: var(--pmew-work-text);
+    font: 500 13px/1.6 Montserrat, Arial, sans-serif;
+}
+
+.pmew-work-page__rule {
+    width: min(620px, 100%);
+    height: 1px;
+    margin-top: 46px;
+    background: var(--pmew-work-line);
+}
+
+.pmew-work-page__trust {
+    margin-top: 18px;
+    color: var(--pmew-work-text);
+    font: 700 11px/1.5 Montserrat, Arial, sans-serif;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+    .pmew-work-page {
+        padding-top: 58px;
+    }
+
+    .pmew-work-page h1 {
+        font-size: clamp(3.3rem, 20vw, 5.5rem);
+    }
+
+    .pmew-work-page__actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pmew-work-page__button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pmew-work-page__button,
+    .pmew-work-page__check {
+        transition: none;
+    }
+}

@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pradako IS Standards Library</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- <link rel="stylesheet" href="/assets/css/page-style.css"> -->
+
+<style>
+  :root {
+    --white: #ffffff;
+    --navy: #0a3d62;
+    --blue: #0b5fc6;
+    --gold: #c5a028;
+    --line: #e5edf5;
+    --text: #1f3f5b;
+    --muted: #63778a;
+    --soft-blue: #f4f9ff;
+
+    --shadow-main: 0 24px 70px rgba(10, 61, 98, 0.08);
+    --shadow-card: 0 12px 30px rgba(10, 61, 98, 0.07);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  .page {
+    min-height: 100vh;
+    background: var(--white);
+  }
+
+  /* .library-shell {
+    max-width: 1880px;
+    margin: auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    overflow: visible;
+    box-shadow: var(--shadow-main);
+  } */
+
+  /* ===== FIXED BACK TO TOP BUTTON ===== */
+  .back-to-top-fixed {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: #ffd24a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100000;
+    box-shadow: 0 18px 40px rgba(197, 160, 40, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px);
+    transition: all 0.25s ease;
+  }
+
+  .back-to-top-fixed.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .back-to-top-fixed:hover {
+    background: #f4c430;
+    transform: translateY(-3px);
+  }
+
+  .top-hero {
+    padding: 58px 58px 50px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    border-radius: 34px 34px 0 0;
+  }
+
+  .top-hero h1 {
+    margin: 0;
+    max-width: 1120px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(52px, 5vw, 90px);
+    line-height: 0.94;
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .top-hero p {
+    max-width: 1080px;
+    margin: 24px 0 0;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .control-zone {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 26px 32px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 300px auto auto auto;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-wrap input,
+  .family-filter {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+
+  .search-wrap input {
+    padding: 0 20px 0 52px;
+  }
+
+  .family-filter {
+    padding: 0 16px;
+  }
+
+  .search-wrap input::placeholder {
+    color: var(--muted);
+  }
+
+  .search-wrap input:focus,
+  .family-filter:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px var(--soft-blue);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .btn {
+    height: 58px;
+    border-radius: 16px;
+    padding: 0 23px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    transition: 0.22s ease;
+  }
+
+  .btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    box-shadow: 0 10px 22px rgba(10, 61, 98, 0.12);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .btn-soft:hover {
+    background: var(--soft-blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .duplicate-check-btn {
+    border: 1px solid #ffbf00;
+    background: #fff8df;
+    color: #1f2937;
+    font-weight: 900;
+  }
+
+  .duplicate-check-btn:hover {
+    background: #ffbf00;
+    color: #111827;
+    border-color: #ffbf00;
+  }
+
+  .duplicate-check-btn.active {
+    background: #ffbf00;
+    border-color: #ffbf00;
+    color: #111827;
+    box-shadow: 0 10px 24px rgba(255, 191, 0, 0.22);
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .stats-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .stat-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stat-pill {
+    padding: 10px 15px;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 900;
+  }
+
+  .duplicate-mode-pill {
+    display: none;
+    border-color: #ffbf00;
+    background: #fff8df;
+    color: var(--navy);
+  }
+
+  .duplicate-mode-pill.show {
+    display: inline-flex;
+  }
+
+  .column-panel {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .column-panel.open {
+    display: block;
+  }
+
+  .column-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .column-panel-title {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .column-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mini-btn {
+    height: 36px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--navy);
+    padding: 0 13px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .mini-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .column-checks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 10px;
+    max-height: 260px;
+    overflow: auto;
+    padding-right: 4px;
+  }
+
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--white);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .check-item input {
+    accent-color: var(--navy);
+  }
+
+  .table-zone {
+    background: var(--white);
+  }
+
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-width: 200px;
+    padding: 17px 18px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: var(--white);
+    background: var(--navy);
+    border-right: 1px solid rgba(255, 255, 255, 0.22);
+    border-bottom: 1px solid var(--navy);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  thead th.not-sortable {
+    cursor: default;
+  }
+
+  tbody td {
+    min-width: 200px;
+    padding: 22px 18px;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 1.56;
+    background: var(--white);
+    color: var(--text);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: var(--white);
+  }
+
+  tbody tr:hover td {
+    background: var(--soft-blue);
+  }
+
+  th.sticky-col,
+  td.sticky-col {
+    position: sticky;
+    left: var(--sticky-left);
+  }
+
+  th.sticky-col {
+    z-index: 30;
+  }
+
+  td.sticky-col {
+    z-index: 10;
+    box-shadow: 8px 0 16px rgba(10, 61, 98, 0.05);
+  }
+
+  .part-image-wrap {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow-card);
+  }
+
+  .part-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 10px;
+    background: var(--white);
+    transition: 0.25s ease;
+  }
+
+  .part-image-wrap:hover {
+    border-color: var(--blue);
+  }
+
+  .part-image-wrap:hover img {
+    transform: scale(1.05);
+  }
+
+  .part-image-empty {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .family-pill {
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.35;
+    border: 1px solid var(--line);
+  }
+
+  .standard-code {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .title-cell {
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .keyword-cell {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  mark {
+    background: var(--soft-blue);
+    color: var(--navy);
+    padding: 0 3px;
+    border-radius: 4px;
+  }
+
+  .empty-state {
+    display: none;
+    padding: 65px 20px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--white);
+  }
+
+  .empty-state h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 24px;
+  }
+
+  .footer-note {
+    padding: 18px 34px;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    font-weight: 700;
+    border-radius: 0 0 34px 34px;
+  }
+
+  .modal-overlay,
+  .image-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(10, 61, 98, 0.84);
+    backdrop-filter: blur(8px);
+  }
+
+  .modal-overlay.show,
+  .image-preview-overlay.show {
+    display: flex;
+  }
+
+  .modal-card,
+  .image-preview-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-main);
+  }
+
+  .modal-card {
+    width: min(560px, 100%);
+  }
+
+  .image-preview-card {
+    width: min(1000px, 96vw);
+    max-height: 92vh;
+  }
+
+  .modal-top,
+  .image-preview-head {
+    color: var(--white);
+    background: var(--navy);
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .modal-top {
+    padding: 30px 32px 24px;
+  }
+
+  .image-preview-head {
+    padding: 22px 26px;
+  }
+
+  .modal-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    margin-bottom: 15px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .modal-top h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.4px;
+    color: var(--white);
+  }
+
+  .modal-top p {
+    margin: 12px 0 0;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .modal-body,
+  .image-preview-body {
+    padding: 28px 32px 32px;
+    background: var(--white);
+  }
+
+  .work-message {
+    padding: 20px;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 700;
+  }
+
+  .email-line {
+    margin-top: 10px;
+    display: inline-flex;
+    font-weight: 900;
+    color: var(--navy);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 11px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .modal-btn {
+    height: 50px;
+    border-radius: 15px;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 900;
+    transition: 0.22s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .modal-btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+  }
+
+  .modal-btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .modal-btn:hover {
+    transform: translateY(-1px);
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+
+  .modal-close,
+  .image-preview-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--navy);
+    background: var(--white);
+    font-size: 24px;
+    line-height: 1;
+    z-index: 4;
+  }
+
+  .copy-status {
+    display: none;
+    margin-top: 13px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .copy-status.show {
+    display: block;
+  }
+
+  .image-preview-head h3 {
+    margin: 0;
+    padding-right: 45px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+
+  .image-preview-body img {
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 1200px) {
+    .controls-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .control-zone {
+      position: relative;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page {
+      padding: 14px;
+    }
+
+    .library-shell {
+      border-radius: 24px;
+    }
+
+    .top-hero {
+      padding: 36px 22px;
+      border-radius: 22px 22px 0 0;
+    }
+
+    .control-zone {
+      padding: 20px;
+    }
+
+    .controls-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .stats-actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .stats-actions .btn {
+      width: 100%;
+    }
+
+    .top-hero h1 {
+      font-size: 44px;
+    }
+
+    .part-image-wrap,
+    .part-image-empty {
+      width: 160px;
+      height: 118px;
+    }
+
+    .modal-top h2 {
+      font-size: 31px;
+    }
+
+    .modal-actions {
+      flex-direction: column;
+    }
+
+    .modal-btn {
+      width: 100%;
+    }
+
+    .stats-actions {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.stats-actions .btn {
+  width: 100%;
+}
+  }
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Pradako IS Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 196.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standard-products/is.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako IS Standards Library">
+    <meta property="og:description" content="Pradako IS Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 196.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standard-products/is.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako IS Standards Library">
+    <meta name="twitter:description" content="Pradako IS Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 196.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako IS Standards Library",
+  "url": "https://www.pradako.co/pages/standard-products/is.html",
+  "description": "Pradako IS Standards Library from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 196.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<div id="navbar-container"></div>
+
+<section class="page">
+  <section class="library-shell">
+
+    <header class="top-hero">
+      <h1>IS / BIS Fastener Standards Reference</h1>
+      <p>
+        Premium searchable database for IS / BIS fastener standards covering bolts, screws, studs, nuts, washers, rivets, pins, coatings, inspection, testing, heat treatment, raw material and related product families.
+      </p>
+    </header>
+
+    <section class="control-zone">
+      <div class="controls-grid">
+
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by IS standard number, product family, ISO equivalent, category, process, edition or title..."
+          />
+        </div>
+
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft" onclick="toggleColumnPanel()">Columns</button>
+
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">
+            Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> standards
+          </div>
+
+          <div class="stat-pill">
+            <span id="visibleColumnCount">0</span> visible columns
+          </div>
+
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View:
+            <span id="duplicateGroupsCount">0</span> groups /
+            <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+
+        <div class="stats-actions">
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+
+          <button
+            type="button"
+            id="duplicateCheckBtn"
+            class="btn duplicate-check-btn"
+            aria-label="Check duplicate entries"
+            onclick="showDuplicateEntriesInTable()"
+          >
+            <span class="duplicate-icon" aria-hidden="true">⧉</span>
+            <span>Check Duplicates</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="column-panel" id="columnPanel">
+        <div class="column-panel-head">
+          <div class="column-panel-title">Show / Hide Table Columns</div>
+          <div class="column-actions">
+            <button class="mini-btn" onclick="showAllColumns()">Show All</button>
+            <button class="mini-btn" onclick="showCoreColumns()">Core Only</button>
+          </div>
+        </div>
+
+        <div class="column-checks" id="columnChecks"></div>
+      </div>
+    </section>
+
+    <section class="table-zone">
+      <div class="table-scroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+
+        <div class="empty-state" id="emptyState">
+          <h3 id="emptyStateTitle">No standards found</h3>
+          <p id="emptyStateText">Try another standard number, product family, keyword or title.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Data is controlled from JavaScript. To add more IS / BIS standards, add them inside <strong>rawISStandards</strong>.
+      To add more columns, add them inside <strong>columns</strong> and use the same key in your data rows.
+    </footer>
+
+  </section>
+</section>
+
+<section class="modal-overlay" id="exportModal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeExportPopup()" aria-label="Close popup">&times;</button>
+
+    <div class="modal-top">
+      <div class="modal-badge">Export Request</div>
+      <h2 id="exportModalTitle">We are working on it</h2>
+      <p>
+        The export feature is currently being upgraded for the complete standards database.
+      </p>
+    </div>
+
+    <div class="modal-body">
+      <div class="work-message">
+        We are working on it.<br />
+        Please email us on:
+        <div class="email-line">info@pradakomechanicals.com</div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=IS%20Standards%20Library%20Export%20Request">
+          Email Us
+        </a>
+        <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+        <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+      </div>
+
+      <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+    </div>
+  </div>
+</section>
+
+<section class="image-preview-overlay" id="imagePreviewModal" role="dialog" aria-modal="true">
+  <div class="image-preview-card">
+    <button class="image-preview-close" onclick="closeImagePreview()" aria-label="Close image preview">&times;</button>
+
+    <div class="image-preview-head">
+      <h3 id="imagePreviewTitle">Product Image</h3>
+    </div>
+
+    <div class="image-preview-body">
+      <img id="imagePreviewImg" src="" alt="">
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<button class="back-to-top-fixed" id="backToTopFixed" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+
+
+
+
+
+const columns = [
+  {
+    "key": "imageSrc",
+    "label": "Image",
+    "width": 240,
+    "sticky": true,
+    "core": true,
+    "type": "image",
+    "searchable": false,
+    "sortable": false
+  },
+  {
+    "key": "inputGiven",
+    "label": "Input Given",
+    "width": 320,
+    "sticky": true,
+    "core": true,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "standardCode",
+    "label": "Correct Standard No. with Edition",
+    "width": 430,
+    "sticky": true,
+    "core": true,
+    "type": "standard",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "verificationStatus",
+    "label": "Verification Status",
+    "width": 420,
+    "sticky": false,
+    "core": true,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "categoryProcess",
+    "label": "Category / Process Area",
+    "width": 360,
+    "sticky": false,
+    "core": true,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "equivalentISO",
+    "label": "Equivalent / Linked ISO",
+    "width": 320,
+    "sticky": false,
+    "core": true,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "title",
+    "label": "Official / Original Title",
+    "width": 920,
+    "sticky": false,
+    "core": true,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "productFamily",
+    "label": "Product Family / Use",
+    "width": 430,
+    "sticky": false,
+    "core": true,
+    "type": "family",
+    "searchable": true,
+    "sortable": true
+  },
+  {
+    "key": "sourceSection",
+    "label": "Source Section",
+    "width": 300,
+    "sticky": false,
+    "core": false,
+    "type": "title",
+    "searchable": true,
+    "sortable": true
+  }
+];
+
+function standardSlug(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/\+/g, "plus")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function makeStandard(row, index) {
+  const slug = standardSlug(row.standardCode || row.inputGiven || "is-standard");
+
+  return {
+    "id": `${slug}-${String(index + 1).padStart(3, "0")}`,
+    "imageSrc": `/assets/images/products/standards-products/${slug}.png`,
+    "imageAlt": `${row.standardCode || row.inputGiven} reference image`,
+    "imageExists": true,
+    "inputGiven": row.inputGiven || "—",
+    "standardCode": row.standardCode || "—",
+    "verificationStatus": row.verificationStatus || "—",
+    "categoryProcess": row.categoryProcess || "—",
+    "equivalentISO": row.equivalentISO || "—",
+    "title": row.title || "—",
+    "productFamily": Array.isArray(row.productFamily)
+      ? row.productFamily
+      : [row.family || row.productFamily || "—"],
+    "sourceSection": row.sourceSection || "—"
+  };
+}
+
+const rawISStandards = [
+  {
+    "inputGiven": "IS : 1363 (Part 3)",
+    "standardCode": "IS 1363 (Part 3):2018 / ISO 4034:2012",
+    "verificationStatus": "Active / BIS compendium + QCO",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 3: Hexagon nuts, Style 1 (Size range M5 to M64)",
+    "family": "Hexagon nuts — product grade C",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS : 1364 (Part 3)",
+    "standardCode": "IS 1364 (Part 3):2018 / ISO 4032:2012",
+    "verificationStatus": "Active / BIS compendium",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B — Part 3: Hexagon nuts, Style 1 (Size range M1.6 to M64)",
+    "family": "Hexagon nuts — product grades A/B",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 1363",
+    "standardCode": "IS 1363 Parts 1, 2, 3 — see separate rows",
+    "verificationStatus": "Incomplete designation",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grade C",
+    "family": "Hex bolts / hex screws / hex nuts",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 1363 (Part 1) Hex Bolts",
+    "standardCode": "IS 1363 (Part 1):2023",
+    "verificationStatus": "Current revision seen in BIS product manuals/LIMS; QCO lists 2019",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 1: Hexagon head bolts (Size range M5 to M64)",
+    "family": "Hexagon head bolts — product grade C",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 1363 (Part 2) Hex Screws",
+    "standardCode": "IS 1363 (Part 2):2023",
+    "verificationStatus": "Current revision seen in BIS LIMS; QCO lists 2018",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 2: Hexagon head screws (Size range M5 to M64)",
+    "family": "Hexagon head screws — product grade C",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 1364",
+    "standardCode": "IS 1364 Parts 1 to 6 — see master table",
+    "verificationStatus": "Incomplete designation",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B",
+    "family": "Hex bolts / hex screws / hex nuts",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 2016",
+    "standardCode": "IS 2016:1967",
+    "verificationStatus": "Historical/public archive; current status not confirmed publicly",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Plain washers — Specification",
+    "family": "Plain washers",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 2269",
+    "standardCode": "IS 2269:2006",
+    "verificationStatus": "Active in BIS LIMS",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hexagon socket head cap screws (Fifth Revision)",
+    "family": "Hexagon socket head cap screws",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 3063",
+    "standardCode": "IS 3063:1994",
+    "verificationStatus": "Active in BIS LIMS/search result",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Fasteners — Single coil rectangular section spring lock washers — Specification (Second Revision)",
+    "family": "Spring lock washers",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 3757",
+    "standardCode": "IS 3757:1985",
+    "verificationStatus": "QCO listed / active fastener QCO scope",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "High strength structural bolts",
+    "family": "High-strength structural bolts / HSFG bolts",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 6610",
+    "standardCode": "IS 6610:1972",
+    "verificationStatus": "Historical/public archive; current status not confirmed publicly",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Heavy washers for steel structures",
+    "family": "Heavy structural washers",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 6649",
+    "standardCode": "IS 6649:1985",
+    "verificationStatus": "Active in BIS LIMS/search result",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Hardened and tempered washers for high strength structural bolts and nuts — Specification",
+    "family": "Hardened structural washers",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "IS 6760",
+    "standardCode": "IS 6760:1972",
+    "verificationStatus": "Historical PGD 31 listing; current status not confirmed publicly",
+    "categoryProcess": "—",
+    "equivalentISO": "—",
+    "title": "Slotted countersunk head wood screws",
+    "family": "Wood screws",
+    "sourceSection": "Input verification"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1363 (Part 1):2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4016 family",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 1: Hexagon head bolts (Size range M5 to M64)",
+    "family": "Hex bolts, product grade C",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1363 (Part 2):2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4018 family",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 2: Hexagon head screws (Size range M5 to M64)",
+    "family": "Hex screws, product grade C",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1363 (Part 3):2018 / ISO 4034:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4034:2012",
+    "title": "Hexagon head bolts, screws and nuts of product grade C — Part 3: Hexagon nuts, Style 1 (M5 to M64)",
+    "family": "Hex nuts, product grade C",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 1):2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4014:2022",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B — Part 1: Hexagon head bolts (M1.6 to M64)",
+    "family": "Hex bolts, product grades A/B",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 2):2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4017:2022",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B — Part 2: Hexagon head screws (M1.6 to M64)",
+    "family": "Hex screws, product grades A/B",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 3):2018 / ISO 4032:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4032:2012",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B — Part 3: Hexagon nuts, Style 1",
+    "family": "Hex nuts, product grades A/B",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 4):2003 / ISO 4035:1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4035:1999",
+    "title": "Hexagon thin nuts, chamfered",
+    "family": "Hexagon thin nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 5):2002 / ISO 4036:1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4036:1999",
+    "title": "Hexagon thin nuts, product grade B, unchamfered",
+    "family": "Hexagon thin nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1364 (Part 6):2025 / ISO 4033:2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Core hex fasteners",
+    "equivalentISO": "ISO 4033:2023",
+    "title": "Hexagon head bolts, screws and nuts of product grades A and B — Part 6: Hexagon nuts, Style 2 (M5 to M39)",
+    "family": "Hexagon high nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3757:1985",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "High strength structural bolts",
+    "family": "HSFG / structural bolts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6623:2004",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "High strength structural nuts",
+    "family": "Structural nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6649:1985",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "Hardened and tempered washers for high strength structural bolts and nuts",
+    "family": "Hardened structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6610:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "Heavy washers for steel structures",
+    "family": "Heavy structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 10238:2001",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "Fasteners — Threaded steel fasteners — Step bolts for steel structures",
+    "family": "Step bolts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 12427:2001",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "Threaded steel fasteners — Hexagon head transmission tower bolts",
+    "family": "Transmission tower bolts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 14394:1996",
+    "verificationStatus": "—",
+    "categoryProcess": "Structural fasteners",
+    "equivalentISO": "—",
+    "title": "Industrial fasteners — Hexagon nuts of product grade C — Hot-dip galvanized",
+    "family": "Hot-dip galvanized hex nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 15581:2018",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Hexagon nuts with flange, style 2 — Coarse thread",
+    "family": "Flange nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 13722:2018 / ISO 8673:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "ISO 8673:2012",
+    "title": "Hexagon regular nuts, style 1, with metric fine pitch thread — Product grades A and B",
+    "family": "Fine pitch hex nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 13723:2018 / ISO 8674:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "ISO 8674:2012",
+    "title": "Hexagon high nuts, style 2, with metric fine pitch thread — Product grades A and B",
+    "family": "Fine pitch high nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 13724:2018 / ISO 8675:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "ISO 8675:2012",
+    "title": "Hexagon thin nuts, chamfered, style 0, with metric fine pitch thread — Product grades A and B",
+    "family": "Fine pitch thin nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7795:2004",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Hexagon nuts with collar — Specification",
+    "family": "Hex nuts with collar",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2585:2006",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Square head bolts, screws and square nuts of product grade C",
+    "family": "Square nuts / square head bolts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 8856:1991",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Hexagon weld nuts",
+    "family": "Weld nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2687:1997",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Cap nuts of product grade A",
+    "family": "Cap nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3460:1991",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Knurled nuts",
+    "family": "Knurled nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2636:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Wing nuts (Type A and B)",
+    "family": "Wing nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3468:1991",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Pipe nuts",
+    "family": "Pipe nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5368:1969",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Thin slotted and castle nuts",
+    "family": "Slotted/castle nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7790:1991",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Domed cap nuts — Specification",
+    "family": "Dome nuts / cap nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2232:1969",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Specification for slotted and castle nuts",
+    "family": "Slotted/castle nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7002:2018",
+    "verificationStatus": "—",
+    "categoryProcess": "Nuts",
+    "equivalentISO": "—",
+    "title": "Prevailing torque type hexagon regular nuts with non-metallic insert — Property classes 5, 8 and 10",
+    "family": "Nylon insert / prevailing torque nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2269:2006",
+    "verificationStatus": "—",
+    "categoryProcess": "Socket screws",
+    "equivalentISO": "ISO 4762 family",
+    "title": "Hexagon socket head cap screws",
+    "family": "Socket head cap screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1365:2005",
+    "verificationStatus": "—",
+    "categoryProcess": "Machine screws",
+    "equivalentISO": "—",
+    "title": "Slotted countersunk flat head screws — Product grade A",
+    "family": "Slotted machine screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1366:2002",
+    "verificationStatus": "—",
+    "categoryProcess": "Machine screws",
+    "equivalentISO": "—",
+    "title": "Slotted cheese head screws — Product grade A",
+    "family": "Slotted cheese head screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3524 (Part 1):1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Socket screws",
+    "equivalentISO": "—",
+    "title": "Hexagon socket head cap screws — Dimensions",
+    "family": "Socket screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3524 (Part 2):1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Socket screws",
+    "equivalentISO": "—",
+    "title": "Hexagon socket head cap screws — Mechanical properties",
+    "family": "Socket screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2585:2006",
+    "verificationStatus": "—",
+    "categoryProcess": "Square fasteners",
+    "equivalentISO": "—",
+    "title": "Square head bolts, screws and square nuts of product grade C",
+    "family": "Square head bolts/screws/nuts",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3640:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Set screws",
+    "equivalentISO": "—",
+    "title": "Hexagon socket set screws with flat point",
+    "family": "Socket set screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3726:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Set screws",
+    "equivalentISO": "—",
+    "title": "Hexagon socket set screws with cone point",
+    "family": "Socket set screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3727:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Set screws",
+    "equivalentISO": "—",
+    "title": "Hexagon socket set screws with dog point",
+    "family": "Socket set screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6094 (Parts 1-4):1981/1984",
+    "verificationStatus": "—",
+    "categoryProcess": "Set screws",
+    "equivalentISO": "—",
+    "title": "Square head set screws — flat, cup, cone and long dog point types",
+    "family": "Square head set screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7173:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Self tapping screws",
+    "equivalentISO": "—",
+    "title": "Cross-recessed pan head tapping screws",
+    "family": "Tapping screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7169:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Self tapping screws",
+    "equivalentISO": "—",
+    "title": "Cross-recessed countersunk head tapping screws",
+    "family": "Tapping screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7170:1989",
+    "verificationStatus": "—",
+    "categoryProcess": "Self tapping screws",
+    "equivalentISO": "—",
+    "title": "Cross-recessed raised countersunk head tapping screws",
+    "family": "Tapping screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6760:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Wood screws",
+    "equivalentISO": "—",
+    "title": "Slotted countersunk head wood screws",
+    "family": "Wood screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6761:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Wood screws",
+    "equivalentISO": "—",
+    "title": "Slotted raised countersunk head wood screws",
+    "family": "Wood screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2155:1982",
+    "verificationStatus": "—",
+    "categoryProcess": "Rivets",
+    "equivalentISO": "—",
+    "title": "Hot forged rivets for hot closing — Snap head",
+    "family": "Rivets",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1929:1982",
+    "verificationStatus": "—",
+    "categoryProcess": "Rivets",
+    "equivalentISO": "—",
+    "title": "Hot forged rivets for hot closing — Pan head",
+    "family": "Rivets",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2907:1964",
+    "verificationStatus": "—",
+    "categoryProcess": "Rivets",
+    "equivalentISO": "—",
+    "title": "Solid steel rivets for general engineering purposes",
+    "family": "Rivets",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2998:1982",
+    "verificationStatus": "—",
+    "categoryProcess": "Rivets",
+    "equivalentISO": "—",
+    "title": "Cold forged solid steel rivets for cold closing",
+    "family": "Rivets",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2393:1988",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Parallel pins",
+    "family": "Pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6688:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Taper pins",
+    "family": "Pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6689:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Taper pins with threaded ends",
+    "family": "Pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6735:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Grooved pins",
+    "family": "Grooved pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6736:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Grooved pins with round head",
+    "family": "Grooved pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6739:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Split pins",
+    "family": "Split pins / cotter pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6862:1973",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Parallel pins with internal thread",
+    "family": "Pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6863:1973",
+    "verificationStatus": "—",
+    "categoryProcess": "Pins",
+    "equivalentISO": "—",
+    "title": "Taper pins with internal thread",
+    "family": "Pins",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2016:1967",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Plain washers — Specification",
+    "family": "Plain washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 3063:1994",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Fasteners — Single coil rectangular section spring lock washers — Specification",
+    "family": "Spring lock washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6649:1985",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Hardened and tempered washers for high strength structural bolts and nuts",
+    "family": "Hardened structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6610:1972",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Heavy washers for steel structures",
+    "family": "Heavy structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5369:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Plain washers for general engineering purposes",
+    "family": "Plain washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5370:1969",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Washers for use with cheese head screws",
+    "family": "Plain washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5371:1969",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Washers for use with socket head cap screws",
+    "family": "Plain washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5372:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Square taper washers for channels",
+    "family": "Taper washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5373:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Square taper washers for I-beams",
+    "family": "Taper washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 5374:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Round washers for steel structures",
+    "family": "Structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 8068:1976",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Plain washers for high strength structural bolts",
+    "family": "Structural washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 8070:1976",
+    "verificationStatus": "—",
+    "categoryProcess": "Washers",
+    "equivalentISO": "—",
+    "title": "Taper washers for channels and I-beams for high strength structural bolts",
+    "family": "Structural taper washers",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18471 (Part 1):2023 / ISO 15481:1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Drilling screws",
+    "equivalentISO": "ISO 15481",
+    "title": "Cross recessed countersunk head drilling screws with tapping screw thread",
+    "family": "Drilling screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18471 (Part 2):2023 / ISO 15482:1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Drilling screws",
+    "equivalentISO": "ISO 15482",
+    "title": "Cross recessed countersunk head drilling screws with tapping screw thread",
+    "family": "Drilling screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18471 (Part 3):2023 / ISO 15483:1999",
+    "verificationStatus": "—",
+    "categoryProcess": "Drilling screws",
+    "equivalentISO": "ISO 15483",
+    "title": "Cross recessed raised countersunk head drilling screws with tapping screw thread",
+    "family": "Drilling screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18476:2023 / ISO 15480:2019",
+    "verificationStatus": "—",
+    "categoryProcess": "Hex washer head screws",
+    "equivalentISO": "ISO 15480",
+    "title": "Hexagon washer head drilling screws with tapping screw thread",
+    "family": "Drilling screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18480 (Part 1):2023 / ISO 7049:2011",
+    "verificationStatus": "—",
+    "categoryProcess": "Tapping screws",
+    "equivalentISO": "ISO 7049",
+    "title": "Cross recessed pan head tapping screws",
+    "family": "Tapping screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18480 (Part 2):2023 / ISO 7050:2011",
+    "verificationStatus": "—",
+    "categoryProcess": "Tapping screws",
+    "equivalentISO": "ISO 7050",
+    "title": "Cross recessed countersunk head tapping screws",
+    "family": "Tapping screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18507:2024",
+    "verificationStatus": "—",
+    "categoryProcess": "Drywall / chipboard / wood screws",
+    "equivalentISO": "—",
+    "title": "Drywall screws",
+    "family": "Drywall screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18508:2024",
+    "verificationStatus": "—",
+    "categoryProcess": "Drywall / chipboard / wood screws",
+    "equivalentISO": "—",
+    "title": "Chipboard screws",
+    "family": "Chipboard screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 18509:2024",
+    "verificationStatus": "—",
+    "categoryProcess": "Drywall / chipboard / wood screws",
+    "equivalentISO": "—",
+    "title": "Cross-recessed countersunk head wood screws",
+    "family": "Wood screws",
+    "sourceSection": "Product master table"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 1):2014 / ISO 8992:2005",
+    "verificationStatus": "—",
+    "categoryProcess": "General / technical supply",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 1: General requirements for bolts, screws, studs and nuts",
+    "family": "General fastener requirements",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 2):2002",
+    "verificationStatus": "—",
+    "categoryProcess": "Tolerances",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 2: Tolerances for fasteners — Bolts, screws, studs and nuts — Product grades A, B and C",
+    "family": "Tolerances / dimensional acceptance",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 3):2017 / ISO 898-1:2013",
+    "verificationStatus": "—",
+    "categoryProcess": "Mechanical properties",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 3: Mechanical properties of fasteners made of carbon steel and alloy steel — Bolts, screws and studs",
+    "family": "Heat treatment / mechanical properties — external threads",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 5):2018 / ISO 898-5:2012",
+    "verificationStatus": "—",
+    "categoryProcess": "Mechanical properties",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 5: Mechanical properties of set screws and similar threaded fasteners with specified hardness classes",
+    "family": "Mechanical properties — set screws",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 6):2025 / ISO 898-2:2022",
+    "verificationStatus": "—",
+    "categoryProcess": "Mechanical properties",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 6: Mechanical properties of nuts with specified property classes",
+    "family": "Heat treatment / mechanical properties — nuts",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 7):1980",
+    "verificationStatus": "—",
+    "categoryProcess": "Mechanical properties",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 7: Mechanical properties and test methods for nuts without specified proof loads",
+    "family": "Mechanical properties — nuts",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 8):2020 / ISO 2320:2015",
+    "verificationStatus": "—",
+    "categoryProcess": "Prevailing torque",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 8: Prevailing torque type steel nuts — Functional properties",
+    "family": "Prevailing torque nuts",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 9/Sec 1):1993 / ISO 6157-1:1988",
+    "verificationStatus": "—",
+    "categoryProcess": "Surface discontinuities",
+    "equivalentISO": "—",
+    "title": "Surface discontinuities — Bolts, screws and studs for general applications",
+    "family": "Inspection / defects",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 9/Sec 2):1993 / ISO 6157-3:1988",
+    "verificationStatus": "—",
+    "categoryProcess": "Surface discontinuities",
+    "equivalentISO": "—",
+    "title": "Surface discontinuities — Bolts, screws and studs for special applications",
+    "family": "Inspection / defects",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 10):2002 / ISO 6157-2:1995",
+    "verificationStatus": "—",
+    "categoryProcess": "Surface discontinuities",
+    "equivalentISO": "—",
+    "title": "Surface discontinuities — Nuts",
+    "family": "Inspection / defects",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 11):2024 / ISO 4042:2022",
+    "verificationStatus": "—",
+    "categoryProcess": "Plating",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 11: Electroplated coating systems",
+    "family": "Electroplating / zinc plating / Zn-Ni where specified",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 12):1981",
+    "verificationStatus": "—",
+    "categoryProcess": "Phosphating",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 12: Phosphate coatings on threaded fasteners",
+    "family": "Phosphating",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 13):2020 / ISO 10684:2004",
+    "verificationStatus": "—",
+    "categoryProcess": "Hot dip galvanizing",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for threaded steel fasteners — Part 13: Hot dip galvanized coatings on threaded fasteners",
+    "family": "Hot dip galvanizing / HDG",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 14/Sec 1):2023 / ISO 3506-1:2020",
+    "verificationStatus": "—",
+    "categoryProcess": "Stainless fasteners",
+    "equivalentISO": "—",
+    "title": "Mechanical properties of corrosion-resistant stainless steel fasteners — Section 1: Bolts, screws and studs with specified grades and property classes",
+    "family": "Stainless steel bolts/screws/studs",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 14/Sec 2):2023 / ISO 3506-2:2020",
+    "verificationStatus": "—",
+    "categoryProcess": "Stainless fasteners",
+    "equivalentISO": "—",
+    "title": "Mechanical properties of corrosion-resistant stainless steel fasteners — Section 2: Nuts with specified grades and property classes",
+    "family": "Stainless steel nuts",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 14/Sec 3):2018 / ISO 3506-3:2009",
+    "verificationStatus": "—",
+    "categoryProcess": "Stainless fasteners",
+    "equivalentISO": "—",
+    "title": "Mechanical properties of corrosion-resistant stainless steel fasteners — Section 3: Set screws and similar fasteners not under tensile stress",
+    "family": "Stainless steel set screws",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 14/Sec 4):2023 / ISO 3506-4:2009",
+    "verificationStatus": "—",
+    "categoryProcess": "Stainless fasteners",
+    "equivalentISO": "—",
+    "title": "Mechanical properties of corrosion-resistant stainless steel fasteners — Section 4: Tapping screws",
+    "family": "Stainless steel tapping screws",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 16):2002 / ISO 8991:1986",
+    "verificationStatus": "—",
+    "categoryProcess": "Designation",
+    "equivalentISO": "—",
+    "title": "Designation system for fasteners",
+    "family": "Fastener designation",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 17):2023 / ISO 3269:2019",
+    "verificationStatus": "—",
+    "categoryProcess": "Inspection",
+    "equivalentISO": "—",
+    "title": "Inspections, sampling and acceptance procedure",
+    "family": "Inspection / sampling / acceptance",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 18):1996",
+    "verificationStatus": "—",
+    "categoryProcess": "Packaging",
+    "equivalentISO": "—",
+    "title": "Industrial fasteners — Threaded steel fasteners — Technical supply conditions — Part 18: Packaging",
+    "family": "Packaging",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 19):1997 / ISO 3800:1993",
+    "verificationStatus": "—",
+    "categoryProcess": "Fatigue testing",
+    "equivalentISO": "—",
+    "title": "Axial load fatigue testing of bolts, screws and studs",
+    "family": "Fatigue testing",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1367 (Part 20):1996 / ISO 898-7:1992",
+    "verificationStatus": "—",
+    "categoryProcess": "Torsion testing",
+    "equivalentISO": "—",
+    "title": "Mechanical properties — Torsional test and minimum torques for bolts and screws with nominal diameters 1 mm to 10 mm",
+    "family": "Torsional testing",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS/ISO 10683:2018",
+    "verificationStatus": "—",
+    "categoryProcess": "Zinc flake coating",
+    "equivalentISO": "—",
+    "title": "Fasteners — Non-electrolytically applied zinc flake coating systems",
+    "family": "Zinc flake coatings",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 19056:2025 / ISO 16048:2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Passivation",
+    "equivalentISO": "—",
+    "title": "Passivation of corrosion-resistant stainless-steel fasteners",
+    "family": "Stainless steel passivation",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7178:2002 / ISO 2702",
+    "verificationStatus": "—",
+    "categoryProcess": "Tapping screw mechanical properties",
+    "equivalentISO": "—",
+    "title": "Heat-treated steel tapping screws — Mechanical properties",
+    "family": "Heat-treated tapping screws",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6821:1973",
+    "verificationStatus": "—",
+    "categoryProcess": "Sampling",
+    "equivalentISO": "—",
+    "title": "Methods for sampling of non-threaded fasteners",
+    "family": "Sampling / inspection",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 10102:1982",
+    "verificationStatus": "—",
+    "categoryProcess": "Inspection",
+    "equivalentISO": "—",
+    "title": "Technical supply conditions for rivets",
+    "family": "Rivet inspection / supply conditions",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 15274:2003",
+    "verificationStatus": "—",
+    "categoryProcess": "Washer tolerances",
+    "equivalentISO": "—",
+    "title": "Plain washers for metric bolts, screws and nuts for general purposes — Tolerances",
+    "family": "Washer tolerances",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 7478:2011 / ISO 4757:1983",
+    "verificationStatus": "—",
+    "categoryProcess": "Head/recess gauging",
+    "equivalentISO": "—",
+    "title": "Cross recesses for screws",
+    "family": "Screw recesses / inspection gauges",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 11362:1985 / ISO 7721:1983",
+    "verificationStatus": "—",
+    "categoryProcess": "Countersunk head gauging",
+    "equivalentISO": "—",
+    "title": "Head configuration and gauging of countersunk head screws",
+    "family": "Screw head inspection",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 15568:2005",
+    "verificationStatus": "—",
+    "categoryProcess": "Nut testing",
+    "equivalentISO": "—",
+    "title": "Cone proof load test on nuts",
+    "family": "Nut testing",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 15569:2005",
+    "verificationStatus": "—",
+    "categoryProcess": "Nut testing",
+    "equivalentISO": "—",
+    "title": "Widening test on nuts",
+    "family": "Nut testing",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 12982:1991",
+    "verificationStatus": "—",
+    "categoryProcess": "Pin testing",
+    "equivalentISO": "—",
+    "title": "Pins and grooved pins — Shear test",
+    "family": "Pin testing",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 8536:1987",
+    "verificationStatus": "—",
+    "categoryProcess": "Fastener dimensions symbols",
+    "equivalentISO": "—",
+    "title": "Fasteners — Bolts, screws, studs and nuts — Symbols and designation of dimensions",
+    "family": "Symbols / designation",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 9549:1980",
+    "verificationStatus": "—",
+    "categoryProcess": "Split-pin holes / details",
+    "equivalentISO": "—",
+    "title": "Split pin holes and wire holes, head slots and similar details for bolts, screws and nuts",
+    "family": "Design details",
+    "sourceSection": "Process / technical supply"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1673:1984",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Specification for mild steel wire, cold heading quality",
+    "family": "Cold heading wire for screws/fasteners",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1812:1982",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Carbon steel wire for manufacture of wood screws",
+    "family": "Wire for wood screws",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 2255:1977",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Mild steel wire rod for manufacture of machine screws by cold heading process",
+    "family": "Wire rod / cold heading",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 11169 (Part 1):2022",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steels for cold heading/cold extrusion applications — Part 1: Wrought carbon and low alloy steels",
+    "family": "Cold heading steel",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 11169 (Part 2):2023",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steels for cold heading/cold extrusion applications — Part 2: Stainless steels",
+    "family": "Cold heading stainless steel",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1148:2009",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steel rivet bars for structural purposes",
+    "family": "Rivet raw material",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 1284:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Wrought aluminium alloy bolt and screw stock for general engineering purposes",
+    "family": "Aluminium bolt/screw stock",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 4072:1975",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steel for spring washers",
+    "family": "Spring washer raw material",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 4454 (Part 1):2001",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steel wire for mechanical springs — Part 1: Cold drawn unalloyed steel wire",
+    "family": "Spring wire",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 4454 (Part 2):2001",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Steel wire for mechanical springs — Part 2: Oil hardened and tempered steel wire",
+    "family": "Spring wire",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6528:2024",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Stainless steel wires",
+    "family": "Stainless wire",
+    "sourceSection": "Raw material standards"
+  },
+  {
+    "inputGiven": "—",
+    "standardCode": "IS 6527:1995",
+    "verificationStatus": "—",
+    "categoryProcess": "Raw material / wire",
+    "equivalentISO": "—",
+    "title": "Stainless steel wire rods",
+    "family": "Stainless wire rod",
+    "sourceSection": "Raw material standards"
+  }
+];
+
+const standardsData = rawISStandards.map((row, index) => makeStandard(row, index));
+
+const tableHeadRow = document.getElementById("tableHeadRow");
+const tableBody = document.getElementById("standardsTableBody");
+const searchInput = document.getElementById("searchInput");
+const familyFilter = document.getElementById("familyFilter");
+const emptyState = document.getElementById("emptyState");
+const emptyStateTitle = document.getElementById("emptyStateTitle");
+const emptyStateText = document.getElementById("emptyStateText");
+const columnPanel = document.getElementById("columnPanel");
+const columnChecks = document.getElementById("columnChecks");
+const exportModal = document.getElementById("exportModal");
+const copyStatus = document.getElementById("copyStatus");
+const imagePreviewModal = document.getElementById("imagePreviewModal");
+const imagePreviewImg = document.getElementById("imagePreviewImg");
+const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+
+const visibleCount = document.getElementById("visibleCount");
+const totalCount = document.getElementById("totalCount");
+const visibleColumnCount = document.getElementById("visibleColumnCount");
+
+const duplicateModePill = document.getElementById("duplicateModePill");
+const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+let visibleColumns = new Set(columns.map(column => column.key));
+let currentFilteredData = [...standardsData];
+
+let duplicateMode = false;
+let duplicateBaseData = [];
+
+let sortState = {
+  key: null,
+  direction: "asc"
+};
+
+totalCount.textContent = standardsData.length;
+
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function highlightText(value, query) {
+  const safeText = escapeHTML(value);
+
+  if (!query.trim()) {
+    return safeText;
+  }
+
+  const safeQuery = escapeRegex(escapeHTML(query.trim()));
+  const regex = new RegExp("(" + safeQuery + ")", "gi");
+
+  return safeText.replace(regex, "<mark>$1</mark>");
+}
+
+function getVisibleColumns() {
+  return columns.filter(column => visibleColumns.has(column.key));
+}
+
+function getStickyLeftOffset(visibleColumnList, currentIndex) {
+  let offset = 0;
+
+  for (let i = 0; i < currentIndex; i++) {
+    if (visibleColumnList[i].sticky) {
+      offset += visibleColumnList[i].width;
+    }
+  }
+
+  return offset;
+}
+
+function buildFamilyFilter() {
+  const families = [
+    ...new Set(
+      standardsData.flatMap(item => item.productFamily || [])
+    )
+  ].sort();
+
+  familyFilter.innerHTML =
+    '<option value="">All Product Families</option>';
+
+  families.forEach(family => {
+    const option = document.createElement("option");
+
+    option.value = family;
+    option.textContent = family;
+
+    familyFilter.appendChild(option);
+  });
+}
+
+function buildColumnPanel() {
+  columnChecks.innerHTML = "";
+
+  columns.forEach(column => {
+    const label = document.createElement("label");
+    label.className = "check-item";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = visibleColumns.has(column.key);
+
+    input.addEventListener("change", () => {
+      if (input.checked) {
+        visibleColumns.add(column.key);
+      } else {
+        if (visibleColumns.size === 1) {
+          input.checked = true;
+          return;
+        }
+
+        visibleColumns.delete(column.key);
+      }
+
+      renderTable(currentFilteredData);
+      buildColumnPanel();
+    });
+
+    const span = document.createElement("span");
+    span.textContent = column.label;
+
+    label.appendChild(input);
+    label.appendChild(span);
+    columnChecks.appendChild(label);
+  });
+}
+
+function toggleColumnPanel() {
+  columnPanel.classList.toggle("open");
+}
+
+function showAllColumns() {
+  visibleColumns = new Set(columns.map(column => column.key));
+  buildColumnPanel();
+  renderTable(currentFilteredData);
+}
+
+function showCoreColumns() {
+  visibleColumns = new Set(
+    columns
+      .filter(column => column.core)
+      .map(column => column.key)
+  );
+
+  buildColumnPanel();
+  renderTable(currentFilteredData);
+}
+
+function renderImageCell(item) {
+  const imageSrc = item.imageSrc || "";
+  const imageAlt =
+    item.imageAlt ||
+    item.standardCode ||
+    "Product image";
+
+  if (!item.imageExists || !imageSrc) {
+    return '<div class="part-image-empty">Image<br>Coming Soon</div>';
+  }
+
+  return `
+    <div
+      class="part-image-wrap"
+      data-image-src="${escapeHTML(imageSrc)}"
+      data-image-alt="${escapeHTML(imageAlt)}"
+      data-image-title="${escapeHTML(item.standardCode)}"
+    >
+      <img
+        src="${escapeHTML(imageSrc)}"
+        alt="${escapeHTML(imageAlt)}"
+        loading="lazy"
+        onerror="this.parentElement.outerHTML='<div class=&quot;part-image-empty&quot;>Image<br>Coming Soon</div>'"
+      >
+    </div>
+  `;
+}
+
+function renderTable(data) {
+  const query = searchInput.value.trim();
+  const visibleColumnList = getVisibleColumns();
+
+  visibleColumnCount.textContent = visibleColumnList.length;
+  visibleCount.textContent = data.length;
+
+  tableHeadRow.innerHTML = "";
+  tableBody.innerHTML = "";
+
+  visibleColumnList.forEach((column, index) => {
+    const th = document.createElement("th");
+
+    th.textContent =
+      sortState.key === column.key
+        ? column.label + (sortState.direction === "asc" ? " ▲" : " ▼")
+        : column.label;
+
+    th.style.width = column.width + "px";
+    th.style.minWidth = column.width + "px";
+
+    if (column.sortable === false) {
+      th.classList.add("not-sortable");
+    } else {
+      th.addEventListener("click", () => sortByColumn(column.key));
+    }
+
+    if (column.sticky) {
+      th.classList.add("sticky-col");
+      th.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+    }
+
+    tableHeadRow.appendChild(th);
+  });
+
+  const fragment = document.createDocumentFragment();
+
+  data.forEach(item => {
+    const row = document.createElement("tr");
+
+    visibleColumnList.forEach((column, index) => {
+      const td = document.createElement("td");
+      const value = item[column.key] !== undefined
+        ? item[column.key]
+        : "-";
+
+      td.style.width = column.width + "px";
+      td.style.minWidth = column.width + "px";
+
+      if (column.sticky) {
+        td.classList.add("sticky-col");
+        td.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+      }
+
+      if (column.type === "image") {
+        td.innerHTML = renderImageCell(item);
+      } else if (column.type === "family") {
+        const families =
+          Array.isArray(value)
+            ? value
+            : [value];
+
+        td.innerHTML = families
+          .map(family =>
+            `<span class="family-pill">
+              ${highlightText(family, query)}
+            </span>`
+          )
+          .join("");
+      } else if (column.type === "category") {
+        td.innerHTML =
+          `<span class="category-pill">
+            ${highlightText(item.category, query)}
+          </span>`;
+      } else if (column.type === "standard") {
+        td.innerHTML =
+          '<span class="standard-code">' +
+          highlightText(item.standardCode, query) +
+          '</span>';
+      } else if (column.type === "title") {
+        td.innerHTML = '<div class="title-cell">' + highlightText(value, query) + '</div>';
+      } else if (column.type === "year") {
+        td.innerHTML =
+          '<div class="year-cell">' +
+          item.year +
+          '</div>';
+      } else if (column.type === "keywords") {
+        const keywords =
+          Array.isArray(value)
+            ? value
+            : [value];
+
+        td.innerHTML =
+          '<div class="keyword-cell">' +
+          keywords
+            .map(keyword =>
+              `<span class="keyword-tag">
+                ${highlightText(keyword, query)}
+              </span>`
+            )
+            .join("") +
+          '</div>';
+      } else if (column.type === "boolean") {
+        td.innerHTML =
+          value
+            ? '<span class="status-yes">Yes</span>'
+            : '<span class="status-no">No</span>';
+      }
+
+      row.appendChild(td);
+    });
+
+    fragment.appendChild(row);
+  });
+
+  tableBody.appendChild(fragment);
+
+  if (data.length === 0 && duplicateMode) {
+    emptyStateTitle.textContent = "No duplicate entries found";
+    emptyStateText.textContent = "No exact duplicate IS standard number entries are currently present in this page data.";
+  } else {
+    emptyStateTitle.textContent = "No standards found";
+    emptyStateText.textContent = "Try another standard number, product family, keyword or title.";
+  }
+
+  emptyState.style.display = data.length === 0 ? "block" : "none";
+}
+
+function normalizeDuplicateKeyForTable(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function getDuplicateGroupsForTable() {
+  const grouped = new Map();
+
+  standardsData.forEach((item, index) => {
+    const key = normalizeDuplicateKeyForTable(item.standardCode);
+
+    if (!key || key === "—") {
+      return;
+    }
+
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+
+    grouped.get(key).push({
+      item,
+      rowNumber: index + 1
+    });
+  });
+
+  return Array.from(grouped.values())
+    .filter(group => group.length > 1)
+    .sort((a, b) => {
+      const firstA = a[0].item.standardCode || "";
+      const firstB = b[0].item.standardCode || "";
+
+      return firstA.localeCompare(firstB, undefined, {
+        numeric: true,
+        sensitivity: "base"
+      });
+    });
+}
+
+function updateDuplicateViewPill(groupCount, rowCount) {
+  if (!duplicateModePill || !duplicateGroupsCount || !duplicateRowsCount) {
+    return;
+  }
+
+  if (!duplicateMode) {
+    duplicateModePill.classList.remove("show");
+    duplicateGroupsCount.textContent = "0";
+    duplicateRowsCount.textContent = "0";
+    return;
+  }
+
+  duplicateGroupsCount.textContent = groupCount;
+  duplicateRowsCount.textContent = rowCount;
+  duplicateModePill.classList.add("show");
+}
+
+function getActiveSearchSourceData() {
+  return duplicateMode ? duplicateBaseData : standardsData;
+}
+
+function showDuplicateEntriesInTable() {
+  const duplicateGroups = getDuplicateGroupsForTable();
+  const duplicateRows = duplicateGroups.flatMap(group =>
+    group.map(entry => entry.item)
+  );
+
+  duplicateMode = true;
+  duplicateBaseData = duplicateRows;
+
+  searchInput.value = "";
+  familyFilter.value = "";
+
+  sortState = {
+    key: null,
+    direction: "asc"
+  };
+
+  currentFilteredData = [...duplicateBaseData];
+
+  updateDuplicateViewPill(duplicateGroups.length, duplicateRows.length);
+
+  if (duplicateCheckBtn) {
+    duplicateCheckBtn.classList.add("active");
+  }
+
+  searchInput.placeholder = "Search within duplicate IS entries...";
+  renderTable(currentFilteredData);
+
+  const tableZone = document.querySelector(".table-zone");
+
+  if (tableZone) {
+    tableZone.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+function hideDuplicateView() {
+  duplicateMode = false;
+  duplicateBaseData = [];
+
+  updateDuplicateViewPill(0, 0);
+
+  if (duplicateCheckBtn) {
+    duplicateCheckBtn.classList.remove("active");
+  }
+
+  searchInput.placeholder = "Search by IS standard number, product family, ISO equivalent, category, process, edition or title...";
+}
+
+function searchStandards() {
+  const query = searchInput.value.trim().toLowerCase();
+  const selectedFamily = familyFilter.value;
+
+  currentFilteredData = getActiveSearchSourceData().filter(item => {
+    const matchesSearch =
+      !query ||
+      columns.some(column => {
+        if (column.searchable === false) return false;
+
+        const value = item[column.key];
+
+        if (value === undefined || value === null) {
+          return false;
+        }
+
+        if (Array.isArray(value)) {
+          return value.some(entry =>
+            String(entry)
+              .toLowerCase()
+              .includes(query)
+          );
+        }
+
+        return String(value || "")
+          .toLowerCase()
+          .includes(query);
+      });
+
+    const matchesFamily =
+      !selectedFamily ||
+      item.productFamily.includes(selectedFamily);
+
+    return matchesSearch && matchesFamily;
+  });
+
+  if (sortState.key) {
+    currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+  }
+
+  renderTable(currentFilteredData);
+}
+
+function clearSearch() {
+  searchInput.value = "";
+  familyFilter.value = "";
+
+  sortState = {
+    key: null,
+    direction: "asc"
+  };
+
+  hideDuplicateView();
+
+  currentFilteredData = [...standardsData];
+  renderTable(currentFilteredData);
+}
+
+function sortData(data, key, direction) {
+  return [...data].sort((a, b) => {
+    let valueA = a[key];
+    let valueB = b[key];
+
+    if (Array.isArray(valueA)) {
+      valueA = valueA.join(", ");
+    }
+
+    if (Array.isArray(valueB)) {
+      valueB = valueB.join(", ");
+    }
+
+    if (typeof valueA === "boolean") {
+      valueA = valueA ? 1 : 0;
+    }
+
+    if (typeof valueB === "boolean") {
+      valueB = valueB ? 1 : 0;
+    }
+
+    valueA = String(valueA ?? "").toLowerCase();
+    valueB = String(valueB ?? "").toLowerCase();
+
+    if (valueA < valueB) {
+      return direction === "asc" ? -1 : 1;
+    }
+
+    if (valueA > valueB) {
+      return direction === "asc" ? 1 : -1;
+    }
+
+    return 0;
+  });
+}
+
+function sortByColumn(key) {
+  const column = columns.find(item => item.key === key);
+
+  if (!column || column.sortable === false) {
+    return;
+  }
+
+  if (sortState.key === key) {
+    sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+  } else {
+    sortState.key = key;
+    sortState.direction = "asc";
+  }
+
+  currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+  renderTable(currentFilteredData);
+}
+
+function openExportPopup() {
+  exportModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  copyStatus.classList.remove("show");
+}
+
+function closeExportPopup() {
+  exportModal.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function copyEmail() {
+  const email = "info@pradakomechanicals.com";
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(() => {
+      copyStatus.classList.add("show");
+    });
+  } else {
+    const textArea = document.createElement("textarea");
+    textArea.value = email;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      copyStatus.classList.add("show");
+    } catch (err) {
+      copyStatus.textContent = "Please copy manually: " + email;
+      copyStatus.classList.add("show");
+    }
+
+    document.body.removeChild(textArea);
+  }
+}
+
+function openImagePreview(src, alt, title) {
+  imagePreviewImg.src = src;
+  imagePreviewImg.alt = alt;
+  imagePreviewTitle.textContent = title;
+  imagePreviewModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeImagePreview() {
+  imagePreviewModal.classList.remove("show");
+  imagePreviewImg.src = "";
+  imagePreviewImg.alt = "";
+  document.body.style.overflow = "";
+}
+
+let searchTimer;
+
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchTimer);
+
+  searchTimer = setTimeout(() => {
+    searchStandards();
+  }, 180);
+});
+
+familyFilter.addEventListener("change", searchStandards);
+
+tableBody.addEventListener("click", event => {
+  const imageBox = event.target.closest(".part-image-wrap");
+
+  if (!imageBox) {
+    return;
+  }
+
+  openImagePreview(
+    imageBox.dataset.imageSrc,
+    imageBox.dataset.imageAlt,
+    imageBox.dataset.imageTitle
+  );
+});
+
+exportModal.addEventListener("click", event => {
+  if (event.target === exportModal) {
+    closeExportPopup();
+  }
+});
+
+imagePreviewModal.addEventListener("click", event => {
+  if (event.target === imagePreviewModal) {
+    closeImagePreview();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    if (exportModal.classList.contains("show")) {
+      closeExportPopup();
+    }
+
+    if (imagePreviewModal.classList.contains("show")) {
+      closeImagePreview();
+    }
+  }
+});
+
+buildFamilyFilter();
+buildColumnPanel();
+renderTable(currentFilteredData);
+
+const backToTopFixed = document.getElementById("backToTopFixed");
+
+function toggleBackToTopFixed() {
+  if (window.scrollY > 250) {
+    backToTopFixed.classList.add("show");
+  } else {
+    backToTopFixed.classList.remove("show");
+  }
+}
+
+window.addEventListener("scroll", toggleBackToTopFixed, { passive: true });
+
+backToTopFixed.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+toggleBackToTopFixed();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

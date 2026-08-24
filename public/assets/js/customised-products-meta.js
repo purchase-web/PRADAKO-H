@@ -1,0 +1,180 @@
+/* ==========================================================================
+   PRADAKO — CUSTOMISED PRODUCTS: FAMILY ENGINEERING METADATA
+   --------------------------------------------------------------------------
+   WHY THIS FILE EXISTS
+   The catalogue in customised-products-data.js carries only names, images and
+   grouping. That is enough for a picture grid, but not enough for the kind of
+   buyer this page has to serve — a tier-1 automotive, aerospace or rail
+   engineer wants to see standards, grades, materials, finishes and size range
+   before they raise an RFQ.
+
+   This file adds that engineering layer per FAMILY (not per product), so it
+   stays maintainable. The Details view reads from here.
+
+   HOW TO EDIT
+   Every field is plain text. Add, remove or reorder freely. If a family is
+   missing from this file the Details view simply falls back to the catalogue
+   name and image — nothing breaks.
+
+   ACCURACY NOTE FOR SAM
+   Standard numbers below are the published designations for each product type.
+   Please have the works verify the SIZE RANGE and CAPABILITY lines against
+   current plant capacity before this goes live — those two are the fields most
+   likely to have moved since the last catalogue revision.
+   ========================================================================== */
+
+window.PMEW_CUSTOM_FAMILY_META = {
+
+    "screws": {
+        tagline: "Machine, tapping, drilling, socket and application-specific screws.",
+        blurb: "Cold-forged and precision-machined screws across drive types, head forms and thread systems, produced to metric and inch standards for volume automotive, electronics, construction and general engineering supply.",
+        standards: ["DIN 84", "DIN 912", "DIN 963", "DIN 965", "DIN 7981", "DIN 7982", "DIN 7985", "ISO 1207", "ISO 4762", "ISO 7045", "ISO 7049", "ISO 14583", "ASME B18.6.3", "IS 1365", "IS 2269"],
+        grades: ["4.8", "8.8", "10.9", "12.9", "A2-70", "A4-80"],
+        materials: ["C1018 / C1022 low carbon", "10B21 boron", "SCM435 / 30CrMo", "AISI 304 / 316", "AISI 410", "Brass"],
+        finishes: ["Trivalent zinc (blue / yellow / black)", "Zinc flake", "Black oxide", "Phosphate", "Hot dip galvanised", "Nickel", "PTFE"],
+        sizeRange: "M1.6 – M24  |  #0 – 1/2\"",
+        drives: ["Slotted", "Phillips", "Pozidriv", "Hex socket", "Torx / six-lobe", "Square", "Combination"],
+        sectors: ["Automotive", "Electronics", "Construction", "Appliance", "Solar"]
+    },
+
+    "bolts": {
+        tagline: "Standard, structural, automotive, agricultural and infrastructure bolts.",
+        blurb: "Hot and cold forged bolts from general-purpose hex through to high-strength friction-grip and structural assemblies, with full traceability and third-party testing where the application demands it.",
+        standards: ["DIN 931", "DIN 933", "DIN 603", "DIN 608", "DIN 6921", "ISO 4014", "ISO 4017", "ISO 4162", "ASME B18.2.1", "ASTM A325", "ASTM A490", "ASTM F3125", "EN 14399", "IS 1364", "IS 3757", "IS 6639"],
+        grades: ["4.6", "5.6", "8.8", "10.9", "12.9", "A325", "A490", "A2-70", "A4-80"],
+        materials: ["C1018 / C1022", "10B21 / 10B33 boron", "SCM435 / 42CrMo4", "AISI 304 / 316", "Duplex 2205"],
+        finishes: ["Trivalent zinc", "Zinc flake", "Hot dip galvanised", "Mechanical zinc", "Black oxide", "Phosphate", "Xylan"],
+        sizeRange: "M3 – M64  |  1/4\" – 2.1/2\"",
+        drives: ["Hex", "Heavy hex", "12-point", "Hex socket", "Square", "Carriage / cup"],
+        sectors: ["Automotive", "Structural steel", "Infrastructure", "Agriculture", "Wind & solar", "Railway"]
+    },
+
+    "nuts": {
+        tagline: "Standard, locking, weld, structural and speciality nuts.",
+        blurb: "Cold-formed and machined nuts including prevailing-torque and nylon-insert locking types, weld nuts for automated assembly, and heavy structural nuts matched to their bolt grade.",
+        standards: ["DIN 934", "DIN 439", "DIN 935", "DIN 982", "DIN 985", "DIN 1587", "DIN 6923", "ISO 4032", "ISO 4033", "ISO 4035", "ISO 4161", "ISO 7040", "ISO 7042", "ASTM A563", "IS 1364"],
+        grades: ["5", "6", "8", "10", "12", "A2-70", "A4-80"],
+        materials: ["C1010 / C1022", "Medium carbon Q&T", "AISI 304 / 316", "AISI 410", "Brass"],
+        finishes: ["Trivalent zinc", "Zinc flake", "Hot dip galvanised", "Black oxide", "Phosphate", "Nickel"],
+        sizeRange: "M2 – M64  |  #2 – 2.1/2\"",
+        drives: ["Hex", "Flange", "Square", "Cap / dome", "Wing", "Castle", "T-slot"],
+        sectors: ["Automotive", "Structural steel", "White goods", "Railway", "General engineering"]
+    },
+
+    "washers": {
+        tagline: "Plain, spring, serrated, structural and direct-tension-indicating washers.",
+        blurb: "Punched, formed and hardened washers for load distribution, vibration resistance and controlled bolt tension, including DTI washers for structural bolting verification.",
+        standards: ["DIN 125", "DIN 126", "DIN 127", "DIN 434", "DIN 435", "DIN 6796", "DIN 6798", "DIN 9021", "ISO 7089", "ISO 7090", "ISO 7092", "ISO 7093", "ASTM F436", "ASTM F959", "IS 2016", "IS 3063", "IS 6610"],
+        grades: ["100 HV", "140 HV", "200 HV", "300 HV", "Hardened structural", "A2", "A4"],
+        materials: ["Low carbon steel", "Spring steel 65Mn", "AISI 304 / 316", "Copper", "Brass", "Nylon / fibre"],
+        finishes: ["Trivalent zinc", "Zinc flake", "Hot dip galvanised", "Phosphate", "Black oxide", "Plain"],
+        sizeRange: "M1.6 – M64  |  #0 – 2.1/2\"",
+        drives: [],
+        sectors: ["Structural steel", "Automotive", "Railway", "Infrastructure", "Energy"]
+    },
+
+    "threaded-rods": {
+        tagline: "Fully threaded, double-end and speciality threaded rods.",
+        blurb: "Thread-rolled and cut bar in carbon, alloy and stainless grades, supplied in standard stock lengths or cut to customer length with chamfered or machined ends.",
+        standards: ["DIN 975", "DIN 976", "ISO 898-1", "ASTM A193 B7", "ASTM A193 B16", "ASTM A320 L7", "IS 1367"],
+        grades: ["4.6", "4.8", "8.8", "10.9", "B7", "B16", "L7", "A2-70", "A4-80"],
+        materials: ["Low carbon", "42CrMo4 / AISI 4140", "AISI 304 / 316", "AISI 316L"],
+        finishes: ["Trivalent zinc", "Hot dip galvanised", "Black oxide", "PTFE", "Plain"],
+        sizeRange: "M4 – M64  |  1 m / 2 m / 3 m or cut to length",
+        drives: [],
+        sectors: ["Construction", "HVAC", "Petrochemical", "Infrastructure", "Energy"]
+    },
+
+    "studs": {
+        tagline: "Stud bolts, double-ended studs and U-bolts.",
+        blurb: "Flange stud bolts and engineered studs for high-temperature and high-pressure service, plus formed U-bolts, J-bolts and L-bolts for pipe support and structural anchoring.",
+        standards: ["ASTM A193 B7", "ASTM A193 B8 / B8M", "ASTM A320 L7", "ASME B16.5", "DIN 835", "DIN 938", "DIN 939", "DIN 2510"],
+        grades: ["B7", "B7M", "B16", "B8 / B8M Class 1 & 2", "L7", "8.8", "10.9"],
+        materials: ["42CrMo4 / AISI 4140", "AISI 304 / 316", "AISI 316L", "Alloy steel Q&T"],
+        finishes: ["PTFE (blue / green)", "Hot dip galvanised", "Xylan", "Zinc", "Black oxide", "Plain"],
+        sizeRange: "M6 – M100  |  1/4\" – 4\"",
+        drives: [],
+        sectors: ["Petrochemical", "Power generation", "Refinery", "Marine", "Infrastructure"]
+    },
+
+    "rivets": {
+        tagline: "Blind, solid, structural, coated and material-specific rivets.",
+        blurb: "Blind and solid rivets across steel, stainless, aluminium and copper, including structural multi-grip and closed-end types, with colour-matched coated heads for architectural and appliance work.",
+        standards: ["DIN 7337", "DIN 660", "DIN 661", "DIN 124", "ISO 15977", "ISO 15979", "ISO 15983", "ISO 15984", "IS 1929", "IS 2155"],
+        grades: ["Standard blind", "Multi-grip", "Structural", "Closed end", "Peel type"],
+        materials: ["Aluminium 5052", "Steel", "AISI 304 / 316", "Copper", "Monel"],
+        finishes: ["Plain", "Anodised", "Powder-coated to RAL", "Zinc", "Painted head"],
+        sizeRange: "2.4 mm – 8.0 mm diameter",
+        drives: [],
+        sectors: ["Automotive", "Aerospace", "Appliance", "Architectural cladding", "Railway"]
+    },
+
+    "pins": {
+        tagline: "Dowel, taper, spring, split, clevis and grooved pins.",
+        blurb: "Precision location and retention pins for jig, fixture, tooling and assembly work, ground to close diametral tolerance where the application requires repeatable positional accuracy.",
+        standards: ["ISO 2338", "ISO 8734", "ISO 8735", "ISO 8752", "ISO 13337", "DIN 1", "DIN 7", "DIN 94", "DIN 1443", "DIN 1481", "DIN 6325"],
+        grades: ["m6", "h8", "Hardened 60 HRC", "A1 stainless"],
+        materials: ["Case-hardened steel", "AISI 304 / 420", "Spring steel", "Alloy steel"],
+        finishes: ["Plain ground", "Trivalent zinc", "Black oxide", "Phosphate"],
+        sizeRange: "1 mm – 50 mm diameter",
+        drives: [],
+        sectors: ["Tooling & fixtures", "Automotive", "Machine building", "Railway"]
+    },
+
+    "bushes": {
+        tagline: "Plain, flanged, sleeve, split and insulated bushings.",
+        blurb: "Machined and formed bushings for bearing, spacing and electrical isolation duties, in bronze, sintered, bi-metal and polymer-lined constructions.",
+        standards: ["DIN 1850", "ISO 3547", "ISO 4379"],
+        grades: ["Bi-metal", "Sintered bronze", "Solid bronze", "PTFE-lined", "Polymer"],
+        materials: ["CuSn8 bronze", "Sintered iron-bronze", "Steel-backed PTFE", "Nylon / PA66", "Brass"],
+        finishes: ["Machined", "Oil-impregnated", "Plain"],
+        sizeRange: "3 mm – 200 mm bore",
+        drives: [],
+        sectors: ["Automotive", "Machine building", "Earthmoving", "Electrical"]
+    },
+
+    "plugs": {
+        tagline: "Threaded, hydraulic, sealing and pressure plugs.",
+        blurb: "Sealing and blanking plugs for hydraulic, pneumatic and lubrication circuits in metric, BSP and NPT thread forms, with socket, hex and slotted drive options.",
+        standards: ["DIN 906", "DIN 908", "DIN 910", "DIN 7604", "ISO 6149", "BSP / NPT"],
+        grades: ["5.8", "8.8", "A2-70", "A4-80"],
+        materials: ["Carbon steel", "AISI 304 / 316", "Brass", "Aluminium"],
+        finishes: ["Trivalent zinc", "Black oxide", "Phosphate", "Plain"],
+        sizeRange: "M5 – M48  |  1/8\" – 2\" BSP / NPT",
+        drives: ["Hex socket", "External hex", "Slotted", "Square"],
+        sectors: ["Hydraulics", "Automotive", "Machine building", "Oil & gas"]
+    },
+
+    "stainless-steel": {
+        tagline: "Austenitic, martensitic, duplex and precipitation-hardening fasteners.",
+        blurb: "Corrosion-resistant fasteners across the full stainless range, from general-purpose A2 through to marine A4, duplex and 17-4PH for structural and high-strength corrosion service.",
+        standards: ["ISO 3506-1", "ISO 3506-2", "ISO 3506-3", "ASTM A193 B8 / B8M", "ASTM F593", "ASTM F594", "DIN 267-11", "EN 10088"],
+        grades: ["A2-70", "A2-80", "A4-70", "A4-80", "B8 / B8M", "410 / 420", "17-4PH", "Duplex 2205"],
+        materials: ["AISI 304 / 304L", "AISI 316 / 316L", "AISI 410 / 420", "17-4PH", "Duplex 2205", "AISI 904L"],
+        finishes: ["Passivated", "Electropolished", "Pickled", "PTFE", "Plain bright"],
+        sizeRange: "M2 – M64  |  #2 – 2.1/2\"",
+        drives: ["Hex", "Hex socket", "Torx", "Phillips", "Slotted"],
+        sectors: ["Marine & offshore", "Chemical process", "Food & pharma", "Architectural", "Desalination"]
+    },
+
+    "high-tensile": {
+        tagline: "Quenched and tempered high-strength fasteners, 8.8 to 14.9.",
+        blurb: "Heat-treated high-tensile fasteners for critical joints, produced with controlled decarburisation, core hardness verification and full mechanical test certification to lot level.",
+        standards: ["ISO 898-1", "ISO 898-2", "ASTM A325", "ASTM A490", "ASTM A574", "EN 14399", "DIN 6914", "IS 3757", "IS 1367"],
+        grades: ["8.8", "9.8", "10.9", "12.9", "14.9", "A325", "A490", "A574"],
+        materials: ["10B21 / 10B33 boron", "SCM435 / 34CrMo4", "42CrMo4 / AISI 4140", "AISI 4037", "SAE 4340"],
+        finishes: ["Zinc flake", "Trivalent zinc", "Hot dip galvanised", "Black oxide", "Phosphate & oil", "Xylan"],
+        sizeRange: "M5 – M64  |  1/4\" – 2.1/2\"",
+        drives: ["Hex", "Heavy hex", "Hex socket", "12-point", "Flange"],
+        sectors: ["Automotive powertrain", "Wind energy", "Structural steel", "Earthmoving", "Defence", "Railway"]
+    }
+};
+
+/* --------------------------------------------------------------------------
+   QUALITY & CAPABILITY — shown once on the Details view toolbar.
+   -------------------------------------------------------------------------- */
+window.PMEW_CUSTOM_CAPABILITY = {
+    certifications: ["IATF 16949", "ISO 9001", "ISO 14001", "AS9100D", "PPAP / ISIR", "IMDS", "RoHS", "REACH"],
+    processes: ["Cold forging", "Hot forging", "Thread rolling", "CNC turning", "Heat treatment", "Surface coating", "100% sorting"],
+    testing: ["Tensile & proof load", "Hardness (core & surface)", "Salt spray", "Torque-tension", "Metallurgical", "Dimensional CMM"]
+};

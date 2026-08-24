@@ -1,0 +1,1322 @@
+/* ==========================================================================
+   PRADAKO — GALLERY, QUICK VIEW AND LIST
+   --------------------------------------------------------------------------
+   Gallery is deliberately image-dominant rather than card-dominant. No border,
+   no shadow, no badge stack — on an ultra-white canvas the products should
+   read as floating rather than boxed. The only chrome is a hover tint.
+
+   Every image sits in a strict 1:1 canvas with object-fit: contain. Masonry is
+   avoided on purpose: ragged tile heights make it impossible to compare part
+   scale and proportion, which is the whole reason an engineer is looking at
+   photographs of fasteners.
+   ========================================================================== */
+
+/* ==========================================================================
+   01. GALLERY CONTROLS
+   ========================================================================== */
+
+.pmew-gal-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin: 0 0 26px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-gal-ctl-label {
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.pmew-gal-density {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #f7fafd;
+}
+
+.pmew-gal-density-btn {
+    padding: 7px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #4a5f74;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pmew-gal-density-btn:hover { color: var(--pmew-navy); }
+
+.pmew-gal-density-btn.active {
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-gal-specs-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pmew-gal-specs-toggle input { accent-color: var(--pmew-navy); }
+
+/* ==========================================================================
+   02. GRID — PRODUCT CARDS AT THE ORIGINAL SIZE
+   --------------------------------------------------------------------------
+   Medium is the size the site was designed at: four across, 340px card, 200px
+   image box, 30px gap. Small and Large sit either side of it as conveniences;
+   the page always OPENS at Medium so nothing looks smaller than it used to.
+   ========================================================================== */
+
+.pmew-gal-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.pmew-gal-grid.is-small { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
+.pmew-gal-grid.is-medium { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pmew-gal-grid.is-large { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+
+/* Inherits .pradako-products-card from products.css — 340px, 28px radius. */
+.pmew-gal-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.pmew-gal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(13, 54, 82, 0.13);
+}
+
+.pmew-gal-grid.is-small .pmew-gal-card {
+    height: 250px;
+    min-height: 250px;
+    padding: 13px;
+    border-radius: 20px;
+}
+
+.pmew-gal-grid.is-large .pmew-gal-card {
+    height: 420px;
+    min-height: 420px;
+}
+
+/* The image box doubles as the quick-view trigger. */
+.pmew-gal-canvas {
+    position: relative;
+    cursor: zoom-in;
+    transition: background 0.25s ease;
+}
+
+.pmew-gal-canvas:focus-visible {
+    outline: 2px solid var(--pmew-navy);
+    outline-offset: 2px;
+}
+
+.pmew-gal-grid.is-small .pmew-gal-canvas { height: 130px; }
+.pmew-gal-grid.is-large .pmew-gal-canvas { height: 260px; }
+
+.pmew-gal-canvas img {
+    max-width: 88%;
+    max-height: 88%;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.pmew-gal-card:hover .pmew-gal-canvas img { transform: scale(1.05); }
+
+.pmew-gal-blank {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: rgba(10, 61, 98, 0.28);
+    font-size: 28px;
+}
+
+.pmew-gal-flag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: #12805c;
+    color: #ffffff;
+    font-size: 11px;
+    z-index: 3;
+}
+
+.pmew-gal-flag svg { width: 1em; height: 1em; }
+
+.pmew-gal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.pmew-gal-name {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.pmew-gal-name a {
+    color: var(--pmew-navy);
+    text-decoration: none;
+}
+
+.pmew-gal-name a:hover { color: var(--pmew-orange); text-decoration: underline; }
+
+.pmew-gal-grid.is-small .pmew-gal-name { font-size: 12px; }
+.pmew-gal-grid.is-large .pmew-gal-name { font-size: 16px; }
+
+.pmew-gal-family,
+.pmew-gal-spec {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.pmew-gal-family {
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.pmew-gal-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.pmew-gal-grid.is-small .pmew-gal-actions { display: none; }
+
+.pmew-gal-open {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pmew-gal-open:hover { background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-gal-add {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pmew-gal-add svg { width: 1em; height: 1em; }
+.pmew-gal-add:hover { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-gal-add.is-added {
+    border-color: rgba(18, 128, 92, 0.45);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+/* ==========================================================================
+   02b. GALLERY — THE TWELVE FAMILY CARDS
+   The whole card is an <a> to screw.html / bolt.html / etc, so the crawl path
+   to the family pages exists in the HTML rather than behind a click handler.
+   ========================================================================== */
+
+.pmew-family-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.pmew-family-browse {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translate(-50%, 6px);
+    padding: 7px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.22s ease, transform 0.22s ease, background 0.2s ease;
+}
+
+.pmew-family-link:hover .pmew-family-browse,
+.pmew-family-browse:focus-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.pmew-family-browse:hover { background: var(--pmew-navy); color: #ffffff; }
+
+/* ==========================================================================
+   03. QUICK VIEW
+   Clicking a tile must not navigate away — the point of a visual scan is
+   stepping through fifty parts with the arrow keys.
+   ========================================================================== */
+
+.pmew-quick-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
+    background: rgba(9, 30, 48, 0.58);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.pmew-quick-overlay.is-open { opacity: 1; visibility: visible; }
+
+.pmew-quick {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1410;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    width: min(1000px, calc(100vw - 40px));
+    max-height: min(88vh, 860px);
+    padding: 20px;
+    border-radius: 26px;
+    background: #ffffff;
+    box-shadow: 0 40px 100px rgba(7, 43, 68, 0.42);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -46%) scale(0.98);
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+}
+
+.pmew-quick.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+body.pmew-quick-open { overflow: hidden; }
+
+.pmew-quick-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.pmew-quick-close svg { width: 1.1em; height: 1.1em; }
+.pmew-quick-close:hover { background: #f4f8fc; }
+
+.pmew-quick-nav {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.pmew-quick-nav:hover:not(:disabled) { background: var(--pmew-navy); color: #ffffff; }
+.pmew-quick-nav:disabled { opacity: 0.25; cursor: default; }
+
+.pmew-quick-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: center;
+    min-width: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.pmew-quick-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    background: #f7fafd;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.pmew-quick-stage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8%;
+    transition: transform 0.18s ease;
+}
+
+.pmew-quick-zoomhint {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(20, 33, 46, 0.72);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.pmew-quick-stage:hover .pmew-quick-zoomhint { opacity: 0; }
+.pmew-quick-stage:not(:hover) .pmew-quick-zoomhint { opacity: 1; }
+
+.pmew-quick-eyebrow {
+    color: var(--pmew-orange);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.pmew-quick-title {
+    margin: 8px 0 14px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 2.4vw, 27px);
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.pmew-quick-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.pmew-quick-chips span {
+    padding: 6px 13px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #f7fafd;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pmew-quick-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+
+.pmew-quick-primary,
+.pmew-quick-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 0 20px;
+    border: 1px solid var(--pmew-navy);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pmew-quick-primary { background: var(--pmew-navy); color: #ffffff; }
+.pmew-quick-primary:hover { background: var(--pmew-navy-deep); }
+
+.pmew-quick-secondary { background: #ffffff; color: var(--pmew-navy); }
+.pmew-quick-secondary svg { width: 1em; height: 1em; }
+.pmew-quick-secondary:hover { background: #f4f8fc; }
+
+.pmew-quick-secondary.is-added {
+    border-color: rgba(18, 128, 92, 0.45);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+.pmew-quick-counter {
+    display: block;
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pmew-quick-similar {
+    grid-column: 1 / -1;
+    padding-top: 18px;
+    border-top: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-quick-similar > span {
+    display: block;
+    margin-bottom: 10px;
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.pmew-quick-similar > div { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.pmew-quick-similar button {
+    display: grid;
+    place-items: center;
+    width: 66px;
+    height: 66px;
+    padding: 7px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pmew-quick-similar button:hover {
+    border-color: var(--pmew-navy);
+    transform: translateY(-2px);
+}
+
+.pmew-quick-similar img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ==========================================================================
+   04. LIST VIEW
+   ========================================================================== */
+
+.pmew-list-intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: baseline;
+    margin-bottom: 18px;
+}
+
+.pmew-list-intro strong {
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.pmew-list-intro span {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+}
+
+.pmew-list-wrap {
+    border: 1px solid var(--pmew-line);
+    border-radius: 16px;
+    background: #ffffff;
+    overflow-x: auto;
+}
+
+.pmew-list-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pmew-list-table th,
+.pmew-list-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--pmew-line-soft);
+    text-align: left;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.pmew-list-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 0;
+    background: #f7fafd;
+    border-bottom: 2px solid var(--pmew-line);
+}
+
+.pmew-list-sort {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 13px 14px;
+    border: 0;
+    background: none;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+}
+
+.pmew-list-sort:hover { color: var(--pmew-navy); }
+.pmew-list-sort.active { color: var(--pmew-orange); }
+
+.pmew-list-row:hover { background: #f9fbfd; }
+.pmew-list-row.is-picked { background: rgba(10, 61, 98, 0.05); }
+.pmew-list-row.is-in-enquiry .pmew-list-name a { color: #12805c; }
+
+.pmew-list-check { width: 42px; text-align: center; }
+.pmew-list-check input { accent-color: var(--pmew-navy); }
+
+.pmew-list-name a {
+    color: var(--pmew-navy);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.pmew-list-name a:hover { text-decoration: underline; }
+
+.pmew-list-flag { margin-left: 6px; color: #12805c; font-size: 11px; }
+.pmew-list-flag svg { width: 1em; height: 1em; }
+.pmew-list-na { color: #c3cfda; }
+
+.pmew-list-action { width: 52px; text-align: center; }
+
+.pmew-list-add {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.pmew-list-add svg { width: 1em; height: 1em; }
+.pmew-list-add:hover { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-list-add.is-added {
+    border-color: rgba(18, 128, 92, 0.4);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+/* ==========================================================================
+   05. DETAIL CARD EXPAND
+   ========================================================================== */
+
+.pmew-detail-expand {
+    width: 100%;
+    margin-top: 10px;
+    padding: 9px;
+    border: 1px dashed var(--pmew-line);
+    border-radius: 10px;
+    background: #fbfdff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, border-style 0.2s ease;
+}
+
+.pmew-detail-expand:hover { border-style: solid; background: #f2f7fb; }
+.pmew-detail-expand.is-open { border-style: solid; }
+.pmew-detail-more .pmew-detail-rows { border-top: 0; padding-top: 0; }
+
+/* ==========================================================================
+   06. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .pmew-gal-grid.is-small { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .pmew-gal-grid.is-medium { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+    .pmew-gal-grid.is-small { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .pmew-gal-grid.is-medium { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pmew-gal-grid.is-large { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .pmew-quick { grid-template-columns: 1fr; padding: 16px; }
+    .pmew-quick-body { grid-template-columns: 1fr; gap: 20px; }
+    .pmew-quick-nav { position: absolute; bottom: 16px; }
+    .pmew-quick-prev { left: 16px; }
+    .pmew-quick-next { right: 16px; }
+}
+
+@media (max-width: 620px) {
+    .pmew-gal-grid.is-small { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pmew-gal-grid.is-medium { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pmew-gal-grid.is-large { grid-template-columns: 1fr; }
+    .pmew-gal-grid { gap: 22px 16px; }
+    .pmew-gal-controls { gap: 10px; }
+}
+
+@media print {
+    .pmew-gal-controls, .pmew-quick, .pmew-quick-overlay { display: none !important; }
+}
+
+/* A product card carries more text than a family card (name, family, actions),
+   so at the original 340px height the image box was squeezed to 180px. Bigger
+   photographs are the point of this view, so the card grows instead and the
+   image box keeps its original 200px. */
+.pmew-gal-grid.is-medium .pmew-gal-card {
+    height: 372px;
+    min-height: 372px;
+}
+
+.pmew-gal-grid.is-medium .pmew-gal-canvas {
+    height: 200px;
+    min-height: 200px;
+    flex: 0 0 200px;
+}
+
+/* The drill header used to hold the family card in a 260px column beside the
+   copy. The card now lives in Gallery as a crawlable link, so the header has a
+   single child — and it was being squeezed into that 260px column. One column,
+   full width. */
+.pmew-drill-header {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+}
+
+.pmew-drill-copy h3 { max-width: 22ch; }
+.pmew-drill-copy p { max-width: 78ch; }
+
+/* ==========================================================================
+   PRADAKO PART NUMBER
+   --------------------------------------------------------------------------
+   Set in a monospaced face and letter-spaced, because a part number is read
+   character by character and transcribed into someone else's system. Ambiguity
+   between similar glyphs is the failure mode, so it must never look like prose.
+   user-select:all means one click copies the whole number.
+   ========================================================================== */
+
+.pmew-partno {
+    display: inline-block;
+    font-family: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    color: var(--pmew-navy);
+    background: #f1f5f9;
+    border: 1px solid var(--pmew-line);
+    border-radius: 5px;
+    padding: 2px 7px;
+    white-space: nowrap;
+    user-select: all;
+}
+
+.pmew-partno.is-lg { font-size: 12px; padding: 4px 10px; letter-spacing: 1px; }
+
+.pmew-gal-body .pmew-partno { align-self: flex-start; margin-bottom: 2px; }
+.pmew-detail-body .pmew-partno { align-self: flex-start; margin-bottom: 6px; }
+
+.pmew-list-partno {
+    font-family: 'Space Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--pmew-navy);
+    white-space: nowrap;
+    user-select: all;
+}
+
+.rfq-item-category .pmew-partno { margin-right: 6px; }
+
+/* ==========================================================================
+   GALLERY CARD — ACCOMMODATING THE FULL SERIES CODE
+   --------------------------------------------------------------------------
+   PRA-SCR-000 is 11 monospaced characters. At the original 20px card padding
+   it sat hard against the edge, so the padding opens up and the body gets a
+   tighter, more deliberate rhythm. The card grows 26px to absorb the extra
+   line rather than squeezing the image box, because the photograph is what
+   the buyer is scanning.
+   ========================================================================== */
+
+.pmew-family-card {
+    height: 366px;
+    min-height: 366px;
+    padding: 18px 20px 20px;
+}
+
+.pmew-family-card .pradako-products-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding-top: 14px;
+}
+
+.pmew-family-series {
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    padding: 3px 10px;
+    background: #eef3f8;
+    border-color: #dbe5ee;
+}
+
+.pmew-family-card .pradako-products-card-title { margin: 2px 0 0; }
+.pmew-family-card .pmew-family-card-meta { margin: 0; }
+
+.pmew-family-card .pradako-products-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 6px;
+}
+
+/* The grid gains a little breathing room so twelve cards do not read as a
+   solid block once each carries a code. */
+.pmew-family-grid { gap: 34px 26px; }
+
+/* ==========================================================================
+   LIST THUMBNAILS
+   ========================================================================== */
+
+.pmew-list-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.pmew-list-thumbtoggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pmew-list-thumbtoggle input { accent-color: var(--pmew-navy); }
+
+.pmew-list-thumb {
+    width: 64px;
+    padding: 5px 8px !important;
+}
+
+.pmew-list-thumb img {
+    display: block;
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: #f7fafd;
+    border-radius: 7px;
+}
+
+.pmew-list-thumb-blank {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 7px;
+    background: #f7fafd;
+    color: rgba(10, 61, 98, 0.3);
+    font-size: 15px;
+}
+
+.pmew-list-thumb-blank svg { width: 1em; height: 1em; }
+
+/* Rows grow to hold the photograph without the text crowding it. */
+/* The compact vertical padding was scoped to .has-thumbs, so turning
+   photographs OFF restored the 11px padding and made rows TALLER than at
+   Small — 60px against 50px. Density is the reason someone turns photographs
+   off, so the compact padding applies at every size and the photograph alone
+   drives row height. */
+.pmew-list-table td { padding-top: 6px; padding-bottom: 6px; }
+
+@media (max-width: 700px) {
+    .pmew-list-toolbar { justify-content: flex-start; }
+}
+
+/* The thumbnail column is fixed width and must not be squeezed by the
+   percentage-width text columns beside it. */
+.pmew-list-table.has-thumbs { min-width: 1020px; }
+
+th.pmew-list-thumb,
+td.pmew-list-thumb {
+    width: 68px;
+    min-width: 68px;
+    max-width: 68px;
+}
+
+/* ==========================================================================
+   LIST PHOTOGRAPH SIZES
+   ========================================================================== */
+
+.pmew-list-toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.pmew-list-ctl-label {
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.pmew-list-thumbsizes {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #f7fafd;
+}
+
+.pmew-list-thumbbtn {
+    padding: 6px 14px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #4a5f74;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pmew-list-thumbbtn:hover { color: var(--pmew-navy); }
+.pmew-list-thumbbtn.active { background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-list-table.thumbs-small  th.pmew-list-thumb,
+.pmew-list-table.thumbs-small  td.pmew-list-thumb { width: 52px; min-width: 52px; max-width: 52px; }
+.pmew-list-table.thumbs-medium th.pmew-list-thumb,
+.pmew-list-table.thumbs-medium td.pmew-list-thumb { width: 68px; min-width: 68px; max-width: 68px; }
+.pmew-list-table.thumbs-large  th.pmew-list-thumb,
+.pmew-list-table.thumbs-large  td.pmew-list-thumb { width: 90px; min-width: 90px; max-width: 90px; }
+
+.pmew-list-table.thumbs-small  .pmew-list-thumb img,
+.pmew-list-table.thumbs-small  .pmew-list-thumb-blank { width: 36px; height: 36px; }
+.pmew-list-table.thumbs-medium .pmew-list-thumb img,
+.pmew-list-table.thumbs-medium .pmew-list-thumb-blank { width: 52px; height: 52px; }
+.pmew-list-table.thumbs-large  .pmew-list-thumb img,
+.pmew-list-table.thumbs-large  .pmew-list-thumb-blank { width: 72px; height: 72px; }
+
+.pmew-list-table.thumbs-small  { min-width: 960px; }
+.pmew-list-table.thumbs-large  { min-width: 1060px; }
+
+/* ==========================================================================
+   FAMILY DIRECTORY — "Browse all products"
+   ========================================================================== */
+
+.pmew-family-card-blurb {
+    display: block;
+    margin-top: 4px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.5;
+    max-width: 26ch;
+}
+
+.pmew-browse-all-row {
+    margin: 34px 0 0;
+    text-align: center;
+}
+
+.pmew-browse-all,
+.pmew-back-families {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 0 26px;
+    border: 1px solid var(--pmew-navy);
+    border-radius: 12px;
+    background: var(--pmew-navy);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pmew-browse-all:hover { background: var(--pmew-navy-deep); }
+
+.pmew-back-families {
+    background: #ffffff;
+    color: var(--pmew-navy);
+    border-color: var(--pmew-line);
+}
+
+.pmew-back-families:hover { background: #f4f8fc; border-color: var(--pmew-navy); }
+.pmew-browse-all-row:has(.pmew-back-families) { margin: 0 0 22px; text-align: left; }
+
+/* ==========================================================================
+   GROUPED CATALOGUE
+   ========================================================================== */
+
+.pmew-cat-familyrail {
+    position: sticky;
+    top: 74px;
+    z-index: 30;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 11px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 26px rgba(13, 54, 82, 0.07);
+}
+
+.pmew-cat-rail-label {
+    flex: 0 0 auto;
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.pmew-cat-rail-track {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.pmew-cat-railchip {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 15px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pmew-cat-railchip:hover { border-color: rgba(10, 61, 98, 0.3); background: #f4f8fc; }
+.pmew-cat-railchip.is-current { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-cat-railchip small {
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.08);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.pmew-cat-railchip.is-current small { background: rgba(255, 255, 255, 0.22); }
+
+.pmew-cat-summary {
+    margin-bottom: 26px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.pmew-fam-block { margin-bottom: 56px; scroll-margin-top: 130px; }
+
+.pmew-fam-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: baseline;
+    margin-bottom: 26px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--pmew-navy);
+}
+
+.pmew-fam-title {
+    margin: 0;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.pmew-fam-series { align-self: center; }
+
+.pmew-fam-meta {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pmew-fam-open {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.pmew-fam-open:hover { color: var(--pmew-orange); }
+
+.pmew-cat-block { margin-bottom: 40px; }
+
+.pmew-cat-head {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pmew-cat-title {
+    margin: 0 0 8px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.pmew-cat-rule { width: 92px; height: 3px; border-radius: 3px; background: var(--pmew-gold); }
+
+.pmew-cat-count {
+    flex: 0 0 auto;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #fbf7ea;
+    color: #8a6d13;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.pmew-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.pmew-cat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 330px;
+    min-height: 330px;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.pmew-cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(13, 54, 82, 0.13);
+}
+
+.pmew-cat-card .pmew-gal-canvas { height: 176px; min-height: 176px; flex: 0 0 176px; }
+
+.pmew-cat-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    flex: 1;
+    text-align: center;
+}
+
+.pmew-cat-name {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.pmew-cat-name a { color: var(--pmew-navy); text-decoration: none; }
+.pmew-cat-name a:visited { color: var(--pmew-navy); }
+.pmew-cat-name a:hover { color: var(--pmew-orange); text-decoration: underline; text-underline-offset: 3px; }
+
+.pmew-cat-add {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    margin-top: auto;
+    min-height: 40px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 10px;
+    background: #f7fafd;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pmew-cat-add svg { width: 1em; height: 1em; }
+.pmew-cat-add:hover { background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-cat-add.is-added {
+    border-color: rgba(18, 128, 92, 0.4);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+.pmew-cat-sentinel {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pmew-cat-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--pmew-line);
+    border-top-color: var(--pmew-navy);
+    border-radius: 999px;
+    animation: pmew-spin 0.7s linear infinite;
+}
+
+@keyframes pmew-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1100px) { .pmew-cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 820px)  { .pmew-cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px)  { .pmew-cat-grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   OVERFLOW FIXES
+   --------------------------------------------------------------------------
+   1. .pmew-workspace is a CSS grid, and a grid item's default min-width is
+      auto — meaning it refuses to shrink below its content and simply
+      overflows the parent. The workspace measured 1160px while its child view
+      stack measured 1473px inside a 1440px viewport, so the whole page scrolled
+      sideways. minmax(0, 1fr) lets the item shrink, which is what was intended.
+
+   2. Several components set display in CSS, which OVERRIDES the hidden
+      attribute — so "hidden" elements were still laid out and still
+      contributing width. Same fault as the sub-type rail earlier, so it is
+      fixed once, for all of them.
+   ========================================================================== */
+
+.pmew-workspace { grid-template-columns: minmax(0, 1fr); }
+.pmew-facets-open .pmew-workspace { grid-template-columns: 268px minmax(0, 1fr); }
+
+.pmew-viewstack { min-width: 0; }
+
+.pmew-gal-grid[hidden],
+.pmew-gal-controls[hidden],
+.pmew-catalogue[hidden],
+.pmew-list-toolbar[hidden],
+.pmew-toolbar-badge[hidden],
+.pmew-toolbar-clear[hidden],
+.pmew-subtype-rail[hidden],
+.pmew-cat-sentinel[hidden] {
+    display: none !important;
+}
+
+/* The family rail must scroll internally rather than stretch the page. */
+.pmew-cat-familyrail { max-width: 100%; min-width: 0; }
+.pmew-cat-rail-track { max-width: 100%; }

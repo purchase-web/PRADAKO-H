@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Leadership Message | Pradako Mechanical</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+/* ==========================================================
+   LEADERSHIP MESSAGE PAGE
+   Premium Letter Format Layout
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: #061833;
+    line-height: 1.7;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================
+   PAGE WRAPPER
+   ========================================================== */
+
+.pmew-leadership-letter-page {
+    width: 100%;
+    background: #ffffff;
+}
+
+/* Hard reset for this page so global CSS does not add cards/shadows */
+.pmew-leadership-letter-page,
+.pmew-leadership-letter-page *,
+.pmew-leadership-letter-hero,
+.pmew-leadership-letter-document,
+.pmew-leadership-letter-heading {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+
+.pmew-leadership-letter-hero {
+    width: 100%;
+    padding: 130px clamp(22px, 7vw, 110px) 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e6edf5;
+    text-align: left;
+}
+
+.pmew-leadership-letter-hero__inner {
+    width: 100%;
+    max-width: 1320px;
+}
+
+.pmew-leadership-letter-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5.7vw, 78px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.7px;
+    color: #061833;
+    max-width: 1180px;
+    margin-bottom: 20px;
+}
+
+.pmew-leadership-letter-hero__subtitle {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.7;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #53657a;
+    max-width: 900px;
+}
+
+/* ==========================================================
+   METRICS STRIP
+   ========================================================== */
+
+.pmew-leadership-letter-metrics {
+    width: 100%;
+    padding: 46px clamp(22px, 7vw, 110px) 0;
+    background: #ffffff;
+}
+
+.pmew-leadership-letter-metrics__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #e3ebf3;
+    border-bottom: 1px solid #e3ebf3;
+}
+
+.pmew-leadership-letter-metric {
+    padding: 30px 26px;
+    border-right: 1px solid #e3ebf3;
+}
+
+.pmew-leadership-letter-metric:last-child {
+    border-right: none;
+}
+
+.pmew-leadership-letter-metric__number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1;
+    font-weight: 700;
+    color: #061833;
+    margin-bottom: 10px;
+}
+
+.pmew-leadership-letter-metric__label {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #65758a;
+}
+
+/* ==========================================================
+   LETTER CONTENT
+   ========================================================== */
+
+.pmew-leadership-letter-section {
+    width: 100%;
+    padding: 62px clamp(22px, 7vw, 110px) 110px;
+    background: #ffffff;
+}
+
+.pmew-leadership-letter-document {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.pmew-leadership-letter-heading {
+    width: 100%;
+    padding-bottom: 38px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid #e3ebf3;
+    background: transparent !important;
+}
+
+.pmew-leadership-letter-heading__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.8vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    color: #061833;
+    max-width: 1260px;
+    margin-bottom: 24px;
+    background: transparent !important;
+}
+
+.pmew-leadership-letter-heading__salutation {
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 600;
+    color: #23344a;
+    background: transparent !important;
+}
+
+.pmew-leadership-letter-content {
+    width: 100%;
+}
+
+.pmew-leadership-letter-block {
+    width: 100%;
+    margin-bottom: 44px;
+}
+
+.pmew-leadership-letter-block:last-child {
+    margin-bottom: 0;
+}
+
+.pmew-leadership-letter-block__title {
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #0A3D62;
+    margin-bottom: 17px;
+    text-align: left;
+}
+
+.pmew-leadership-letter-block__paragraph {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.95;
+    font-weight: 400;
+    color: #243244;
+    margin-bottom: 17px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+    hyphens: auto;
+}
+
+.pmew-leadership-letter-block__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.pmew-leadership-letter-list {
+    list-style-type: disc;
+    margin: 16px 0 22px 22px;
+    padding-left: 18px;
+}
+
+.pmew-leadership-letter-list__item {
+    font-size: 16px;
+    line-height: 1.85;
+    font-weight: 400;
+    color: #243244;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+    hyphens: auto;
+}
+
+.pmew-leadership-letter-list__item:last-child {
+    margin-bottom: 0;
+}
+
+.pmew-leadership-letter-list__item::marker {
+    color: #0A3D62;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   SIGNATURE
+   ========================================================== */
+
+.pmew-leadership-letter-signature {
+    margin-top: 50px;
+    padding-top: 34px;
+    border-top: 1px solid #e3ebf3;
+    background: transparent !important;
+}
+
+.pmew-leadership-letter-signature__intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #243244;
+    margin-bottom: 18px;
+}
+
+.pmew-leadership-letter-signature__name {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #061833;
+    margin-bottom: 5px;
+}
+
+.pmew-leadership-letter-signature__designation {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 600;
+    color: #53657a;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    .pmew-leadership-letter-hero {
+        padding: 116px 36px 58px;
+    }
+
+    .pmew-leadership-letter-metrics {
+        padding: 40px 36px 0;
+    }
+
+    .pmew-leadership-letter-section {
+        padding: 56px 36px 90px;
+    }
+
+    .pmew-leadership-letter-heading__title {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pmew-leadership-letter-hero {
+        padding: 96px 24px 48px;
+    }
+
+    .pmew-leadership-letter-hero__title {
+        letter-spacing: -0.9px;
+    }
+
+    .pmew-leadership-letter-hero__subtitle {
+        letter-spacing: 0.06em;
+    }
+
+    .pmew-leadership-letter-metrics {
+        padding: 34px 24px 0;
+    }
+
+    .pmew-leadership-letter-metrics__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pmew-leadership-letter-metric {
+        padding: 24px 18px;
+    }
+
+    .pmew-leadership-letter-metric:nth-child(2) {
+        border-right: none;
+    }
+
+    .pmew-leadership-letter-metric:nth-child(1),
+    .pmew-leadership-letter-metric:nth-child(2) {
+        border-bottom: 1px solid #e3ebf3;
+    }
+
+    .pmew-leadership-letter-section {
+        padding: 46px 24px 76px;
+    }
+
+    .pmew-leadership-letter-heading {
+        padding-bottom: 30px;
+        margin-bottom: 38px;
+    }
+
+    .pmew-leadership-letter-block {
+        margin-bottom: 36px;
+    }
+
+    .pmew-leadership-letter-block__title {
+        font-size: 17px;
+    }
+
+    .pmew-leadership-letter-block__paragraph,
+    .pmew-leadership-letter-list__item,
+    .pmew-leadership-letter-signature__intro {
+        font-size: 14.8px;
+        line-height: 1.88;
+    }
+
+    .pmew-leadership-letter-signature {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pmew-leadership-letter-hero {
+        padding: 86px 18px 42px;
+    }
+
+    .pmew-leadership-letter-metrics {
+        padding: 28px 18px 0;
+    }
+
+    .pmew-leadership-letter-metrics__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pmew-leadership-letter-metric {
+        border-right: none;
+        border-bottom: 1px solid #e3ebf3;
+        padding: 22px 0;
+    }
+
+    .pmew-leadership-letter-metric:last-child {
+        border-bottom: none;
+    }
+
+    .pmew-leadership-letter-section {
+        padding: 38px 18px 64px;
+    }
+
+    .pmew-leadership-letter-heading__title {
+        letter-spacing: -0.5px;
+    }
+
+    .pmew-leadership-letter-block__title {
+        font-size: 16px;
+    }
+
+    .pmew-leadership-letter-block__paragraph,
+    .pmew-leadership-letter-list__item,
+    .pmew-leadership-letter-signature__intro {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .pmew-leadership-letter-list {
+        margin-left: 18px;
+        padding-left: 14px;
+    }
+
+    .pmew-leadership-letter-signature__name {
+        font-size: 25px;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Leadership Message from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/people/covid-19-journey.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Leadership Message | Pradako Mechanical">
+    <meta property="og:description" content="Leadership Message from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/people/covid-19-journey.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Leadership Message | Pradako Mechanical">
+    <meta name="twitter:description" content="Leadership Message from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Leadership Message | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/people/covid-19-journey.html",
+  "description": "Leadership Message from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- ======================================================
+    HEADER WITH PROPER LOGO & HAMBURGER
+======================================================= -->
+<div id="navbar-container"></div>
+
+<!-- ======================================================
+    PAGE MAIN CONTENT
+======================================================= -->
+<main class="pmew-leadership-letter-page">
+
+    <!-- HERO -->
+    <section class="pmew-leadership-letter-hero" aria-labelledby="pmew-leadership-letter-hero-title">
+        <div class="pmew-leadership-letter-hero__inner">
+            <h1 class="pmew-leadership-letter-hero__title" id="pmew-leadership-letter-hero-title">Standing Together in a Time That Reshaped the World</h1>
+            <p class="pmew-leadership-letter-hero__subtitle">Driven by Responsibility, Strengthened by Resilience, Committed to Our People</p>
+        </div>
+    </section>
+
+    <!-- METRICS -->
+    <section class="pmew-leadership-letter-metrics" aria-label="Leadership Message Metrics">
+        <div class="pmew-leadership-letter-metrics__grid">
+
+            <div class="pmew-leadership-letter-metric">
+                <h2 class="pmew-leadership-letter-metric__number">0</h2>
+                <span class="pmew-leadership-letter-metric__label">Metrics</span>
+            </div>
+
+            <div class="pmew-leadership-letter-metric">
+                <h2 class="pmew-leadership-letter-metric__number">0</h2>
+                <span class="pmew-leadership-letter-metric__label">PPM</span>
+            </div>
+
+            <div class="pmew-leadership-letter-metric">
+                <h2 class="pmew-leadership-letter-metric__number">0</h2>
+                <span class="pmew-leadership-letter-metric__label">Covid Cases</span>
+            </div>
+
+            <div class="pmew-leadership-letter-metric">
+                <h2 class="pmew-leadership-letter-metric__number">0</h2>
+                <span class="pmew-leadership-letter-metric__label">Line Stoppages</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="pmew-leadership-letter-section">
+        <article class="pmew-leadership-letter-document">
+
+            <div class="pmew-leadership-letter-heading">
+                <h2 class="pmew-leadership-letter-heading__title">A Message of Unity and Resilience</h2>
+                <p class="pmew-leadership-letter-heading__salutation">To Our Valued Employees, Suppliers, Customers, and Partners,</p>
+            </div>
+
+            <div class="pmew-leadership-letter-content">
+
+                <section class="pmew-leadership-letter-block">
+                    <p class="pmew-leadership-letter-block__paragraph">Across the world, the COVID-19 pandemic has reshaped daily life and global industry. During this period, our organization has remained guided by the same values that have defined our journey for decades—responsibility, resilience, and an unwavering commitment to the people and partners who form our global community.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">At Pradako Mechanical & Engineering Works, the well-being of our people remains our foremost priority, alongside the responsible continuation of manufacturing activities that support essential industries and supply chains. Through disciplined planning, strong teamwork, and shared determination, our organization continues advancing with purpose and confidence.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Prioritizing Health, Safety, and Well-Being</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">The well-being of our employees, suppliers, customers, and their families remains central to every decision we make. Across all our facilities, comprehensive health and safety measures operate in alignment with international public health guidance and government directives.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">Enhanced workplace practices include:</p>
+
+                    <ul class="pmew-leadership-letter-list">
+                        <li class="pmew-leadership-letter-list__item">Regular sanitization of workspaces and production areas</li>
+                        <li class="pmew-leadership-letter-list__item">Structured social distancing practices across facilities</li>
+                        <li class="pmew-leadership-letter-list__item">Provision of personal protective equipment (PPE) for all team members</li>
+                        <li class="pmew-leadership-letter-list__item">Health awareness initiatives and hygiene education programs</li>
+                        <li class="pmew-leadership-letter-list__item">Controlled facility access and organized workplace protocols</li>
+                    </ul>
+
+                    <p class="pmew-leadership-letter-block__paragraph">Through these initiatives, our facilities continue operating with a strong focus on employee safety, workplace discipline, and responsible manufacturing practices.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Standing Together with Our Employees</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">Our employees represent the foundation of our organization. Throughout this period, their dedication, professionalism, and adaptability have strengthened our ability to continue serving customers and partners across the world.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">From manufacturing teams supporting production operations to colleagues coordinating operations remotely, every member of our organization demonstrates remarkable commitment and teamwork.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">To support our workforce, we have introduced expanded health benefits, employee wellness initiatives, and resources that promote both professional stability and personal well-being.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Supporting Our Suppliers and Partners</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">Our relationships with suppliers and partners have always been built upon trust, collaboration, and long-term partnership. During this period, close coordination and open communication continue strengthening our shared ability to serve global industries.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">These partnerships remain a cornerstone of our organization's growth and resilience.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Continuing to Serve Our Customers</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">To our valued customers across industries and regions, we express our sincere appreciation for the trust placed in our organization.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">Through responsible planning and disciplined execution, our organization continues delivering the products and services that our partners depend upon.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Embracing Change and Looking Ahead</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">This period has strengthened our collective appreciation for resilience, adaptability, and collaboration. These experiences reinforce our commitment to sustainable growth and responsible leadership.</p>
+                </section>
+
+                <section class="pmew-leadership-letter-block">
+                    <h3 class="pmew-leadership-letter-block__title">Gratitude and Confidence for the Future</h3>
+                    <p class="pmew-leadership-letter-block__paragraph">We extend our deepest appreciation to every employee, partner, customer, and supplier who continues contributing to our shared journey.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">Together, we continue advancing forward with unity, confidence, and determination.</p>
+                    <p class="pmew-leadership-letter-block__paragraph">Thank you for remaining an important part of our journey.</p>
+                </section>
+
+                <div class="pmew-leadership-letter-signature">
+                    <p class="pmew-leadership-letter-signature__intro">With appreciation and respect,</p>
+                    <p class="pmew-leadership-letter-signature__name">Falguni Dharmesh Trivedi</p>
+                    <p class="pmew-leadership-letter-signature__designation">Chairwoman & Managing Director</p>
+                </div>
+
+            </div>
+
+        </article>
+    </section>
+
+</main>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

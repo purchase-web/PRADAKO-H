@@ -1,0 +1,1531 @@
+@import url("./products-base.css");
+
+/* ==========================================================
+   PRADAKO — STANDARD PRODUCTS (INDEPENDENT PAGE)
+   ----------------------------------------------------------
+   Extracted from /assets/css/products.css on 8 August 2026.
+
+   A self-contained copy of the Standard Products catalogue
+   styling only. Nothing here is shared with the Products page,
+   so the two can never drift apart.
+
+   CARRIED OVER
+     01  Product page tokens
+     02  Common helpers
+     03  Master card UI system
+     09  Unified breadcrumb arrow system
+     10  Standard products premium header + controls
+     11  Standard products premium grid / list
+     12  Dynamic catalogue router
+     13  Type cards
+     14  Subtype cards
+     15  Final standard product cards
+     16  Detail panel
+     20  Standard group sections
+     21  Global product image safety
+     22  Responsive (catalogue rules only)
+     23  Standard products premium responsive overrides
+
+   LEFT BEHIND
+     Product page hero, sticky product navigation, all customised
+     product sections, the cross-reference guide, hot products,
+     product at a glance and the enquiry footer.
+========================================================== */
+/* ==========================================================
+   01. PRODUCT PAGE TOKENS
+========================================================== */
+
+
+/* ==========================================================
+   02. COMMON HELPERS
+========================================================== */
+
+
+
+
+
+
+
+
+.pradako-products-section,
+.pradako-products-info-section,
+.pradako-products-overview {
+    padding: clamp(56px, 8vw, 96px) 0;
+    background: var(--pmew-white);
+}
+
+
+
+
+
+/* .pradako-products-title {
+    font-size: clamp(28px, 5vw, 34px);
+    font-weight: 800;
+    letter-spacing: 2px;
+} */
+
+
+/* ==========================================================
+   03. MASTER CARD UI SYSTEM
+========================================================== */
+.pradako-products-card,
+.pradako-products-standard-card,
+.pradako-products-info-card,
+.pradako-catalogue-type-card,
+.pradako-catalogue-product-card,
+.pradako-catalogue-subtype-block,
+.pradako-catalogue-subcat-card,
+.pradako-catalogue-detail,
+.pradako-standard-group-section {
+    background: var(--pmew-card-bg);
+    border: 1px solid var(--pmew-card-border);
+    box-shadow: var(--pmew-shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.32s ease,
+        box-shadow 0.32s ease,
+        border-color 0.32s ease,
+        background 0.32s ease,
+        color 0.32s ease;
+}
+
+.pradako-products-card::before,
+.pradako-products-standard-card::before,
+.pradako-catalogue-type-card::before,
+.pradako-catalogue-product-card::before,
+.pradako-catalogue-subcat-card::before,
+.pradako-products-info-card::before,
+.pradako-standard-group-section::before,
+.pradako-catalogue-subtype-block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(214, 170, 59, 0.12),
+            transparent 34%
+        );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.32s ease;
+}
+
+
+
+
+
+.pradako-products-standard-card:hover,
+.pradako-catalogue-subcat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 170, 59, 0.62);
+    box-shadow: var(--pmew-shadow-md);
+}
+
+.pradako-products-standard-card:hover::before,
+.pradako-catalogue-subcat-card:hover::before {
+    opacity: 1;
+}
+
+.pradako-products-info-card:hover,
+.pradako-standard-group-section:hover,
+.pradako-catalogue-subtype-block:hover {
+    transform: translateY(-2px);
+    border-color: rgba(214, 170, 59, 0.46);
+    box-shadow: 0 24px 58px rgba(9, 33, 52, 0.12);
+}
+
+
+
+/* ==========================================================
+   09-16. CATALOGUE: BREADCRUMB, CONTROLS, GRID, CARDS, DETAIL
+========================================================== */
+.pradako-catalogue-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    min-height: 50px;
+    padding: 0;
+    margin: 0 0 24px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-family: var(--pmew-font-primary);
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.pradako-catalogue-breadcrumb > span {
+    display: none !important;
+}
+
+.pmew-breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #607487;
+    font: inherit;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1;
+}
+
+button.pmew-breadcrumb-item {
+    cursor: pointer;
+}
+
+button.pmew-breadcrumb-item:hover {
+    color: var(--pmew-navy-dark);
+}
+
+strong.pmew-breadcrumb-item {
+    color: var(--pmew-gold);
+    font-weight: 600;
+}
+
+.pmew-breadcrumb-item + .pmew-breadcrumb-item::before {
+    content: "›";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 13px;
+    color: #aeb9c3;
+    font-size: 21px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+/* ==========================================================
+   10. STANDARD PRODUCTS PREMIUM HEADER + CONTROLS
+========================================================== */
+
+/* Standard products section spacing */
+#standards {
+    background: #ffffff;
+    padding: clamp(72px, 7.5vw, 108px) 0 clamp(82px, 8vw, 118px);
+}
+
+#standards .container {
+    width: min(1380px, calc(100% - 56px));
+}
+
+/* Premium control shell */
+.pradako-products-controls {
+    max-width: 1220px;
+    margin: 0 auto 42px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: auto minmax(320px, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 14px 36px rgba(9, 33, 52, 0.075);
+}
+
+/* By Standard Type / Number segmented control */
+.pradako-products-filter-toggle {
+    height: 58px;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: none;
+    flex-shrink: 0;
+}
+
+.pradako-products-toggle-btn {
+    min-width: 150px;
+    height: 46px;
+    padding: 0 22px;
+    border: 0;
+    outline: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #64778a;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: var(--pmew-font-primary);
+    font-size: 13.5px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: 0.24s ease;
+}
+
+.pradako-products-toggle-btn:hover {
+    color: var(--pmew-navy-dark);
+}
+
+.pradako-products-toggle-btn.active {
+    background: var(--pmew-navy-dark);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(8, 47, 77, 0.18);
+}
+
+/* Premium search */
+.pradako-products-search-box {
+    position: relative;
+    height: 54px;
+    flex: 1 1 320px;
+    min-width: 280px;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px 0 18px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(9, 33, 52, 0.045);
+    overflow: hidden;
+}
+
+.pradako-products-search-box > i {
+    flex: 0 0 auto;
+    color: #8ea0ad;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.pradako-products-search-box input,
+.pradako-products-search-box input[type="search"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--pmew-ink);
+    font-family: var(--pmew-font-primary);
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.pradako-products-search-box input::placeholder {
+    color: #8ea0ad;
+    opacity: 1;
+}
+
+.pradako-products-search-box input[type="search"]::-webkit-search-decoration,
+.pradako-products-search-box input[type="search"]::-webkit-search-cancel-button,
+.pradako-products-search-box input[type="search"]::-webkit-search-results-button,
+.pradako-products-search-box input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.pradako-products-search-box:focus-within {
+    border-color: rgba(31, 60, 84, 0.35);
+    box-shadow:
+        0 10px 24px rgba(9, 33, 52, 0.06),
+        0 0 0 4px rgba(31, 60, 84, 0.08);
+}
+
+.pradako-products-search-clear {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: #edf2f6;
+    color: #718391;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    cursor: pointer;
+    transition:
+        background 0.22s ease,
+        color 0.22s ease,
+        transform 0.22s ease,
+        opacity 0.22s ease;
+}
+
+.pradako-products-search-clear i {
+    font-size: 13px;
+    line-height: 1;
+}
+
+.pradako-products-search-clear:hover {
+    background: var(--pmew-navy-dark);
+    color: #ffffff;
+    transform: scale(1.04);
+}
+
+.pradako-products-search-clear.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.88);
+}
+
+/* Grid/List/Export segmented action buttons */
+.pradako-products-view-actions {
+    height: 58px;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: none;
+    flex-shrink: 0;
+}
+
+.pradako-products-action-btn {
+    min-width: 90px;
+    height: 48px;
+    padding: 0 18px;
+    border: 0;
+    outline: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #64778a;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--pmew-font-primary);
+    font-size: 13.5px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: 0.24s ease;
+}
+
+.pradako-products-action-btn:hover {
+    color: var(--pmew-navy-deep);
+    /* background: #f7f9fc; */
+}
+
+.pradako-products-action-btn.active {
+    background: var(--pmew-navy-dark);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(8, 47, 77, 0.18);
+}
+
+.pradako-products-action-btn.export {
+    background: var(--pmew-blue);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(8, 47, 77, 0.18);
+}
+
+.pradako-products-action-btn.export:hover {
+    background: var(--pmew-orange);
+    color: #ffffff;
+}
+
+/* Consistent Font Awesome icon system */
+.pradako-products-toggle-btn i,
+.pradako-products-action-btn i {
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.92;
+}
+
+.pradako-products-toggle-btn span,
+.pradako-products-action-btn span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.pradako-products-toggle-btn.active i,
+.pradako-products-action-btn.active i,
+.pradako-products-action-btn.export i {
+    opacity: 1;
+}
+
+/* ==========================================================
+   11. STANDARD PRODUCTS PREMIUM GRID / LIST
+========================================================== */
+.pradako-products-standards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.pradako-products-standards-grid.grid-view {
+    display: grid;
+}
+
+.pradako-products-standards-grid.list-view {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+/* Standard product card */
+.pradako-products-standard-card {
+    min-height: 340px;
+    padding: 18px;
+    border-radius: 28px;
+    background: #ffffff;
+    border: 1px solid var(--pmew-card-border);
+    box-shadow: var(--pmew-shadow-sm);
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.32s ease,
+        box-shadow 0.32s ease,
+        border-color 0.32s ease;
+}
+
+.pradako-products-standard-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(214, 170, 59, 0.12),
+            transparent 34%
+        );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.32s ease;
+}
+
+.pradako-products-standard-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pmew-card-border-hover);
+    box-shadow: var(--pmew-shadow-lg);
+}
+
+.pradako-products-standard-card:hover::before {
+    opacity: 1;
+}
+
+/* Image area */
+.pradako-products-standard-img {
+    width: 100%;
+    height: 220px;
+    border-radius: 22px;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-products-standard-img::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 14px;
+    height: 22px;
+    background: rgba(9, 33, 52, 0.10);
+    filter: blur(18px);
+    border-radius: 50%;
+    opacity: 0.55;
+    z-index: 1;
+}
+
+.pradako-products-standard-img img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transform: scale(1.14);
+    transition: transform 0.35s ease;
+}
+
+.pradako-products-standard-card:hover .pradako-products-standard-img img {
+    transform: scale(1.22);
+}
+
+/* Card title */
+.pradako-products-standard-card p {
+    margin: 20px 0 0;
+    color: #082f4d;
+    font-family: var(--pmew-font-serif);
+    font-size: clamp(20px, 1.35vw, 24px);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-products-standard-card:hover p {
+    color: var(--pmew-navy-dark);
+}
+
+/* List view */
+.pradako-products-standards-grid.list-view .pradako-products-standard-card-link,
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-card,
+.pradako-products-standards-grid.list-view .pradako-catalogue-product-card,
+.pradako-products-standards-grid.list-view .pradako-products-standard-card {
+    width: 100%;
+}
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card {
+    min-height: 170px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 18px;
+    text-align: left;
+}
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-img {
+    height: 145px;
+}
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card p {
+    margin: 0;
+    font-size: clamp(22px, 2vw, 28px);
+    text-align: left;
+}
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card p::before {
+    margin: 0 0 12px;
+}
+
+/* ==========================================================
+   12. DYNAMIC CATALOGUE ROUTER
+========================================================== */
+.pradako-catalogue-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.pradako-catalogue-head h3 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 48px);
+    color: var(--pmew-navy-deep);
+    font-family: var(--pmew-font-serif);
+    letter-spacing: .08em;
+}
+
+.pradako-catalogue-head p {
+    margin: 8px 0 0;
+    color: var(--pmew-muted);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.pradako-catalogue-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--pmew-white);
+    border: 1px solid #e3ebf1;
+    border-radius: 999px;
+    padding: 11px 16px;
+    font-weight: 900;
+    color: var(--pmew-navy-dark);
+    box-shadow: 0 8px 20px rgba(9, 33, 52, .06);
+    white-space: nowrap;
+}
+
+.pradako-catalogue-count i {
+    width: 8px;
+    height: 8px;
+    background: var(--pmew-gold);
+    border-radius: 50%;
+}
+
+.pradako-image-fallback {
+    position: relative;
+    z-index: 2;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dfe7ec, #8d9aa0);
+    color: var(--pmew-navy-dark);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    font-weight: 950;
+}
+
+/* ==========================================================
+   13. TYPE CARDS
+========================================================== */
+.pradako-catalogue-type-card,
+.pradako-catalogue-product-card {
+    border-radius: var(--pmew-radius-lg);
+    cursor: pointer;
+}
+
+.pradako-catalogue-type-art {
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pmew-card-soft-bg);
+    border-bottom: 1px solid #edf2f6;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.pradako-catalogue-type-art::before {
+    content: "PRADAKO";
+    position: absolute;
+    left: 10%;
+    top: 44%;
+    font-size: 29px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    color: rgba(12, 47, 74, .08);
+    transition: opacity .3s ease;
+}
+
+.pradako-catalogue-type-card:hover .pradako-catalogue-type-art::before {
+    opacity: 0.18;
+}
+
+.pradako-catalogue-type-art img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: drop-shadow(0 18px 18px rgba(9, 33, 52, .16));
+    transform: scale(1);
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.pradako-catalogue-type-card:hover .pradako-catalogue-type-art img {
+    transform: scale(1.06);
+    filter: drop-shadow(0 24px 24px rgba(9, 33, 52, .20));
+}
+
+.pradako-catalogue-type-body {
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-type-body h4 {
+    margin: 0 0 14px;
+    color: var(--pmew-navy-dark);
+    font-size: 24px;
+    font-weight: 950;
+}
+
+.pradako-catalogue-type-card:hover .pradako-catalogue-type-body h4 {
+    color: #0b5fc6;
+}
+
+.pradako-catalogue-type-body p {
+    margin: 0;
+    color: var(--pmew-muted);
+    line-height: 1.55;
+}
+
+.pradako-catalogue-standard-box {
+    width: 100%;
+    min-height: 150px;
+    background: var(--pmew-navy);
+    color: var(--pmew-white);
+    display: grid;
+    place-items: center;
+    font-family: var(--pmew-font-serif);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-align: center;
+    padding: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-card,
+.pradako-products-standards-grid.list-view .pradako-catalogue-product-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+}
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-art {
+    height: 160px;
+    border-bottom: none;
+    border-right: 1px solid #edf2f6;
+}
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-body {
+    text-align: left;
+}
+
+/* ==========================================================
+   14. SUBTYPE CARDS
+========================================================== */
+.pradako-catalogue-subtype-wrap {
+    display: grid;
+    gap: 28px;
+}
+
+.pradako-catalogue-subtype-block {
+    border-radius: 32px;
+    padding: 28px;
+}
+
+.pradako-catalogue-subtype-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #edf2f6;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-subtype-head::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 80px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--pmew-gold);
+    transition: width .3s ease;
+}
+
+.pradako-catalogue-subtype-block:hover .pradako-catalogue-subtype-head::after {
+    width: 140px;
+}
+
+.pradako-catalogue-subtype-head h3 {
+    margin: 0;
+    font-size: 27px;
+    color: var(--pmew-navy-dark);
+}
+
+.pradako-catalogue-subtype-head span {
+    border-radius: 999px;
+    background: var(--pmew-navy-dark);
+    color: var(--pmew-white);
+    font-weight: 950;
+    padding: 10px 14px;
+    white-space: nowrap;
+}
+
+.pradako-catalogue-subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-subcat-card {
+    border-radius: 22px;
+    padding: 20px;
+    min-height: 160px;
+    background: linear-gradient(180deg, var(--pmew-white), #fbfdff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.pradako-catalogue-subcat-image {
+    height: 175px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    background: var(--pmew-card-soft-bg);
+    border: 1px solid #edf2f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-subcat-image::before {
+    content: "PRADAKO";
+    position: absolute;
+    left: 8%;
+    top: 42%;
+    font-size: 20px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    color: rgba(12, 47, 74, .07);
+}
+
+.pradako-catalogue-subcat-image img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(0 14px 14px rgba(9, 33, 52, .14));
+    transform: scale(1);
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.pradako-catalogue-subcat-card:hover .pradako-catalogue-subcat-image img {
+    transform: scale(1.06);
+    filter: drop-shadow(0 20px 20px rgba(9, 33, 52, .18));
+}
+
+.pradako-catalogue-subcat-body {
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-subcat-body h4 {
+    margin: 0;
+    color: var(--pmew-navy-deep);
+    font-size: 19px;
+    line-height: 1.25;
+}
+
+.pradako-catalogue-subcat-card:hover .pradako-catalogue-subcat-body h4 {
+    color: #0b5fc6;
+}
+
+.pradako-catalogue-subcat-body small {
+    display: block;
+    margin-top: 10px;
+    color: #738596;
+    line-height: 1.5;
+}
+
+.pradako-catalogue-subcat-card b {
+    color: var(--pmew-navy-dark);
+    margin-top: 18px;
+    transition: color .25s ease, transform .25s ease;
+}
+
+.pradako-catalogue-subcat-card:hover b {
+    color: #0b5fc6;
+    transform: translateX(4px);
+}
+
+/* ==========================================================
+   15. FINAL STANDARD PRODUCT CARDS
+========================================================== */
+.pradako-catalogue-product-card {
+    padding: 24px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pradako-catalogue-product-image {
+    height: 185px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    background: var(--pmew-card-soft-bg);
+    border: 1px solid #edf2f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-product-image::before {
+    content: "PRADAKO";
+    position: absolute;
+    left: 8%;
+    top: 42%;
+    font-size: 20px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    color: rgba(12, 47, 74, .07);
+}
+
+.pradako-catalogue-product-image img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(0 14px 14px rgba(9, 33, 52, .14));
+    transform: scale(1);
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.pradako-catalogue-product-card:hover .pradako-catalogue-product-image img {
+    transform: scale(1.06);
+    filter: drop-shadow(0 22px 22px rgba(9, 33, 52, .18));
+}
+
+.pradako-catalogue-product-card span,
+.pradako-catalogue-detail > span {
+    display: inline-flex;
+    width: fit-content;
+    background: #edf4f9;
+    color: var(--pmew-navy-dark);
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    position: relative;
+    z-index: 2;
+    transition: background .25s ease, color .25s ease;
+}
+
+.pradako-catalogue-product-card:hover span {
+    background: var(--pmew-navy-dark);
+    color: var(--pmew-white);
+}
+
+.pradako-catalogue-product-card h4 {
+    margin: 20px 0 8px;
+    color: var(--pmew-navy-deep);
+    font-size: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-product-card:hover h4 {
+    color: #0b5fc6;
+}
+
+.pradako-catalogue-product-card p {
+    margin: 0 0 12px;
+    color: var(--pmew-muted-2);
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-catalogue-product-card b {
+    color: #001b2e;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-product-card {
+    min-height: auto;
+    grid-template-columns: 220px 1fr;
+    gap: 22px;
+    padding: 18px;
+}
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-product-image {
+    grid-row: span 4;
+    height: 165px;
+    margin-bottom: 0;
+}
+
+/* ==========================================================
+   16. DETAIL PANEL
+========================================================== */
+.pradako-catalogue-empty {
+    display: none;
+    text-align: center;
+    padding: 46px 22px;
+    border: 1px dashed #cad7e1;
+    border-radius: 30px;
+    color: #718394;
+    background: rgba(255, 255, 255, .7);
+}
+
+.pradako-catalogue-detail-shell {
+    display: none;
+    margin-top: 28px;
+}
+
+.pradako-catalogue-detail-shell.show {
+    display: block;
+}
+
+.pradako-catalogue-detail {
+    border-radius: var(--pmew-radius-xl);
+    box-shadow: 0 30px 80px rgba(9, 33, 52, .13);
+    padding: 38px;
+}
+
+.pradako-catalogue-detail button {
+    float: right;
+    border: 0;
+    background: #eff5fa;
+    color: var(--pmew-navy-dark);
+    font-weight: 950;
+    border-radius: 13px;
+    padding: 9px 12px;
+    cursor: pointer;
+}
+
+.pradako-catalogue-detail h3 {
+    margin: 18px 0;
+    font-size: 36px;
+    color: var(--pmew-navy-deep);
+    font-family: var(--pmew-font-serif);
+}
+
+.pradako-catalogue-detail p {
+    color: var(--pmew-muted);
+    line-height: 1.65;
+}
+
+.pradako-catalogue-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, .45fr) 1fr;
+    gap: 26px;
+    align-items: center;
+}
+
+.pradako-catalogue-detail-image {
+    height: 270px;
+    border: 1px solid #edf2f6;
+    border-radius: 22px;
+    background: var(--pmew-card-soft-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.pradako-catalogue-detail-image::before {
+    content: "PRADAKO";
+    position: absolute;
+    left: 8%;
+    top: 42%;
+    font-size: 24px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    color: rgba(12, 47, 74, .07);
+}
+
+.pradako-catalogue-detail-image img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(0 18px 18px rgba(9, 33, 52, .15));
+    transform: scale(1);
+}
+
+.pradako-catalogue-specs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.pradako-catalogue-specs div {
+    border: 1px solid #e7eef4;
+    background: #fbfdff;
+    border-radius: 18px;
+    padding: 15px;
+}
+
+.pradako-catalogue-specs small {
+    display: block;
+    color: #7b8b99;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.pradako-catalogue-specs b {
+    color: #0b2d46;
+}
+
+/* ==========================================================
+   20-21. STANDARD GROUP SECTIONS + IMAGE SAFETY
+========================================================== */
+.pradako-standard-group-wrap {
+    display: grid;
+    gap: 42px;
+}
+
+.pradako-standard-group-section {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 28px;
+}
+
+.pradako-standard-group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #edf2f6;
+    position: relative;
+    z-index: 2;
+}
+
+.pradako-standard-group-head::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: #d6aa3b;
+    transition: width .3s ease;
+}
+
+.pradako-standard-group-section:hover .pradako-standard-group-head::after {
+    width: 150px;
+}
+
+.pradako-standard-group-head h3 {
+    margin: 0;
+    color: #06243b;
+    font-size: 26px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    font-family: var(--pmew-font-serif);
+}
+
+.pradako-standard-group-head span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #edf4f9;
+    color: #0c2f4a;
+    border-radius: 999px;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* ==========================================================
+   21. GLOBAL PRODUCT IMAGE SAFETY
+========================================================== */
+.pradako-catalogue-type-art,
+.pradako-catalogue-subcat-image,
+.pradako-catalogue-product-image,
+.pradako-products-standard-img,
+.pradako-catalogue-detail-image,
+.pradako-products-image-box {
+    padding: 0 !important;
+}
+
+.pradako-catalogue-type-art img,
+.pradako-catalogue-subcat-image img,
+.pradako-catalogue-product-image img,
+.pradako-products-standard-img img,
+.pradako-catalogue-detail-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-position: center !important;
+}
+
+/* ==========================================================
+   22. RESPONSIVE — catalogue rules only
+========================================================== */
+@media (max-width: 768px) {
+.pradako-products-controls, .pradako-catalogue-head, .pradako-catalogue-subtype-head {
+        display: block;
+    }
+
+.pradako-products-filter-toggle, .pradako-products-view-actions {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 12px;
+    }
+
+.pradako-products-toggle-btn, .pradako-products-action-btn {
+        white-space: nowrap;
+    }
+
+.pradako-products-standards-grid, .pradako-catalogue-subtype-grid, .pradako-catalogue-specs {
+        grid-template-columns: 1fr;
+    }
+
+.pradako-catalogue-breadcrumb {
+        font-size: 14px;
+        justify-content: center;
+    }
+
+.pmew-breadcrumb-item + .pmew-breadcrumb-item::before {
+        margin: 0 9px;
+        font-size: 18px;
+    }
+
+.pradako-products-card {
+        min-height: 330px;
+        padding: 18px;
+        border-radius: 24px;
+    }
+
+.pradako-products-image-box {
+        height: 190px;
+        border-radius: 20px;
+    }
+
+.pradako-products-card-body {
+        padding-top: 22px;
+    }
+
+.pradako-products-card-title {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+.pradako-products-card-btn {
+        font-size: 15px;
+    }
+
+.pradako-catalogue-count {
+        margin-top: 18px;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card, .pradako-products-standards-grid.list-view .pradako-catalogue-type-card, .pradako-products-standards-grid.list-view .pradako-catalogue-product-card {
+        grid-template-columns: 1fr;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-art {
+        height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #edf2f6;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-type-body {
+        text-align: center;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-catalogue-product-image {
+        grid-row: auto;
+        height: 190px;
+    }
+
+.pradako-catalogue-detail {
+        padding: 26px;
+    }
+
+.pradako-catalogue-detail h3 {
+        font-size: 30px;
+    }
+
+.pradako-catalogue-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+.pradako-products-info-section {
+        padding: 48px 0;
+    }
+
+.pradako-products-card {
+        min-height: 310px;
+        padding: 16px;
+    }
+
+.pradako-products-image-box {
+        height: 175px;
+    }
+
+.pradako-products-card-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+.pradako-products-card-btn {
+        font-size: 14px;
+    }
+
+.pradako-products-card-btn span {
+        font-size: 16px;
+    }
+
+.pradako-catalogue-subtype-block {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+.pradako-catalogue-type-art {
+        height: 220px;
+    }
+
+.pradako-catalogue-subcat-image,
+.pradako-catalogue-product-image {
+        height: 170px;
+    }
+
+}
+
+/* ==========================================================
+   23. STANDARD PRODUCTS PREMIUM RESPONSIVE OVERRIDES
+========================================================== */
+
+@media (max-width: 1180px) {
+    .pradako-products-controls {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        border-radius: 30px;
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .pradako-products-filter-toggle,
+    .pradako-products-view-actions {
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .pradako-products-search-box {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pradako-products-standards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+#standards .container {
+        width: min(100% - 32px, 1380px);
+    }
+
+#standards .pradako-products-title,
+#standards .pradako-products-section-title {
+        font-size: clamp(30px, 8vw, 40px);
+        letter-spacing: 0.06em;
+        margin-bottom: 28px;
+    }
+
+#standards .pradako-products-title::before,
+#standards .pradako-products-section-title::before {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+    }
+
+.pradako-products-controls {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        border-radius: 26px;
+        padding: 14px;
+        margin-bottom: 32px;
+    }
+
+.pradako-products-filter-toggle,
+.pradako-products-view-actions {
+        height: auto;
+        min-height: 56px;
+        justify-content: flex-start;
+        padding: 6px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+.pradako-products-toggle-btn {
+        min-width: 170px;
+        height: 44px;
+        font-size: 12.5px;
+    }
+
+.pradako-products-action-btn {
+        min-width: 104px;
+        height: 44px;
+        font-size: 12.5px;
+    }
+
+.pradako-products-search-box {
+        height: 56px;
+    }
+
+.pradako-products-standards-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+.pradako-products-standard-card {
+        min-height: 330px;
+        border-radius: 24px;
+    }
+
+.pradako-products-standard-img {
+        height: 215px;
+        border-radius: 20px;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card {
+        grid-template-columns: 1fr;
+        min-height: 330px;
+        text-align: center;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-img {
+        height: 215px;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card p {
+        text-align: center;
+    }
+
+.pradako-products-standards-grid.list-view .pradako-products-standard-card p::before {
+        margin: 0 auto 10px;
+    }
+
+}

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Salt-spray testing and corrosion protection of fasteners — plating, zinc-nickel, zinc-flake, hot-dip galvanizing, Kesternich testing, coating thickness and acceptance criteria." name="description"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>Salt-Spray Testing &amp; Corrosion Protection of Fasteners | PMEW Technical Guide</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- PMEW SHARED WEBSITE SHELL -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="/assets/css/page-style.css" rel="stylesheet"/>
+<link href="/assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    /* ==========================================================
+       PAGE-SCOPED TEXT COLOUR CONTRACT
+       ----------------------------------------------------------
+       These variables/classes belong ONLY to this technical page.
+       They intentionally define black/white text without touching
+       PMEW navbar/footer typography.
+    ========================================================== */
+    .pmew-salt-guide{--ssx-text-black:#111214;--ssx-text-white:#ffffff;}
+    .pmew-salt-guide .ssx-text-black{color:var(--ssx-text-black)!important;}
+    .pmew-salt-guide .ssx-text-white{color:var(--ssx-text-white)!important;}
+
+    .pmew-salt-guide{
+      --ink:#111214;
+      --muted:#686c74;
+      --line:#dfe2e7;
+      --soft:#ffffff;
+      --white:#ffffff;
+      --accent:#28766a;
+      --accent-dark:#28766a;
+      --accent-rgb:40,118,106;
+      
+      --steel:#5a6270;
+      --teal:var(--accent);
+      --blue:var(--accent);
+      --amber:var(--accent);
+      --rust:var(--accent);
+      --green:var(--accent);
+      --max:1480px;
+      --nav:78px;
+    }
+    .pmew-salt-guide, .pmew-salt-guide *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:96px}
+    .pmew-salt-guide{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:"Montserrat",system-ui,-apple-system,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    .pmew-salt-guide ::selection{background:var(--accent);color:#fff}
+    .pmew-salt-guide a{color:inherit;text-decoration:none}
+    .pmew-salt-guide button,.pmew-salt-guide input,.pmew-salt-guide select{font:inherit}
+    .pmew-salt-guide button{cursor:pointer}
+    .pmew-salt-guide .ssx-container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .pmew-salt-guide .ssx-mono{font-family:"Space Mono",monospace}
+    .pmew-salt-guide .ssx-eyebrow{font:700 12px/1 "Space Mono",monospace;letter-spacing:.17em;text-transform:uppercase;color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-section{padding:120px 0;border-top:1px solid var(--line);position:relative}
+    .pmew-salt-guide .ssx-section-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:70px;align-items:end;margin-bottom:58px}
+    .pmew-salt-guide .ssx-section-head h2{margin:12px 0 0;font-size:clamp(40px,5.2vw,82px);line-height:.94;letter-spacing:-.055em;text-transform:uppercase;font-weight:900;max-width:980px}
+    .pmew-salt-guide .ssx-section-head p{margin:0;color:var(--muted);font-size:17px;line-height:1.75;max-width:620px}
+    .pmew-salt-guide .ssx-mini-title{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--steel)}
+    .pmew-salt-guide .ssx-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:2000}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* NAV */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .pmew-salt-guide .ssx-icon-btn{width:42px;height:42px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
+    .pmew-salt-guide .ssx-icon-btn:hover{border-color:#111;transform:translateY(-2px)}
+    
+
+    /* HERO */
+    .pmew-salt-guide .ssx-hero{min-height:100svh;padding-top:calc(var(--nav) + 50px);display:flex;align-items:center;position:relative;overflow:hidden;background:#fff}
+    .pmew-salt-guide .ssx-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(420px,.85fr);gap:42px;align-items:center;width:100%}
+    .pmew-salt-guide .ssx-hero-copy{padding:50px 0 80px;position:relative;z-index:2}
+    .pmew-salt-guide .ssx-hero-kicker{display:flex;gap:12px;align-items:center;margin-bottom:26px;font:700 11px/1 "Space Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+    .pmew-salt-guide .ssx-hero-kicker i{width:42px;height:1px;background:var(--accent);display:block}
+    .pmew-salt-guide .ssx-hero h1{margin:0;font-size:clamp(64px,8.2vw,154px);line-height:.78;letter-spacing:-.075em;font-weight:900;text-transform:uppercase}
+    .pmew-salt-guide .ssx-hero h1 span{display:block}
+    .pmew-salt-guide .ssx-hero h1 .ssx-outline{-webkit-text-stroke:1.5px #111;color:transparent}
+    .pmew-salt-guide .ssx-hero h1 .ssx-accent{color:var(--accent);font-size:.72em;letter-spacing:-.06em;margin-top:20px}
+    .pmew-salt-guide .ssx-hero-sub{display:grid;grid-template-columns:8px 1fr;gap:20px;max-width:770px;margin-top:44px}
+    .pmew-salt-guide .ssx-hero-sub .ssx-bar{background:var(--accent)}
+    .pmew-salt-guide .ssx-hero-sub p{margin:0;font:500 clamp(18px,1.7vw,27px)/1.45 "Space Grotesk";letter-spacing:-.02em}
+    .pmew-salt-guide .ssx-hero-one-liner{height:32px;margin-top:28px;font:700 12px/1.5 "Space Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--steel)}
+    .pmew-salt-guide .ssx-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+    .pmew-salt-guide .ssx-btn{min-height:50px;padding:0 22px;border:1px solid #111;background:#111;color:#fff;display:inline-flex;align-items:center;gap:14px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;transition:.28s}
+    .pmew-salt-guide .ssx-btn:hover{transform:translateY(-3px);background:var(--accent-dark);border-color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-btn.ssx-light{background:#fff;color:#111;border-color:var(--line)}
+    .pmew-salt-guide .ssx-btn.ssx-light:hover{border-color:#111;background:#fff}
+    .pmew-salt-guide .ssx-hero-metrics{display:flex;gap:34px;margin-top:54px;padding-top:28px;border-top:1px solid var(--line);max-width:800px}
+    .pmew-salt-guide .ssx-metric strong{font:700 26px/1 "Space Grotesk";display:block}
+    .pmew-salt-guide .ssx-metric span{display:block;margin-top:6px;font:600 9px/1.4 "Space Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .pmew-salt-guide .ssx-hero-visual{height:min(760px,80svh);min-height:570px;position:relative;display:grid;place-items:center}
+    .pmew-salt-guide .ssx-hero-visual::before{content:"";position:absolute;width:630px;height:630px;border:1px solid var(--line);border-radius:50%;animation:orbit 22s linear infinite}
+    .pmew-salt-guide .ssx-hero-visual::after{content:"";position:absolute;width:470px;height:470px;border:1px dashed #c9ccd2;border-radius:50%;animation:orbit 16s linear reverse infinite}
+    @keyframes orbit{to{transform:rotate(360deg)}}
+    .pmew-salt-guide .ssx-bolt-svg{width:min(660px,95%);filter:drop-shadow(0 30px 20px rgba(17,18,20,.08));transform:rotate(-18deg);animation:floatBolt 6s ease-in-out infinite;position:relative;z-index:2}
+    @keyframes floatBolt{50%{transform:rotate(-14deg) translateY(-18px)}}
+    .pmew-salt-guide .ssx-salt-field{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .pmew-salt-guide .ssx-salt-dot{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(60,70,82,.28);animation:drift linear infinite}
+    @keyframes drift{0%{transform:translate3d(0,-30px,0);opacity:0}15%{opacity:1}100%{transform:translate3d(var(--x),650px,0);opacity:0}}
+    .pmew-salt-guide .ssx-spec-card{position:absolute;right:0;bottom:48px;width:310px;background:rgba(255,255,255,.94);border:1px solid #111;padding:22px;z-index:4;backdrop-filter:blur(12px)}
+    .pmew-salt-guide .ssx-spec-card .ssx-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font:600 10px/1.4 "Space Mono";text-transform:uppercase}
+    .pmew-salt-guide .ssx-spec-card .ssx-row:last-child{border-bottom:0}
+    .pmew-salt-guide .ssx-spec-card .ssx-row span:last-child{font-weight:700;color:var(--accent-dark);text-align:right}
+    .pmew-salt-guide .ssx-scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font:700 9px/1 "Space Mono";letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+    .pmew-salt-guide .ssx-scroll-cue i{width:46px;height:1px;background:#aaa;position:relative;overflow:hidden}
+    .pmew-salt-guide .ssx-scroll-cue i::after{content:"";position:absolute;inset:0;background:#111;transform:translateX(-100%);animation:scan 1.8s infinite}
+    @keyframes scan{to{transform:translateX(100%)}}
+
+    /* TICKER / STATEMENT */
+    .pmew-salt-guide .ssx-ticker{border-top:1px solid #111;border-bottom:1px solid #111;overflow:hidden;background:#111;color:#fff}
+    .pmew-salt-guide .ssx-ticker-track{display:flex;width:max-content;animation:ticker 35s linear infinite}
+    .pmew-salt-guide .ssx-ticker-item{padding:19px 34px;font:700 11px/1 "Space Mono";letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;display:flex;gap:30px;align-items:center}
+    .pmew-salt-guide .ssx-ticker-item b{color:var(--accent)}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+    .pmew-salt-guide .ssx-statement{padding:120px 0;background:#fff;overflow:hidden}
+    .pmew-salt-guide .ssx-statement .ssx-big{font-size:clamp(64px,10.5vw,190px);font-weight:900;line-height:.78;letter-spacing:-.075em;text-transform:uppercase;margin:0;max-width:1500px}
+    .pmew-salt-guide .ssx-statement .ssx-big .ssx-ghost{-webkit-text-stroke:1px #111;color:transparent}
+    .pmew-salt-guide .ssx-statement-foot{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:60px;padding-top:35px;border-top:1px solid var(--line)}
+    .pmew-salt-guide .ssx-statement-foot p{font:500 18px/1.65 "Space Grotesk";margin:0;color:var(--muted)}
+    .pmew-salt-guide .ssx-statement-foot strong{color:#111}
+
+    /* FUNDAMENTAL */
+    .pmew-salt-guide .ssx-equation{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #111}
+    .pmew-salt-guide .ssx-equation-card{min-height:230px;padding:30px;border-right:1px solid #111;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .pmew-salt-guide .ssx-equation-card:last-child{border-right:0;background:#111;color:#fff}
+    .pmew-salt-guide .ssx-equation-card .ssx-num{font:700 11px/1 "Space Mono";color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-equation-card h3{font-size:clamp(22px,2.3vw,38px);line-height:1;letter-spacing:-.04em;text-transform:uppercase;margin:0;max-width:270px}
+    .pmew-salt-guide .ssx-equation-card::after{content:"+";position:absolute;right:-17px;top:50%;transform:translateY(-50%);font:500 34px/1 "Space Mono";width:34px;height:34px;background:#fff;color:#111;text-align:center;z-index:2}
+    .pmew-salt-guide .ssx-equation-card:nth-last-child(2)::after{content:"="}
+    .pmew-salt-guide .ssx-equation-card:last-child::after{display:none}
+    .pmew-salt-guide .ssx-alert-band{margin-top:32px;border:1px solid #111;border-left:8px solid var(--accent);background:#fff;padding:26px 30px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+    .pmew-salt-guide .ssx-alert-band strong{font-size:clamp(30px,4vw,66px);line-height:.9;letter-spacing:-.05em}
+    .pmew-salt-guide .ssx-alert-band p{margin:0;color:var(--muted);font:500 16px/1.7 "Space Grotesk"}
+
+    /* CARDS */
+    .pmew-salt-guide .ssx-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#111;border:1px solid #111}
+    .pmew-salt-guide .ssx-split-card{background:#fff;padding:42px;min-height:470px}
+    .pmew-salt-guide .ssx-split-card.ssx-dark{background:#111;color:#fff}
+    .pmew-salt-guide .ssx-split-card h3{font-size:clamp(30px,3vw,48px);letter-spacing:-.04em;text-transform:uppercase;margin:14px 0 30px}
+    .pmew-salt-guide .ssx-clean-list{list-style:none;padding:0;margin:0;display:grid;gap:0}
+    .pmew-salt-guide .ssx-clean-list li{padding:16px 0;border-top:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;font:500 15px/1.55 "Space Grotesk"}
+    .pmew-salt-guide .ssx-dark .ssx-clean-list li{border-color:#333}
+    .pmew-salt-guide .ssx-clean-list li::before{content:"";width:7px;height:7px;background:var(--accent);margin-top:8px;flex:0 0 auto}
+
+    /* TEST METHODS */
+    .pmew-salt-guide .ssx-tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid #111;margin-bottom:36px}
+    .pmew-salt-guide .ssx-tab{border:0;background:#fff;padding:17px 22px;font:700 11px/1 "Space Mono";letter-spacing:.09em;text-transform:uppercase;border-top:1px solid var(--line);border-left:1px solid var(--line);transition:.2s}
+    .pmew-salt-guide .ssx-tab:last-child{border-right:1px solid var(--line)}
+    .pmew-salt-guide .ssx-tab.ssx-active{background:#111;color:#fff;border-color:#111}
+    .pmew-salt-guide .ssx-tab-panel{display:none}
+    .pmew-salt-guide .ssx-tab-panel.ssx-active{display:grid;animation:fadeIn .35s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}}
+    .pmew-salt-guide .ssx-method-panel{grid-template-columns:.85fr 1.15fr;border:1px solid #111;min-height:420px}
+    .pmew-salt-guide .ssx-method-identity{padding:46px;background:#111;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+    .pmew-salt-guide .ssx-method-identity .ssx-abbr{font-size:clamp(80px,9vw,145px);font-weight:900;line-height:.75;letter-spacing:-.07em;color:var(--accent)}
+    .pmew-salt-guide .ssx-method-identity h3{font-size:30px;line-height:1.05;text-transform:uppercase;margin:28px 0 0}
+    .pmew-salt-guide .ssx-method-content{padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:38px}
+    .pmew-salt-guide .ssx-method-content h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+    .pmew-salt-guide .ssx-method-content p{font:500 15px/1.7 "Space Grotesk";color:var(--muted);margin:0 0 24px}
+    .pmew-salt-guide .ssx-method-content .ssx-standard-tag{display:inline-flex;padding:8px 10px;border:1px solid #111;font:700 10px/1 "Space Mono";margin:0 6px 8px 0}
+
+    /* GEOMETRY */
+    .pmew-salt-guide .ssx-geometry-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .pmew-salt-guide .ssx-geometry-visual{min-height:660px;background:#fff;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line)}
+    .pmew-salt-guide .ssx-geometry-visual svg{width:85%;transform:rotate(-8deg)}
+    .pmew-salt-guide .ssx-hotspot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--accent);border:4px solid #fff;box-shadow:0 0 0 1px #111;animation:pulse 2s infinite}
+    @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(var(--accent-rgb),0)}}
+    .pmew-salt-guide .ssx-hotspot::after{content:attr(data-label);position:absolute;left:24px;top:-5px;width:max-content;background:#111;color:#fff;padding:8px 10px;font:600 9px/1 "Space Mono";letter-spacing:.06em;text-transform:uppercase}
+    .pmew-salt-guide .ssx-risk-stack{border-top:1px solid #111}
+    .pmew-salt-guide .ssx-risk{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .pmew-salt-guide .ssx-risk .ssx-index{font:700 24px/1 "Space Mono";color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-risk h4{margin:0 0 8px;font-size:18px;text-transform:uppercase}
+    .pmew-salt-guide .ssx-risk p{margin:0;color:var(--muted);font:500 14px/1.6 "Space Grotesk"}
+
+    /* COATING STACK */
+    .pmew-salt-guide .ssx-layer-system{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .pmew-salt-guide .ssx-layers{border:1px solid #111;padding:28px;background:#fff}
+    .pmew-salt-guide .ssx-layer{height:74px;margin-top:-1px;border:1px solid #111;display:flex;align-items:center;justify-content:space-between;padding:0 24px;transform-origin:left;transition:.35s}
+    .pmew-salt-guide .ssx-layer:hover{transform:translateX(14px)}
+    .pmew-salt-guide .ssx-layer small{font:700 9px/1 "Space Mono";letter-spacing:.1em;text-transform:uppercase}
+    .pmew-salt-guide .ssx-layer strong{text-transform:uppercase;font-size:17px}
+    .pmew-salt-guide .ssx-layer:nth-child(1){background:#fff;box-shadow:inset 8px 0 0 var(--accent)}
+    .pmew-salt-guide .ssx-layer:nth-child(2){background:#fff;box-shadow:inset 8px 0 0 rgba(var(--accent-rgb),.82)}
+    .pmew-salt-guide .ssx-layer:nth-child(3){background:#fff;box-shadow:inset 8px 0 0 rgba(var(--accent-rgb),.64)}
+    .pmew-salt-guide .ssx-layer:nth-child(4){background:#fff;box-shadow:inset 8px 0 0 rgba(var(--accent-rgb),.46)}
+    .pmew-salt-guide .ssx-layer:nth-child(5){background:#fff;box-shadow:inset 8px 0 0 #aeb7c2}
+    .pmew-salt-guide .ssx-layer:nth-child(6){background:#5a6270;color:#fff;box-shadow:inset 8px 0 0 #2d333b}
+    .pmew-salt-guide .ssx-layer-copy blockquote{margin:0;font-size:clamp(30px,4vw,60px);font-weight:900;line-height:.98;letter-spacing:-.05em;text-transform:uppercase}
+    .pmew-salt-guide .ssx-layer-copy blockquote em{color:var(--accent-dark);font-style:normal}
+    .pmew-salt-guide .ssx-layer-copy p{font:500 17px/1.7 "Space Grotesk";color:var(--muted);max-width:650px;margin:30px 0 0}
+
+    /* COATING CARDS */
+    .pmew-salt-guide .ssx-coating-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .pmew-salt-guide .ssx-coat-card{border:1px solid var(--line);padding:28px;min-height:300px;position:relative;overflow:hidden;transition:.28s;background:#fff}
+    .pmew-salt-guide .ssx-coat-card:hover{border-color:#111;transform:translateY(-6px)}
+    .pmew-salt-guide .ssx-coat-card .ssx-code{font:700 11px/1 "Space Mono";color:var(--accent-dark);letter-spacing:.08em}
+    .pmew-salt-guide .ssx-coat-card h3{font-size:25px;line-height:1.02;text-transform:uppercase;letter-spacing:-.04em;margin:22px 0 18px}
+    .pmew-salt-guide .ssx-coat-card p{font:500 14px/1.65 "Space Grotesk";color:var(--muted);margin:0}
+    .pmew-salt-guide .ssx-coat-card .ssx-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+    .pmew-salt-guide .ssx-coat-card .ssx-tags span{font:600 8px/1 "Space Mono";letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:7px 8px}
+    .pmew-salt-guide .ssx-coat-card .ssx-corner{position:absolute;right:-38px;bottom:-38px;width:110px;height:110px;border:1px solid var(--line);border-radius:50%}
+
+    /* DATA TABLE */
+    .pmew-salt-guide .ssx-data-shell{border:1px solid #111;background:#fff;overflow:hidden}
+    .pmew-salt-guide .ssx-data-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px;border-bottom:1px solid #111;background:#fff}
+    .pmew-salt-guide .ssx-data-toolbar input{width:min(420px,100%);height:44px;border:1px solid #bbb;background:#fff;padding:0 14px;outline:none}
+    .pmew-salt-guide .ssx-data-toolbar input:focus{border-color:#111}
+    .pmew-salt-guide .ssx-data-note{font:600 9px/1.5 "Space Mono";color:var(--muted);max-width:540px;text-align:right;text-transform:uppercase;letter-spacing:.04em}
+    .pmew-salt-guide .ssx-table-scroll{overflow:auto}
+    .pmew-salt-guide table{border-collapse:collapse;width:100%;min-width:940px}
+    .pmew-salt-guide th,.pmew-salt-guide td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top}
+    .pmew-salt-guide th:last-child,.pmew-salt-guide td:last-child{border-right:0}
+    .pmew-salt-guide th{background:#111;color:#fff;font:700 9px/1.4 "Space Mono";letter-spacing:.08em;text-transform:uppercase;position:sticky;top:0;z-index:2}
+    .pmew-salt-guide td{font:500 13px/1.5 "Space Grotesk"}
+    .pmew-salt-guide td.ssx-mono{font-size:11px;font-weight:700}
+    .pmew-salt-guide tr:hover td{background:#fff;box-shadow:inset 0 2px 0 var(--accent),inset 0 -2px 0 var(--accent)}
+    .pmew-salt-guide .ssx-hours{font:700 16px/1 "Space Mono";white-space:nowrap}
+    .pmew-salt-guide .ssx-hours.ssx-white{color:var(--steel)}
+    .pmew-salt-guide .ssx-hours.ssx-red{color:var(--rust)}
+    .pmew-salt-guide .ssx-table-caption{padding:20px 22px;background:#fff;border-top:3px solid var(--accent);font:500 12px/1.7 "Space Grotesk";color:var(--muted)}
+    .pmew-salt-guide .ssx-status{display:inline-flex;align-items:center;gap:7px;font:700 9px/1 "Space Mono";text-transform:uppercase;letter-spacing:.06em}
+    .pmew-salt-guide .ssx-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .pmew-salt-guide .ssx-status.ssx-legacy::before{background:var(--amber)}
+    .pmew-salt-guide .ssx-status.ssx-withdrawn::before{background:var(--rust)}
+
+    /* HDG */
+    .pmew-salt-guide .ssx-hdg-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+    .pmew-salt-guide .ssx-hdg-hero{background:#111;color:#fff;min-height:640px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .pmew-salt-guide .ssx-hdg-hero .ssx-giant{font-size:clamp(96px,14vw,220px);line-height:.75;font-weight:900;letter-spacing:-.08em;color:var(--accent)}
+    .pmew-salt-guide .ssx-hdg-hero h3{font-size:42px;line-height:.98;text-transform:uppercase;max-width:580px;margin:0}
+    .pmew-salt-guide .ssx-hdg-hero p{font:500 15px/1.7 "Space Grotesk";color:#c8cad0;max-width:550px}
+    .pmew-salt-guide .ssx-hdg-lines{display:grid;gap:1px;background:#111;border:1px solid #111}
+    .pmew-salt-guide .ssx-hdg-line{background:#fff;padding:29px;display:grid;grid-template-columns:150px 1fr;gap:28px}
+    .pmew-salt-guide .ssx-hdg-line strong{font:700 11px/1.4 "Space Mono";text-transform:uppercase;color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-hdg-line p{margin:0;font:500 14px/1.65 "Space Grotesk";color:var(--muted)}
+
+    /* HYDROGEN */
+    .pmew-salt-guide .ssx-hydrogen{background:#111;color:#fff}
+    .pmew-salt-guide .ssx-hydrogen .ssx-section-head p{color:#bfc2c8}
+    .pmew-salt-guide .ssx-hydrogen-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#fff;border:1px solid #fff}
+    .pmew-salt-guide .ssx-hydrogen-step{background:#111;padding:30px;min-height:270px;position:relative}
+    .pmew-salt-guide .ssx-hydrogen-step .ssx-n{font:700 50px/1 "Space Mono";color:var(--accent)}
+    .pmew-salt-guide .ssx-hydrogen-step h3{font-size:18px;text-transform:uppercase;margin:40px 0 14px}
+    .pmew-salt-guide .ssx-hydrogen-step p{font:500 12px/1.65 "Space Grotesk";color:#bfc2c8;margin:0}
+    .pmew-salt-guide .ssx-hydrogen-warning{margin-top:34px;border:1px solid #fff;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+    .pmew-salt-guide .ssx-hydrogen-warning strong{font-size:44px;text-transform:uppercase;line-height:.9;color:var(--accent)}
+    .pmew-salt-guide .ssx-hydrogen-warning p{margin:0;color:#c8cad0;font:500 15px/1.7 "Space Grotesk"}
+
+    /* THICKNESS */
+    .pmew-salt-guide .ssx-method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111}
+    .pmew-salt-guide .ssx-measure-card{background:#fff;padding:28px;min-height:330px}
+    .pmew-salt-guide .ssx-measure-card .ssx-icon{width:50px;height:50px;border:1px solid #111;display:grid;place-items:center;font:700 13px "Space Mono"}
+    .pmew-salt-guide .ssx-measure-card h3{font-size:22px;text-transform:uppercase;letter-spacing:-.03em;margin:25px 0 12px}
+    .pmew-salt-guide .ssx-measure-card p{font:500 13px/1.65 "Space Grotesk";color:var(--muted);margin:0}
+    .pmew-salt-guide .ssx-measure-card .ssx-refs{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font:700 9px/1.7 "Space Mono";text-transform:uppercase;color:var(--steel)}
+
+    /* STANDARD LIBRARY */
+    .pmew-salt-guide .ssx-library-toolbar{display:flex;gap:12px;margin-bottom:28px}
+    .pmew-salt-guide .ssx-library-toolbar input{height:48px;flex:1;border:1px solid #111;padding:0 16px;outline:none}
+    .pmew-salt-guide .ssx-library-toolbar select{height:48px;border:1px solid #111;padding:0 38px 0 14px;background:#fff}
+    .pmew-salt-guide .ssx-standards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .pmew-salt-guide .ssx-standard-card{border:1px solid var(--line);padding:22px;background:#fff;transition:.25s}
+    .pmew-salt-guide .ssx-standard-card:hover{border-color:#111;transform:translateY(-3px)}
+    .pmew-salt-guide .ssx-standard-card .ssx-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .pmew-salt-guide .ssx-standard-card h3{font:700 18px/1.2 "Space Grotesk";margin:16px 0 8px}
+    .pmew-salt-guide .ssx-standard-card p{font:500 12px/1.6 "Space Grotesk";color:var(--muted);margin:0}
+    .pmew-salt-guide .ssx-standard-card .ssx-org{font:700 9px/1 "Space Mono";color:var(--accent-dark);letter-spacing:.08em}
+    .pmew-salt-guide .ssx-standard-card .ssx-kind{font:700 8px/1 "Space Mono";border:1px solid var(--line);padding:6px 7px;text-transform:uppercase}
+
+    /* REPORTING */
+    .pmew-salt-guide .ssx-report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#111;border:1px solid #111}
+    .pmew-salt-guide .ssx-report-card{background:#fff;padding:30px;min-height:350px}
+    .pmew-salt-guide .ssx-report-card h3{font-size:20px;text-transform:uppercase;margin:0 0 20px}
+    .pmew-salt-guide .ssx-report-card ol{margin:0;padding:0;list-style:none;counter-reset:item}
+    .pmew-salt-guide .ssx-report-card li{counter-increment:item;padding:12px 0 12px 30px;border-top:1px solid var(--line);font:500 12px/1.5 "Space Grotesk";position:relative}
+    .pmew-salt-guide .ssx-report-card li::before{content:counter(item,decimal-leading-zero);position:absolute;left:0;font:700 9px/1.6 "Space Mono";color:var(--accent-dark)}
+
+    /* SELECTION GUIDE */
+    .pmew-salt-guide .ssx-guide-row{display:grid;grid-template-columns:1.1fr 1.2fr 1.3fr;border-bottom:1px solid var(--line);transition:.25s}
+    .pmew-salt-guide .ssx-guide-row:hover{background:#fff;box-shadow:inset 5px 0 0 var(--accent)}
+    .pmew-salt-guide .ssx-guide-row > div{padding:24px;border-right:1px solid var(--line);font:500 13px/1.6 "Space Grotesk"}
+    .pmew-salt-guide .ssx-guide-row > div:last-child{border-right:0}
+    .pmew-salt-guide .ssx-guide-row.ssx-header{background:#111;color:#fff;font:700 9px/1.4 "Space Mono";text-transform:uppercase;letter-spacing:.08em}
+    .pmew-salt-guide .ssx-guide-row.ssx-header>div{padding:16px}
+    .pmew-salt-guide .ssx-guide-row strong{text-transform:uppercase;font-size:14px}
+
+    /* BUILDER */
+    .pmew-salt-guide .ssx-builder{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid #111}
+    .pmew-salt-guide .ssx-builder-form{padding:40px;background:#fff;border-right:1px solid #111}
+    .pmew-salt-guide .ssx-field{margin-bottom:20px}
+    .pmew-salt-guide .ssx-field label{display:block;font:700 9px/1 "Space Mono";letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .pmew-salt-guide .ssx-field select,.pmew-salt-guide .ssx-field input{width:100%;height:50px;border:1px solid #aaa;background:#fff;padding:0 14px;outline:none}
+    .pmew-salt-guide .ssx-field select:focus,.pmew-salt-guide .ssx-field input:focus{border-color:#111}
+    .pmew-salt-guide .ssx-builder-output{padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+    .pmew-salt-guide .ssx-clause{font:500 17px/1.75 "Space Grotesk";white-space:pre-line;margin:0}
+    .pmew-salt-guide .ssx-copy-row{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:24px;margin-top:34px}
+    .pmew-salt-guide .ssx-copy-status{font:700 9px/1 "Space Mono";text-transform:uppercase;color:var(--green);opacity:0;transition:.2s}
+    .pmew-salt-guide .ssx-copy-status.ssx-show{opacity:1}
+
+    /* CHAPTERS */
+    .pmew-salt-guide .ssx-chapter-list{border-top:1px solid #111}
+    .pmew-salt-guide .ssx-chapter{border-bottom:1px solid #111}
+    .pmew-salt-guide .ssx-chapter-btn{width:100%;background:#fff;border:0;padding:25px 0;display:grid;grid-template-columns:80px minmax(0,1fr) 40px;gap:20px;text-align:left;align-items:center}
+    .pmew-salt-guide .ssx-chapter-btn .ssx-chapter-no{font:700 18px/1 "Space Mono";color:var(--accent-dark)}
+    .pmew-salt-guide .ssx-chapter-btn h3{margin:0;font-size:clamp(20px,2vw,32px);line-height:1;text-transform:uppercase;letter-spacing:-.035em}
+    .pmew-salt-guide .ssx-chapter-btn .ssx-plus{font:400 30px/1 "Space Mono";transition:.25s}
+    .pmew-salt-guide .ssx-chapter.ssx-open .ssx-plus{transform:rotate(45deg)}
+    .pmew-salt-guide .ssx-chapter-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+    .pmew-salt-guide .ssx-chapter.ssx-open .ssx-chapter-body{grid-template-rows:1fr}
+    .pmew-salt-guide .ssx-chapter-inner{overflow:hidden}
+    .pmew-salt-guide .ssx-chapter-content{padding:0 60px 32px 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .pmew-salt-guide .ssx-chapter-content p{font:500 15px/1.75 "Space Grotesk";color:var(--muted);margin:0}
+    .pmew-salt-guide .ssx-chapter-content ul{list-style:none;margin:0;padding:0}
+    .pmew-salt-guide .ssx-chapter-content li{padding:10px 0;border-top:1px solid var(--line);font:500 12px/1.5 "Space Grotesk"}
+
+    /* FINAL */
+    .pmew-salt-guide .ssx-final{padding:130px 0;background:#111;color:#fff;overflow:hidden}
+    .pmew-salt-guide .ssx-final .ssx-headline{font-size:clamp(56px,9.5vw,160px);font-weight:900;line-height:.8;letter-spacing:-.075em;text-transform:uppercase;margin:0}
+    .pmew-salt-guide .ssx-final .ssx-headline .ssx-outline{-webkit-text-stroke:1px #fff;color:transparent}
+    .pmew-salt-guide .ssx-final-copy{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:70px;border-top:1px solid #444;padding-top:38px}
+    .pmew-salt-guide .ssx-final-copy p{font:500 17px/1.7 "Space Grotesk";color:#c6c9cf;margin:0}
+    .pmew-salt-guide .ssx-final-copy strong{color:#fff}
+    
+    
+
+    /* REVEAL */
+    .pmew-salt-guide .ssx-reveal{opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s ease}
+    .pmew-salt-guide .ssx-reveal.ssx-visible{opacity:1;transform:none}
+
+    /* MOBILE */
+    @media (max-width:1100px){
+      
+      .pmew-salt-guide .ssx-hero-grid{grid-template-columns:1fr}.pmew-salt-guide .ssx-hero-visual{height:620px;min-height:0}.pmew-salt-guide .ssx-hero-copy{padding-bottom:0}
+      .pmew-salt-guide .ssx-spec-card{right:3%;bottom:20px}.pmew-salt-guide .ssx-section-head{grid-template-columns:1fr;gap:25px}
+      .pmew-salt-guide .ssx-equation{grid-template-columns:1fr 1fr}.pmew-salt-guide .ssx-equation-card:nth-child(2){border-right:0}.pmew-salt-guide .ssx-equation-card:nth-child(2)::after{display:none}.pmew-salt-guide .ssx-equation-card:nth-child(3)::after{content:"="}
+      .pmew-salt-guide .ssx-geometry-grid,.pmew-salt-guide .ssx-layer-system,.pmew-salt-guide .ssx-hdg-grid{grid-template-columns:1fr}
+      .pmew-salt-guide .ssx-coating-grid,.pmew-salt-guide .ssx-standards-grid{grid-template-columns:1fr 1fr}
+      .pmew-salt-guide .ssx-method-grid{grid-template-columns:1fr 1fr}.pmew-salt-guide .ssx-report-grid{grid-template-columns:1fr 1fr}
+      .pmew-salt-guide .ssx-hydrogen-flow{grid-template-columns:1fr 1fr}.pmew-salt-guide .ssx-hydrogen-step:last-child{grid-column:1/-1}
+    }
+    @media (max-width:760px){
+      .pmew-salt-guide .ssx-container{width:min(100% - 28px,var(--max))}.pmew-salt-guide .ssx-section{padding:82px 0}
+      .pmew-salt-guide .ssx-hero{padding-top:95px}.pmew-salt-guide .ssx-hero h1{font-size:clamp(62px,21vw,105px)}
+      .pmew-salt-guide .ssx-hero-visual{height:470px}.pmew-salt-guide .ssx-hero-visual::before{width:390px;height:390px}.pmew-salt-guide .ssx-hero-visual::after{width:290px;height:290px}
+      .pmew-salt-guide .ssx-spec-card{width:260px;padding:16px}.pmew-salt-guide .ssx-hero-metrics{gap:18px;flex-wrap:wrap}.pmew-salt-guide .ssx-hero-metrics .ssx-metric{min-width:85px}
+      .pmew-salt-guide .ssx-statement{padding:80px 0}.pmew-salt-guide .ssx-statement-foot{grid-template-columns:1fr;gap:24px}.pmew-salt-guide .ssx-equation{grid-template-columns:1fr}
+      .pmew-salt-guide .ssx-equation-card{border-right:0;border-bottom:1px solid #111}.pmew-salt-guide .ssx-equation-card::after{display:none}.pmew-salt-guide .ssx-alert-band{grid-template-columns:1fr}
+      .pmew-salt-guide .ssx-split{grid-template-columns:1fr}.pmew-salt-guide .ssx-method-panel{grid-template-columns:1fr}.pmew-salt-guide .ssx-method-content{grid-template-columns:1fr;padding:30px}.pmew-salt-guide .ssx-method-identity{min-height:300px}
+      .pmew-salt-guide .ssx-geometry-visual{min-height:460px}.pmew-salt-guide .ssx-hotspot::after{display:none}.pmew-salt-guide .ssx-coating-grid,.pmew-salt-guide .ssx-standards-grid,.pmew-salt-guide .ssx-method-grid,.pmew-salt-guide .ssx-report-grid{grid-template-columns:1fr}
+      .pmew-salt-guide .ssx-data-toolbar{align-items:stretch;flex-direction:column}.pmew-salt-guide .ssx-data-note{text-align:left}.pmew-salt-guide .ssx-hdg-line{grid-template-columns:1fr;gap:8px}
+      .pmew-salt-guide .ssx-hydrogen-flow{grid-template-columns:1fr}.pmew-salt-guide .ssx-hydrogen-step:last-child{grid-column:auto}.pmew-salt-guide .ssx-hydrogen-warning{grid-template-columns:1fr}
+      .pmew-salt-guide .ssx-guide-row{grid-template-columns:1fr}.pmew-salt-guide .ssx-guide-row > div{border-right:0;border-bottom:1px solid var(--line)}.pmew-salt-guide .ssx-guide-row.ssx-header{display:none}
+      .pmew-salt-guide .ssx-builder{grid-template-columns:1fr}.pmew-salt-guide .ssx-builder-form{border-right:0;border-bottom:1px solid #111}.pmew-salt-guide .ssx-builder-form,.pmew-salt-guide .ssx-builder-output{padding:26px}
+      .pmew-salt-guide .ssx-chapter-btn{grid-template-columns:50px 1fr 30px}.pmew-salt-guide .ssx-chapter-content{grid-template-columns:1fr;padding:0 0 28px 50px;gap:20px}
+      .pmew-salt-guide .ssx-final-copy{grid-template-columns:1fr;gap:26px}
+      .pmew-salt-guide .ssx-tabs{overflow:auto;flex-wrap:nowrap}.pmew-salt-guide .ssx-tab{white-space:nowrap}.pmew-salt-guide .ssx-section-head h2{font-size:48px}
+    }
+    @media (max-width:760px){
+      
+      
+      
+      
+      
+    }
+    @media (prefers-reduced-motion:reduce){.pmew-salt-guide, .pmew-salt-guide *{scroll-behavior:auto!important;animation:none!important;transition:none!important}.pmew-salt-guide .ssx-reveal{opacity:1;transform:none}}
+    @media print{.pmew-salt-guide .ssx-hero{min-height:auto;padding:40px 0}.pmew-salt-guide .ssx-section{padding:40px 0}.pmew-salt-guide .ssx-reveal{opacity:1;transform:none}.pmew-salt-guide .ssx-chapter-body{grid-template-rows:1fr!important}.pmew-salt-guide .ssx-chapter-content{padding-bottom:20px}}
+  
+/* PMEW integration + responsive hardening */
+.pmew-salt-guide .pmew-main{position:relative;z-index:1}
+.pmew-salt-guide img,.pmew-salt-guide svg{max-width:100%}
+@media (max-width:760px){
+  .pmew-salt-guide .ssx-hero{padding-top:54px}
+  .pmew-salt-guide .ssx-hero-copy{padding-top:30px}
+  .pmew-salt-guide .ssx-hero-actions .ssx-btn{width:100%;justify-content:center}
+  .pmew-salt-guide .ssx-hero-visual{height:440px}
+  .pmew-salt-guide .ssx-spec-card{right:0;left:auto;max-width:78vw}
+  .pmew-salt-guide .ssx-section-head h2{font-size:clamp(38px,12vw,48px)}
+  .pmew-salt-guide .ssx-statement .ssx-big,.pmew-salt-guide .ssx-final .ssx-headline{font-size:clamp(52px,16vw,90px)}
+  .pmew-salt-guide .ssx-tabs{scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .pmew-salt-guide .ssx-tab{flex:0 0 auto}
+  .pmew-salt-guide .ssx-method-content,.pmew-salt-guide .ssx-split-card{padding:28px 22px}
+  .pmew-salt-guide .ssx-geometry-visual{min-height:420px}
+  .pmew-salt-guide .ssx-data-table-wrap,.pmew-salt-guide .ssx-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .pmew-salt-guide table{min-width:720px}
+  .pmew-salt-guide .ssx-chapter-btn{padding-right:14px}
+}
+@media (max-width:480px){
+  .pmew-salt-guide .ssx-container{width:min(100% - 22px,var(--max))}
+  .pmew-salt-guide .ssx-section{padding:68px 0}
+  .pmew-salt-guide .ssx-hero h1{font-size:clamp(54px,20vw,78px)}
+  .pmew-salt-guide .ssx-hero-sub{grid-template-columns:5px 1fr;gap:14px}
+  .pmew-salt-guide .ssx-hero-sub p{font-size:17px}
+  .pmew-salt-guide .ssx-hero-visual{height:390px}
+  .pmew-salt-guide .ssx-hero-visual::before{width:330px;height:330px}
+  .pmew-salt-guide .ssx-hero-visual::after{width:245px;height:245px}
+  .pmew-salt-guide .ssx-spec-card{width:240px;max-width:82vw;padding:14px}
+  .pmew-salt-guide .ssx-hero-metrics{gap:14px}
+  .pmew-salt-guide .ssx-metric strong{font-size:22px}
+  .pmew-salt-guide .ssx-equation-card{min-height:190px;padding:24px}
+  .pmew-salt-guide .ssx-method-identity{padding:30px 22px;min-height:240px}
+  .pmew-salt-guide .ssx-method-identity .ssx-abbr{font-size:72px}
+  .pmew-salt-guide .ssx-geometry-visual{min-height:360px}
+  .pmew-salt-guide .ssx-builder-form,.pmew-salt-guide .ssx-builder-output{padding:22px 18px}
+  .pmew-salt-guide .ssx-chapter-btn{grid-template-columns:42px minmax(0,1fr) 28px;gap:8px}
+  .pmew-salt-guide .ssx-chapter-content{padding-left:42px}
+  .pmew-salt-guide .ssx-final-copy{gap:20px}
+}
+@media (max-width:380px){
+  .pmew-salt-guide .ssx-hero h1{font-size:52px}
+  .pmew-salt-guide .ssx-section-head h2{font-size:36px}
+  .pmew-salt-guide .ssx-hero-visual{height:350px}
+  .pmew-salt-guide .ssx-spec-card{position:relative;right:auto;bottom:auto;margin:0 auto;width:100%;max-width:300px}
+}
+
+
+/* ==========================================================
+   PMEW SALT-SPRAY PAGE — HARD TEXT COLOUR ISOLATION
+   ----------------------------------------------------------
+   Prevents global PMEW .page-technical navy/blue typography
+   from leaking into this page.
+
+   COLOUR RULE:
+   • Light / white sections = ink/black
+   • Dark sections          = white
+   • Engineering emphasis   = Technical Teal only
+========================================================== */
+.pmew-salt-guide{
+  --ssx-text-black:#111214;
+  --ssx-text-white:#ffffff;
+  --ssx-text-accent:#28766a;
+}
+
+/* Default headings on every light surface */
+.pmew-salt-guide h1,
+.pmew-salt-guide h2,
+.pmew-salt-guide h3,
+.pmew-salt-guide h4,
+.pmew-salt-guide h5,
+.pmew-salt-guide h6{
+  color:var(--ssx-text-black) !important;
+}
+
+/* Prevent global link colours from recolouring page text */
+.pmew-salt-guide a:not(.ssx-btn){
+  color:inherit !important;
+}
+
+/* Explicit colour helpers */
+.pmew-salt-guide .ssx-text-black{color:var(--ssx-text-black) !important;}
+.pmew-salt-guide .ssx-text-white{color:var(--ssx-text-white) !important;}
+.pmew-salt-guide .ssx-text-accent{color:var(--ssx-text-accent) !important;}
+
+/* Major light-section display typography */
+.pmew-salt-guide .ssx-hero h1,
+.pmew-salt-guide .ssx-section-head h2,
+.pmew-salt-guide .ssx-statement .ssx-big,
+.pmew-salt-guide .ssx-chapter-btn h3,
+.pmew-salt-guide .ssx-coat-card h3,
+.pmew-salt-guide .ssx-measure-card h3,
+.pmew-salt-guide .ssx-standard-card h3,
+.pmew-salt-guide .ssx-report-card h3,
+.pmew-salt-guide .ssx-risk h3,
+.pmew-salt-guide .ssx-alert-band strong,
+.pmew-salt-guide .ssx-layer-copy blockquote{
+  color:var(--ssx-text-black) !important;
+}
+
+/* Intentional Technical Teal accents */
+.pmew-salt-guide .ssx-eyebrow,
+.pmew-salt-guide .ssx-code,
+.pmew-salt-guide .ssx-org,
+.pmew-salt-guide .ssx-num,
+.pmew-salt-guide .ssx-chapter-no,
+.pmew-salt-guide .ssx-risk .ssx-index,
+.pmew-salt-guide .ssx-spec-card .ssx-row span:last-child,
+.pmew-salt-guide .ssx-hero h1 .ssx-accent,
+.pmew-salt-guide .ssx-method-identity .ssx-abbr,
+.pmew-salt-guide .ssx-hdg-hero .ssx-giant,
+.pmew-salt-guide .ssx-hydrogen-step .ssx-n{
+  color:var(--ssx-text-accent) !important;
+}
+
+/* Hero outline remains outline, not filled navy */
+.pmew-salt-guide .ssx-hero h1 .ssx-outline{
+  color:transparent !important;
+  -webkit-text-stroke:1.5px var(--ssx-text-black);
+}
+
+/* Fundamental equation: final card is dark */
+.pmew-salt-guide .ssx-equation-card:last-child,
+.pmew-salt-guide .ssx-equation-card:last-child h1,
+.pmew-salt-guide .ssx-equation-card:last-child h2,
+.pmew-salt-guide .ssx-equation-card:last-child h3,
+.pmew-salt-guide .ssx-equation-card:last-child h4,
+.pmew-salt-guide .ssx-equation-card:last-child strong,
+.pmew-salt-guide .ssx-equation-card:last-child b{
+  color:var(--ssx-text-white) !important;
+}
+
+/* Interpretation dark card */
+.pmew-salt-guide .ssx-split-card.ssx-dark,
+.pmew-salt-guide .ssx-split-card.ssx-dark h1,
+.pmew-salt-guide .ssx-split-card.ssx-dark h2,
+.pmew-salt-guide .ssx-split-card.ssx-dark h3,
+.pmew-salt-guide .ssx-split-card.ssx-dark h4,
+.pmew-salt-guide .ssx-split-card.ssx-dark strong,
+.pmew-salt-guide .ssx-split-card.ssx-dark b{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-split-card.ssx-dark p,
+.pmew-salt-guide .ssx-split-card.ssx-dark li{
+  color:#d3d5d8 !important;
+}
+
+/* Selected tabs */
+.pmew-salt-guide .ssx-tab.ssx-active,
+.pmew-salt-guide .ssx-tab.ssx-active *{
+  color:var(--ssx-text-white) !important;
+}
+
+/* Test-method identity panels */
+.pmew-salt-guide .ssx-method-identity,
+.pmew-salt-guide .ssx-method-identity h1,
+.pmew-salt-guide .ssx-method-identity h2,
+.pmew-salt-guide .ssx-method-identity h3,
+.pmew-salt-guide .ssx-method-identity h4,
+.pmew-salt-guide .ssx-method-identity strong,
+.pmew-salt-guide .ssx-method-identity b{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-method-identity .ssx-abbr{
+  color:var(--ssx-text-accent) !important;
+}
+
+/* Dark table headers */
+.pmew-salt-guide th,
+.pmew-salt-guide th *{
+  color:var(--ssx-text-white) !important;
+}
+
+/* Hot-dip galvanizing dark visual */
+.pmew-salt-guide .ssx-hdg-hero,
+.pmew-salt-guide .ssx-hdg-hero h1,
+.pmew-salt-guide .ssx-hdg-hero h2,
+.pmew-salt-guide .ssx-hdg-hero h3,
+.pmew-salt-guide .ssx-hdg-hero h4,
+.pmew-salt-guide .ssx-hdg-hero strong,
+.pmew-salt-guide .ssx-hdg-hero b{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-hdg-hero .ssx-giant{
+  color:var(--ssx-text-accent) !important;
+}
+.pmew-salt-guide .ssx-hdg-hero p{
+  color:#d0d3d6 !important;
+}
+
+/* Hydrogen-embrittlement dark section */
+.pmew-salt-guide .ssx-hydrogen,
+.pmew-salt-guide .ssx-hydrogen h1,
+.pmew-salt-guide .ssx-hydrogen h2,
+.pmew-salt-guide .ssx-hydrogen h3,
+.pmew-salt-guide .ssx-hydrogen h4,
+.pmew-salt-guide .ssx-hydrogen h5,
+.pmew-salt-guide .ssx-hydrogen h6,
+.pmew-salt-guide .ssx-hydrogen strong,
+.pmew-salt-guide .ssx-hydrogen b{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-hydrogen p,
+.pmew-salt-guide .ssx-hydrogen li{
+  color:#d0d3d6 !important;
+}
+.pmew-salt-guide .ssx-hydrogen .ssx-eyebrow,
+.pmew-salt-guide .ssx-hydrogen-step .ssx-n,
+.pmew-salt-guide .ssx-hydrogen-warning strong{
+  color:var(--ssx-text-accent) !important;
+}
+
+/* Selection-guide header */
+.pmew-salt-guide .ssx-guide-row.ssx-header,
+.pmew-salt-guide .ssx-guide-row.ssx-header *{
+  color:var(--ssx-text-white) !important;
+}
+
+/* Complete technical index stays ink on white */
+.pmew-salt-guide .ssx-chapter-btn,
+.pmew-salt-guide .ssx-chapter-btn h3,
+.pmew-salt-guide .ssx-chapter-btn .ssx-plus{
+  color:var(--ssx-text-black) !important;
+}
+.pmew-salt-guide .ssx-chapter-btn .ssx-chapter-no{
+  color:var(--ssx-text-accent) !important;
+}
+
+/* Final dark statement */
+.pmew-salt-guide .ssx-final,
+.pmew-salt-guide .ssx-final h1,
+.pmew-salt-guide .ssx-final h2,
+.pmew-salt-guide .ssx-final h3,
+.pmew-salt-guide .ssx-final h4,
+.pmew-salt-guide .ssx-final h5,
+.pmew-salt-guide .ssx-final h6,
+.pmew-salt-guide .ssx-final strong,
+.pmew-salt-guide .ssx-final b{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-final .ssx-outline{
+  color:transparent !important;
+  -webkit-text-stroke:1px var(--ssx-text-white);
+}
+
+/* Buttons */
+.pmew-salt-guide .ssx-btn{
+  color:var(--ssx-text-white) !important;
+}
+.pmew-salt-guide .ssx-btn.ssx-light{
+  color:var(--ssx-text-black) !important;
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/salt-spray-corrosion-protection.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Salt-Spray Testing &amp; Corrosion Protection of Fasteners | PMEW Technical Guide">
+    <meta property="og:description" content="Salt-spray testing and corrosion protection of fasteners — plating, zinc-nickel, zinc-flake, hot-dip galvanizing, Kesternich testing, coating thickness and acceptance criteria.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/salt-spray-corrosion-protection.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salt-Spray Testing &amp; Corrosion Protection of Fasteners | PMEW Technical Guide">
+    <meta name="twitter:description" content="Salt-spray testing and corrosion protection of fasteners — plating, zinc-nickel, zinc-flake, hot-dip galvanizing, Kesternich testing, coating thickness and acceptance criteria.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Salt-Spray Testing & Corrosion Protection of Fasteners | PMEW Technical Guide",
+  "url": "https://www.pradako.co/pages/technical-information/salt-spray-corrosion-protection.html",
+  "description": "Salt-spray testing and corrosion protection of fasteners — plating, zinc-nickel, zinc-flake, hot-dip galvanizing, Kesternich testing, coating thickness and acceptance criteria.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="page-technical"><!-- Shared PMEW navbar: /components/navbar.html -->
+<div id="navbar-container"></div><div class="pmew-salt-guide pmew-salt-guide--salt">
+<div class="ssx-progress" id="progress"></div>
+
+
+<main class="pmew-main" id="top">
+<section class="ssx-hero">
+<div aria-hidden="true" class="ssx-salt-field" id="saltField"></div>
+<div class="ssx-container ssx-hero-grid">
+<div class="ssx-hero-copy">
+<div class="ssx-hero-kicker"><i></i> Salt-Spray Testing · Corrosion Engineering · Fasteners</div>
+<h1>
+<span>Salt</span>
+<span class="ssx-outline">Spray</span>
+<span class="ssx-accent">Engineered.</span>
+</h1>
+<div class="ssx-hero-sub">
+<div class="ssx-bar"></div>
+<p>A technical guide to electroplating, zinc alloys, zinc-flake systems, hot-dip galvanizing, coating thickness, Kesternich testing and corrosion-performance validation.</p>
+</div>
+<div class="ssx-hero-one-liner" id="heroLine">A TEST METHOD IS NOT A PERFORMANCE SPECIFICATION.</div>
+<div class="ssx-hero-actions">
+<a class="ssx-btn" href="#corrosion-hours">View corrosion matrix <span>↘</span></a>
+<a class="ssx-btn ssx-light" href="#spec-builder">Build a specification <span>＋</span></a>
+</div>
+<div class="ssx-hero-metrics">
+<div class="ssx-metric"><strong>27</strong><span>Technical chapters</span></div>
+<div class="ssx-metric"><strong>30+</strong><span>Standards mapped</span></div>
+<div class="ssx-metric"><strong>5</strong><span>Corrosion test families</span></div>
+<div class="ssx-metric"><strong>1</strong><span>Complete specification logic</span></div>
+</div>
+</div>
+<div aria-label="Technical illustration of a coated fastener" class="ssx-hero-visual">
+<svg aria-label="Hex bolt technical illustration" class="ssx-bolt-svg" role="img" viewbox="0 0 760 700">
+<defs>
+<lineargradient id="metal" x1="0" x2="1">
+<stop offset="0" stop-color="#8b939e"></stop><stop offset=".12" stop-color="#f7f8fa"></stop><stop offset=".32" stop-color="#aab1bb"></stop><stop offset=".56" stop-color="#fdfdfd"></stop><stop offset=".8" stop-color="#8c949f"></stop><stop offset="1" stop-color="#dfe3e8"></stop>
+</lineargradient>
+<lineargradient id="darkMetal" x1="0" x2="1"><stop stop-color="#474e58"></stop><stop offset=".5" stop-color="#dce1e6"></stop><stop offset="1" stop-color="#5b6470"></stop></lineargradient>
+<filter id="inner"><fegaussianblur stddeviation="1.4"></fegaussianblur></filter>
+</defs>
+<g transform="translate(115 50)">
+<path d="M180 15h190l95 95-95 95H180l-95-95z" fill="url(#metal)" stroke="#272b30" stroke-width="4"></path>
+<path d="M195 45h160l65 65-65 65H195l-65-65z" fill="none" stroke="#6e7680" stroke-width="3"></path>
+<path d="M150 200h250v315c0 24-19 43-43 43H193c-24 0-43-19-43-43z" fill="url(#metal)" stroke="#272b30" stroke-width="4"></path>
+<path d="M150 230h250" opacity=".78" stroke="var(--accent)" stroke-width="9"></path>
+<path d="M155 265h240M155 300h240M155 335h240M155 370h240M155 405h240M155 440h240M155 475h240M155 510h240" stroke="#555d67" stroke-width="7"></path>
+<path d="M160 247l230 26M160 282l230 26M160 317l230 26M160 352l230 26M160 387l230 26M160 422l230 26M160 457l230 26M160 492l230 26" opacity=".75" stroke="#fff" stroke-width="3"></path>
+<path d="M193 558h164l-25 50H218z" fill="url(#darkMetal)" stroke="#272b30" stroke-width="4"></path>
+</g>
+<g fill="var(--accent)" opacity=".8"><circle cx="120" cy="170" r="4"></circle><circle cx="610" cy="255" r="6"></circle><circle cx="665" cy="440" r="3"></circle><circle cx="160" cy="555" r="5"></circle></g>
+<g opacity=".7" stroke="#969da7" stroke-dasharray="4 5" stroke-width="1"><path d="M65 170h170"></path><path d="M520 255h145"></path><path d="M520 440h145"></path><path d="M80 555h155"></path></g>
+</svg>
+<div class="ssx-spec-card">
+<div class="ssx-eyebrow">Specification logic</div>
+<div class="ssx-row"><span>Base system</span><span>ZnNi / flZn / HDG</span></div>
+<div class="ssx-row"><span>Test method</span><span>NSS / cyclic / SO₂</span></div>
+<div class="ssx-row"><span>Endpoint</span><span>White + red separately</span></div>
+<div class="ssx-row"><span>Functional checks</span><span>Fit · friction · IHE</span></div>
+</div>
+</div>
+</div>
+<div class="ssx-scroll-cue"><i></i> Scroll to technical guide</div>
+</section>
+<div aria-label="Key engineering statements" class="ssx-ticker">
+<div class="ssx-ticker-track">
+<div class="ssx-ticker-item"><b>01</b> 500 HOURS ALONE IS NOT A COMPLETE REQUIREMENT</div>
+<div class="ssx-ticker-item"><b>02</b> WHITE CORROSION AND RED RUST ARE DIFFERENT ENDPOINTS</div>
+<div class="ssx-ticker-item"><b>03</b> COATING THICKNESS MUST PRESERVE THREAD FIT</div>
+<div class="ssx-ticker-item"><b>04</b> SALT SPRAY DOES NOT EQUAL YEARS OF SERVICE</div>
+<div class="ssx-ticker-item"><b>05</b> HYDROGEN CONTROL IS A SAFETY REQUIREMENT</div>
+<div class="ssx-ticker-item"><b>01</b> 500 HOURS ALONE IS NOT A COMPLETE REQUIREMENT</div>
+<div class="ssx-ticker-item"><b>02</b> WHITE CORROSION AND RED RUST ARE DIFFERENT ENDPOINTS</div>
+<div class="ssx-ticker-item"><b>03</b> COATING THICKNESS MUST PRESERVE THREAD FIT</div>
+<div class="ssx-ticker-item"><b>04</b> SALT SPRAY DOES NOT EQUAL YEARS OF SERVICE</div>
+<div class="ssx-ticker-item"><b>05</b> HYDROGEN CONTROL IS A SAFETY REQUIREMENT</div>
+</div>
+</div>
+<section class="ssx-statement">
+<div class="ssx-container ssx-reveal">
+<p class="ssx-big">Protection is <span class="ssx-ghost">functional.</span><br/>Not decorative.</p>
+<div class="ssx-statement-foot">
+<p>A properly selected coating must resist corrosion while preserving <strong>thread fit, dimensional conformity, recess function, friction, clamp load, adhesion and assembly compatibility.</strong></p>
+<p>A coating that survives salt spray but produces thread interference, unstable tightening or delayed hydrogen-assisted failure is <strong>not an acceptable fastener coating.</strong></p>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="principle">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">01 · Fundamental principle</span><h2>Four elements. One valid requirement.</h2></div>
+<p>Salt-spray standards operate the chamber. Coating standards and purchase requirements define what must be protected, for how long and against which failure endpoint.</p>
+</div>
+<div class="ssx-equation ssx-reveal">
+<article class="ssx-equation-card"><span class="ssx-num">01</span><h3>Coating-system standard</h3></article>
+<article class="ssx-equation-card"><span class="ssx-num">02</span><h3>Corrosion-test method</h3></article>
+<article class="ssx-equation-card"><span class="ssx-num">03</span><h3>Exposure duration</h3></article>
+<article class="ssx-equation-card"><span class="ssx-num">04</span><h3>Acceptance criteria</h3></article>
+</div>
+<div class="ssx-alert-band ssx-reveal">
+<strong>“500 HOURS”</strong>
+<p>is incomplete unless the coating build, specimen condition, test method, white-corrosion limit, basis-metal corrosion limit, significant surfaces, exclusions and sampling plan are also defined.</p>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="measures">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">02 · Interpretation</span><h2>What the test reveals—and what it cannot promise.</h2></div>
+<p>Salt spray is a controlled comparative test. It is powerful for detecting coating defects and process inconsistency, but it cannot independently predict service life.</p>
+</div>
+<div class="ssx-split ssx-reveal">
+<article class="ssx-split-card">
+<span class="ssx-eyebrow">It evaluates</span>
+<h3>Comparative coating performance</h3>
+<ul class="ssx-clean-list">
+<li>Pores, discontinuities and uncoated areas</li><li>Passivation, sealing and topcoat consistency</li><li>Thin areas and coating-distribution problems</li><li>Batch-to-batch process stability</li><li>Handling or assembly damage</li><li>Compliance with a defined drawing or specification</li><li>White corrosion and basis-metal corrosion as separate endpoints</li>
+</ul>
+</article>
+<article class="ssx-split-card ssx-dark">
+<span class="ssx-eyebrow">It does not establish</span>
+<h3>Guaranteed years in service</h3>
+<ul class="ssx-clean-list">
+<li>A universal hours-to-years conversion</li><li>Performance under every wet/dry cycle</li><li>Resistance to UV, chemicals or mechanical wear unless separately assessed</li><li>Galvanic compatibility with the assembled structure</li><li>Torque–tension performance after installation</li><li>Environmental hydrogen embrittlement resistance</li><li>Equivalence between NSS and cyclic corrosion rankings</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="methods">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">03 · Test environments</span><h2>Choose the mechanism—not merely the harsher acronym.</h2></div>
+<p>NSS, AASS, CASS, cyclic corrosion and sulfur-dioxide condensation tests are not interchangeable. The drawing or product specification must select the relevant method.</p>
+</div>
+<div aria-label="Corrosion test methods" class="ssx-tabs ssx-reveal" role="tablist">
+<button class="ssx-tab ssx-active" data-tab="nss">NSS</button><button class="ssx-tab" data-tab="aass">AASS</button><button class="ssx-tab" data-tab="cass">CASS</button><button class="ssx-tab" data-tab="cyclic">Cyclic</button><button class="ssx-tab" data-tab="kesternich">Kesternich / SO₂</button>
+</div>
+<div class="ssx-tab-panels ssx-reveal">
+<div class="ssx-tab-panel ssx-method-panel ssx-active" id="nss">
+<div class="ssx-method-identity"><div><div class="ssx-abbr">NSS</div><h3>Neutral Salt Spray</h3></div><span class="ssx-mono">Continuous chloride fog · comparative corrosion resistance</span></div>
+<div class="ssx-method-content">
+<div><h4>Best suited to</h4><p>Zinc, zinc-alloy, zinc-flake and many plated or coated steel fasteners when NSS is specified by the coating or customer standard.</p><h4>Core references</h4><span class="ssx-standard-tag">ASTM B117-26</span><span class="ssx-standard-tag">ISO 9227:2022 + Amd 1:2024</span><span class="ssx-standard-tag">IS 5528:2024</span></div>
+<div><h4>Engineering caution</h4><p>The chamber method does not prescribe exposure duration or acceptance. Testing must state the specimen condition, significant surfaces and separate white/red corrosion criteria.</p><h4>Do not assume</h4><p>NSS performance is not automatically equivalent to cyclic-corrosion, outdoor or road-salt performance.</p></div>
+</div>
+</div>
+<div class="ssx-tab-panel ssx-method-panel" id="aass">
+<div class="ssx-method-identity"><div><div class="ssx-abbr">AASS</div><h3>Acetic-Acid Salt Spray</h3></div><span class="ssx-mono">Acidified salt atmosphere</span></div>
+<div class="ssx-method-content"><div><h4>Use</h4><p>Selected metallic and decorative coating systems where an acidified test is explicitly required.</p><h4>Reference</h4><span class="ssx-standard-tag">ISO 9227</span></div><div><h4>Control</h4><p>Do not treat AASS as the default for ordinary zinc-coated steel fasteners. Product-specific requirements govern its suitability and acceptance.</p></div></div>
+</div>
+<div class="ssx-tab-panel ssx-method-panel" id="cass">
+<div class="ssx-method-identity"><div><div class="ssx-abbr">CASS</div><h3>Copper-Accelerated AASS</h3></div><span class="ssx-mono">Aggressive decorative-coating test</span></div>
+<div class="ssx-method-content"><div><h4>Use</h4><p>Selected nickel/chromium, anodized and decorative systems when the governing specification expressly requires CASS.</p><h4>Reference</h4><span class="ssx-standard-tag">ISO 9227</span></div><div><h4>Control</h4><p>CASS severity does not make it a universal substitute for NSS. Different mechanisms may produce different coating rankings.</p></div></div>
+</div>
+<div class="ssx-tab-panel ssx-method-panel" id="cyclic">
+<div class="ssx-method-identity"><div><div class="ssx-abbr">CCT</div><h3>Cyclic Corrosion Testing</h3></div><span class="ssx-mono">Salt · humidity · drying · temperature stages</span></div>
+<div class="ssx-method-content"><div><h4>Best suited to</h4><p>Automotive, commercial vehicle, de-icing salt and selected exterior applications where wet/dry cycling better represents field mechanisms.</p><h4>References</h4><span class="ssx-standard-tag">ISO 16701:2025</span><span class="ssx-standard-tag">ISO 14993:2026</span><span class="ssx-standard-tag">SAE J2334_201604</span></div><div><h4>Engineering caution</h4><p>A high NSS result does not guarantee the same ranking in cyclic testing. The coating, substrate and design must be validated using the specified cycle.</p></div></div>
+</div>
+<div class="ssx-tab-panel ssx-method-panel" id="kesternich">
+<div class="ssx-method-identity"><div><div class="ssx-abbr">SO₂</div><h3>Kesternich-Type Test</h3></div><span class="ssx-mono">Humid sulfur-dioxide atmosphere · industrial pollution</span></div>
+<div class="ssx-method-content"><div><h4>Current reference</h4><p>ISO 22479:2019 is the current ISO fixed-gas sulfur-dioxide test. ISO 6988 is withdrawn. DIN 50018:2013 is withdrawn and DIN recommends DIN EN ISO 22479.</p><span class="ssx-standard-tag">ISO 22479:2019</span><span class="ssx-standard-tag">ASTM G87</span><span class="ssx-standard-tag">DIN EN ISO 22479</span></div><div><h4>Fastener use</h4><p>ISO 4042 and ISO 10683 treat the sulfur-dioxide test as relevant to outdoor building fasteners when required. The number of cycles must be agreed or defined by the governing product specification.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="geometry">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">04 · Fastener geometry</span><h2>A fastener is not a flat laboratory panel.</h2></div>
+<p>Threads, recesses, edges and interfaces create coating-distribution and damage mechanisms that a flat panel cannot reproduce.</p>
+</div>
+<div class="ssx-geometry-grid">
+<div class="ssx-geometry-visual ssx-reveal">
+<svg aria-hidden="true" viewbox="0 0 760 620">
+<defs><lineargradient id="g2"><stop stop-color="#636b76"></stop><stop offset=".25" stop-color="#fff"></stop><stop offset=".55" stop-color="#8c949f"></stop><stop offset=".82" stop-color="#f7f8fa"></stop><stop offset="1" stop-color="#5b6370"></stop></lineargradient></defs>
+<g transform="translate(55 120)"><path d="M70 95h280l70 70-70 70H70L0 165z" fill="url(#g2)" stroke="#111" stroke-width="4"></path><rect fill="url(#g2)" height="285" rx="8" stroke="#111" stroke-width="4" width="190" x="150" y="230"></rect><path d="M150 265h190M150 305h190M150 345h190M150 385h190M150 425h190M150 465h190" stroke="#3b4149" stroke-width="10"></path><path d="M155 245l180 40M155 285l180 40M155 325l180 40M155 365l180 40M155 405l180 40M155 445l180 40" stroke="#fff" stroke-width="4"></path></g>
+<g transform="translate(445 115)"><circle cx="110" cy="110" fill="url(#g2)" r="100" stroke="#111" stroke-width="4"></circle><circle cx="110" cy="110" fill="#fff" r="45" stroke="#111" stroke-width="4"></circle><path d="M110 65v90M65 110h90" stroke="#111" stroke-width="10"></path></g>
+</svg>
+<div class="ssx-hotspot" data-label="Sharp head edge" style="left:24%;top:32%"></div>
+<div class="ssx-hotspot" data-label="Thread crest / root" style="left:46%;top:51%"></div>
+<div class="ssx-hotspot" data-label="Drive recess" style="left:73%;top:33%"></div>
+<div class="ssx-hotspot" data-label="Cut end" style="left:36%;top:72%"></div>
+</div>
+<div class="ssx-risk-stack ssx-reveal">
+<article class="ssx-risk"><div class="ssx-index">01</div><div><h4>Thread roots and crests</h4><p>Deposit distribution, clearance and gaugeability must remain controlled after coating.</p></div></article>
+<article class="ssx-risk"><div class="ssx-index">02</div><div><h4>Recesses and blind holes</h4><p>Pooling, incomplete coverage and trapped chemistry can affect corrosion and tool engagement.</p></div></article>
+<article class="ssx-risk"><div class="ssx-index">03</div><div><h4>Bearing and washer interfaces</h4><p>Assembly can abrade the finish and create shielded or crevice conditions.</p></div></article>
+<article class="ssx-risk"><div class="ssx-index">04</div><div><h4>Bulk-processing contact marks</h4><p>Barrel handling, feeding, sorting, packaging and transport can reduce as-coated performance.</p></div></article>
+<article class="ssx-risk"><div class="ssx-index">05</div><div><h4>Installation damage</h4><p>Wrenching surfaces and recesses should be evaluated in the condition required by the application.</p></div></article>
+</div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="system">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">05 · Complete coating build</span><h2>Performance belongs to the system—not the colour.</h2></div>
+<p>“Silver zinc”, “black zinc” and “grey flake” are visual descriptions. They do not fully define composition, thickness, passivation, sealing, topcoat, lubrication or corrosion resistance.</p>
+</div>
+<div class="ssx-layer-system">
+<div class="ssx-layers ssx-reveal">
+<div class="ssx-layer"><strong>Lubricant</strong><small>Friction / assembly</small></div>
+<div class="ssx-layer"><strong>Topcoat</strong><small>Barrier / colour / friction</small></div>
+<div class="ssx-layer"><strong>Sealer</strong><small>Porosity reduction</small></div>
+<div class="ssx-layer"><strong>Conversion treatment</strong><small>Coating-metal protection</small></div>
+<div class="ssx-layer"><strong>Metallic or flake base</strong><small>Sacrificial / barrier layer</small></div>
+<div class="ssx-layer"><strong>Steel fastener substrate</strong><small>Grade / hardness / geometry</small></div>
+</div>
+<div class="ssx-layer-copy ssx-reveal">
+<blockquote>Same colour.<br/><em>Different engineering.</em></blockquote>
+<p>Changing a sealer, topcoat or lubricant can materially change corrosion performance and the torque–clamp-force relationship even when the underlying zinc or zinc-alloy deposit remains unchanged.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="coatings">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">06 · Protection families</span><h2>Plating, coating, diffusion and galvanizing.</h2></div>
+<p>Each system has a different protection mechanism, dimensional effect, hydrogen profile and assembly behaviour.</p>
+</div>
+<div class="ssx-coating-grid ssx-reveal" id="coatingGrid">
+<article class="ssx-coat-card"><span class="ssx-code">ISO 4042 · ASTM F1941/F1941M</span><h3>Electroplated zinc</h3><p>Thin sacrificial zinc deposit, normally combined with passivation, sealer, topcoat and optional lubricant.</p><div class="ssx-tags"><span>General industrial</span><span>Thread control</span><span>IHE control</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ISO 4042</span><h3>Zinc–nickel</h3><p>High-performance zinc alloy selected for enhanced corrosion and thermal stability at controlled thickness.</p><div class="ssx-tags"><span>Automotive</span><span>Thin build</span><span>Friction control</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ISO 10683 · ASTM F3393</span><h3>Zinc-flake</h3><p>Non-electrolytically applied zinc-flake system, frequently used for high-strength and automotive fasteners.</p><div class="ssx-tags"><span>240–960 h categories</span><span>High strength</span><span>Dip-spin</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ASTM B695 · ISO 12683</span><h3>Mechanical zinc</h3><p>Mechanically deposited zinc considered for selected hardened washers, clips, pins and small fasteners.</p><div class="ssx-tags"><span>No electrodeposition</span><span>Geometry review</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ASTM F1137/F1137M</span><h3>Phosphate + oil</h3><p>Conversion layer whose practical corrosion resistance depends strongly on oil, wax or organic supplementary protection.</p><div class="ssx-tags"><span>Indoor</span><span>Oil retention</span><span>Minimal build</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">SYSTEM-SPECIFIC</span><h3>Black oxide</h3><p>Low-build black conversion finish with limited corrosion resistance unless supported by an oil, wax or sealer.</p><div class="ssx-tags"><span>Appearance</span><span>Precision parts</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ASTM A1059/A1059M · ISO 17668</span><h3>Thermo-diffusion</h3><p>Zinc–iron diffusion layer produced at elevated temperature, with optional passivation or topcoat.</p><div class="ssx-tags"><span>Uniform diffusion</span><span>Temperature review</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ASTM F1428</span><h3>Organic / aluminium-particle</h3><p>Barrier or hybrid systems requiring qualification for adhesion, scratches, recesses and installation damage.</p><div class="ssx-tags"><span>Barrier protection</span><span>Specialised</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ISO 10684 · ASTM F2329/F2329M</span><h3>Hot-dip galvanized</h3><p>Thick zinc–iron alloy coating for structural and outdoor service; controlled principally by thickness, fit and process quality.</p><div class="ssx-tags"><span>Structural</span><span>Thread allowance</span><span>Preload</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">ISO 16048</span><h3>Stainless steel</h3><p>Corrosion resistance comes from alloy selection and passive-surface condition—not a sacrificial zinc layer.</p><div class="ssx-tags"><span>Pitting</span><span>Passivation</span><span>Galling</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">DRAWING CONTROLLED</span><h3>Cadmium</h3><p>Legacy/specialised aerospace or defence finish subject to strict environmental and customer authorization.</p><div class="ssx-tags"><span>Restricted</span><span>Approved process</span></div><i class="ssx-corner"></i></article>
+<article class="ssx-coat-card"><span class="ssx-code">DUPLEX SYSTEM</span><h3>HDG + organic topcoat</h3><p>Galvanized zinc protection beneath a compatible paint or powder barrier, with adhesion and repair requirements.</p><div class="ssx-tags"><span>Exterior</span><span>Barrier + sacrificial</span></div><i class="ssx-corner"></i></article>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="corrosion-hours">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">07 · Corrosion performance matrix</span><h2>White corrosion and red rust—shown separately.</h2></div>
+<p>The tables below are structured summaries for engineering selection. Always verify the purchased standard, the exact coating designation and the customer drawing before contractual use.</p>
+</div>
+<div aria-label="Corrosion performance tables" class="ssx-tabs ssx-reveal" role="tablist">
+<button class="ssx-tab ssx-active" data-table="electro">Electroplated Zn / ZnFe / ZnNi</button>
+<button class="ssx-tab" data-table="flake">Zinc-flake</button>
+<button class="ssx-tab" data-table="other">Other systems</button>
+</div>
+<div class="ssx-data-shell ssx-reveal ssx-corrosion-table ssx-active" data-table-panel="electro">
+<div class="ssx-data-toolbar"><input aria-label="Search corrosion table" id="corrosionSearch" placeholder="Search coating system or code…" type="search"/><div class="ssx-data-note">ISO 4042:2022 Table 8 summary · barrel coating · as-coated condition · Cr(VI)-free systems · minimum test durations</div></div>
+<div class="ssx-table-scroll">
+<table id="electroTable">
+<thead><tr><th>Coating system</th><th>ISO code</th><th>No coating-metal corrosion<br/>(white corrosion)</th><th>No basis-metal corrosion<br/>5 µm</th><th>No basis-metal corrosion<br/>8 µm</th><th>No basis-metal corrosion<br/>12 µm</th></tr></thead>
+<tbody>
+<tr><td>Zinc, transparent passivated</td><td class="ssx-mono">Zn/An/T0</td><td class="ssx-hours ssx-white">8 h</td><td class="ssx-hours ssx-red">48 h</td><td class="ssx-hours ssx-red">72 h</td><td class="ssx-hours ssx-red">96 h</td></tr>
+<tr><td>Zinc, iridescent passivated</td><td class="ssx-mono">Zn/Cn/T0</td><td class="ssx-hours ssx-white">72 h</td><td class="ssx-hours ssx-red">120 h</td><td class="ssx-hours ssx-red">192 h</td><td class="ssx-hours ssx-red">240 h</td></tr>
+<tr><td>Zinc, iridescent passivated + sealed</td><td class="ssx-mono">Zn/Cn/T2</td><td class="ssx-hours ssx-white">120 h</td><td class="ssx-hours ssx-red">168 h</td><td class="ssx-hours ssx-red">240 h</td><td class="ssx-hours ssx-red">288 h</td></tr>
+<tr><td>Zinc, black passivated + sealed</td><td class="ssx-mono">Zn/Fn/T2</td><td class="ssx-hours ssx-white">24 h*</td><td class="ssx-hours ssx-red">72 h</td><td class="ssx-hours ssx-red">144 h</td><td class="ssx-hours ssx-red">192 h</td></tr>
+<tr><td>Zinc–iron, iridescent passivated</td><td class="ssx-mono">ZnFe/Cn/T0</td><td class="ssx-hours ssx-white">96 h</td><td class="ssx-hours ssx-red">144 h</td><td class="ssx-hours ssx-red">216 h</td><td class="ssx-hours ssx-red">264 h</td></tr>
+<tr><td>Zinc–iron, iridescent passivated + sealed</td><td class="ssx-mono">ZnFe/Cn/T2</td><td class="ssx-hours ssx-white">120 h</td><td class="ssx-hours ssx-red">216 h</td><td class="ssx-hours ssx-red">288 h</td><td class="ssx-hours ssx-red">360 h</td></tr>
+<tr><td>Zinc–iron, black passivated + sealed</td><td class="ssx-mono">ZnFe/Fn/T2</td><td class="ssx-hours ssx-white">96 h*</td><td class="ssx-hours ssx-red">192 h</td><td class="ssx-hours ssx-red">240 h</td><td class="ssx-hours ssx-red">312 h</td></tr>
+<tr><td>Zinc–nickel, silver-grey passivated</td><td class="ssx-mono">ZnNi/Cn/T0</td><td class="ssx-hours ssx-white">120 h</td><td class="ssx-hours ssx-red">480 h</td><td class="ssx-hours ssx-red">720 h</td><td class="ssx-hours ssx-red">720 h†</td></tr>
+<tr><td>Zinc–nickel, silver-grey passivated + sealed</td><td class="ssx-mono">ZnNi/Cn/T2</td><td class="ssx-hours ssx-white">168 h</td><td class="ssx-hours ssx-red">600 h</td><td class="ssx-hours ssx-red">720 h</td><td class="ssx-hours ssx-red">720 h†</td></tr>
+<tr><td>Zinc–nickel, black passivated</td><td class="ssx-mono">ZnNi/Fn/T0</td><td class="ssx-hours ssx-white">48 h*</td><td class="ssx-hours ssx-red">360 h</td><td class="ssx-hours ssx-red">600 h</td><td class="ssx-hours ssx-red">720 h†</td></tr>
+<tr><td>Zinc–nickel, black passivated + sealed</td><td class="ssx-mono">ZnNi/Fn/T2</td><td class="ssx-hours ssx-white">120 h*</td><td class="ssx-hours ssx-red">480 h</td><td class="ssx-hours ssx-red">720 h</td><td class="ssx-hours ssx-red">720 h†</td></tr>
+</tbody>
+</table>
+</div>
+<div class="ssx-table-caption"><strong>*</strong> White haze is not treated as white corrosion; black spots may have specific acceptance provisions. <strong>†</strong> ISO 4042 stops the table test at 720 h although higher performance may be achieved. Values apply to defined as-coated conditions; rack plating, handling, sorting, packaging, transport, ageing and geometry can change results.</div>
+</div>
+<div class="ssx-data-shell ssx-corrosion-table" data-table-panel="flake" hidden="">
+<div class="ssx-data-toolbar"><div class="ssx-mini-title">ISO 10683:2018 standard NSS categories</div><div class="ssx-data-note">Acceptance endpoint: no visible basis-metal corrosion (red rust) · reference thickness is guidance · complete system controls acceptance</div></div>
+<div class="ssx-table-scroll"><table><thead><tr><th>Minimum NSS duration without red rust</th><th>Reference total coating thickness</th><th>White-corrosion criterion</th><th>Typical designation structure</th></tr></thead><tbody>
+<tr><td class="ssx-hours ssx-red">240 h</td><td class="ssx-hours">4 µm</td><td>Not the standard category endpoint; specify separately when required.</td><td class="ssx-mono">flZn/240h</td></tr>
+<tr><td class="ssx-hours ssx-red">480 h</td><td class="ssx-hours">5 µm</td><td>System/customer-specific</td><td class="ssx-mono">flZnL/nc/480h</td></tr>
+<tr><td class="ssx-hours ssx-red">600 h</td><td class="ssx-hours">6 µm</td><td>System/customer-specific</td><td class="ssx-mono">flZn/600h</td></tr>
+<tr><td class="ssx-hours ssx-red">720 h</td><td class="ssx-hours">8 µm</td><td>System/customer-specific</td><td class="ssx-mono">flZn/…/720h/µ-range</td></tr>
+<tr><td class="ssx-hours ssx-red">960 h</td><td class="ssx-hours">10 µm</td><td>System/customer-specific</td><td class="ssx-mono">flZn/960h</td></tr>
+</tbody></table></div>
+<div class="ssx-table-caption">The reference thickness includes basecoat and topcoat, if any. Corrosion performance is decisive for acceptance. The coating composition, Cr(VI) status, topcoat, lubricant and torque/clamp-force requirement must be specified at order stage.</div>
+</div>
+<div class="ssx-data-shell ssx-corrosion-table" data-table-panel="other" hidden="">
+<div class="ssx-table-scroll"><table><thead><tr><th>System</th><th>Salt-spray hour position</th><th>Primary controls</th><th>Engineering note</th></tr></thead><tbody>
+<tr><td>Hot-dip galvanized fasteners</td><td>No universal NSS endpoint in ISO 10684 or ASTM F2329/F2329M</td><td>Thickness/mass, coverage, finish, adhesion, thread fit, embrittlement controls</td><td>Do not convert continuous salt-spray hours into galvanized service years.</td></tr>
+<tr><td>Phosphate + oil</td><td>Coating-system specification or purchase-order value</td><td>Phosphate type, oil/sealer, handling, storage condition</td><td>Result may be dominated by retained oil.</td></tr>
+<tr><td>Black oxide</td><td>No universal value</td><td>Post-oil/wax/seal condition and pre-test handling</td><td>State whether parts are freshly oiled, drained or degreased.</td></tr>
+<tr><td>Stainless-steel fasteners</td><td>Do not compare directly with zinc systems</td><td>Grade, passive surface, contamination, pitting/crevice mechanism</td><td>Select a test relevant to the stainless corrosion mechanism.</td></tr>
+<tr><td>AS 3566.2:2025 self-drilling screws</td><td>Use the current corrosion-resistance class and environment requirements</td><td>Product type, class, test sequence and sealing washer requirements</td><td>Do not copy the superseded 2002 class table into a new contract.</td></tr>
+</tbody></table></div>
+<div class="ssx-table-caption">Where the product standard or customer specification defines a particular sequence—salt spray, condensation, sulfur dioxide, cyclic testing or combined tests—that sequence governs. Generic coating-family claims cannot replace it.</div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="hdg">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">08 · Hot-dip galvanizing</span><h2>Thick zinc protection needs thread engineering.</h2></div>
+<p>Hot-dip galvanizing is not simply “more zinc plating”. It produces zinc–iron alloy layers and materially changes thread allowance, friction and assembly behaviour.</p>
+</div>
+<div class="ssx-hdg-grid">
+<article class="ssx-hdg-hero ssx-reveal"><div class="ssx-giant">HDG</div><div><h3>Barrier protection + sacrificial protection</h3><p>ISO 10684 applies principally to spun hot-dip galvanized coarse-thread steel fasteners from M8 to M64 and does not recommend galvanizing threaded fasteners below M8 or below 1.25 mm pitch. ASTM F2329/F2329M is the fastener-specific ASTM route.</p></div></article>
+<div class="ssx-hdg-lines ssx-reveal">
+<article class="ssx-hdg-line"><strong>Thread allowance</strong><p>Coating thickness can interfere with ordinary threads. Use the specified oversize internal thread or other approved allowance and gauge the coated assembly.</p></article>
+<article class="ssx-hdg-line"><strong>Assembly system</strong><p>Supply compatible galvanized bolts, nuts and washers. Uncontrolled substitution can alter fit, coating damage, friction and reliability.</p></article>
+<article class="ssx-hdg-line"><strong>Torque / preload</strong><p>Do not reuse torque values validated for bare fasteners. The exact galvanized and lubricated assembly requires an appropriate installation method.</p></article>
+<article class="ssx-hdg-line"><strong>Primary conformity</strong><p>Control coating thickness or mass, coverage, finish, appearance, adhesion, thread fit and embrittlement-related requirements.</p></article>
+<article class="ssx-hdg-line"><strong>White storage stain</strong><p>Dry before packing, prevent trapped moisture and provide ventilation. Light zinc staining is not the same as basis-metal corrosion.</p></article>
+<article class="ssx-hdg-line"><strong>Duplex protection</strong><p>A compatible organic coating over galvanizing can add a barrier, but adhesion, repair, edge coverage and threaded-surface friction must be qualified.</p></article>
+</div>
+</div>
+</div>
+</section>
+<section class="ssx-section ssx-hydrogen" id="hydrogen">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">09 · Safety-critical control</span><h2>Hydrogen embrittlement cannot be inspected away.</h2></div>
+<p>High-strength steel fasteners can absorb hydrogen during cleaning, pickling, electroplating or service corrosion and may fail later under sustained tensile stress.</p>
+</div>
+<div class="ssx-hydrogen-flow ssx-reveal">
+<article class="ssx-hydrogen-step"><div class="ssx-n">01</div><h3>Susceptible material</h3><p>Strength, hardness, microstructure and residual stress determine susceptibility.</p></article>
+<article class="ssx-hydrogen-step"><div class="ssx-n">02</div><h3>Hydrogen entry</h3><p>Acid cleaning, pickling, cathodic cleaning, electroplating or corrosion can introduce hydrogen.</p></article>
+<article class="ssx-hydrogen-step"><div class="ssx-n">03</div><h3>Delay / diffusion</h3><p>A fastener may pass ordinary inspection while diffusible hydrogen remains present.</p></article>
+<article class="ssx-hydrogen-step"><div class="ssx-n">04</div><h3>Sustained stress</h3><p>Preload, residual stress and service loading can trigger delayed cracking.</p></article>
+<article class="ssx-hydrogen-step"><div class="ssx-n">05</div><h3>Delayed failure</h3><p>Failure can occur suddenly with little visible plastic deformation.</p></article>
+</div>
+<div class="ssx-hydrogen-warning ssx-reveal"><strong>Baking reduces risk.<br/>It is not an absolute guarantee.</strong><p>Control the complete process: pretreatment, hardness limits, delay before baking, baking temperature/time, verification testing and the distinction between internal hydrogen embrittlement and environmental hydrogen embrittlement. Key references include ISO 4042, ASTM F1941/F1941M, ASTM F1940, ISO 15330 and ISO/TR 20491.</p></div>
+</div>
+</section>
+<section class="ssx-section" id="thickness">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">10 · Coating thickness verification</span><h2>Measure the layer where it matters.</h2></div>
+<p>Fastener curvature, threads, recesses, alloy composition and multilayer systems influence method selection and measurement uncertainty.</p>
+</div>
+<div class="ssx-method-grid ssx-reveal">
+<article class="ssx-measure-card"><div class="ssx-icon">MAG</div><h3>Magnetic method</h3><p>Non-destructive measurement of non-magnetic coatings on magnetic substrates, commonly used for zinc or paint on steel where geometry permits reliable calibration.</p><div class="ssx-refs">ISO 2178:2016<br/>ASTM B499-09(2026)<br/>ASTM E376-26</div></article>
+<article class="ssx-measure-card"><div class="ssx-icon">XRF</div><h3>X-ray spectrometry</h3><p>Non-contact measurement of metallic and selected nonmetallic coating thickness; can also support composition analysis for suitable coating/substrate combinations.</p><div class="ssx-refs">ISO 3497:2000<br/>ASTM B568-98(2021)</div></article>
+<article class="ssx-measure-card"><div class="ssx-icon">µX</div><h3>Cross-section microscopy</h3><p>Destructive local-thickness measurement and a key dispute-resolution method for multilayer or difficult fastener geometries.</p><div class="ssx-refs">ISO 1463:2021<br/>ASTM B487-24</div></article>
+<article class="ssx-measure-card"><div class="ssx-icon">C</div><h3>Coulometric dissolution</h3><p>Measures metallic coating thickness through controlled anodic dissolution; useful for selected electroplated systems and layer combinations.</p><div class="ssx-refs">ISO 2177:2003</div></article>
+<article class="ssx-measure-card"><div class="ssx-icon">M/A</div><h3>Gravimetric coating mass</h3><p>Determines coating mass per unit area, particularly relevant to hot-dip galvanized zinc when specimen area and stripping procedure are suitable.</p><div class="ssx-refs">ISO 1460:2020<br/>ASTM A90/A90M-21</div></article>
+<article class="ssx-measure-card"><div class="ssx-icon">W</div><h3>Coating weight / removal</h3><p>Zinc-flake systems may be assessed by total coating weight or microscopic local thickness; the governing fastener standard defines the reference areas and dispute method.</p><div class="ssx-refs">ISO 10683:2018<br/>REFERENCE AREA CONTROL</div></article>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="standards">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">11 · Standards register</span><h2>Test methods and coating standards—kept separate.</h2></div>
+<p>Search the register by standard, organization or application. Statuses shown are editorial guidance for this page and must be rechecked during contract review.</p>
+</div>
+<div class="ssx-library-toolbar ssx-reveal"><input id="standardSearch" placeholder="Search: ISO 9227, hot-dip, Kesternich, cyclic…" type="search"/><select id="standardFilter"><option value="all">All categories</option><option value="test">Test methods</option><option value="coating">Coating specifications</option><option value="measurement">Measurement</option><option value="hydrogen">Hydrogen</option><option value="product">Product-specific</option></select></div>
+<div class="ssx-standards-grid ssx-reveal" id="standardsGrid"></div>
+</div>
+</section>
+<section class="ssx-section" id="reporting">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">12 · Test control and reporting</span><h2>“Passed 500 hours” is not a complete certificate.</h2></div>
+<p>A professional report must identify the fastener, coating build, chamber method, sample condition, exposure, inspection criteria and result for every specimen.</p>
+</div>
+<div class="ssx-report-grid ssx-reveal">
+<article class="ssx-report-card"><h3>Product</h3><ol><li>Drawing or fastener standard</li><li>Size and product description</li><li>Material and property class</li><li>Heat-treatment condition</li><li>Manufacturing lot</li><li>Coating batch</li></ol></article>
+<article class="ssx-report-card"><h3>Coating</h3><ol><li>Complete designation</li><li>Base layer and thickness</li><li>Passivation / conversion</li><li>Sealer and topcoat</li><li>Lubricant and colour</li><li>Supplier / process line</li></ol></article>
+<article class="ssx-report-card"><h3>Test</h3><ol><li>Method and edition</li><li>Chamber / calibration</li><li>Preconditioning</li><li>Specimen orientation</li><li>Exposure and interruptions</li><li>Inspection intervals</li></ol></article>
+<article class="ssx-report-card"><h3>Acceptance</h3><ol><li>Significant surfaces</li><li>Permitted exclusions</li><li>White-corrosion limit</li><li>Basis-metal corrosion limit</li><li>Rating / affected area</li><li>Photos and specimen result</li></ol></article>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="selection">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">13 · Selection guide</span><h2>Select for the assembly and environment.</h2></div>
+<p>This guide is directional—not a substitute for the customer drawing, product standard or validated field requirement.</p>
+</div>
+<div class="ssx-data-shell ssx-reveal">
+<div class="ssx-guide-row ssx-header"><div>Application</div><div>Commonly considered systems</div><div>Primary engineering controls</div></div>
+<div class="ssx-guide-row"><div><strong>Controlled indoor machinery</strong></div><div>Black oxide + oil, phosphate/oil, thin electroplated zinc</div><div>Temporary protection, appearance, dimensional build</div></div>
+<div class="ssx-guide-row"><div><strong>General industrial equipment</strong></div><div>Electroplated zinc with passivation and sealer</div><div>Thickness, thread fit, corrosion endpoints</div></div>
+<div class="ssx-guide-row"><div><strong>Automotive / commercial vehicles</strong></div><div>Zinc–nickel, qualified zinc-flake, approved hybrid</div><div>Cyclic corrosion, friction, temperature, installation damage</div></div>
+<div class="ssx-guide-row"><div><strong>High-strength fasteners</strong></div><div>Qualified zinc-flake, mechanical plating or tightly controlled electroplating</div><div>Hydrogen control, hardness, sustained load</div></div>
+<div class="ssx-guide-row"><div><strong>Structural outdoor bolting</strong></div><div>Hot-dip galvanized compatible assemblies</div><div>Thread allowance, thickness, lubrication and preload</div></div>
+<div class="ssx-guide-row"><div><strong>Marine / severe chloride</strong></div><div>Application-specific zinc, duplex, stainless or specialised system</div><div>Crevices, chlorides, galvanic compatibility and maintenance</div></div>
+<div class="ssx-guide-row"><div><strong>Aerospace / defence</strong></div><div>Drawing-controlled approved coating</div><div>Process approval, hydrogen control and environmental authorization</div></div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="spec-builder">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">14 · Specification builder</span><h2>Generate a complete purchase-order clause.</h2></div>
+<p>Select the system, method and endpoints. The generated clause is a structured starting point and still requires project-specific engineering approval.</p>
+</div>
+<div class="ssx-builder ssx-reveal">
+<form class="ssx-builder-form" id="builderForm" onsubmit="return false">
+<div class="ssx-field"><label for="bFastener">Fastener / drawing</label><input id="bFastener" value="[fastener standard, size, material and property class]"/></div>
+<div class="ssx-field"><label for="bCoating">Coating system</label><select id="bCoating"><option>ISO 4042 electroplated zinc-nickel, complete approved system</option><option>ISO 4042 electroplated zinc, complete approved system</option><option>ISO 10683 zinc-flake coating system</option><option>ASTM F3393 zinc-flake coating system</option><option>ISO 10684 hot-dip galvanized fastener assembly</option><option>ASTM F2329/F2329M hot-dip galvanized fastener assembly</option></select></div>
+<div class="ssx-field"><label for="bMethod">Corrosion test</label><select id="bMethod"><option>ISO 9227 NSS</option><option>ASTM B117 NSS</option><option>ISO 16701 cyclic corrosion</option><option>ISO 14993 cyclic corrosion</option><option>SAE J2334 cyclic corrosion</option><option>ISO 22479 sulfur-dioxide test</option></select></div>
+<div class="ssx-field"><label for="bHours">Exposure duration / cycles</label><input id="bHours" value="720 hours"/></div>
+<div class="ssx-field"><label for="bWhite">White-corrosion criterion</label><input id="bWhite" value="No coating-metal corrosion on defined significant surfaces before the specified limit"/></div>
+<div class="ssx-field"><label for="bRed">Basis-metal criterion</label><input id="bRed" value="No visible basis-metal corrosion on defined significant surfaces"/></div>
+<div class="ssx-field"><label for="bFriction">Functional requirement</label><input id="bFriction" value="Thread fit, coating thickness, adhesion, hydrogen control and torque/clamp-force performance as applicable"/></div>
+</form>
+<div class="ssx-builder-output">
+<p class="ssx-clause" id="clauseOutput"></p>
+<div class="ssx-copy-row"><span class="ssx-copy-status" id="copyStatus">Clause copied</span><button class="ssx-btn" id="copyClause">Copy technical clause <span>⧉</span></button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="ssx-section" id="chapters">
+<div class="ssx-container">
+<div class="ssx-section-head ssx-reveal">
+<div><span class="ssx-eyebrow">15 · Complete technical index</span><h2>Twenty-seven chapters. One engineering position.</h2></div>
+<p>Use the expandable chapter index for a rapid review of the complete salt-spray and corrosion-protection framework.</p>
+</div>
+<div class="ssx-chapter-list ssx-reveal" id="chapterList"></div>
+</div>
+</section>
+<section class="ssx-final">
+<div class="ssx-container ssx-reveal">
+<p class="ssx-headline">Specify the <span class="ssx-outline">system.</span><br/>Not only the hours.</p>
+<div class="ssx-final-copy">
+<p>Technically reliable corrosion protection coordinates <strong>material, strength level, pretreatment, coating composition, thickness, conversion treatment, sealer, topcoat, lubricant, curing, dimensional allowance, hydrogen control, testing, packaging and assembly.</strong></p>
+<p>The best requirement is not the one claiming the largest number. It is the one that <strong>defines the correct mechanism, preserves fastener function and establishes measurable acceptance criteria for the intended application.</strong></p>
+</div>
+</div>
+</section>
+</main>
+
+
+</div><!-- Shared PMEW footer: /components/footer.html -->
+<div id="footer-container"></div><script>
+    const standards = [
+      {id:'ASTM B117-26',org:'ASTM',kind:'test',title:'Operating Salt Spray (Fog) Apparatus',desc:'Continuous salt-fog chamber practice. Does not prescribe product exposure duration or acceptance.'},
+      {id:'ISO 9227:2022 + Amd 1:2024',org:'ISO',kind:'test',title:'Salt-spray tests',desc:'International NSS, AASS and CASS apparatus, reagents and procedure.'},
+      {id:'IS 5528:2024 / ISO 9227:2022',org:'BIS',kind:'test',title:'Corrosion tests in artificial atmospheres',desc:'Indian adoption of the ISO salt-spray framework.'},
+      {id:'DIN EN ISO 9227:2024-10',org:'DIN / CEN',kind:'test',title:'German / European ISO adoption',desc:'European and German adoption used on engineering and automotive drawings.'},
+      {id:'JIS Z 2371:2015',org:'JIS',kind:'test',title:'Methods of salt spray testing',desc:'Japanese salt-spray method for industrial and automotive specifications.'},
+      {id:'ASTM G85',org:'ASTM',kind:'test',title:'Modified salt spray testing',desc:'Modified and cyclic acidified salt-fog practices; use the specified annex.'},
+      {id:'ISO 16701:2025',org:'ISO',kind:'test',title:'Humidity cycling + intermittent salt spray',desc:'Accelerated cyclic corrosion involving controlled humidity and salt application.'},
+      {id:'ISO 14993:2026',org:'ISO',kind:'test',title:'Neutral salt mist / dry / wet cyclic test',desc:'Cyclic comparative exposure for salt-contaminated outdoor environments.'},
+      {id:'SAE J2334_201604',org:'SAE',kind:'test',title:'Laboratory cyclic corrosion test',desc:'Stabilized field-correlated automotive development and validation procedure.'},
+      {id:'IEC 60068-2-11:2021',org:'IEC',kind:'test',title:'Test Ka — Salt mist',desc:'Comparative corrosion testing for electrotechnical products and components.'},
+      {id:'IEC 60068-2-52:2017',org:'IEC',kind:'test',title:'Test Kb — Salt mist, cyclic',desc:'Cyclic salt-mist application for components and equipment.'},
+      {id:'ISO 22479:2019',org:'ISO',kind:'test',title:'Sulfur dioxide test in humid atmosphere',desc:'Current ISO fixed-gas Kesternich-type method; ISO 6988 is withdrawn.'},
+      {id:'ASTM G87',org:'ASTM',kind:'test',title:'Moist SO₂ tests',desc:'Sulfur-dioxide fog/condensation practice for qualitative assessment.'},
+      {id:'ISO 4042:2022 + Amd 1:2026',org:'ISO',kind:'coating',title:'Electroplated fastener coating systems',desc:'Zinc, zinc-nickel, zinc-iron and related conversion, sealer, topcoat and lubricant systems.'},
+      {id:'ASTM F1941/F1941M-16(2025)',org:'ASTM',kind:'coating',title:'Electrodeposited coatings on mechanical fasteners',desc:'Application, performance, dimensions, corrosion and hydrogen precautions.'},
+      {id:'ISO 10683:2018',org:'ISO',kind:'coating',title:'Zinc-flake coating systems',desc:'Non-electrolytically applied zinc-flake systems for threaded and non-threaded fasteners.'},
+      {id:'ASTM F3393-24',org:'ASTM',kind:'coating',title:'Zinc-flake coating systems for fasteners',desc:'Current ASTM consolidation replacing F1136/F1136M, F2833 and F3019/F3019M.'},
+      {id:'ISO 10684:2004 + Cor 1:2008',org:'ISO',kind:'coating',title:'Hot-dip galvanized fasteners',desc:'Material, process, dimensional and performance requirements for spun HDG fasteners.'},
+      {id:'ASTM F2329/F2329M-15(2023)',org:'ASTM',kind:'coating',title:'Hot-dip zinc coating on fasteners',desc:'Fastener-specific hot-dip zinc coating requirements.'},
+      {id:'ASTM F1137/F1137M-25',org:'ASTM',kind:'coating',title:'Phosphate/oil fastener coatings',desc:'Phosphate/oil and related corrosion-protective coating systems.'},
+      {id:'ASTM A1059/A1059M-24',org:'ASTM',kind:'coating',title:'Zinc-alloy thermo-diffusion coatings',desc:'Thermo-diffusion zinc coatings for fasteners, hardware and steel products.'},
+      {id:'ASTM F1428-26',org:'ASTM',kind:'coating',title:'Aluminium-particle fastener coating',desc:'Aluminium-particle-filled basecoat with organic or inorganic topcoat.'},
+      {id:'ISO 2178:2016',org:'ISO',kind:'measurement',title:'Magnetic coating-thickness method',desc:'Non-destructive thickness measurement of non-magnetic coatings on magnetic substrates.'},
+      {id:'ASTM B499-09(2026)',org:'ASTM',kind:'measurement',title:'Magnetic coating-thickness method',desc:'Non-destructive magnetic method for nonmagnetic coatings on magnetic base metals.'},
+      {id:'ISO 1463:2021',org:'ISO',kind:'measurement',title:'Microscopical cross-section thickness',desc:'Local coating-thickness measurement using optical cross-section microscopy.'},
+      {id:'ASTM B487-24',org:'ASTM',kind:'measurement',title:'Microscopical cross-section thickness',desc:'Metal and oxide coating thickness by microscopic cross-section examination.'},
+      {id:'ASTM B568-98(2021)',org:'ASTM',kind:'measurement',title:'X-ray spectrometric thickness',desc:'Non-contact X-ray measurement for metallic and selected nonmetallic coatings.'},
+      {id:'ISO 1460:2020',org:'ISO',kind:'measurement',title:'HDG coating mass — gravimetric',desc:'Mass per unit area of hot-dip galvanized coatings on ferrous materials.'},
+      {id:'ASTM F1940-07a(2024)',org:'ASTM',kind:'hydrogen',title:'IHE process-control verification',desc:'Witness-specimen process verification to prevent internal hydrogen embrittlement.'},
+      {id:'ISO 15330:1999',org:'ISO',kind:'hydrogen',title:'Hydrogen-embrittlement preloading test',desc:'Parallel-bearing-surface fastener preloading test.'},
+      {id:'ISO/TR 20491:2019',org:'ISO',kind:'hydrogen',title:'Hydrogen embrittlement fundamentals',desc:'Technical report addressing fundamentals for steel fasteners.'},
+      {id:'AS 3566.2:2025',org:'Standards Australia',kind:'product',title:'Corrosion resistance of self-drilling screws',desc:'Current corrosion resistance and environment selection requirements for building fasteners.'},
+      {id:'ISO 16048:2003',org:'ISO',kind:'coating',title:'Passivation of stainless fasteners',desc:'Commonly used passivation methods for corrosion-resistant stainless-steel fasteners.'},
+      {id:'ISO 10289:1999',org:'ISO',kind:'test',title:'Rating corrosion-test specimens',desc:'Rating method for metallic and inorganic coatings after corrosion testing.'}
+    ];
+
+    const chapters = [
+      ['The Fundamental Principle','A chamber method and a coating specification perform different functions.','Coating standard','Test method','Exposure duration','Acceptance criteria'],
+      ['What Salt-Spray Testing Measures','Use accelerated exposure to detect discontinuities, compare approved systems and monitor process stability.','Pores and defects','Passivation/sealer consistency','Batch comparison','Defined compliance'],
+      ['Salt-Spray and Cyclic Test Types','NSS, AASS, CASS, cyclic corrosion and SO₂ tests reproduce different mechanisms.','NSS','AASS','CASS','Cyclic / Kesternich'],
+      ['Why Fasteners Need Special Evaluation','Threads, recesses, interfaces and handling damage make fasteners more complex than flat panels.','Thread roots','Sharp edges','Drive recesses','Washer interfaces'],
+      ['Complete Coating System','The base deposit, conversion layer, sealer, topcoat and lubricant act together.','Base coating','Conversion treatment','Sealer / topcoat','Lubricant'],
+      ['Electroplated Zinc and Zinc Alloys','Specify thickness, passivation, sealing, colour, lubrication, friction and hydrogen controls.','Zinc','Zinc–nickel','Zinc–iron','Cadmium restrictions'],
+      ['Zinc-Flake Systems','Non-electrolytic application does not eliminate the need to control pretreatment, build, cure and friction.','Basecoat','Topcoat','Dip-spin control','240–960 h categories'],
+      ['Mechanical Zinc Plating','Useful for selected hardened or small components where electrodeposition is undesirable.','Impact risk','Uniformity','Thread fit','Part entanglement'],
+      ['Phosphate and Oil','Practical performance is strongly dependent on the retained oil, wax or organic supplementary layer.','Indoor use','Oil retention','Moderate protection','Minimal build'],
+      ['Black Oxide','A low-build appearance finish whose salt-spray result may primarily reflect the post-oil condition.','Freshly oiled?','Drained?','Degreased?','Handled?'],
+      ['Thermo-Diffusion / Sherardizing','Evaluate process temperature, material properties, thread dimensions and supplementary topcoats.','Diffusion layer','Uniform coverage','Temperature','Friction'],
+      ['Organic and Hybrid Systems','Barrier coatings need qualification for scratches, installation damage and local loss of protection.','Epoxy / acrylic','Aluminium-particle','Topcoats','Scratch behaviour'],
+      ['Hot-Dip Galvanizing','Control thick zinc layers through thread allowance, compatible assemblies, lubrication and preload methods.','ISO 10684','ASTM F2329','Thread oversize','White storage stain'],
+      ['Stainless-Steel Fasteners','Grade, passive condition, contamination, pitting, crevices and galling drive performance.','Grade selection','Passivation','Pitting','Galling'],
+      ['Hydrogen Embrittlement','Distinguish process-related IHE from service-related EHE and qualify the complete process.','Material susceptibility','Hydrogen entry','Baking','Verification'],
+      ['White Corrosion and Red Rust','Coating-metal corrosion and basis-metal corrosion are different endpoints and must be reported separately.','White corrosion','Red rust','Contamination','Rating method'],
+      ['Significant and Excluded Surfaces','Define exclusions before testing—not after a failure occurs.','Head surfaces','Threads','Fixture contacts','Cut edges'],
+      ['Preconditioning and Ageing','Control time after coating, storage conditions, heat exposure and cleaning before the test.','Minimum ageing','Storage','Heat exposure','Packaging condition'],
+      ['Assembly and Handling Simulation','State whether the requirement applies to as-coated, handled, installed or assembled fasteners.','Tool installation','Torque / preload','Removal / reuse','Complete assembly'],
+      ['Sampling and Specimen Selection','Include representative and worst-case geometry, production lots and coating-process positions.','Replicates','Worst geometry','Coating lot','Barrel/rack position'],
+      ['Test Report Requirements','Identify product, coating, chamber, preconditioning, acceptance and specimen-by-specimen results.','Traceability','Calibration','Photos','Deviations'],
+      ['Qualification vs Process Control','System qualification, production monitoring and lot acceptance are different activities.','Qualification','In-process control','Lot acceptance','Periodic audit'],
+      ['Coating Selection Guide','Select against material strength, environment, assembly and customer specification.','Indoor','Automotive','Structural','Aerospace / defence'],
+      ['Purchase Specification Format','A complete order controls coating build, friction, IHE, dimensions, corrosion endpoints and reporting.','Complete designation','White/red criteria','Sampling','Functional checks'],
+      ['Recommended Technical Clause','State that salt-spray hours are comparative unless validated field correlation exists.','Method','Duration','Significant surfaces','Service-life limitation'],
+      ['Current Standards Register','Recheck editions and amendments during contract review; do not rely on an old project list.','Current','Amended','Legacy','Withdrawn'],
+      ['Final Engineering Position','The best specification protects function—not merely appearance or a headline number of hours.','System control','Clear endpoints','Functional safety','Intended application']
+    ];
+
+    const heroLines = [
+      'A TEST METHOD IS NOT A PERFORMANCE SPECIFICATION.',
+      'WHITE CORROSION AND RED RUST ARE DIFFERENT ENDPOINTS.',
+      '500 HOURS WITHOUT A COATING DESIGNATION IS INCOMPLETE.',
+      'THREAD FIT AND FRICTION ARE PART OF COATING QUALITY.',
+      'SALT-SPRAY HOURS DO NOT EQUAL YEARS OF SERVICE.'
+    ];
+
+    function renderStandards(){
+      const q = document.getElementById('standardSearch').value.toLowerCase();
+      const kind = document.getElementById('standardFilter').value;
+      const grid = document.getElementById('standardsGrid');
+      const filtered = standards.filter(s => (kind==='all'||s.kind===kind) && `${s.id} ${s.org} ${s.title} ${s.desc}`.toLowerCase().includes(q));
+      grid.innerHTML = filtered.map(s => `<article class="ssx-standard-card"><div class="ssx-top"><span class="ssx-org">${s.org}</span><span class="ssx-kind">${s.kind}</span></div><h3>${s.id}</h3><p><strong>${s.title}</strong><br>${s.desc}</p></article>`).join('') || '<p>No matching standards found.</p>';
+    }
+
+    function renderChapters(){
+      document.getElementById('chapterList').innerHTML = chapters.map((c,i)=>`<article class="ssx-chapter"><button class="ssx-chapter-btn" aria-expanded="false"><span class="ssx-chapter-no">${String(i+1).padStart(2,'0')}</span><h3>${c[0]}</h3><span class="ssx-plus">＋</span></button><div class="ssx-chapter-body"><div class="ssx-chapter-inner"><div class="ssx-chapter-content"><p>${c[1]}</p><ul>${c.slice(2).map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div></article>`).join('');
+      document.querySelectorAll('.ssx-chapter-btn').forEach(btn=>btn.addEventListener('click',()=>{const a=btn.parentElement;a.classList.toggle('ssx-open');btn.setAttribute('aria-expanded',a.classList.contains('ssx-open'))}));
+    }
+
+    function updateClause(){
+      const fastener = document.getElementById('bFastener').value;
+      const coating = document.getElementById('bCoating').value;
+      const method = document.getElementById('bMethod').value;
+      const duration = document.getElementById('bHours').value;
+      const white = document.getElementById('bWhite').value;
+      const red = document.getElementById('bRed').value;
+      const functional = document.getElementById('bFriction').value;
+      document.getElementById('clauseOutput').textContent = `FASTENER: ${fastener}\n\nCOATING SYSTEM: ${coating}. The complete approved build shall include the applicable base coating, conversion treatment, sealer, topcoat and lubricant.\n\nCORROSION TEST: Conduct ${method} for ${duration}. The test method alone shall not be interpreted as defining acceptance.\n\nACCEPTANCE: ${white}. ${red}. Significant surfaces and permitted exclusions shall be defined before testing.\n\nFUNCTIONAL CONTROL: ${functional}. Salt-spray exposure shall be treated as a comparative qualification or conformity requirement and shall not be represented as a direct prediction of service life without validated field-correlation data.`;
+    }
+
+    document.querySelectorAll('.ssx-tabs').forEach(tabGroup=>{
+      tabGroup.addEventListener('click',e=>{
+        const btn=e.target.closest('.ssx-tab'); if(!btn) return;
+        [...tabGroup.querySelectorAll('.ssx-tab')].forEach(b=>b.classList.remove('ssx-active'));btn.classList.add('ssx-active');
+        if(btn.dataset.tab){
+          const parent=tabGroup.nextElementSibling; parent.querySelectorAll('.ssx-tab-panel').forEach(p=>p.classList.remove('ssx-active')); parent.querySelector('#'+btn.dataset.tab).classList.add('ssx-active');
+        }
+        if(btn.dataset.table){
+          document.querySelectorAll('.ssx-corrosion-table').forEach(p=>{const show=p.dataset.tablePanel===btn.dataset.table;p.hidden=!show;p.classList.toggle('ssx-active',show)});
+        }
+      });
+    });
+
+    document.getElementById('standardSearch').addEventListener('input',renderStandards);
+    document.getElementById('standardFilter').addEventListener('change',renderStandards);
+    document.getElementById('corrosionSearch').addEventListener('input',e=>{
+      const q=e.target.value.toLowerCase();document.querySelectorAll('#electroTable tbody tr').forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q));
+    });
+    document.getElementById('builderForm').addEventListener('input',updateClause);
+    document.getElementById('copyClause').addEventListener('click',async()=>{
+      try{await navigator.clipboard.writeText(document.getElementById('clauseOutput').textContent);const s=document.getElementById('copyStatus');s.classList.add('ssx-show');setTimeout(()=>s.classList.remove('ssx-show'),1800)}catch(e){alert('Copy is unavailable in this browser. Select the clause manually.');}
+    });
+    document.getElementById('searchJump')?.addEventListener('click',()=>{document.getElementById('standards').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('standardSearch').focus(),600)});
+    document.getElementById('menuBtn')?.addEventListener('click',()=>{document.getElementById('chapters').scrollIntoView({behavior:'smooth'})});
+
+    const observer = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('ssx-visible')}),{threshold:.12});
+    document.querySelectorAll('.ssx-reveal').forEach(el=>observer.observe(el));
+    window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress').style.width=(scrollY/h*100)+'%'});
+
+    let line=0;setInterval(()=>{line=(line+1)%heroLines.length;const el=document.getElementById('heroLine');el.animate([{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'none'}],{duration:500});el.textContent=heroLines[line]},3500);
+    const salt=document.getElementById('saltField');for(let i=0;i<70;i++){const d=document.createElement('i');d.className='ssx-salt-dot';d.style.left=Math.random()*100+'%';d.style.top=(-Math.random()*500)+'px';d.style.setProperty('--x',(Math.random()*160-80)+'px');d.style.animationDuration=(7+Math.random()*12)+'s';d.style.animationDelay=(-Math.random()*15)+'s';d.style.width=d.style.height=(1+Math.random()*3)+'px';salt.appendChild(d)}
+    renderStandards();renderChapters();updateClause();
+  </script>
+<!-- PMEW SHARED NAVBAR / FOOTER / GLOBAL BEHAVIOUR -->
+<script defer="" ></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

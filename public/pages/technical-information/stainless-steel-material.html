@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stainless Steel Fasteners — Grades, Property Classes &amp; Markings | Pradako</title>
+<meta name="description" content="The complete Pradako reference for corrosion-resistant stainless steel fasteners: ISO 3506 steel grades A1–A8, C1–C4, F1 and duplex D2–D8, property classes, chemical composition, mechanical properties, head markings and grade selection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/products.css">
+<style>
+/* ============================================================
+   PRADAKO — SPECTRUM DATUM
+   Page: Stainless Steel (material head page)
+   Accent: Chromium Blue #0E5C9E — single accent, never mixed
+   ============================================================ */
+:root{
+  --px-white:#FFFFFF;
+  --px-ink:#111214;
+  --px-ink-60:#5B5F66;
+  --px-ink-40:#8A8F97;
+  --px-ink-20:#C7CBD1;
+  --px-hair:#E8EAEE;
+  --px-mist:#F6F7F9;
+
+  --px-accent:#0E5C9E;
+  --px-accent-deep:#083C6B;
+  --px-accent-soft:#2E80C4;
+  --px-accent-line:#CFE0EF;
+  --px-accent-tint:#EEF5FB;
+
+  --px-h:'Space Grotesk',system-ui,sans-serif;
+  --px-b:'Montserrat',system-ui,sans-serif;
+
+  --px-gut:clamp(20px,5vw,80px);
+  --px-max:1320px;
+  --px-ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:132px;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--px-b);
+  background:var(--px-white);
+  color:var(--px-ink);
+  font-weight:400;
+  line-height:1.7;
+  overflow-x:clip;              /* clip, not hidden — keeps position:sticky alive */
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--px-accent);color:#fff;}
+
+/* ---------- layout primitives ---------- */
+.px-wrap{max-width:var(--px-max);margin:0 auto;padding-inline:var(--px-gut);}
+.px-sec{padding-block:clamp(72px,9vw,140px);position:relative;}
+.px-sec--tint{background:var(--px-accent-tint);}
+.px-sec--mist{background:var(--px-mist);}
+.px-rule{height:1px;background:var(--px-hair);border:0;}
+
+/* ---------- type ---------- */
+.px-kicker{
+  font-family:var(--px-h);font-size:11px;font-weight:600;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--px-accent);display:flex;align-items:center;gap:14px;
+}
+.px-kicker::after{content:"";flex:1;height:1px;background:var(--px-accent-line);max-width:120px;}
+.px-h1{
+  font-family:var(--px-h);font-weight:600;letter-spacing:-.035em;line-height:.92;
+  font-size:clamp(52px,10.5vw,164px);text-transform:uppercase;
+}
+.px-h2{
+  font-family:var(--px-h);font-weight:600;letter-spacing:-.03em;line-height:1.02;
+  font-size:clamp(32px,4.6vw,62px);
+}
+.px-h3{font-family:var(--px-h);font-weight:600;letter-spacing:-.02em;font-size:clamp(21px,2.2vw,28px);line-height:1.15;}
+.px-h4{font-family:var(--px-h);font-weight:600;letter-spacing:-.01em;font-size:17px;line-height:1.3;}
+.px-lead{font-size:clamp(17px,1.65vw,21px);line-height:1.62;color:var(--px-ink-60);font-weight:300;max-width:70ch;}
+.px-body{font-size:15.5px;line-height:1.78;color:var(--px-ink-60);max-width:74ch;}
+.px-body strong{color:var(--px-ink);font-weight:600;}
+.px-mono{font-family:var(--px-h);font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+.px-num{font-family:var(--px-h);font-weight:300;font-size:12px;letter-spacing:.24em;color:var(--px-ink-40);}
+
+/* ---------- hero ---------- */
+.px-hero{
+  position:relative;padding-top:clamp(120px,15vw,190px);padding-bottom:clamp(56px,7vw,90px);
+  background:var(--px-white);overflow:clip;
+}
+.px-hero__grid{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--px-hair) 1px,transparent 1px),linear-gradient(90deg,var(--px-hair) 1px,transparent 1px);
+  background-size:clamp(48px,7vw,96px) clamp(48px,7vw,96px);
+  -webkit-mask-image:radial-gradient(120% 80% at 70% 20%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(120% 80% at 70% 20%,#000 0%,transparent 72%);
+}
+.px-hero__inner{position:relative;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(28px,4vw,64px);align-items:end;}
+.px-hero__eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:clamp(22px,3vw,38px);}
+.px-tag{
+  font-family:var(--px-h);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  padding:7px 13px;border:1px solid var(--px-accent-line);color:var(--px-accent);border-radius:2px;white-space:nowrap;
+}
+.px-tag--solid{background:var(--px-accent);border-color:var(--px-accent);color:#fff;}
+.px-h1 .px-h1__thin{display:block;font-weight:300;color:var(--px-ink-40);}
+.px-hero__line{
+  margin-top:clamp(26px,3.4vw,44px);font-size:clamp(17px,1.85vw,23px);line-height:1.5;font-weight:300;
+  color:var(--px-ink);max-width:34ch;border-left:2px solid var(--px-accent);padding-left:22px;
+}
+.px-hero__line b{font-weight:600;}
+.px-hero__art{align-self:end;}
+.px-hero__meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:26px;}
+.px-hero__meta span{font-family:var(--px-h);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--px-ink-40);}
+
+.px-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(30px,3.6vw,44px);}
+.px-btn{
+  display:inline-flex;align-items:center;gap:11px;font-family:var(--px-h);font-size:12.5px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--px-ink);
+  background:var(--px-ink);color:#fff;border-radius:2px;cursor:pointer;transition:all .4s var(--px-ease);
+}
+.px-btn:hover{background:var(--px-accent);border-color:var(--px-accent);transform:translateY(-2px);}
+.px-btn--ghost{background:transparent;color:var(--px-ink);border-color:var(--px-ink-20);}
+.px-btn--ghost:hover{background:var(--px-accent);border-color:var(--px-accent);color:#fff;}
+.px-btn svg{width:15px;height:15px;flex:none;}
+
+/* ---------- stat strip ---------- */
+.px-strip{border-top:1px solid var(--px-hair);border-bottom:1px solid var(--px-hair);background:var(--px-white);}
+.px-strip__grid{display:grid;grid-template-columns:repeat(4,1fr);}
+.px-stat{padding:clamp(26px,3.4vw,44px) clamp(16px,2vw,30px);border-right:1px solid var(--px-hair);}
+.px-stat:last-child{border-right:0;}
+.px-stat__v{font-family:var(--px-h);font-size:clamp(30px,3.8vw,50px);font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--px-accent);}
+.px-stat__v sup{font-size:.42em;font-weight:400;vertical-align:super;letter-spacing:0;}
+.px-stat__l{font-size:12px;line-height:1.5;color:var(--px-ink-60);margin-top:12px;max-width:26ch;}
+
+/* ---------- sticky section nav ---------- */
+.px-snav{
+  position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--px-hair);
+}
+.px-snav__in{display:flex;align-items:center;gap:22px;overflow-x:auto;scrollbar-width:none;padding-block:0;}
+.px-snav__in::-webkit-scrollbar{display:none;}
+.px-snav a{
+  font-family:var(--px-h);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--px-ink-40);white-space:nowrap;padding:18px 0;border-bottom:2px solid transparent;transition:all .3s var(--px-ease);
+}
+.px-snav a:hover{color:var(--px-ink);}
+.px-snav a.is-on{color:var(--px-accent);border-bottom-color:var(--px-accent);}
+
+/* ---------- section heads ---------- */
+.px-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,70px);align-items:end;margin-bottom:clamp(38px,5vw,68px);}
+.px-head__l .px-kicker{margin-bottom:20px;}
+
+/* ---------- reveal ---------- */
+.px-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--px-ease),transform .9s var(--px-ease);}
+.px-rv.is-in{opacity:1;transform:none;}
+
+/* ---------- cards ---------- */
+.px-grid{display:grid;gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-cards,.px-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.px-card{background:#fff;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:16px;transition:background .4s var(--px-ease);}
+.px-card:hover{background:var(--px-accent-tint);}
+.px-card__ix{font-family:var(--px-h);font-size:11px;letter-spacing:.22em;color:var(--px-accent);font-weight:600;}
+.px-card p{font-size:14.5px;line-height:1.72;color:var(--px-ink-60);}
+.px-card ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:2px;}
+.px-card li{font-size:13.5px;line-height:1.6;color:var(--px-ink-60);padding-left:16px;position:relative;}
+.px-card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--px-accent);}
+
+/* ---------- family blocks ---------- */
+.px-fam{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-fam__c{background:#fff;padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;}
+.px-fam__c svg{margin-bottom:22px;}
+.px-fam__t{display:flex;flex-direction:column;align-items:flex-start;gap:7px;margin-bottom:14px;}
+.px-fam__t h3{font-family:var(--px-h);font-size:23px;font-weight:600;letter-spacing:-.02em;}
+.px-fam__t span{font-family:var(--px-h);font-size:10.5px;letter-spacing:.16em;color:var(--px-accent);font-weight:600;line-height:1.5;}
+.px-fam__c p{font-size:14px;line-height:1.72;color:var(--px-ink-60);margin-bottom:20px;}
+.px-props{display:flex;flex-direction:column;gap:0;margin-top:auto;border-top:1px solid var(--px-hair);}
+.px-props div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--px-hair);font-size:12.5px;}
+.px-props div:last-child{border-bottom:0;}
+.px-props dt,.px-props .k{color:var(--px-ink-40);font-family:var(--px-h);letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;padding-top:2px;}
+.px-props .v{color:var(--px-ink);font-weight:500;text-align:right;}
+
+/* ---------- tables ---------- */
+.px-tw{overflow-x:auto;border:1px solid var(--px-hair);background:#fff;-webkit-overflow-scrolling:touch;}
+table.px-t{width:100%;border-collapse:collapse;min-width:760px;font-variant-numeric:tabular-nums;}
+table.px-t th,table.px-t td{padding:12px 14px;text-align:center;font-size:13px;border-bottom:1px solid var(--px-hair);border-right:1px solid var(--px-hair);white-space:nowrap;}
+table.px-t th:last-child,table.px-t td:last-child{border-right:0;}
+table.px-t thead th{
+  background:var(--px-ink);color:#fff;font-family:var(--px-h);font-size:10.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;position:sticky;top:0;z-index:2;padding-block:14px;
+}
+table.px-t thead tr:nth-child(2) th{top:41px;background:var(--px-accent-deep);}
+table.px-t tbody tr:hover td{background:var(--px-accent-tint);}
+table.px-t td.px-l,table.px-t th.px-l{text-align:left;}
+table.px-t .px-g{
+  font-family:var(--px-h);font-weight:600;color:var(--px-accent);letter-spacing:.04em;
+}
+table.px-t .px-grp{background:var(--px-mist);font-family:var(--px-h);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--px-ink);font-weight:600;text-align:left;}
+table.px-t tbody th{background:var(--px-mist);font-family:var(--px-h);font-size:12px;font-weight:600;}
+.px-fn{margin-top:16px;display:flex;flex-direction:column;gap:7px;}
+.px-fn p{font-size:12px;line-height:1.6;color:var(--px-ink-40);padding-left:20px;position:relative;}
+.px-fn p sup{position:absolute;left:0;top:0;color:var(--px-accent);font-weight:600;}
+.px-tcap{font-family:var(--px-h);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--px-ink-40);margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.px-tcap b{color:var(--px-accent);font-weight:600;}
+
+/* ---------- tabs ---------- */
+.px-tabs{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--px-hair);border-bottom:0;background:var(--px-mist);}
+.px-tab{
+  font-family:var(--px-h);font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  padding:15px 22px;background:transparent;border:0;border-right:1px solid var(--px-hair);cursor:pointer;
+  color:var(--px-ink-40);transition:all .3s var(--px-ease);
+}
+.px-tab:hover{color:var(--px-ink);}
+.px-tab.is-on{background:#fff;color:var(--px-accent);box-shadow:inset 0 2px 0 var(--px-accent);}
+.px-pane{display:none;}
+.px-pane.is-on{display:block;}
+
+/* ---------- notice ---------- */
+.px-note{
+  border-left:2px solid var(--px-accent);background:var(--px-accent-tint);
+  padding:20px 24px;font-size:13.5px;line-height:1.7;color:var(--px-ink-60);
+}
+.px-note b{color:var(--px-accent-deep);font-weight:600;}
+.px-note--warn{border-left-color:var(--px-ink);background:var(--px-mist);}
+.px-note--warn b{color:var(--px-ink);}
+/* ---------- designation anatomy ---------- */
+.px-anat{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(24px,4vw,60px);align-items:center;background:#fff;border:1px solid var(--px-hair);padding:clamp(28px,4vw,56px);}
+.px-anat__code{font-family:var(--px-h);font-weight:600;font-size:clamp(64px,10vw,132px);letter-spacing:-.05em;line-height:1;color:var(--px-ink);display:flex;align-items:baseline;}
+.px-anat__dash{color:var(--px-ink-20);}
+.px-anat__seg{transition:color .35s var(--px-ease),opacity .35s var(--px-ease);cursor:default;}
+.px-anat.is-hov .px-anat__seg{opacity:.22;}
+.px-anat.is-hov .px-anat__seg.is-lit{opacity:1;color:var(--px-accent);}
+.px-anat.is-hov .px-anat__row{opacity:.4;}
+.px-anat.is-hov .px-anat__row.is-lit{opacity:1;}
+.px-anat__seg.is-lit{color:var(--px-accent);}
+.px-anat__legend{display:flex;flex-direction:column;gap:0;}
+.px-anat__row{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--px-hair);transition:opacity .35s var(--px-ease);}
+.px-anat__row:last-child{border-bottom:0;}
+.px-anat__row div{font-size:14px;line-height:1.7;color:var(--px-ink-60);}
+.px-anat__row b{color:var(--px-ink);font-weight:600;}
+.px-anat__k{font-family:var(--px-h);font-size:26px;font-weight:600;color:var(--px-accent);line-height:1;padding-top:3px;}
+
+/* ---------- suffix rules ---------- */
+.px-sfx{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);border-top:0;}
+.px-sfx__c{background:#fff;padding:26px 28px;}
+.px-sfx__t{display:block;font-family:var(--px-h);font-size:26px;font-weight:300;letter-spacing:-.02em;color:var(--px-ink);margin-bottom:14px;}
+.px-sfx__t b{color:var(--px-accent);font-weight:700;}
+.px-sfx__c p{font-size:13.5px;line-height:1.7;color:var(--px-ink-60);}
+.px-sfx__c p b{color:var(--px-ink);font-weight:600;}
+
+/* ---------- decoder ---------- */
+.px-dec{margin-top:clamp(32px,4vw,52px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-dec__ctl{background:#fff;padding:clamp(26px,3vw,42px);display:flex;flex-direction:column;gap:28px;}
+.px-dec__lbl{display:block;font-family:var(--px-h);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--px-ink-40);margin-bottom:14px;}
+.px-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.px-chip{
+  font-family:var(--px-h);font-size:12.5px;font-weight:500;letter-spacing:.06em;
+  padding:10px 16px;border:1px solid var(--px-ink-20);background:#fff;color:var(--px-ink-60);
+  border-radius:2px;cursor:pointer;transition:all .28s var(--px-ease);
+}
+.px-chip:hover{border-color:var(--px-accent);color:var(--px-accent);}
+.px-chip.is-on{background:var(--px-accent);border-color:var(--px-accent);color:#fff;}
+.px-dec__out{background:var(--px-ink);color:#fff;padding:clamp(26px,3vw,42px);display:flex;flex-direction:column;}
+.px-dec__badge{font-family:var(--px-h);font-size:clamp(40px,5.4vw,66px);font-weight:600;letter-spacing:-.04em;line-height:1;color:#fff;}
+.px-dec__say{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.72);margin-top:18px;}
+.px-dec__say b{color:var(--px-accent-soft);font-weight:600;}
+.px-dec__figs{margin-top:26px;border-top:1px solid rgba(255,255,255,.14);}
+.px-dec__figs div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.px-dec__figs span{font-family:var(--px-h);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.px-dec__figs b{font-family:var(--px-h);font-size:15px;font-weight:500;color:#fff;text-align:right;}
+.px-dec__note{margin-top:22px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);border-left:2px solid var(--px-accent-soft);padding-left:16px;}
+
+/* ---------- markings ---------- */
+.px-mk{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-mk__c{background:#fff;padding:22px 18px 12px;transition:background .4s var(--px-ease);}
+.px-mk__c:hover{background:var(--px-accent-tint);}
+
+/* ---------- selector ---------- */
+.px-sel{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-sel__list{background:#fff;display:flex;flex-direction:column;max-height:520px;overflow-y:auto;}
+.px-sel__b{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;
+  padding:15px 22px;background:transparent;border:0;border-bottom:1px solid var(--px-hair);
+  cursor:pointer;text-align:left;transition:all .28s var(--px-ease);
+}
+.px-sel__b span{font-family:var(--px-b);font-size:14px;color:var(--px-ink-60);transition:color .28s var(--px-ease);}
+.px-sel__b em{font-family:var(--px-h);font-style:normal;font-size:12.5px;font-weight:600;letter-spacing:.08em;color:var(--px-ink-20);transition:color .28s var(--px-ease);}
+.px-sel__b:hover span{color:var(--px-ink);}
+.px-sel__b.is-on{background:var(--px-accent-tint);box-shadow:inset 3px 0 0 var(--px-accent);}
+.px-sel__b.is-on span{color:var(--px-ink);font-weight:500;}
+.px-sel__b.is-on em{color:var(--px-accent);}
+.px-sel__out{background:#fff;padding:clamp(28px,3.4vw,48px);}
+.px-sel__grade{font-family:var(--px-h);font-size:clamp(56px,8vw,104px);font-weight:600;letter-spacing:-.05em;line-height:.9;color:var(--px-accent);}
+.px-sel__alt{margin-top:20px;font-size:13.5px;color:var(--px-ink-60);}
+.px-sel__alt span{display:block;font-family:var(--px-h);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--px-ink-40);margin-bottom:6px;}
+.px-sel__why{margin-top:22px;font-size:15px;line-height:1.75;color:var(--px-ink-60);max-width:56ch;}
+.px-sel__warn{margin-top:22px;border-left:2px solid var(--px-ink);background:var(--px-mist);padding:16px 20px;font-size:13px;line-height:1.7;color:var(--px-ink-60);}
+.px-sel__warn b{color:var(--px-ink);font-weight:600;}
+
+/* ---------- comparison bars ---------- */
+.px-bar{display:inline-flex;gap:3px;vertical-align:middle;}
+.px-bar i{width:11px;height:5px;background:var(--px-hair);display:block;border-radius:1px;}
+.px-bar i.on{background:var(--px-accent);}
+
+/* ---------- tool links ---------- */
+.px-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);margin-top:clamp(32px,4vw,52px);}
+.px-tool{background:#fff;padding:26px 28px;display:flex;flex-direction:column;gap:8px;transition:all .35s var(--px-ease);}
+.px-tool:hover{background:var(--px-accent);}
+.px-tool__k{font-family:var(--px-h);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--px-accent);transition:color .35s var(--px-ease);}
+.px-tool__n{font-family:var(--px-h);font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--px-ink);transition:color .35s var(--px-ease);}
+.px-tool__d{font-size:13px;line-height:1.62;color:var(--px-ink-60);transition:color .35s var(--px-ease);}
+.px-tool:hover .px-tool__k{color:rgba(255,255,255,.7);}
+.px-tool:hover .px-tool__n,.px-tool:hover .px-tool__d{color:#fff;}
+
+/* ---------- glossary ---------- */
+.px-search{position:relative;margin-top:26px;max-width:420px;}
+.px-search svg{position:absolute;left:0;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--px-ink-40);}
+.px-search input{
+  width:100%;border:0;border-bottom:1px solid var(--px-ink-20);background:transparent;
+  padding:12px 0 12px 28px;font-family:var(--px-b);font-size:14.5px;color:var(--px-ink);outline:none;
+  transition:border-color .3s var(--px-ease);
+}
+.px-search input:focus{border-bottom-color:var(--px-accent);}
+.px-search input::placeholder{color:var(--px-ink-40);}
+.px-glo{columns:3;column-gap:clamp(24px,3vw,52px);}
+.px-glo__i{break-inside:avoid;margin-bottom:26px;border-top:1px solid var(--px-hair);padding-top:16px;}
+.px-glo__i h4{font-family:var(--px-h);font-size:15.5px;font-weight:600;letter-spacing:-.01em;color:var(--px-accent);margin-bottom:8px;}
+.px-glo__i p{font-size:13.5px;line-height:1.7;color:var(--px-ink-60);}
+.px-glo__none{display:none;font-size:14px;color:var(--px-ink-40);padding-top:20px;}
+
+/* ---------- capability ---------- */
+.px-cap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--px-hair);border:1px solid var(--px-hair);}
+.px-cap__c{background:#fff;padding:28px 26px;}
+.px-cap__k{display:block;font-family:var(--px-h);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--px-ink-40);margin-bottom:12px;}
+.px-cap__v{display:block;font-family:var(--px-h);font-size:26px;font-weight:600;letter-spacing:-.025em;color:var(--px-accent);margin-bottom:12px;}
+.px-cap__c p{font-size:13px;line-height:1.68;color:var(--px-ink-60);}
+
+/* ---------- final CTA ---------- */
+.px-final{margin-top:clamp(46px,6vw,84px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,4vw,64px);align-items:center;border-top:1px solid var(--px-hair);padding-top:clamp(40px,5vw,72px);}
+.px-final__cta{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.px-final__cta .px-btn{width:100%;justify-content:space-between;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .px-hero__inner{grid-template-columns:1fr;}
+  .px-hero__art{margin-top:36px;}
+  .px-head{grid-template-columns:1fr;gap:22px;}
+  .px-anat,.px-dec,.px-sel,.px-final{grid-template-columns:1fr;}
+  .px-glo{columns:2;}
+  .px-strip__grid{grid-template-columns:repeat(2,1fr);}
+  .px-stat:nth-child(2){border-right:0;}
+  .px-stat:nth-child(1),.px-stat:nth-child(2){border-bottom:1px solid var(--px-hair);}
+  .px-sel__list{max-height:none;}
+  .px-fam,.px-sfx,.px-mk,.px-g4{grid-template-columns:repeat(2,1fr);}
+  .px-cards,.px-g3,.px-tools,.px-cap{grid-template-columns:repeat(2,1fr);}
+  .px-g2{grid-template-columns:1fr;}
+}
+@media (max-width:680px){
+  html{scroll-padding-top:110px;}
+  .px-glo{columns:1;}
+  .px-strip__grid{grid-template-columns:1fr;}
+  .px-stat{border-right:0;border-bottom:1px solid var(--px-hair);}
+  .px-stat:last-child{border-bottom:0;}
+  .px-anat__code{font-size:56px;}
+  .px-anat__row{grid-template-columns:40px 1fr;gap:14px;}
+  .px-tab{padding:13px 16px;font-size:10.5px;}
+  .px-final__cta .px-btn{width:100%;}
+  .px-fam,.px-sfx,.px-g4,.px-cards,.px-g3,.px-tools,.px-cap{grid-template-columns:1fr;}
+  .px-mk{grid-template-columns:repeat(2,1fr);}
+  table.px-t th,table.px-t td{padding:10px 11px;font-size:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+  .px-rv{opacity:1;transform:none;}
+}
+@media print{
+  .px-snav,.px-cta-row,.px-tools,.px-final__cta{display:none;}
+  .px-pane{display:block !important;}
+  body{color:#000;}
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/stainless-steel-material.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Stainless Steel Fasteners — Grades, Property Classes &amp; Markings | Pradako">
+    <meta property="og:description" content="The complete Pradako reference for corrosion-resistant stainless steel fasteners: ISO 3506 steel grades A1–A8, C1–C4, F1 and duplex D2–D8, property classes, chemical composition, mechanical properties, head markings and grade selection.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/stainless-steel-material.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stainless Steel Fasteners — Grades, Property Classes &amp; Markings | Pradako">
+    <meta name="twitter:description" content="The complete Pradako reference for corrosion-resistant stainless steel fasteners: ISO 3506 steel grades A1–A8, C1–C4, F1 and duplex D2–D8, property classes, chemical composition, mechanical properties, head markings and grade selection.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Stainless Steel Fasteners — Grades, Property Classes & Markings | Pradako",
+  "url": "https://www.pradako.co/pages/technical-information/stainless-steel-material.html",
+  "description": "The complete Pradako reference for corrosion-resistant stainless steel fasteners: ISO 3506 steel grades A1–A8, C1–C4, F1 and duplex D2–D8, property classes, chemical composition, mechanical properties, head markings and grade selection.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+
+<!-- shared navbar injection hook -->
+<div id="navbar-container"></div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="px-hero">
+  <div class="px-hero__grid" aria-hidden="true"></div>
+  <div class="px-wrap px-hero__inner">
+    <div>
+      <div class="px-hero__eyebrow">
+        <span class="px-tag px-tag--solid">Material Reference</span>
+        <span class="px-tag">ISO 3506-1:2020</span>
+        <span class="px-tag">ISO 3506-2:2020</span>
+        <span class="px-tag">ISO 3506-3/-4:2025</span>
+      </div>
+      <h1 class="px-h1">Stainless<span class="px-h1__thin">Steel</span></h1>
+      <p class="px-hero__line">A passive film roughly <b>two nanometres thick</b> is the only thing standing between iron and rust — and it rebuilds itself every time you scratch it.</p>
+      <div class="px-cta-row">
+        <a href="#designation" class="px-btn">Decode a grade
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#enquire" class="px-btn px-btn--ghost">Enquire — stainless range</a>
+      </div>
+      <div class="px-hero__meta">
+        <span>Grades A1–A8 · C1–C4 · F1 · D2–D8</span>
+        <span>M1.6 – M39</span>
+        <span>Cold forged in-house</span>
+      </div>
+    </div>
+
+    <div class="px-hero__art" aria-hidden="true">
+      <!-- Passive film cross-section: substrate, Cr-oxide layer, self-healing sweep -->
+      <svg viewBox="0 0 620 460" role="img">
+        <defs>
+          <linearGradient id="pxFilm" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0E5C9E" stop-opacity=".05"/>
+            <stop offset="50%" stop-color="#0E5C9E" stop-opacity=".22"/>
+            <stop offset="100%" stop-color="#0E5C9E" stop-opacity=".05"/>
+          </linearGradient>
+          <linearGradient id="pxSweep" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0E5C9E" stop-opacity="0"/>
+            <stop offset="45%" stop-color="#0E5C9E" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#0E5C9E" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="pxClipFilm"><rect x="60" y="150" width="500" height="26"/></clipPath>
+        </defs>
+
+        <!-- atmosphere label -->
+        <text x="60" y="46" font-family="Space Grotesk" font-size="11" letter-spacing="3" fill="#8A8F97">ATMOSPHERIC OXYGEN</text>
+        <g stroke="#CFE0EF" stroke-width="1">
+          <line x1="60" y1="62" x2="560" y2="62"/>
+        </g>
+        <!-- O2 arrows -->
+        <g stroke="#0E5C9E" stroke-width="1.2" fill="none">
+          <path d="M120 78 L120 138 M114 128 L120 138 L126 128"><animate attributeName="opacity" values=".25;1;.25" dur="4s" repeatCount="indefinite"/></path>
+          <path d="M240 78 L240 138 M234 128 L240 138 L246 128"><animate attributeName="opacity" values=".25;1;.25" dur="4s" begin="-1.1s" repeatCount="indefinite"/></path>
+          <path d="M360 78 L360 138 M354 128 L360 138 L366 128"><animate attributeName="opacity" values=".25;1;.25" dur="4s" begin="-2.2s" repeatCount="indefinite"/></path>
+          <path d="M480 78 L480 138 M474 128 L480 138 L486 128"><animate attributeName="opacity" values=".25;1;.25" dur="4s" begin="-3.3s" repeatCount="indefinite"/></path>
+        </g>
+
+        <!-- passive film -->
+        <rect x="60" y="150" width="500" height="26" fill="url(#pxFilm)" stroke="#0E5C9E" stroke-width="1"/>
+        <g clip-path="url(#pxClipFilm)">
+          <rect x="-260" y="150" width="260" height="26" fill="url(#pxSweep)">
+            <animate attributeName="x" from="-260" to="620" dur="5.2s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+        <text x="60" y="200" font-family="Space Grotesk" font-size="11" letter-spacing="2.4" fill="#0E5C9E">Cr₂O₃ PASSIVE FILM  ≈ 2 nm</text>
+
+        <!-- substrate lattice -->
+        <rect x="60" y="222" width="500" height="196" fill="#F6F7F9" stroke="#E8EAEE"/>
+        <g fill="none" stroke="#C7CBD1" stroke-width="1">
+          <g id="pxLat">
+            <circle cx="0" cy="0" r="7"/>
+          </g>
+        </g>
+        <g fill="#FFFFFF" stroke="#C7CBD1" stroke-width="1.1">
+          <circle cx="100" cy="262" r="9"/><circle cx="160" cy="262" r="9"/><circle cx="220" cy="262" r="9"/><circle cx="280" cy="262" r="9"/><circle cx="340" cy="262" r="9"/><circle cx="400" cy="262" r="9"/><circle cx="460" cy="262" r="9"/><circle cx="520" cy="262" r="9"/>
+          <circle cx="130" cy="312" r="9"/><circle cx="190" cy="312" r="9"/><circle cx="250" cy="312" r="9"/><circle cx="310" cy="312" r="9"/><circle cx="370" cy="312" r="9"/><circle cx="430" cy="312" r="9"/><circle cx="490" cy="312" r="9"/>
+          <circle cx="100" cy="362" r="9"/><circle cx="160" cy="362" r="9"/><circle cx="220" cy="362" r="9"/><circle cx="280" cy="362" r="9"/><circle cx="340" cy="362" r="9"/><circle cx="400" cy="362" r="9"/><circle cx="460" cy="362" r="9"/><circle cx="520" cy="362" r="9"/>
+        </g>
+        <!-- chromium atoms highlighted -->
+        <g fill="#0E5C9E" stroke="none">
+          <circle cx="220" cy="262" r="9"><animate attributeName="opacity" values=".35;1;.35" dur="6s" repeatCount="indefinite"/></circle>
+          <circle cx="400" cy="262" r="9"><animate attributeName="opacity" values=".35;1;.35" dur="6s" begin="-2s" repeatCount="indefinite"/></circle>
+          <circle cx="310" cy="312" r="9"><animate attributeName="opacity" values=".35;1;.35" dur="6s" begin="-4s" repeatCount="indefinite"/></circle>
+          <circle cx="160" cy="362" r="9"><animate attributeName="opacity" values=".35;1;.35" dur="6s" begin="-3s" repeatCount="indefinite"/></circle>
+          <circle cx="520" cy="362" r="9"><animate attributeName="opacity" values=".35;1;.35" dur="6s" begin="-1s" repeatCount="indefinite"/></circle>
+        </g>
+        <text x="60" y="446" font-family="Space Grotesk" font-size="11" letter-spacing="2.4" fill="#8A8F97">Fe–Cr–Ni MATRIX  ·  Cr ≥ 10.5%</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     STAT STRIP
+     ============================================================ -->
+<section class="px-strip">
+  <div class="px-wrap">
+    <div class="px-strip__grid">
+      <div class="px-stat">
+        <div class="px-stat__v">10.5<sup>%</sup></div>
+        <p class="px-stat__l">Minimum chromium, by mass, for a steel to be called stainless under ISO 3506-1.</p>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat__v">14</div>
+        <p class="px-stat__l">Steel grades in the current standard — six austenitic, three martensitic, one ferritic, four duplex.</p>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat__v">1000<sup>MPa</sup></div>
+        <p class="px-stat__l">Tensile minimum of property class 100, added in the 2020 revision for A4, A5, A8 and duplex.</p>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat__v">97<sup>%</sup></div>
+        <p class="px-stat__l">Share of stainless fasteners made from austenitic grades — overwhelmingly A2 and A4.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STICKY SECTION NAV
+     ============================================================ -->
+<nav class="px-snav" id="pxSnav" aria-label="Section navigation">
+  <div class="px-wrap px-snav__in">
+    <a href="#passive">Passive Film</a>
+    <a href="#families">Families</a>
+    <a href="#designation">Designation</a>
+    <a href="#composition">Composition</a>
+    <a href="#mechanical">Mechanical</a>
+    <a href="#marking">Markings</a>
+    <a href="#selection">Selection</a>
+    <a href="#corrosion">Corrosion</a>
+    <a href="#assembly">Assembly</a>
+    <a href="#finishes">Finishes</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#enquire">Enquire</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     01 — PASSIVE FILM
+     ============================================================ -->
+<section class="px-sec" id="passive">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">01 — First Principles</div>
+        <h2 class="px-h2">What actually makes<br>steel stainless</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Stainless steel is not corrosion-proof. It is corrosion-<em>repairing</em>. Above roughly 10.5% chromium, the alloy stops forming red iron oxide and starts forming a dense, transparent, tightly bonded chromium-oxide layer instead. That layer is the entire mechanism.</p>
+      </div>
+    </div>
+
+    <div class="px-g3 px-rv">
+
+      <div style="background:#fff;padding:clamp(26px,3vw,38px);">
+        <svg viewBox="0 0 240 150" style="margin-bottom:20px;">
+          <rect x="20" y="60" width="200" height="60" fill="#F6F7F9" stroke="#E8EAEE"/>
+          <rect x="20" y="46" width="200" height="14" fill="#0E5C9E" fill-opacity=".18" stroke="#0E5C9E"/>
+          <g stroke="#0E5C9E" stroke-width="1" fill="none" opacity=".55">
+            <path d="M60 20 L60 40 M55 33 L60 40 L65 33"/><path d="M120 20 L120 40 M115 33 L120 40 L125 33"/><path d="M180 20 L180 40 M175 33 L180 40 L185 33"/>
+          </g>
+          <text x="20" y="140" font-family="Space Grotesk" font-size="10" letter-spacing="2" fill="#8A8F97">01 · FORMED</text>
+        </svg>
+        <h3 class="px-h4" style="margin-bottom:10px;">It forms itself</h3>
+        <p style="font-size:14px;line-height:1.72;color:var(--px-ink-60);">Chromium has a far higher affinity for oxygen than iron does. On exposure to air, chromium at the surface oxidises preferentially, producing a continuous Cr₂O₃ film a few nanometres thick — invisible, non-porous and firmly keyed to the metal beneath.</p>
+      </div>
+
+      <div style="background:#fff;padding:clamp(26px,3vw,38px);">
+        <svg viewBox="0 0 240 150" style="margin-bottom:20px;">
+          <rect x="20" y="60" width="200" height="60" fill="#F6F7F9" stroke="#E8EAEE"/>
+          <rect x="20" y="46" width="200" height="14" fill="#0E5C9E" fill-opacity=".18" stroke="#0E5C9E"/>
+          <path d="M118 46 L124 60 L130 46 Z" fill="#fff" stroke="#111214" stroke-width="1.2"/>
+          <path d="M124 60 L124 82" stroke="#111214" stroke-width="1.2"/>
+          <text x="140" y="36" font-family="Space Grotesk" font-size="10" letter-spacing="1.6" fill="#111214">SCRATCH</text>
+          <text x="20" y="140" font-family="Space Grotesk" font-size="10" letter-spacing="2" fill="#8A8F97">02 · DAMAGED</text>
+        </svg>
+        <h3 class="px-h4" style="margin-bottom:10px;">It survives damage</h3>
+        <p style="font-size:14px;line-height:1.72;color:var(--px-ink-60);">Machining, thread rolling, a dropped spanner — bare metal is exposed. On carbon steel that is where rust begins. On stainless, the exposed chromium simply repeats the reaction, provided oxygen can reach it.</p>
+      </div>
+
+      <div style="background:#fff;padding:clamp(26px,3vw,38px);">
+        <svg viewBox="0 0 240 150" style="margin-bottom:20px;">
+          <rect x="20" y="60" width="200" height="60" fill="#F6F7F9" stroke="#E8EAEE"/>
+          <rect x="20" y="46" width="200" height="14" fill="#0E5C9E" fill-opacity=".18" stroke="#0E5C9E"/>
+          <rect x="112" y="46" width="24" height="14" fill="#0E5C9E" fill-opacity=".5" stroke="#0E5C9E">
+            <animate attributeName="fill-opacity" values=".05;.5;.05" dur="3.4s" repeatCount="indefinite"/>
+          </rect>
+          <text x="20" y="140" font-family="Space Grotesk" font-size="10" letter-spacing="2" fill="#8A8F97">03 · RE-PASSIVATED</text>
+        </svg>
+        <h3 class="px-h4" style="margin-bottom:10px;">It heals — if it can breathe</h3>
+        <p style="font-size:14px;line-height:1.72;color:var(--px-ink-60);">Re-passivation takes seconds in open air. Starve the surface of oxygen — a tight crevice, a paint film, a bed of dirt, standing water in a blind hole — and the film cannot regenerate. That is when stainless corrodes, and it is almost always a design failure rather than a material failure.</p>
+      </div>
+    </div>
+
+    <div class="px-g2 px-rv" style="margin-top:36px;">
+      <div class="px-note"><b>Design rule.</b> Avoid slots, gaps, unventilated pockets, humidity traps and dirt deposits. Anything that blocks atmospheric oxygen from reaching the surface will degrade the corrosion performance of an otherwise correct grade.</div>
+      <div class="px-note px-note--warn"><b>Coatings cut both ways.</b> Black oxidising, paint and heavy organic coatings seal oxygen out. Surface roughening has the same effect. Under chloride-bearing media the consequence can be crevice attack or stress corrosion cracking — often invisible until sudden failure.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     02 — FAMILIES
+     ============================================================ -->
+<section class="px-sec" id="families">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">02 — Metallurgical Families</div>
+        <h2 class="px-h2">Four structures,<br>four sets of rules</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Crystal structure — not chemistry alone — decides whether a stainless fastener can be hardened, whether it is magnetic, and how it behaves in chloride. ISO 3506 organises every grade under one of four groups: austenitic (A), martensitic (C), ferritic (F) and duplex (D).</p>
+      </div>
+    </div>
+
+    <div class="px-fam px-rv">
+
+      <!-- AUSTENITIC -->
+      <div class="px-fam__c">
+        <svg viewBox="0 0 200 110" aria-hidden="true">
+          <rect x="0" y="0" width="200" height="110" fill="#EEF5FB"/>
+          <g fill="#0E5C9E" fill-opacity=".9">
+            <circle cx="40" cy="30" r="5"/><circle cx="80" cy="30" r="5"/><circle cx="120" cy="30" r="5"/><circle cx="160" cy="30" r="5"/>
+            <circle cx="60" cy="55" r="5"/><circle cx="100" cy="55" r="5"/><circle cx="140" cy="55" r="5"/><circle cx="20" cy="55" r="5"/><circle cx="180" cy="55" r="5"/>
+            <circle cx="40" cy="80" r="5"/><circle cx="80" cy="80" r="5"/><circle cx="120" cy="80" r="5"/><circle cx="160" cy="80" r="5"/>
+          </g>
+          <g stroke="#0E5C9E" stroke-width=".7" opacity=".35" fill="none">
+            <path d="M40 30 L80 30 L100 55 L60 55 Z"/><path d="M120 30 L160 30 L180 55 L140 55 Z"/>
+          </g>
+          <text x="12" y="102" font-family="Space Grotesk" font-size="9" letter-spacing="2" fill="#0E5C9E">FCC · FACE-CENTRED CUBIC</text>
+        </svg>
+        <div class="px-fam__t"><h3>Austenitic</h3><span>A1 · A2 · A3 · A4 · A5 · A8</span></div>
+        <p>The 300-series family, and around 97% of all stainless fasteners produced. High chromium with substantial nickel stabilises the face-centred cubic structure down to room temperature: excellent corrosion resistance, outstanding ductility and toughness, effectively non-magnetic. It cannot be hardened by heat treatment — strength comes only from cold work, which is why property classes are tied to cold forming rather than quench and temper.</p>
+        <div class="px-props">
+          <div><span class="k">Hardenable</span><span class="v">Cold work only</span></div>
+          <div><span class="k">Magnetic</span><span class="v">No (traces after forming)</span></div>
+          <div><span class="k">Classes</span><span class="v">50 · 70 · 80 · 100</span></div>
+          <div><span class="k">Workhorses</span><span class="v">A2 ≈ 304 · A4 ≈ 316</span></div>
+        </div>
+      </div>
+
+      <!-- MARTENSITIC -->
+      <div class="px-fam__c">
+        <svg viewBox="0 0 200 110" aria-hidden="true">
+          <rect x="0" y="0" width="200" height="110" fill="#EEF5FB"/>
+          <g stroke="#0E5C9E" stroke-width="1.1" fill="none" opacity=".85">
+            <path d="M14 92 L58 18"/><path d="M40 92 L84 18"/><path d="M66 92 L110 18"/><path d="M92 92 L136 18"/><path d="M118 92 L162 18"/><path d="M144 92 L188 18"/>
+          </g>
+          <g stroke="#0E5C9E" stroke-width=".6" opacity=".3" fill="none">
+            <path d="M14 55 L188 55"/>
+          </g>
+          <text x="12" y="102" font-family="Space Grotesk" font-size="9" letter-spacing="2" fill="#0E5C9E">BCT · LATH MARTENSITE</text>
+        </svg>
+        <div class="px-fam__t"><h3>Martensitic</h3><span>C1 · C3 · C4</span></div>
+        <p>High chromium, very little nickel, and enough carbon to transform on quenching. These grades harden and temper to genuinely high strength — class 110 reaches 1100 MPa — at the cost of ductility and corrosion resistance. Strongly magnetic. Used where hardness, wear or cutting edges matter more than chloride resistance: pumps, turbines, valves, self-drilling points, retaining rings.</p>
+        <div class="px-props">
+          <div><span class="k">Hardenable</span><span class="v">Yes — quench &amp; temper</span></div>
+          <div><span class="k">Magnetic</span><span class="v">Strongly</span></div>
+          <div><span class="k">Classes</span><span class="v">50 · 70 · 80 · 110</span></div>
+          <div><span class="k">Caution</span><span class="v">Hydrogen embrittlement risk</span></div>
+        </div>
+      </div>
+
+      <!-- FERRITIC -->
+      <div class="px-fam__c">
+        <svg viewBox="0 0 200 110" aria-hidden="true">
+          <rect x="0" y="0" width="200" height="110" fill="#EEF5FB"/>
+          <g fill="none" stroke="#0E5C9E" stroke-width="1" opacity=".85">
+            <rect x="26" y="20" width="34" height="34"/><rect x="60" y="20" width="34" height="34"/><rect x="94" y="20" width="34" height="34"/><rect x="128" y="20" width="34" height="34"/>
+            <rect x="26" y="54" width="34" height="34"/><rect x="60" y="54" width="34" height="34"/><rect x="94" y="54" width="34" height="34"/><rect x="128" y="54" width="34" height="34"/>
+          </g>
+          <g fill="#0E5C9E" opacity=".9">
+            <circle cx="43" cy="37" r="3.4"/><circle cx="77" cy="37" r="3.4"/><circle cx="111" cy="37" r="3.4"/><circle cx="145" cy="37" r="3.4"/>
+            <circle cx="43" cy="71" r="3.4"/><circle cx="77" cy="71" r="3.4"/><circle cx="111" cy="71" r="3.4"/><circle cx="145" cy="71" r="3.4"/>
+          </g>
+          <text x="12" y="102" font-family="Space Grotesk" font-size="9" letter-spacing="2" fill="#0E5C9E">BCC · BODY-CENTRED CUBIC</text>
+        </svg>
+        <div class="px-fam__t"><h3>Ferritic</h3><span>F1</span></div>
+        <p>Chromium without meaningful nickel and with carbon held below 0.1%. Not hardenable, magnetic, moderate corrosion resistance — and considerably cheaper, because there is no nickel to pay for. A sound economic compromise wherever A2-level performance is more than the application needs, and useful in some higher-chloride environments where austenitic grades are vulnerable to stress corrosion cracking.</p>
+        <div class="px-props">
+          <div><span class="k">Hardenable</span><span class="v">No</span></div>
+          <div><span class="k">Magnetic</span><span class="v">Strongly</span></div>
+          <div><span class="k">Classes</span><span class="v">45 · 60</span></div>
+          <div><span class="k">Limit</span><span class="v">d ≤ 24 mm</span></div>
+        </div>
+      </div>
+
+      <!-- DUPLEX -->
+      <div class="px-fam__c">
+        <svg viewBox="0 0 200 110" aria-hidden="true">
+          <rect x="0" y="0" width="200" height="110" fill="#EEF5FB"/>
+          <g fill="#0E5C9E" fill-opacity=".85">
+            <path d="M10 18 h56 v22 h-56 z"/><path d="M96 18 h50 v22 h-50 z"/>
+            <path d="M40 62 h58 v22 h-58 z"/><path d="M128 62 h62 v22 h-62 z"/>
+          </g>
+          <g fill="none" stroke="#0E5C9E" stroke-width="1" opacity=".6">
+            <path d="M66 18 h30 v22 h-30 z"/><path d="M146 18 h44 v22 h-44 z"/>
+            <path d="M10 62 h30 v22 h-30 z"/><path d="M98 62 h30 v22 h-30 z"/>
+            <path d="M10 40 h180 v22 h-180 z"/>
+          </g>
+          <text x="12" y="102" font-family="Space Grotesk" font-size="9" letter-spacing="2" fill="#0E5C9E">≈50/50 AUSTENITE + FERRITE</text>
+        </svg>
+        <div class="px-fam__t"><h3>Duplex</h3><span>D2 · D4 · D6 · D8</span></div>
+        <p>Added to ISO 3506 in the 2020 revision. A roughly 40–60% mixed austenitic-ferritic microstructure with more chromium and less nickel than the A grades, alloyed with nitrogen. The result is roughly double the yield strength of A2 or A4, markedly better resistance to chloride stress corrosion cracking, and — for D6 and D8 — pitting resistance beyond A4. Magnetic, and specialist production rather than shelf stock.</p>
+        <div class="px-props">
+          <div><span class="k">Hardenable</span><span class="v">Cold work only</span></div>
+          <div><span class="k">Magnetic</span><span class="v">Yes</span></div>
+          <div><span class="k">Classes</span><span class="v">70 · 80 · 100</span></div>
+          <div><span class="k">Benchmark</span><span class="v">D2 ≥ A2 · D4 ≥ A4</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-note px-rv" style="margin-top:32px;"><b>On magnetism.</b> A2 and A4 are non-magnetic in the annealed wire, but cold heading and thread rolling deform the austenite and can induce a weak magnetic response — strongest at the head and in the rolled threads. It signals work hardening, not a change of grade, and it does not reduce corrosion resistance. Higher nickel suppresses it. Rejecting stainless fasteners because a magnet sticks is one of the most common inspection errors in the industry.</div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     03 — DESIGNATION DECODER
+     ============================================================ -->
+<section class="px-sec px-sec--tint" id="designation">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">03 — Designation System</div>
+        <h2 class="px-h2">Every stainless<br>marking, decoded</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Under ISO 3506 a designation is two blocks separated by a hyphen. The first block is the steel grade — a letter for the metallurgical group and a digit for the composition range within it. The second block is the property class: one tenth of the minimum tensile strength in MPa, or for nuts, one tenth of the stress under proof load.</p>
+      </div>
+    </div>
+
+    <!-- ANATOMY -->
+    <div class="px-anat px-rv">
+      <div class="px-anat__code">
+        <span class="px-anat__seg" data-anat="letter">A</span><span class="px-anat__seg" data-anat="digit">2</span><span class="px-anat__dash">-</span><span class="px-anat__seg" data-anat="class">70</span>
+      </div>
+      <div class="px-anat__legend">
+        <div class="px-anat__row" data-anat="letter">
+          <span class="px-anat__k">A</span>
+          <div><b>Composition group.</b> A = austenitic · C = martensitic · F = ferritic · D = duplex (austenitic-ferritic).</div>
+        </div>
+        <div class="px-anat__row" data-anat="digit">
+          <span class="px-anat__k">2</span>
+          <div><b>Chemistry within the group.</b> For austenitic: 1 free-cutting (sulphur added) · 2 Cr-Ni cold heading · 3 Cr-Ni stabilised with Ti/Nb/Ta · 4 Cr-Ni-Mo · 5 Cr-Ni-Mo stabilised · 8 high Cr-Ni-Mo (≈6% Mo).</div>
+        </div>
+        <div class="px-anat__row" data-anat="class">
+          <span class="px-anat__k">70</span>
+          <div><b>Property class.</b> One tenth of minimum tensile strength: 50 = 500 MPa (soft) · 70 = 700 MPa (cold worked) · 80 = 800 MPa (high strength) · 100 = 1000 MPa. For nuts, one tenth of the proof stress.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUFFIX RULES -->
+    <div class="px-sfx px-rv">
+      <div class="px-sfx__c"><span class="px-sfx__t">A4<b>L</b>-80</span><p><b>L</b> — low carbon. Austenitic grades with carbon not exceeding 0.03% may additionally carry an L, indicating improved resistance to intergranular corrosion after welding or elevated-temperature exposure.</p></div>
+      <div class="px-sfx__c"><span class="px-sfx__t">A4-80<b>P</b></span><p><b>P</b> — passivated. Fasteners passivated in accordance with ISO 16048 may additionally be marked with a P.</p></div>
+      <div class="px-sfx__c"><span class="px-sfx__t">A2-<b>0</b>70</span><p><b>Leading 0</b> — reduced loadability. Introduced in 2020 for fasteners whose head or shank geometry limits load capacity below the full class value, but which can still be tensile tested.</p></div>
+      <div class="px-sfx__c"><span class="px-sfx__t">A2 <span style="color:var(--px-ink-40);font-weight:300;">(only)</span></span><p><b>No class</b> — where head geometry or short length prevents a valid tensile test, the fastener may carry the steel grade alone and must not carry a property class.</p></div>
+    </div>
+
+    <!-- INTERACTIVE DECODER -->
+    <div class="px-dec px-rv" id="pxDecoder">
+      <div class="px-dec__ctl">
+        <div class="px-dec__grp">
+          <label class="px-dec__lbl">Metallurgical group</label>
+          <div class="px-chips" data-role="group"></div>
+        </div>
+        <div class="px-dec__grp">
+          <label class="px-dec__lbl">Steel grade</label>
+          <div class="px-chips" data-role="grade"></div>
+        </div>
+        <div class="px-dec__grp">
+          <label class="px-dec__lbl">Property class</label>
+          <div class="px-chips" data-role="class"></div>
+        </div>
+      </div>
+      <div class="px-dec__out">
+        <div class="px-dec__badge" id="pxDecCode">A2-70</div>
+        <p class="px-dec__say" id="pxDecSay"></p>
+        <div class="px-dec__figs" id="pxDecFigs"></div>
+        <p class="px-dec__note" id="pxDecNote"></p>
+      </div>
+    </div>
+
+    <div class="px-note px-rv" style="margin-top:30px;">
+      <b>Watch the units on old literature.</b> A great deal of catalogue material still in circulation predates the 2020 revision — and some of it carries transcription errors, such as class 80 quoted at 700 MPa, or the free-cutting digit attributed to 4 instead of 1. The figures on this page follow ISO 3506-1:2020 and ISO 3506-2:2020, with parts 3 and 4 revised in 2025. Where an order is contractually critical, the current published standard governs.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — CHEMICAL COMPOSITION
+     ============================================================ -->
+<section class="px-sec" id="composition">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">04 — Chemical Composition</div>
+        <h2 class="px-h2">Cast analysis,<br>grade by grade</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Mass fraction in percent, to ISO 3506-1:2020. Single figures are maxima; ranges are minimum-to-maximum. Composition governs corrosion behaviour; the property class governs strength. The two are specified independently, which is why A2-70 and A4-70 are equal in strength and very different in service.</p>
+      </div>
+    </div>
+
+    <div class="px-rv">
+      <div class="px-tcap"><b>Table 1</b> — Chemical composition of stainless steels for fasteners · ISO 3506-1:2020</div>
+      <div class="px-tw">
+        <table class="px-t">
+          <thead>
+            <tr>
+              <th class="px-l">Grade</th><th>C</th><th>Si</th><th>Mn</th><th>P</th><th>S</th><th>Cr</th><th>Mo</th><th>Ni</th><th>Cu</th><th>N</th><th class="px-l">Typical equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="px-grp" colspan="12">Austenitic</td></tr>
+            <tr><td class="px-l px-g">A1</td><td>0.12</td><td>1.0</td><td>6.5</td><td>0.20</td><td>0.15–0.35</td><td>16–19</td><td>0.7</td><td>5–10</td><td>1.75–2.25</td><td>—</td><td class="px-l">1.4305 / AISI 303</td></tr>
+            <tr><td class="px-l px-g">A2</td><td>0.10</td><td>1.0</td><td>2.0</td><td>0.050</td><td>0.03</td><td>15–20</td><td>—<sup>b</sup></td><td>8–19</td><td>4</td><td>—</td><td class="px-l">1.4301 / AISI 304</td></tr>
+            <tr><td class="px-l px-g">A3</td><td>0.08</td><td>1.0</td><td>2.0</td><td>0.045</td><td>0.03</td><td>17–19</td><td>—<sup>b</sup></td><td>9–12</td><td>1</td><td>—</td><td class="px-l">1.4541 / AISI 321</td></tr>
+            <tr><td class="px-l px-g">A4</td><td>0.08</td><td>1.0</td><td>2.0</td><td>0.045</td><td>0.03</td><td>16–18.5</td><td>2–3</td><td>10–15</td><td>4</td><td>—</td><td class="px-l">1.4401 / AISI 316</td></tr>
+            <tr><td class="px-l px-g">A5</td><td>0.08</td><td>1.0</td><td>2.0</td><td>0.045</td><td>0.03</td><td>16–18.5</td><td>2–3</td><td>10.5–14</td><td>1</td><td>—</td><td class="px-l">1.4571 / AISI 316Ti</td></tr>
+            <tr><td class="px-l px-g">A8</td><td>0.03</td><td>1.0</td><td>2.0</td><td>0.040</td><td>0.03</td><td>19–22</td><td>6–7</td><td>17.5–26</td><td>1.5</td><td>—</td><td class="px-l">1.4529 / 1.4547 (6Mo)</td></tr>
+
+            <tr><td class="px-grp" colspan="12">Martensitic</td></tr>
+            <tr><td class="px-l px-g">C1</td><td>0.09–0.15</td><td>1.0</td><td>1.0</td><td>0.050</td><td>0.03</td><td>11.5–14</td><td>—</td><td>1.0</td><td>—</td><td>—</td><td class="px-l">1.4006 / AISI 410</td></tr>
+            <tr><td class="px-l px-g">C3</td><td>0.17–0.25</td><td>1.0</td><td>1.0</td><td>0.040</td><td>0.03</td><td>16–18</td><td>—</td><td>1.5–2.5</td><td>—</td><td>—</td><td class="px-l">1.4057 / AISI 431</td></tr>
+            <tr><td class="px-l px-g">C4</td><td>0.08–0.15</td><td>1.0</td><td>1.5</td><td>0.060</td><td>0.15–0.35</td><td>12–14</td><td>0.6</td><td>1.0</td><td>—</td><td>—</td><td class="px-l">1.4005 / AISI 416</td></tr>
+
+            <tr><td class="px-grp" colspan="12">Ferritic</td></tr>
+            <tr><td class="px-l px-g">F1</td><td>0.08</td><td>1.0</td><td>1.0</td><td>0.040</td><td>0.03</td><td>15–18</td><td>—<sup>c</sup></td><td>1.0</td><td>—</td><td>—</td><td class="px-l">1.4016 / AISI 430</td></tr>
+
+            <tr><td class="px-grp" colspan="12">Duplex (austenitic-ferritic)</td></tr>
+            <tr><td class="px-l px-g">D2</td><td>0.03</td><td>1.0</td><td>6.0</td><td>0.040</td><td>0.03</td><td>19–24</td><td>0.10–1.00</td><td>1.5–5.5</td><td>3</td><td>0.05–0.20</td><td class="px-l">1.4362 / 2304<sup>d</sup></td></tr>
+            <tr><td class="px-l px-g">D4</td><td>0.04</td><td>1.0</td><td>6.0</td><td>0.040</td><td>0.03</td><td>21–25</td><td>0.10–2.00</td><td>1.0–5.5</td><td>3</td><td>0.05–0.30</td><td class="px-l">1.4162 / LDX 2101<sup>d</sup></td></tr>
+            <tr><td class="px-l px-g">D6</td><td>0.03</td><td>1.0</td><td>2.0</td><td>0.040</td><td>0.015</td><td>21–23</td><td>2.5–3.5</td><td>4.5–6.5</td><td>—</td><td>0.08–0.35</td><td class="px-l">1.4462 / 2205</td></tr>
+            <tr><td class="px-l px-g">D8</td><td>0.03</td><td>1.0</td><td>2.0</td><td>0.035</td><td>0.015</td><td>24–26</td><td>3.0–4.5</td><td>6.0–8.0</td><td>2.5</td><td>0.20–0.35</td><td class="px-l">1.4410 / 2507<sup>e</sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="px-fn">
+        <p><sup>a</sup> Values are maxima unless a range is shown. Cast analysis; in case of dispute, product analysis applies.</p>
+        <p><sup>b</sup> Molybdenum may be present at the manufacturer's discretion. Where the application requires it to be limited, this must be stated at the time of order.</p>
+        <p><sup>c</sup> Titanium and/or niobium may be added to improve corrosion resistance; molybdenum permitted at the manufacturer's discretion.</p>
+        <p><sup>d</sup> D2 and D4 are lean duplex grades separated by the relation Cr + 3.3 Mo + 16 N: not exceeding 24 for D2, above 24 for D4. The relation is used for classification only, not as a corrosion selection criterion.</p>
+        <p><sup>e</sup> D8 may additionally contain tungsten up to 1.0%.</p>
+        <p><sup>f</sup> A1: sulphur may be replaced by selenium; where nickel is below 8%, minimum manganese is 5%. A2: where chromium is below 17%, minimum nickel is 12%. A2 and A4 with carbon not exceeding 0.03% may contain nitrogen up to 0.22%. A3 and A5 are stabilised with Ti ≥ 5×C (max 0.80) and/or Nb ≥ 10×C (max 1.00).</p>
+      </div>
+    </div>
+
+    <div class="px-cards px-rv" style="margin-top:44px;">
+      <div class="px-card"><div class="px-card__ix">CHROMIUM</div><p>The element that creates the passive film. Above 10.5% it dominates the surface chemistry; more chromium raises pitting resistance and, above about 17%, is the basis of every serious marine grade.</p></div>
+      <div class="px-card"><div class="px-card__ix">NICKEL</div><p>Stabilises the austenitic structure, delivering ductility, low-temperature toughness and non-magnetic behaviour. It also reduces work hardening, which is precisely why austenitic wire cold forms so well.</p></div>
+      <div class="px-card"><div class="px-card__ix">MOLYBDENUM</div><p>The A2-to-A4 difference. Two to three percent transforms resistance to chlorides and sulphates — seawater, de-icing salt, pulp and paper acids — and improves strength retention at temperature.</p></div>
+      <div class="px-card"><div class="px-card__ix">CARBON</div><p>Adds strength and costs corrosion resistance. Each unit of carbon ties up roughly seventeen times its weight in chromium as carbide, removing it from passive-film duty. Hence L grades and Ti/Nb stabilisation.</p></div>
+      <div class="px-card"><div class="px-card__ix">NITROGEN</div><p>The duplex enabler. A potent austenite stabiliser and solid-solution strengthener that lifts yield strength and pitting resistance without the cost of nickel.</p></div>
+      <div class="px-card"><div class="px-card__ix">SULPHUR</div><p>Deliberately raised in A1 and C4 to break chips and give free-machining behaviour. The manganese sulphide inclusions that make it machinable are also pit initiation sites — A1 is measurably less corrosion resistant than A2.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     05 — MECHANICAL PROPERTIES
+     ============================================================ -->
+<section class="px-sec" id="mechanical">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">05 — Mechanical Properties</div>
+        <h2 class="px-h2">The numbers<br>that get specified</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Tensile values are calculated on the nominal stress area of the thread. Elongation after fracture is measured on the complete fastener, not on a prepared test piece, and is expressed as a multiple of the nominal thread diameter <em>d</em>.</p>
+      </div>
+    </div>
+
+    <div class="px-rv">
+      <div class="px-tabs" role="tablist">
+        <button class="px-tab is-on" data-pane="p1">Bolts, screws &amp; studs</button>
+        <button class="px-tab" data-pane="p2">Martensitic &amp; ferritic</button>
+        <button class="px-tab" data-pane="p3">Nuts</button>
+        <button class="px-tab" data-pane="p4">Set screws</button>
+        <button class="px-tab" data-pane="p5">Breaking torque</button>
+        <button class="px-tab" data-pane="p6">Temperature</button>
+      </div>
+
+      <!-- PANE 1 -->
+      <div class="px-pane is-on" id="p1">
+        <div class="px-tw">
+          <table class="px-t">
+            <thead>
+              <tr>
+                <th class="px-l">Group</th><th class="px-l">Grade</th><th>Property class</th><th>Thread range</th>
+                <th>Tensile strength<br>R<sub>m</sub> min · MPa</th>
+                <th>Stress at 0.2% strain<br>R<sub>p0.2</sub> min · MPa</th>
+                <th>Elongation after fracture<br>A min · mm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-l" rowspan="3">Austenitic</td><td class="px-l px-g" rowspan="3">A1 · A2 · A3</td><td class="px-g">50</td><td>≤ M39</td><td>500</td><td>210</td><td>0.6 d</td></tr>
+              <tr><td class="px-g">70</td><td>≤ M39<sup>a</sup></td><td>700</td><td>450</td><td>0.4 d</td></tr>
+              <tr><td class="px-g">80</td><td>≤ M39<sup>a</sup></td><td>800</td><td>600</td><td>0.3 d</td></tr>
+
+              <tr><td class="px-l" rowspan="4">Austenitic</td><td class="px-l px-g" rowspan="4">A4 · A5</td><td class="px-g">50</td><td>≤ M39</td><td>500</td><td>210</td><td>0.6 d</td></tr>
+              <tr><td class="px-g">70</td><td>≤ M39<sup>a</sup></td><td>700</td><td>450</td><td>0.4 d</td></tr>
+              <tr><td class="px-g">80</td><td>≤ M39<sup>a</sup></td><td>800</td><td>600</td><td>0.3 d</td></tr>
+              <tr><td class="px-g">100</td><td>≤ M39<sup>a</sup></td><td>1000</td><td>800</td><td>0.2 d</td></tr>
+
+              <tr><td class="px-l" rowspan="3">Austenitic</td><td class="px-l px-g" rowspan="3">A8</td><td class="px-g">70</td><td>≤ M39<sup>a</sup></td><td>700</td><td>450</td><td>0.4 d</td></tr>
+              <tr><td class="px-g">80</td><td>≤ M39<sup>a</sup></td><td>800</td><td>600</td><td>0.3 d</td></tr>
+              <tr><td class="px-g">100</td><td>≤ M39<sup>a</sup></td><td>1000</td><td>800</td><td>0.2 d</td></tr>
+
+              <tr><td class="px-l" rowspan="3">Duplex</td><td class="px-l px-g" rowspan="3">D2 · D4 · D6 · D8</td><td class="px-g">70</td><td>≤ M39<sup>a</sup></td><td>700</td><td>450</td><td>0.4 d</td></tr>
+              <tr><td class="px-g">80</td><td>≤ M39<sup>a</sup></td><td>800</td><td>600</td><td>0.3 d</td></tr>
+              <tr><td class="px-g">100</td><td>≤ M39<sup>a</sup></td><td>1000</td><td>800</td><td>0.2 d</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Class 50 does not apply to A8. Class 100 applies to A4, A5, A8 and the duplex grades only.</p>
+          <p><sup>b</sup> Tensile strength is calculated on the nominal stress area of the thread. Elongation is determined on the actual fastener, where <em>d</em> is the nominal thread diameter.</p>
+          <p><sup>c</sup> For cold formed austenitic fasteners, class 70 and 80 values apply within the diameter range of the table and to lengths up to about 8×d. Above M20, or at greater lengths, cold work is less effective and strengths commonly fall towards class 50 — if a higher class is required at those sizes it must be stated explicitly at the time of order.</p>
+          <p><sup>d</sup> Shallow-head designs — for example hexagon socket countersunk and button head screws to ISO 10642, ISO 7380, DIN 6912 and DIN 7984 — have a reduced shear area in the head. Tensile capability is conventionally taken as 80% of the class value, and under the 2020 revision such fasteners are marked with the reduced-loadability prefix 0.</p>
+        </div>
+      </div>
+
+      <!-- PANE 2 -->
+      <div class="px-pane" id="p2">
+        <div class="px-tw">
+          <table class="px-t">
+            <thead>
+              <tr>
+                <th class="px-l">Group</th><th class="px-l">Grade</th><th>Class</th>
+                <th>R<sub>m</sub> min<br>MPa</th><th>R<sub>p0.2</sub> min<br>MPa</th><th>A min<br>mm</th>
+                <th>HB</th><th>HRC</th><th>HV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-l" rowspan="6">Martensitic</td><td class="px-l px-g" rowspan="3">C1</td><td class="px-g">50</td><td>500</td><td>250</td><td>0.2 d</td><td>147–209</td><td>—</td><td>155–220</td></tr>
+              <tr><td class="px-g">70</td><td>700</td><td>410</td><td>0.2 d</td><td>209–314</td><td>20–34</td><td>220–330</td></tr>
+              <tr><td class="px-g">110<sup>a</sup></td><td>1100</td><td>820</td><td>0.2 d</td><td>—</td><td>36–45</td><td>350–440</td></tr>
+              <tr><td class="px-l px-g">C3</td><td class="px-g">80</td><td>800</td><td>640</td><td>0.2 d</td><td>228–323</td><td>21–35</td><td>240–340</td></tr>
+              <tr><td class="px-l px-g" rowspan="2">C4</td><td class="px-g">50</td><td>500</td><td>250</td><td>0.2 d</td><td>147–209</td><td>—</td><td>155–220</td></tr>
+              <tr><td class="px-g">70</td><td>700</td><td>410</td><td>0.2 d</td><td>209–314</td><td>20–34</td><td>220–330</td></tr>
+              <tr><td class="px-l" rowspan="2">Ferritic</td><td class="px-l px-g" rowspan="2">F1<sup>b</sup></td><td class="px-g">45</td><td>450</td><td>250</td><td>0.2 d</td><td>128–209</td><td>—</td><td>135–220</td></tr>
+              <tr><td class="px-g">60</td><td>600</td><td>410</td><td>0.2 d</td><td>171–271</td><td>—</td><td>180–285</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Hardened and tempered at a minimum tempering temperature of 275 °C.</p>
+          <p><sup>b</sup> Nominal thread diameter d ≤ 24 mm.</p>
+          <p><sup>c</sup> Hardened martensitic fasteners are susceptible to hydrogen embrittlement. Where they are electroplated or acid pickled, baking and process control to ISO 4042 / ISO 15330 requirements should be agreed.</p>
+        </div>
+      </div>
+
+      <!-- PANE 3 -->
+      <div class="px-pane" id="p3">
+        <div class="px-tcap"><b>Austenitic and duplex nuts</b> — ISO 3506-2:2020</div>
+        <div class="px-tw">
+          <table class="px-t">
+            <thead>
+              <tr>
+                <th class="px-l">Group</th><th class="px-l">Grade</th>
+                <th>Class — regular &amp; high nuts<br>(style 1 / style 2)</th>
+                <th>Stress under proof load<br>S<sub>p</sub> min · MPa</th>
+                <th>Class — thin nuts<br>(style 0)</th>
+                <th>Stress under proof load<br>S<sub>p</sub> min · MPa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-l" rowspan="3">Austenitic</td><td class="px-l px-g" rowspan="3">A1 · A2 · A3</td><td class="px-g">50</td><td>500</td><td class="px-g">025</td><td>250</td></tr>
+              <tr><td class="px-g">70</td><td>700</td><td class="px-g">035</td><td>350</td></tr>
+              <tr><td class="px-g">80</td><td>800</td><td class="px-g">040</td><td>400</td></tr>
+              <tr><td class="px-l" rowspan="4">Austenitic</td><td class="px-l px-g" rowspan="4">A4 · A5</td><td class="px-g">50</td><td>500</td><td class="px-g">025</td><td>250</td></tr>
+              <tr><td class="px-g">70</td><td>700</td><td class="px-g">035</td><td>350</td></tr>
+              <tr><td class="px-g">80</td><td>800</td><td class="px-g">040</td><td>400</td></tr>
+              <tr><td class="px-g">100</td><td>1000</td><td class="px-g">050</td><td>500</td></tr>
+              <tr><td class="px-l" rowspan="3">Austenitic</td><td class="px-l px-g" rowspan="3">A8</td><td class="px-g">70</td><td>700</td><td class="px-g">035</td><td>350</td></tr>
+              <tr><td class="px-g">80</td><td>800</td><td class="px-g">040</td><td>400</td></tr>
+              <tr><td class="px-g">100</td><td>1000</td><td class="px-g">050</td><td>500</td></tr>
+              <tr><td class="px-l" rowspan="3">Duplex</td><td class="px-l px-g" rowspan="3">D2 · D4 · D6 · D8</td><td class="px-g">70</td><td>700</td><td class="px-g">035</td><td>350</td></tr>
+              <tr><td class="px-g">80</td><td>800</td><td class="px-g">040</td><td>400</td></tr>
+              <tr><td class="px-g">100</td><td>1000</td><td class="px-g">050</td><td>500</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="px-tcap" style="margin-top:36px;"><b>Martensitic and ferritic nuts</b> — proof load and hardness</div>
+        <div class="px-tw">
+          <table class="px-t">
+            <thead>
+              <tr><th class="px-l">Group</th><th class="px-l">Grade</th><th>Class<br>style 1</th><th>Class<br>thin</th><th>S<sub>p</sub> min · MPa<br>style 1</th><th>S<sub>p</sub> min · MPa<br>thin</th><th>HB</th><th>HRC</th><th>HV</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-l" rowspan="6">Martensitic</td><td class="px-l px-g" rowspan="3">C1</td><td class="px-g">50</td><td>025</td><td>500</td><td>250</td><td>147–209</td><td>—</td><td>155–220</td></tr>
+              <tr><td class="px-g">70</td><td>—</td><td>700</td><td>—</td><td>209–314</td><td>20–34</td><td>220–330</td></tr>
+              <tr><td class="px-g">110<sup>a</sup></td><td>055<sup>a</sup></td><td>1100</td><td>550</td><td>—</td><td>36–45</td><td>350–440</td></tr>
+              <tr><td class="px-l px-g">C3</td><td class="px-g">80</td><td>040</td><td>800</td><td>400</td><td>228–323</td><td>21–35</td><td>240–340</td></tr>
+              <tr><td class="px-l px-g" rowspan="2">C4</td><td class="px-g">50</td><td>—</td><td>500</td><td>—</td><td>147–209</td><td>—</td><td>155–220</td></tr>
+              <tr><td class="px-g">70</td><td>035</td><td>700</td><td>350</td><td>209–314</td><td>20–34</td><td>220–330</td></tr>
+              <tr><td class="px-l" rowspan="2">Ferritic</td><td class="px-l px-g" rowspan="2">F1<sup>b</sup></td><td class="px-g">45</td><td>020</td><td>450</td><td>200</td><td>128–209</td><td>—</td><td>135–220</td></tr>
+              <tr><td class="px-g">60</td><td>030</td><td>600</td><td>300</td><td>171–271</td><td>—</td><td>180–285</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Hardened and tempered at a minimum tempering temperature of 275 °C.</p>
+          <p><sup>b</sup> Nominal thread diameter D ≤ 24 mm.</p>
+          <p><sup>c</sup> Nut height <em>m</em> relative to nominal thread diameter <em>D</em> defines the style: thin nuts carry a three-digit class beginning with 0, indicating reduced loadability. A correctly matched nut must be at least equal in class to the bolt it is assembled with.</p>
+          <p><sup>d</sup> Certain nuts cannot meet the proof load because of fine pitch thread or geometry. These may be marked with the steel grade but must not carry a property class.</p>
+        </div>
+      </div>
+
+      <!-- PANE 4 -->
+      <div class="px-pane" id="p4">
+        <p class="px-body" style="margin-bottom:24px;">Set screws and similar fasteners are not loaded in tension, so ISO 3506-3 classifies them by hardness rather than tensile strength. The designation is the steel grade followed by the hardness class: two digits representing one tenth of the minimum Vickers hardness, followed by H. A2-21H therefore reads austenitic, cold worked, minimum 210 HV.</p>
+        <div class="px-tw" style="margin-bottom:34px;">
+          <table class="px-t" style="min-width:520px;">
+            <thead><tr><th class="px-l">Test method</th><th>Class 12H</th><th>Class 21H</th></tr></thead>
+            <tbody>
+              <tr><td class="px-l">Vickers hardness HV</td><td>125–209</td><td>210 min</td></tr>
+              <tr><td class="px-l">Brinell hardness HB</td><td>123–213</td><td>214 min</td></tr>
+              <tr><td class="px-l">Rockwell hardness HRB</td><td>70–95</td><td>96 min</td></tr>
+              <tr><td class="px-l">Condition</td><td>Soft</td><td>Cold worked</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-tcap"><b>Proof torque</b> — hexagon socket set screws, minimum N·m</div>
+        <div class="px-tw">
+          <table class="px-t">
+            <thead><tr><th class="px-l">Thread d</th><th>M1.6</th><th>M2</th><th>M2.5</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M8</th><th>M10</th><th>M12</th><th>M16</th><th>M20</th><th>M24</th></tr></thead>
+            <tbody>
+              <tr><td class="px-l px-g">12H</td><td>0.03</td><td>0.06</td><td>0.18</td><td>0.25</td><td>0.8</td><td>1.7</td><td>3</td><td>7</td><td>14</td><td>25</td><td>63</td><td>126</td><td>200</td></tr>
+              <tr><td class="px-l px-g">21H</td><td>0.05</td><td>0.1</td><td>0.3</td><td>0.42</td><td>1.4</td><td>2.8</td><td>5</td><td>12</td><td>24</td><td>42</td><td>105</td><td>210</td><td>332</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Marking of set screws is not mandatory. Where they are marked, the marking should include steel grade, hardness class and manufacturer's identification mark.</p>
+          <p><sup>b</sup> ISO 3506-3 and ISO 3506-4 were revised in 2025 and now cover duplex grades in addition to austenitic. Where hardness classes are contractual, confirm against the current edition.</p>
+        </div>
+      </div>
+
+      <!-- PANE 5 -->
+      <div class="px-pane" id="p5">
+        <div class="px-tcap"><b>Minimum breaking torque</b> M<sub>B</sub> · N·m — austenitic grades, coarse thread</div>
+        <div class="px-tw">
+          <table class="px-t">
+            <thead><tr><th class="px-l">Thread</th><th>M1.6</th><th>M2</th><th>M2.5</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M8</th><th>M10</th><th>M12</th><th>M16</th></tr></thead>
+            <tbody>
+              <tr><td class="px-l px-g">Class 50</td><td>0.15</td><td>0.3</td><td>0.6</td><td>1.1</td><td>2.7</td><td>5.5</td><td>9.3</td><td>23</td><td>46</td><td>80</td><td>210</td></tr>
+              <tr><td class="px-l px-g">Class 70</td><td>0.2</td><td>0.4</td><td>0.9</td><td>1.6</td><td>3.8</td><td>7.8</td><td>13</td><td>32</td><td>65</td><td>110</td><td>290</td></tr>
+              <tr><td class="px-l px-g">Class 80</td><td>0.24</td><td>0.48</td><td>0.96</td><td>1.8</td><td>4.3</td><td>8.8</td><td>15</td><td>37</td><td>74</td><td>130</td><td>330</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Breaking torque is the torque at which the fastener fails in torsion. It is not a tightening torque and must never be used as one. Assembly torque must be derived from the target preload and the actual friction conditions — see the Pradako VDI 2230 calculator.</p>
+          <p><sup>b</sup> Breaking torque values for martensitic, ferritic and duplex grades are agreed between manufacturer and user.</p>
+        </div>
+      </div>
+
+      <!-- PANE 6 -->
+      <div class="px-pane" id="p6">
+        <p class="px-body" style="margin-bottom:24px;">ISO 3506 properties are established at an ambient test temperature of 10 °C to 35 °C. Fasteners to the standard are used without restriction between −20 °C and +150 °C, and in practice down to −196 °C and up to +300 °C, where the user takes responsibility for the selection. Outside that window, grade, exposure duration and service environment must be assessed together.</p>
+        <div class="px-tcap"><b>Retained R<sub>p0.2</sub> at elevated temperature</b> — % of room-temperature value, classes 70 and 80</div>
+        <div class="px-tw">
+          <table class="px-t" style="min-width:560px;">
+            <thead><tr><th class="px-l">Grade</th><th>+100 °C</th><th>+200 °C</th><th>+300 °C</th><th>+400 °C</th></tr></thead>
+            <tbody>
+              <tr><td class="px-l px-g">A2 · A3 · A4 · A5 · A8</td><td>85%</td><td>80%</td><td>75%</td><td>70%</td></tr>
+              <tr><td class="px-l px-g">C1</td><td>95%</td><td>90%</td><td>80%</td><td>65%</td></tr>
+              <tr><td class="px-l px-g">C3</td><td>90%</td><td>85%</td><td>80%</td><td>60%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-fn">
+          <p><sup>a</sup> Guidance values. Austenitic grades retain toughness at cryogenic temperature — a principal reason for their use in LNG and cryogenic plant — while martensitic and ferritic grades become brittle.</p>
+          <p><sup>b</sup> Sustained load at elevated temperature introduces creep and relaxation: preload decays over time even without loosening. For continuous service above about 300 °C, see ISO 3506-5.</p>
+          <p><sup>c</sup> Sensitisation — chromium carbide precipitation at grain boundaries — occurs in non-stabilised grades held roughly between 425 °C and 815 °C. Specify A3, A5, an L grade or A8 where that exposure is expected, including from welding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     06 — MARKINGS
+     ============================================================ -->
+<section class="px-sec px-sec--mist" id="marking">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">06 — Identification Markings</div>
+        <h2 class="px-h2">Read the head,<br>know the steel</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Marking is mandatory — not decorative. Hexagon head bolts and screws, and hexagon or hexalobular socket head cap screws of nominal thread diameter 5 mm and above, must carry the steel grade and property class together with the manufacturer's identification mark. Studs from 6 mm and nuts from 5 mm follow the same rule.</p>
+      </div>
+    </div>
+
+    <div class="px-note px-rv" style="margin-bottom:44px;">
+      <b>Pradako fasteners carry the mark PM.</b> Where you see <span class="px-mono" style="color:var(--px-accent-deep);font-weight:600;">PM</span> in the illustrations below, that is our registered manufacturer's identification mark, applied during forging alongside the ISO 3506 grade and class. An unmarked stainless fastener carries no guarantee of class — in practice, unmarked product frequently performs only to class 50.
+    </div>
+
+    <div class="px-mk px-rv">
+
+      <!-- Hex head -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Hexagon head bolt marking">
+          <g stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4">
+            <line x1="130" y1="24" x2="130" y2="196"/><line x1="34" y1="110" x2="226" y2="110"/>
+          </g>
+          <polygon points="190,110 160,162 100,162 70,110 100,58 160,58" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <circle cx="130" cy="110" r="52" fill="none" stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="4 4"/>
+          <text x="130" y="98" text-anchor="middle" font-family="Space Grotesk" font-size="24" font-weight="600" fill="#0E5C9E" letter-spacing="1">PM</text>
+          <text x="130" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="18" font-weight="500" fill="#111214" letter-spacing=".5">A2-70</text>
+          <g stroke="#0E5C9E" stroke-width=".9" fill="none">
+            <path d="M148 88 L198 62"/><path d="M112 134 L58 168"/><path d="M152 134 L206 168"/>
+          </g>
+          <text x="200" y="58" font-family="Space Grotesk" font-size="8.5" letter-spacing=".8" fill="#0E5C9E">MFR MARK</text>
+          <text x="56" y="180" text-anchor="end" font-family="Space Grotesk" font-size="9" letter-spacing="1.4" fill="#0E5C9E">GRADE</text>
+          <text x="208" y="180" font-family="Space Grotesk" font-size="9" letter-spacing="1.4" fill="#0E5C9E">CLASS</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">HEXAGON HEAD · d ≥ 5 mm</text>
+        </svg>
+      </div>
+
+      <!-- Socket head, top -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Socket head cap screw marking, top view">
+          <g stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4">
+            <line x1="130" y1="24" x2="130" y2="196"/><line x1="34" y1="110" x2="226" y2="110"/>
+          </g>
+          <circle cx="130" cy="110" r="62" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <polygon points="154,110 142,131 118,131 106,110 118,89 142,89" fill="#F6F7F9" stroke="#111214" stroke-width="1.4"/>
+          <text x="130" y="74" text-anchor="middle" font-family="Space Grotesk" font-size="17" font-weight="600" fill="#0E5C9E" letter-spacing="1">PM</text>
+          <text x="130" y="158" text-anchor="middle" font-family="Space Grotesk" font-size="15" font-weight="500" fill="#111214" letter-spacing=".5">A4-80</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">SOCKET HEAD CAP SCREW</text>
+        </svg>
+      </div>
+
+      <!-- Socket head, side -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Socket head cap screw marking, side view">
+          <rect x="60" y="60" width="140" height="56" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <path d="M96 116 L96 180 M164 116 L164 180" stroke="#111214" stroke-width="1.6" fill="none"/>
+          <g stroke="#C7CBD1" stroke-width="1">
+            <path d="M96 128 h68 M96 140 h68 M96 152 h68 M96 164 h68"/>
+          </g>
+          <line x1="130" y1="46" x2="130" y2="186" stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4"/>
+          <text x="96" y="96" text-anchor="middle" font-family="Space Grotesk" font-size="16" font-weight="600" fill="#0E5C9E">PM</text>
+          <text x="166" y="96" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="500" fill="#111214">A2-70</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">ALTERNATIVE HEAD MARKING</text>
+        </svg>
+      </div>
+
+      <!-- Stud -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Stud marking">
+          <rect x="106" y="24" width="48" height="60" fill="#fff" stroke="#111214" stroke-width="1.5"/>
+          <g stroke="#C7CBD1" stroke-width="1"><path d="M106 34 h48 M106 46 h48 M106 58 h48 M106 70 h48"/></g>
+          <rect x="106" y="84" width="48" height="62" fill="#fff" stroke="#111214" stroke-width="1.5"/>
+          <rect x="106" y="146" width="48" height="60" fill="#fff" stroke="#111214" stroke-width="1.5"/>
+          <g stroke="#C7CBD1" stroke-width="1"><path d="M106 156 h48 M106 168 h48 M106 180 h48 M106 192 h48"/></g>
+          <text x="130" y="108" text-anchor="middle" font-family="Space Grotesk" font-size="13" font-weight="500" fill="#111214">A4-70</text>
+          <text x="130" y="130" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="600" fill="#0E5C9E">PM</text>
+          <path d="M158 115 L206 115" stroke="#0E5C9E" stroke-width=".9"/>
+          <text x="210" y="112" font-family="Space Grotesk" font-size="9" letter-spacing="1.4" fill="#0E5C9E">PLAIN</text>
+          <text x="210" y="124" font-family="Space Grotesk" font-size="9" letter-spacing="1.4" fill="#0E5C9E">SHANK</text>
+          <text x="130" y="222" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">STUD · d ≥ 6 mm</text>
+        </svg>
+      </div>
+
+      <!-- Nut -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Nut marking on bearing face">
+          <g stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4">
+            <line x1="130" y1="24" x2="130" y2="196"/><line x1="34" y1="110" x2="226" y2="110"/>
+          </g>
+          <polygon points="190,110 160,162 100,162 70,110 100,58 160,58" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <circle cx="130" cy="110" r="26" fill="#F6F7F9" stroke="#111214" stroke-width="1.4"/>
+          <circle cx="130" cy="110" r="33" fill="none" stroke="#C7CBD1" stroke-width=".9"/>
+          <text x="130" y="80" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="600" fill="#0E5C9E">PM</text>
+          <text x="130" y="154" text-anchor="middle" font-family="Space Grotesk" font-size="13" font-weight="500" fill="#111214">A2-70</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">NUT · D ≥ 5 mm</text>
+        </svg>
+      </div>
+
+      <!-- Groove marking -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Alternative groove marking">
+          <rect x="52" y="66" width="60" height="98" rx="3" fill="#fff" stroke="#111214" stroke-width="1.5"/>
+          <g stroke="#111214" stroke-width="2.4"><path d="M52 92 h60 M52 138 h60"/></g>
+          <text x="82" y="192" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="600" fill="#0E5C9E">A2</text>
+          <rect x="150" y="66" width="60" height="98" rx="3" fill="#fff" stroke="#111214" stroke-width="1.5"/>
+          <g stroke="#111214" stroke-width="2.4"><path d="M150 86 h60 M150 106 h60 M150 126 h60 M150 146 h60"/></g>
+          <text x="180" y="192" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="600" fill="#0E5C9E">A4</text>
+          <text x="130" y="46" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2" fill="#8A8F97">SIDE FACE · Ø &gt; s</text>
+          <text x="130" y="218" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">GROOVE MARKING · A2 &amp; A4 ONLY</text>
+        </svg>
+      </div>
+
+      <!-- Reduced loadability -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Reduced loadability marking">
+          <g stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4">
+            <line x1="130" y1="24" x2="130" y2="196"/><line x1="34" y1="110" x2="226" y2="110"/>
+          </g>
+          <circle cx="130" cy="110" r="62" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <polygon points="152,110 141,129 119,129 108,110 119,91 141,91" fill="#F6F7F9" stroke="#111214" stroke-width="1.4"/>
+          <text x="130" y="76" text-anchor="middle" font-family="Space Grotesk" font-size="16" font-weight="600" fill="#0E5C9E">PM</text>
+          <text x="130" y="158" text-anchor="middle" font-family="Space Grotesk" font-size="15" font-weight="500" fill="#111214">A2-<tspan fill="#0E5C9E" font-weight="700">0</tspan>70</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">REDUCED LOADABILITY</text>
+        </svg>
+      </div>
+
+      <!-- Grade only -->
+      <div class="px-mk__c">
+        <svg viewBox="0 0 260 230" role="img" aria-label="Grade only marking">
+          <g stroke="#C7CBD1" stroke-width=".8" stroke-dasharray="7 4 2 4">
+            <line x1="130" y1="24" x2="130" y2="196"/><line x1="34" y1="110" x2="226" y2="110"/>
+          </g>
+          <polygon points="190,110 160,162 100,162 70,110 100,58 160,58" fill="#fff" stroke="#111214" stroke-width="1.6"/>
+          <text x="130" y="98" text-anchor="middle" font-family="Space Grotesk" font-size="22" font-weight="600" fill="#0E5C9E">PM</text>
+          <text x="130" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="18" font-weight="500" fill="#111214">A2</text>
+          <text x="130" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="10" letter-spacing="2.4" fill="#8A8F97">GEOMETRY-LIMITED · NO CLASS</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="px-g4 px-rv" style="margin-top:40px;">
+      <div class="px-card"><div class="px-card__ix">WHERE IT GOES</div><p>On hexagon heads, the mark is applied to the top face. On socket head cap screws, either the top face or — for small sizes — the alternative arrangement shown. On studs, the plain shank; where the shank cannot be marked, the grade alone may be applied to the nut end.</p></div>
+      <div class="px-card"><div class="px-card__ix">NUTS</div><p>Marking on one face only is acceptable and, on the bearing surface, must be applied by indentation. Marking on the side face is permitted as an alternative. Where A2 and A4 nuts carry groove marking without a class, class 50 or 025 applies by default.</p></div>
+      <div class="px-card"><div class="px-card__ix">LEFT-HAND THREAD</div><p>Left-hand threads are identified in accordance with ISO 898-1 for bolts, screws and studs and ISO 898-2 for nuts, in addition to the grade and class marking.</p></div>
+      <div class="px-card"><div class="px-card__ix">PACKAGING</div><p>Packaging is marked with the manufacturer's or distributor's identification, the grade and class symbol and the manufacturing lot number — the audit trail that ties a fastener in the field back to a melt and a forging batch.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     07 — SELECTION
+     ============================================================ -->
+<section class="px-sec" id="selection">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">07 — Grade Selection</div>
+        <h2 class="px-h2">Choosing by<br>environment, not habit</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">The old workshop rule still holds as a starting point: A2 above water and inland, A4 under water and on the coast, A1 where machinability governs. Below it, the decision becomes a question of chlorides, temperature, strength and consequence of failure.</p>
+      </div>
+    </div>
+
+    <div class="px-sel px-rv" id="pxSelector">
+      <div class="px-sel__list" data-role="env"></div>
+      <div class="px-sel__out">
+        <div class="px-sel__grade" id="pxSelGrade">A2</div>
+        <div class="px-sel__alt" id="pxSelAlt"></div>
+        <p class="px-sel__why" id="pxSelWhy"></p>
+        <div class="px-sel__warn" id="pxSelWarn"></div>
+      </div>
+    </div>
+
+    <div class="px-rv" style="margin-top:48px;">
+      <div class="px-tcap"><b>Comparative reference</b> — relative corrosion performance and typical use</div>
+      <div class="px-tw">
+        <table class="px-t">
+          <thead>
+            <tr><th class="px-l">Grade</th><th class="px-l">Character</th><th>Pitting resistance</th><th>SCC resistance</th><th>Strength</th><th class="px-l">Typical service</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="px-l px-g">A1</td><td class="px-l">Free-cutting, sulphur bearing</td><td><span class="px-bar" data-v="1"></span></td><td><span class="px-bar" data-v="1"></span></td><td><span class="px-bar" data-v="2"></span></td><td class="px-l">High-volume machined parts, non-critical indoor use</td></tr>
+            <tr><td class="px-l px-g">A2</td><td class="px-l">General purpose 18/8</td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td class="px-l">Indoor, inland outdoor, food equipment, general engineering</td></tr>
+            <tr><td class="px-l px-g">A3</td><td class="px-l">A2 stabilised with Ti/Nb</td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td class="px-l">Welded assemblies, elevated temperature exposure</td></tr>
+            <tr><td class="px-l px-g">A4</td><td class="px-l">Molybdenum bearing 316</td><td><span class="px-bar" data-v="3"></span></td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td class="px-l">Coastal, marine, chemical, pulp and paper, shipbuilding</td></tr>
+            <tr><td class="px-l px-g">A5</td><td class="px-l">A4 stabilised</td><td><span class="px-bar" data-v="3"></span></td><td><span class="px-bar" data-v="2"></span></td><td><span class="px-bar" data-v="2"></span></td><td class="px-l">Welded marine and chemical plant</td></tr>
+            <tr><td class="px-l px-g">A8</td><td class="px-l">Super-austenitic, ≈6% Mo</td><td><span class="px-bar" data-v="5"></span></td><td><span class="px-bar" data-v="5"></span></td><td><span class="px-bar" data-v="3"></span></td><td class="px-l">Seawater, indoor swimming pools, aggressive chemical service</td></tr>
+            <tr><td class="px-l px-g">D2 · D4</td><td class="px-l">Lean duplex</td><td><span class="px-bar" data-v="3"></span></td><td><span class="px-bar" data-v="4"></span></td><td><span class="px-bar" data-v="4"></span></td><td class="px-l">Structural, bridges, offshore topsides, weight-critical joints</td></tr>
+            <tr><td class="px-l px-g">D6 · D8</td><td class="px-l">Duplex / super duplex</td><td><span class="px-bar" data-v="5"></span></td><td><span class="px-bar" data-v="5"></span></td><td><span class="px-bar" data-v="4"></span></td><td class="px-l">Offshore, subsea, desalination, high-chloride process plant</td></tr>
+            <tr><td class="px-l px-g">C1 · C3 · C4</td><td class="px-l">Martensitic, hardenable</td><td><span class="px-bar" data-v="1"></span></td><td><span class="px-bar" data-v="1"></span></td><td><span class="px-bar" data-v="5"></span></td><td class="px-l">Pumps, valves, turbines, cutting and drilling points</td></tr>
+            <tr><td class="px-l px-g">F1</td><td class="px-l">Ferritic, nickel-free</td><td><span class="px-bar" data-v="1"></span></td><td><span class="px-bar" data-v="3"></span></td><td><span class="px-bar" data-v="1"></span></td><td class="px-l">Cost-driven indoor and light outdoor applications</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="px-fn">
+        <p><sup>a</sup> Relative indication only, on a five-step scale, for comparison between grades in this table. Corrosion performance depends on the specific medium, temperature, concentration, aeration and joint design — laboratory or field trial remains the only reliable basis for a critical selection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     08 — CORROSION
+     ============================================================ -->
+<section class="px-sec px-sec--tint" id="corrosion">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">08 — Failure Modes</div>
+        <h2 class="px-h2">How stainless<br>actually fails</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">General uniform rusting is almost never the problem. Stainless fails locally, at a scale of tenths of a millimetre, in ways that are difficult to see and rarely obvious until the joint lets go. Six mechanisms account for the overwhelming majority of field failures.</p>
+      </div>
+    </div>
+
+    <div class="px-cards px-rv">
+      <div class="px-card">
+        <div class="px-card__ix">01 — PITTING</div>
+        <h3 class="px-h4">Chloride breaks the film locally</h3>
+        <p>Chloride ions penetrate the passive layer at weak points — an inclusion, a scratch, a rolled-in surface defect. The pit becomes self-sustaining: acidic, oxygen-starved and deepening. Molybdenum is the principal defence, which is why A4 exists.</p>
+        <ul><li>Raise Mo — A2 → A4 → D6 → A8</li><li>Eliminate embedded iron and scale</li><li>Keep surfaces clean and freely rinsed</li></ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">02 — CREVICE</div>
+        <h3 class="px-h4">Geometry starves the film of oxygen</h3>
+        <p>Under a washer, in a thread engagement, beneath a gasket or a deposit of dirt. Oxygen cannot reach the surface, the film cannot regenerate, and attack proceeds inside the gap. Crevice corrosion begins at chloride levels and temperatures far below those needed to pit an open surface.</p>
+        <ul><li>Design out gaps and unventilated pockets</li><li>Seal or fully weld overlapping joints</li><li>Prefer a higher-alloy grade over a tighter crevice</li></ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">03 — STRESS CORROSION CRACKING</div>
+        <h3 class="px-h4">The one that fails without warning</h3>
+        <p>Tensile stress plus chloride plus temperature — typically above roughly 50–60 °C — produces branched cracking through the section with almost no visible surface evidence and no ductility at fracture. A preloaded bolt supplies the stress by definition. Standard A2 and A4 are the vulnerable grades; duplex and A8 are markedly better.</p>
+        <ul><li>Indoor pool atmospheres are the classic case</li><li>Specify A8 or duplex for chloride plus heat plus preload</li><li>Avoid martensitic grades in this service entirely</li></ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">04 — INTERGRANULAR</div>
+        <h3 class="px-h4">Sensitisation at the grain boundary</h3>
+        <p>Held roughly between 425 °C and 815 °C, carbon in a non-stabilised grade combines with chromium to form carbide at grain boundaries, locally starving the adjacent metal of the chromium it needs to passivate. Welding is the usual culprit; a hot service environment does it slowly.</p>
+        <ul><li>Specify A3 or A5 (Ti/Nb stabilised)</li><li>Or an L grade with C ≤ 0.03%</li><li>Testing to ISO 3651-1 / -2 where risk exists</li></ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">05 — GALVANIC</div>
+        <h3 class="px-h4">The wrong couple in the wrong electrolyte</h3>
+        <p>Stainless is noble. Couple it to aluminium, zinc or plain steel with an electrolyte present and the less noble member corrodes — accelerated sharply when a small anode area meets a large cathode. A stainless bolt in an aluminium plate is the textbook example and is usually acceptable; a stainless plate on aluminium fasteners is not.</p>
+        <ul><li>Keep the fastener the noble, small-area member</li><li>Isolate with sleeves, washers or coatings</li><li>Check the pairing in our galvanic matrix</li></ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">06 — HYDROGEN EMBRITTLEMENT</div>
+        <h3 class="px-h4">A martensitic problem, not an austenitic one</h3>
+        <p>Hardened martensitic grades absorb atomic hydrogen during pickling, plating or in-service cathodic protection, and crack under sustained load — often hours or days after assembly. Austenitic grades are essentially immune at ambient temperature. Duplex sits between the two and needs care under cathodic protection subsea.</p>
+        <ul><li>Control pickling and plating processes</li><li>Bake after plating where specified</li><li>Prefer mechanical cleaning on hardened parts</li></ul>
+      </div>
+    </div>
+
+    <div class="px-note px-rv" style="margin-top:36px;"><b>Free iron is the most common avoidable cause of rust on stainless.</b> Carbon steel particles picked up from tooling, grinding dust, transport or storage embed in the surface and rust in place — the part appears to be corroding when it is in fact contaminated. Passivation to ISO 16048 dissolves the embedded iron and restores a fully chromium-rich surface. Stainless should never share tooling, blast media or storage racks with carbon steel.</div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     09 — ASSEMBLY
+     ============================================================ -->
+<section class="px-sec" id="assembly">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">09 — Assembly Behaviour</div>
+        <h2 class="px-h2">Stainless does not<br>tighten like steel</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">The single most expensive mistake with stainless fasteners is applying carbon-steel torque practice to them. Friction is different, ductility is different, and a seized assembly usually has to be cut out.</p>
+      </div>
+    </div>
+
+    <div class="px-g3 px-rv">
+      <div class="px-card">
+        <div class="px-card__ix">GALLING &amp; COLD WELDING</div>
+        <p>Austenitic stainless has a tough, self-regenerating oxide and high ductility. Under thread contact pressure the film is wiped away and clean metal meets clean metal, which cold welds on the spot. The nut locks halfway down and neither tightens nor releases. It happens most on coarse threads, in larger diameters, at speed, and when both parts are the same grade at the same hardness.</p>
+        <ul>
+          <li>Lubricate — nickel or moly anti-seize, PTFE, wax</li>
+          <li>Pair unlike hardness: cold-worked bolt with softer nut</li>
+          <li>Run down slowly; avoid impact drivers</li>
+          <li>Rolled threads gall less than cut threads</li>
+          <li>Keep threads free of grit; chamfer and deburr</li>
+        </ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">TORQUE, FRICTION &amp; PRELOAD</div>
+        <p>Torque is only a proxy for preload, and on stainless a poor one: dry stainless-on-stainless friction is both high and highly scattered, so a large share of applied torque never becomes clamp load. Lubrication lowers the torque needed for a given preload dramatically — which means a lubricated joint tightened to an unlubricated torque figure will be over-stressed and may yield or gall.</p>
+        <ul>
+          <li>Always state the friction condition with the torque</li>
+          <li>Derive torque from target preload, not from a table</li>
+          <li>Class 70 A2/A4 yields well below an 8.8 bolt</li>
+          <li>Consider angle-controlled or preload-controlled tightening</li>
+        </ul>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">MIXING GRADES</div>
+        <p>Bolt and nut should be matched in class — a class 70 bolt with a class 50 nut is limited by the nut, and the joint will strip before the bolt reaches its capability. Mixing grades across a joint also opens galvanic questions: A2 and A4 together in a wet chloride environment will preferentially attack the A2.</p>
+        <ul>
+          <li>Nut class ≥ bolt class</li>
+          <li>Thin nuts carry reduced loadability by definition</li>
+          <li>Washers should match the fastener grade</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="px-tools px-rv">
+      <a class="px-tool" href="/pages/resources/torque-calculator.html">
+        <span class="px-tool__k">Calculator</span><span class="px-tool__n">VDI 2230 torque &amp; preload</span>
+        <span class="px-tool__d">Derive assembly torque from target preload with real friction coefficients.</span>
+      </a>
+      <a class="px-tool" href="/pages/resources/galvanic-compatibility.html">
+        <span class="px-tool__k">Matrix</span><span class="px-tool__n">Galvanic compatibility</span>
+        <span class="px-tool__d">21 materials, three service environments, 441 verified pairings.</span>
+      </a>
+      <a class="px-tool" href="/pages/resources/head-marking.html">
+        <span class="px-tool__k">Reference</span><span class="px-tool__n">Head marking identifier</span>
+        <span class="px-tool__d">27 markings across five standards systems, matched visually.</span>
+      </a>
+      <a class="px-tool" href="/pages/resources/thread-tap-drill.html">
+        <span class="px-tool__k">Reference</span><span class="px-tool__n">Thread pitch &amp; tap drill</span>
+        <span class="px-tool__d">Coarse and fine pitch, stress areas, tapping sizes.</span>
+      </a>
+      <a class="px-tool" href="/pages/resources/weight-calculator.html">
+        <span class="px-tool__k">Calculator</span><span class="px-tool__n">Fastener weight</span>
+        <span class="px-tool__d">True head geometry, rolled versus cut thread, per-thousand mass.</span>
+      </a>
+      <a class="px-tool" href="/pages/resources/unit-converter.html">
+        <span class="px-tool__k">Utility</span><span class="px-tool__n">Unit converter</span>
+        <span class="px-tool__d">Torque, force, stress, hardness and temperature.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     10 — FINISHES
+     ============================================================ -->
+<section class="px-sec px-sec--mist" id="finishes">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">10 — Surface &amp; Finish</div>
+        <h2 class="px-h2">Finishing a metal<br>that finishes itself</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Stainless does not need a sacrificial coating, and adding one usually costs more corrosion performance than it buys. The finishes that matter are those that clean, restore or thicken the passive layer.</p>
+      </div>
+    </div>
+
+    <div class="px-cards px-rv">
+      <div class="px-card">
+        <div class="px-card__ix">PASSIVATION · ISO 16048</div>
+        <p>Immersion in an oxidising acid — traditionally nitric, increasingly citric — that dissolves free iron and sulphide inclusions from the surface and allows a uniform, chromium-rich oxide to re-form. It removes manufacturing contamination rather than adding a layer. Passivated fasteners may carry a P suffix.</p>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">ELECTROPOLISHING</div>
+        <p>Anodic dissolution that levels the surface at a microscopic scale, removing peaks, embedded particles and residual smearing. It raises the chromium-to-iron ratio at the surface, improves cleanability and measurably increases pitting resistance — the standard for pharmaceutical, semiconductor and high-purity process hardware.</p>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">BLACK PASSIVATION</div>
+        <p>A conversion finish giving a black or dark transparent appearance with improved performance in acidic environments. Common in battery hardware and similar equipment where a black aesthetic and acid exposure coincide.</p>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">MECHANICAL FINISHES</div>
+        <p>Bright drawn, tumbled, vibratory polished or blasted with stainless or ceramic media. Media selection is critical: carbon-steel shot embeds iron and guarantees future rust staining. Rough finishes trap contaminants and reduce corrosion performance.</p>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">PTFE &amp; ANTI-GALLING</div>
+        <p>Dry-film PTFE, wax and moly coatings applied for a controlled, repeatable friction coefficient and to prevent thread seizure. A functional coating rather than a corrosion coating — but by preventing galling it protects the joint far more effectively than a plating would.</p>
+      </div>
+      <div class="px-card">
+        <div class="px-card__ix">WHAT TO AVOID</div>
+        <p>Zinc plating, heavy paint and black oxidising all seal oxygen away from the surface and defeat the mechanism that makes the material stainless. Where an appearance requirement forces a coating, expect a corrosion penalty and specify accordingly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     11 — GLOSSARY
+     ============================================================ -->
+<section class="px-sec" id="glossary">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">11 — Reference</div>
+        <h2 class="px-h2">Stainless steel<br>terminology</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">The working vocabulary of stainless fastener engineering, as used on drawings, in specifications and on inspection reports.</p>
+        <div class="px-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+          <input type="text" id="pxGloSearch" placeholder="Filter terms — e.g. galling, passive, proof" aria-label="Filter glossary terms">
+        </div>
+      </div>
+    </div>
+
+    <div class="px-glo px-rv" id="pxGlo">
+      <div class="px-glo__i"><h4>Austenitic</h4><p>The 300-series family. A face-centred cubic structure stabilised by nickel, formed at high temperature and retained at room temperature. Cannot be hardened by heat treatment; effectively non-magnetic; the highest general corrosion resistance in the standard fastener range. Named after the metallurgist Sir William Chandler Roberts-Austen.</p></div>
+      <div class="px-glo__i"><h4>Carbide precipitation</h4><p>Formation of chromium carbide at grain boundaries when the steel is held roughly between 425 °C and 815 °C. It removes chromium from the adjacent metal and leaves those boundaries unable to passivate. See sensitisation.</p></div>
+      <div class="px-glo__i"><h4>Cold forming / cold heading</h4><p>Forming a fastener below the recrystallisation temperature by driving wire against dies at high speed. It raises tensile strength and hardness through work hardening and reduces ductility — the mechanism behind property classes 70, 80 and 100 in austenitic and duplex grades.</p></div>
+      <div class="px-glo__i"><h4>Creep</h4><p>Slow, continuing deformation under sustained load at elevated temperature. In a bolted joint it appears as preload relaxation over time without any rotation of the nut.</p></div>
+      <div class="px-glo__i"><h4>Crevice corrosion</h4><p>Localised attack inside a narrow gap where the electrolyte becomes stagnant and oxygen-depleted, preventing re-passivation. Initiates at lower chloride concentrations and temperatures than pitting on an open surface.</p></div>
+      <div class="px-glo__i"><h4>Discontinuity</h4><p>Surface imperfection such as a pit, tool mark, void, lap, fold, seam or inclusion. Minor discontinuities within the limits of ISO 6157 are permissible on commercial fasteners; those exceeding them are defects.</p></div>
+      <div class="px-glo__i"><h4>Drawing</h4><p>Pulling wire rod through a die to reduce it to the precise diameter required for the fastener to be formed. It also imparts a controlled amount of work hardening before heading.</p></div>
+      <div class="px-glo__i"><h4>Ductility</h4><p>The ability to deform plastically before fracture. In fastener terms it is the reserve that allows a joint to redistribute load rather than fail abruptly, and it is measured as elongation after fracture.</p></div>
+      <div class="px-glo__i"><h4>Duplex</h4><p>A roughly balanced two-phase austenitic-ferritic microstructure, nitrogen alloyed. Approximately double the yield strength of standard austenitic grades with substantially better resistance to chloride stress corrosion cracking. Grades D2, D4, D6 and D8.</p></div>
+      <div class="px-glo__i"><h4>Elongation after fracture (A)</h4><p>Permanent extension at the point of rupture, expressed for stainless fasteners as a multiple of nominal thread diameter — 0.6 d, 0.4 d, 0.3 d or 0.2 d depending on class. Measured on the whole fastener, not a machined test piece. Elongation falls as strength and hardness rise.</p></div>
+      <div class="px-glo__i"><h4>Ferritic</h4><p>A body-centred cubic chromium steel with little or no nickel and low carbon. Not hardenable by heat treatment, magnetic, moderate corrosion resistance, and economical because it carries no nickel cost. Grade F1.</p></div>
+      <div class="px-glo__i"><h4>Free machining</h4><p>Deliberate sulphur addition — 0.15% to 0.35% in A1 and C4 — that breaks chips and extends tool life. The manganese sulphide inclusions responsible also act as corrosion initiation sites, so free-machining grades are always less corrosion resistant than their equivalents.</p></div>
+      <div class="px-glo__i"><h4>Galling</h4><p>Adhesive wear in the thread: the passive film is wiped away under contact pressure, clean metal meets clean metal and cold welds. The assembly seizes mid-run and can rarely be recovered. Austenitic grades are particularly prone.</p></div>
+      <div class="px-glo__i"><h4>Magnetism</h4><p>Austenitic grades are non-magnetic as annealed wire. Cold heading and thread rolling can induce a weak magnetic response, concentrated in the head and rolled threads. It indicates work hardening and does not reduce corrosion resistance or indicate a wrong grade.</p></div>
+      <div class="px-glo__i"><h4>Martensitic</h4><p>A hardenable body-centred tetragonal structure produced by quenching a high-chromium, higher-carbon stainless. Strong and magnetic, with limited corrosion resistance and sensitivity to hydrogen embrittlement. Grades C1, C3, C4.</p></div>
+      <div class="px-glo__i"><h4>Passivation</h4><p>Controlled chemical treatment to ISO 16048 that removes free iron and other surface contamination and allows a uniform chromium oxide film to form. It cleans rather than coats.</p></div>
+      <div class="px-glo__i"><h4>Passive film</h4><p>The chromium-rich oxide layer, on the order of two nanometres thick, that forms spontaneously in the presence of oxygen and re-forms when damaged. It is the entire basis of stainless corrosion resistance.</p></div>
+      <div class="px-glo__i"><h4>Pitting</h4><p>Localised breakdown of the passive film, typically by chloride, producing narrow deep cavities. Very little mass is lost, yet a pit can penetrate a section and act as a fatigue crack initiator.</p></div>
+      <div class="px-glo__i"><h4>PREN</h4><p>Pitting Resistance Equivalent Number, commonly Cr + 3.3 Mo + 16 N. A comparative index for ranking grades by pitting resistance. ISO 3506 uses the same relation to separate lean duplex D2 from D4 — for classification only, not as a selection criterion.</p></div>
+      <div class="px-glo__i"><h4>Proof load</h4><p>A specified test load that a fastener must sustain without measurable permanent set. For nuts it is expressed as stress under proof load, S<sub>p</sub>, and is the basis of the nut property class.</p></div>
+      <div class="px-glo__i"><h4>Property class</h4><p>The second block of an ISO 3506 designation. For bolts, screws and studs it is one tenth of the minimum tensile strength in MPa; for nuts, one tenth of the stress under proof load. A leading zero indicates reduced loadability.</p></div>
+      <div class="px-glo__i"><h4>Sensitisation</h4><p>The condition produced by carbide precipitation, in which grain boundaries are locally depleted of chromium and become susceptible to intergranular corrosion. Prevented by stabilisation with Ti/Nb (A3, A5) or by low carbon (L grades).</p></div>
+      <div class="px-glo__i"><h4>Stainless steel</h4><p>Steel containing at least 10.5% chromium and not more than 1.2% carbon, in which chromium forms a passive surface oxide instead of red iron oxide. Corrosion resistance is a surface phenomenon, not a bulk property.</p></div>
+      <div class="px-glo__i"><h4>Stabilised grade</h4><p>A grade containing titanium, niobium or tantalum in sufficient quantity to combine with carbon before chromium can — preserving chromium for passivation after welding or hot exposure. Grades A3 and A5.</p></div>
+      <div class="px-glo__i"><h4>Stress area</h4><p>The nominal cross-section on which thread strength is calculated, derived from the mean of the pitch and minor diameters. All ISO 3506 tensile values are referenced to it.</p></div>
+      <div class="px-glo__i"><h4>Stress corrosion cracking</h4><p>Cracking under the combined action of tensile stress, a specific corrosive medium — chloride for austenitic stainless — and, usually, elevated temperature. Failure is brittle and gives almost no external warning.</p></div>
+      <div class="px-glo__i"><h4>Tensile strength (R<sub>m</sub>)</h4><p>The maximum stress the fastener sustains before fracture, calculated on the nominal stress area of the thread. The figure the property class is derived from.</p></div>
+      <div class="px-glo__i"><h4>Torsional strength</h4><p>The torque required to twist a fastener to failure. Minimum breaking torque values are tabulated for austenitic grades M1.6 to M16. It is a material property, never a tightening instruction.</p></div>
+      <div class="px-glo__i"><h4>Work hardening</h4><p>The increase in strength and hardness, and loss of ductility, produced by plastic deformation. Austenitic stainless work hardens rapidly, which is both how property class 70 is achieved and why it galls and machines poorly.</p></div>
+      <div class="px-glo__i"><h4>Yield strength (R<sub>p0.2</sub>)</h4><p>Formally, the stress producing 0.2% non-proportional permanent strain. For a bolted joint it is the practical ceiling on preload — go beyond it and clamp load becomes unpredictable.</p></div>
+    </div>
+    <p class="px-glo__none" id="pxGloNone">No terms match that filter.</p>
+  </div>
+</section>
+
+<hr class="px-rule">
+
+<!-- ============================================================
+     12 — PRADAKO CAPABILITY / ENQUIRE
+     ============================================================ -->
+<section class="px-sec" id="enquire">
+  <div class="px-wrap">
+    <div class="px-head px-rv">
+      <div class="px-head__l">
+        <div class="px-kicker">12 — Manufacturing</div>
+        <h2 class="px-h2">Stainless,<br>made at Pradako</h2>
+      </div>
+      <div class="px-head__r">
+        <p class="px-lead">Stainless wire behaves nothing like carbon steel on a heading machine. It work hardens under the punch, loads the tooling harder, demands different lubrication and unforgiving die design. Sixty years of cold forming it is the reason our stainless comes off the machine to class, dimensionally stable and clean.</p>
+      </div>
+    </div>
+
+    <div class="px-cap px-rv">
+      <div class="px-cap__c"><span class="px-cap__k">Grades</span><span class="px-cap__v">A1 · A2 · A4</span><p>Held as standard from stock in property classes 50, 70 and 80. A3, A5, A8, F1, C-series and duplex to order.</p></div>
+      <div class="px-cap__c"><span class="px-cap__k">Range</span><span class="px-cap__v">M1.6 – M39</span><p>Coarse and fine pitch, metric and imperial thread forms, standard and fully bespoke geometry.</p></div>
+      <div class="px-cap__c"><span class="px-cap__k">Process</span><span class="px-cap__v">Cold forged</span><p>Multi-station cold heading with rolled threads — stronger, cleaner and more galling-resistant than cut threads.</p></div>
+      <div class="px-cap__c"><span class="px-cap__k">Finish</span><span class="px-cap__v">Passivated</span><p>Passivation to ISO 16048, electropolishing, black passivation and dry-film anti-galling coatings.</p></div>
+      <div class="px-cap__c"><span class="px-cap__k">Verification</span><span class="px-cap__v">Full traceability</span><p>Cast and product analysis, tensile and proof load testing, hardness, dimensional inspection, lot traceability to melt.</p></div>
+      <div class="px-cap__c"><span class="px-cap__k">Marking</span><span class="px-cap__v">PM · grade · class</span><p>Applied in forging to ISO 3506 requirements, with packaging marked to grade, class and manufacturing lot.</p></div>
+    </div>
+
+    <div class="px-final px-rv">
+      <div>
+        <h3 class="px-h2" style="max-width:16ch;">Send us the environment. We will send back the grade.</h3>
+        <p class="px-body" style="margin-top:22px;">Tell us the medium, the temperature, the chloride exposure, the clamp load and the consequence of failure. Our engineering team will come back with a grade, a property class, a finish and a torque recommendation — not just a price.</p>
+      </div>
+      <div class="px-final__cta">
+        <a href="/pages/contact/contact-us.html" class="px-btn">Talk to engineering
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/pages/products/products.html" class="px-btn px-btn--ghost">Browse stainless products</a>
+        <a href="/pages/quality-manufacturing/reverse-engineering.html" class="px-btn px-btn--ghost">Send us a sample</a>
+      </div>
+    </div>
+
+    <div class="px-note px-note--warn px-rv" style="margin-top:44px;">
+      <b>Reference notice.</b> The data on this page is reproduced for engineering reference from ISO 3506-1:2020, ISO 3506-2:2020, ISO 3506-3:2025, ISO 3506-4:2025 and ISO 3506-6:2020. It is not a substitute for the published standards. For contractual, design-critical or certification purposes, the current edition of the relevant standard governs.
+    </div>
+  </div>
+</section>
+
+<!-- shared footer injection hook -->
+<div id="footer-container"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- reveal on scroll ---------- */
+  var rv = document.querySelectorAll('.px-rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    rv.forEach(function(el){ io.observe(el); });
+  } else { rv.forEach(function(el){ el.classList.add('is-in'); }); }
+
+  /* ---------- scrollspy on sticky section nav ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.px-snav a'));
+  var secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function spy(){
+    var y = window.scrollY + 190, cur = null;
+    secs.forEach(function(s){ if(s.offsetTop <= y) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('is-on', a.getAttribute('href') === '#'+cur); });
+    var on = document.querySelector('.px-snav a.is-on');
+    if(on){
+      var bar = document.querySelector('.px-snav__in');
+      var l = on.offsetLeft, r = l + on.offsetWidth;
+      if(l < bar.scrollLeft || r > bar.scrollLeft + bar.clientWidth){
+        bar.scrollTo({left: Math.max(0, l - 24), behavior:'smooth'});
+      }
+    }
+  }
+  var tick = false;
+  window.addEventListener('scroll', function(){
+    if(!tick){ window.requestAnimationFrame(function(){ spy(); tick = false; }); tick = true; }
+  }, {passive:true});
+  spy();
+
+  /* ---------- tabs ---------- */
+  document.querySelectorAll('.px-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pane = btn.getAttribute('data-pane');
+      btn.parentNode.querySelectorAll('.px-tab').forEach(function(b){ b.classList.remove('is-on'); });
+      btn.classList.add('is-on');
+      document.querySelectorAll('.px-pane').forEach(function(p){ p.classList.toggle('is-on', p.id === pane); });
+    });
+  });
+
+  /* ---------- comparison bars ---------- */
+  document.querySelectorAll('.px-bar').forEach(function(b){
+    var v = parseInt(b.getAttribute('data-v'),10) || 0, out = '';
+    for(var i=1;i<=5;i++){ out += '<i class="'+(i<=v?'on':'')+'"></i>'; }
+    b.innerHTML = out;
+  });
+
+  /* ============================================================
+     DESIGNATION DECODER
+     ============================================================ */
+  var GROUPS = {
+    A:{name:'Austenitic', letter:'austenitic stainless steel'},
+    C:{name:'Martensitic', letter:'martensitic stainless steel'},
+    F:{name:'Ferritic', letter:'ferritic stainless steel'},
+    D:{name:'Duplex', letter:'duplex (austenitic-ferritic) stainless steel'}
+  };
+  var GRADES = {
+    A1:{g:'A',t:'free-cutting steel with sulphur added',eq:'≈ AISI 303 / 1.4305',cl:[50,70,80],note:'Sulphur gives excellent machinability but measurably lower corrosion resistance than A2. Best suited to high-volume turned parts in benign environments.'},
+    A2:{g:'A',t:'cold-heading steel alloyed with chromium and nickel',eq:'≈ AISI 304 / 1.4301',cl:[50,70,80],note:'The general purpose 18/8 workhorse. Not suitable for non-oxidising acids or chloride-bearing media — seawater and swimming pools included.'},
+    A3:{g:'A',t:'chromium-nickel steel stabilised with Ti, Nb or Ta',eq:'≈ AISI 321 / 347',cl:[50,70,80],note:'A2 chemistry protected against intergranular corrosion after welding or hot exposure by titanium or niobium stabilisation.'},
+    A4:{g:'A',t:'cold-heading steel alloyed with chromium, nickel and molybdenum',eq:'≈ AISI 316 / 1.4401',cl:[50,70,80,100],note:'Molybdenum lifts resistance to chlorides and sulphates sharply. The default choice for coastal, marine, chemical and pulp service.'},
+    A5:{g:'A',t:'chromium-nickel-molybdenum steel stabilised with Ti, Nb or Ta',eq:'≈ AISI 316Ti / 1.4571',cl:[50,70,80,100],note:'A4 performance with stabilisation against intergranular attack — welded marine and chemical plant.'},
+    A8:{g:'A',t:'high chromium-nickel-molybdenum steel, ≈6% Mo',eq:'≈ 1.4529 / 1.4547 (6Mo)',cl:[70,80,100],note:'Super-austenitic. Outstanding resistance to pitting and to chloride stress corrosion cracking — the grade for seawater and indoor pool structures. Property class 50 does not apply.'},
+    C1:{g:'C',t:'hardenable martensitic chromium steel',eq:'≈ AISI 410 / 1.4006',cl:[50,70,110],note:'Limited corrosion resistance, high achievable strength. Typical of pumps and turbines. Hardened classes are susceptible to hydrogen embrittlement.'},
+    C3:{g:'C',t:'higher-carbon martensitic chromium-nickel steel',eq:'≈ AISI 431 / 1.4057',cl:[80],note:'Better corrosion resistance than C1, hardened and tempered to class 80. Pumps and valves.'},
+    C4:{g:'C',t:'free-machining martensitic chromium steel',eq:'≈ AISI 416 / 1.4005',cl:[50,70],note:'C1 chemistry with sulphur added for machining. Corrosion resistance is the lowest in the range.'},
+    F1:{g:'F',t:'ferritic chromium steel',eq:'≈ AISI 430 / 1.4016',cl:[45,60],note:'Not hardenable, magnetic, nickel-free and economical. Limited to nominal thread diameter 24 mm and below.'},
+    D2:{g:'D',t:'lean duplex, Cr + 3.3Mo + 16N not exceeding 24',eq:'≈ 2304 / 1.4362',cl:[70,80,100],note:'Pitting and crevice resistance at least equal to A2, with substantially higher strength and far better resistance to stress corrosion cracking.'},
+    D4:{g:'D',t:'lean duplex, Cr + 3.3Mo + 16N above 24',eq:'≈ LDX 2101 / 1.4162',cl:[70,80,100],note:'Pitting and crevice resistance at least equal to A4, with duplex strength and stress corrosion performance.'},
+    D6:{g:'D',t:'standard duplex, 2.5–3.5% Mo',eq:'≈ 2205 / 1.4462',cl:[70,80,100],note:'Corrosion resistance improved beyond A4 and D4. The mainstream offshore and process-plant duplex.'},
+    D8:{g:'D',t:'super duplex, 3.0–4.5% Mo',eq:'≈ 2507 / 1.4410',cl:[70,80,100],note:'Corrosion resistance comparable to A8 with duplex strength. Subsea, desalination and severe chloride service.'}
+  };
+  var CLASSES = {
+    A:{50:{rm:500,rp:210,a:'0.6 d',c:'soft / as formed'},70:{rm:700,rp:450,a:'0.4 d',c:'cold worked'},80:{rm:800,rp:600,a:'0.3 d',c:'high strength'},100:{rm:1000,rp:800,a:'0.2 d',c:'high strength, heavily cold worked'}},
+    D:{70:{rm:700,rp:450,a:'0.4 d',c:'cold worked'},80:{rm:800,rp:600,a:'0.3 d',c:'high strength'},100:{rm:1000,rp:800,a:'0.2 d',c:'high strength, heavily cold worked'}},
+    C:{50:{rm:500,rp:250,a:'0.2 d',c:'soft',hv:'155–220 HV'},70:{rm:700,rp:410,a:'0.2 d',c:'hardened and tempered',hv:'220–330 HV'},80:{rm:800,rp:640,a:'0.2 d',c:'hardened and tempered',hv:'240–340 HV'},110:{rm:1100,rp:820,a:'0.2 d',c:'hardened and tempered at 275 °C minimum',hv:'350–440 HV'}},
+    F:{45:{rm:450,rp:250,a:'0.2 d',c:'soft',hv:'135–220 HV'},60:{rm:600,rp:410,a:'0.2 d',c:'cold worked',hv:'180–285 HV'}}
+  };
+  var THIN = {50:'025',70:'035',80:'040',100:'050',45:'020',60:'030',110:'055'};
+
+  var dec = document.getElementById('pxDecoder');
+  if(dec){
+    var state = {g:'A', grade:'A2', cls:70};
+    var boxG = dec.querySelector('[data-role="group"]');
+    var boxR = dec.querySelector('[data-role="grade"]');
+    var boxC = dec.querySelector('[data-role="class"]');
+
+    function chip(label, on, fn){
+      var b = document.createElement('button');
+      b.className = 'px-chip' + (on ? ' is-on' : '');
+      b.type = 'button'; b.textContent = label;
+      b.addEventListener('click', fn);
+      return b;
+    }
+    function render(){
+      boxG.innerHTML = ''; boxR.innerHTML = ''; boxC.innerHTML = '';
+      Object.keys(GROUPS).forEach(function(k){
+        boxG.appendChild(chip(GROUPS[k].name, state.g===k, function(){
+          state.g = k;
+          state.grade = Object.keys(GRADES).filter(function(x){ return GRADES[x].g===k; })[0];
+          state.cls = GRADES[state.grade].cl[0];
+          render();
+        }));
+      });
+      Object.keys(GRADES).filter(function(x){ return GRADES[x].g===state.g; }).forEach(function(x){
+        boxR.appendChild(chip(x, state.grade===x, function(){
+          state.grade = x;
+          if(GRADES[x].cl.indexOf(state.cls) === -1) state.cls = GRADES[x].cl[0];
+          render();
+        }));
+      });
+      GRADES[state.grade].cl.forEach(function(c){
+        boxC.appendChild(chip(String(c), state.cls===c, function(){ state.cls = c; render(); }));
+      });
+      out();
+    }
+    function out(){
+      var G = GRADES[state.grade], C = CLASSES[state.g][state.cls];
+      document.getElementById('pxDecCode').textContent = state.grade + '-' + state.cls;
+      document.getElementById('pxDecSay').innerHTML =
+        '<b>' + state.grade + '-' + state.cls + '</b> reads: ' + GROUPS[state.g].letter +
+        ', ' + G.t + ', ' + C.c + ', minimum tensile strength ' + C.rm + ' MPa.';
+      var figs = [
+        ['Tensile R<sub>m</sub> min', C.rm + ' MPa'],
+        ['Yield R<sub>p0.2</sub> min', C.rp + ' MPa'],
+        ['Elongation A min', C.a],
+        ['Matching nut', state.grade + '-' + state.cls + ' · thin ' + (THIN[state.cls]||'—')],
+        ['Typical equivalent', G.eq]
+      ];
+      if(C.hv) figs.splice(3,0,['Hardness', C.hv]);
+      document.getElementById('pxDecFigs').innerHTML = figs.map(function(f){
+        return '<div><span>'+f[0]+'</span><b>'+f[1]+'</b></div>';
+      }).join('');
+      document.getElementById('pxDecNote').textContent = G.note;
+    }
+    render();
+  }
+
+  /* ============================================================
+     GRADE SELECTOR
+     ============================================================ */
+  var ENV = [
+    {n:'Indoor, dry',                 g:'A2',       alt:'F1 where cost governs · A1 for machined parts', why:'Nothing here challenges the passive film. A2 is specified for finish, cleanliness and consistency rather than for corrosion duty, and a ferritic grade is a legitimate saving.', warn:''},
+    {n:'Outdoor, inland',             g:'A2',       alt:'A4 where appearance must stay perfect',         why:'Rain, humidity and industrial atmosphere are well within A2 capability. Tea staining — cosmetic surface discolouration — can still appear near roads treated with de-icing salt.', warn:''},
+    {n:'Coastal / marine splash',     g:'A4',       alt:'D6 for higher strength or severe exposure',     why:'Airborne chloride demands molybdenum. This is the boundary where A2 begins to pit and A4 becomes the correct minimum specification.', warn:'Rinse-down access matters as much as grade. Sheltered areas that never wash clean accumulate chloride and fail first.'},
+    {n:'Submerged seawater / subsea', g:'A8',       alt:'D8 · D6 where strength governs',                why:'Continuous immersion with crevices, marine growth and oxygen depletion is beyond A4. Six-percent-molybdenum austenitic or super duplex is the working answer.', warn:'Duplex under cathodic protection can be susceptible to hydrogen embrittlement. Confirm the protection regime before selecting.'},
+    {n:'Indoor swimming pool hall',   g:'A8',       alt:'D6 · D8',                                       why:'Chlorinated, warm and humid: the textbook stress corrosion cracking environment. Failures are brittle, sudden and have caused fatal structural collapses.', warn:'A2 and A4 must not be used for load-bearing components in pool hall atmospheres, regardless of visible condition.'},
+    {n:'Food, dairy, brewing, pharma',g:'A4',       alt:'A2 for non-contact hardware',                   why:'Cleanability and resistance to chloride sanitisers govern. Electropolishing raises surface chromium and makes the part easier to clean and harder to pit.', warn:''},
+    {n:'Chemical / pulp and paper',   g:'A4',       alt:'A8 · D6 for sulphurous and chloride acids',     why:'Molybdenum sharply improves resistance to chlorides, sulphates and the sulphurous acids of the pulp process, and holds strength better at temperature.', warn:'Corrosion behaviour is medium-specific. Always verify against the actual chemistry, concentration and temperature.'},
+    {n:'Welded or hot-exposed',       g:'A3',       alt:'A5 · A2L / A4L · A8',                           why:'Between roughly 425 °C and 815 °C, chromium carbide precipitates at grain boundaries. Titanium or niobium stabilisation, or carbon held at 0.03% maximum, prevents it.', warn:''},
+    {n:'Cryogenic',                   g:'A4',       alt:'A2',                                            why:'Austenitic grades retain toughness to −196 °C, which is why LNG and cryogenic plant is fastened with them.', warn:'Martensitic and ferritic grades become brittle at low temperature and must not be used.'},
+    {n:'High strength required',      g:'D6',       alt:'A4-100 · C-series where corrosion is mild',     why:'Duplex delivers roughly double the yield strength of A4 with better corrosion performance, and class 100 exists precisely for A4, A5, A8 and duplex.', warn:'Standard A2/A4 class 70 yields well below an 8.8 carbon steel bolt. Substituting stainless one-for-one into a carbon steel joint is a common design error.'},
+    {n:'High-volume machined parts',  g:'A1',       alt:'C4 where hardness is also needed',              why:'Sulphur breaks chips and extends tool life dramatically, which is decisive on long turned runs.', warn:'Corrosion resistance is below A2. Do not use A1 outdoors or in any wet chloride environment.'},
+    {n:'Cost-driven, light duty',     g:'F1',       alt:'A2 where corrosion matters at all',             why:'No nickel means a materially lower price and a stable one. Adequate for indoor and light outdoor duty at moderate load.', warn:'Magnetic, not hardenable, limited to M24 and below, and corrosion performance well short of A2.'}
+  ];
+  var sel = document.getElementById('pxSelector');
+  if(sel){
+    var listEl = sel.querySelector('[data-role="env"]');
+    ENV.forEach(function(e, i){
+      var b = document.createElement('button');
+      b.className = 'px-sel__b' + (i===0 ? ' is-on' : '');
+      b.type = 'button';
+      b.innerHTML = '<span>'+e.n+'</span><em>'+e.g+'</em>';
+      b.addEventListener('click', function(){
+        listEl.querySelectorAll('.px-sel__b').forEach(function(x){ x.classList.remove('is-on'); });
+        b.classList.add('is-on');
+        paint(e);
+      });
+      listEl.appendChild(b);
+    });
+    function paint(e){
+      document.getElementById('pxSelGrade').textContent = e.g;
+      document.getElementById('pxSelAlt').innerHTML = '<span>Alternatives</span>' + e.alt;
+      document.getElementById('pxSelWhy').textContent = e.why;
+      var w = document.getElementById('pxSelWarn');
+      if(e.warn){ w.innerHTML = '<b>Caution.</b> ' + e.warn; w.style.display = 'block'; }
+      else { w.style.display = 'none'; }
+    }
+    paint(ENV[0]);
+  }
+
+  /* ---------- designation anatomy hover link ---------- */
+  var anat = document.querySelector('.px-anat');
+  if(anat){
+    var pairs = Array.prototype.slice.call(anat.querySelectorAll('[data-anat]'));
+    function lit(key){
+      anat.classList.toggle('is-hov', !!key);
+      pairs.forEach(function(el){ el.classList.toggle('is-lit', el.getAttribute('data-anat') === key); });
+    }
+    pairs.forEach(function(el){
+      el.addEventListener('mouseenter', function(){ lit(el.getAttribute('data-anat')); });
+      el.addEventListener('focus', function(){ lit(el.getAttribute('data-anat')); });
+    });
+    anat.addEventListener('mouseleave', function(){ lit(null); });
+  }
+
+  /* ---------- glossary filter ---------- */
+  var gs = document.getElementById('pxGloSearch');
+  if(gs){
+    var items = Array.prototype.slice.call(document.querySelectorAll('.px-glo__i'));
+    var none = document.getElementById('pxGloNone');
+    gs.addEventListener('input', function(){
+      var q = gs.value.trim().toLowerCase(), hits = 0;
+      items.forEach(function(it){
+        var ok = !q || it.textContent.toLowerCase().indexOf(q) !== -1;
+        it.style.display = ok ? '' : 'none';
+        if(ok) hits++;
+      });
+      none.style.display = hits ? 'none' : 'block';
+    });
+  }
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

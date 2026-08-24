@@ -1,0 +1,3226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Pradako Long-Term Value Creation — creating customer, supplier, employee, organisational and societal value across generations."
+    >
+
+    <title>Long-Term Value Creation | Pradako</title>
+    
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- PMEW GLOBAL CSS -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/global-presence.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+
+    <style>
+        /* =========================================================
+           LONG-TERM VALUE CREATION
+           ALL PAGE CLASSES PREFIXED WITH pmew-value-
+        ========================================================= */
+
+        :root {
+            --ltvc-white: #ffffff;
+            --ltvc-off-white: #f7f6f2;
+            --ltvc-soft-white: #fbfaf7;
+            --ltvc-ink: #111214;
+            --ltvc-charcoal: #25282d;
+            --ltvc-grey: #666b73;
+            --ltvc-light-grey: #dfe1e4;
+            --ltvc-line: rgba(17, 18, 20, 0.12);
+
+            --ltvc-yellow: #e6b83f;
+            --ltvc-yellow-soft: #f5e6b7;
+            --ltvc-rust: #9f4f35;
+            --ltvc-rust-soft: #ead5cd;
+            --ltvc-sage: #6e8068;
+            --ltvc-sage-soft: #dce5d9;
+            --ltvc-stone: #5a6270;
+            --ltvc-stone-soft: #e0e3e8;
+
+            --ltvc-display: "Space Grotesk", sans-serif;
+            --ltvc-primary: "Montserrat", sans-serif;
+            --ltvc-serif: "Playfair Display", serif;
+
+            --ltvc-max-width: 1440px;
+            --ltvc-radius-large: 44px;
+            --ltvc-radius-medium: 26px;
+            --ltvc-radius-small: 16px;
+
+            --ltvc-transition: 550ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--ltvc-white);
+            color: var(--ltvc-ink);
+            font-family: var(--ltvc-primary);
+            overflow-x: hidden;
+        }
+
+        body.pmew-value-scroll-lock {
+            overflow: hidden;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: var(--ltvc-yellow);
+            color: var(--ltvc-ink);
+        }
+
+        .pmew-value-page {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .pmew-value-container {
+            width: min(calc(100% - 48px), var(--ltvc-max-width));
+            margin-inline: auto;
+        }
+
+        .pmew-value-section {
+            position: relative;
+            padding: clamp(92px, 10vw, 170px) 0;
+            overflow: hidden;
+        }
+
+        .pmew-value-full-section {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+        }
+
+        .pmew-value-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            font-family: var(--ltvc-serif);
+            font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .pmew-value-section-label::before {
+            width: 52px;
+            height: 1px;
+            content: "";
+            background: currentColor;
+        }
+
+        .pmew-value-eyebrow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 11px;
+            margin: 0 0 26px;
+            color: var(--ltvc-grey);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--ltvc-yellow);
+        }
+
+        .pmew-value-heading {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(3rem, 7vw, 7.8rem);
+            font-weight: 700;
+            letter-spacing: -0.065em;
+            line-height: 0.91;
+            text-wrap: balance;
+        }
+
+        .pmew-value-heading-medium {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(2.5rem, 5vw, 5.8rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 0.94;
+            text-wrap: balance;
+        }
+
+        .pmew-value-body-large {
+            max-width: 900px;
+            margin: 34px 0 0;
+            color: var(--ltvc-charcoal);
+            font-size: clamp(1.08rem, 1.6vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .pmew-value-body {
+            margin: 0;
+            color: var(--ltvc-grey);
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .pmew-value-text-stroke {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--ltvc-ink);
+            --text-stroke: 1.5px var(--ltvc-ink);
+        }
+
+        .pmew-value-highlight-yellow {
+            color: var(--ltvc-yellow);
+        }
+
+        .pmew-value-highlight-rust {
+            color: var(--ltvc-rust);
+        }
+
+        .pmew-value-highlight-sage {
+            color: var(--ltvc-sage);
+        }
+
+        .pmew-value-highlight-stone {
+            color: var(--ltvc-stone);
+        }
+
+        /* =========================================================
+           PAGE PROGRESS
+        ========================================================= */
+
+        .pmew-value-progress {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 1000;
+            height: 4px;
+            background: rgba(17, 18, 20, 0.07);
+        }
+
+        .pmew-value-progress-bar {
+            width: 0;
+            height: 100%;
+            background: var(--ltvc-yellow);
+            transition: width 80ms linear;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .pmew-value-hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: flex-end;
+            padding: 150px 0 74px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.98) 0%,
+                    rgba(255, 255, 255, 0.92) 44%,
+                    rgba(255, 255, 255, 0.54) 100%
+                ),
+                var(--ltvc-soft-white);
+            overflow: hidden;
+        }
+
+        .pmew-value-hero::before {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+            content: "";
+            opacity: 0.42;
+            background-image:
+                linear-gradient(
+                    rgba(17, 18, 20, 0.045) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(17, 18, 20, 0.045) 1px,
+                    transparent 1px
+                );
+            background-size: 78px 78px;
+            mask-image: linear-gradient(
+                to right,
+                transparent 4%,
+                black 34%,
+                black 100%
+            );
+        }
+
+        .pmew-value-hero::after {
+            position: absolute;
+            top: 4%;
+            right: -16%;
+            z-index: -2;
+            width: min(76vw, 1060px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(17, 18, 20, 0.11);
+            border-radius: 50%;
+            content: "";
+            box-shadow:
+                0 0 0 80px rgba(17, 18, 20, 0.018),
+                0 0 0 160px rgba(17, 18, 20, 0.013),
+                0 0 0 240px rgba(17, 18, 20, 0.009);
+        }
+
+        .pmew-value-globe {
+            position: absolute;
+            top: 9%;
+            right: -5%;
+            z-index: -1;
+            width: min(58vw, 850px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(17, 18, 20, 0.12);
+            border-radius: 50%;
+            opacity: 0.76;
+        }
+
+        .pmew-value-globe::before,
+        .pmew-value-globe::after {
+            position: absolute;
+            inset: 50% 0 auto;
+            height: 1px;
+            content: "";
+            background: rgba(17, 18, 20, 0.11);
+        }
+
+        .pmew-value-globe::after {
+            inset: 0 50% 0 auto;
+            width: 1px;
+            height: 100%;
+        }
+
+        .pmew-value-globe-latitude {
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            height: 26%;
+            border: 1px solid rgba(17, 18, 20, 0.11);
+            border-radius: 50%;
+        }
+
+        .pmew-value-globe-latitude:nth-child(1) {
+            top: 16%;
+        }
+
+        .pmew-value-globe-latitude:nth-child(2) {
+            top: 37%;
+        }
+
+        .pmew-value-globe-latitude:nth-child(3) {
+            top: 58%;
+        }
+
+        .pmew-value-globe-longitude {
+            position: absolute;
+            top: 3%;
+            bottom: 3%;
+            left: 50%;
+            width: 38%;
+            border: 1px solid rgba(17, 18, 20, 0.11);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pmew-value-globe-longitude:nth-of-type(5) {
+            width: 68%;
+        }
+
+        .pmew-value-hero-layout {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr);
+            gap: 70px;
+            align-items: end;
+        }
+
+        .pmew-value-hero-title {
+            max-width: 1110px;
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(4rem, 9.2vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -0.075em;
+            line-height: 0.82;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-hero-title span {
+            display: block;
+        }
+
+        .pmew-value-hero-copy {
+            align-self: end;
+            padding-bottom: 18px;
+        }
+
+        .pmew-value-hero-description {
+            margin: 0;
+            color: var(--ltvc-charcoal);
+            font-size: clamp(1rem, 1.35vw, 1.22rem);
+            line-height: 1.8;
+        }
+
+        .pmew-value-hero-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .pmew-value-hero-meta-item {
+            padding-top: 16px;
+            border-top: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-hero-meta-number {
+            display: block;
+            font-family: var(--ltvc-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+
+        .pmew-value-hero-meta-text {
+            display: block;
+            margin-top: 6px;
+            color: var(--ltvc-grey);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.13em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: var(--ltvc-grey);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transform: translateX(-50%);
+        }
+
+        .pmew-value-scroll-line {
+            width: 54px;
+            height: 1px;
+            background: var(--ltvc-grey);
+            transform-origin: left;
+            animation: ltvcLinePulse 2.3s ease-in-out infinite;
+        }
+
+        @keyframes ltvcLinePulse {
+            0%,
+            100% {
+                transform: scaleX(0.35);
+                opacity: 0.35;
+            }
+
+            50% {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+
+        /* =========================================================
+           STATEMENT SECTIONS
+        ========================================================= */
+
+        .pmew-value-statement {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            background: var(--ltvc-ink);
+            color: var(--ltvc-white);
+        }
+
+        .pmew-value-statement-light {
+            background: var(--ltvc-off-white);
+            color: var(--ltvc-ink);
+        }
+
+        .pmew-value-statement-yellow {
+            background: var(--ltvc-yellow);
+            color: var(--ltvc-ink);
+        }
+
+        .pmew-value-statement-rust {
+            background: var(--ltvc-rust);
+            color: var(--ltvc-white);
+        }
+
+        .pmew-value-statement-sage {
+            background: var(--ltvc-sage);
+            color: var(--ltvc-white);
+        }
+
+        .pmew-value-statement-inner {
+            width: min(100%, 1320px);
+        }
+
+        .pmew-value-statement-number {
+            display: block;
+            margin-bottom: 32px;
+            font-family: var(--ltvc-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .pmew-value-statement-title {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(3.6rem, 9vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -0.07em;
+            line-height: 0.84;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-statement-title span {
+            display: block;
+        }
+
+        .pmew-value-statement-title .pmew-value-outline-white {
+            color: transparent;
+            -webkit-text-stroke: 1.3px rgba(255, 255, 255, 0.8);
+        }
+
+        .pmew-value-statement-title .pmew-value-outline-dark {
+            color: transparent;
+            -webkit-text-stroke: 1.3px rgba(17, 18, 20, 0.74);
+        }
+
+        .pmew-value-statement-caption {
+            max-width: 720px;
+            margin: 40px 0 0 auto;
+            font-size: clamp(1rem, 1.5vw, 1.35rem);
+            line-height: 1.75;
+            opacity: 0.82;
+        }
+
+        /* =========================================================
+           INTRODUCTION
+        ========================================================= */
+
+        .pmew-value-intro {
+            background: var(--ltvc-white);
+        }
+
+        .pmew-value-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: clamp(50px, 8vw, 130px);
+            align-items: start;
+        }
+
+        .pmew-value-intro-side {
+            position: sticky;
+            top: 110px;
+        }
+
+        .pmew-value-intro-index {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--ltvc-grey);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-intro-index::after {
+            width: 86px;
+            height: 1px;
+            content: "";
+            background: var(--ltvc-line);
+        }
+
+        .pmew-value-intro-copy p {
+            margin: 0 0 30px;
+            color: var(--ltvc-charcoal);
+            font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+            line-height: 1.8;
+        }
+
+        .pmew-value-intro-copy p:first-child::first-letter {
+            float: left;
+            margin: 8px 12px 0 0;
+            color: var(--ltvc-yellow);
+            font-family: var(--ltvc-display);
+            font-size: 5.8rem;
+            font-weight: 700;
+            line-height: 0.7;
+        }
+
+        /* =========================================================
+           VALUE PILLARS
+        ========================================================= */
+
+        .pmew-value-pillars {
+            background: var(--ltvc-soft-white);
+        }
+
+        .pmew-value-pillars-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.44fr);
+            gap: 70px;
+            align-items: end;
+            margin-bottom: 76px;
+        }
+
+        .pmew-value-pillars-intro {
+            margin: 0 0 8px;
+            color: var(--ltvc-grey);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .pmew-value-pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+        }
+
+        .pmew-value-pillar-card {
+            position: relative;
+            min-height: 440px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(28px, 3.5vw, 48px);
+            border: 1px solid var(--ltvc-line);
+            border-radius: var(--ltvc-radius-medium);
+            background: var(--ltvc-white);
+            overflow: hidden;
+            transition:
+                transform var(--ltvc-transition),
+                border-color var(--ltvc-transition),
+                box-shadow var(--ltvc-transition);
+        }
+
+        .pmew-value-pillar-card:hover {
+            z-index: 2;
+            border-color: rgba(17, 18, 20, 0.28);
+            box-shadow: 0 28px 80px rgba(17, 18, 20, 0.08);
+            transform: translateY(-10px);
+        }
+
+        .pmew-value-pillar-card:nth-child(1),
+        .pmew-value-pillar-card:nth-child(4) {
+            grid-column: span 7;
+        }
+
+        .pmew-value-pillar-card:nth-child(2),
+        .pmew-value-pillar-card:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .pmew-value-pillar-card:nth-child(5) {
+            grid-column: span 12;
+            min-height: 360px;
+        }
+
+        .pmew-value-pillar-card::after {
+            position: absolute;
+            right: -76px;
+            bottom: -76px;
+            width: 220px;
+            aspect-ratio: 1;
+            border: 1px solid rgba(17, 18, 20, 0.1);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .pmew-value-pillar-card-yellow {
+            background: var(--ltvc-yellow-soft);
+        }
+
+        .pmew-value-pillar-card-rust {
+            background: var(--ltvc-rust-soft);
+        }
+
+        .pmew-value-pillar-card-sage {
+            background: var(--ltvc-sage-soft);
+        }
+
+        .pmew-value-pillar-card-stone {
+            background: var(--ltvc-stone-soft);
+        }
+
+        .pmew-value-pillar-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .pmew-value-pillar-icon {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(17, 18, 20, 0.16);
+            border-radius: 50%;
+            font-size: 1.15rem;
+        }
+
+        .pmew-value-pillar-number {
+            color: rgba(17, 18, 20, 0.5);
+            font-family: var(--ltvc-serif);
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .pmew-value-pillar-title {
+            max-width: 680px;
+            margin: 70px 0 22px;
+            font-family: var(--ltvc-display);
+            font-size: clamp(2.1rem, 4vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 0.96;
+        }
+
+        .pmew-value-pillar-card:nth-child(5) .pmew-value-pillar-title {
+            max-width: 920px;
+            margin-top: 50px;
+        }
+
+        .pmew-value-pillar-description {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0;
+            color: var(--ltvc-charcoal);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           RELATIONSHIP NETWORK
+        ========================================================= */
+
+        .pmew-value-network {
+            background: var(--ltvc-white);
+        }
+
+        .pmew-value-network-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(60px, 9vw, 150px);
+            align-items: center;
+        }
+
+        .pmew-value-network-visual {
+            position: relative;
+            min-height: 720px;
+            display: grid;
+            place-items: center;
+        }
+
+        .pmew-value-network-core {
+            position: relative;
+            z-index: 3;
+            width: 170px;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            border-radius: 50%;
+            background: var(--ltvc-ink);
+            color: var(--ltvc-white);
+            font-family: var(--ltvc-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+
+        .pmew-value-network-ring {
+            position: absolute;
+            border: 1px solid rgba(17, 18, 20, 0.13);
+            border-radius: 50%;
+        }
+
+        .pmew-value-network-ring-one {
+            width: 340px;
+            aspect-ratio: 1;
+        }
+
+        .pmew-value-network-ring-two {
+            width: 530px;
+            aspect-ratio: 1;
+        }
+
+        .pmew-value-network-ring-three {
+            width: 700px;
+            aspect-ratio: 1;
+        }
+
+        .pmew-value-network-node {
+            position: absolute;
+            z-index: 4;
+            min-width: 150px;
+            padding: 15px 20px;
+            border: 1px solid var(--ltvc-line);
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 12px 40px rgba(17, 18, 20, 0.06);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-network-node:nth-of-type(1) {
+            top: 9%;
+            left: 36%;
+        }
+
+        .pmew-value-network-node:nth-of-type(2) {
+            top: 25%;
+            right: 2%;
+        }
+
+        .pmew-value-network-node:nth-of-type(3) {
+            right: 9%;
+            bottom: 19%;
+        }
+
+        .pmew-value-network-node:nth-of-type(4) {
+            bottom: 5%;
+            left: 36%;
+        }
+
+        .pmew-value-network-node:nth-of-type(5) {
+            bottom: 22%;
+            left: 2%;
+        }
+
+        .pmew-value-network-node:nth-of-type(6) {
+            top: 25%;
+            left: 0;
+        }
+
+        .pmew-value-network-copy {
+            max-width: 700px;
+        }
+
+        .pmew-value-network-list {
+            margin-top: 46px;
+            border-top: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-network-item {
+            display: grid;
+            grid-template-columns: 46px 1fr;
+            gap: 18px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-network-item i {
+            padding-top: 5px;
+            color: var(--ltvc-yellow);
+        }
+
+        .pmew-value-network-item strong {
+            display: block;
+            margin-bottom: 7px;
+            font-family: var(--ltvc-display);
+            font-size: 1.05rem;
+        }
+
+        .pmew-value-network-item span {
+            color: var(--ltvc-grey);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           COMMERCIAL SUPPORT
+        ========================================================= */
+
+        .pmew-value-commercial {
+            background: var(--ltvc-ink);
+            color: var(--ltvc-white);
+        }
+
+        .pmew-value-commercial-header {
+            max-width: 1110px;
+            margin-bottom: 76px;
+        }
+
+        .pmew-value-commercial .pmew-value-body-large {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .pmew-value-commercial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .pmew-value-commercial-card {
+            min-height: 390px;
+            display: flex;
+            flex-direction: column;
+            padding: clamp(30px, 3.8vw, 50px);
+            background: var(--ltvc-ink);
+            transition: background var(--ltvc-transition);
+        }
+
+        .pmew-value-commercial-card:hover {
+            background: #191b1e;
+        }
+
+        .pmew-value-commercial-card-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 70px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: var(--ltvc-yellow);
+        }
+
+        .pmew-value-commercial-card h3 {
+            margin: 0 0 20px;
+            font-family: var(--ltvc-display);
+            font-size: clamp(1.55rem, 2.5vw, 2.6rem);
+            letter-spacing: -0.045em;
+            line-height: 1;
+        }
+
+        .pmew-value-commercial-card p {
+            margin: auto 0 0;
+            color: rgba(255, 255, 255, 0.64);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        /* =========================================================
+           SERVICE JOURNEY
+        ========================================================= */
+
+        .pmew-value-service {
+            background: var(--ltvc-off-white);
+        }
+
+        .pmew-value-service-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+            gap: clamp(60px, 8vw, 130px);
+            align-items: start;
+        }
+
+        .pmew-value-service-heading {
+            position: sticky;
+            top: 110px;
+        }
+
+        .pmew-value-service-list {
+            counter-reset: pmew-value-service-counter;
+        }
+
+        .pmew-value-service-item {
+            position: relative;
+            counter-increment: pmew-value-service-counter;
+            display: grid;
+            grid-template-columns: 70px minmax(0, 1fr);
+            gap: 26px;
+            padding: 34px 0 38px;
+            border-top: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-service-item:last-child {
+            border-bottom: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-service-item::before {
+            content: "0" counter(pmew-value-service-counter);
+            color: var(--ltvc-grey);
+            font-family: var(--ltvc-serif);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .pmew-value-service-item h3 {
+            margin: 0 0 11px;
+            font-family: var(--ltvc-display);
+            font-size: clamp(1.4rem, 2.4vw, 2.3rem);
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        .pmew-value-service-item p {
+            max-width: 700px;
+            margin: 0;
+            color: var(--ltvc-grey);
+            font-size: 0.96rem;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           LOCALISATION
+        ========================================================= */
+
+        .pmew-value-localisation {
+            background: var(--ltvc-white);
+        }
+
+        .pmew-value-localisation-top {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.45fr);
+            gap: 70px;
+            align-items: end;
+            margin-bottom: 80px;
+        }
+
+        .pmew-value-localisation-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .pmew-value-localisation-card {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+            border: 1px solid var(--ltvc-line);
+            border-radius: var(--ltvc-radius-small);
+            background: var(--ltvc-white);
+            transition:
+                background var(--ltvc-transition),
+                transform var(--ltvc-transition);
+        }
+
+        .pmew-value-localisation-card:hover {
+            background: var(--ltvc-off-white);
+            transform: translateY(-7px);
+        }
+
+        .pmew-value-localisation-number {
+            font-family: var(--ltvc-serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--ltvc-grey);
+        }
+
+        .pmew-value-localisation-card h3 {
+            margin: auto 0 16px;
+            font-family: var(--ltvc-display);
+            font-size: 1.55rem;
+            letter-spacing: -0.035em;
+        }
+
+        .pmew-value-localisation-card p {
+            margin: 0;
+            color: var(--ltvc-grey);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           EXHIBITIONS
+        ========================================================= */
+
+        .pmew-value-exhibitions {
+            background: var(--ltvc-yellow);
+            color: var(--ltvc-ink);
+        }
+
+        .pmew-value-exhibitions-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: clamp(60px, 8vw, 130px);
+            align-items: center;
+        }
+
+        .pmew-value-exhibition-quote {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(3rem, 6.4vw, 7.2rem);
+            font-weight: 700;
+            letter-spacing: -0.065em;
+            line-height: 0.92;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-exhibition-quote span {
+            display: block;
+        }
+
+        .pmew-value-exhibition-copy {
+            padding: 48px;
+            border: 1px solid rgba(17, 18, 20, 0.25);
+            border-radius: var(--ltvc-radius-medium);
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .pmew-value-exhibition-copy p {
+            margin: 0 0 32px;
+            font-size: 1.05rem;
+            line-height: 1.85;
+        }
+
+        .pmew-value-exhibition-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pmew-value-exhibition-tag {
+            padding: 11px 15px;
+            border: 1px solid rgba(17, 18, 20, 0.23);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           INNOVATION & LIFECYCLE
+        ========================================================= */
+
+        .pmew-value-lifecycle {
+            background: var(--ltvc-white);
+        }
+
+        .pmew-value-lifecycle-header {
+            max-width: 1100px;
+            margin-bottom: 88px;
+        }
+
+        .pmew-value-lifecycle-track {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px;
+        }
+
+        .pmew-value-lifecycle-track::before {
+            position: absolute;
+            top: 30px;
+            left: 7%;
+            right: 7%;
+            z-index: 0;
+            height: 1px;
+            content: "";
+            background: var(--ltvc-line);
+        }
+
+        .pmew-value-lifecycle-step {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pmew-value-lifecycle-dot {
+            width: 60px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 30px;
+            border: 1px solid var(--ltvc-line);
+            border-radius: 50%;
+            background: var(--ltvc-white);
+            font-family: var(--ltvc-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .pmew-value-lifecycle-step h3 {
+            min-height: 58px;
+            margin: 0 0 15px;
+            font-family: var(--ltvc-display);
+            font-size: 1.1rem;
+            letter-spacing: -0.025em;
+            line-height: 1.3;
+        }
+
+        .pmew-value-lifecycle-step p {
+            margin: 0;
+            color: var(--ltvc-grey);
+            font-size: 0.84rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           THREE VALUE TYPES
+        ========================================================= */
+
+        .pmew-value-value-types {
+            background: var(--ltvc-soft-white);
+        }
+
+        .pmew-value-value-types-header {
+            max-width: 1000px;
+            margin-bottom: 74px;
+        }
+
+        .pmew-value-value-type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .pmew-value-value-type-card {
+            min-height: 610px;
+            display: flex;
+            flex-direction: column;
+            padding: clamp(34px, 4vw, 56px);
+            border-radius: var(--ltvc-radius-large);
+            overflow: hidden;
+        }
+
+        .pmew-value-value-type-card:nth-child(1) {
+            background: var(--ltvc-yellow-soft);
+        }
+
+        .pmew-value-value-type-card:nth-child(2) {
+            background: var(--ltvc-stone-soft);
+        }
+
+        .pmew-value-value-type-card:nth-child(3) {
+            background: var(--ltvc-sage-soft);
+        }
+
+        .pmew-value-value-type-index {
+            margin-bottom: 80px;
+            font-family: var(--ltvc-serif);
+            font-style: italic;
+        }
+
+        .pmew-value-value-type-card h3 {
+            margin: 0 0 28px;
+            font-family: var(--ltvc-display);
+            font-size: clamp(2.2rem, 3.8vw, 4rem);
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+        }
+
+        .pmew-value-value-type-card p {
+            margin: auto 0 0;
+            color: var(--ltvc-charcoal);
+            line-height: 1.85;
+        }
+
+        /* =========================================================
+           FOUR GENERATIONS
+        ========================================================= */
+
+        .pmew-value-generations {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            background: var(--ltvc-rust);
+            color: var(--ltvc-white);
+        }
+
+        .pmew-value-generations-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+            gap: 90px;
+            align-items: center;
+        }
+
+        .pmew-value-generation-number {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(11rem, 25vw, 28rem);
+            font-weight: 700;
+            letter-spacing: -0.1em;
+            line-height: 0.68;
+        }
+
+        .pmew-value-generation-word {
+            margin: 32px 0 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(2.4rem, 5vw, 5.6rem);
+            font-weight: 700;
+            letter-spacing: -0.06em;
+            line-height: 0.92;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-generations-copy {
+            padding-left: 50px;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .pmew-value-generations-copy h2 {
+            margin: 0 0 30px;
+            font-family: var(--ltvc-display);
+            font-size: clamp(2.3rem, 4.6vw, 5rem);
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+        }
+
+        .pmew-value-generations-copy p {
+            margin: 0 0 25px;
+            color: rgba(255, 255, 255, 0.77);
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        /* =========================================================
+           FINAL
+        ========================================================= */
+
+        .pmew-value-final {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            background: var(--ltvc-white);
+        }
+
+        .pmew-value-final-content {
+            width: 100%;
+        }
+
+        .pmew-value-final-title {
+            margin: 0;
+            font-family: var(--ltvc-display);
+            font-size: clamp(4.2rem, 10vw, 11rem);
+            font-weight: 700;
+            letter-spacing: -0.08em;
+            line-height: 0.8;
+            text-transform: uppercase;
+        }
+
+        .pmew-value-final-title span {
+            display: block;
+        }
+
+        .pmew-value-final-title span:nth-child(2) {
+            margin-left: 9%;
+            color: var(--ltvc-yellow);
+        }
+
+        .pmew-value-final-title span:nth-child(3) {
+            margin-left: 20%;
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--ltvc-ink);
+        }
+
+        .pmew-value-final-footer {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+            gap: 70px;
+            align-items: end;
+            margin-top: 82px;
+            padding-top: 34px;
+            border-top: 1px solid var(--ltvc-line);
+        }
+
+        .pmew-value-final-message {
+            max-width: 760px;
+            margin: 0;
+            color: var(--ltvc-charcoal);
+            font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+            line-height: 1.8;
+        }
+
+        .pmew-value-final-signature {
+            text-align: right;
+        }
+
+        .pmew-value-final-signature strong {
+            display: block;
+            font-family: var(--ltvc-display);
+            font-size: 1.12rem;
+            letter-spacing: -0.025em;
+        }
+
+        .pmew-value-final-signature span {
+            display: block;
+            margin-top: 8px;
+            color: var(--ltvc-grey);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATIONS
+        ========================================================= */
+
+        .pmew-value-reveal {
+            opacity: 0;
+            transform: translateY(38px);
+            transition:
+                opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .pmew-value-reveal.pmew-value-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pmew-value-delay-one {
+            transition-delay: 100ms;
+        }
+
+        .pmew-value-delay-two {
+            transition-delay: 180ms;
+        }
+
+        .pmew-value-delay-three {
+            transition-delay: 260ms;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1180px) {
+            .pmew-value-hero-layout,
+            .pmew-value-network-layout,
+            .pmew-value-exhibitions-layout,
+            .pmew-value-generations-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-hero-copy {
+                max-width: 680px;
+            }
+
+            .pmew-value-network-copy {
+                max-width: none;
+            }
+
+            .pmew-value-commercial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pmew-value-localisation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pmew-value-lifecycle-track {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 56px;
+            }
+
+            .pmew-value-lifecycle-track::before {
+                display: none;
+            }
+
+            .pmew-value-value-type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-value-type-card {
+                min-height: 450px;
+            }
+
+            .pmew-value-generations-copy {
+                max-width: 800px;
+                padding-top: 45px;
+                padding-left: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+                border-left: 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .pmew-value-section {
+                padding: 96px 0;
+            }
+
+            .pmew-value-hero {
+                padding-top: 125px;
+            }
+
+            .pmew-value-globe {
+                top: 4%;
+                right: -45%;
+                width: 1000px;
+                opacity: 0.38;
+            }
+
+            .pmew-value-intro-grid,
+            .pmew-value-pillars-header,
+            .pmew-value-service-layout,
+            .pmew-value-localisation-top,
+            .pmew-value-final-footer {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-intro-side,
+            .pmew-value-service-heading {
+                position: relative;
+                top: auto;
+            }
+
+            .pmew-value-pillar-card,
+            .pmew-value-pillar-card:nth-child(1),
+            .pmew-value-pillar-card:nth-child(2),
+            .pmew-value-pillar-card:nth-child(3),
+            .pmew-value-pillar-card:nth-child(4),
+            .pmew-value-pillar-card:nth-child(5) {
+                grid-column: span 12;
+            }
+
+            .pmew-value-network-visual {
+                min-height: 620px;
+                transform: scale(0.88);
+            }
+
+            .pmew-value-final-signature {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .pmew-value-container {
+                width: min(calc(100% - 30px), var(--ltvc-max-width));
+            }
+
+            .pmew-value-full-section,
+            .pmew-value-statement,
+            .pmew-value-generations,
+            .pmew-value-final {
+                min-height: auto;
+            }
+
+            .pmew-value-hero {
+                min-height: 920px;
+                align-items: center;
+                padding: 128px 0 90px;
+            }
+
+            .pmew-value-hero-title {
+                font-size: clamp(3.65rem, 18vw, 6rem);
+                line-height: 0.84;
+            }
+
+            .pmew-value-hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-scroll-indicator {
+                display: none;
+            }
+
+            .pmew-value-statement {
+                padding: 120px 0;
+            }
+
+            .pmew-value-statement-title {
+                font-size: clamp(3.15rem, 16vw, 5.4rem);
+            }
+
+            .pmew-value-statement-caption {
+                margin-left: 0;
+            }
+
+            .pmew-value-commercial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-commercial-card {
+                min-height: 330px;
+            }
+
+            .pmew-value-commercial-card-icon {
+                margin-bottom: 50px;
+            }
+
+            .pmew-value-localisation-grid,
+            .pmew-value-lifecycle-track {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-value-localisation-card {
+                min-height: 260px;
+            }
+
+            .pmew-value-network-visual {
+                min-height: 500px;
+                margin-inline: -80px;
+                transform: scale(0.7);
+            }
+
+            .pmew-value-exhibition-copy {
+                padding: 30px;
+            }
+
+            .pmew-value-value-type-card {
+                min-height: 420px;
+                border-radius: 28px;
+            }
+
+            .pmew-value-generation-number {
+                font-size: 13rem;
+            }
+
+            .pmew-value-final-title {
+                font-size: clamp(3.8rem, 17vw, 6.3rem);
+                line-height: 0.82;
+            }
+
+            .pmew-value-final-title span:nth-child(2),
+            .pmew-value-final-title span:nth-child(3) {
+                margin-left: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .pmew-value-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    
+        /* =========================================================
+           INK COLOUR CORRECTION
+           Prevent global PMEW heading rules from applying navy blue.
+        ========================================================= */
+
+        /* Light and neutral sections: all primary display text uses ink. */
+        .pmew-value-page .pmew-value-hero-title,
+        .pmew-value-page .pmew-value-heading,
+        .pmew-value-page .pmew-value-heading-medium,
+        .pmew-value-page .pmew-value-hero-meta-number,
+        .pmew-value-page .pmew-value-pillar-title,
+        .pmew-value-page .pmew-value-network-item strong,
+        .pmew-value-page .pmew-value-service-item h3,
+        .pmew-value-page .pmew-value-localisation-card h3,
+        .pmew-value-page .pmew-value-exhibition-quote,
+        .pmew-value-page .pmew-value-lifecycle-dot,
+        .pmew-value-page .pmew-value-lifecycle-step h3,
+        .pmew-value-page .pmew-value-value-type-card h3,
+        .pmew-value-page .pmew-value-final-title,
+        .pmew-value-page .pmew-value-final-signature strong {
+            color: var(--ltvc-ink) !important;
+        }
+
+        /* Statement headings follow each statement section's intended colour. */
+        .pmew-value-page .pmew-value-statement-title {
+            color: inherit !important;
+        }
+
+        /* Dark commercial section headings stay white. */
+        .pmew-value-page .pmew-value-commercial .pmew-value-heading-medium,
+        .pmew-value-page .pmew-value-commercial-card h3 {
+            color: var(--ltvc-white) !important;
+        }
+
+        /* Four-generations section headings stay white on the rust background. */
+        .pmew-value-page .pmew-value-generation-number,
+        .pmew-value-page .pmew-value-generation-word,
+        .pmew-value-page .pmew-value-generations-copy h2 {
+            color: var(--ltvc-white) !important;
+        }
+
+        /* Section labels inherit the correct colour from their section. */
+        .pmew-value-page .pmew-value-section-label {
+            color: inherit !important;
+        }
+
+        /* Preserve all designed accent and outline treatments. */
+        .pmew-value-page .pmew-value-text-stroke {
+            color: transparent !important;
+            -webkit-text-stroke: 1.5px var(--ltvc-ink) !important;
+        }
+
+        .pmew-value-page .pmew-value-highlight-yellow {
+            color: var(--ltvc-yellow) !important;
+        }
+
+        .pmew-value-page .pmew-value-highlight-rust {
+            color: var(--ltvc-rust) !important;
+        }
+
+        .pmew-value-page .pmew-value-highlight-sage {
+            color: var(--ltvc-sage) !important;
+        }
+
+        .pmew-value-page .pmew-value-highlight-stone {
+            color: var(--ltvc-stone) !important;
+        }
+
+        .pmew-value-page .pmew-value-outline-white {
+            color: transparent !important;
+            -webkit-text-stroke: 1.3px rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .pmew-value-page .pmew-value-outline-dark {
+            color: transparent !important;
+            -webkit-text-stroke: 1.3px rgba(17, 18, 20, 0.74) !important;
+        }
+
+        .pmew-value-page .pmew-value-final-title span:nth-child(2) {
+            color: var(--ltvc-yellow) !important;
+        }
+
+        .pmew-value-page .pmew-value-final-title span:nth-child(3) {
+            color: transparent !important;
+            -webkit-text-stroke: 1.5px var(--ltvc-ink) !important;
+        }
+
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/long-term-value.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Long-Term Value Creation | Pradako">
+    <meta property="og:description" content="Pradako Long-Term Value Creation — creating customer, supplier, employee, organisational and societal value across generations.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/long-term-value.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Long-Term Value Creation | Pradako">
+    <meta name="twitter:description" content="Pradako Long-Term Value Creation — creating customer, supplier, employee, organisational and societal value across generations.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Long-Term Value Creation | Pradako",
+  "url": "https://www.pradako.co/pages/global-presence/long-term-value.html",
+  "description": "Pradako Long-Term Value Creation — creating customer, supplier, employee, organisational and societal value across generations.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="page-global pmew-value-page-body">
+
+    <!-- PMEW SHARED NAVBAR -->
+    <div id="navbar-container"></div>
+
+    <main class="pmew-value-page">
+
+        <!-- ======================================================
+             HERO
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-hero">
+
+            <div class="pmew-value-globe" aria-hidden="true">
+                <span class="pmew-value-globe-latitude"></span>
+                <span class="pmew-value-globe-latitude"></span>
+                <span class="pmew-value-globe-latitude"></span>
+                <span class="pmew-value-globe-longitude"></span>
+                <span class="pmew-value-globe-longitude"></span>
+            </div>
+
+            <div class="pmew-value-container">
+                <div class="pmew-value-hero-layout">
+
+                    <div>
+                        <div class="pmew-value-eyebrow pmew-value-reveal">
+                            <span class="pmew-value-eyebrow-dot"></span>
+                            Global Presence
+                            <span>•</span>
+                            Shared Progress
+                        </div>
+
+                        <h1 class="pmew-value-hero-title">
+                            <span class="pmew-value-reveal">
+                                Long-Term
+                            </span>
+
+                            <span class="pmew-value-text-stroke pmew-value-reveal pmew-value-delay-one">
+                                Value
+                            </span>
+
+                            <span class="pmew-value-highlight-yellow pmew-value-reveal pmew-value-delay-two">
+                                Creation.
+                            </span>
+                        </h1>
+                    </div>
+
+                    <div class="pmew-value-hero-copy pmew-value-reveal pmew-value-delay-three">
+                        <p class="pmew-value-hero-description">
+                            Creating enduring value for customers, suppliers,
+                            employees, partners, markets and society through
+                            relationships designed to grow stronger across
+                            products, countries and generations.
+                        </p>
+
+                        <div class="pmew-value-hero-meta">
+                            <div class="pmew-value-hero-meta-item">
+                                <span class="pmew-value-hero-meta-number">04</span>
+                                <span class="pmew-value-hero-meta-text">
+                                    Generations of enterprise
+                                </span>
+                            </div>
+
+                            <div class="pmew-value-hero-meta-item">
+                                <span class="pmew-value-hero-meta-number">360°</span>
+                                <span class="pmew-value-hero-meta-text">
+                                    Stakeholder value
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pmew-value-scroll-indicator" aria-hidden="true">
+                <span class="pmew-value-scroll-line"></span>
+                Explore
+            </div>
+        </section>
+
+        <!-- ======================================================
+             OPENING STATEMENT
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        01 — Our belief
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            Business grows
+                        </span>
+
+                        <span class="pmew-value-outline-white pmew-value-reveal pmew-value-delay-one">
+                            when every
+                        </span>
+
+                        <span class="pmew-value-highlight-yellow pmew-value-reveal pmew-value-delay-two">
+                            relationship grows.
+                        </span>
+                    </h2>
+
+                    <p class="pmew-value-statement-caption pmew-value-reveal pmew-value-delay-three">
+                        Our decisions are shaped around continuity, mutual
+                        progress and the value of the complete relationship,
+                        extending far beyond a single transaction.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             INTRODUCTION
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-intro">
+            <div class="pmew-value-container">
+                <div class="pmew-value-intro-grid">
+
+                    <div class="pmew-value-intro-side">
+                        <div class="pmew-value-intro-index pmew-value-reveal">
+                            Long-term thinking
+                        </div>
+
+                        <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                            Value that extends
+                            <span class="pmew-value-highlight-rust">
+                                beyond the order.
+                            </span>
+                        </h2>
+                    </div>
+
+                    <div class="pmew-value-intro-copy">
+                        <p class="pmew-value-reveal">
+                            At Pradako, long-term value creation begins with a
+                            simple principle: sustainable growth is achieved
+                            when customers, suppliers, employees, agents,
+                            distributors, markets and communities progress
+                            together.
+                        </p>
+
+                        <p class="pmew-value-reveal">
+                            For four generations, we have developed business
+                            through trust, commercial understanding, technical
+                            collaboration and a willingness to stand with our
+                            partners through changing market conditions.
+                        </p>
+
+                        <p class="pmew-value-reveal">
+                            Repeated orders, enduring associations and
+                            multi-market relationships remain among the
+                            strongest measures of the confidence placed in our
+                            manufacturing, responsiveness and integrity.
+                        </p>
+
+                        <p class="pmew-value-reveal">
+                            Our objective is to create customer value,
+                            organisational value and societal value through
+                            responsible enterprise, resilient supply chains,
+                            innovation and knowledge carried forward from one
+                            generation to the next.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             ONE-LINER
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement pmew-value-statement-yellow">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        02 — Partnership
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            We value
+                        </span>
+
+                        <span class="pmew-value-outline-dark pmew-value-reveal pmew-value-delay-one">
+                            every order.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-two">
+                            We invest in
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            every relationship.
+                        </span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             VALUE PILLARS
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-pillars">
+            <div class="pmew-value-container">
+
+                <div class="pmew-value-pillars-header">
+                    <div>
+                        <div class="pmew-value-section-label pmew-value-reveal">
+                            Relationships Built for Generations
+                        </div>
+
+                        <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                            An ecosystem of
+                            <span class="pmew-value-highlight-stone">
+                                shared value.
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="pmew-value-pillars-intro pmew-value-reveal pmew-value-delay-two">
+                        Every stakeholder contributes to our capability.
+                        Every stakeholder deserves to participate in the value
+                        created through it.
+                    </p>
+                </div>
+
+                <div class="pmew-value-pillar-grid">
+
+                    <article class="pmew-value-pillar-card pmew-value-pillar-card-yellow pmew-value-reveal">
+                        <div class="pmew-value-pillar-top">
+                            <span class="pmew-value-pillar-icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </span>
+
+                            <span class="pmew-value-pillar-number">01</span>
+                        </div>
+
+                        <div>
+                            <h3 class="pmew-value-pillar-title">
+                                Customers and long-standing partnerships
+                            </h3>
+
+                            <p class="pmew-value-pillar-description">
+                                We work to transform every enquiry into a
+                                meaningful association, every order into a
+                                dependable experience and every successful
+                                programme into a long-term partnership.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-pillar-card pmew-value-pillar-card-rust pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-pillar-top">
+                            <span class="pmew-value-pillar-icon">
+                                <i class="fa-solid fa-link"></i>
+                            </span>
+
+                            <span class="pmew-value-pillar-number">02</span>
+                        </div>
+
+                        <div>
+                            <h3 class="pmew-value-pillar-title">
+                                Suppliers as manufacturing partners
+                            </h3>
+
+                            <p class="pmew-value-pillar-description">
+                                Suppliers are engaged through forecast
+                                visibility, quality development, responsible
+                                commercial discussions and collaborative
+                                problem-solving.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-pillar-card pmew-value-pillar-card-sage pmew-value-reveal">
+                        <div class="pmew-value-pillar-top">
+                            <span class="pmew-value-pillar-icon">
+                                <i class="fa-solid fa-people-group"></i>
+                            </span>
+
+                            <span class="pmew-value-pillar-number">03</span>
+                        </div>
+
+                        <div>
+                            <h3 class="pmew-value-pillar-title">
+                                Employees who carry knowledge forward
+                            </h3>
+
+                            <p class="pmew-value-pillar-description">
+                                We invest in skills, safety, responsibility,
+                                leadership opportunities and the transfer of
+                                manufacturing knowledge across generations.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-pillar-card pmew-value-pillar-card-stone pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-pillar-top">
+                            <span class="pmew-value-pillar-icon">
+                                <i class="fa-solid fa-earth-asia"></i>
+                            </span>
+
+                            <span class="pmew-value-pillar-number">04</span>
+                        </div>
+
+                        <div>
+                            <h3 class="pmew-value-pillar-title">
+                                Agents and local market partners
+                            </h3>
+
+                            <p class="pmew-value-pillar-description">
+                                Agents, distributors and representatives extend
+                                our local understanding through market insight,
+                                customer coordination and application-focused
+                                support.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-pillar-card pmew-value-reveal">
+                        <div class="pmew-value-pillar-top">
+                            <span class="pmew-value-pillar-icon">
+                                <i class="fa-solid fa-city"></i>
+                            </span>
+
+                            <span class="pmew-value-pillar-number">05</span>
+                        </div>
+
+                        <div>
+                            <h3 class="pmew-value-pillar-title">
+                                Industry, communities and society
+                            </h3>
+
+                            <p class="pmew-value-pillar-description">
+                                Enterprise creates lasting value through
+                                employment, skill development, responsible
+                                manufacturing, supplier growth, resource
+                                efficiency and products that support essential
+                                industries, infrastructure and everyday life.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             REPEATED ORDERS
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement pmew-value-statement-light">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        03 — Confidence
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            Repeated orders
+                        </span>
+
+                        <span class="pmew-value-outline-dark pmew-value-reveal pmew-value-delay-one">
+                            are repeated
+                        </span>
+
+                        <span class="pmew-value-highlight-rust pmew-value-reveal pmew-value-delay-two">
+                            expressions of trust.
+                        </span>
+                    </h2>
+
+                    <p class="pmew-value-statement-caption pmew-value-reveal pmew-value-delay-three">
+                        They represent consistent quality, reliable delivery,
+                        technical responsiveness and the confidence that we
+                        will continue to support evolving requirements.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             RELATIONSHIP NETWORK
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-network">
+            <div class="pmew-value-container">
+                <div class="pmew-value-network-layout">
+
+                    <div class="pmew-value-network-visual pmew-value-reveal">
+
+                        <div class="pmew-value-network-ring pmew-value-network-ring-one"></div>
+                        <div class="pmew-value-network-ring pmew-value-network-ring-two"></div>
+                        <div class="pmew-value-network-ring pmew-value-network-ring-three"></div>
+
+                        <div class="pmew-value-network-core">
+                            Shared<br>Value
+                        </div>
+
+                        <div class="pmew-value-network-node">Customers</div>
+                        <div class="pmew-value-network-node">Suppliers</div>
+                        <div class="pmew-value-network-node">Employees</div>
+                        <div class="pmew-value-network-node">Agents</div>
+                        <div class="pmew-value-network-node">Markets</div>
+                        <div class="pmew-value-network-node">Society</div>
+                    </div>
+
+                    <div class="pmew-value-network-copy">
+
+                        <div class="pmew-value-section-label pmew-value-reveal">
+                            Relationship-Led Enterprise
+                        </div>
+
+                        <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                            Growth connected
+                            <span class="pmew-value-highlight-yellow">
+                                across the value chain.
+                            </span>
+                        </h2>
+
+                        <p class="pmew-value-body-large pmew-value-reveal pmew-value-delay-two">
+                            Our relationships are strengthened through
+                            communication, transparency, technical
+                            collaboration, market intelligence and responsible
+                            decision-making.
+                        </p>
+
+                        <div class="pmew-value-network-list">
+
+                            <div class="pmew-value-network-item pmew-value-reveal">
+                                <i class="fa-solid fa-comments"></i>
+
+                                <div>
+                                    <strong>Consistent communication</strong>
+                                    <span>
+                                        Clear, timely and practical coordination
+                                        across commercial, technical and
+                                        operational matters.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pmew-value-network-item pmew-value-reveal">
+                                <i class="fa-solid fa-scale-balanced"></i>
+
+                                <div>
+                                    <strong>Commercial transparency</strong>
+                                    <span>
+                                        Responsible discussion of raw-material,
+                                        freight, currency, duty and market
+                                        changes.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pmew-value-network-item pmew-value-reveal">
+                                <i class="fa-solid fa-gears"></i>
+
+                                <div>
+                                    <strong>Technical collaboration</strong>
+                                    <span>
+                                        Working together from sampling and
+                                        validation through series production
+                                        and continuous improvement.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pmew-value-network-item pmew-value-reveal">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                                <div>
+                                    <strong>Shared market development</strong>
+                                    <span>
+                                        Supporting agents, partners and
+                                        customers as they expand applications,
+                                        programmes and regional opportunities.
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             COMMERCIAL COMMITMENT
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-commercial">
+            <div class="pmew-value-container">
+
+                <div class="pmew-value-commercial-header">
+
+                    <div class="pmew-value-section-label pmew-value-reveal">
+                        Customer-Centric Commercial Support
+                    </div>
+
+                    <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                        Protecting continuity through
+                        <span class="pmew-value-highlight-yellow">
+                            changing markets.
+                        </span>
+                    </h2>
+
+                    <p class="pmew-value-body-large pmew-value-reveal pmew-value-delay-two">
+                        Global markets are influenced by import duties,
+                        currency movements, raw-material prices, freight
+                        conditions and regulatory change. We work toward
+                        commercially balanced solutions that preserve supply,
+                        competitiveness and long-term confidence.
+                    </p>
+
+                </div>
+
+                <div class="pmew-value-commercial-grid">
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+
+                        <h3>Duty and market adjustments</h3>
+
+                        <p>
+                            Where strategically possible, we absorb, balance or
+                            gradually manage the effect of changes in import
+                            duties and market conditions to protect continuity
+                            and the larger value of the relationship.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <h3>Responsible supplier revisions</h3>
+
+                        <p>
+                            Genuine increases in supplier input costs are
+                            approached with fairness, commercial understanding
+                            and recognition of the supplier’s role in sustaining
+                            quality and availability.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal pmew-value-delay-two">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+
+                        <h3>Delayed customer approvals</h3>
+
+                        <p>
+                            Where customer price approvals require extended
+                            evaluation, we seek practical mechanisms that
+                            support continuity and fairly address the period
+                            between cost change and approval.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <h3>Continuity before immediacy</h3>
+
+                        <p>
+                            Strategic decisions may prioritise programme
+                            stability, customer confidence and future
+                            opportunity over the immediate profitability of a
+                            single shipment.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+
+                        <h3>Transparent governance</h3>
+
+                        <p>
+                            Cost discussions are supported through relevant
+                            information, structured communication and approval
+                            pathways that enable responsible decision-making.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-commercial-card pmew-value-reveal pmew-value-delay-two">
+                        <div class="pmew-value-commercial-card-icon">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+
+                        <h3>Balanced long-term outcomes</h3>
+
+                        <p>
+                            Our objective is to maintain an economically
+                            sustainable relationship for the customer,
+                            supplier and organisation across complete business
+                            cycles.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======================================================
+             SAMPLE TO PRODUCTION
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement pmew-value-statement-sage">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        04 — Product journey
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            From sample
+                        </span>
+
+                        <span class="pmew-value-outline-white pmew-value-reveal pmew-value-delay-one">
+                            to series production.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-two">
+                            From first order
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            to lasting partnership.
+                        </span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             SUPPORT SERVICES
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-service">
+            <div class="pmew-value-container">
+                <div class="pmew-value-service-layout">
+
+                    <div class="pmew-value-service-heading">
+
+                        <div class="pmew-value-section-label pmew-value-reveal">
+                            Support That Moves With the Market
+                        </div>
+
+                        <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                            Manufacturing supported by
+                            <span class="pmew-value-highlight-sage">
+                                responsive service.
+                            </span>
+                        </h2>
+
+                        <p class="pmew-value-body-large pmew-value-reveal pmew-value-delay-two">
+                            Depending on programme requirements and commercial
+                            feasibility, our service model extends from
+                            development support to inventory and urgent
+                            logistics.
+                        </p>
+
+                    </div>
+
+                    <div class="pmew-value-service-list">
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Free samples and evaluation lots</h3>
+
+                                <p>
+                                    Supporting product assessment, technical
+                                    approval, application trials and confidence
+                                    before commercial production.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Air-freight services</h3>
+
+                                <p>
+                                    Coordinating urgent and time-sensitive
+                                    requirements to help customers maintain
+                                    production and programme continuity.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Raw-material stocking</h3>
+
+                                <p>
+                                    Maintaining agreed raw materials against
+                                    customer forecasts, programme schedules and
+                                    anticipated market demand.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Finished-goods inventory</h3>
+
+                                <p>
+                                    Producing and stocking finished goods for
+                                    faster release, scheduled dispatches and
+                                    demand-responsive supply.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Safety-stock programmes</h3>
+
+                                <p>
+                                    Building resilience against logistics
+                                    variation, demand peaks, production changes
+                                    and unforeseen supply-chain events.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Customer-specific packaging</h3>
+
+                                <p>
+                                    Aligning packing, labelling, identification,
+                                    shipment quantities and documentation with
+                                    regional and customer requirements.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="pmew-value-service-item pmew-value-reveal">
+                            <div>
+                                <h3>Phased manufacturing and delivery</h3>
+
+                                <p>
+                                    Structuring production and dispatches around
+                                    consumption patterns, assembly schedules and
+                                    market release plans.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             LOCALISATION
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-localisation">
+            <div class="pmew-value-container">
+
+                <div class="pmew-value-localisation-top">
+                    <div>
+
+                        <div class="pmew-value-section-label pmew-value-reveal">
+                            Localised Customisation
+                        </div>
+
+                        <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                            Global capability.
+                            <span class="pmew-value-highlight-rust">
+                                Local relevance.
+                            </span>
+                        </h2>
+
+                    </div>
+
+                    <p class="pmew-value-body pmew-value-reveal pmew-value-delay-two">
+                        International customers gain greater value when global
+                        manufacturing capability responds intelligently to the
+                        practical needs of individual countries, applications
+                        and markets.
+                    </p>
+                </div>
+
+                <div class="pmew-value-localisation-grid">
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal">
+                        <span class="pmew-value-localisation-number">01</span>
+
+                        <div>
+                            <h3>Regional standards</h3>
+                            <p>
+                                Products aligned with local, international and
+                                customer-defined specifications.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-one">
+                        <span class="pmew-value-localisation-number">02</span>
+
+                        <div>
+                            <h3>Country regulations</h3>
+                            <p>
+                                Documentation and compliance support shaped
+                                around destination-market requirements.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-two">
+                        <span class="pmew-value-localisation-number">03</span>
+
+                        <div>
+                            <h3>Assembly practices</h3>
+                            <p>
+                                Product and packaging decisions adapted to local
+                                manufacturing and installation methods.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-three">
+                        <span class="pmew-value-localisation-number">04</span>
+
+                        <div>
+                            <h3>Climate and environment</h3>
+                            <p>
+                                Material, finish and performance choices
+                                evaluated against operating conditions.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal">
+                        <span class="pmew-value-localisation-number">05</span>
+
+                        <div>
+                            <h3>Customer systems</h3>
+                            <p>
+                                Manufacturing and quality processes integrated
+                                with customer programme requirements.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-one">
+                        <span class="pmew-value-localisation-number">06</span>
+
+                        <div>
+                            <h3>Packaging and logistics</h3>
+                            <p>
+                                Quantities, labels and shipment formats adapted
+                                for local distribution and consumption.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-two">
+                        <span class="pmew-value-localisation-number">07</span>
+
+                        <div>
+                            <h3>Market economics</h3>
+                            <p>
+                                Value-engineering and commercial structures
+                                designed around regional expectations.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pmew-value-localisation-card pmew-value-reveal pmew-value-delay-three">
+                        <span class="pmew-value-localisation-number">08</span>
+
+                        <div>
+                            <h3>Application performance</h3>
+                            <p>
+                                Customised solutions created around functional,
+                                dimensional and lifecycle needs.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======================================================
+             EXHIBITIONS
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-exhibitions">
+            <div class="pmew-value-container">
+                <div class="pmew-value-exhibitions-layout">
+
+                    <blockquote class="pmew-value-exhibition-quote">
+                        <span class="pmew-value-reveal">
+                            We exhibit
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-one">
+                            to connect.
+                        </span>
+
+                        <span class="pmew-value-text-stroke pmew-value-reveal pmew-value-delay-two">
+                            We listen
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            to evolve.
+                        </span>
+                    </blockquote>
+
+                    <div class="pmew-value-exhibition-copy pmew-value-reveal">
+                        <p>
+                            International exhibitions, industrial fairs,
+                            customer conferences and supplier meetings help us
+                            understand emerging applications, regional
+                            requirements and future technologies.
+                        </p>
+
+                        <p>
+                            These interactions create relationships that extend
+                            beyond the exhibition floor into product
+                            development, technical collaboration, local
+                            representation and long-term market development.
+                        </p>
+
+                        <div class="pmew-value-exhibition-tags">
+                            <span class="pmew-value-exhibition-tag">Customer meetings</span>
+                            <span class="pmew-value-exhibition-tag">Market intelligence</span>
+                            <span class="pmew-value-exhibition-tag">Technology discovery</span>
+                            <span class="pmew-value-exhibition-tag">Distributor networks</span>
+                            <span class="pmew-value-exhibition-tag">Application development</span>
+                            <span class="pmew-value-exhibition-tag">Global collaboration</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             INNOVATION
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-lifecycle">
+            <div class="pmew-value-container">
+
+                <div class="pmew-value-lifecycle-header">
+
+                    <div class="pmew-value-section-label pmew-value-reveal">
+                        Innovation and Product Lifecycle
+                    </div>
+
+                    <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                        Value created across the
+                        <span class="pmew-value-highlight-sage">
+                            complete product journey.
+                        </span>
+                    </h2>
+
+                    <p class="pmew-value-body-large pmew-value-reveal pmew-value-delay-two">
+                        Innovation at Pradako is directed toward practical
+                        performance: improving durability, process efficiency,
+                        traceability, material utilisation, energy use and
+                        end-of-life responsibility.
+                    </p>
+
+                </div>
+
+                <div class="pmew-value-lifecycle-track">
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal">
+                        <div class="pmew-value-lifecycle-dot">01</div>
+
+                        <h3>Material selection</h3>
+
+                        <p>
+                            Responsible specifications, optimised material use
+                            and appropriate performance characteristics.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-lifecycle-dot">02</div>
+
+                        <h3>Product engineering</h3>
+
+                        <p>
+                            Design improvement, value engineering and
+                            application-led customisation.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal pmew-value-delay-two">
+                        <div class="pmew-value-lifecycle-dot">03</div>
+
+                        <h3>Manufacturing</h3>
+
+                        <p>
+                            Process consistency, energy efficiency, automation
+                            and reduced production waste.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal">
+                        <div class="pmew-value-lifecycle-dot">04</div>
+
+                        <h3>Packaging and logistics</h3>
+
+                        <p>
+                            Better shipment utilisation, suitable packaging and
+                            efficient movement across markets.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal pmew-value-delay-one">
+                        <div class="pmew-value-lifecycle-dot">05</div>
+
+                        <h3>Product performance</h3>
+
+                        <p>
+                            Reliability, durability, assembly efficiency and
+                            extended service life.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-lifecycle-step pmew-value-reveal pmew-value-delay-two">
+                        <div class="pmew-value-lifecycle-dot">06</div>
+
+                        <h3>Recovery and learning</h3>
+
+                        <p>
+                            Recycling considerations, lifecycle feedback and
+                            knowledge applied to future development.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======================================================
+             SUSTAINABLE SUPPLY CHAINS
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement pmew-value-statement-rust">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        05 — Sustainable supply chains
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            Resilient.
+                        </span>
+
+                        <span class="pmew-value-outline-white pmew-value-reveal pmew-value-delay-one">
+                            Responsible.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-two">
+                            Transparent.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            Built for continuity.
+                        </span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             VALUE CREATED
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-value-types">
+            <div class="pmew-value-container">
+
+                <div class="pmew-value-value-types-header">
+
+                    <div class="pmew-value-section-label pmew-value-reveal">
+                        The Value We Create
+                    </div>
+
+                    <h2 class="pmew-value-heading-medium pmew-value-reveal pmew-value-delay-one">
+                        Three dimensions.
+                        <span class="pmew-value-highlight-yellow">
+                            One connected purpose.
+                        </span>
+                    </h2>
+
+                </div>
+
+                <div class="pmew-value-value-type-grid">
+
+                    <article class="pmew-value-value-type-card pmew-value-reveal">
+                        <span class="pmew-value-value-type-index">
+                            01 — Customer value
+                        </span>
+
+                        <h3>
+                            Confidence that supports performance.
+                        </h3>
+
+                        <p>
+                            We create customer value through product quality,
+                            responsive service, technical support, localised
+                            customisation, commercial understanding, supply
+                            continuity, inventory planning and reliable
+                            long-term collaboration.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-value-type-card pmew-value-reveal pmew-value-delay-one">
+                        <span class="pmew-value-value-type-index">
+                            02 — Organisational value
+                        </span>
+
+                        <h3>
+                            Capability that strengthens the enterprise.
+                        </h3>
+
+                        <p>
+                            We create organisational value through innovation,
+                            skilled employees, stronger supplier networks,
+                            disciplined processes, knowledge continuity,
+                            market development and responsible growth.
+                        </p>
+                    </article>
+
+                    <article class="pmew-value-value-type-card pmew-value-reveal pmew-value-delay-two">
+                        <span class="pmew-value-value-type-index">
+                            03 — Societal value
+                        </span>
+
+                        <h3>
+                            Progress that extends into society.
+                        </h3>
+
+                        <p>
+                            We create societal value through employment, skill
+                            development, supplier opportunity, responsible
+                            manufacturing, resource efficiency and products
+                            that serve essential industries and infrastructure.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======================================================
+             EXPERIENCE + INNOVATION
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-statement">
+            <div class="pmew-value-container">
+                <div class="pmew-value-statement-inner">
+
+                    <span class="pmew-value-statement-number pmew-value-reveal">
+                        06 — Continuity
+                    </span>
+
+                    <h2 class="pmew-value-statement-title">
+                        <span class="pmew-value-reveal">
+                            Experience
+                        </span>
+
+                        <span class="pmew-value-outline-white pmew-value-reveal pmew-value-delay-one">
+                            passed forward.
+                        </span>
+
+                        <span class="pmew-value-highlight-yellow pmew-value-reveal pmew-value-delay-two">
+                            Innovation built
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            into every generation.
+                        </span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             FOUR GENERATIONS
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-generations">
+            <div class="pmew-value-container">
+                <div class="pmew-value-generations-layout">
+
+                    <div class="pmew-value-reveal">
+                        <div class="pmew-value-generation-number">4</div>
+
+                        <div class="pmew-value-generation-word">
+                            Generations<br>
+                            of commitment.
+                        </div>
+                    </div>
+
+                    <div class="pmew-value-generations-copy">
+
+                        <h2 class="pmew-value-reveal">
+                            A philosophy carried forward.
+                        </h2>
+
+                        <p class="pmew-value-reveal pmew-value-delay-one">
+                            For four generations, Pradako has promoted a way of
+                            doing business that places relationships,
+                            responsibility and continuity at the centre of
+                            growth.
+                        </p>
+
+                        <p class="pmew-value-reveal pmew-value-delay-two">
+                            The values of trust, discipline and commercial
+                            integrity are carried forward alongside automation,
+                            advanced engineering, quality systems and
+                            sustainable manufacturing.
+                        </p>
+
+                        <p class="pmew-value-reveal pmew-value-delay-three">
+                            Each generation inherits experience and accepts the
+                            responsibility to strengthen it for customers,
+                            suppliers, employees, industry and society.
+                        </p>
+
+                        <p class="pmew-value-reveal">
+                            This intergenerational stewardship continues to
+                            guide how we manufacture, how we collaborate and
+                            how we prepare the organisation for what comes
+                            next.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             FINAL STATEMENT
+        ======================================================= -->
+
+        <section class="pmew-value-section pmew-value-final">
+            <div class="pmew-value-container">
+                <div class="pmew-value-final-content">
+
+                    <div class="pmew-value-eyebrow pmew-value-reveal">
+                        Built across generations
+                        <span class="pmew-value-eyebrow-dot"></span>
+                        Created for the long term
+                    </div>
+
+                    <h2 class="pmew-value-final-title">
+                        <span class="pmew-value-reveal">
+                            We create
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-one">
+                            confidence.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-two">
+                            continuity.
+                        </span>
+
+                        <span class="pmew-value-reveal pmew-value-delay-three">
+                            shared value.
+                        </span>
+                    </h2>
+
+                    <div class="pmew-value-final-footer">
+
+                        <p class="pmew-value-final-message pmew-value-reveal">
+                            More than products, we create relationships,
+                            knowledge, resilience and opportunity—strengthening
+                            the customers, partners, people and communities
+                            connected to our journey.
+                        </p>
+
+                        <div class="pmew-value-final-signature pmew-value-reveal pmew-value-delay-one">
+                            <strong>Pradako</strong>
+
+                            <span>
+                                Long-Term Value Creation
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PMEW SHARED FOOTER -->
+    <div id="footer-container"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements =
+                document.querySelectorAll(".pmew-value-reveal");
+
+            const progressBar =
+                document.getElementById("ltvcProgressBar");
+
+            const reducedMotion =
+                window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches;
+
+            /*
+             * Reveal animations
+             */
+            if (reducedMotion) {
+                revealElements.forEach((element) => {
+                    element.classList.add("pmew-value-visible");
+                });
+            } else {
+                const revealObserver = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) {
+                                return;
+                            }
+
+                            entry.target.classList.add("pmew-value-visible");
+                            observer.unobserve(entry.target);
+                        });
+                    },
+                    {
+                        threshold: 0.12,
+                        rootMargin: "0px 0px -7% 0px"
+                    }
+                );
+
+                revealElements.forEach((element) => {
+                    revealObserver.observe(element);
+                });
+            }
+
+            /*
+             * Page progress bar
+             */
+            const updateProgress = () => {
+                if (!progressBar) {
+                    return;
+                }
+
+                const scrollTop =
+                    window.scrollY ||
+                    document.documentElement.scrollTop;
+
+                const scrollHeight =
+                    document.documentElement.scrollHeight -
+                    window.innerHeight;
+
+                const progress =
+                    scrollHeight > 0
+                        ? (scrollTop / scrollHeight) * 100
+                        : 0;
+
+                progressBar.style.width =
+                    `${Math.min(Math.max(progress, 0), 100)}%`;
+            };
+
+            updateProgress();
+
+            window.addEventListener(
+                "scroll",
+                updateProgress,
+                { passive: true }
+            );
+        });
+    </script>
+
+
+    <!-- PMEW GLOBAL JAVASCRIPT -->
+    <script  defer></script>
+    <script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

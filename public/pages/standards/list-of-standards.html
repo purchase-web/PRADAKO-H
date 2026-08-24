@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>List of Standards | Pradako Mechanical</title>
+    <meta name="description" content="Browse Pradako's list of international and national fastener standards.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Existing website styles -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/products.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <!-- New independent-page styles -->
+    <link rel="stylesheet" href="/assets/css/list-of-standards.css?v=20260801-01">
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/list-of-standards.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="List of Standards | Pradako Mechanical">
+    <meta property="og:description" content="Browse Pradako">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/list-of-standards.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="List of Standards | Pradako Mechanical">
+    <meta name="twitter:description" content="Browse Pradako">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "List of Standards | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/standards/list-of-standards.html",
+  "description": "Browse Pradako",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="pmew-standards-page">
+    <div id="navbar-container"></div>
+
+    <header class="pmew-standards-hero">
+        <div class="pmew-standards-hero-inner">
+            <nav class="pmew-standards-page-breadcrumb" aria-label="Page breadcrumb">
+                <a href="/pages/products/products.html">Products</a>
+                <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                <span>List of Standards</span>
+            </nav>
+
+            <span class="pmew-standards-kicker">International and national specifications</span>
+
+            <h1>LIST OF STANDARDS</h1>
+
+            <p>
+                Browse standards used across Pradako's fastener portfolio. The cards below are
+                loaded directly from the List of Standards section on the Products page, so the
+                information remains synchronized without maintaining a second copy.
+            </p>
+        </div>
+    </header>
+
+    <!--
+        IMPORTANT:
+        The source cards are not duplicated in this file.
+        /js/list-of-standards.js fetches them from:
+        /products.html -> #list .pradako-products-standards-grid
+
+        Change data-source-page only if your Products page uses another URL.
+    -->
+    <main
+        id="standardsApp"
+        class="pmew-standards-app"
+        data-source-page="/pages/products/products.html"
+        data-source-selector="#list .pradako-products-standards-grid"
+    >
+        <section class="pmew-standards-section" aria-labelledby="standardsPageTitle">
+            <div class="container">
+                <div class="pmew-standards-section-head">
+                    <div>
+                        <span class="pmew-standards-section-label">Standards directory</span>
+                        <h2 id="standardsPageTitle">SELECT A STANDARD FAMILY</h2>
+                        <p>
+                            Search the directory or select a card to open the corresponding
+                            standards page.
+                        </p>
+                    </div>
+
+                    <!-- <a
+                        id="standardsSourceLink"
+                        class="pmew-standards-source-link"
+                        href="/pages/products/products.html#list"
+                        aria-label="Open the source List of Standards section on the Products page"
+                    >
+                        <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                        <span>Synced from Products</span>
+                    </a> -->
+                </div>
+
+                <div class="pmew-standards-controls" aria-label="Standards directory controls">
+                    <label class="pmew-standards-search" for="standardsSearch">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                        <input
+                            id="standardsSearch"
+                            type="search"
+                            placeholder="Search ANSI, DIN, ISO, ASTM, BSI..."
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+
+                        <button
+                            id="standardsSearchClear"
+                            class="pmew-standards-search-clear is-hidden"
+                            type="button"
+                            aria-label="Clear standards search"
+                        >
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                    </label>
+
+                    <div class="pmew-standards-view-actions" aria-label="Change directory view">
+                        <button
+                            class="pmew-standards-view-btn active"
+                            type="button"
+                            data-standards-view="grid"
+                            aria-pressed="true"
+                        >
+                            <i class="fa-solid fa-grip" aria-hidden="true"></i>
+                            <span>Grid</span>
+                        </button>
+
+                        <button
+                            class="pmew-standards-view-btn"
+                            type="button"
+                            data-standards-view="list"
+                            aria-pressed="false"
+                        >
+                            <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+                            <span>List</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pmew-standards-meta" aria-live="polite">
+                    <p id="standardsStatus">Loading standards from the Products page...</p>
+                    <span id="standardsCount">0 standards</span>
+                </div>
+
+                <div
+                    id="standardsGrid"
+                    class="pradako-products-standards-grid grid-view pmew-standards-grid"
+                    aria-live="polite"
+                    aria-busy="true"
+                >
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                    <div class="pmew-standard-skeleton" aria-hidden="true"></div>
+                </div>
+
+                <div id="standardsEmpty" class="pmew-standards-message" hidden>
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <strong>No matching standard found</strong>
+                    <p>Try another standard name or clear the search.</p>
+                </div>
+
+                <div id="standardsError" class="pmew-standards-message pmew-standards-error" hidden>
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <strong>Unable to load the standards directory</strong>
+                    <p id="standardsErrorText">
+                        Confirm that the Products page is available at /products.html and that this
+                        page is being opened through your website server.
+                    </p>
+                    <button id="standardsRetry" type="button">TRY AGAIN</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="standardsBackToTop" class="pmew-standards-back-top" type="button" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div id="footer-container"></div>
+
+    <!-- Existing global navbar/footer loader -->
+    <!-- Independent page logic; data is fetched from /products.html -->
+    <script src="/assets/js/list-of-standards.js?v=20260801-01" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

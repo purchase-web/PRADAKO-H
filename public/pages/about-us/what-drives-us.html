@@ -1,0 +1,3443 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Discover what drives Pradako Mechanical &amp; Engineering Works: customer trust, engineering purpose, repeatable precision, responsible manufacturing, global discipline and a commitment renewed with every component." name="description"/>
+<title>What Drives Us? You Do. | Pradako Mechanical &amp; Engineering Works</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- =========================================================
+         PMEW GLOBAL CSS
+    ========================================================== -->
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* =========================================================
+           WHAT DRIVES US — PAGE DESIGN SYSTEM
+        ========================================================== */
+
+        :root {
+            --wdu-white: #ffffff;
+            --wdu-soft-white: #fafafa;
+            --wdu-warm-white: #f7f5f2;
+            --wdu-ink: #111111;
+            --wdu-ink-soft: #252525;
+            --wdu-grey: #696969;
+            --wdu-grey-light: #a3a3a3;
+            --wdu-line: #e8e8e8;
+
+            --wdu-accent: #f08080;
+            --wdu-accent-soft: rgba(240, 128, 128, 0.12);
+            --wdu-accent-border: rgba(240, 128, 128, 0.42);
+
+            --wdu-font-primary: "Montserrat", sans-serif;
+            --wdu-font-display: "Space Grotesk", sans-serif;
+            --wdu-font-editorial: "Playfair Display", serif;
+
+            --wdu-container: 1460px;
+            --wdu-page-padding: clamp(22px, 5vw, 88px);
+            --wdu-section-space: clamp(90px, 11vw, 180px);
+
+            --wdu-radius-small: 14px;
+            --wdu-radius-medium: 24px;
+            --wdu-radius-large: 38px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background: var(--wdu-white);
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-primary);
+        }
+
+        body,
+        button,
+        input,
+        textarea,
+        select {
+            font-family: var(--wdu-font-primary);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            color: inherit;
+        }
+
+        ::selection {
+            background: var(--wdu-accent);
+            color: var(--wdu-ink);
+        }
+
+        .wdu-page {
+            width: 100%;
+            overflow: hidden;
+            background: var(--wdu-white);
+        }
+
+        .wdu-container {
+            width: min(
+                calc(100% - (var(--wdu-page-padding) * 2)),
+                var(--wdu-container)
+            );
+            margin-inline: auto;
+        }
+
+        .wdu-section {
+            position: relative;
+            padding-block: var(--wdu-section-space);
+        }
+
+        .wdu-section--soft {
+            background: var(--wdu-soft-white);
+        }
+
+        .wdu-section--warm {
+            background: var(--wdu-warm-white);
+        }
+
+        .wdu-skip-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 9999;
+            padding: 12px 18px;
+            background: var(--wdu-ink);
+            color: var(--wdu-white);
+            border-radius: 8px;
+            transform: translateY(-160%);
+            transition: transform 0.25s ease;
+        }
+
+        .wdu-skip-link:focus {
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           HERO BANNER
+        ========================================================== */
+
+        .wdu-hero {
+            position: relative;
+            min-height: 940px;
+            background: var(--wdu-white);
+            border-bottom: 1px solid var(--wdu-line);
+            isolation: isolate;
+        }
+
+        .wdu-hero-layout {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.08fr)
+                minmax(430px, 0.92fr);
+            min-height: 940px;
+        }
+
+        .wdu-hero-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding:
+                clamp(145px, 15vh, 210px)
+                clamp(45px, 6vw, 110px)
+                clamp(100px, 11vh, 150px)
+                var(--wdu-page-padding);
+        }
+
+        .wdu-hero-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: var(--wdu-page-padding);
+            width: 1px;
+            background: rgba(17, 17, 17, 0.07);
+        }
+
+        .wdu-hero-eyebrow {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            width: fit-content;
+            margin-bottom: clamp(32px, 4vw, 56px);
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .wdu-hero-eyebrow::before {
+            content: "";
+            width: 48px;
+            height: 2px;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-hero-title {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(4.1rem, 7.6vw, 8.9rem);
+            font-weight: 700;
+            line-height: 0.84;
+            letter-spacing: -0.076em;
+            text-transform: uppercase;
+        }
+
+        .wdu-hero-title-line {
+            display: block;
+        }
+
+        .wdu-hero-title-line--outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--wdu-ink);
+        }
+
+        .wdu-hero-title-line--accent {
+            position: relative;
+            z-index: 1;
+            width: fit-content;
+            color: var(--wdu-ink);
+        }
+
+        .wdu-hero-title-line--accent::after {
+            content: "";
+            position: absolute;
+            right: -0.04em;
+            bottom: 0.02em;
+            left: 0.02em;
+            z-index: -1;
+            height: 0.12em;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-hero-one-liner {
+            max-width: 840px;
+            margin: clamp(42px, 5vw, 72px) 0 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.3rem, 2.2vw, 2.2rem);
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: -0.035em;
+            text-transform: uppercase;
+        }
+
+        .wdu-hero-one-liner strong {
+            color: var(--wdu-accent);
+            font-weight: 700;
+        }
+
+        .wdu-hero-description {
+            max-width: 760px;
+            margin: 28px 0 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.12vw, 1.15rem);
+            line-height: 1.95;
+        }
+
+        .wdu-hero-description strong {
+            color: var(--wdu-ink);
+            font-weight: 600;
+        }
+
+        .wdu-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 22px;
+            margin-top: 44px;
+        }
+
+        .wdu-primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 58px;
+            padding: 0 30px;
+            background: var(--wdu-ink);
+            color: var(--wdu-white);
+            border: 1px solid var(--wdu-ink);
+            border-radius: 999px;
+            font-family: var(--wdu-font-display);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .wdu-primary-button:hover {
+            background: var(--wdu-accent);
+            color: var(--wdu-ink);
+            border-color: var(--wdu-accent);
+            transform: translateY(-2px);
+        }
+
+        .wdu-text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .wdu-text-link::after {
+            content: "↘";
+            display: inline-grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--wdu-line);
+            border-radius: 50%;
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .wdu-text-link:hover::after {
+            background: var(--wdu-accent);
+            border-color: var(--wdu-accent);
+            transform: translate(2px, 2px);
+        }
+
+        .wdu-hero-visual {
+            position: relative;
+            min-height: 940px;
+            overflow: hidden;
+            background: #e7e7e5;
+        }
+
+        .wdu-hero-image {
+            width: 100%;
+            height: 100%;
+            min-height: 940px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .wdu-hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.48) 0%,
+                rgba(255, 255, 255, 0.08) 32%,
+                rgba(17, 17, 17, 0.03) 100%
+            );
+            pointer-events: none;
+        }
+
+        .wdu-hero-badge {
+            position: absolute;
+            top: clamp(30px, 5vw, 70px);
+            right: clamp(26px, 4vw, 62px);
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            padding: 13px 18px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 999px;
+            backdrop-filter: blur(14px);
+            font-family: var(--wdu-font-display);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .wdu-hero-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--wdu-accent);
+            border-radius: 50%;
+        }
+
+        .wdu-hero-quote {
+            position: absolute;
+            right: clamp(24px, 4vw, 62px);
+            bottom: clamp(28px, 5vw, 68px);
+            z-index: 2;
+            max-width: 350px;
+            padding: 25px 26px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.82);
+            border-radius: var(--wdu-radius-small);
+            backdrop-filter: blur(15px);
+        }
+
+        .wdu-hero-quote span {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-hero-quote strong {
+            display: block;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 1rem;
+            line-height: 1.52;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .wdu-scroll-indicator {
+            position: absolute;
+            left: var(--wdu-page-padding);
+            bottom: 31px;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.63rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .wdu-scroll-line {
+            position: relative;
+            width: 72px;
+            height: 1px;
+            overflow: hidden;
+            background: var(--wdu-line);
+        }
+
+        .wdu-scroll-line::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--wdu-accent);
+            transform: translateX(-100%);
+            animation: wdu-scroll-line 2.4s ease-in-out infinite;
+        }
+
+        @keyframes wdu-scroll-line {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            55%,
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* =========================================================
+           HERO TRUST STRIP
+        ========================================================== */
+
+        .wdu-trust-strip {
+            background: var(--wdu-white);
+            border-bottom: 1px solid var(--wdu-line);
+        }
+
+        .wdu-trust-strip-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .wdu-trust-strip-item {
+            min-height: 110px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 26px 30px;
+            border-right: 1px solid var(--wdu-line);
+        }
+
+        .wdu-trust-strip-item:first-child {
+            padding-left: 0;
+        }
+
+        .wdu-trust-strip-item:last-child {
+            border-right: 0;
+        }
+
+        .wdu-trust-strip-number {
+            flex: 0 0 auto;
+            color: var(--wdu-accent);
+            font-family: var(--wdu-font-display);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .wdu-trust-strip-item strong {
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1.55;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           SHARED SECTION HEADING
+        ========================================================== */
+
+        .wdu-section-heading {
+            display: grid;
+            grid-template-columns:
+                minmax(220px, 0.3fr)
+                minmax(0, 0.7fr);
+            gap: clamp(42px, 7vw, 120px);
+            align-items: start;
+            margin-bottom: clamp(65px, 8vw, 115px);
+        }
+
+        .wdu-section-index {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-section-index::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-section-heading-content h2 {
+            max-width: 1100px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(2.9rem, 5.8vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.065em;
+            text-transform: uppercase;
+        }
+
+        .wdu-section-heading-content p {
+            max-width: 820px;
+            margin: 31px 0 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.2vw, 1.18rem);
+            line-height: 1.95;
+        }
+
+        .wdu-section-heading-content em {
+            color: var(--wdu-accent);
+            font-family: var(--wdu-font-editorial);
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           MAIN GRATITUDE INTRODUCTION
+        ========================================================== */
+
+        .wdu-intro-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(260px, 0.3fr)
+                minmax(0, 0.7fr);
+            gap: clamp(54px, 9vw, 150px);
+            align-items: start;
+        }
+
+        .wdu-intro-block {
+            position: sticky;
+            top: 100px;
+        }
+
+        .wdu-intro-block-title {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(3.8rem, 6.8vw, 7.7rem);
+            font-weight: 700;
+            line-height: 0.86;
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+        }
+
+        .wdu-intro-block-title span {
+            display: block;
+        }
+
+        .wdu-intro-block-title span:nth-child(2) {
+            color: transparent;
+            -webkit-text-stroke: 1.4px var(--wdu-ink);
+        }
+
+        .wdu-intro-copy-lead {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.9rem, 3.2vw, 3.55rem);
+            font-weight: 600;
+            line-height: 1.28;
+            letter-spacing: -0.045em;
+        }
+
+        .wdu-intro-copy-lead strong {
+            position: relative;
+            z-index: 1;
+            color: var(--wdu-ink);
+        }
+
+        .wdu-intro-copy-lead strong::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0.02em;
+            left: 0;
+            z-index: -1;
+            height: 0.2em;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-intro-copy p:not(.wdu-intro-copy-lead) {
+            max-width: 930px;
+            margin: 34px 0 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.16vw, 1.18rem);
+            line-height: 2;
+        }
+
+        .wdu-intro-copy p strong {
+            color: var(--wdu-ink);
+            font-weight: 600;
+        }
+
+        .wdu-gratitude-note {
+            position: relative;
+            margin-top: 58px;
+            padding: 38px 42px;
+            background: var(--wdu-accent-soft);
+            border: 1px solid var(--wdu-accent-border);
+            border-radius: var(--wdu-radius-medium);
+        }
+
+        .wdu-gratitude-note::before {
+            content: "“";
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            color: rgba(240, 128, 128, 0.32);
+            font-family: var(--wdu-font-editorial);
+            font-size: 7rem;
+            line-height: 1;
+        }
+
+        .wdu-gratitude-note p {
+            position: relative;
+            z-index: 1;
+            margin: 0 !important;
+            color: var(--wdu-ink) !important;
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.25rem, 2vw, 2rem) !important;
+            font-weight: 600;
+            line-height: 1.52 !important;
+            letter-spacing: -0.03em;
+        }
+
+        /* =========================================================
+           ONCE. TWICE. AGAIN.
+        ========================================================== */
+
+        .wdu-again-section {
+            overflow: hidden;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-again-header {
+            max-width: 1050px;
+            margin-bottom: clamp(65px, 8vw, 110px);
+        }
+
+        .wdu-again-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 35px;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-again-kicker::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: var(--wdu-ink);
+        }
+
+        .wdu-again-title {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(3.4rem, 8vw, 9.5rem);
+            font-weight: 700;
+            line-height: 0.82;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+        }
+
+        .wdu-again-title span {
+            display: block;
+        }
+
+        .wdu-again-title span:nth-child(2) {
+            color: transparent;
+            -webkit-text-stroke: 1.6px var(--wdu-ink);
+        }
+
+        .wdu-again-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border-top: 1px solid rgba(17, 17, 17, 0.24);
+            border-bottom: 1px solid rgba(17, 17, 17, 0.24);
+        }
+
+        .wdu-again-card {
+            min-height: 330px;
+            padding: 38px 30px;
+            border-right: 1px solid rgba(17, 17, 17, 0.24);
+        }
+
+        .wdu-again-card:first-child {
+            padding-left: 0;
+        }
+
+        .wdu-again-card:last-child {
+            border-right: 0;
+        }
+
+        .wdu-again-card-number {
+            display: block;
+            margin-bottom: 84px;
+            color: rgba(17, 17, 17, 0.52);
+            font-family: var(--wdu-font-display);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wdu-again-card h3 {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.55rem, 2.2vw, 2.55rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.045em;
+            text-transform: uppercase;
+        }
+
+        .wdu-again-card p {
+            margin: 24px 0 0;
+            color: rgba(17, 17, 17, 0.72);
+            font-size: 0.93rem;
+            line-height: 1.82;
+        }
+
+        /* =========================================================
+           TRUST PRINCIPLES
+        ========================================================== */
+
+        .wdu-principle-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .wdu-principle-card {
+            position: relative;
+            grid-column: span 6;
+            min-height: 430px;
+            padding: clamp(32px, 4vw, 58px);
+            overflow: hidden;
+            background: var(--wdu-white);
+            border: 1px solid var(--wdu-line);
+            border-radius: var(--wdu-radius-medium);
+            transition:
+                border-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .wdu-principle-card:hover {
+            border-color: var(--wdu-accent-border);
+            transform: translateY(-6px);
+        }
+
+        .wdu-principle-card--wide {
+            grid-column: span 7;
+        }
+
+        .wdu-principle-card--narrow {
+            grid-column: span 5;
+        }
+
+        .wdu-principle-card--accent {
+            background: var(--wdu-accent-soft);
+            border-color: var(--wdu-accent-border);
+        }
+
+        .wdu-principle-number {
+            display: block;
+            margin-bottom: clamp(56px, 7vw, 108px);
+            color: var(--wdu-grey-light);
+            font-family: var(--wdu-font-display);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wdu-principle-card h3 {
+            max-width: 730px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.9rem, 3vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.055em;
+            text-transform: uppercase;
+        }
+
+        .wdu-principle-card p {
+            max-width: 760px;
+            margin: 27px 0 0;
+            color: var(--wdu-grey);
+            font-size: 0.98rem;
+            line-height: 1.92;
+        }
+
+        .wdu-principle-icon {
+            position: absolute;
+            top: 29px;
+            right: 29px;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--wdu-line);
+            border-radius: 50%;
+            color: var(--wdu-ink);
+            font-size: 1rem;
+        }
+
+        .wdu-principle-card--accent .wdu-principle-icon {
+            border-color: var(--wdu-accent-border);
+        }
+
+        /* =========================================================
+           IMAGE AND COMMITMENT SECTION
+        ========================================================== */
+
+        .wdu-commitment-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.92fr)
+                minmax(0, 1.08fr);
+            min-height: 760px;
+        }
+
+        .wdu-commitment-visual {
+            position: relative;
+            overflow: hidden;
+            background: #e8e8e5;
+        }
+
+        .wdu-commitment-image {
+            width: 100%;
+            height: 100%;
+            min-height: 760px;
+            object-fit: cover;
+        }
+
+        .wdu-commitment-caption {
+            position: absolute;
+            right: 28px;
+            bottom: 28px;
+            left: 28px;
+            padding: 22px 24px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: var(--wdu-radius-small);
+            backdrop-filter: blur(14px);
+        }
+
+        .wdu-commitment-caption span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-commitment-caption strong {
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .wdu-commitment-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding:
+                clamp(75px, 9vw, 140px)
+                var(--wdu-page-padding);
+            background: var(--wdu-warm-white);
+        }
+
+        .wdu-commitment-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 35px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-commitment-kicker::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-commitment-content h2 {
+            max-width: 800px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(3rem, 5.7vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.91;
+            letter-spacing: -0.065em;
+            text-transform: uppercase;
+        }
+
+        .wdu-commitment-content h2 span {
+            color: var(--wdu-accent);
+        }
+
+        .wdu-commitment-content p {
+            max-width: 760px;
+            margin: 32px 0 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.15vw, 1.16rem);
+            line-height: 1.95;
+        }
+
+        .wdu-commitment-content p strong {
+            color: var(--wdu-ink);
+            font-weight: 600;
+        }
+
+        .wdu-commitment-list {
+            display: grid;
+            gap: 0;
+            margin-top: 48px;
+            border-top: 1px solid var(--wdu-line);
+        }
+
+        .wdu-commitment-list-item {
+            display: grid;
+            grid-template-columns: 60px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--wdu-line);
+        }
+
+        .wdu-commitment-list-item span {
+            color: var(--wdu-accent);
+            font-family: var(--wdu-font-display);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
+
+        .wdu-commitment-list-item strong {
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+            font-weight: 600;
+            line-height: 1.45;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           GRATITUDE MANIFESTO
+        ========================================================== */
+
+        .wdu-manifesto {
+            background: var(--wdu-white);
+        }
+
+        .wdu-manifesto-intro {
+            max-width: 1040px;
+            margin-bottom: clamp(65px, 8vw, 110px);
+        }
+
+        .wdu-manifesto-intro h2 {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(3.3rem, 7vw, 8rem);
+            font-weight: 700;
+            line-height: 0.88;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+        }
+
+        .wdu-manifesto-intro h2 span {
+            color: var(--wdu-accent);
+        }
+
+        .wdu-manifesto-intro p {
+            max-width: 760px;
+            margin: 32px 0 0;
+            color: var(--wdu-grey);
+            font-size: 1.05rem;
+            line-height: 1.95;
+        }
+
+        .wdu-manifesto-list {
+            border-top: 1px solid var(--wdu-line);
+        }
+
+        .wdu-manifesto-line {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 34px;
+            padding: clamp(28px, 4vw, 48px) 0;
+            border-bottom: 1px solid var(--wdu-line);
+        }
+
+        .wdu-manifesto-line span {
+            padding-top: 8px;
+            color: var(--wdu-accent);
+            font-family: var(--wdu-font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wdu-manifesto-line p {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(1.35rem, 2.5vw, 3rem);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           FINAL CLOSING
+        ========================================================== */
+
+        .wdu-final {
+            position: relative;
+            min-height: 90vh;
+            display: grid;
+            align-items: center;
+            overflow: hidden;
+            background: var(--wdu-soft-white);
+            border-top: 1px solid var(--wdu-line);
+        }
+
+        .wdu-final::before {
+            content: "TRUST";
+            position: absolute;
+            right: -0.04em;
+            bottom: -0.22em;
+            color: rgba(17, 17, 17, 0.032);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(13rem, 26vw, 33rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.1em;
+            pointer-events: none;
+        }
+
+        .wdu-final-content {
+            position: relative;
+            z-index: 2;
+            padding-block: clamp(125px, 16vw, 245px);
+        }
+
+        .wdu-final-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 44px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-final-kicker::before {
+            content: "";
+            width: 48px;
+            height: 2px;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-final-title {
+            max-width: 1360px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: clamp(4rem, 8.3vw, 10rem);
+            font-weight: 700;
+            line-height: 0.83;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+        }
+
+        .wdu-final-title span {
+            display: block;
+        }
+
+        .wdu-final-title span:nth-child(2) {
+            color: var(--wdu-accent);
+        }
+
+        .wdu-final-description {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.62fr)
+                minmax(280px, 0.38fr);
+            gap: 65px;
+            align-items: end;
+            margin-top: clamp(58px, 8vw, 112px);
+            padding-top: 34px;
+            border-top: 1px solid var(--wdu-line);
+        }
+
+        .wdu-final-description p {
+            max-width: 880px;
+            margin: 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.2vw, 1.18rem);
+            line-height: 1.95;
+        }
+
+        .wdu-final-description p strong {
+            color: var(--wdu-ink);
+            font-weight: 600;
+        }
+
+        .wdu-final-signature {
+            justify-self: end;
+            text-align: right;
+        }
+
+        .wdu-final-signature strong {
+            display: block;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-font-display);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .wdu-final-signature span {
+            display: block;
+            margin-top: 8px;
+            color: var(--wdu-grey);
+            font-size: 0.73rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================== */
+
+        .wdu-reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition:
+                opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .wdu-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wdu-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .wdu-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .wdu-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        /* =========================================================
+           RESPONSIVE DESIGN
+        ========================================================== */
+
+        @media (max-width: 1180px) {
+            .wdu-hero,
+            .wdu-hero-layout,
+            .wdu-hero-visual,
+            .wdu-hero-image {
+                min-height: 850px;
+            }
+
+            .wdu-hero-layout {
+                grid-template-columns:
+                    minmax(0, 1.04fr)
+                    minmax(380px, 0.96fr);
+            }
+
+            .wdu-again-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .wdu-again-card:nth-child(2) {
+                border-right: 0;
+            }
+
+            .wdu-again-card:nth-child(-n + 2) {
+                border-bottom: 1px solid rgba(17, 17, 17, 0.24);
+            }
+
+            .wdu-principle-card--wide,
+            .wdu-principle-card--narrow {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .wdu-hero {
+                min-height: auto;
+            }
+
+            .wdu-hero-layout {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .wdu-hero-content {
+                min-height: 760px;
+                padding-top: 150px;
+            }
+
+            .wdu-hero-visual,
+            .wdu-hero-image {
+                min-height: 650px;
+            }
+
+            .wdu-hero-visual::before {
+                background: linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.48) 0%,
+                    rgba(255, 255, 255, 0.04) 35%,
+                    rgba(17, 17, 17, 0.03) 100%
+                );
+            }
+
+            .wdu-scroll-indicator {
+                display: none;
+            }
+
+            .wdu-trust-strip-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .wdu-trust-strip-item:nth-child(2) {
+                border-right: 0;
+            }
+
+            .wdu-trust-strip-item:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--wdu-line);
+            }
+
+            .wdu-section-heading,
+            .wdu-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wdu-section-heading {
+                gap: 30px;
+            }
+
+            .wdu-intro-block {
+                position: static;
+            }
+
+            .wdu-intro-block-title span {
+                display: inline;
+                margin-right: 0.1em;
+            }
+
+            .wdu-principle-card,
+            .wdu-principle-card--wide,
+            .wdu-principle-card--narrow {
+                grid-column: span 12;
+            }
+
+            .wdu-principle-card {
+                min-height: 390px;
+            }
+
+            .wdu-commitment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wdu-commitment-visual,
+            .wdu-commitment-image {
+                min-height: 620px;
+            }
+
+            .wdu-final-description {
+                grid-template-columns: 1fr;
+            }
+
+            .wdu-final-signature {
+                justify-self: start;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 680px) {
+            :root {
+                --wdu-page-padding: 20px;
+                --wdu-section-space: 92px;
+                --wdu-radius-medium: 18px;
+            }
+
+            .wdu-hero-content::before {
+                display: none;
+            }
+
+            .wdu-hero-content {
+                min-height: 720px;
+                padding:
+                    125px
+                    var(--wdu-page-padding)
+                    88px;
+            }
+
+            .wdu-hero-title {
+                font-size: clamp(3.75rem, 18.5vw, 6.1rem);
+            }
+
+            .wdu-hero-one-liner {
+                font-size: 1.08rem;
+            }
+
+            .wdu-hero-actions {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .wdu-hero-visual,
+            .wdu-hero-image {
+                min-height: 520px;
+            }
+
+            .wdu-hero-badge {
+                top: 18px;
+                right: 18px;
+            }
+
+            .wdu-hero-quote {
+                right: 18px;
+                bottom: 18px;
+                left: 18px;
+                max-width: none;
+            }
+
+            .wdu-trust-strip-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wdu-trust-strip-item {
+                padding: 24px 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--wdu-line);
+            }
+
+            .wdu-trust-strip-item:last-child {
+                border-bottom: 0;
+            }
+
+            .wdu-section-heading-content h2 {
+                font-size: clamp(2.7rem, 14vw, 4.5rem);
+            }
+
+            .wdu-intro-block-title {
+                font-size: clamp(3.1rem, 15vw, 4.9rem);
+            }
+
+            .wdu-intro-copy-lead {
+                font-size: 1.68rem;
+            }
+
+            .wdu-gratitude-note {
+                padding: 30px 24px;
+            }
+
+            .wdu-gratitude-note::before {
+                top: 8px;
+                right: 16px;
+                font-size: 5.5rem;
+            }
+
+            .wdu-again-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wdu-again-card {
+                min-height: auto;
+                padding: 34px 0;
+                border-right: 0;
+                border-bottom: 1px solid rgba(17, 17, 17, 0.24);
+            }
+
+            .wdu-again-card:nth-child(2) {
+                border-right: 0;
+            }
+
+            .wdu-again-card:last-child {
+                border-bottom: 0;
+            }
+
+            .wdu-again-card-number {
+                margin-bottom: 50px;
+            }
+
+            .wdu-principle-card {
+                min-height: auto;
+                padding: 31px 24px;
+            }
+
+            .wdu-principle-number {
+                margin-bottom: 60px;
+            }
+
+            .wdu-principle-card h3 {
+                padding-right: 20px;
+                font-size: 2rem;
+            }
+
+            .wdu-commitment-visual,
+            .wdu-commitment-image {
+                min-height: 500px;
+            }
+
+            .wdu-commitment-content {
+                padding:
+                    85px
+                    var(--wdu-page-padding);
+            }
+
+            .wdu-commitment-list-item {
+                grid-template-columns: 46px minmax(0, 1fr);
+                gap: 14px;
+            }
+
+            .wdu-manifesto-line {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .wdu-manifesto-line p {
+                font-size: 1.38rem;
+            }
+
+            .wdu-final {
+                min-height: auto;
+            }
+
+            .wdu-final-title {
+                font-size: clamp(3.5rem, 16.5vw, 5.9rem);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .wdu-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    
+
+/* =========================================================
+           STICKY CHAPTER NAVIGATION
+        ========================================================= */
+
+        .wdu-chapter-nav {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--wdu-line);
+            backdrop-filter: blur(16px);
+        }
+
+        .wdu-chapter-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 34px;
+            min-height: 76px;
+        }
+
+        .wdu-chapter-label {
+            flex: 0 0 auto;
+            font-family: var(--wdu-display-font);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .wdu-chapter-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(20px, 3vw, 48px);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .wdu-chapter-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .wdu-chapter-link {
+            position: relative;
+            flex: 0 0 auto;
+            padding: 29px 0 27px;
+            color: var(--wdu-grey);
+            font-family: var(--wdu-display-font);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.25s ease;
+        }
+
+        .wdu-chapter-link::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            height: 2px;
+            background: var(--wdu-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+
+        .wdu-chapter-link:hover,
+        .wdu-chapter-link.is-active {
+            color: var(--wdu-ink);
+        }
+
+        .wdu-chapter-link.is-active::after {
+            transform: scaleX(1);
+        }
+
+/* =========================================================
+           PREMIUM FEATURE CARDS
+        ========================================================= */
+
+        .wdu-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .wdu-feature-card {
+            position: relative;
+            grid-column: span 6;
+            min-height: 440px;
+            padding: clamp(32px, 4vw, 58px);
+            overflow: hidden;
+            background: var(--wdu-white);
+            border: 1px solid var(--wdu-line);
+            border-radius: var(--wdu-radius-medium);
+            transition:
+                border-color 0.35s ease,
+                transform 0.35s ease;
+        }
+
+        .wdu-feature-card:hover {
+            border-color: var(--wdu-accent-medium);
+            transform: translateY(-6px);
+        }
+
+        .wdu-feature-card--wide {
+            grid-column: span 7;
+        }
+
+        .wdu-feature-card--narrow {
+            grid-column: span 5;
+        }
+
+        .wdu-feature-card--accent {
+            background: var(--wdu-accent);
+            border-color: var(--wdu-accent);
+        }
+
+        .wdu-feature-card--soft {
+            background: var(--wdu-accent-soft);
+            border-color: var(--wdu-accent-medium);
+        }
+
+        .wdu-feature-number {
+            display: block;
+            margin-bottom: clamp(55px, 7vw, 110px);
+            color: var(--wdu-grey-light);
+            font-family: var(--wdu-display-font);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wdu-feature-card--accent .wdu-feature-number {
+            color: rgba(17, 17, 17, 0.5);
+        }
+
+        .wdu-feature-card h3 {
+            max-width: 760px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-display-font);
+            font-size: clamp(1.9rem, 3vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.055em;
+            text-transform: uppercase;
+        }
+
+        .wdu-feature-card p {
+            max-width: 760px;
+            margin: 27px 0 0;
+            color: var(--wdu-grey);
+            font-size: 0.98rem;
+            line-height: 1.92;
+        }
+
+        .wdu-feature-card--accent p {
+            color: rgba(17, 17, 17, 0.74);
+        }
+
+        .wdu-feature-arrow {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--wdu-line);
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .wdu-feature-card--accent .wdu-feature-arrow {
+            border-color: rgba(17, 17, 17, 0.24);
+        }
+
+/* =========================================================
+           EDITORIAL IMAGE SECTION
+        ========================================================= */
+
+        .wdu-editorial {
+            position: relative;
+            min-height: min(88vh, 900px);
+            overflow: hidden;
+            background: #d9d9d6;
+        }
+
+        .wdu-editorial-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wdu-editorial::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.96) 0%,
+                    rgba(255, 255, 255, 0.84) 36%,
+                    rgba(255, 255, 255, 0.22) 70%,
+                    rgba(255, 255, 255, 0.04) 100%
+                );
+        }
+
+        .wdu-editorial-content {
+            position: relative;
+            z-index: 2;
+            min-height: min(88vh, 900px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-block: 110px;
+        }
+
+        .wdu-editorial-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 34px;
+            font-family: var(--wdu-display-font);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .wdu-editorial-kicker::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: var(--wdu-accent);
+        }
+
+        .wdu-editorial h2 {
+            max-width: 980px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-display-font);
+            font-size: clamp(3.3rem, 7vw, 7.8rem);
+            font-weight: 700;
+            line-height: 0.88;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+        }
+
+        .wdu-editorial h2 span {
+            color: var(--wdu-accent);
+        }
+
+        .wdu-editorial p {
+            max-width: 700px;
+            margin: 35px 0 0;
+            color: var(--wdu-grey);
+            font-size: clamp(1rem, 1.2vw, 1.18rem);
+            line-height: 1.95;
+        }
+
+/* =========================================================
+           EDITORIAL PRINCIPLE LIST
+        ========================================================= */
+
+        .wdu-principle-list {
+            border-top: 1px solid var(--wdu-line);
+        }
+
+        .wdu-principle-row {
+            display: grid;
+            grid-template-columns:
+                92px
+                minmax(270px, 0.42fr)
+                minmax(0, 0.58fr);
+            gap: clamp(26px, 5vw, 82px);
+            align-items: start;
+            padding: clamp(40px, 5vw, 72px) 0;
+            border-bottom: 1px solid var(--wdu-line);
+            transition:
+                padding-left 0.3s ease,
+                padding-right 0.3s ease;
+        }
+
+        .wdu-principle-row:hover {
+            padding-right: 14px;
+            padding-left: 14px;
+        }
+
+        .wdu-principle-number {
+            color: var(--wdu-grey-light);
+            font-family: var(--wdu-display-font);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .wdu-principle-title {
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-display-font);
+            font-size: clamp(1.65rem, 2.6vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.02;
+            letter-spacing: -0.048em;
+            text-transform: uppercase;
+        }
+
+        .wdu-principle-content p {
+            margin: 0;
+            color: var(--wdu-grey);
+            font-size: 0.98rem;
+            line-height: 1.95;
+        }
+
+        .wdu-principle-content p + p {
+            margin-top: 18px;
+        }
+
+/* =========================================================
+           PEOPLE STATEMENT
+        ========================================================= */
+
+        .wdu-people-statement {
+            padding-block: clamp(110px, 14vw, 220px);
+            background: var(--wdu-accent);
+        }
+
+        .wdu-people-quote-mark {
+            display: block;
+            margin-bottom: 40px;
+            font-family: var(--wdu-editorial-font);
+            font-size: clamp(5rem, 10vw, 11rem);
+            line-height: 0.45;
+        }
+
+        .wdu-people-statement blockquote {
+            max-width: 1280px;
+            margin: 0;
+            color: var(--wdu-ink);
+            font-family: var(--wdu-display-font);
+            font-size: clamp(2.5rem, 5.15vw, 6.2rem);
+            font-weight: 700;
+            line-height: 0.98;
+            letter-spacing: -0.065em;
+            text-transform: uppercase;
+        }
+
+        .wdu-people-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 38px;
+            margin-top: 62px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(17, 17, 17, 0.24);
+        }
+
+        .wdu-people-footer p {
+            max-width: 720px;
+            margin: 0;
+            color: rgba(17, 17, 17, 0.72);
+            font-size: 0.94rem;
+            line-height: 1.88;
+        }
+
+        .wdu-people-footer span {
+            flex: 0 0 auto;
+            font-family: var(--wdu-display-font);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+
+/* =========================================================
+   MERGED ENGINEERING CHAPTER RESPONSIVENESS
+========================================================= */
+@media (max-width: 1180px) {
+    .wdu-feature-card--wide,
+    .wdu-feature-card--narrow {
+        grid-column: span 6;
+    }
+
+    .wdu-principle-row {
+        grid-template-columns: 70px minmax(240px, 0.42fr) minmax(0, 0.58fr);
+    }
+}
+
+@media (max-width: 960px) {
+    .wdu-chapter-label {
+        display: none;
+    }
+
+    .wdu-chapter-nav-inner {
+        justify-content: flex-start;
+    }
+
+    .wdu-feature-card,
+    .wdu-feature-card--wide,
+    .wdu-feature-card--narrow {
+        grid-column: span 12;
+    }
+
+    .wdu-feature-card {
+        min-height: 390px;
+    }
+
+    .wdu-principle-row {
+        grid-template-columns: 58px minmax(0, 1fr);
+    }
+
+    .wdu-principle-content {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 680px) {
+    .wdu-chapter-nav-inner {
+        min-height: 68px;
+    }
+
+    .wdu-chapter-link {
+        padding: 25px 0 23px;
+    }
+
+    .wdu-feature-card {
+        min-height: auto;
+        padding: 31px 24px;
+    }
+
+    .wdu-feature-number {
+        margin-bottom: 60px;
+    }
+
+    .wdu-feature-card h3 {
+        padding-right: 20px;
+        font-size: 2rem;
+    }
+
+    .wdu-editorial,
+    .wdu-editorial-content {
+        min-height: 720px;
+    }
+
+    .wdu-editorial::after {
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.72) 52%,
+            rgba(255, 255, 255, 0.97) 100%
+        );
+    }
+
+    .wdu-editorial-content {
+        justify-content: flex-end;
+        padding-bottom: 75px;
+    }
+
+    .wdu-editorial h2 {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+    }
+
+    .wdu-principle-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wdu-principle-content {
+        grid-column: 1;
+    }
+
+    .wdu-principle-title {
+        font-size: 1.95rem;
+    }
+
+    .wdu-people-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/what-drives-us.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="What Drives Us? You Do. | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Discover what drives Pradako Mechanical &amp; Engineering Works: customer trust, engineering purpose, repeatable precision, responsible manufacturing, global discipline and a commitment renewed with every component.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/what-drives-us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Drives Us? You Do. | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Discover what drives Pradako Mechanical &amp; Engineering Works: customer trust, engineering purpose, repeatable precision, responsible manufacturing, global discipline and a commitment renewed with every component.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "What Drives Us? You Do. | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/about-us/what-drives-us.html",
+  "description": "Discover what drives Pradako Mechanical & Engineering Works: customer trust, engineering purpose, repeatable precision, responsible manufacturing, global discipline and a commitment renewed with every component.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+<a class="wdu-skip-link" href="#wdu-main">
+        Skip to main content
+    </a>
+<!-- =========================================================
+         NAVBAR CONTAINER
+    ========================================================== -->
+<div id="navbar-container"></div>
+<main class="wdu-page" id="wdu-main">
+<!-- =====================================================
+             HERO BANNER
+        ====================================================== -->
+<section aria-labelledby="wdu-hero-title" class="wdu-hero">
+<div class="wdu-hero-layout">
+<div class="wdu-hero-content">
+<div class="wdu-hero-eyebrow">
+                        About Pradako / What Drives Us
+                    </div>
+<h1 class="wdu-hero-title" id="wdu-hero-title">
+<span class="wdu-hero-title-line">
+                            What
+                        </span>
+<span class="wdu-hero-title-line wdu-hero-title-line--outline">
+                            Drives Us?
+                        </span>
+<span class="wdu-hero-title-line wdu-hero-title-line--accent">
+                            You Do.
+                        </span>
+</h1>
+<p class="wdu-hero-one-liner">
+                        Your trust is the
+                        <strong>responsibility behind every promise we keep.</strong>
+</p>
+<p class="wdu-hero-description">What drives us is you—your trust, your support and your belief that when a requirement
+    appears difficult, <strong>we will find a way to make it happen.</strong> That confidence
+    becomes the purpose, discipline and responsibility behind every component we engineer,
+    every commitment we protect and every delivery we make.</p>
+<div class="wdu-hero-actions">
+<a class="wdu-primary-button" href="#wdu-gratitude">
+                            Discover what drives us
+                        </a>
+<a class="wdu-text-link" href="#wdu-commitment">
+                            Our commitment to you
+                        </a>
+</div>
+</div>
+<div class="wdu-hero-visual">
+<!--
+                        Replace this image path with your final image.
+
+                        Recommended image:
+                        A premium industrial partnership scene showing a
+                        customer and a Pradako engineering representative
+                        reviewing a precision component inside a bright,
+                        modern manufacturing facility.
+                    -->
+<img alt="A customer and Pradako engineer reviewing a precision-engineered component together" class="wdu-hero-image" src="/assets/images/about-us/you-drive-us-hero.jpg"/>
+<div class="wdu-hero-badge">
+                        Your belief. Our responsibility.
+                    </div>
+<div class="wdu-hero-quote">
+<span>A relationship built through performance</span>
+<strong>
+                            Once. Twice. Again and again.
+                            Every commitment must strengthen your trust.
+                        </strong>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="wdu-scroll-indicator">
+<span class="wdu-scroll-line"></span>
+                Scroll to explore
+            </div>
+</section>
+<!-- =====================================================
+             TRUST STRIP
+        ====================================================== -->
+<section aria-label="The forces that drive Pradako" class="wdu-trust-strip">
+<div class="wdu-container wdu-trust-strip-grid">
+<div class="wdu-trust-strip-item">
+<span class="wdu-trust-strip-number">01</span>
+<strong>
+                        Your trust in our capabilities
+                    </strong>
+</div>
+<div class="wdu-trust-strip-item">
+<span class="wdu-trust-strip-number">02</span>
+<strong>
+                        Your support through every journey
+                    </strong>
+</div>
+<div class="wdu-trust-strip-item">
+<span class="wdu-trust-strip-number">03</span>
+<strong>
+                        Your belief that we will make it happen
+                    </strong>
+</div>
+<div class="wdu-trust-strip-item">
+<span class="wdu-trust-strip-number">04</span>
+<strong>
+                        Our privilege to deliver every time
+                    </strong>
+</div>
+</div>
+</section><nav aria-label="What Drives Us page chapters" class="wdu-chapter-nav">
+<div class="wdu-container wdu-chapter-nav-inner">
+<div class="wdu-chapter-label">Explore the page</div>
+<div class="wdu-chapter-links">
+<a class="wdu-chapter-link is-active" href="#wdu-gratitude">You Drive Us</a>
+<a class="wdu-chapter-link" href="#wdu-purpose">Purpose</a>
+<a class="wdu-chapter-link" href="#wdu-discipline">Precision</a>
+<a class="wdu-chapter-link" href="#wdu-partnership">Partnership</a>
+<a class="wdu-chapter-link" href="#wdu-progress">Capability</a>
+<a class="wdu-chapter-link" href="#wdu-future">Responsibility</a>
+<a class="wdu-chapter-link" href="#wdu-commitment">Our Commitment</a>
+<a class="wdu-chapter-link" href="#wdu-manifesto">Manifesto</a>
+</div>
+</div>
+</nav>
+<!-- =====================================================
+             MAIN GRATITUDE WRITE-UP
+        ====================================================== -->
+<section class="wdu-section wdu-observed-section" data-section="wdu-gratitude" id="wdu-gratitude">
+<div class="wdu-container wdu-intro-grid">
+<div class="wdu-intro-block">
+<h2 class="wdu-intro-block-title wdu-reveal">
+<span>You</span>
+<span>Believe.</span>
+<span>We Deliver.</span>
+</h2>
+</div>
+<div class="wdu-intro-copy">
+<p class="wdu-intro-copy-lead wdu-reveal">
+                        What drives us is not only what we manufacture.
+                        It is the confidence with which you turn to us and say,
+                        <strong>“We believe you can make it happen.”</strong>
+</p>
+<p class="wdu-reveal wdu-delay-1">
+                        Your trust gives every requirement greater meaning.
+                        Your support gives our efforts direction. Your belief
+                        in our people, processes and capabilities reminds us
+                        that every commitment carries a responsibility far
+                        beyond the component itself.
+                    </p>
+<p class="wdu-reveal wdu-delay-2">
+                        When you depend on us for a difficult development,
+                        an urgent requirement, a critical application or the
+                        continuity of an established programme, we recognise
+                        the confidence placed in our name. We feel respected
+                        when you believe in us, and we remain sincerely grateful
+                        for every opportunity to prove that belief right.
+                    </p>
+<p class="wdu-reveal wdu-delay-2">
+                        We may have made it happen once. We may have done it
+                        twice. We may have delivered again and again across
+                        different products, challenges and circumstances.
+                        Yet every new requirement is approached with the same
+                        seriousness, because past performance earns confidence,
+                        but present performance must continue to protect it.
+                    </p>
+<div class="wdu-gratitude-note wdu-reveal wdu-delay-3">
+<p>
+                            It is, and will always remain, our privilege to make
+                            sure that your trust in us, in our people and in our
+                            capabilities remains intact—every time you choose
+                            Pradako.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             ONCE. TWICE. AGAIN AND AGAIN.
+        ====================================================== -->
+<section class="wdu-section wdu-again-section">
+<div class="wdu-container">
+<header class="wdu-again-header">
+<div class="wdu-again-kicker wdu-reveal">
+                        Consistency creates confidence
+                    </div>
+<h2 class="wdu-again-title wdu-reveal wdu-delay-1">
+<span>Once.</span>
+<span>Twice.</span>
+<span>Again &amp; Again.</span>
+</h2>
+</header>
+<div class="wdu-again-grid">
+<article class="wdu-again-card wdu-reveal">
+<span class="wdu-again-card-number">
+                            01 / The first opportunity
+                        </span>
+<h3>
+                            We earn the beginning.
+                        </h3>
+<p>
+                            The first requirement gives us an opportunity to
+                            demonstrate our understanding, discipline and
+                            ability to deliver.
+                        </p>
+</article>
+<article class="wdu-again-card wdu-reveal wdu-delay-1">
+<span class="wdu-again-card-number">
+                            02 / The second opportunity
+                        </span>
+<h3>
+                            We confirm the confidence.
+                        </h3>
+<p>
+                            The next requirement tests whether quality,
+                            responsiveness and reliability can be repeated
+                            with the same commitment.
+                        </p>
+</article>
+<article class="wdu-again-card wdu-reveal wdu-delay-2">
+<span class="wdu-again-card-number">
+                            03 / Continued performance
+                        </span>
+<h3>
+                            We protect continuity.
+                        </h3>
+<p>
+                            Consistent delivery transforms an individual order
+                            into a dependable engineering relationship.
+                        </p>
+</article>
+<article class="wdu-again-card wdu-reveal wdu-delay-3">
+<span class="wdu-again-card-number">
+                            04 / Long-term trust
+                        </span>
+<h3>
+                            We remain worthy of belief.
+                        </h3>
+<p>
+                            Every successful delivery creates a greater
+                            responsibility to perform with the same discipline
+                            the next time.
+                        </p>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             TRUST PRINCIPLES
+        ====================================================== -->
+<section aria-labelledby="wdu-trust-principles-title" class="wdu-section wdu-section--soft" id="wdu-trust-principles">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        The forces behind us
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2 id="wdu-trust-principles-title">
+                            Your confidence gives our capabilities purpose.
+                        </h2>
+<p>
+                            Trust is not a compliment we simply receive.
+                            It is a responsibility we must continually
+                            <em>earn, protect and strengthen.</em>
+</p>
+</div>
+</header>
+<div class="wdu-principle-grid">
+<article class="wdu-principle-card wdu-principle-card--wide wdu-reveal">
+<span class="wdu-principle-number">
+                            01 / Your Trust
+                        </span>
+<span aria-hidden="true" class="wdu-principle-icon">
+<i class="fa-solid fa-handshake"></i>
+</span>
+<h3>
+                            Your Trust Gives Every Commitment Meaning
+                        </h3>
+<p>
+                            When you place a requirement in our hands, you are
+                            entrusting us with more than a drawing or an order.
+                            You are trusting us with timelines, production
+                            continuity, application performance, customer
+                            commitments and the reputation connected to your
+                            own organisation.
+                        </p>
+<p>
+                            That understanding gives every decision greater
+                            purpose and every delivery greater responsibility.
+                        </p>
+</article>
+<article class="wdu-principle-card wdu-principle-card--narrow wdu-principle-card--accent wdu-reveal wdu-delay-1">
+<span class="wdu-principle-number">
+                            02 / Your Support
+                        </span>
+<span aria-hidden="true" class="wdu-principle-icon">
+<i class="fa-solid fa-people-group"></i>
+</span>
+<h3>
+                            Your Support Helps Us Move Forward
+                        </h3>
+<p>
+                            Every collaboration, feedback, challenge and
+                            opportunity helps us strengthen our systems,
+                            develop new capabilities and improve the way we
+                            serve.
+                        </p>
+<p>
+                            Your support has not only contributed to our growth.
+                            It has helped shape the organisation we continue
+                            to become.
+                        </p>
+</article>
+<article class="wdu-principle-card wdu-principle-card--narrow wdu-reveal">
+<span class="wdu-principle-number">
+                            03 / Your Belief
+                        </span>
+<span aria-hidden="true" class="wdu-principle-icon">
+<i class="fa-solid fa-arrow-trend-up"></i>
+</span>
+<h3>
+                            Your Belief Encourages Better Thinking
+                        </h3>
+<p>
+                            When you believe that we can solve a difficult
+                            requirement, meet a demanding timeline or develop
+                            an application-specific component, that belief
+                            challenges us to think deeper and perform better.
+                        </p>
+<p>
+                            It inspires us to search for possibilities where
+                            others may only see limitations.
+                        </p>
+</article>
+<article class="wdu-principle-card wdu-principle-card--wide wdu-principle-card--accent wdu-reveal wdu-delay-1">
+<span class="wdu-principle-number">
+                            04 / Our Gratitude
+                        </span>
+<span aria-hidden="true" class="wdu-principle-icon">
+<i class="fa-solid fa-heart"></i>
+</span>
+<h3>
+                            Gratitude Must Be Expressed Through Performance
+                        </h3>
+<p>
+                            Our gratitude cannot remain limited to words.
+                            It must be visible in the accuracy of the component,
+                            the clarity of our communication, the integrity of
+                            our documentation, the reliability of supply and
+                            the seriousness with which we protect every
+                            commitment.
+                        </p>
+<p>
+                            The strongest way to thank you for your confidence
+                            is to continue proving ourselves worthy of it.
+                        </p>
+</article>
+</div>
+</div>
+</section><section class="wdu-section wdu-section--soft wdu-observed-section" data-section="wdu-purpose" id="wdu-purpose">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        Chapter 01 / Purpose
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2>
+                            Purpose beyond production.
+                        </h2>
+<p>
+                            A fastener may be small in scale, yet its role can
+                            be fundamental to safety, stability, performance
+                            and product life. We engineer
+                            <em>dependable connections.</em>
+</p>
+</div>
+</header>
+<div class="wdu-feature-grid">
+<article class="wdu-feature-card wdu-feature-card--wide wdu-reveal">
+<span class="wdu-feature-number">
+                            01 / 04
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Purpose Beyond Production
+                        </h3>
+<p>
+                            We are driven by the purpose our components serve.
+                            A fastener may be small in scale, yet its role can
+                            be fundamental to safety, stability, performance
+                            and product life.
+                        </p>
+<p>
+                            We therefore approach manufacturing not as the
+                            production of individual parts, but as the
+                            engineering of dependable connections.
+                        </p>
+<p>
+                            Every dimension, material, thread, finish, coating
+                            and inspection parameter is considered in relation
+                            to the application it must support.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--narrow wdu-feature-card--accent wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            02 / 04
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            The Responsibility of Trust
+                        </h3>
+<p>
+                            Customers depend on more than the product they
+                            order. They depend on delivery commitments,
+                            technical clarity, traceability, documentation,
+                            responsiveness and continuity of supply.
+                        </p>
+<p>
+                            Trust is earned through performance, protected
+                            through transparency and strengthened through
+                            consistency.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--soft wdu-reveal">
+<span class="wdu-feature-number">
+                            03 / 04
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Built for the Long Term
+                        </h3>
+<p>
+                            We do not build only for immediate opportunity.
+                            We build manufacturing capabilities, customer
+                            relationships, systems, knowledge and partnerships
+                            intended to remain valuable across decades.
+                        </p>
+<p>
+                            Our decisions are guided by continuity, resilience
+                            and the responsibility of carrying a respected
+                            industrial legacy into the future.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            04 / 04
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            A Standard We Set for Ourselves
+                        </h3>
+<p>
+                            Our strongest competition is the standard we
+                            achieved yesterday.
+                        </p>
+<p>
+                            We continuously challenge ourselves to improve
+                            accuracy, efficiency, responsiveness, sustainability
+                            and customer experience.
+                        </p>
+<p>
+                            This internal standard keeps us moving forward,
+                            even when expectations have already been met.
+                        </p>
+</article>
+</div>
+</div>
+</section><section class="wdu-section wdu-observed-section" data-section="wdu-discipline" id="wdu-discipline">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        Chapter 02 / Discipline
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2>
+                            Precision is built in—not inspected in.
+                        </h2>
+<p>
+                            Quality must remain repeatable, documented and
+                            dependable across every production cycle—not
+                            occasionally achieved.
+                        </p>
+</div>
+</header>
+<div class="wdu-principle-list">
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            01
+                        </div>
+<h3 class="wdu-principle-title">
+                            An Uncompromising Respect for Precision
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Precision is not treated as a final inspection
+                                requirement. It is built into every stage of
+                                our process.
+                            </p>
+<p>
+                                From tooling and material control to forming,
+                                machining, heat treatment, surface finishing,
+                                measurement and documentation, we pursue
+                                consistency across every production cycle.
+                            </p>
+<p>
+                                We are driven by the belief that quality must
+                                remain repeatable—not occasionally achieved.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            02
+                        </div>
+<h3 class="wdu-principle-title">
+                            Engineering the Difficult
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Complex requirements energise us.
+                            </p>
+<p>
+                                Unusual geometries, close tolerances,
+                                specialised materials, critical coatings,
+                                application-specific performance conditions
+                                and demanding production volumes encourage us
+                                to explore better engineering possibilities.
+                            </p>
+<p>
+                                We are driven by the opportunity to transform
+                                technically challenging requirements into
+                                practical, reliable and scalable manufacturing
+                                solutions.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            03
+                        </div>
+<h3 class="wdu-principle-title">
+                            Continuous Improvement Without Complacency
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Our heritage gives us experience, but our future
+                                depends on our ability to evolve.
+                            </p>
+<p>
+                                We continuously review our systems, machinery,
+                                workflows, inspection practices, tooling
+                                strategies, quality controls and delivery
+                                processes.
+                            </p>
+<p>
+                                Through process control, mistake prevention,
+                                root-cause analysis and production optimisation,
+                                we strengthen not only the final product but the
+                                entire system behind it.
+                            </p>
+<p>
+                                Improvement is not a project with an ending.
+                                It is a permanent part of how we operate.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            04
+                        </div>
+<h3 class="wdu-principle-title">
+                            The Pursuit of Zero-Defect Thinking
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                We are driven by the belief that defects should
+                                not be accepted as an unavoidable part of
+                                manufacturing.
+                            </p>
+<p>
+                                Our focus extends beyond identifying
+                                non-conformity. We work to understand its source,
+                                prevent its recurrence and build stronger
+                                controls into the process.
+                            </p>
+<p>
+                                This mindset encourages ownership, discipline
+                                and attention at every stage—from incoming
+                                material to final dispatch.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            05
+                        </div>
+<h3 class="wdu-principle-title">
+                            Quality That Can Be Verified
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Confidence must be supported by evidence.
+                            </p>
+<p>
+                                We recognise the importance of inspection
+                                records, material certificates, process
+                                documentation, testing reports, coating
+                                certifications, dimensional verification and
+                                product traceability.
+                            </p>
+<p>
+                                We ensure that quality is not merely claimed—it
+                                can be demonstrated, documented and verified.
+                            </p>
+</div>
+</article>
+</div>
+</div>
+</section><section class="wdu-editorial">
+<!-- Replace with your final engineering image -->
+<img alt="Precision engineer inspecting an application-specific fastener" class="wdu-editorial-image" loading="lazy" src="/assets/images/about-us/engineering-the-difficult.jpg"/>
+<div class="wdu-container wdu-editorial-content">
+<div class="wdu-editorial-kicker wdu-reveal">
+                    The engineering mindset
+                </div>
+<h2 class="wdu-reveal wdu-delay-1">
+                    Difficult requirements demand
+                    <span>better thinking.</span>
+</h2>
+<p class="wdu-reveal wdu-delay-2">
+                    Capability is not measured only by what we manufacture
+                    today. It is measured by our preparedness to solve what
+                    customers may require tomorrow.
+                </p>
+</div>
+</section><section class="wdu-section wdu-section--warm wdu-observed-section" data-section="wdu-partnership" id="wdu-partnership">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        Chapter 03 / Partnership
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2>
+                            Beyond supply. Toward enduring value.
+                        </h2>
+<p>
+                            We seek to remain dependable through regular
+                            production, urgent requirements, changing markets
+                            and new development programmes.
+                        </p>
+</div>
+</header>
+<div class="wdu-feature-grid">
+<article class="wdu-feature-card wdu-feature-card--wide wdu-reveal">
+<span class="wdu-feature-number">
+                            01 / 05
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Customer Continuity
+                        </h3>
+<p>
+                            A component becomes truly valuable when it arrives
+                            correctly, consistently and at the moment it is
+                            needed.
+                        </p>
+<p>
+                            We understand the operational impact of delayed
+                            deliveries, production interruptions, inconsistent
+                            specifications and incomplete documentation.
+                        </p>
+<p>
+                            This drives us to build dependable production
+                            planning, packaging, warehousing, logistics
+                            coordination and supply-chain support around our
+                            manufacturing capabilities.
+                        </p>
+<p>
+                            Our objective is not merely to fulfil an order.
+                            It is to protect our customer’s continuity.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--narrow wdu-feature-card--accent wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            02 / 05
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Application-Led Engineering
+                        </h3>
+<p>
+                            The best manufacturing decisions begin with
+                            understanding the application.
+                        </p>
+<p>
+                            Load, vibration, temperature, environment, assembly
+                            conditions, corrosion exposure and service life can
+                            influence how a component performs.
+                        </p>
+<p>
+                            Looking beyond drawings enables better material
+                            decisions, suitable coatings, improved geometries
+                            and more reliable performance.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--soft wdu-reveal">
+<span class="wdu-feature-number">
+                            03 / 05
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            The Power of Long-Term Relationships
+                        </h3>
+<p>
+                            We are driven by relationships that extend beyond
+                            transactions.
+                        </p>
+<p>
+                            Many of our most valued partnerships have been
+                            built over years and generations through consistent
+                            supply, shared problem-solving and mutual confidence.
+                        </p>
+<p>
+                            Long-term association is not simply a business
+                            outcome. It is evidence of sustained trust.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            04 / 05
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Responsiveness When It Matters Most
+                        </h3>
+<p>
+                            Industrial requirements do not always arrive under
+                            ideal conditions.
+                        </p>
+<p>
+                            Urgent production needs, development programmes,
+                            supply interruptions and unexpected technical
+                            challenges demand speed without compromising
+                            judgement.
+                        </p>
+<p>
+                            We respond with clarity, coordination and practical
+                            engineering support when customers need it most.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--wide wdu-reveal">
+<span class="wdu-feature-number">
+                            05 / 05
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Creating Value Beyond the Component
+                        </h3>
+<p>
+                            The true value of a component extends beyond its
+                            purchase price.
+                        </p>
+<p>
+                            Value is created through longer service life,
+                            easier assembly, lower rejection, reliable supply,
+                            reduced downtime, correct documentation and
+                            dependable performance.
+                        </p>
+<p>
+                            We deliver value across the complete product
+                            journey—from initial development to continuous
+                            production and long-term application performance.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--narrow wdu-feature-card--accent wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            Trust
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Performance Creates Confidence
+                        </h3>
+<p>
+                            Our performance can directly influence production
+                            schedules, customer relationships and market
+                            commitments.
+                        </p>
+<p>
+                            Trust remains one of our most important
+                            responsibilities.
+                        </p>
+</article>
+</div>
+</div>
+</section><section class="wdu-people-statement">
+<div class="wdu-container">
+<span aria-hidden="true" class="wdu-people-quote-mark">
+                    “
+                </span>
+<blockquote class="wdu-reveal">
+                    Machines create capacity. People create excellence.
+                </blockquote>
+<div class="wdu-people-footer wdu-reveal wdu-delay-1">
+<p>
+                        Our progress is driven by engineers, operators, quality
+                        professionals, production teams, supervisors, planners,
+                        partners and leaders who understand that every action
+                        influences the final result.
+                    </p>
+<span>
+                        The people behind Pradako
+                    </span>
+</div>
+</div>
+</section><section class="wdu-section wdu-observed-section" data-section="wdu-progress" id="wdu-progress">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        Chapter 04 / Progress
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2>
+                            Heritage behind us. Possibility ahead.
+                        </h2>
+<p>
+                            Proven industrial knowledge gives us strength.
+                            Technology, people and forward-looking investment
+                            prepare us for what comes next.
+                        </p>
+</div>
+</header>
+<div class="wdu-principle-list">
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            01
+                        </div>
+<h3 class="wdu-principle-title">
+                            Manufacturing With Global Discipline
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                We aspire to compete with the finest
+                                manufacturing organisations across the world.
+                            </p>
+<p>
+                                This requires more than production capacity.
+                                It requires documentation, process discipline,
+                                traceability, international standards, export
+                                readiness, packaging integrity and professional
+                                communication.
+                            </p>
+<p>
+                                We represent the strength of Indian engineering
+                                across global markets while remaining responsive
+                                to international OEMs, distributors, industries
+                                and supply chains.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            02
+                        </div>
+<h3 class="wdu-principle-title">
+                            Proudly Indian. Globally Prepared.
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Our growth is closely connected to the
+                                advancement of Indian manufacturing.
+                            </p>
+<p>
+                                We believe India has the engineering talent,
+                                industrial capability and entrepreneurial
+                                strength to play a defining role in global
+                                supply chains.
+                            </p>
+<p>
+                                We contribute by strengthening local capability,
+                                investing in manufacturing excellence and
+                                delivering products that earn international
+                                confidence.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            03
+                        </div>
+<h3 class="wdu-principle-title">
+                            Knowledge Across Generations
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                Four generations of involvement have created a
+                                valuable continuity of experience, values and
+                                industrial understanding.
+                            </p>
+<p>
+                                Knowledge built through decades of manufacturing
+                                is carried forward, examined, modernised and
+                                strengthened by each succeeding generation.
+                            </p>
+<p>
+                                We preserve what has proven valuable while
+                                remaining courageous enough to transform what
+                                the future demands.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            04
+                        </div>
+<h3 class="wdu-principle-title">
+                            People Who Take Ownership
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                We value technical competence, discipline,
+                                curiosity, collaboration and the willingness
+                                to take responsibility.
+                            </p>
+<p>
+                                When people are encouraged to contribute ideas
+                                and improve systems, the organisation becomes
+                                stronger at every level.
+                            </p>
+</div>
+</article>
+<article class="wdu-principle-row wdu-reveal">
+<div class="wdu-principle-number">
+                            05
+                        </div>
+<h3 class="wdu-principle-title">
+                            Investing in Capability
+                        </h3>
+<div class="wdu-principle-content">
+<p>
+                                We continually expand what we can engineer,
+                                manufacture, inspect and deliver.
+                            </p>
+<p>
+                                Investment in technology, modern machinery,
+                                specialised tooling, testing systems, automation
+                                and workforce development strengthens our
+                                ability to respond to increasingly demanding
+                                applications.
+                            </p>
+<p>
+                                Capability is not measured only by what we
+                                manufacture today. It is measured by our
+                                preparedness for what customers may require
+                                tomorrow.
+                            </p>
+</div>
+</article>
+</div>
+</div>
+</section><section class="wdu-section wdu-section--soft wdu-observed-section" data-section="wdu-future" id="wdu-future">
+<div class="wdu-container">
+<header class="wdu-section-heading">
+<div class="wdu-section-index wdu-reveal">
+                        Chapter 05 / Future
+                    </div>
+<div class="wdu-section-heading-content wdu-reveal wdu-delay-1">
+<h2>
+                            Progress must create value that lasts.
+                        </h2>
+<p>
+                            Industrial ambition and environmental accountability
+                            must advance together. The future belongs to
+                            organisations prepared to evolve responsibly.
+                        </p>
+</div>
+</header>
+<div class="wdu-feature-grid">
+<article class="wdu-feature-card wdu-feature-card--wide wdu-feature-card--accent wdu-reveal">
+<span class="wdu-feature-number">
+                            01 / 03
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Responsible Manufacturing
+                        </h3>
+<p>
+                            Industrial progress must be achieved with
+                            responsibility.
+                        </p>
+<p>
+                            We are committed to improving the way resources,
+                            energy, materials, chemicals, waste and emissions
+                            are managed across our operations.
+                        </p>
+<p>
+                            Environmental responsibility, energy awareness,
+                            waste reduction, material efficiency and compliance
+                            are increasingly important to the future of
+                            manufacturing.
+                        </p>
+<p>
+                            We grow in a way that respects both industrial
+                            ambition and environmental accountability.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--narrow wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            02 / 03
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Courage to Think Ahead
+                        </h3>
+<p>
+                            The industries we serve are evolving rapidly.
+                        </p>
+<p>
+                            New mobility systems, advanced electronics,
+                            aerospace, defence, renewable energy, automation,
+                            infrastructure and emerging technologies are
+                            creating new performance expectations.
+                        </p>
+<p>
+                            We anticipate these changes, develop new
+                            competencies and prepare our manufacturing systems
+                            for future applications.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-feature-card--soft wdu-reveal">
+<span class="wdu-feature-number">
+                            03 / 03
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Prepared for What Comes Next
+                        </h3>
+<p>
+                            We do not define progress by immediate opportunity
+                            alone.
+                        </p>
+<p>
+                            We build resilient systems, knowledge, capability
+                            and relationships designed to remain valuable
+                            across changing technologies, markets and
+                            generations.
+                        </p>
+</article>
+<article class="wdu-feature-card wdu-reveal wdu-delay-1">
+<span class="wdu-feature-number">
+                            Our responsibility
+                        </span>
+<span aria-hidden="true" class="wdu-feature-arrow">
+                            ↗
+                        </span>
+<h3>
+                            Engineering With Accountability
+                        </h3>
+<p>
+                            Every stage—from material selection and production
+                            to inspection, documentation and final delivery—is
+                            governed by the purpose the component must fulfil.
+                        </p>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             OUR COMMITMENT
+        ====================================================== -->
+<section class="wdu-commitment wdu-observed-section" data-section="wdu-commitment" id="wdu-commitment">
+<div class="wdu-commitment-grid">
+<div class="wdu-commitment-visual">
+<!--
+                        Replace with your final partnership image.
+
+                        Recommended:
+                        Customer and Pradako representative reviewing a
+                        technical drawing and a precision component.
+                    -->
+<img alt="Pradako representative and customer working together on a precision engineering requirement" class="wdu-commitment-image" loading="lazy" src="/assets/images/about-us/trust-and-partnership.jpg"/>
+<div class="wdu-commitment-caption">
+<span>
+                            Partnership through performance
+                        </span>
+<strong>
+                            Trust is protected through every action,
+                            every component and every delivery.
+                        </strong>
+</div>
+</div>
+<div class="wdu-commitment-content">
+<div class="wdu-commitment-kicker wdu-reveal">
+                        Our responsibility to you
+                    </div>
+<h2 class="wdu-reveal wdu-delay-1">
+                        To keep your trust
+                        <span>intact.</span>
+</h2>
+<p class="wdu-reveal wdu-delay-2">
+                        Every time you return to us, you renew your confidence
+                        in our capabilities. We consider that confidence a
+                        privilege—and a responsibility that must never be
+                        treated casually.
+                    </p>
+<p class="wdu-reveal wdu-delay-2">
+                        We remain committed to supporting you with
+                        <strong>technical understanding, dependable quality,
+                        responsive communication, transparent coordination and
+                        continuity of supply.</strong>
+</p>
+<div class="wdu-commitment-list">
+<div class="wdu-commitment-list-item wdu-reveal">
+<span>01</span>
+<strong>
+                                To understand before we manufacture
+                            </strong>
+</div>
+<div class="wdu-commitment-list-item wdu-reveal">
+<span>02</span>
+<strong>
+                                To communicate clearly and responsibly
+                            </strong>
+</div>
+<div class="wdu-commitment-list-item wdu-reveal">
+<span>03</span>
+<strong>
+                                To deliver quality that can be verified
+                            </strong>
+</div>
+<div class="wdu-commitment-list-item wdu-reveal">
+<span>04</span>
+<strong>
+                                To respond when the requirement becomes difficult
+                            </strong>
+</div>
+<div class="wdu-commitment-list-item wdu-reveal">
+<span>05</span>
+<strong>
+                                To remain worthy of your continued confidence
+                            </strong>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             GRATITUDE MANIFESTO
+        ====================================================== -->
+<section class="wdu-section wdu-manifesto wdu-observed-section" data-section="wdu-manifesto" id="wdu-manifesto">
+<div class="wdu-container">
+<div class="wdu-manifesto-intro">
+<div class="wdu-section-index wdu-reveal">
+                        What truly drives us
+                    </div>
+<h2 class="wdu-reveal wdu-delay-1">You trust. <span>We engineer responsibility.</span></h2>
+<p class="wdu-reveal wdu-delay-2">The confidence placed in Pradako becomes the purpose behind our engineering, the discipline behind our processes and the responsibility behind every result.</p>
+</div>
+<div class="wdu-manifesto-list"><div class="wdu-manifesto-line wdu-reveal"><span>01</span><p>You drive us through the trust you place in our name.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>02</span><p>We protect that trust through repeatable quality, transparent communication and dependable supply.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>03</span><p>We manufacture components worthy of the systems, applications and commitments they support.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>04</span><p>Difficult requirements drive us to think deeper, improve faster and engineer better solutions.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>05</span><p>We pursue precision that is built into the process—not merely inspected at the end.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>06</span><p>We protect customer continuity through planning, responsiveness, documentation and responsible execution.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>07</span><p>We invest in people, technology and capability so we remain prepared for what comes next.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>08</span><p>We advance Indian manufacturing while serving global industries with discipline and distinction.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>09</span><p>We grow responsibly, respecting resources, communities, partnerships and future generations.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>10</span><p>We remain grateful for every opportunity to prove your belief right—once, twice and again and again.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>11</span><p>Engineering excellence is never a destination; it is renewed with every component and every commitment.</p></div><div class="wdu-manifesto-line wdu-reveal"><span>12</span><p>You drive us—and it remains our privilege to keep your trust intact.</p></div></div>
+</div>
+</section>
+<!-- =====================================================
+             FINAL CLOSING SECTION
+        ====================================================== -->
+<section class="wdu-final">
+<div class="wdu-container wdu-final-content">
+<div class="wdu-final-kicker wdu-reveal">
+                    Our sincere gratitude
+                </div>
+<h2 class="wdu-final-title wdu-reveal wdu-delay-1"><span>Your trust.</span><span>Our responsibility.</span><span>Every time.</span></h2>
+<div class="wdu-final-description wdu-reveal wdu-delay-2">
+<p>We feel respected when you believe in us, responsible when you depend upon us and
+    sincerely grateful every time you give us the opportunity to make it happen. It remains
+    our privilege to protect that confidence through <strong>purposeful engineering,
+    repeatable precision and performance built for generations.</strong></p>
+<div class="wdu-final-signature">
+<strong>
+                            Pradako Mechanical &amp; Engineering Works
+                        </strong>
+<span>Driven by purpose · Defined by precision · Built for generations</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- =========================================================
+         FOOTER CONTAINER
+    ========================================================== -->
+<div id="footer-container"></div>
+
+<script defer="" src="/assets/js/global-presence.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       LOAD SHARED NAVBAR AND FOOTER
+    ====================================================== */
+
+    
+
+    
+    
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    const revealElements = document.querySelectorAll(".wdu-reveal");
+
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+            function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -55px 0px"
+            }
+        );
+
+        revealElements.forEach(function (element) {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+    }
+
+    /* =====================================================
+       ACTIVE CHAPTER NAVIGATION
+    ====================================================== */
+
+    const observedSections = document.querySelectorAll(".wdu-observed-section");
+    const chapterLinks = document.querySelectorAll(".wdu-chapter-link");
+
+    if (
+        "IntersectionObserver" in window &&
+        observedSections.length &&
+        chapterLinks.length
+    ) {
+        const sectionObserver = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const currentSection = entry.target.dataset.section;
+
+                    chapterLinks.forEach(function (link) {
+                        const linkTarget = link.getAttribute("href").replace("#", "");
+
+                        link.classList.toggle(
+                            "is-active",
+                            linkTarget === currentSection
+                        );
+                    });
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: "-18% 0px -58% 0px"
+            }
+        );
+
+        observedSections.forEach(function (section) {
+            sectionObserver.observe(section);
+        });
+    }
+
+    /* =====================================================
+       SMOOTH INTERNAL SCROLL WITH STICKY NAV OFFSET
+    ====================================================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const targetSelector = link.getAttribute("href");
+
+            if (!targetSelector || targetSelector === "#") {
+                return;
+            }
+
+            const targetElement = document.querySelector(targetSelector);
+
+            if (!targetElement) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const chapterNav = document.querySelector(".wdu-chapter-nav");
+            const navOffset = chapterNav ? chapterNav.offsetHeight : 0;
+            const targetTop =
+                targetElement.getBoundingClientRect().top +
+                window.pageYOffset -
+                navOffset +
+                1;
+
+            window.scrollTo({
+                top: targetTop,
+                behavior: "smooth"
+            });
+        });
+    });
+});
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

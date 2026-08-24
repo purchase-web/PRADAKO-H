@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Quality Policy | Pradako Mechanical & Engineering Works</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+/* ==========================================================
+   QUALITY POLICY PAGE — SIMPLE EDITORIAL LAYOUT
+   ========================================================== */
+
+:root {
+  --qp-white: #ffffff;
+  --qp-surface: #f7f9fc;
+  --qp-surface-blue: #eef5fb;
+  --qp-navy: #0a3d62;
+  --qp-navy-deep: #062a45;
+  --qp-blue: #0b5fc6;
+  --qp-gold: #ffbf00;
+  --qp-charcoal: #17212b;
+  --qp-text: #3f4b59;
+  --qp-muted: #778392;
+  --qp-line: #dce4ec;
+  --qp-font-main: 'Montserrat', sans-serif;
+  --qp-font-display: 'Space Grotesk', sans-serif;
+}
+
+/* ------------------------------
+   RESET / PAGE BASE
+------------------------------ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--qp-white);
+  color: var(--qp-text);
+  font-family: var(--qp-font-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.menu-open {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ------------------------------
+   PAGE WRAPPER
+------------------------------ */
+
+.quality-policy-page {
+  width: 100%;
+  background: var(--qp-white);
+  overflow: hidden;
+}
+
+/* ------------------------------
+   CENTERED HERO
+------------------------------ */
+
+.quality-policy-hero {
+  position: relative;
+  min-height: clamp(430px, 58vw, 610px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(7rem, 12vw, 10rem) 1.25rem clamp(5rem, 9vw, 7rem);
+  background: var(--qp-surface);
+  text-align: center;
+  border-bottom: 1px solid var(--qp-line);
+}
+
+.quality-policy-hero-inner {
+  width: min(100%, 940px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.quality-policy-hero h1 {
+  margin: 0;
+  color: var(--qp-blue);
+  font-family: var(--qp-font-display);
+  font-size: clamp(3rem, 7vw, 6.3rem);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+
+.quality-policy-hero h1 span {
+  color: var(--qp-gold);
+}
+
+.quality-policy-hero p {
+  max-width: 650px;
+  margin: 1.5rem auto 0;
+  color: var(--qp-charcoal);
+  font-size: clamp(0.76rem, 1.35vw, 0.92rem);
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ------------------------------
+   POLICY CONTENT
+------------------------------ */
+
+.quality-policy-content {
+  width: min(90%, 1120px);
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+}
+
+
+.quality-policy-list {
+  width: 100%;
+  border-top: 1px solid var(--qp-line);
+  counter-reset: quality-policy-item;
+}
+
+.quality-policy-item {
+  counter-increment: quality-policy-item;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  padding: clamp(2.2rem, 5vw, 3.8rem) 0;
+  border-bottom: 1px solid var(--qp-line);
+}
+
+.quality-policy-heading {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.quality-policy-heading::before {
+  content: counter(quality-policy-item, decimal-leading-zero);
+  padding-top: 0.2rem;
+  color: var(--qp-gold);
+  font-size: 0.74rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.quality-policy-item h3 {
+  color: var(--qp-blue);
+  font-family: var(--qp-font-display);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.quality-policy-item p {
+  max-width: 720px;
+  color: var(--qp-text);
+  font-size: clamp(0.92rem, 1.2vw, 1rem);
+  line-height: 1.9;
+  font-weight: 400;
+  letter-spacing: -0.006em;
+}
+
+/* ------------------------------
+   CLOSING STATEMENT
+------------------------------ */
+
+.quality-policy-closing {
+  width: 100%;
+  background: var(--qp-blue);
+}
+
+.quality-policy-closing-inner {
+  width: min(90%, 1120px);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+
+
+.quality-policy-closing p {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--qp-gold);
+  font-family: var(--qp-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  line-height: 1.62;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------
+   ACCESSIBILITY
+------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+
+@media (max-width: 900px) {
+  .quality-policy-hero {
+    min-height: 500px;
+  }
+
+  .quality-policy-item {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+
+  .quality-policy-item {
+    padding: 2.3rem 0;
+  }
+
+  .quality-policy-item p {
+    max-width: 760px;
+    padding-left: 58px;
+  }
+}
+
+@media (max-width: 600px) {
+  .quality-policy-hero {
+    min-height: 430px;
+    padding: 6rem 1rem 4rem;
+  }
+
+
+  .quality-policy-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4.25rem);
+  }
+
+  .quality-policy-hero p {
+    max-width: 330px;
+    margin-top: 1.2rem;
+    font-size: 0.68rem;
+    line-height: 1.75;
+    letter-spacing: 0.12em;
+  }
+
+  .quality-policy-content,
+  .quality-policy-closing-inner {
+    width: 88%;
+  }
+
+  .quality-policy-content {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+
+  .quality-policy-heading {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .quality-policy-item h3 {
+    font-size: 1.45rem;
+  }
+
+  .quality-policy-item p {
+    padding-left: 0;
+    font-size: 0.9rem;
+    line-height: 1.82;
+  }
+
+  .quality-policy-closing-inner {
+    padding: 3.4rem 0;
+  }
+
+  .quality-policy-closing p {
+    font-size: 1.22rem;
+    line-height: 1.58;
+  }
+}
+
+/* ------------------------------
+   SCROLLBAR
+------------------------------ */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf2f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--qp-gold);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c59600;
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Quality Policy from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/quality-policy.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Quality Policy | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Quality Policy from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/quality-policy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quality Policy | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Quality Policy from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Quality Policy | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/about-us/quality-policy.html",
+  "description": "Quality Policy from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<!-- =======================================================
+    HEADER
+======================================================== -->
+<div id="navbar-container"></div>
+
+<main class="quality-policy-page">
+
+  <!-- =====================================================
+      HERO
+  ====================================================== -->
+  <section class="quality-policy-hero" aria-labelledby="quality-policy-title">
+    <div class="quality-policy-hero-inner">
+      <h1 id="quality-policy-title">QUALITY <span>POLICY</span></h1>
+      <p>Engineering Excellence · Zero Defect Commitment</p>
+    </div>
+  </section>
+
+  <!-- =====================================================
+      POLICY PRINCIPLES
+  ====================================================== -->
+  <section class="quality-policy-content" aria-label="Quality policy principles">
+
+    <div class="quality-policy-list">
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Commitment To Excellence</h3>
+        </div>
+        <p>
+          We Are Committed To Delivering Fasteners Of Uncompromising Quality, Conforming To International Standards Including EN 15048, EN 14399, EN 14592, And ISO 22163. Our Products Are Engineered For Precision, Traceability, And Reliability To Meet The Evolving Needs Of Global OEMs And Infrastructure Sectors.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Quality Management System</h3>
+        </div>
+        <p>
+          Our Integrated Management System (IMS), Built On ISO 9001, ISO 14001, And ISO 45001, Ensures Consistent Performance, Regulatory Compliance, And Risk-Based Thinking. We Promote A Culture Of Quality Across All Levels Of The Organization Through Clear Processes, Documentation, And Accountability.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Zero Defect Mindset</h3>
+        </div>
+        <p>
+          Guided By VDA 6.3 And The Zero-Defect Philosophy, We Identify, Assess, And Control Risks Across The Production Lifecycle. Our Goal Is To Prevent Recurrence, Eliminate Root Causes, And Drive Continuous Improvement Through Proactive Quality Assurance And Data-Driven Decisions.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Customer Focus</h3>
+        </div>
+        <p>
+          We Strive To Exceed Customer Expectations By Delivering Fasteners That Are Dimensionally Accurate, Technically Compliant, And Timely. We Treat Each Specification With Precision And Responsiveness, Ensuring Full Adherence To Client-Defined And Regulatory Requirements.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Technology &amp; Training</h3>
+        </div>
+        <p>
+          We Actively Integrate Advanced Manufacturing Technologies, Digital Quality Control Systems, And Real-Time Monitoring. Our Teams Undergo Continuous Training To Remain Skilled, Agile, And Adaptive To Evolving Standards, Especially Under ISO 22163 (IRIS) And TISAX Requirements.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Supplier Collaboration</h3>
+        </div>
+        <p>
+          Recognizing Suppliers As Strategic Partners, We Evaluate And Collaborate With Those Who Share Our Vision Of Quality. We Engage In Joint Development, Quality Audits, And System Integration To Ensure Consistency And Performance Throughout The Value Chain.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Information Security</h3>
+        </div>
+        <p>
+          Aligned With ISO/IEC 27001:2022 And TISAX, We Uphold Strict Controls To Safeguard Sensitive Information, Design Confidentiality, And Customer Data. We Integrate Cyber And Operational Security As Core Pillars Of Our Digital Infrastructure And Enterprise Integrity.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Sustainability</h3>
+        </div>
+        <p>
+          We Operate Under ISO 50001:2018 To Optimize Energy Performance And Under ISO 14064-1:2018 &amp; ISO 14067 To Track And Minimize Greenhouse Gas Emissions. Our Practices Are Fully Aligned With The EU's CBAM Requirements, Reflecting Our Leadership In Sustainable, Low-Carbon Manufacturing.
+        </p>
+      </article>
+
+      <article class="quality-policy-item">
+        <div class="quality-policy-heading">
+          <h3>Ethical Conduct And Social Responsibility</h3>
+        </div>
+        <p>
+          We Operate With Fairness, Accountability, And Respect For Human Rights. Our Business Conduct Reflects Transparency, Ethical Sourcing, Responsible Labor Practices, And A Commitment To Environmental Stewardship.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+      CLOSING STATEMENT
+  ====================================================== -->
+  <section class="quality-policy-closing" aria-label="Policy review statement">
+    <div class="quality-policy-closing-inner">
+      <p>
+        This Policy Is Implemented Across All Functions And Reviewed Periodically To Ensure Relevance, Compliance, And Continuous Alignment With The Strategic Goals Of Pradako Mechanical And Engineering Works.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+    <script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

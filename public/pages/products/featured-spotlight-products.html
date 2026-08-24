@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spotlight Products | Pradako</title>
+    <meta
+        name="description"
+        content="Discover Pradako Standard and Customise Spotlight Products generated from the central Products JavaScript data source."
+    >
+
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- <link rel="stylesheet" href="/assets/css/products.css"> -->
+    <link
+        rel="stylesheet"
+        href="/assets/css/featured-spotlight-products.css?v=20260810-14"
+    >
+    <link
+        rel="stylesheet"
+        href="/assets/css/pradako-enquiry-cart.css?v=20260812-1"
+    >
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/products/featured-spotlight-products.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Spotlight Products | Pradako">
+    <meta property="og:description" content="Discover Pradako Standard and Customise Spotlight Products generated from the central Products JavaScript data source.">
+    <meta property="og:url" content="https://www.pradako.co/pages/products/featured-spotlight-products.html">
+    <meta property="og:type" content="product">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spotlight Products | Pradako">
+    <meta name="twitter:description" content="Discover Pradako Standard and Customise Spotlight Products generated from the central Products JavaScript data source.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Spotlight Products | Pradako",
+  "url": "https://www.pradako.co/pages/products/featured-spotlight-products.html",
+  "description": "Discover Pradako Standard and Customise Spotlight Products generated from the central Products JavaScript data source.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="pmew-featured-spotlight-products-page"
+      data-pmew-enquiry-endpoint="/php/submit-featured-enquiry.php">
+
+    <div id="navbar-container"></div>
+
+    <!--
+        CENTRAL DATA SOURCE
+        -------------------
+        /js/products.js exposes window.PradakoProductsAPI.
+
+        STANDARD SPOTLIGHT PRODUCTS
+        - Names, product families, image candidates and links are generated only
+          from pradakoStandardsBySubtype and the related Products JavaScript helpers.
+
+        CUSTOMISE SPOTLIGHT PRODUCTS
+        - Names, images and links are generated only from the Customised Products
+          catalogue handled by products.js. The API reads #customized_products or
+          .pradako-customised-products-section from /products.html.
+
+        The Featured page does not read #top-products or #customized_standards.
+        Standard and Customise datasets remain independent at every stage.
+    -->
+    <main
+        id="featuredSpotlightProductsApp"
+        class="pmew-featured-spotlight-products-app"
+        data-custom-catalogue-page="/pages/products/products.html"
+        data-time-zone="Asia/Kolkata"
+        data-locale="en-IN"
+        data-timeline-check-interval="30000"
+        data-product-set-count="4"
+        data-source-card-count="4"
+    >
+        <section
+            id="featuredSpotlightProductsLoading"
+            class="pmew-featured-spotlight-products-loading"
+            aria-live="polite"
+            aria-busy="true"
+        >
+            <div class="pmew-featured-spotlight-products-loading-inner">
+                <span class="pmew-featured-spotlight-products-kicker">Central Products Data</span>
+                <h1>SPOTLIGHT PRODUCTS</h1>
+                <p>
+                    Loading Standard and Customise product highlights directly
+                    from the Products JavaScript data source…
+                </p>
+
+                <div class="pmew-featured-spotlight-products-skeleton" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </section>
+
+        <div
+            id="featuredProductOfDayMount"
+            class="pmew-featured-dynamic-mount"
+            aria-live="polite"
+        ></div>
+
+        <div
+            id="featuredProductOfWeekMount"
+            class="pmew-featured-dynamic-mount"
+            aria-live="polite"
+        ></div>
+
+        <div
+            id="featuredSpotlightProductsMount"
+            class="pmew-featured-spotlight-products-mount"
+            aria-live="polite"
+        ></div>
+
+        <div
+            id="featuredProductHighlightsMount"
+            class="pmew-featured-dynamic-mount"
+            aria-live="polite"
+        ></div>
+
+        <section
+            id="featuredSpotlightProductsError"
+            class="pmew-featured-spotlight-products-error"
+            hidden
+        >
+            <div class="pmew-featured-spotlight-products-error-card">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <h1>Unable to load Spotlight Products</h1>
+                <p id="featuredSpotlightProductsErrorText">
+                    Confirm that /js/products.js is available and exposes
+                    window.PradakoProductsAPI.
+                </p>
+
+                <div class="pmew-featured-spotlight-products-error-actions">
+                    <button id="featuredSpotlightProductsRetry" type="button">
+                        TRY AGAIN
+                    </button>
+                    <a href="/pages/products/products.html#standards">STANDARD PRODUCTS</a>
+                    <a href="/pages/products/products.html#customized_products">CUSTOMISE PRODUCTS</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="featuredSpotlightProductsCrossReferenceGuard" hidden>
+            <h2>Cross-reference module guard</h2>
+        </section>
+    </main>
+
+
+    <!--
+        Shared PMEW enquiry UI is mounted by /js/pradako-enquiry-cart.js.
+        Spotlight deliberately contains no duplicate cart, form, upload,
+        recovery-notice or toast markup.
+    -->
+
+    <div id="footer-container"></div>
+
+    <script src="/assets/js/standard-route-resolver.js" defer></script>
+    <script src="/assets/js/products.js" defer></script>
+    <script src="/assets/js/pradako-enquiry-cart.js" defer></script>
+    <script src="/assets/js/featured-spotlight-products.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+    <script src="/assets/js/standard-navigation.js" defer></script>
+</body>
+</html>

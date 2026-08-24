@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galvanic Compatibility Matrix for Fasteners | Pradako Engineering Tools</title>
+<meta name="description" content="Check fastener and joint material compatibility using anodic index difference, by service environment. Covers stainless, steel, zinc, aluminium, brass, titanium and coatings, with area ratio guidance.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- PMEW GLOBAL STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" >
+<style>
+.fastener-tool-page{--tk-white:#fff;--tk-off:#f4f5f7;--tk-ink:#0E2033;--tk-ink-deep:#081522;--tk-muted:#5f6875;--tk-line:#dde1e7;
+ --tk-ac:#C2540C;--tk-ac-bright:#FF8A2B;--tk-ac-soft:#fdf1e7;--tk-ok:#0B7A4B;--tk-ok-soft:#e9f7f0;--tk-warn:#B3261E;--tk-warn-soft:#fdf3f2;
+ --tk-d:"Montserrat",Arial,sans-serif;--tk-b:"Space Grotesk",Arial,sans-serif;--tk-m:"JetBrains Mono",ui-monospace,monospace;
+ --tk-max:1320px;--tk-e:cubic-bezier(.2,.8,.2,1)}
+.fastener-tool-page,.fastener-tool-page *{margin:0;padding:0;box-sizing:border-box}
+.fastener-tool-page{background:var(--tk-white);color:#30363f;font-family:var(--tk-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.fastener-tool-page ::selection{background:var(--tk-ac);color:#fff}
+.fastener-tool-page a{color:inherit;text-decoration:none}
+.fastener-tool-page :focus-visible{outline:3px solid var(--tk-ac);outline-offset:3px}
+.fastener-tool-page .tk-wrap{max-width:var(--tk-max);margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+.fastener-tool-page .tk-sec{padding:clamp(38px,4.4vw,64px) 0}
+.fastener-tool-page .tk-paper{background:var(--tk-off);border-top:1px solid var(--tk-line);border-bottom:1px solid var(--tk-line)}
+
+.fastener-tool-page .tk-bar{background:var(--tk-ink);position:sticky;top:0;z-index:20}
+.fastener-tool-page .tk-bar__in{display:flex;align-items:center;gap:18px;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.fastener-tool-page .tk-bar__in::-webkit-scrollbar{display:none}
+.fastener-tool-page .tk-bar__id{font-family:var(--tk-d);font-weight:900;color:#fff;font-size:14px;letter-spacing:-.01em;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.16)}
+.fastener-tool-page .tk-bar__id span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar a{font-family:var(--tk-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.fastener-tool-page .tk-bar a:hover,.fastener-tool-page .tk-bar a.on{color:var(--tk-ac-bright);border-bottom-color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar__sp{flex:1}
+.fastener-tool-page .tk-units{display:inline-flex;border:1.5px solid rgba(255,255,255,.28)}
+.fastener-tool-page .tk-units button{font-family:var(--tk-m);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer}
+.fastener-tool-page .tk-units button.on{background:var(--tk-ac);color:#fff!important;border-color:var(--tk-ac)!important}
+
+.fastener-tool-page .tk-hero{padding:clamp(34px,4vw,58px) 0 clamp(20px,2.4vw,32px);position:relative;overflow:hidden;background:var(--tk-white)}
+.fastener-tool-page .tk-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(194,84,12,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(194,84,12,.07) 1px,transparent 1px);background-size:44px 44px;
+ mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%)}
+.fastener-tool-page .tk-hero .tk-wrap{position:relative;z-index:2}
+.fastener-tool-page .tk-eyebrow{font-family:var(--tk-m);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-ac);display:inline-flex;align-items:center;gap:11px;margin-bottom:14px}
+.fastener-tool-page .tk-eyebrow::before{content:"";width:26px;border-top:3px double var(--tk-ac)}
+.fastener-tool-page h1{font-family:var(--tk-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;font-size:clamp(32px,5.4vw,68px);color:var(--tk-ink)}
+.fastener-tool-page h1 em{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-sub{margin-top:14px;font-size:15.5px;color:var(--tk-muted);max-width:720px}
+
+.fastener-tool-page .tk-panel{border:2px solid var(--tk-ink);background:var(--tk-white)}
+.fastener-tool-page .tk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--tk-ink)}
+@media(max-width:900px){.fastener-tool-page .tk-grid2{grid-template-columns:1fr}}
+.fastener-tool-page .tk-in{padding:clamp(20px,2.6vw,34px);border-right:1px solid var(--tk-line)}
+@media(max-width:900px){.fastener-tool-page .tk-in{border-right:none;border-bottom:1px solid var(--tk-line)}}
+.fastener-tool-page .tk-out{padding:clamp(20px,2.6vw,34px);background:var(--tk-ink);color:#fff}
+.fastener-tool-page .tk-field{margin-bottom:15px}
+.fastener-tool-page .tk-field label{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tk-muted);font-weight:700;margin-bottom:6px}
+.fastener-tool-page .tk-field label i{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-field select,.fastener-tool-page .tk-field input{width:100%;font-family:var(--tk-b);font-size:15px;color:var(--tk-ink);padding:11px 13px;border:2px solid var(--tk-line);background:var(--tk-white);outline:none;transition:border-color .16s}
+.fastener-tool-page .tk-field select:focus,.fastener-tool-page .tk-field input:focus{border-color:var(--tk-ac)}
+.fastener-tool-page .tk-r2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fastener-tool-page .tk-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:560px){.fastener-tool-page .tk-r2,.fastener-tool-page .tk-r3{grid-template-columns:1fr}}
+.fastener-tool-page .tk-res{margin-bottom:20px}
+.fastener-tool-page .tk-res b{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:700}
+.fastener-tool-page .tk-res span{font-family:var(--tk-d);font-weight:900;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.045em;line-height:.95;display:block}
+.fastener-tool-page .tk-res span em{font-style:normal;font-size:.42em;color:var(--tk-ac-bright);margin-left:6px}
+.fastener-tool-page .tk-res--hi span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-top:18px}
+.fastener-tool-page .tk-mini div{background:var(--tk-ink);padding:11px 13px}
+.fastener-tool-page .tk-mini b{display:block;font-family:var(--tk-m);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;font-weight:700}
+.fastener-tool-page .tk-mini span{font-family:var(--tk-m);font-size:13px;font-weight:700;color:#fff}
+.fastener-tool-page .tk-note{font-family:var(--tk-m);font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;border-top:1px solid rgba(255,255,255,.16);padding-top:13px;margin-top:16px}
+
+.fastener-tool-page .tk-warn{border-left:4px solid var(--tk-warn);background:var(--tk-warn-soft);padding:14px 16px;margin-top:22px}
+.fastener-tool-page .tk-warn b{font-family:var(--tk-d);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--tk-warn);letter-spacing:.02em;display:block;margin-bottom:5px}
+.fastener-tool-page .tk-warn p{font-size:13px;color:#5a4340;line-height:1.6}
+
+.fastener-tool-page .tk-tblwrap{margin-top:22px;border:2px solid var(--tk-ink);overflow:hidden}
+.fastener-tool-page .tk-tblscroll{overflow-x:auto}
+.fastener-tool-page table.tk-tbl{border-collapse:collapse;width:100%;font-family:var(--tk-m);font-size:12.5px}
+.fastener-tool-page table.tk-tbl th,.fastener-tool-page table.tk-tbl td{padding:9px 12px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--tk-line);border-right:1px solid var(--tk-line)}
+.fastener-tool-page table.tk-tbl thead th{background:var(--tk-ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;position:sticky;top:0;z-index:3}
+.fastener-tool-page table.tk-tbl td:first-child,.fastener-tool-page table.tk-tbl thead th:first-child{position:sticky;left:0;background:var(--tk-off);font-weight:700;color:var(--tk-ink);text-align:left;z-index:2}
+.fastener-tool-page table.tk-tbl thead th:first-child{background:var(--tk-ink);color:#fff;z-index:4}
+.fastener-tool-page table.tk-tbl tbody tr:hover td{background:var(--tk-ac-soft)}
+.fastener-tool-page table.tk-tbl tbody tr.hl td{background:var(--tk-ac-soft);color:var(--tk-ac);font-weight:700}
+.fastener-tool-page .tk-filter{display:flex;align-items:center;gap:10px;border:2px solid var(--tk-line);padding:0 14px;background:var(--tk-white);max-width:380px;margin-top:20px}
+.fastener-tool-page .tk-filter input{flex:1;border:none;outline:none;font-family:var(--tk-b);font-size:14.5px;padding:11px 0;background:transparent}
+.fastener-tool-page .tk-filter svg{width:17px;height:17px;color:var(--tk-muted)}
+.fastener-tool-page .tk-btn{font-family:var(--tk-d);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:800;padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--tk-e),background .16s,color .16s}
+.fastener-tool-page .tk-btn--ac{background:var(--tk-ac);color:#fff;border-color:var(--tk-ac)}
+.fastener-tool-page .tk-btn--ac:hover{transform:translateY(-2px)}
+.fastener-tool-page .tk-btn--line{background:transparent;border-color:var(--tk-line);color:var(--tk-ink)}
+.fastener-tool-page .tk-btn--line:hover{border-color:var(--tk-ac);color:var(--tk-ac)}
+.fastener-tool-page .tk-foot{background:var(--tk-ink);color:rgba(255,255,255,.6);padding:26px 0;font-family:var(--tk-m);font-size:11px;letter-spacing:.06em}
+.fastener-tool-page .tk-foot a{color:var(--tk-ac-bright)}
+@media print{.fastener-tool-page .tk-bar,.fastener-tool-page .tk-btn{display:none!important}}
+@media(prefers-reduced-motion:reduce){.fastener-tool-page,.fastener-tool-page *{transition:none!important;animation:none!important}}
+
+/* ==========================================================
+   LIGHT ENGINEERING-TOOLS SUB-NAVIGATION
+   Keeps the utility bar distinct without a heavy dark strip.
+   ========================================================== */
+.fastener-tool-page .tk-bar {
+    background: #ffffff;
+    border-top: 1px solid #e8edf1;
+    border-bottom: 1px solid #dfe5ea;
+    box-shadow: 0 5px 16px rgba(20, 39, 55, 0.045);
+}
+.fastener-tool-page .tk-bar__in {
+    gap: clamp(14px, 1.35vw, 24px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fastener-tool-page .tk-bar__id {
+    color: #24394a;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-right-color: #dce3e8;
+}
+.fastener-tool-page .tk-bar__id span {
+    color: #c75b18;
+}
+.fastener-tool-page .tk-bar a {
+    color: #647481;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-bottom-color: transparent;
+}
+.fastener-tool-page .tk-bar a:hover,
+.fastener-tool-page .tk-bar a.on {
+    color: #c2540c;
+    border-bottom-color: #c2540c;
+}
+.fastener-tool-page .tk-units {
+    border-color: #ccd5dc;
+    background: #f8fafb;
+}
+.fastener-tool-page .tk-units button {
+    color: #61717e;
+    font-weight: 600;
+}
+.fastener-tool-page .tk-units button.on {
+    color: #b64e0e !important;
+    background: #fff2e9;
+    border-color: #f0c7ab !important;
+}
+@media (max-width: 760px) {
+    .fastener-tool-page .tk-bar__in {
+        gap: 16px;
+    }
+    .fastener-tool-page .tk-bar__id {
+        font-size: 12px;
+        padding-right: 13px;
+    }
+    .fastener-tool-page .tk-bar a {
+        font-size: 9.5px;
+    }
+}
+
+
+
+/* ==========================================================
+   PMEW PAGE-LOCAL NAVIGATION LAYER SAFEGUARD
+   Kept in every tool page to prevent stale cached CSS from
+   allowing the sticky tools bar to cover a mega dropdown.
+   ========================================================== */
+#navbar-container{position:relative;z-index:50000;isolation:isolate;overflow:visible!important}
+#navbar-container .main-header{position:relative;z-index:50000!important;isolation:isolate;overflow:visible!important}
+#navbar-container .navbar{position:relative;z-index:50001!important;overflow:visible!important}
+#navbar-container .dropdown .mega-menu{top:calc(100% - 1px)!important;z-index:50010!important}
+.pmew-main{position:relative;z-index:1;isolation:isolate}
+.fastener-tool-page .tk-bar{z-index:20!important}
+body.pmew-mega-open .fastener-tool-page .tk-bar{z-index:0!important;pointer-events:none}
+@media(max-width:768px){#navbar-container{z-index:60000}#navbar-container .mobile-menu-overlay{z-index:60010!important}#navbar-container .mobile-menu-container{z-index:60020!important}}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/resources/galvanic-compatibility.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Galvanic Compatibility Matrix for Fasteners | Pradako Engineering Tools">
+    <meta property="og:description" content="Check fastener and joint material compatibility using anodic index difference, by service environment. Covers stainless, steel, zinc, aluminium, brass, titanium and coatings, with area ratio guidance.">
+    <meta property="og:url" content="https://www.pradako.co/pages/resources/galvanic-compatibility.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galvanic Compatibility Matrix for Fasteners | Pradako Engineering Tools">
+    <meta name="twitter:description" content="Check fastener and joint material compatibility using anodic index difference, by service environment. Covers stainless, steel, zinc, aluminium, brass, titanium and coatings, with area ratio guidance.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Galvanic Compatibility Matrix for Fasteners | Pradako Engineering Tools",
+  "url": "https://www.pradako.co/pages/resources/galvanic-compatibility.html",
+  "description": "Check fastener and joint material compatibility using anodic index difference, by service environment. Covers stainless, steel, zinc, aluminium, brass, titanium and coatings, with area ratio guidance.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head><body class="page-products page-fastener-tools">
+<!-- PMEW GLOBAL NAVBAR: injected by /js/navbar.js -->
+<div id="navbar-container"></div>
+
+<main class="pmew-main" id="main-content">
+<div class="fastener-tool-page">
+  <div class="tk-bar">
+    <div class="tk-wrap tk-bar__in">
+      <div class="tk-bar__id">PRADAKO <span>TOOLS</span></div>
+        <a href="/pages/resources/torque-calculator.html">Torque &amp; Preload</a>
+        <a href="/pages/resources/thread-tap-drill.html">Thread &amp; Tap Drill</a>
+        <a href="/pages/resources/weight-calculator.html">Weight Calculator</a>
+        <a href="/pages/resources/container-load.html">Container Load</a>
+        <a href="/pages/resources/head-marking.html">Head Marking</a>
+        <a href="/pages/resources/galvanic-compatibility.html"  class="on">Galvanic</a>
+        <a href="/pages/resources/unit-converter.html">Unit Converter</a>
+        <span class="tk-bar__sp"></span>
+      </div>
+    </div>
+<header class="tk-hero"><div class="tk-hero__grid"></div><div class="tk-wrap">
+<div class="tk-eyebrow">Engineering tool 07</div>
+<h1>Galvanic <em>compatibility</em> matrix</h1>
+<p class="tk-sub">Put a stainless bolt into an aluminium bracket near salt water and the bracket dissolves, not the bolt. This checks fastener against joint material using anodic index difference — and flags the <b>area ratio trap</b> that causes most real failures.</p>
+</div></header>
+
+<section class="tk-sec"><div class="tk-wrap">
+<div class="tk-grid2">
+ <div class="tk-in">
+  <div class="tk-field"><label for="env">Service environment</label><select id="env"></select></div>
+  <div class="tk-r2">
+   <div class="tk-field"><label for="a">Fastener material</label><select id="a"></select></div>
+   <div class="tk-field"><label for="b">Joint / base material</label><select id="b"></select></div>
+  </div>
+  <div class="tk-field"><label for="area">Relative area — fastener vs joint</label><select id="area">
+    <option value="small" selected>Small fastener into large panel (normal)</option>
+    <option value="equal">Comparable areas</option>
+    <option value="large">Large fastener into small or thin part</option></select></div>
+  <button class="tk-btn tk-btn--line" id="swap">Swap materials</button>
+  <div class="tk-warn" style="margin-top:18px">
+   <b>The area ratio matters more than most people think</b>
+   <p>Corrosion concentrates on the <b>anodic</b> (less noble) member. A small anodic area against a large cathodic one corrodes fast and deep. A stainless fastener in an aluminium panel is the classic bad case — small noble bolt, large active panel, corrosion spread thinly is tolerable. Reverse it, an aluminium rivet in a large stainless panel, and the rivet is eaten in months. Design so the <b>fastener is the more noble member</b> wherever you can.</p>
+  </div>
+ </div>
+ <div class="tk-out">
+  <div class="tk-res tk-res--hi"><b>Verdict</b><span id="oV" style="font-size:clamp(22px,2.8vw,38px)">—</span></div>
+  <div class="tk-res"><b>Anodic index difference</b><span id="oD">—<em>V</em></span></div>
+  <div class="tk-mini">
+   <div><b>Fastener index</b><span id="oA">—</span></div>
+   <div><b>Joint index</b><span id="oB">—</span></div>
+   <div><b>Permitted for environment</b><span id="oL">—</span></div>
+   <div><b>Which corrodes</b><span id="oC">—</span></div>
+  </div>
+  <p class="tk-note" id="oR">—</p>
+ </div>
+</div>
+
+<h2 style="font-family:var(--tk-d);font-weight:900;text-transform:uppercase;font-size:22px;color:var(--tk-ink);margin-top:44px;letter-spacing:-.02em">
+Full matrix — <span style="color:var(--tk-ac)" id="mEnv"></span></h2>
+<p style="font-size:14px;color:var(--tk-muted);margin-top:8px">Rows are fastener material, columns are joint material. Click any cell to load it above.</p>
+<div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--tk-m);font-size:11px;color:var(--tk-muted)">
+ <span><i style="display:inline-block;width:13px;height:13px;background:#e9f7f0;border:1px solid #0B7A4B;vertical-align:-2px;margin-right:6px"></i>Compatible</span>
+ <span><i style="display:inline-block;width:13px;height:13px;background:#fdf1e7;border:1px solid #C2540C;vertical-align:-2px;margin-right:6px"></i>Caution — isolate or coat</span>
+ <span><i style="display:inline-block;width:13px;height:13px;background:#fdf3f2;border:1px solid #B3261E;vertical-align:-2px;margin-right:6px"></i>Avoid</span>
+</div>
+<div class="tk-tblwrap"><div class="tk-tblscroll" style="max-height:70vh"><table class="tk-tbl" id="mx"></table></div></div>
+</div></section>
+
+<script>
+(function(){
+"use strict";
+var D={"mat": [{"n": "Gold, solid or plated", "v": 0.0, "g": "noble"}, {"n": "Rhodium, graphite", "v": 0.05, "g": "noble"}, {"n": "Silver, silver plate", "v": 0.15, "g": "noble"}, {"n": "Nickel, nickel plate, Monel 400", "v": 0.3, "g": "noble"}, {"n": "Titanium, Inconel 718", "v": 0.3, "g": "noble"}, {"n": "Copper", "v": 0.35, "g": "noble"}, {"n": "Brass, bronze, silver solder", "v": 0.4, "g": "noble"}, {"n": "Stainless A4 / 316 (passive)", "v": 0.5, "g": "stainless"}, {"n": "Stainless A2 / 304 (passive)", "v": 0.5, "g": "stainless"}, {"n": "Chrome plate, 12% Cr stainless (410/430)", "v": 0.6, "g": "stainless"}, {"n": "Tin, tin-lead solder", "v": 0.65, "g": "coating"}, {"n": "Lead", "v": 0.7, "g": "other"}, {"n": "Aluminium 2024 / 2000 series", "v": 0.75, "g": "aluminium"}, {"n": "Carbon steel, cast iron, alloy steel", "v": 0.85, "g": "steel"}, {"n": "Aluminium 6061 / 6000 series", "v": 0.9, "g": "aluminium"}, {"n": "Aluminium 5052 / 5000 series", "v": 0.9, "g": "aluminium"}, {"n": "Cadmium plate", "v": 0.95, "g": "coating"}, {"n": "Aluminium 1100 / commercially pure", "v": 0.95, "g": "aluminium"}, {"n": "Hot dip galvanised, zinc-nickel", "v": 1.2, "g": "coating"}, {"n": "Zinc plate, zinc alloy die cast", "v": 1.25, "g": "coating"}, {"n": "Magnesium alloy", "v": 1.75, "g": "other"}], "env": [{"n": "Harsh / marine, salt spray, high humidity", "lim": 0.15}, {"n": "Normal outdoor, sheltered, condensing", "lim": 0.25}, {"n": "Controlled indoor, dry, non-condensing", "lim": 0.5}]}, $=function(i){return document.getElementById(i);};
+$('env').innerHTML=D.env.map(function(e,i){return '<option value="'+i+'">'+e.n+'</option>';}).join('');
+$('a').innerHTML=D.mat.map(function(m,i){return '<option value="'+i+'">'+m.n+'</option>';}).join('');
+$('b').innerHTML=$('a').innerHTML;
+$('a').value=7; $('b').value=14;   /* A4 stainless into 6061 aluminium */
+
+function lim(){return D.env[+$('env').value].lim;}
+function verdict(diff,L){ return diff<=L ? 'OK' : (diff<=L*2 ? 'CAUTION' : 'AVOID'); }
+function colour(v){ return v==='OK'?['#e9f7f0','#0B7A4B'] : v==='CAUTION'?['#fdf1e7','#C2540C'] : ['#fdf3f2','#B3261E']; }
+
+function calc(){
+  var A=D.mat[+$('a').value], B=D.mat[+$('b').value], L=lim();
+  var diff=Math.abs(A.v-B.v), v=verdict(diff,L);
+  var c=colour(v);
+  $('oV').textContent = v==='OK'?'COMPATIBLE':v==='CAUTION'?'CAUTION':'AVOID';
+  $('oV').style.color = v==='OK'?'#4ade80':v==='CAUTION'?'#FF8A2B':'#ff7a70';
+  $('oD').innerHTML=diff.toFixed(2)+'<em>V</em>';
+  $('oA').textContent=A.v.toFixed(2)+' V';
+  $('oB').textContent=B.v.toFixed(2)+' V';
+  $('oL').textContent='\u2264 '+L.toFixed(2)+' V';
+  var anodic = A.v>B.v ? 'Fastener' : (B.v>A.v ? 'Joint material' : 'Neither — equal');
+  $('oC').textContent=anodic;
+  var area=$('area').value, msg='';
+  if(diff===0){ msg='Same material — no galvanic couple. '; }
+  else if(v==='OK'){ msg='Difference of '+diff.toFixed(2)+' V is within the '+L.toFixed(2)+' V limit for this environment. '; }
+  else { msg='Difference of '+diff.toFixed(2)+' V exceeds the '+L.toFixed(2)+' V limit. The '+anodic.toLowerCase()+
+    ' will corrode preferentially. Mitigate with an isolating washer and sleeve, a barrier coating, a sealant at the interface, or by changing the fastener to a material closer to '+
+    (A.v>B.v?B.n:A.n)+'. '; }
+  if(diff>0){
+    if(area==='small' && A.v>B.v) msg+='Area ratio is unfavourable: a small anodic fastener against a large cathodic joint corrodes fast and deep. This is the worst configuration — change the fastener material.';
+    else if(area==='small' && A.v<B.v) msg+='Area ratio is favourable: the fastener is the more noble member, so attack is spread over the large joint area rather than concentrated.';
+    else if(area==='large' && A.v>B.v) msg+='Large anodic fastener spreads the attack — less severe, but still avoid in wet service.';
+    else msg+='Comparable areas — attack is moderate but present wherever moisture can bridge the joint.';
+  }
+  $('oR').textContent=msg;
+  $('mEnv').textContent=D.env[+$('env').value].n;
+}
+function matrix(){
+  var L=lim();
+  var h='<thead><tr><th>Fastener \\ Joint</th>'+D.mat.map(function(m){return '<th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:10px 6px;font-size:9.5px">'+m.n+'</th>';}).join('')+'</tr></thead><tbody>';
+  D.mat.forEach(function(A,i){
+    h+='<tr><td>'+A.n+'</td>';
+    D.mat.forEach(function(B,j){
+      var d=Math.abs(A.v-B.v), v=verdict(d,L), c=colour(v);
+      h+='<td style="background:'+c[0]+';color:'+c[1]+';font-weight:700;cursor:pointer;padding:7px 5px;font-size:10.5px" '+
+         'data-i="'+i+'" data-j="'+j+'" title="'+A.n+' + '+B.n+' = '+d.toFixed(2)+' V">'+d.toFixed(2)+'</td>';
+    });
+    h+='</tr>';
+  });
+  $('mx').innerHTML=h+'</tbody>';
+}
+$('mx').addEventListener('click',function(e){
+  var c=e.target.closest('td[data-i]'); if(!c) return;
+  $('a').value=c.dataset.i; $('b').value=c.dataset.j; calc();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+$('swap').addEventListener('click',function(){var t=$('a').value;$('a').value=$('b').value;$('b').value=t;calc();});
+['env','a','b','area'].forEach(function(id){$(id).addEventListener('change',function(){calc();matrix();});});
+calc(); matrix();
+})();
+</script>
+
+</div>
+</main>
+
+<!-- PMEW GLOBAL FOOTER: injected by /js/footer.js -->
+<div id="footer-container"></div>
+
+<!-- PMEW GLOBAL SCRIPTS -->
+<script ></script>
+<script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

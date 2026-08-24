@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       SECTION 1: META & TITLE
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradako MIL / MS / FED Fastener Standards Library</title>
+  <meta name="description" content="Structured MIL, MS, FED, NASM and related defence fastener standards reference library covering screws, bolts, nuts, washers, rivets, studs, threaded rods and supporting fastener references." />
+
+  <!-- ============================================================
+       SECTION 2: FONTS & ICONS
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- ============================================================
+       SECTION 3: EXTERNAL STYLES
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 4: CUSTOM STYLES
+       ============================================================ -->
+  <style>
+    /* ============================================================
+       SUBSECTION 4.1: CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --white: #fff;
+      --navy: #24343b;
+      --blue: #28766a;
+      --gold: #f08080;
+      --line: #dde5e7;
+      --text: #26343b;
+      --muted: #6d7b82;
+      --soft-blue: #eef7f4;
+      --soft: #f7faf9;
+      --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+      --dynamic-row-height: 126px;
+      --dynamic-cell-x: 8px;
+      --dynamic-cell-y: 10px;
+      --title-clamp: 3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.2: HERO / HEADER
+       ============================================================ */
+    .top-hero {
+      padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-route {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 17px;
+    }
+
+    .hero-route-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font: 800 9.5px "Montserrat", sans-serif;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .top-hero h1 {
+      margin: 0;
+      max-width: 1250px;
+      font-family: "Space Grotesk", Georgia, serif;
+      font-size: clamp(42px, 4.1vw, 72px);
+      line-height: 1;
+      letter-spacing: -1.6px;
+      color: var(--navy);
+    }
+
+    .hero-subtitle {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(17px, 1.55vw, 24px);
+      line-height: 1.25;
+      letter-spacing: -.35px;
+      color: var(--blue);
+      font-weight: 650;
+    }
+
+    .top-hero p.hero-intro {
+      max-width: 1160px;
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      font: 850 10px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-item i {
+      color: var(--blue);
+      font-size: 10px;
+    }
+
+    .engineering-use-note {
+      margin: 14px clamp(24px, 3.1vw, 58px) 0;
+      padding: 13px 15px;
+      border: 1px solid #d7e4e1;
+      border-left: 3px solid var(--blue);
+      border-radius: 10px;
+      background: #f8fbfa;
+      color: var(--text);
+      font-size: 11.5px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .engineering-use-note strong {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .engineering-use-note .note-label {
+      display: inline-flex;
+      margin-right: 8px;
+      color: var(--blue);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: .75px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.3: CONTROLS
+       ============================================================ */
+    .control-zone {
+      position: relative;
+      z-index: 20;
+      padding: 12px 32px 10px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-wrap,
+    .family-wrap {
+      position: relative;
+    }
+
+    .search-wrap input,
+    .family-filter {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      outline: 0;
+      font: 700 12.5px "Montserrat", sans-serif;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    .search-wrap input {
+      padding: 0 18px 0 46px;
+    }
+
+    .family-filter {
+      padding: 0 14px;
+    }
+
+    .search-wrap input:focus,
+    .family-filter:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px var(--soft-blue);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 17px;
+      color: var(--navy);
+    }
+
+    .btn {
+      height: 40px;
+      border-radius: 12px;
+      padding: 0 14px;
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-soft {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+    }
+
+    .btn-soft:hover,
+    .btn-soft.active {
+      background: var(--soft-blue);
+      border-color: var(--blue);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .stat-pills,
+    .stats-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--navy);
+      font-size: 10.5px;
+      font-weight: 900;
+      background: #fff;
+    }
+
+    .duplicate-mode-pill {
+      display: none;
+    }
+
+    .duplicate-mode-pill.show {
+      display: inline-flex;
+    }
+
+    .duplicate-check-btn {
+      border-color: #f08080;
+      background: #fff2f2;
+      color: #493538;
+    }
+
+    .duplicate-check-btn.active {
+      background: #f08080;
+      color: #fff;
+      border-color: #f08080;
+    }
+
+    /* ---- View Panel ---- */
+    .view-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff, var(--soft));
+      box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+    }
+
+    .view-panel.open {
+      display: block;
+    }
+
+    .view-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .view-panel-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .preset-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      padding: 0 11px;
+      font: 900 10px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .mini-btn.active,
+    .mini-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .view-groups {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+
+    .view-group {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .view-group h4 {
+      margin: 0 0 8px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .column-checks {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .check-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: #94c2b5;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .check-item input {
+      accent-color: var(--navy);
+    }
+
+    /* ---- Density Switch ---- */
+    .density-switch {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+    }
+
+    .density-btn {
+      height: 30px;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: 900 9.5px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .density-btn.active {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.4: STICKY HEADER & TABLE
+       ============================================================ */
+    .sticky-table-head-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1450;
+      margin: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+    }
+
+    .sticky-table-head-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .sticky-table-head-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sticky-head-table,
+    #standardsTable {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .sticky-head-table thead th {
+      background: var(--navy);
+    }
+
+    #standardsTable thead {
+      display: none;
+    }
+
+    .table-zone {
+      position: relative;
+      background: #fff;
+    }
+
+    .table-scroll {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-scroll:not(.has-horizontal-scroll),
+    .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+      overflow-x: hidden;
+    }
+
+    .sticky-head-table th,
+    #standardsTable th,
+    #standardsTable td {
+      box-sizing: border-box;
+    }
+
+    thead th {
+      padding: 10px var(--dynamic-cell-x);
+      text-align: left;
+      font-size: 9.5px;
+      letter-spacing: .5px;
+      color: #fff;
+      background: var(--navy);
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      cursor: pointer;
+      user-select: none;
+      white-space: normal;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    thead th.not-sortable {
+      cursor: default;
+    }
+
+    tbody tr {
+      height: var(--dynamic-row-height);
+    }
+
+    tbody td {
+      padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+      vertical-align: middle;
+      font-size: 11.5px;
+      line-height: 1.4;
+      background: #fff;
+      color: var(--text);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    tbody tr:hover td {
+      background: #f3f9f7;
+    }
+
+    /* ---- Sticky Columns ---- */
+    .sticky-col {
+      position: sticky !important;
+      left: var(--sticky-left, 0) !important;
+      background: #fff;
+      box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+    }
+
+    tbody tr:hover td.sticky-col {
+      background: #f3f9f7;
+    }
+
+    .sticky-head-table th.sticky-col {
+      z-index: 40;
+      background: var(--navy);
+      box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+    }
+
+    #standardsTable td.sticky-col {
+      z-index: 12;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.5: CELL TYPES
+       ============================================================ */
+    .media-cell {
+      padding: 10px 14px !important;
+    }
+
+    .media-card {
+      width: 210px;
+      height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+      cursor: pointer;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      padding: 9px;
+      background: #fff;
+      transition: .22s;
+    }
+
+    .media-card:hover {
+      border-color: var(--blue);
+    }
+
+    .media-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .media-empty {
+      width: 210px;
+      height: 104px;
+      border: 1px dashed #c8d5d7;
+      border-radius: 13px;
+      background: #fbfcfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .media-empty i {
+      font-size: 17px;
+      color: #82959b;
+    }
+
+    .pradako-id {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid #cad6d8;
+      border-radius: 7px;
+      background: #f6f9f8;
+      color: var(--navy);
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .15px;
+      white-space: nowrap;
+    }
+
+    .standard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: normal;
+    }
+
+    .standard-link:hover {
+      background: var(--blue);
+    }
+
+    .standard-link i {
+      font-size: 9px;
+    }
+
+    .body-pill {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .title-cell {
+      font-weight: 750;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: var(--title-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .family-pill {
+      display: inline-flex;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .scope-cell {
+      color: var(--text);
+    }
+
+    .density-comfortable .media-card,
+    .density-comfortable .media-empty {
+      height: 140px;
+    }
+
+    mark {
+      background: #dcefe9;
+      color: var(--navy);
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .footer-note {
+      padding: 16px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.6: MODALS
+       ============================================================ */
+    .modal-overlay,
+    .image-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(24, 34, 39, .84);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.show,
+    .image-preview-overlay.show {
+      display: flex;
+    }
+
+    .modal-card,
+    .image-preview-card {
+      position: relative;
+      width: min(620px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+    }
+
+    .image-preview-card {
+      width: min(1000px, 96vw);
+    }
+
+    .modal-top,
+    .image-preview-head {
+      padding: 22px 26px;
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .modal-top h2,
+    .image-preview-head h3 {
+      margin: 0;
+    }
+
+    .modal-top p {
+      margin: 9px 0 0;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .modal-body,
+    .image-preview-body {
+      padding: 24px;
+    }
+
+    .image-preview-body img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close,
+    .image-preview-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .work-message {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .email-line {
+      margin-top: 8px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .modal-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font: 900 11px "Montserrat";
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .modal-btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .modal-btn-soft {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .copy-status {
+      display: none;
+      margin-top: 10px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .copy-status.show {
+      display: block;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.7: BACK TO TOP
+       ============================================================ */
+    .pradako-back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px);
+      box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+      transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .pradako-back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .pradako-back-to-top:hover {
+      background: var(--blue);
+    }
+
+    /* ============================================================
+       SUBSECTION 4.8: RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1350px) {
+      .controls-grid {
+        grid-template-columns: 1fr 1fr auto auto;
+      }
+      .stats-row {
+        align-items: flex-start;
+      }
+      .view-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .sticky-col {
+        position: static !important;
+        left: auto !important;
+        box-shadow: none !important;
+      }
+
+      .sticky-head-table th.sticky-col,
+      #standardsTable td.sticky-col {
+        position: static !important;
+        left: auto !important;
+      }
+
+      .sticky-table-head-scroll,
+      .table-scroll {
+        overflow-x: auto !important;
+        overscroll-behavior-x: contain;
+      }
+
+      .top-hero {
+        padding: 28px 18px 24px;
+      }
+
+      .top-hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: 1.04;
+        letter-spacing: -1px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      .top-hero p.hero-intro {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .engineering-use-note {
+        margin: 12px 18px 0;
+        padding: 12px;
+        font-size: 10.5px;
+      }
+
+      .control-zone {
+        padding: 12px;
+      }
+
+      .controls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-wrap,
+      .family-filter,
+      #viewOptionsBtn {
+        grid-column: 1 / -1;
+      }
+
+      .search-wrap input,
+      .family-filter {
+        height: 42px;
+        font-size: 12px;
+      }
+
+      .controls-grid .btn {
+        width: 100%;
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .stat-pills {
+        width: 100%;
+        gap: 5px;
+      }
+
+      .stat-pill {
+        padding: 5px 8px;
+        font-size: 9px;
+      }
+
+      .stats-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .density-switch {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .density-btn,
+      .stats-actions>.btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .view-panel {
+        padding: 9px;
+        border-radius: 12px;
+      }
+
+      .view-panel-head {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+
+      .mini-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0 5px;
+        font-size: 8.5px;
+      }
+
+      .view-groups {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .view-group {
+        padding: 9px;
+      }
+
+      .check-item {
+        padding: 6px 7px;
+        font-size: 9.5px;
+      }
+
+      thead th {
+        padding: 8px 6px;
+        font-size: 8px;
+      }
+
+      tbody td {
+        padding: 8px 6px;
+        font-size: 10px;
+      }
+
+      .media-cell {
+        padding: 7px !important;
+      }
+
+      .media-card,
+      .media-empty {
+        width: 126px !important;
+        height: 88px !important;
+      }
+
+      .density-comfortable .media-card,
+      .density-comfortable .media-empty {
+        height: 105px !important;
+      }
+
+      .pradako-id {
+        font-size: 8.5px;
+        padding: 4px 5px;
+      }
+
+      .standard-link {
+        padding: 4px 6px;
+        font-size: 9px;
+      }
+
+      .family-pill,
+      .body-pill {
+        font-size: 9px;
+      }
+
+      .footer-note {
+        padding: 14px 16px;
+        font-size: 9.5px;
+      }
+
+      .pradako-back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .engineering-use-note {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .hero-route-pill {
+        font-size: 7.5px;
+        padding: 0 8px;
+      }
+      .hero-trust-item {
+        font-size: 7.8px;
+        padding: 0 8px;
+      }
+      .media-card,
+      .media-empty {
+        width: 116px !important;
+        height: 82px !important;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/mil-ms-fed/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako MIL / MS / FED Fastener Standards Library">
+    <meta property="og:description" content="Structured MIL, MS, FED, NASM and related defence fastener standards reference library covering screws, bolts, nuts, washers, rivets, studs, threaded rods and supporting fastener references.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/mil-ms-fed/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako MIL / MS / FED Fastener Standards Library">
+    <meta name="twitter:description" content="Structured MIL, MS, FED, NASM and related defence fastener standards reference library covering screws, bolts, nuts, washers, rivets, studs, threaded rods and supporting fastener references.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako MIL / MS / FED Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standards/mil-ms-fed/index.html",
+  "description": "Structured MIL, MS, FED, NASM and related defence fastener standards reference library covering screws, bolts, nuts, washers, rivets, studs, threaded rods and supporting fastener references.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+  <!-- ============================================================
+       SECTION 5: NAVBAR
+       ============================================================ -->
+  <div id="navbar-container"></div>
+
+  <!-- ============================================================
+       SECTION 6: PAGE CONTENT
+       ============================================================ -->
+  <section class="page">
+
+    <!-- ============================================================
+       SUBSECTION 6.1: HERO
+       ============================================================ -->
+    <header class="top-hero">
+      <div class="hero-kicker">
+        <i class="fa-solid fa-gears"></i> Pradako Standards Library · MIL / MS / FED
+      </div>
+      <div class="hero-route" aria-label="MIL MS FED standards represented">
+        <span class="hero-route-pill">MIL</span>
+        <span class="hero-route-pill">MS</span>
+        <span class="hero-route-pill">FED / FF</span>
+        <span class="hero-route-pill">NASM / QPL</span>
+      </div>
+      <h1>
+        MIL / MS / FED Fastener Standards
+        <span class="hero-subtitle">Engineering Reference Library</span>
+      </h1>
+      <p class="hero-intro">
+        A structured MIL / MS / FED standards reference library for engineering research.
+        Explore the supplied MIL, MS, FED, NASM, QPL and related defence fastener references with their supplied designations,
+        original titles, product families, product categories and controlled Pradako standard identities through the same
+        engineering reference architecture used across the standards library.
+      </p>
+      <div class="hero-trust" aria-label="Library features">
+        <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 76 Standard Records</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 76 Pradako Standard IDs</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> MIL · MS · FED · NASM</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-file-lines"></i> Independent Standard Pages</span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       SUBSECTION 6.2: USE NOTE
+       ============================================================ -->
+    <div class="engineering-use-note" role="note">
+      <span class="note-label">Engineering Use Note</span>
+      <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+      Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements should be confirmed
+      against the governing specification and current official publication before design, procurement or release.
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.3: CONTROLS
+       ============================================================ -->
+    <section class="control-zone">
+
+      <!-- ---- Controls Grid ---- -->
+      <div class="controls-grid">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input id="searchInput" type="text" placeholder="Search MIL, MS, FED, NASM, QPL designation, title, Pradako ID, category or product family..." />
+        </div>
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+          <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+        </button>
+      </div>
+
+      <!-- ---- Stats Row ---- -->
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+          <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+        <div class="stats-actions">
+          <div class="density-switch">
+            <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+            <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+          </div>
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+          <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+            <span>⧉</span>&nbsp; Check Duplicates
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- View Panel ---- -->
+      <div class="view-panel open" id="viewPanel">
+        <div class="view-panel-head">
+          <div class="view-panel-title">Choose the information you want visible</div>
+          <div class="preset-actions">
+            <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+            <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+            <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+          </div>
+        </div>
+        <div class="view-groups" id="viewGroups"></div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+       SUBSECTION 6.4: STICKY TABLE HEAD
+       ============================================================ -->
+    <div class="sticky-table-head-wrap">
+      <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+        <table class="sticky-head-table" aria-hidden="true">
+          <thead>
+            <tr id="stickyTableHeadRow"></tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.5: TABLE
+       ============================================================ -->
+    <section class="table-zone">
+      <div class="table-scroll" id="tableScroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState">
+          <h3>No standards found</h3>
+          <p>Try another MIL, MS, FED, NASM or QPL designation, title, Pradako ID, category or product family.</p>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: EXPORT MODAL
+       ============================================================ -->
+  <section class="modal-overlay" id="exportModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+      <div class="modal-top">
+        <h2>Export Request</h2>
+        <p>The export feature is currently being upgraded for the complete standards database.</p>
+      </div>
+      <div class="modal-body">
+        <div class="work-message">
+          We are working on it.<br />
+          Please email us on:
+          <div class="email-line">info@pradakomechanicals.com</div>
+        </div>
+        <div class="modal-actions">
+          <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=MIL%20MS%20FED%20Standards%20Library%20Export%20Request">Email Us</a>
+          <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+          <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+        </div>
+        <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: IMAGE PREVIEW MODAL
+       ============================================================ -->
+  <section class="image-preview-overlay" id="imagePreviewModal">
+    <div class="image-preview-card">
+      <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+      <div class="image-preview-head">
+        <h3 id="imagePreviewTitle">Standard Media</h3>
+      </div>
+      <div class="image-preview-body">
+        <img id="imagePreviewImg" src="" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: FOOTER
+       ============================================================ -->
+  <div id="footer-container"></div>
+
+  <!-- ============================================================
+       SECTION 10: BACK TO TOP BUTTON
+       ============================================================ -->
+  <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============================================================
+       SECTION 11: SCRIPTS
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 12: MAIN APPLICATION
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       SUBSECTION 12.1: COMPONENT LOADER
+       ============================================================ */
+    
+    
+    
+
+    /* ============================================================
+       SUBSECTION 12.2: COLUMN DEFINITIONS
+       ============================================================ */
+    const COLUMNS = [{
+      key: "imageSrc",
+      label: "Photo / 2D / 3D",
+      width: 240,
+      minWidth: 240,
+      maxWidth: 240,
+      fixed: true,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "media",
+      searchable: false,
+      sortable: false,
+      weight: 0
+    }, {
+      key: "pradakoId",
+      label: "Pradako Standard ID",
+      width: 145,
+      minWidth: 124,
+      maxWidth: 190,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "id",
+      searchable: true,
+      sortable: true,
+      weight: .55
+    }, {
+      key: "standardCode",
+      label: "MIL / MS / FED Standard",
+      width: 235,
+      minWidth: 165,
+      maxWidth: 360,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "standard",
+      searchable: true,
+      sortable: true,
+      weight: .95
+    }, {
+      key: "title",
+      label: "Original Supplied Title / Name",
+      width: 560,
+      minWidth: 310,
+      maxWidth: 920,
+      core: true,
+      group: "core",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: 3.0
+    }, {
+      key: "productFamily",
+      label: "Product Family",
+      width: 255,
+      minWidth: 170,
+      maxWidth: 400,
+      core: true,
+      group: "core",
+      type: "family",
+      searchable: true,
+      sortable: true,
+      weight: 1.0
+    }, {
+      key: "productCategory",
+      label: "Product Category",
+      width: 320,
+      minWidth: 200,
+      maxWidth: 480,
+      core: false,
+      technical: true,
+      group: "details",
+      type: "scope",
+      searchable: true,
+      sortable: true,
+      weight: 1.15
+    }, {
+      key: "sourceId",
+      label: "Source Record ID",
+      width: 235,
+      minWidth: 165,
+      maxWidth: 360,
+      core: false,
+      technical: false,
+      group: "source",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: .75
+    }];
+
+    const GROUP_META = {
+      core: { label: "Core Information" },
+      details: { label: "MIL / MS / FED Standard Details" },
+      source: { label: "Source Record" }
+    };
+
+    /* ============================================================
+       SUBSECTION 12.3: UTILITY FUNCTIONS
+       ============================================================ */
+    function slugify(text) {
+      return String(text || "").toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/\+/g, "plus")
+        .replace(/,/g, " ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function escapeHTML(v) {
+      return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
+
+    function escapeRegex(v) {
+      return v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(v, q) {
+      const t = escapeHTML(v);
+      if (!q.trim()) return t;
+      const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+      return t.replace(r, "<mark>$1</mark>");
+    }
+
+    function normalizeDuplicateKey(v) {
+      return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    /* ============================================================
+       SUBSECTION 12.4: SOURCE DATA (preserved exactly as supplied)
+       ============================================================ */
+    const SOURCE_STANDARDS_DATA = [{
+      "id": "ff-s-85-001",
+      "imageSrc": "",
+      "imageAlt": "FF-S-85 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-85",
+      "title": "Screw, Cap, Slotted and Hexagon Head",
+      "productFamily": ["Cap screws", "bolts"],
+      "productCategory": "Cap screws / hexagon head cap screws / finished hexagon bolts"
+    }, {
+      "id": "ff-s-86-002",
+      "imageSrc": "",
+      "imageAlt": "FF-S-86 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-86",
+      "title": "Screw, Cap, Socket-Head",
+      "productFamily": ["Socket screws"],
+      "productCategory": "Socket head cap screws"
+    }, {
+      "id": "ff-s-92-003",
+      "imageSrc": "",
+      "imageAlt": "FF-S-92 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-92",
+      "title": "Screw, Machine, Slotted, Cross-Recessed or Hexagon Head",
+      "productFamily": ["Machine screws"],
+      "productCategory": "Machine screws"
+    }, {
+      "id": "ff-s-107-004",
+      "imageSrc": "",
+      "imageAlt": "FF-S-107 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-107",
+      "title": "Screws, Tapping and Drive",
+      "productFamily": ["Tapping", "drive screws"],
+      "productCategory": "Tapping screws / drive screws"
+    }, {
+      "id": "ff-s-200-005",
+      "imageSrc": "",
+      "imageAlt": "FF-S-200 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-200",
+      "title": "Setscrews: Hexagon Socket and Spline Socket, Headless",
+      "productFamily": ["Set screws"],
+      "productCategory": "Set screws"
+    }, {
+      "id": "ff-s-210-006",
+      "imageSrc": "",
+      "imageAlt": "FF-S-210 reference image",
+      "imageExists": false,
+      "standardCode": "FF-S-210",
+      "title": "Setscrews: Square Head (Inch) and Slotted Headless (Inch and Metric)",
+      "productFamily": ["Set screws"],
+      "productCategory": "Set screws"
+    }, {
+      "id": "ff-n-836-007",
+      "imageSrc": "",
+      "imageAlt": "FF-N-836 reference image",
+      "imageExists": false,
+      "standardCode": "FF-N-836",
+      "title": "Nut: Square, Hexagon, Cap, Slotted, Castle, Knurled, Welding and Single Ball Seat",
+      "productFamily": ["Nuts"],
+      "productCategory": "Nuts"
+    }, {
+      "id": "ff-w-84-008",
+      "imageSrc": "",
+      "imageAlt": "FF-W-84 reference image",
+      "imageExists": false,
+      "standardCode": "FF-W-84",
+      "title": "Washer, Lock (Spring)",
+      "productFamily": ["Washers"],
+      "productCategory": "Spring lock washers"
+    }, {
+      "id": "ff-w-92-009",
+      "imageSrc": "",
+      "imageAlt": "FF-W-92 reference image",
+      "imageExists": false,
+      "standardCode": "FF-W-92",
+      "title": "Washer, Flat (Plain)",
+      "productFamily": ["Washers"],
+      "productCategory": "Flat/plain washers"
+    }, {
+      "id": "ff-w-100-010",
+      "imageSrc": "",
+      "imageAlt": "FF-W-100 reference image",
+      "imageExists": false,
+      "standardCode": "FF-W-100",
+      "title": "Washer, Lock, Tooth",
+      "productFamily": ["Washers"],
+      "productCategory": "Tooth lock washers"
+    }, {
+      "id": "mil-dtl-18240-011",
+      "imageSrc": "",
+      "imageAlt": "MIL-DTL-18240 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-DTL-18240",
+      "title": "Fastener Element, Self-Locking, Threaded Fastener, 250 Degrees F Maximum",
+      "productFamily": ["Self-locking fastener elements"],
+      "productCategory": "Externally threaded fasteners / self-locking element"
+    }, {
+      "id": "qpl-18240-qpd-012",
+      "imageSrc": "",
+      "imageAlt": "QPL-18240 / QPD reference image",
+      "imageExists": false,
+      "standardCode": "QPL-18240 / QPD",
+      "title": "Fastener Element, Self-Locking, Threaded Fastener, 250 Deg. F Maximum (Replaced by the Qualified Products Database (QPD) see Notice 1 for Additional Information)",
+      "productFamily": ["Self-locking fastener elements"],
+      "productCategory": "Qualified products"
+    }, {
+      "id": "mil-hdbk-57-013",
+      "imageSrc": "",
+      "imageAlt": "MIL-HDBK-57 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-HDBK-57",
+      "title": "Listing of Fastener Manufacturers' Identification Symbols",
+      "productFamily": ["Fastener manufacturer identification"],
+      "productCategory": "Identification / marking"
+    }, {
+      "id": "ms35295-014",
+      "imageSrc": "",
+      "imageAlt": "MS35295 reference image",
+      "imageExists": false,
+      "standardCode": "MS35295",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Medium Carbon Steel, Plain Finish, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "ms35302-015",
+      "imageSrc": "",
+      "imageAlt": "MS35302 reference image",
+      "imageExists": false,
+      "standardCode": "MS35302",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Alloy Steel, Plain Finish, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "ms35309-016",
+      "imageSrc": "",
+      "imageAlt": "MS35309 reference image",
+      "imageExists": false,
+      "standardCode": "MS35309",
+      "title": "Screw, Cap, Hexagon Head - Naval Brass, Plain Finish, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw"
+    }, {
+      "id": "ms35310-017",
+      "imageSrc": "",
+      "imageAlt": "MS35310 reference image",
+      "imageExists": false,
+      "standardCode": "MS35310",
+      "title": "Screw, Cap, Hexagon Head, Naval Brass, Plain Finish, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw"
+    }, {
+      "id": "ms35311-018",
+      "imageSrc": "",
+      "imageAlt": "MS35311 reference image",
+      "imageExists": false,
+      "standardCode": "MS35311",
+      "title": "Screw, Cap, Hexagon Head, Nickel-Copper Alloy, Plain Finish UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw"
+    }, {
+      "id": "ms35312-019",
+      "imageSrc": "",
+      "imageAlt": "MS35312 reference image",
+      "imageExists": false,
+      "standardCode": "MS35312",
+      "title": "Screw, Cap, Hexagon Head, Nickel-Copper Alloy, Plain Finish UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw"
+    }, {
+      "id": "ms51099-020",
+      "imageSrc": "",
+      "imageAlt": "MS51099 reference image",
+      "imageExists": false,
+      "standardCode": "MS51099",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Head Drilled for Locking Wire, Steel, Corrosion-Resisting, Passivated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-head hexagon head cap screw"
+    }, {
+      "id": "ms51100-021",
+      "imageSrc": "",
+      "imageAlt": "MS51100 reference image",
+      "imageExists": false,
+      "standardCode": "MS51100",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Head Drilled for Locking Wire, Steel, Corrosion-Resisting, Passivated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-head hexagon head cap screw"
+    }, {
+      "id": "ms51107-022",
+      "imageSrc": "",
+      "imageAlt": "MS51107 reference image",
+      "imageExists": false,
+      "standardCode": "MS51107",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Alloy Steel, Grade 8, Phosphate Coated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "ms51108-023",
+      "imageSrc": "",
+      "imageAlt": "MS51108 reference image",
+      "imageExists": false,
+      "standardCode": "MS51108",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Alloy Steel, Grade 8, Phosphate Coated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "nasm35307-024",
+      "imageSrc": "",
+      "imageAlt": "NASM35307 reference image",
+      "imageExists": false,
+      "standardCode": "NASM35307",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Steel Corrosion Resisting, Passivated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "nasm35308-025",
+      "imageSrc": "",
+      "imageAlt": "NASM35308 reference image",
+      "imageExists": false,
+      "standardCode": "NASM35308",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Steel Corrosion Resisting, Passivated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "nasm51095-026",
+      "imageSrc": "",
+      "imageAlt": "NASM51095 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51095",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Head Drilled for Locking Wire, Steel, Grade 5, Cadmium Plated, UNC-2A, Plain and Self-locking",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-head hexagon head cap screw"
+    }, {
+      "id": "nasm51096-027",
+      "imageSrc": "",
+      "imageAlt": "NASM51096 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51096",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Head Drilled for Locking Wire, Steel, Grade 5, Cadmium Plated, UNF-2A, Plain and Self-locking",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-head hexagon head cap screw"
+    }, {
+      "id": "nasm51105-028",
+      "imageSrc": "",
+      "imageAlt": "NASM51105 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51105",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Steel, Grade 5, Cadmium Plated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "nasm51106-029",
+      "imageSrc": "",
+      "imageAlt": "NASM51106 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51106",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Steel, Grade 5, Cadmium Plated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "nasm51109-030",
+      "imageSrc": "",
+      "imageAlt": "NASM51109 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51109",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Steel, Corrosion Resisting, Passivated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "nasm51110-031",
+      "imageSrc": "",
+      "imageAlt": "NASM51110 reference image",
+      "imageExists": false,
+      "standardCode": "NASM51110",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Shank Drilled for Cotter Pin, Steel, Corrosion Resisting, Passivated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Drilled-shank hexagon head cap screw"
+    }, {
+      "id": "nasm90725-032",
+      "imageSrc": "",
+      "imageAlt": "NASM90725 reference image",
+      "imageExists": false,
+      "standardCode": "NASM90725",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Steel, Grade 5, Cadmium Plated, UNC-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "nasm90726-033",
+      "imageSrc": "",
+      "imageAlt": "NASM90726 reference image",
+      "imageExists": false,
+      "standardCode": "NASM90726",
+      "title": "Screw, Cap, Hexagon Head (Finished Hexagon Bolt), Steel, Grade 5, Cadmium Plated, UNF-2A",
+      "productFamily": ["Screws", "bolts"],
+      "productCategory": "Hexagon head cap screw / finished hexagon bolt"
+    }, {
+      "id": "ms24693-034",
+      "imageSrc": "",
+      "imageAlt": "MS24693 reference image",
+      "imageExists": false,
+      "standardCode": "MS24693",
+      "title": "Screw, Machine, Flat Countersunk Head, 100 Deg., Cross Recessed, UNC-2A and UNF-2A (S/S by NASM24693)",
+      "productFamily": ["Machine screws"],
+      "productCategory": "Machine screws"
+    }, {
+      "id": "ms35214-035",
+      "imageSrc": "",
+      "imageAlt": "MS35214 reference image",
+      "imageExists": false,
+      "standardCode": "MS35214",
+      "title": "Screw, Machine-Pan Head, Cross-Recessed, Brass, UNC-2A (S/S by NASM35214)",
+      "productFamily": ["Machine screws"],
+      "productCategory": "Machine screws"
+    }, {
+      "id": "ms51958-036",
+      "imageSrc": "",
+      "imageAlt": "MS51958 reference image",
+      "imageExists": false,
+      "standardCode": "MS51958",
+      "title": "Screw, Machine Pan-Head, Cross-Recessed, Corrosion Resisting Steel, UNF-2A (S/S by NASM51958)",
+      "productFamily": ["Machine screws"],
+      "productCategory": "Machine screws"
+    }, {
+      "id": "ms35275-037",
+      "imageSrc": "",
+      "imageAlt": "MS35275 reference image",
+      "imageExists": false,
+      "standardCode": "MS35275",
+      "title": "Screw, Machine-Drilled Fillister Head, Slotted, Corrosion Resisting Steel, Passivated, UNC-2A (S/S by NASM35275)",
+      "productFamily": ["Machine screws"],
+      "productCategory": "Machine screws"
+    }, {
+      "id": "mil-s-933-038",
+      "imageSrc": "",
+      "imageAlt": "MIL-S-933 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-S-933",
+      "title": "Screws, Machine, Cap and Set, and Nuts (Use FF-S-85, FF-S-86, FF-S-92, FF-S-103 and FF-N-836 as applicable)",
+      "productFamily": ["Screws", "nuts"],
+      "productCategory": "Screws / nuts"
+    }, {
+      "id": "mil-dtl-45913-039",
+      "imageSrc": "",
+      "imageAlt": "MIL-DTL-45913 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-DTL-45913",
+      "title": "Nuts, Self-Locking, Hexagon, Prevailing Torque",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-locking nuts"
+    }, {
+      "id": "ms51922-040",
+      "imageSrc": "",
+      "imageAlt": "MS51922 reference image",
+      "imageExists": false,
+      "standardCode": "MS51922",
+      "title": "Nut Self-Locking, Hexagon-Prevailing Torque, General Purpose, 250°F, UNC-2B and UNF-2B",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-locking nuts"
+    }, {
+      "id": "mil-dtl-25027-041",
+      "imageSrc": "",
+      "imageAlt": "MIL-DTL-25027 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-DTL-25027",
+      "title": "Nut, Self-Locking 250 Degree F, 450 Degree F, and 800 Degree F (S/S by NASM-25027)",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-locking nuts"
+    }, {
+      "id": "qpl-25027-042",
+      "imageSrc": "",
+      "imageAlt": "QPL-25027 reference image",
+      "imageExists": false,
+      "standardCode": "QPL-25027",
+      "title": "Nut, Self Locking, 250 Deg. F, 450 Deg. F, and 800 Deg. F",
+      "productFamily": ["Nuts"],
+      "productCategory": "Qualified products"
+    }, {
+      "id": "mil-n-25027-1-043",
+      "imageSrc": "",
+      "imageAlt": "MIL-N-25027/1 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-N-25027/1",
+      "title": "Nut, Self-Locking, Heavy Hex, (Non-Metallic Insert) 250 Degrees and 450 Degrees F, UNJC-3B, 1/4 Through 2-1/2 Inch Nominal Diameters, Nickel-Copper Alloy (S/S by MIL-DTL-32258)",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-locking heavy hex nuts"
+    }, {
+      "id": "mil-n-45938-1-044",
+      "imageSrc": "",
+      "imageAlt": "MIL-N-45938/1 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-N-45938/1",
+      "title": "Nut, Plain, Clinch (Self-Clinching, Round) (S/S by NASM45938/1)",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-clinching nuts"
+    }, {
+      "id": "nasm45938-3-045",
+      "imageSrc": "",
+      "imageAlt": "NASM45938/3 reference image",
+      "imageExists": false,
+      "standardCode": "NASM45938/3",
+      "title": "Nut, Plain, Clinch and Nut, Self-Locking, Clinch (Self Clinching, Knurled Collar, 450 Degrees Fahrenheit and 600 Degrees Fahrenheit)",
+      "productFamily": ["Nuts"],
+      "productCategory": "Self-clinching nuts"
+    }, {
+      "id": "ms15795-046",
+      "imageSrc": "",
+      "imageAlt": "MS15795 reference image",
+      "imageExists": false,
+      "standardCode": "MS15795",
+      "title": "Washer, Flat Metal, Round, General Purpose (S/S by NASM15795)",
+      "productFamily": ["Washers"],
+      "productCategory": "Flat washers"
+    }, {
+      "id": "ms35333-047",
+      "imageSrc": "",
+      "imageAlt": "MS35333 reference image",
+      "imageExists": false,
+      "standardCode": "MS35333",
+      "title": "Washer, Lock, Flat-Internal Tooth (S/S by NASM35333)",
+      "productFamily": ["Washers"],
+      "productCategory": "Internal tooth lock washers"
+    }, {
+      "id": "ms35334-048",
+      "imageSrc": "",
+      "imageAlt": "MS35334 reference image",
+      "imageExists": false,
+      "standardCode": "MS35334",
+      "title": "Washer, Lock, Flat, Heavy, Internal Tooth",
+      "productFamily": ["Washers"],
+      "productCategory": "Heavy internal tooth lock washers"
+    }, {
+      "id": "ms35335-049",
+      "imageSrc": "",
+      "imageAlt": "MS35335 reference image",
+      "imageExists": false,
+      "standardCode": "MS35335",
+      "title": "Washer, Lock, Flat-External Tooth",
+      "productFamily": ["Washers"],
+      "productCategory": "External tooth lock washers"
+    }, {
+      "id": "ms35336-050",
+      "imageSrc": "",
+      "imageAlt": "MS35336 reference image",
+      "imageExists": false,
+      "standardCode": "MS35336",
+      "title": "Washer, Lock, Countersunk, 80 Deg. 82 Deg., External Tooth (IN/MM)",
+      "productFamily": ["Washers"],
+      "productCategory": "Countersunk external tooth lock washers"
+    }, {
+      "id": "ms27183-051",
+      "imageSrc": "",
+      "imageAlt": "MS27183 reference image",
+      "imageExists": false,
+      "standardCode": "MS27183",
+      "title": "Washer, Flat (Round, Steel, Cadmium Plated) General Purpose",
+      "productFamily": ["Washers"],
+      "productCategory": "Flat washers"
+    }, {
+      "id": "ms51413-052",
+      "imageSrc": "",
+      "imageAlt": "MS51413 reference image",
+      "imageExists": false,
+      "standardCode": "MS51413",
+      "title": "Washer, Lock, Flat-Internal Tooth",
+      "productFamily": ["Washers"],
+      "productCategory": "Internal tooth lock washers"
+    }, {
+      "id": "ms51414-053",
+      "imageSrc": "",
+      "imageAlt": "MS51414 reference image",
+      "imageExists": false,
+      "standardCode": "MS51414",
+      "title": "Washer, Lock-Flat-External Tooth",
+      "productFamily": ["Washers"],
+      "productCategory": "External tooth lock washers"
+    }, {
+      "id": "ms51415-054",
+      "imageSrc": "",
+      "imageAlt": "MS51415 reference image",
+      "imageExists": false,
+      "standardCode": "MS51415",
+      "title": "Washer, Lock-Helical Spring, Regular (Medium) Series",
+      "productFamily": ["Washers"],
+      "productCategory": "Helical spring lock washers"
+    }, {
+      "id": "ms51416-055",
+      "imageSrc": "",
+      "imageAlt": "MS51416 reference image",
+      "imageExists": false,
+      "standardCode": "MS51416",
+      "title": "Washer, Lock-Helical Spring, Heavy Duty",
+      "productFamily": ["Washers"],
+      "productCategory": "Helical spring lock washers"
+    }, {
+      "id": "ms51848-056",
+      "imageSrc": "",
+      "imageAlt": "MS51848 reference image",
+      "imageExists": false,
+      "standardCode": "MS51848",
+      "title": "Washer, Lock-Helical Spring, Hi-Collar",
+      "productFamily": ["Washers"],
+      "productCategory": "High-collar spring lock washers"
+    }, {
+      "id": "ms20426-057",
+      "imageSrc": "",
+      "imageAlt": "MS20426 reference image",
+      "imageExists": false,
+      "standardCode": "MS20426",
+      "title": "Rivet, Solid, Countersunk 100 Deg., Precision Head, Aluminum and Titanium Columbium Alloy (S/S by NASM20426)",
+      "productFamily": ["Rivets"],
+      "productCategory": "Solid aerospace rivets"
+    }, {
+      "id": "ms20427-058",
+      "imageSrc": "",
+      "imageAlt": "MS20427 reference image",
+      "imageExists": false,
+      "standardCode": "MS20427",
+      "title": "Rivet, Solid-100 Deg. Countersunk Head, Carbon Steel, Corrosion-Resistant Steel, Monel and Copper (S/S by NASM20427)",
+      "productFamily": ["Rivets"],
+      "productCategory": "Solid rivets"
+    }, {
+      "id": "ms20435-059",
+      "imageSrc": "",
+      "imageAlt": "MS20435 reference image",
+      "imageExists": false,
+      "standardCode": "MS20435",
+      "title": "Rivet, Round Head, Steel, Monel and Copper (S/S by MS20613 and MS20615)",
+      "productFamily": ["Rivets"],
+      "productCategory": "Round head rivets"
+    }, {
+      "id": "ms20450-060",
+      "imageSrc": "",
+      "imageAlt": "MS20450 reference image",
+      "imageExists": false,
+      "standardCode": "MS20450",
+      "title": "Rivet, Tubular (S/S by MS16535 or MS16536)",
+      "productFamily": ["Rivets"],
+      "productCategory": "Tubular rivets"
+    }, {
+      "id": "ms20470-061",
+      "imageSrc": "",
+      "imageAlt": "MS20470 reference image",
+      "imageExists": false,
+      "standardCode": "MS20470",
+      "title": "Rivet, Solid Universal Head, Aluminum Alloy and Titanium Columbium Alloy (S/S by NASM20470)",
+      "productFamily": ["Rivets"],
+      "productCategory": "Solid universal head rivets"
+    }, {
+      "id": "ms20600-062",
+      "imageSrc": "",
+      "imageAlt": "MS20600 reference image",
+      "imageExists": false,
+      "standardCode": "MS20600",
+      "title": "Rivet, Blind, Structural Pull Stem, Self-Plugging, Protruding Head, Type II",
+      "productFamily": ["Rivets"],
+      "productCategory": "Blind structural rivets"
+    }, {
+      "id": "ms20601-063",
+      "imageSrc": "",
+      "imageAlt": "MS20601 reference image",
+      "imageExists": false,
+      "standardCode": "MS20601",
+      "title": "Rivet, Blind, Structural Pull Stem, Self-Plugging, 100° Flush Head, Type II",
+      "productFamily": ["Rivets"],
+      "productCategory": "Blind structural rivets"
+    }, {
+      "id": "mil-r-7885-064",
+      "imageSrc": "",
+      "imageAlt": "MIL-R-7885 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-R-7885",
+      "title": "Rivets: Blind, Structural, Pull-Stem, and Chemically Expanded",
+      "productFamily": ["Rivets"],
+      "productCategory": "Blind structural rivets"
+    }, {
+      "id": "mil-r-7885-7-065",
+      "imageSrc": "",
+      "imageAlt": "MIL-R-7885/7 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-R-7885/7",
+      "title": "Rivet, Blind, Structural, Chemically Expanded; future acquisitions refer to NAS9305",
+      "productFamily": ["Rivets"],
+      "productCategory": "Blind structural rivets"
+    }, {
+      "id": "mil-std-1312-4-066",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-4 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-4",
+      "title": "Fastener Test Methods, Method 4, Shear",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-6-067",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-6 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-6",
+      "title": "Fastener Test Methods, Method 6, Hardness (S/S by NASM1312-6)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-7-068",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-7 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-7",
+      "title": "Fastener Test Methods, Metric, Method 7, Vibration (S/S by NASM1312-7)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-8-069",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-8 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-8",
+      "title": "Fastener Test Methods, Method 8, Tensile Strength",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-11-070",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-11 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-11",
+      "title": "Fastener Test Methods Method 11, Tension Fatigue (S/S by NASM1312-11)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-13-071",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-13 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-13",
+      "title": "Fastener Test Methods Method 13, Double Shear Test (S/S by NASM1312-13)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-15-072",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-15 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-15",
+      "title": "Fastener Test Methods, Method 15, Torque - Tension (S/S by NASM1312-15)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "mil-std-1312-19-073",
+      "imageSrc": "",
+      "imageAlt": "MIL-STD-1312-19 reference image",
+      "imageExists": false,
+      "standardCode": "MIL-STD-1312-19",
+      "title": "Fastener Test Methods Method 19, Fastener Sealing (S/S by NASM1312-19)",
+      "productFamily": ["Testing", "support"],
+      "productCategory": "Fastener test method"
+    }, {
+      "id": "fed-std-h28-074",
+      "imageSrc": "",
+      "imageAlt": "FED-STD-H28 reference image",
+      "imageExists": false,
+      "standardCode": "FED-STD-H28",
+      "title": "Screw-Thread Standards for Federal Services",
+      "productFamily": ["Threads", "support"],
+      "productCategory": "Threads"
+    }, {
+      "id": "no-verified-generic-mil-ms-threaded-rod-product-standard-found-in-public-quickse-075",
+      "imageSrc": "",
+      "imageAlt": "No verified generic MIL/MS threaded-rod product standard found in public QuickSearch pass reference image",
+      "imageExists": false,
+      "standardCode": "No verified generic MIL/MS threaded-rod product standard found in public QuickSearch pass",
+      "title": "Threaded rods / all-thread rods - no single active generic MIL/MS product dimensional standard verified",
+      "productFamily": ["Threaded rods"],
+      "productCategory": "Threaded rods"
+    }, {
+      "id": "mil-dtl-1222-studs-076",
+      "imageSrc": "",
+      "imageAlt": "MIL-DTL-1222 studs reference image",
+      "imageExists": false,
+      "standardCode": "MIL-DTL-1222 studs",
+      "title": "Studs under MIL-DTL-1222 high-reliability fastener specification",
+      "productFamily": ["Studs"],
+      "productCategory": "Studs"
+    }];
+
+    /* ============================================================
+       SUBSECTION 12.5: ENRICH DATA WITH PRADAKO IDs & PAGE URLs
+       ============================================================ */
+    const PAGE_SLUG_COUNTERS = {};
+    const standardsData = SOURCE_STANDARDS_DATA.map((row, index) => {
+      const base = slugify(row.standardCode);
+      PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+      const n = PAGE_SLUG_COUNTERS[base],
+        pageSlug = n === 1 ? base : `${base}-${String(n).padStart(2, "0")}`;
+      return {
+        ...row,
+        sourceId: row.id,
+        pradakoId: `PRA-STD-MIL-${String(index + 1).padStart(4, "0")}`,
+        imageSrc: `/assets/images/products/standards-products/${base}.png`,
+        imageAltPresentation: `${row.standardCode} standard media`,
+        pageUrl: `/pages/standards/mil-ms-fed/${pageSlug}.html`
+      };
+    });
+
+    /* ============================================================
+       SUBSECTION 12.6: DOM REFERENCES & STATE
+       ============================================================ */
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+    const tableBody = document.getElementById("standardsTableBody");
+    const searchInput = document.getElementById("searchInput");
+    const familyFilter = document.getElementById("familyFilter");
+    const emptyState = document.getElementById("emptyState");
+    const viewPanel = document.getElementById("viewPanel");
+    const viewGroups = document.getElementById("viewGroups");
+    const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+    const exportModal = document.getElementById("exportModal");
+    const copyStatus = document.getElementById("copyStatus");
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const imagePreviewImg = document.getElementById("imagePreviewImg");
+    const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+    const visibleCount = document.getElementById("visibleCount");
+    const totalCount = document.getElementById("totalCount");
+    const pageCount = document.getElementById("pageCount");
+    const visibleColumnCount = document.getElementById("visibleColumnCount");
+    const duplicateModePill = document.getElementById("duplicateModePill");
+    const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+    const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+    const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+    let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+    let currentFilteredData = [...standardsData];
+    let duplicateMode = false;
+    let duplicateBaseData = [];
+    let sortState = { key: null, direction: "asc" };
+    let currentDensity = "compact";
+    let searchTimer;
+
+    /* ============================================================
+       SUBSECTION 12.7: VIEW & FILTER HELPERS
+       ============================================================ */
+    function getVisibleColumns() {
+      return COLUMNS.filter(c => visibleColumns.has(c.key));
+    }
+
+    function buildFamilyFilter() {
+      const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      familyFilter.innerHTML = '<option value="">All Product Families</option>';
+      fs.forEach(f => {
+        const o = document.createElement("option");
+        o.value = f;
+        o.textContent = f;
+        familyFilter.appendChild(o);
+      });
+    }
+
+    function buildViewPanel() {
+      viewGroups.innerHTML = "";
+      Object.entries(GROUP_META).forEach(([key, meta]) => {
+        const cols = COLUMNS.filter(c => c.group === key);
+        if (!cols.length) return;
+        const g = document.createElement("div");
+        g.className = "view-group";
+        const h = document.createElement("h4");
+        h.textContent = meta.label;
+        const wrap = document.createElement("div");
+        wrap.className = "column-checks";
+        cols.forEach(c => {
+          const label = document.createElement("label");
+          label.className = "check-item";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.checked = visibleColumns.has(c.key);
+          input.addEventListener("change", () => {
+            if (input.checked) {
+              visibleColumns.add(c.key);
+            } else {
+              if (visibleColumns.size === 1) { input.checked = true; return; }
+              visibleColumns.delete(c.key);
+            }
+            setPresetState("custom");
+            buildViewPanel();
+            renderTable(currentFilteredData);
+          });
+          const span = document.createElement("span");
+          span.textContent = c.label;
+          label.append(input, span);
+          wrap.appendChild(label);
+        });
+        g.append(h, wrap);
+        viewGroups.appendChild(g);
+      });
+    }
+
+    function toggleViewPanel() {
+      viewPanel.classList.toggle("open");
+      const open = viewPanel.classList.contains("open");
+      viewOptionsBtn.classList.toggle("active", open);
+      viewOptionsBtn.setAttribute("aria-expanded", String(open));
+    }
+
+    function setPresetState(which) {
+      ["Core", "Technical", "All"].forEach(n =>
+        document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+      );
+    }
+
+    function applyViewPreset(which) {
+      if (which === "core") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+      } else if (which === "technical") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c.key));
+      } else {
+        visibleColumns = new Set(COLUMNS.map(c => c.key));
+      }
+      setPresetState(which);
+      buildViewPanel();
+      renderTable(currentFilteredData);
+    }
+
+    function setDensity(mode) {
+      currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+      try { localStorage.setItem("pradakoMilMsFedDensity", currentDensity); } catch (_) {}
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.8: RENDERING ENGINE
+       ============================================================ */
+    function renderMediaCell(item) {
+      const src = item.imageSrc || "";
+      const alt = item.imageAlt || item.standardCode || "Standard media";
+      return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'" />
+              </div>`;
+    }
+
+    function resolveColumnWidths(list) {
+      const scroller = document.querySelector(".table-scroll");
+      const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+
+      if (window.innerWidth <= 900) {
+        const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, title: 340, productFamily: 200, productCategory: 240,
+          sourceId: 180 };
+        const widths = list.map(c => mobile[c.key] || 160);
+        const total = widths.reduce((a, b) => a + b, 0);
+        return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total > viewport };
+      }
+
+      const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+      const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+      let total = widths.reduce((a, b) => a + b, 0);
+      const minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+      if (total > viewport) {
+        let excess = total - viewport;
+        let guard = 0;
+        while (excess > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x.room > 0);
+          if (!active.length) break;
+          const rt = active.reduce((s, x) => s + x.room, 0);
+          let removed = 0;
+          active.forEach((x, idx) => {
+            let cut = idx === active.length - 1 ?
+              Math.min(x.room, Math.max(0, excess - removed)) :
+              Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+            widths[x.i] -= cut;
+            removed += cut;
+          });
+          if (!removed) break;
+          excess -= removed;
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+
+      if (total < viewport) {
+        let spare = viewport - total;
+        let guard = 0;
+        while (spare > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({
+            i,
+            weight: c.fixed ? 0 : Math.max(.1, c.weight || 1),
+            room: c.fixed ? 0 : Math.max(0, c.maxWidth - widths[i])
+          })).filter(x => x.weight > 0 && x.room > 0);
+          if (!active.length) break;
+          const wt = active.reduce((s, x) => s + x.weight, 0);
+          let added = 0;
+          active.forEach((x, idx) => {
+            const grow = Math.min(x.room, idx === active.length - 1 ?
+              Math.max(0, spare - added) :
+              Math.max(1, Math.floor(spare * (x.weight / wt))));
+            widths[x.i] += grow;
+            added += grow;
+          });
+          if (!added) break;
+          spare -= added;
+        }
+        total = widths.reduce((a, b) => a + b, 0);
+        spare = Math.max(0, viewport - total);
+        if (spare > 0) {
+          const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+            .filter(x => x.weight > 0);
+          const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+          let added = 0;
+          elastic.forEach((x, idx) => {
+            const grow = idx === elastic.length - 1 ?
+              spare - added :
+              Math.floor(spare * (x.weight / wt));
+            widths[x.i] += Math.max(0, grow);
+            added += Math.max(0, grow);
+          });
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+      return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal > viewport };
+    }
+
+    function getStickyLeftOffset(list, widths, index) {
+      let left = 0;
+      for (let i = 0; i < index; i++) {
+        if (list[i].sticky) left += widths[i];
+      }
+      return left;
+    }
+
+    function applyAdaptiveRowSizing(count) {
+      let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+      let clamp = count <= 6 ? 3 : 4;
+      let x = count <= 6 ? 8 : 7;
+      let y = count <= 6 ? 10 : 11;
+      if (currentDensity === "comfortable") { row += 38;
+        clamp += 2;
+        y += 3; }
+      document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+      document.documentElement.style.setProperty("--title-clamp", String(clamp));
+      document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+      document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+    }
+
+    function applyExactColumnLayout(list) {
+      const layout = resolveColumnWidths(list);
+      const body = document.getElementById("standardsTable");
+      const head = document.querySelector(".sticky-head-table");
+      const bodyScroll = document.querySelector(".table-scroll");
+      const headScroll = document.getElementById("stickyTableHeadScroll");
+      const rendered = Math.max(layout.total, layout.viewport);
+
+      bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+      headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+
+      [body, head].forEach(t => {
+        if (!t) return;
+        t.style.width = rendered + "px";
+        t.style.minWidth = rendered + "px";
+        t.querySelector("colgroup")?.remove();
+        const cg = document.createElement("colgroup");
+        layout.widths.forEach(w => {
+          const col = document.createElement("col");
+          col.style.width = w + "px";
+          cg.appendChild(col);
+        });
+        t.insertBefore(cg, t.firstChild);
+      });
+
+      return layout;
+    }
+
+    function renderTable(data) {
+      const q = searchInput.value.trim();
+      const list = getVisibleColumns();
+      const layout = applyExactColumnLayout(list);
+      applyAdaptiveRowSizing(list.length);
+
+      visibleColumnCount.textContent = list.length;
+      visibleCount.textContent = data.length;
+
+      tableHeadRow.innerHTML = "";
+      stickyTableHeadRow.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      function thFor(c, i) {
+        const th = document.createElement("th");
+        th.textContent = sortState.key === c.key ?
+          c.label + (sortState.direction === "asc" ? " ▲" : " ▼") :
+          c.label;
+        th.style.width = layout.widths[i] + "px";
+        if (c.sticky && window.innerWidth > 900) {
+          th.classList.add("sticky-col");
+          th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+        }
+        if (c.sortable === false) {
+          th.classList.add("not-sortable");
+        } else {
+          th.addEventListener("click", () => sortByColumn(c.key));
+        }
+        return th;
+      }
+
+      list.forEach((c, i) => {
+        tableHeadRow.appendChild(thFor(c, i));
+        stickyTableHeadRow.appendChild(thFor(c, i));
+      });
+
+      const frag = document.createDocumentFragment();
+      data.forEach(item => {
+        const tr = document.createElement("tr");
+        list.forEach((c, i) => {
+          const td = document.createElement("td");
+          const v = item[c.key] !== undefined ? item[c.key] : "—";
+          td.style.width = layout.widths[i] + "px";
+          if (c.sticky && window.innerWidth > 900) {
+            td.classList.add("sticky-col");
+            td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+          }
+          if (c.type === "media") {
+            td.classList.add("media-cell");
+            td.innerHTML = renderMediaCell(item);
+          } else if (c.type === "id") {
+            td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+          } else if (c.type === "standard") {
+            td.innerHTML =
+              `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+          } else if (c.type === "body") {
+            td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+          } else if (c.type === "family") {
+            const a = Array.isArray(v) ? v : [v];
+            td.innerHTML = a.map(x => `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+          } else {
+            td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+          }
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      });
+      tableBody.appendChild(frag);
+      emptyState.style.display = data.length ? "none" : "block";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.9: DUPLICATE DETECTION
+       ============================================================ */
+    function getDuplicateGroups() {
+      const m = new Map();
+      standardsData.forEach(x => {
+        const k = normalizeDuplicateKey(x.standardCode);
+        if (!k) return;
+        if (!m.has(k)) m.set(k, []);
+        m.get(k).push(x);
+      });
+      return [...m.values()].filter(g => g.length > 1)
+        .sort((a, b) => a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true,
+        sensitivity: "base" }));
+    }
+
+    function updateDuplicateViewPill(gc, rc) {
+      if (!duplicateMode) {
+        duplicateModePill.classList.remove("show");
+        duplicateGroupsCount.textContent = "0";
+        duplicateRowsCount.textContent = "0";
+        return;
+      }
+      duplicateGroupsCount.textContent = gc;
+      duplicateRowsCount.textContent = rc;
+      duplicateModePill.classList.add("show");
+    }
+
+    function showDuplicateEntriesInTable() {
+      const groups = getDuplicateGroups();
+      const r = groups.flat();
+      duplicateMode = true;
+      duplicateBaseData = r;
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      currentFilteredData = [...r];
+      updateDuplicateViewPill(groups.length, r.length);
+      duplicateCheckBtn.classList.add("active");
+      searchInput.placeholder = "Search within duplicate MIL / MS / FED entries...";
+      renderTable(currentFilteredData);
+    }
+
+    function hideDuplicateView() {
+      duplicateMode = false;
+      duplicateBaseData = [];
+      updateDuplicateViewPill(0, 0);
+      duplicateCheckBtn.classList.remove("active");
+      searchInput.placeholder = "Search MIL, MS, FED, NASM, QPL designation, title, Pradako ID, category or product family...";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.10: SEARCH / SORT
+       ============================================================ */
+    function searchStandards() {
+      const q = searchInput.value.trim().toLowerCase();
+      const f = familyFilter.value;
+      const src = duplicateMode ? duplicateBaseData : standardsData;
+      currentFilteredData = src.filter(item => {
+        const ms = !q || COLUMNS.some(c => {
+          if (c.searchable === false) return false;
+          const v = item[c.key];
+          if (v == null) return false;
+          if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+          return String(v).toLowerCase().includes(q);
+        });
+        const mf = !f || item.productFamily.includes(f);
+        return ms && mf;
+      });
+      if (sortState.key) {
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+      }
+      renderTable(currentFilteredData);
+    }
+
+    function clearSearch() {
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      hideDuplicateView();
+      currentFilteredData = [...standardsData];
+      renderTable(currentFilteredData);
+    }
+
+    function sortData(data, key, direction) {
+      return [...data].sort((a, b) => {
+        let A = a[key],
+          B = b[key];
+        if (Array.isArray(A)) A = A.join(", ");
+        if (Array.isArray(B)) B = B.join(", ");
+        A = String(A ?? "").toLowerCase();
+        B = String(B ?? "").toLowerCase();
+        return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+      });
+    }
+
+    function sortByColumn(key) {
+      const c = COLUMNS.find(x => x.key === key);
+      if (!c || c.sortable === false) return;
+      if (sortState.key === key) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+      } else {
+        sortState = { key, direction: "asc" };
+      }
+      currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.11: MODALS / POPUPS
+       ============================================================ */
+    function openExportPopup() {
+      exportModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+      copyStatus.classList.remove("show");
+    }
+
+    function closeExportPopup() {
+      exportModal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function copyEmail() {
+      const e = "info@pradakomechanicals.com";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+      } else {
+        const t = document.createElement("textarea");
+        t.value = e;
+        t.style.position = "fixed";
+        t.style.left = "-9999px";
+        document.body.appendChild(t);
+        t.select();
+        try {
+          document.execCommand("copy");
+          copyStatus.classList.add("show");
+        } catch (_) {
+          copyStatus.textContent = "Please copy manually: " + e;
+          copyStatus.classList.add("show");
+        }
+        t.remove();
+      }
+    }
+
+    function openImagePreview(src, alt, title) {
+      imagePreviewImg.src = src;
+      imagePreviewImg.alt = alt;
+      imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+      imagePreviewModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImagePreview() {
+      imagePreviewModal.classList.remove("show");
+      imagePreviewImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.12: SCROLL SYNC
+       ============================================================ */
+    function syncScroll() {
+      const b = document.querySelector(".table-scroll");
+      const h = document.getElementById("stickyTableHeadScroll");
+      let syncing = false;
+
+      const sync = (from, to) => {
+        if (syncing) return;
+        syncing = true;
+        to.scrollLeft = from.scrollLeft;
+        syncing = false;
+      };
+
+      b.addEventListener("scroll", () => sync(b, h), { passive: true });
+      h.addEventListener("scroll", () => sync(h, b), { passive: true });
+    }
+
+    /* ============================================================
+       SUBSECTION 12.13: EVENT LISTENERS & INITIALISATION
+       ============================================================ */
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(searchStandards, 160);
+    });
+
+    familyFilter.addEventListener("change", searchStandards);
+
+    tableBody.addEventListener("click", e => {
+      const box = e.target.closest(".media-card");
+      if (box) {
+        openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+      }
+    });
+
+    exportModal.addEventListener("click", e => {
+      if (e.target === exportModal) closeExportPopup();
+    });
+
+    imagePreviewModal.addEventListener("click", e => {
+      if (e.target === imagePreviewModal) closeImagePreview();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") { closeExportPopup();
+        closeImagePreview(); }
+    });
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+    });
+
+    function init() {
+      try {
+        if (localStorage.getItem("pradakoMilMsFedDensity") === "comfortable") currentDensity = "comfortable";
+      } catch (_) {}
+
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+
+      totalCount.textContent = standardsData.length;
+      pageCount.textContent = standardsData.length;
+
+      buildFamilyFilter();
+      buildViewPanel();
+      renderTable(currentFilteredData);
+      syncScroll();
+
+      // Back to top
+      const button = document.getElementById("pradakoBackToTop");
+      if (button) {
+        const update = () => {
+          const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          button.classList.toggle("is-visible", y > 300);
+        };
+        button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      }
+    }
+
+    /* ============================================================
+       SUBSECTION 12.14: GLOBAL EXPOSURE
+       ============================================================ */
+    window.searchStandards = searchStandards;
+    window.clearSearch = clearSearch;
+    window.toggleViewPanel = toggleViewPanel;
+    window.setDensity = setDensity;
+    window.applyViewPreset = applyViewPreset;
+    window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+    window.openExportPopup = openExportPopup;
+    window.closeExportPopup = closeExportPopup;
+    window.copyEmail = copyEmail;
+    window.openImagePreview = openImagePreview;
+    window.closeImagePreview = closeImagePreview;
+
+    /* ============================================================
+       SUBSECTION 12.15: START
+       ============================================================ */
+    init();
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

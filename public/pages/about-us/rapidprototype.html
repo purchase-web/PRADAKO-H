@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapid Prototyping — Pradako Mechanical &amp; Engineering Works</title>
+<meta name="description" content="Accelerating engineering innovation from concept to production. Precision prototypes, production-relevant materials, structured validation and manufacturing-ready thinking.">
+
+        <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+          <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+          <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+        <!-- GOOGLE FONTS -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+        <!-- FONT AWESOME - KEEP ONLY ONE -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+:root{
+  --rp-white:#ffffff;--rp-off:#f2f3f5;--rp-ink:#101216;--rp-ink-deep:#080a0d;
+  --rp-muted:#63666c;--rp-line:#dcdee2;
+  --rp-ac:#1746C4;--rp-ac-mid:#2A5CE0;--rp-ac-bright:#5B8CFF;--rp-ac-soft:#ecf1fd;
+  --rp-band-a:#0C1730;--rp-band-b:#070A12;--rp-cta-a:#0A1533;
+  --rp-d:"Montserrat",Arial,sans-serif;--rp-b:"Space Grotesk",Arial,sans-serif;--rp-m:"JetBrains Mono",ui-monospace,monospace;
+  --rp-max:1480px;--rp-e:cubic-bezier(.2,.8,.2,1);
+}
+.pmew-rp *{margin:0;padding:0;box-sizing:border-box}
+.pmew-rp{margin:0;background:var(--rp-white);color:#34373d;font-family:var(--rp-b);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.pmew-rp ::selection{background:var(--rp-ac);color:#fff}
+.pmew-rp a{color:inherit;text-decoration:none}
+.pmew-rp :focus-visible{outline:3px solid var(--rp-ac-bright);outline-offset:3px}
+.rp-wrap{max-width:var(--rp-max);margin:0 auto;padding:0 clamp(22px,4vw,64px)}
+.rp-sec{padding:clamp(76px,8.2vw,120px) 0;position:relative}
+.rp-paper{background:var(--rp-off);border-top:1px solid var(--rp-line);border-bottom:1px solid var(--rp-line)}
+#rp-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--rp-ac);z-index:400;transition:width .08s linear}
+
+/* ---------- TYPE ---------- */
+.rp-stencil{font-family:var(--rp-m);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--rp-ac);display:inline-flex;align-items:center;gap:12px;margin-bottom:22px}
+.rp-stencil::before{content:"";width:30px;height:0;border-top:3px double var(--rp-ac)}
+.rp-h{font-family:var(--rp-d);font-weight:900;letter-spacing:-.032em;line-height:.95;text-transform:uppercase;color:var(--rp-ink)}
+.rp-h .t{color:var(--rp-ac)}
+.rp-h-lg{font-size:clamp(31px,4.4vw,62px)}
+.rp-lead{font-size:clamp(15.5px,1.28vw,18.5px);color:var(--rp-muted);max-width:900px;line-height:1.78;margin-top:24px}
+.rp-lead b{color:var(--rp-ink);font-weight:700}
+.rp-note{margin-top:28px;border-left:4px solid var(--rp-ac);padding:6px 0 6px 20px;font-size:14.5px;color:#3f434a;line-height:1.75;max-width:860px}
+.rp-btn{font-family:var(--rp-d);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;padding:17px 32px;border-radius:2px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--rp-e),background .16s,color .16s,box-shadow .16s}
+.rp-btn--ac{background:var(--rp-ac);color:#fff;border-color:var(--rp-ac)}
+.rp-btn--ac:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(23,70,196,.36)}
+.rp-btn--line{background:transparent;border-color:var(--rp-line);color:var(--rp-ink)}
+.rp-btn--line:hover{border-color:var(--rp-ac);color:var(--rp-ac);transform:translateY(-3px)}
+.rp-btn--white{background:#fff;color:var(--rp-ink);border-color:#fff}
+.rp-btn--white:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.32)}
+.rp-btn--ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+.rp-btn--ghost:hover{border-color:var(--rp-ac-bright);color:var(--rp-ac-bright);transform:translateY(-3px)}
+
+/* ---------- REVEAL ---------- */
+.rp-rv{opacity:0;transform:translateY(30px);transition:opacity .78s var(--rp-e),transform .78s var(--rp-e)}
+.rp-rv.is-in{opacity:1;transform:none}
+.rp-rv[data-d="1"]{transition-delay:.08s}.rp-rv[data-d="2"]{transition-delay:.16s}
+.rp-rv[data-d="3"]{transition-delay:.24s}.rp-rv[data-d="4"]{transition-delay:.32s}
+.rp-rv[data-d="5"]{transition-delay:.4s}.rp-rv[data-d="6"]{transition-delay:.48s}
+.rp-rv[data-d="7"]{transition-delay:.56s}
+
+/* ---------- HERO ---------- */
+.rp-hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--rp-white);overflow:hidden;padding:118px 0 66px}
+.rp-hero__grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(23,70,196,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(23,70,196,.10) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 88% 82% at 62% 48%,#000 25%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 88% 82% at 62% 48%,#000 25%,transparent 78%)}
+.rp-hero__glow{position:absolute;width:960px;height:960px;right:-300px;top:-280px;border-radius:50%;background:radial-gradient(circle,rgba(23,70,196,.10),transparent 62%)}
+.rp-hero__rule{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--rp-ac),var(--rp-ac-bright) 46%,transparent)}
+.rp-hero .rp-wrap{position:relative;z-index:3;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,3.6vw,66px);align-items:center;width:100%}
+@media(max-width:1080px){.rp-hero .rp-wrap{grid-template-columns:1fr}.rp-dwg{display:none}}
+.rp-hero .rp-stencil{color:var(--rp-ac)}
+.rp-hero .rp-stencil::before{border-top-color:var(--rp-ac)}
+.rp-hero h1{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;letter-spacing:-.042em;line-height:.84;font-size:clamp(48px,8.4vw,128px);color:var(--rp-ink)}
+.rp-hero h1 .ln{display:block;overflow:hidden}
+.rp-hero h1 .ln>span{display:block;transform:translateY(112%);animation:rp-rise .95s var(--rp-e) forwards}
+.rp-hero h1 .ln:nth-child(1)>span{animation-delay:.14s}
+.rp-hero h1 .ln:nth-child(2)>span{animation-delay:.28s}
+.rp-hero h1 .g{color:var(--rp-ac)}
+.rp-hero h1 .o{color:transparent;-webkit-text-stroke:2.4px rgba(16,18,22,.26)}
+@keyframes rp-rise{to{transform:translateY(0)}}
+.rp-hero__kick{margin-top:28px;font-family:var(--rp-d);font-weight:800;text-transform:uppercase;font-size:clamp(14px,1.5vw,20px);
+  letter-spacing:-.01em;color:var(--rp-ink);max-width:620px;line-height:1.25;opacity:0;animation:rp-fade .9s var(--rp-e) .62s forwards}
+.rp-hero__sub{margin-top:20px;font-size:clamp(14.5px,1.3vw,18px);color:var(--rp-muted);max-width:560px;opacity:0;animation:rp-fade .9s var(--rp-e) .74s forwards}
+@keyframes rp-fade{to{opacity:1}}
+.rp-hero__actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:38px;opacity:0;animation:rp-fade .9s var(--rp-e) .88s forwards}
+
+/* ---------- SIGNATURE: SELF-DRAWING ENGINEERING DRAWING ---------- */
+.rp-dwg{width:100%;height:auto;max-height:74svh}
+.rp-dwg .ln1{stroke-dasharray:var(--l,1200);stroke-dashoffset:var(--l,1200);animation:rp-draw 1.5s var(--rp-e) .45s forwards}
+.rp-dwg .ln2{stroke-dasharray:var(--l,1200);stroke-dashoffset:var(--l,1200);animation:rp-draw 1.3s var(--rp-e) 1.1s forwards}
+.rp-dwg .ln3{stroke-dasharray:var(--l,900);stroke-dashoffset:var(--l,900);animation:rp-draw 1.1s var(--rp-e) 1.7s forwards}
+@keyframes rp-draw{to{stroke-dashoffset:0}}
+.rp-dwg .dim{opacity:0;animation:rp-fade .7s ease 2.15s forwards}
+.rp-dwg .dim2{opacity:0;animation:rp-fade .7s ease 2.45s forwards}
+.rp-dwg .solidclip{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);animation:rp-fill 1.5s var(--rp-e) 2.9s forwards}
+@keyframes rp-fill{to{transform:scaleX(1)}}
+.rp-dwg .stamp{opacity:0;animation:rp-fade .6s ease 4.2s forwards}
+.rp-dwg .scan{opacity:0;animation:rp-scan 2.6s ease-in-out 4.5s infinite}
+@keyframes rp-scan{0%{opacity:0;transform:translateX(-14px)}45%{opacity:.9}100%{opacity:0;transform:translateX(320px)}}
+
+/* ---------- 5-STAGE STEPPER STRIP ---------- */
+.rp-strip{background:var(--rp-ink);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:0}
+.rp-strip__in{display:grid;grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.rp-strip__in{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.rp-strip__in{grid-template-columns:1fr}}
+.rp-step{padding:30px clamp(18px,2.2vw,32px);border-left:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}
+.rp-step:first-child{border-left:none}
+@media(max-width:900px){.rp-step{border-left:none;border-top:1px solid rgba(255,255,255,.09)}
+  .rp-step:nth-child(-n+2){border-top:none}}
+@media(max-width:520px){.rp-step:nth-child(2){border-top:1px solid rgba(255,255,255,.09)}}
+.rp-step::before{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--rp-ac-bright);transition:width .9s var(--rp-e)}
+.rp-step.on::before{width:100%}
+.rp-step b{display:block;font-family:var(--rp-m);font-size:10px;letter-spacing:.2em;color:var(--rp-ac-bright);font-weight:700;margin-bottom:10px}
+.rp-step span{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;font-size:clamp(15px,1.7vw,21px);color:#fff;letter-spacing:-.02em;display:block;line-height:1.1}
+.rp-step i{display:block;font-style:normal;font-size:12.5px;color:rgba(255,255,255,.5);margin-top:9px;line-height:1.5}
+
+/* ---------- CARDS ---------- */
+.rp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.rp-grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1060px){.rp-grid,.rp-grid.three{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.rp-grid,.rp-grid.three{grid-template-columns:1fr}}
+.rp-card{border:1.5px solid var(--rp-line);background:var(--rp-white);padding:30px 26px;position:relative;overflow:hidden;transition:transform .2s var(--rp-e),border-color .2s,box-shadow .2s}
+.rp-card::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--rp-ac);transition:width .42s var(--rp-e)}
+.rp-card:hover{transform:translateY(-7px);border-color:var(--rp-ac);box-shadow:0 20px 46px rgba(23,70,196,.14)}
+.rp-card:hover::after{width:100%}
+.rp-card .ico{width:44px;height:44px;color:var(--rp-ac);margin-bottom:20px}
+.rp-card .no{font-family:var(--rp-m);font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--rp-ac);display:block;margin-bottom:14px}
+.rp-card h4{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;font-size:16px;color:var(--rp-ink);margin-bottom:10px;letter-spacing:-.01em;line-height:1.2}
+.rp-card p{font-size:13.6px;color:var(--rp-muted);line-height:1.68}
+
+/* ---------- PANELS ---------- */
+.rp-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,2.6vw,44px);margin-top:52px}
+.rp-two.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.rp-two.three{grid-template-columns:1fr}}
+@media(max-width:880px){.rp-two{grid-template-columns:1fr}}
+.rp-panel{border:2px solid var(--rp-ink);padding:clamp(26px,3vw,42px);background:var(--rp-white)}
+.rp-panel__tag{font-family:var(--rp-m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--rp-ink);display:inline-block;padding:6px 14px;margin-bottom:20px}
+.rp-panel h3{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.1vw,28px);color:var(--rp-ink);letter-spacing:-.02em;line-height:1.06;margin-bottom:14px}
+.rp-panel p{font-size:14.6px;color:#3f434a;line-height:1.78;margin-bottom:12px}
+.rp-panel ul{list-style:none;margin-top:16px}
+.rp-panel li{position:relative;padding:6px 0 6px 24px;font-size:13.9px;color:#3f434a;line-height:1.6}
+.rp-panel li::before{content:"";position:absolute;left:0;top:14px;width:12px;height:2.5px;background:var(--rp-ac)}
+.rp-panel .ico{width:38px;height:38px;color:var(--rp-ac);margin-bottom:18px}
+
+/* ---------- LIST GRID ---------- */
+.rp-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 34px;margin-top:36px}
+.rp-list.two{grid-template-columns:repeat(2,1fr)}
+.rp-list.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.rp-list,.rp-list.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.rp-list,.rp-list.two,.rp-list.four{grid-template-columns:1fr}}
+.rp-list li{position:relative;padding:12px 0 12px 26px;font-size:14.3px;color:#3f434a;line-height:1.6;border-bottom:1px solid var(--rp-line)}
+.rp-list li::before{content:"";position:absolute;left:0;top:20px;width:13px;height:2.5px;background:var(--rp-ac)}
+
+/* ---------- CHIPS ---------- */
+.rp-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.rp-chip{font-family:var(--rp-m);font-size:11.5px;font-weight:500;color:#3f434a;border:1.5px solid var(--rp-line);padding:9px 15px;background:var(--rp-white);transition:border-color .18s,color .18s,transform .18s var(--rp-e)}
+.rp-chip:hover{border-color:var(--rp-ac);color:var(--rp-ac);transform:translateY(-3px)}
+
+/* ---------- PROCESS CHAIN RAIL ---------- */
+.rp-chain{display:flex;flex-wrap:wrap;gap:9px;margin-top:44px;align-items:center}
+.rp-chain span{font-family:var(--rp-m);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--rp-ink);
+  border:1.5px solid var(--rp-line);padding:11px 15px;background:var(--rp-white);position:relative;transition:border-color .2s,color .2s,transform .2s var(--rp-e)}
+.rp-chain span:hover{border-color:var(--rp-ac);color:var(--rp-ac);transform:translateY(-3px)}
+.rp-chain span:not(:last-child)::after{content:"→";margin-left:13px;color:var(--rp-ac);font-weight:700}
+.rp-chain--dark span{background:transparent;border-color:rgba(255,255,255,.22);color:#fff}
+.rp-chain--dark span:not(:last-child)::after{color:var(--rp-ac-bright)}
+.rp-chain--dark span:hover{border-color:var(--rp-ac-bright);color:var(--rp-ac-bright)}
+
+/* ---------- ONE-LINER BREAKERS ---------- */
+.rp-say{position:relative;min-height:82svh;display:flex;align-items:center;overflow:hidden}
+.rp-say--ink{background:var(--rp-ink)}
+.rp-say--ac{background:linear-gradient(140deg,var(--rp-band-a),var(--rp-band-b) 62%)}
+.rp-say__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 14px,transparent 14px 30px)}
+.rp-say__dots{position:absolute;inset:0;background-image:radial-gradient(rgba(91,140,255,.2) 1.3px,transparent 1.3px);background-size:28px 28px;
+  mask-image:radial-gradient(ellipse 70% 70% at 30% 50%,#000,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 30% 50%,#000,transparent 76%)}
+.rp-say .rp-wrap{position:relative;z-index:2;width:100%}
+.rp-say__mark{font-family:var(--rp-m);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--rp-ac-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:12px}
+.rp-say__mark::before{content:"";width:30px;border-top:3px double var(--rp-ac-bright)}
+.rp-say h2{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;letter-spacing:-.032em;line-height:.94;font-size:clamp(33px,5.4vw,86px);color:#fff;max-width:17ch}
+.rp-say h2 .t{color:var(--rp-ac-bright)}
+.rp-say h2 .ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.5)}
+.rp-say p{margin-top:26px;font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.75);max-width:680px}
+
+/* ---------- JOURNEY ACCORDION ---------- */
+.rp-jrn{margin-top:56px;border-top:2px solid var(--rp-ink)}
+.rp-jitem{border-bottom:1px solid var(--rp-line);background:var(--rp-white);transition:background .2s}
+.rp-jitem.open{background:var(--rp-ac-soft)}
+.rp-jq{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;
+  padding:26px clamp(4px,1vw,14px);display:grid;grid-template-columns:74px 1fr 34px;gap:22px;align-items:center}
+@media(max-width:700px){.rp-jq{grid-template-columns:48px 1fr 30px;gap:14px}}
+.rp-jq .no{font-family:var(--rp-d);font-weight:900;font-size:clamp(26px,3vw,42px);line-height:.85;color:var(--rp-ac);letter-spacing:-.045em}
+.rp-jq h3{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;font-size:clamp(17px,2vw,28px);color:var(--rp-ink);letter-spacing:-.02em;line-height:1.1}
+.rp-jq .ic{width:32px;height:32px;border:1.5px solid var(--rp-line);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--rp-ink);
+  transition:transform .24s var(--rp-e),background .18s,border-color .18s,color .18s}
+.rp-jitem.open .ic{transform:rotate(135deg);background:var(--rp-ac);border-color:var(--rp-ac);color:#fff}
+.rp-ja{max-height:0;overflow:hidden;transition:max-height .44s var(--rp-e)}
+.rp-ja__in{padding:2px 0 36px clamp(4px,1vw,96px)}
+@media(max-width:700px){.rp-ja__in{padding-left:14px}}
+.rp-ja p{font-size:14.5px;color:#3f434a;line-height:1.76;max-width:840px;margin-bottom:18px}
+.rp-ja .rp-list{margin-top:8px}
+.rp-ja .rp-list li{border-bottom-color:rgba(0,0,0,.07)}
+
+/* ---------- WHY GRID ---------- */
+.rp-why{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px;background:var(--rp-line);border:2px solid var(--rp-ink)}
+@media(max-width:1020px){.rp-why{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.rp-why{grid-template-columns:1fr}}
+.rp-why div{background:var(--rp-white);padding:32px 26px;transition:background .22s}
+.rp-why div:hover{background:var(--rp-ac-soft)}
+.rp-why b{display:block;font-family:var(--rp-m);font-size:10px;letter-spacing:.2em;color:var(--rp-ac);font-weight:700;margin-bottom:14px}
+.rp-why h4{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;font-size:15.5px;color:var(--rp-ink);letter-spacing:-.012em;line-height:1.18;margin-bottom:11px}
+.rp-why p{font-size:13.4px;color:var(--rp-muted);line-height:1.66}
+
+/* ---------- CLOSING ---------- */
+.rp-close{background:var(--rp-ink);position:relative;overflow:hidden;padding:clamp(82px,9vw,138px) 0}
+.rp-close__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 15px,transparent 15px 32px)}
+.rp-close .rp-wrap{position:relative;z-index:2}
+.rp-close .rp-stencil{color:var(--rp-ac-bright)}
+.rp-close .rp-stencil::before{border-top-color:var(--rp-ac-bright)}
+.rp-close h2{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;letter-spacing:-.034em;line-height:.95;font-size:clamp(30px,4.4vw,62px);color:#fff;max-width:20ch}
+.rp-close h2 .t{color:var(--rp-ac-bright)}
+.rp-close p{margin-top:28px;font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.74);max-width:820px;line-height:1.8}
+.rp-close p b{color:#fff;font-weight:700}
+
+/* ---------- CTA ---------- */
+.rp-cta{position:relative;min-height:92svh;display:flex;align-items:center;text-align:center;background:linear-gradient(150deg,var(--rp-cta-a),#080a0d 60%);overflow:hidden}
+.rp-cta__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 14px,transparent 14px 30px)}
+.rp-cta__ring{position:absolute;width:560px;height:560px;border:3px solid rgba(91,140,255,.16);border-radius:50%;right:-170px;bottom:-200px;animation:rp-spin 62s linear infinite}
+.rp-cta__ring.two{width:380px;height:380px;left:-130px;top:-120px;right:auto;bottom:auto;border-color:rgba(91,140,255,.12);animation-duration:44s;animation-direction:reverse}
+@keyframes rp-spin{to{transform:rotate(360deg)}}
+.rp-cta .rp-wrap{position:relative;z-index:2;width:100%}
+.rp-cta h2{font-family:var(--rp-d);font-weight:900;text-transform:uppercase;letter-spacing:-.034em;line-height:.92;font-size:clamp(33px,5.4vw,84px);color:#fff}
+.rp-cta h2 .t{color:var(--rp-ac-bright)}
+.rp-cta p{margin:28px auto 0;font-size:clamp(15px,1.4vw,19px);color:rgba(255,255,255,.82);max-width:740px}
+.rp-cta__actions{display:flex;gap:15px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+.rp-cta__plate{margin:56px auto 0;display:inline-grid;grid-template-columns:repeat(5,auto);border:2px solid rgba(91,140,255,.4);font-family:var(--rp-m)}
+@media(max-width:900px){.rp-cta__plate{grid-template-columns:repeat(2,auto)}}
+@media(max-width:520px){.rp-cta__plate{grid-template-columns:1fr}}
+.rp-cta__plate div{padding:15px 24px;border-left:1px solid rgba(255,255,255,.16)}
+.rp-cta__plate div:first-child{border-left:none}
+@media(max-width:900px){.rp-cta__plate div{border-left:none;border-top:1px solid rgba(255,255,255,.16)}
+  .rp-cta__plate div:nth-child(-n+2){border-top:none}}
+@media(max-width:520px){.rp-cta__plate div:nth-child(2){border-top:1px solid rgba(255,255,255,.16)}}
+.rp-cta__plate span{font-size:12.5px;font-weight:700;color:var(--rp-ac-bright);letter-spacing:.1em}
+
+@media(prefers-reduced-motion:reduce){
+  .pmew-rp *,.pmew-rp *::before,.pmew-rp *::after{animation:none!important;transition:none!important}
+  .rp-rv{opacity:1;transform:none}
+  .rp-hero h1 .ln>span{transform:none}
+  .rp-hero__kick,.rp-hero__sub,.rp-hero__actions{opacity:1}
+  .rp-dwg .ln1,.rp-dwg .ln2,.rp-dwg .ln3{stroke-dashoffset:0}
+  .rp-dwg .dim,.rp-dwg .dim2,.rp-dwg .stamp{opacity:1}
+  .rp-dwg .solidclip{transform:scaleX(1)}
+  .rp-step::before{width:100%}
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/rapidprototype.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Rapid Prototyping — Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Accelerating engineering innovation from concept to production. Precision prototypes, production-relevant materials, structured validation and manufacturing-ready thinking.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/rapidprototype.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rapid Prototyping — Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Accelerating engineering innovation from concept to production. Precision prototypes, production-relevant materials, structured validation and manufacturing-ready thinking.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Rapid Prototyping — Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/about-us/rapidprototype.html",
+  "description": "Accelerating engineering innovation from concept to production. Precision prototypes, production-relevant materials, structured validation and manufacturing-ready thinking.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="pmew-rp">
+<div id="rp-progress"></div>
+<div id="navbar-container"></div>
+
+<!-- ============ HERO ============ -->
+<header class="rp-hero" id="top">
+  <div class="rp-hero__grid"></div>
+  <div class="rp-hero__glow"></div>
+  <div class="rp-hero__rule"></div>
+  <div class="rp-wrap">
+    <div>
+      <div class="rp-stencil">Rapid Prototyping · PMEW</div>
+      <h1>
+        <span class="ln"><span>From concept</span></span>
+        <span class="ln"><span class="g">to component.</span></span>
+      </h1>
+      <p class="rp-hero__kick">Accelerating engineering innovation from concept to production.</p>
+      <p class="rp-hero__sub">Precision prototypes built with production-relevant materials, rigorous validation and manufacturing-ready thinking — so the part you approve is the part you can scale.</p>
+      <div class="rp-hero__actions">
+        <a href="/pages/contact/contact-us.html" class="rp-btn rp-btn--ac">Start Your Prototype Development</a>
+        <a href="#journey" class="rp-btn rp-btn--line">The Prototyping Journey</a>
+      </div>
+    </div>
+    <svg class="rp-dwg" viewBox="0 0 560 470" fill="none" aria-hidden="true">
+      <!-- centreline -->
+      <path class="ln3" style="--l:420" d="M40 240h480" stroke="rgba(23,70,196,.5)" stroke-width="1.2" stroke-dasharray="18 5 3 5"/>
+      <!-- head outline -->
+      <path class="ln1" style="--l:520" d="M78 176h58v128H78z" stroke="#101216" stroke-width="2.4" stroke-linejoin="round"/>
+      <path class="ln1" style="--l:300" d="M78 200h58M78 280h58" stroke="rgba(16,18,22,.26)" stroke-width="1.3"/>
+      <!-- shank outline -->
+      <path class="ln2" style="--l:900" d="M136 208h286l16 16v32l-16 16H136" stroke="#101216" stroke-width="2.4" stroke-linejoin="round"/>
+      <!-- thread crests -->
+      <g class="ln2" style="--l:1100" stroke="rgba(16,18,22,.42)" stroke-width="1.4">
+        <path d="M180 208l-9 56M200 208l-9 56M220 208l-9 56M240 208l-9 56M260 208l-9 56M280 208l-9 56M300 208l-9 56M320 208l-9 56M340 208l-9 56M360 208l-9 56M380 208l-9 56M400 208l-9 56"/>
+      </g>
+      <!-- solid part sweeping in -->
+      <defs><clipPath id="rpFill"><rect class="solidclip" x="70" y="160" width="380" height="150"/></clipPath></defs>
+      <g clip-path="url(#rpFill)" fill="#1746C4" opacity=".14">
+        <path d="M78 176h58v128H78zM136 208h286l16 16v32l-16 16H136z"/>
+      </g>
+      <!-- dimension: overall length -->
+      <g class="dim" stroke="#1746C4" stroke-width="1.3">
+        <path d="M78 350v22M438 350v22M84 362h348"/>
+        <path d="M84 362l9-4.5v9zM432 362l-9-4.5v9z" fill="#1746C4" stroke="none"/>
+      </g>
+      <text class="dim" x="196" y="386" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#1746C4">L 90 ±0.20</text>
+      <!-- dimension: across flats -->
+      <g class="dim2" stroke="#1746C4" stroke-width="1.3">
+        <path d="M56 176h-22M56 304h-22M44 182v116"/>
+        <path d="M44 182l-4.5 9h9zM44 298l-4.5-9h9z" fill="#1746C4" stroke="none"/>
+      </g>
+      <text class="dim2" x="14" y="160" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#1746C4">AF 19</text>
+      <!-- leader: thread callout -->
+      <g class="dim2" stroke="rgba(23,70,196,.7)" stroke-width="1.2">
+        <path d="M300 208l38-52h132"/><circle cx="300" cy="208" r="3" fill="#1746C4" stroke="none"/>
+      </g>
+      <text class="dim2" x="342" y="148" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#1746C4">M12 × 1.75 — 6g</text>
+      <!-- title block stamp -->
+      <g class="stamp">
+        <rect x="330" y="404" width="200" height="52" stroke="rgba(16,18,22,.26)" stroke-width="1.6"/>
+        <path d="M330 428h200M418 404v52" stroke="rgba(16,18,22,.18)" stroke-width="1.2"/>
+        <text x="340" y="421" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#63666c" letter-spacing="1.2">PROTOTYPE</text>
+        <text x="428" y="421" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#63666c" letter-spacing="1.2">REV 00</text>
+        <text x="340" y="446" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1746C4" letter-spacing="1.2">8.8 / ZnNi</text>
+        <text x="428" y="446" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1746C4" letter-spacing="1.2">SCALE 1:1</text>
+      </g>
+      <!-- inspection scan sweep -->
+      <rect class="scan" x="70" y="160" width="3" height="152" fill="#1746C4"/>
+      <text x="40" y="60" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(16,18,22,.42)" letter-spacing="2">DRAWING · REVIEW · FEASIBILITY</text>
+    </svg>
+  </div>
+</header>
+
+<!-- ============ 5-STAGE STEPPER ============ -->
+<div class="rp-strip" id="stages">
+  <div class="rp-strip__in" id="stepStrip">
+    <div class="rp-step"><b>01</b><span>Concept</span><i>Drawing, CAD and application reviewed.</i></div>
+    <div class="rp-step"><b>02</b><span>Prototype</span><i>Built under controlled conditions.</i></div>
+    <div class="rp-step"><b>03</b><span>Validate</span><i>Inspected, tested, assembled, refined.</i></div>
+    <div class="rp-step"><b>04</b><span>Industrialize</span><i>Tooling, process and approval.</i></div>
+    <div class="rp-step"><b>05</b><span>Produce</span><i>Stable, repeatable serial supply.</i></div>
+  </div>
+</div>
+
+<!-- ============ SPEED OF INNOVATION ============ -->
+<section class="rp-sec" id="speed">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Engineering at the speed of innovation</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Development cycles are<br>getting <span class="t">shorter.</span></h2>
+    <p class="rp-lead rp-rv">Product-development cycles are accelerating. Validation programs are becoming more focused. Production-launch windows are carefully planned. Engineering teams require responsive manufacturing partners capable of transforming technical requirements into precision components quickly, efficiently, and consistently.</p>
+    <p class="rp-lead rp-rv">A prototype may be required to validate a new design. A development component may support an assembly trial. An engineering team may need a pilot batch for testing and approval. A production program may require a customized fastener created specifically for its application.</p>
+    <p class="rp-lead rp-rv">At <b>Pradako Mechanical &amp; Engineering Works</b>, rapid prototyping is approached as an important engineering stage in the journey from initial concept to dependable serial manufacturing. We combine agile engineering support with production-ready manufacturing discipline.</p>
+    <p class="rp-note rp-rv">Throughout the development process we hold a constant focus on eight things — and every prototype becomes a practical step toward reliable, repeatable, scalable manufacturing.</p>
+    <ul class="rp-list four rp-rv">
+      <li>Material integrity</li><li>Dimensional accuracy</li><li>Thread quality</li><li>Functional performance</li>
+      <li>Surface characteristics</li><li>Application suitability</li><li>Inspection requirements</li><li>Future production scalability</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 1 ============ -->
+<section class="rp-say rp-say--ink">
+  <div class="rp-say__hatch"></div><div class="rp-say__dots"></div>
+  <div class="rp-wrap rp-rv">
+    <div class="rp-say__mark">The principle</div>
+    <h2>In every situation, responsiveness and precision <span class="t">work together.</span></h2>
+    <p>Speed that costs accuracy is not speed. Every fast-track component still leaves under the same dimensional, material and thread discipline as serial production.</p>
+  </div>
+</section>
+
+<!-- ============ PROTOTYPES WITH PRECISION ============ -->
+<section class="rp-sec" id="precision">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Engineering prototypes with precision</div>
+    <h2 class="rp-h rp-h-lg rp-rv">A representative component,<br>not <span class="t">a lookalike.</span></h2>
+    <p class="rp-lead rp-rv">We work with OEMs, Tier-1 suppliers, product engineers, sourcing professionals, quality teams, maintenance departments and product-development teams to turn technical concepts into high-quality fastener prototypes and engineered components.</p>
+    <p class="rp-lead rp-rv">Each prototype is developed with careful attention to:</p>
+    <ul class="rp-list rp-rv">
+      <li>Product geometry and dimensional requirements</li><li>Functional and assembly conditions</li><li>Material grade and mechanical properties</li>
+      <li>Thread form, fit, and engagement</li><li>Head, drive, shank, and point geometry</li><li>Surface finish and coating requirements</li>
+      <li>Application loads and operating environment</li><li>Installation and tooling requirements</li><li>Inspection and validation criteria</li>
+      <li>Future manufacturing feasibility</li>
+    </ul>
+    <p class="rp-note rp-rv">Our objective is a component you can evaluate, test, refine, approve, and confidently progress toward industrialization.</p>
+  </div>
+</section>
+
+<!-- ============ RESPONSIVE MANUFACTURING ============ -->
+<section class="rp-sec rp-paper" id="responsive">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Responsive manufacturing for advanced requirements</div>
+    <h2 class="rp-h rp-h-lg rp-rv">One component<br>or <span class="t">a pre-series batch.</span></h2>
+    <p class="rp-lead rp-rv">Pradako supports the development and supply of custom, special, drawing-based and standard fasteners across prototype, development, pilot, pre-series and serial-production requirements.</p>
+    <div class="rp-two">
+      <div class="rp-panel rp-rv">
+        <span class="rp-panel__tag">What we study first</span>
+        <h3>The complete engineering requirement</h3>
+        <ul>
+          <li>Component drawings</li><li>CAD models and technical data</li><li>Reference samples</li><li>Material specifications</li>
+          <li>Assembly conditions</li><li>Performance expectations</li><li>Surface-treatment requirements</li>
+          <li>Testing and inspection criteria</li><li>Project timelines</li><li>Anticipated production volumes</li>
+        </ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="1">
+        <span class="rp-panel__tag">What we can support</span>
+        <h3>From one part to recurring supply</h3>
+        <ul>
+          <li>Individual engineering prototypes</li><li>Fast-track development components</li><li>Application-specific components</li>
+          <li>Low-volume validation batches</li><li>Custom and special fasteners</li><li>Drawing-based engineered components</li>
+          <li>Standard fasteners with application-specific modifications</li><li>Assembly and fitment samples</li>
+          <li>Pilot production requirements</li><li>Pre-series manufacturing</li><li>Scalable transition into serial production</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rp-note rp-rv">From a single development component to recurring manufacturing requirements, every project receives the same commitment to precision, responsiveness and reliability.</p>
+  </div>
+</section>
+
+<!-- ============ ADVANCED REQUIREMENTS ============ -->
+<section class="rp-say rp-say--ac">
+  <div class="rp-say__hatch"></div><div class="rp-say__dots"></div>
+  <div class="rp-wrap rp-rv">
+    <div class="rp-say__mark">Advanced requirements · Controlled execution</div>
+    <h2>One requirement. <span class="ghost">Nine processes. One owner.</span></h2>
+    <p>Engineering, manufacturing, quality, inspection, testing and validation are brought together through a single coordinated development pathway.</p>
+    <div class="rp-chain rp-chain--dark rp-rv" data-d="1">
+      <span>Engineering review</span><span>Material selection</span><span>Machining / forming</span><span>Threading</span><span>Heat treatment</span><span>Plating / coating</span><span>Inspection</span><span>Validation</span><span>Production development</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECIALIZED REQUIREMENTS ============ -->
+<section class="rp-sec" id="advanced">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Specialized engineering requirements</div>
+    <h2 class="rp-h rp-h-lg rp-rv">The difficult ones<br>are <span class="t">the normal ones.</span></h2>
+    <p class="rp-lead rp-rv">Rapid prototyping frequently involves detailed and highly specialized engineering requirements. These may include:</p>
+    <ul class="rp-list rp-rv">
+      <li>Complex component geometry</li><li>Close dimensional tolerances</li><li>Non-standard thread configurations</li>
+      <li>Special material grades</li><li>Unique head or drive designs</li><li>Customized shank and point geometries</li>
+      <li>Controlled mechanical properties</li><li>Heat-treatment requirements</li><li>Application-specific plating and coatings</li>
+      <li>Specialized inspection criteria</li><li>Functional and assembly requirements</li>
+    </ul>
+    <p class="rp-note rp-rv">One engineering requirement may involve several manufacturing processes. We coordinate them around one clear objective: delivering the correct component to the correct specification.</p>
+  </div>
+</section>
+
+<!-- ============ DESIGN REVIEW ============ -->
+<section class="rp-sec rp-paper" id="review">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">From design review to prototype development</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Every project starts<br>with <span class="t">a hard look.</span></h2>
+    <p class="rp-lead rp-rv">Our engineering and manufacturing teams assess each component from both product-performance and manufacturing-feasibility perspectives. The review may consider:</p>
+    <ul class="rp-list four rp-rv">
+      <li>Product function</li><li>Component geometry</li><li>Dimensional requirements</li><li>Tolerance feasibility</li>
+      <li>Material suitability</li><li>Thread design</li><li>Head and drive configuration</li><li>Forming or machining route</li>
+      <li>Tool accessibility</li><li>Heat-treatment requirements</li><li>Surface-treatment selection</li><li>Inspection methodology</li>
+      <li>Expected production quantity</li><li>Future production scalability</li>
+    </ul>
+    <p class="rp-note rp-rv">Where appropriate we offer practical recommendations to strengthen manufacturability, consistency and production readiness — while preserving the intended function of the component.</p>
+  </div>
+</section>
+
+<!-- ============ DFM ============ -->
+<section class="rp-sec" id="dfm">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Design for manufacturability</div>
+    <h2 class="rp-h rp-h-lg rp-rv">The cheapest time to fix a part<br>is <span class="t">before it exists.</span></h2>
+    <p class="rp-lead rp-rv">Prototype development is an early opportunity to align product design with a practical and scalable manufacturing route — evaluating how geometry, material, tolerances, thread configuration, tooling, inspection and production method work together.</p>
+    <ul class="rp-list rp-rv">
+      <li>Material utilization</li><li>Tooling strategy</li><li>Forming feasibility</li>
+      <li>Machining efficiency</li><li>Dimensional consistency</li><li>Thread manufacturability</li>
+      <li>Inspection accessibility</li><li>Surface-treatment suitability</li><li>Production cycle planning</li>
+      <li>Long-term scalability</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRODUCTION-READY THINKING ============ -->
+<section class="rp-sec rp-paper" id="production-ready">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Production-ready thinking from the beginning</div>
+    <h2 class="rp-h rp-h-lg rp-rv">A prototype should be more<br>than <span class="t">the shape of a part.</span></h2>
+    <p class="rp-lead rp-rv">Wherever technically appropriate, prototypes are developed using production-relevant materials, dimensions, tolerances, thread forms, mechanical properties, heat-treatment conditions, surface finishes, plating systems and inspection methods.</p>
+    <div class="rp-two">
+      <div class="rp-panel rp-rv">
+        <span class="rp-panel__tag">Production-relevant from day one</span>
+        <h3>Evaluated as it will actually be used</h3>
+        <ul>
+          <li>Materials</li><li>Dimensions</li><li>Tolerances</li><li>Thread forms</li><li>Mechanical properties</li>
+          <li>Heat-treatment conditions</li><li>Surface finishes</li><li>Plating and coating systems</li><li>Inspection methods</li>
+        </ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="1">
+        <span class="rp-panel__tag">What this makes possible</span>
+        <h3>A smoother run into production</h3>
+        <ul>
+          <li>Effective design refinement</li><li>Efficient tooling development</li><li>Strong assembly compatibility</li>
+          <li>Accurate material-performance evaluation</li><li>Focused validation programs</li>
+          <li>Streamlined production launches</li><li>Stable and repeatable manufacturing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="rp-sec" id="capabilities">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Rapid prototyping capabilities</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Nineteen things<br>we can <span class="t">build first.</span></h2>
+    <p class="rp-lead rp-rv">Depending on geometry, application, material, quantity and development stage, Pradako can support prototypes and development batches for:</p>
+    <div class="rp-chips rp-rv">
+      <span class="rp-chip">Custom screws and bolts</span><span class="rp-chip">Special nuts and threaded components</span><span class="rp-chip">Studs and threaded rods</span><span class="rp-chip">Precision-machined fasteners</span><span class="rp-chip">Cold-formed components</span><span class="rp-chip">Hot-forged components</span><span class="rp-chip">Special head configurations</span><span class="rp-chip">Special drive geometries</span><span class="rp-chip">Customized shank designs</span><span class="rp-chip">Application-specific point geometries</span><span class="rp-chip">Non-standard thread configurations</span><span class="rp-chip">Controlled mechanical properties</span><span class="rp-chip">Heat-treated components</span><span class="rp-chip">Plated and coated fasteners</span><span class="rp-chip">Application-specific fastening solutions</span><span class="rp-chip">Drawing-based engineered components</span><span class="rp-chip">Replacement and redevelopment components</span><span class="rp-chip">Low-volume development batches</span><span class="rp-chip">Pilot and pre-series quantities</span>
+    </div>
+    <p class="rp-note rp-rv">The manufacturing route is selected according to component design, required accuracy, material, functional purpose, development quantity and the intended serial-production process.</p>
+  </div>
+</section>
+
+<!-- ============ THE PROTOTYPING JOURNEY ============ -->
+<section class="rp-sec rp-paper" id="journey">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">The prototyping journey</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Seven stages<br>from <span class="t">drawing to production.</span></h2>
+    <p class="rp-lead rp-rv">Select a stage to see what happens, what is decided, and what carries forward.</p>
+    <div class="rp-jrn rp-rv" id="jrnList">
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">01</span><h3>Requirement review</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>We review drawings, specifications, CAD data, reference components, application conditions, materials, quantities, testing requirements, surface-treatment expectations and development timelines. Project objectives and technical acceptance criteria are established at this stage.</p>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">02</span><h3>Engineering feasibility</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>The component is evaluated to establish an effective technical pathway for development.</p>
+          <ul class="rp-list">
+            <li>Manufacturing feasibility</li><li>Dimensional feasibility</li><li>Material suitability</li>
+            <li>Thread configuration</li><li>Process selection</li><li>Tooling approach</li>
+            <li>Heat-treatment requirements</li><li>Plating or coating requirements</li><li>Inspection methodology</li>
+            <li>Future production scalability</li>
+          </ul>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">03</span><h3>Prototype planning</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>A structured development plan is created so engineering, production, quality and inspection teams work toward the same objective.</p>
+          <ul class="rp-list">
+            <li>Manufacturing method</li><li>Material requirement</li><li>Tooling strategy</li>
+            <li>Process sequence</li><li>Inspection plan</li><li>Surface treatment</li>
+            <li>Testing requirements</li><li>Validation criteria</li><li>Quantity and delivery planning</li>
+          </ul>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">04</span><h3>Prototype manufacturing</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>Components are produced under controlled manufacturing conditions. The selected route reflects the purpose of the prototype and its relationship to future production.</p>
+          <ul class="rp-list">
+            <li>Dimensional accuracy</li><li>Material integrity</li><li>Thread quality</li>
+            <li>Head and drive geometry</li><li>Surface condition</li><li>Mechanical properties</li>
+            <li>Functional requirements</li><li>Application suitability</li>
+          </ul>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">05</span><h3>Inspection and validation</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>Prototypes are inspected and evaluated against the agreed technical requirements. Depending on component and application, validation may include:</p>
+          <ul class="rp-list">
+            <li>Dimensional inspection</li><li>Thread inspection</li><li>Profile and geometry verification</li>
+            <li>Material verification</li><li>Hardness testing</li><li>Mechanical-property evaluation</li>
+            <li>Coating or plating-thickness inspection</li><li>Surface-finish assessment</li><li>Assembly trials</li>
+            <li>Fitment evaluation</li><li>Installation assessment</li><li>Functional testing</li><li>Application-specific testing</li>
+          </ul>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">06</span><h3>Engineering feedback and refinement</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>Inspection findings, assembly observations, testing results and customer feedback are reviewed together. Each iteration brings the component closer to its approved production configuration.</p>
+          <ul class="rp-list">
+            <li>Dimensions</li><li>Tolerances</li><li>Material selection</li>
+            <li>Thread form</li><li>Component geometry</li><li>Manufacturing process</li>
+            <li>Heat-treatment parameters</li><li>Surface finish</li><li>Coating specification</li><li>Inspection criteria</li>
+          </ul>
+        </div></div></div>
+
+      <div class="rp-jitem"><button class="rp-jq" type="button"><span class="no">07</span><h3>Production readiness</h3><span class="ic">+</span></button>
+        <div class="rp-ja"><div class="rp-ja__in">
+          <p>Once the prototype is reviewed and approved, the program can progress toward serial manufacturing. The technical knowledge developed during prototyping is carried forward into production planning and industrialization.</p>
+          <ul class="rp-list">
+            <li>Production tooling</li><li>Process planning</li><li>Pilot manufacturing</li>
+            <li>Pre-series production</li><li>Quality documentation</li><li>Process validation</li>
+            <li>Customer approval</li><li>Packaging development</li><li>Supply-chain planning</li><li>Serial manufacturing</li>
+          </ul>
+        </div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 3 ============ -->
+<section class="rp-say rp-say--ink">
+  <div class="rp-say__hatch"></div><div class="rp-say__dots"></div>
+  <div class="rp-wrap rp-rv">
+    <div class="rp-say__mark">Speed to market</div>
+    <h2>Decide earlier. <span class="ghost">Decide with a part in hand.</span></h2>
+    <p>A responsive connection between design, physical evaluation, inspection, testing and refinement lets engineering teams move a programme forward on evidence rather than assumption.</p>
+  </div>
+</section>
+
+<!-- ============ SPEED TO MARKET ============ -->
+<section class="rp-sec" id="market">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Speed to market</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Eleven things<br>that happen <span class="t">sooner.</span></h2>
+    <p class="rp-lead rp-rv">Our responsive engineering approach supports faster:</p>
+    <ul class="rp-list four rp-rv">
+      <li>Design evaluation</li><li>Technical feasibility review</li><li>Component sampling</li><li>Assembly trials</li>
+      <li>Fitment validation</li><li>Customer testing</li><li>Engineering reviews</li><li>Design refinements</li>
+      <li>Production-feasibility decisions</li><li>Pilot manufacturing</li><li>Product industrialization</li>
+    </ul>
+    <p class="rp-note rp-rv">Every stage stays focused on precision, application performance, engineering discipline and production readiness.</p>
+  </div>
+</section>
+
+<!-- ============ VALIDATION TRIO ============ -->
+<section class="rp-sec rp-paper" id="validation">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Validation</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Design, material<br>and <span class="t">dimension — proven.</span></h2>
+    <div class="rp-two three">
+      <div class="rp-panel rp-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l16 8v22l-16 8-16-8V13z"/><path d="M8 13l16 8 16-8M24 21v22"/></svg>
+        <h3>Design validation</h3>
+        <p>Physical prototypes let engineering teams evaluate a component inside its intended assembly and application environment.</p>
+        <ul><li>Form and geometry</li><li>Fit within an assembly</li><li>Functional performance</li><li>Thread engagement</li><li>Installation behaviour</li><li>Tool access</li><li>Clearance conditions</li><li>Strength expectations</li><li>Durability requirements</li><li>Surface finish</li><li>Visual appearance</li><li>Compatibility with adjoining components</li><li>Application-specific performance</li></ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="1">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h20M18 6v11L8 38a4 4 0 003.5 6h25A4 4 0 0040 38L30 17V6"/><path d="M13 29h22"/></svg>
+        <h3>Material integrity</h3>
+        <p>Where required, prototypes are manufactured using production-relevant materials so performance can be accurately evaluated.</p>
+        <ul><li>Strength</li><li>Hardness</li><li>Durability</li><li>Machinability</li><li>Forming behaviour</li><li>Heat-treatment response</li><li>Surface-treatment compatibility</li><li>Corrosion-protection requirements</li><li>Application suitability</li></ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="2">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30l8-8 7 7 8-11 6 6 7-9"/><path d="M6 40h36M6 8v34"/></svg>
+        <h3>Dimensional &amp; functional</h3>
+        <p>Prototype quality is supported through structured inspection aligned with the drawing, development objective and agreed criteria.</p>
+        <ul><li>Dimensional inspection</li><li>Thread gauge inspection</li><li>Profile verification</li><li>Geometry evaluation</li><li>Material verification</li><li>Hardness testing</li><li>Tensile or mechanical-property evaluation</li><li>Coating-thickness inspection</li><li>Plating-thickness inspection</li><li>Surface-finish assessment</li><li>Assembly, fitment and installation trials</li><li>Functional performance testing</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUALITY AT EVERY SCALE ============ -->
+<section class="rp-sec" id="quality">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Our commitment — quality at every scale</div>
+    <h2 class="rp-h rp-h-lg rp-rv">One piece or one million,<br>the standard <span class="t">does not move.</span></h2>
+    <p class="rp-lead rp-rv">Whether the requirement is a single prototype, a limited development batch, a pilot quantity or ongoing serial production, each component is evaluated against the agreed:</p>
+    <ul class="rp-list four rp-rv">
+      <li>Drawing</li><li>Revision</li><li>Specification</li><li>Material grade</li>
+      <li>Dimensional requirements</li><li>Thread requirements</li><li>Mechanical properties</li><li>Heat-treatment conditions</li>
+      <li>Surface-treatment requirements</li><li>Functional criteria</li><li>Inspection standards</li><li>Packaging requirements</li>
+    </ul>
+    <p class="rp-note rp-rv">Our objective is to deliver components customers can confidently inspect, assemble, test, approve, industrialize and progress toward production.</p>
+  </div>
+</section>
+
+<!-- ============ SIMPLIFIED DEVELOPMENT ============ -->
+<section class="rp-sec rp-paper" id="simplified">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Simplified component development</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Many components.<br><span class="t">One point of coordination.</span></h2>
+    <p class="rp-lead rp-rv">Managing multiple components, drawings, revisions, materials, processes, inspections, surface treatments and delivery requirements takes effective coordination. Pradako consolidates that through integrated engineering and manufacturing support.</p>
+    <ul class="rp-list rp-rv">
+      <li>Multi-component development programs</li><li>Drawing and revision coordination</li><li>Material and process selection</li>
+      <li>Prototype and sample ordering</li><li>Inspection planning</li><li>Validation coordination</li>
+      <li>Pilot-batch management</li><li>Heat-treatment coordination</li><li>Plating and coating coordination</li>
+      <li>Packaging development</li><li>Production transition</li><li>Repeat ordering</li><li>Long-term supply planning</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ LOW VOLUME &amp; ITERATIONS ============ -->
+<section class="rp-sec" id="pilot">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Low-volume, pilot development and controlled iterations</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Beyond a single part,<br>before <span class="t">serial supply.</span></h2>
+    <div class="rp-two">
+      <div class="rp-panel rp-rv">
+        <span class="rp-panel__tag">Low-volume and pilot development</span>
+        <h3>The part and the process, evaluated together</h3>
+        <p>Pradako supports low-volume batches, pilot quantities and pre-series production for assembly-line trials, fitment evaluation, laboratory testing, field evaluation, customer approval, process assessment, packaging evaluation, installation trials, pre-production validation and market-introduction programs.</p>
+        <ul>
+          <li>Process-capability planning</li><li>Tooling optimization</li><li>Inspection-method development</li>
+          <li>Production cycle planning</li><li>Handling requirements</li><li>Packaging requirements</li>
+          <li>Quality documentation</li><li>Capacity planning</li><li>Supply-chain development</li><li>Serial-production preparation</li>
+        </ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="1">
+        <span class="rp-panel__tag">Controlled engineering iterations</span>
+        <h3>The right version, every time</h3>
+        <p>Prototype revisions are supported on the basis of customer feedback, dimensional observations, assembly evaluation, inspection findings and testing results — so the correct component version is manufactured, inspected, documented and evaluated at every stage.</p>
+        <ul>
+          <li>Drawing revisions</li><li>Specification updates</li><li>Dimensional refinements</li>
+          <li>Material updates</li><li>Thread modifications</li><li>Process adjustments</li>
+          <li>Surface-treatment updates</li><li>Validation-stage identification</li>
+          <li>Sample-stage identification</li><li>Approval-status tracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCALE ============ -->
+<section class="rp-sec rp-paper" id="scale">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">The capability to scale</div>
+    <h2 class="rp-h rp-h-lg rp-rv">A successful prototype is<br>a <span class="t">production foundation.</span></h2>
+    <p class="rp-lead rp-rv">Our production-ready approach considers future manufacturing requirements from the earliest development stage — material availability, process selection, tooling, tolerance capability, inspection methodology, heat treatment, surface-treatment capacity, expected volumes, packaging, supply-chain planning and future capacity development.</p>
+    <div class="rp-chain rp-rv">
+      <span>Prototype</span><span>Pilot batch</span><span>Process validation</span><span>Production approval</span><span>Recurring supply</span><span>Future capacity expansion</span>
+    </div>
+    <ul class="rp-list four rp-rv">
+      <li>Efficient industrialization</li><li>Consistent quality</li><li>Optimized tooling</li><li>Stable production processes</li>
+      <li>Effective inspection systems</li><li>Dependable production launches</li><li>Scalable supply programs</li><li>Long-term manufacturing continuity</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="rp-sec" id="partnership">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Committed to your engineering success</div>
+    <h2 class="rp-h rp-h-lg rp-rv">We work alongside<br>your <span class="t">whole team.</span></h2>
+    <p class="rp-lead rp-rv">Advanced component development benefits from close collaboration, engineering insight, manufacturing knowledge and application understanding. Our teams work alongside OEM engineering teams, Tier-1 suppliers, product-development departments, quality teams, sourcing professionals, maintenance departments, manufacturing teams, assembly specialists and testing and validation teams.</p>
+    <div class="rp-two">
+      <div class="rp-panel rp-rv">
+        <span class="rp-panel__tag">Engineering support may include</span>
+        <h3>Thirteen ways we plug in</h3>
+        <ul>
+          <li>Drawing and specification review</li><li>CAD and technical-data review</li><li>Design-for-manufacturability recommendations</li>
+          <li>Material and process guidance</li><li>Tolerance-feasibility assessment</li><li>Thread and geometry evaluation</li>
+          <li>Prototype-manufacturing strategy</li><li>Inspection planning</li><li>Validation planning</li>
+          <li>Design-iteration support</li><li>Pilot-production planning</li><li>Production-industrialization planning</li>
+          <li>Long-term manufacturing development</li>
+        </ul>
+      </div>
+      <div class="rp-panel rp-rv" data-d="1">
+        <span class="rp-panel__tag">Confidential and collaborative development</span>
+        <h3>New designs stay new</h3>
+        <p>Prototype programs may involve new product designs, proprietary engineering information, future technologies and application-specific development. Every program is approached with:</p>
+        <ul>
+          <li>Professional communication</li><li>Controlled information management</li><li>Clear revision coordination</li>
+          <li>Structured project communication</li><li>Respect for customer confidentiality</li><li>Cross-functional collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTINUOUS PRODUCTION ============ -->
+<section class="rp-sec rp-paper" id="continuous">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Supporting continuous production</div>
+    <h2 class="rp-h rp-h-lg rp-rv">When the line needs a part<br>that <span class="t">no longer exists.</span></h2>
+    <p class="rp-lead rp-rv">Manufacturing facilities regularly require new components, upgraded designs, application-specific parts and engineered solutions to keep operations running — for production machinery, assembly systems, tooling systems, fixtures and equipment, maintenance applications, specialized industrial equipment, product upgrades and application-specific fastening systems.</p>
+    <p class="rp-lead rp-rv">Working from available drawings, reference samples, technical specifications, material information and application details, support may include:</p>
+    <ul class="rp-list rp-rv">
+      <li>Assessment of an existing component</li><li>Dimensional evaluation</li><li>Thread evaluation</li>
+      <li>Material-identification support</li><li>Drawing-based development</li><li>Prototype components</li>
+      <li>Functional trials</li><li>Assembly trials</li><li>Fast-track development quantities</li>
+      <li>Pilot manufacturing</li><li>Development of a repeatable future supply route</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ WHY PRADAKO ============ -->
+<section class="rp-sec" id="why">
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">Why Pradako for rapid prototyping</div>
+    <h2 class="rp-h rp-h-lg rp-rv">Eight reasons<br>engineering teams <span class="t">come back.</span></h2>
+    <div class="rp-why">
+      <div class="rp-rv"><b>01</b><h4>Engineering collaboration</h4><p>Close coordination with customer engineering and development teams from first requirement review through production readiness.</p></div>
+      <div class="rp-rv" data-d="1"><b>02</b><h4>Precision manufacturing</h4><p>Careful control of geometry, dimensions, threads, materials, mechanical properties, finishes and application-specific requirements.</p></div>
+      <div class="rp-rv" data-d="2"><b>03</b><h4>Responsive development</h4><p>Structured prototype planning and focused engineering iterations that support fast-moving development timelines.</p></div>
+      <div class="rp-rv" data-d="3"><b>04</b><h4>Production-relevant approach</h4><p>Prototype decisions made with future tooling, process capability, quality control, scalability and serial manufacturing in mind.</p></div>
+      <div class="rp-rv" data-d="4"><b>05</b><h4>Quality-focused validation</h4><p>Inspection, evaluation, testing, documentation and technical review are integrated into the development process.</p></div>
+      <div class="rp-rv" data-d="5"><b>06</b><h4>Simplified program management</h4><p>Engineering, production, quality, inspection, surface treatment, pilot manufacturing and supply planning through one pathway.</p></div>
+      <div class="rp-rv" data-d="6"><b>07</b><h4>Scalable manufacturing support</h4><p>A clear transition from individual prototypes and pilot batches to stable, repeatable, scalable production.</p></div>
+      <div class="rp-rv" data-d="7"><b>08</b><h4>Long-term partnership</h4><p>Collaborative support throughout product development, industrialization, recurring production and future program expansion.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ONE-LINER 4 ============ -->
+<section class="rp-say rp-say--ac">
+  <div class="rp-say__hatch"></div><div class="rp-say__dots"></div>
+  <div class="rp-wrap rp-rv">
+    <div class="rp-say__mark">The responsibility</div>
+    <h2>The right component. The right specification. <span class="t">The right time.</span></h2>
+    <p>The correct part, from the correct material, to the correct drawing revision — with the required dimensions, threads, mechanical properties, finish, inspection, documentation and packaging.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="rp-close" id="closing">
+  <div class="rp-close__hatch"></div>
+  <div class="rp-wrap">
+    <div class="rp-stencil rp-rv">From concept to production readiness</div>
+    <h2 class="rp-rv">Precision when it matters.<br><span class="t">Responsiveness when time matters.</span></h2>
+    <p class="rp-rv">Every prototype is an opportunity to test an idea, strengthen a design, confirm performance and create a stronger manufacturing process. Through engineering expertise, responsive manufacturing, production-relevant development and structured validation, Pradako helps customers accelerate innovation while maintaining <b>precision, reliability and application performance</b>.</p>
+    <p class="rp-rv">From individual prototypes and specialized components to pilot batches and serial manufacturing — <b>speed, discipline, technical expertise, and an uncompromising commitment to quality</b>.</p>
+    <div class="rp-chain rp-chain--dark rp-rv" data-d="1">
+      <span>Concept</span><span>Prototype</span><span>Validate</span><span>Industrialize</span><span>Produce</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="rp-cta" id="cta">
+  <div class="rp-cta__hatch"></div>
+  <span class="rp-cta__ring"></span>
+  <span class="rp-cta__ring two"></span>
+  <div class="rp-wrap rp-rv">
+    <h2>Develop your next<br><span class="t">component with us.</span></h2>
+    <p>Share your drawing, CAD data, technical specification, reference component, prototype requirement or development program with our engineering team.</p>
+    <div class="rp-cta__actions">
+      <a href="/pages/contact/contact-us.html" class="rp-btn rp-btn--white">Discuss Your Requirement</a>
+      <a href="/pages/contact/contact-us.html" class="rp-btn rp-btn--ghost">Start Your Prototype Development</a>
+    </div>
+    <div class="rp-cta__plate">
+      <div><span>CONCEPT</span></div><div><span>PROTOTYPE</span></div><div><span>VALIDATE</span></div><div><span>INDUSTRIALIZE</span></div><div><span>PRODUCE</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+    <script src="/assets/js/pradako-global-animations.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var bar = document.getElementById('rp-progress');
+  addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+  }, {passive:true});
+
+  var els = document.querySelectorAll('.rp-rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* stepper strip fills left to right when it enters view */
+  var steps = document.querySelectorAll('#stepStrip .rp-step');
+  if (steps.length) {
+    if (reduce || !('IntersectionObserver' in window)) {
+      steps.forEach(function(s){ s.classList.add('on'); });
+    } else {
+      var so = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (!e.isIntersecting) return;
+          steps.forEach(function(s, i){ setTimeout(function(){ s.classList.add('on'); }, i * 190); });
+          so.disconnect();
+        });
+      }, {threshold:.4});
+      so.observe(document.getElementById('stepStrip'));
+    }
+  }
+
+  /* journey accordion */
+  var list = document.getElementById('jrnList');
+  if (list) {
+    var items = list.querySelectorAll('.rp-jitem');
+    function setOpen(item, open){
+      var panel = item.querySelector('.rp-ja');
+      var btn = item.querySelector('.rp-jq');
+      item.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '';
+    }
+    items.forEach(function(item){
+      var btn = item.querySelector('.rp-jq');
+      var panel = item.querySelector('.rp-ja');
+      btn.setAttribute('aria-expanded','false');
+      panel.setAttribute('role','region');
+      btn.addEventListener('click', function(){
+        var willOpen = !item.classList.contains('open');
+        items.forEach(function(o){ if (o !== item) setOpen(o, false); });
+        setOpen(item, willOpen);
+      });
+    });
+    setOpen(items[0], true);
+    addEventListener('resize', function(){
+      var open = list.querySelector('.rp-jitem.open');
+      if (open) { var p = open.querySelector('.rp-ja'); p.style.maxHeight = p.scrollHeight + 'px'; }
+    }, {passive:true});
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

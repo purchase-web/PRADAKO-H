@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       SECTION 1: META & TITLE
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradako BSI / British Standards Fastener Standards Library</title>
+  <meta name="description" content="Structured BSI / British Standards fastener reference library covering BS, BS EN, BS ISO and BS EN ISO records for aerospace, defence, precision engineering and high-criticality procurement research." />
+
+  <!-- ============================================================
+       SECTION 2: FONTS & ICONS
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- ============================================================
+       SECTION 3: EXTERNAL STYLES
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 4: CUSTOM STYLES
+       ============================================================ -->
+  <style>
+    /* ============================================================
+       SUBSECTION 4.1: CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --white: #fff;
+      --navy: #24343b;
+      --blue: #28766a;
+      --gold: #f08080;
+      --line: #dde5e7;
+      --text: #26343b;
+      --muted: #6d7b82;
+      --soft-blue: #eef7f4;
+      --soft: #f7faf9;
+      --shadow: 0 16px 42px rgba(36, 52, 59, .08);
+      --dynamic-row-height: 126px;
+      --dynamic-cell-x: 8px;
+      --dynamic-cell-y: 10px;
+      --title-clamp: 3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.2: HERO / HEADER
+       ============================================================ */
+    .top-hero {
+      padding: 48px clamp(24px, 3.1vw, 58px) 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #fbfdfc 100%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-route {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 17px;
+    }
+
+    .hero-route-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font: 800 9.5px "Montserrat", sans-serif;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .top-hero h1 {
+      margin: 0;
+      max-width: 1250px;
+      font-family: "Space Grotesk", Georgia, serif;
+      font-size: clamp(42px, 4.1vw, 72px);
+      line-height: 1;
+      letter-spacing: -1.6px;
+      color: var(--navy);
+    }
+
+    .hero-subtitle {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(17px, 1.55vw, 24px);
+      line-height: 1.25;
+      letter-spacing: -.35px;
+      color: var(--blue);
+      font-weight: 650;
+    }
+
+    .top-hero p.hero-intro {
+      max-width: 1160px;
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      font: 850 10px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-item i {
+      color: var(--blue);
+      font-size: 10px;
+    }
+
+    .engineering-use-note {
+      margin: 14px clamp(24px, 3.1vw, 58px) 0;
+      padding: 13px 15px;
+      border: 1px solid #d7e4e1;
+      border-left: 3px solid var(--blue);
+      border-radius: 10px;
+      background: #f8fbfa;
+      color: var(--text);
+      font-size: 11.5px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .engineering-use-note strong {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .engineering-use-note .note-label {
+      display: inline-flex;
+      margin-right: 8px;
+      color: var(--blue);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: .75px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.3: CONTROLS
+       ============================================================ */
+    .control-zone {
+      position: relative;
+      z-index: 20;
+      padding: 12px 32px 10px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 1.7fr) minmax(220px, .72fr) auto auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-wrap,
+    .family-wrap {
+      position: relative;
+    }
+
+    .search-wrap input,
+    .family-filter {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      outline: 0;
+      font: 700 12.5px "Montserrat", sans-serif;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    .search-wrap input {
+      padding: 0 18px 0 46px;
+    }
+
+    .family-filter {
+      padding: 0 14px;
+    }
+
+    .search-wrap input:focus,
+    .family-filter:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px var(--soft-blue);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 17px;
+      color: var(--navy);
+    }
+
+    .btn {
+      height: 40px;
+      border-radius: 12px;
+      padding: 0 14px;
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-soft {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+    }
+
+    .btn-soft:hover,
+    .btn-soft.active {
+      background: var(--soft-blue);
+      border-color: var(--blue);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .stat-pills,
+    .stats-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--navy);
+      font-size: 10.5px;
+      font-weight: 900;
+      background: #fff;
+    }
+
+    .duplicate-mode-pill {
+      display: none;
+    }
+
+    .duplicate-mode-pill.show {
+      display: inline-flex;
+    }
+
+    .duplicate-check-btn {
+      border-color: #f08080;
+      background: #fff2f2;
+      color: #493538;
+    }
+
+    .duplicate-check-btn.active {
+      background: #f08080;
+      color: #fff;
+      border-color: #f08080;
+    }
+
+    /* ---- View Panel ---- */
+    .view-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff, var(--soft));
+      box-shadow: 0 10px 25px rgba(36, 52, 59, .04);
+    }
+
+    .view-panel.open {
+      display: block;
+    }
+
+    .view-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .view-panel-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .preset-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      padding: 0 11px;
+      font: 900 10px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .mini-btn.active,
+    .mini-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .view-groups {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+
+    .view-group {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .view-group h4 {
+      margin: 0 0 8px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .column-checks {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .check-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: #94c2b5;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .check-item input {
+      accent-color: var(--navy);
+    }
+
+    /* ---- Density Switch ---- */
+    .density-switch {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+    }
+
+    .density-btn {
+      height: 30px;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: 900 9.5px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .density-btn.active {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.4: STICKY HEADER & TABLE
+       ============================================================ */
+    .sticky-table-head-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1450;
+      margin: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(36, 52, 59, .07);
+    }
+
+    .sticky-table-head-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .sticky-table-head-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sticky-head-table,
+    #standardsTable {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .sticky-head-table thead th {
+      background: var(--navy);
+    }
+
+    #standardsTable thead {
+      display: none;
+    }
+
+    .table-zone {
+      position: relative;
+      background: #fff;
+    }
+
+    .table-scroll {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-scroll:not(.has-horizontal-scroll),
+    .sticky-table-head-scroll:not(.has-horizontal-scroll) {
+      overflow-x: hidden;
+    }
+
+    .sticky-head-table th,
+    #standardsTable th,
+    #standardsTable td {
+      box-sizing: border-box;
+    }
+
+    thead th {
+      padding: 10px var(--dynamic-cell-x);
+      text-align: left;
+      font-size: 9.5px;
+      letter-spacing: .5px;
+      color: #fff;
+      background: var(--navy);
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      cursor: pointer;
+      user-select: none;
+      white-space: normal;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    thead th.not-sortable {
+      cursor: default;
+    }
+
+    tbody tr {
+      height: var(--dynamic-row-height);
+    }
+
+    tbody td {
+      padding: var(--dynamic-cell-y) var(--dynamic-cell-x);
+      vertical-align: middle;
+      font-size: 11.5px;
+      line-height: 1.4;
+      background: #fff;
+      color: var(--text);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    tbody tr:hover td {
+      background: #f3f9f7;
+    }
+
+    /* ---- Sticky Columns ---- */
+    .sticky-col {
+      position: sticky !important;
+      left: var(--sticky-left, 0) !important;
+      background: #fff;
+      box-shadow: 7px 0 13px rgba(36, 52, 59, .045);
+    }
+
+    tbody tr:hover td.sticky-col {
+      background: #f3f9f7;
+    }
+
+    .sticky-head-table th.sticky-col {
+      z-index: 40;
+      background: var(--navy);
+      box-shadow: 7px 0 13px rgba(0, 0, 0, .08);
+    }
+
+    #standardsTable td.sticky-col {
+      z-index: 12;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.5: CELL TYPES
+       ============================================================ */
+    .media-cell {
+      padding: 10px 14px !important;
+    }
+
+    .media-card {
+      width: 210px;
+      height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(36, 52, 59, .045);
+      cursor: pointer;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      padding: 9px;
+      background: #fff;
+      transition: .22s;
+    }
+
+    .media-card:hover {
+      border-color: var(--blue);
+    }
+
+    .media-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .media-empty {
+      width: 210px;
+      height: 104px;
+      border: 1px dashed #c8d5d7;
+      border-radius: 13px;
+      background: #fbfcfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .media-empty i {
+      font-size: 17px;
+      color: #82959b;
+    }
+
+    .pradako-id {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid #cad6d8;
+      border-radius: 7px;
+      background: #f6f9f8;
+      color: var(--navy);
+      font: 900 10.5px "Montserrat", sans-serif;
+      letter-spacing: .15px;
+      white-space: nowrap;
+    }
+
+    .standard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: normal;
+    }
+
+    .standard-link:hover {
+      background: var(--blue);
+    }
+
+    .standard-link i {
+      font-size: 9px;
+    }
+
+    .body-pill {
+      display: inline-flex;
+      padding: 5px 7px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .title-cell {
+      font-weight: 750;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: var(--title-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .family-pill {
+      display: inline-flex;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .scope-cell {
+      color: var(--text);
+    }
+
+    .density-comfortable .media-card,
+    .density-comfortable .media-empty {
+      height: 140px;
+    }
+
+    mark {
+      background: #dcefe9;
+      color: var(--navy);
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .footer-note {
+      padding: 16px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.6: MODALS
+       ============================================================ */
+    .modal-overlay,
+    .image-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(24, 34, 39, .84);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.show,
+    .image-preview-overlay.show {
+      display: flex;
+    }
+
+    .modal-card,
+    .image-preview-card {
+      position: relative;
+      width: min(620px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+    }
+
+    .image-preview-card {
+      width: min(1000px, 96vw);
+    }
+
+    .modal-top,
+    .image-preview-head {
+      padding: 22px 26px;
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .modal-top h2,
+    .image-preview-head h3 {
+      margin: 0;
+    }
+
+    .modal-top p {
+      margin: 9px 0 0;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .modal-body,
+    .image-preview-body {
+      padding: 24px;
+    }
+
+    .image-preview-body img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close,
+    .image-preview-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .work-message {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .email-line {
+      margin-top: 8px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .modal-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font: 900 11px "Montserrat";
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .modal-btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .modal-btn-soft {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .copy-status {
+      display: none;
+      margin-top: 10px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .copy-status.show {
+      display: block;
+    }
+
+    /* ============================================================
+       SUBSECTION 4.7: BACK TO TOP
+       ============================================================ */
+    .pradako-back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px);
+      box-shadow: 0 12px 28px rgba(36, 52, 59, .22);
+      transition: opacity .22s ease, visibility .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .pradako-back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .pradako-back-to-top:hover {
+      background: var(--blue);
+    }
+
+    /* ============================================================
+       SUBSECTION 4.8: RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1350px) {
+      .controls-grid {
+        grid-template-columns: 1fr 1fr auto auto;
+      }
+      .stats-row {
+        align-items: flex-start;
+      }
+      .view-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .sticky-col {
+        position: static !important;
+        left: auto !important;
+        box-shadow: none !important;
+      }
+
+      .sticky-head-table th.sticky-col,
+      #standardsTable td.sticky-col {
+        position: static !important;
+        left: auto !important;
+      }
+
+      .sticky-table-head-scroll,
+      .table-scroll {
+        overflow-x: auto !important;
+        overscroll-behavior-x: contain;
+      }
+
+      .top-hero {
+        padding: 28px 18px 24px;
+      }
+
+      .top-hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: 1.04;
+        letter-spacing: -1px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      .top-hero p.hero-intro {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .engineering-use-note {
+        margin: 12px 18px 0;
+        padding: 12px;
+        font-size: 10.5px;
+      }
+
+      .control-zone {
+        padding: 12px;
+      }
+
+      .controls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-wrap,
+      .family-filter,
+      #viewOptionsBtn {
+        grid-column: 1 / -1;
+      }
+
+      .search-wrap input,
+      .family-filter {
+        height: 42px;
+        font-size: 12px;
+      }
+
+      .controls-grid .btn {
+        width: 100%;
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .stat-pills {
+        width: 100%;
+        gap: 5px;
+      }
+
+      .stat-pill {
+        padding: 5px 8px;
+        font-size: 9px;
+      }
+
+      .stats-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .density-switch {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .density-btn,
+      .stats-actions>.btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .view-panel {
+        padding: 9px;
+        border-radius: 12px;
+      }
+
+      .view-panel-head {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+
+      .mini-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0 5px;
+        font-size: 8.5px;
+      }
+
+      .view-groups {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .view-group {
+        padding: 9px;
+      }
+
+      .check-item {
+        padding: 6px 7px;
+        font-size: 9.5px;
+      }
+
+      thead th {
+        padding: 8px 6px;
+        font-size: 8px;
+      }
+
+      tbody td {
+        padding: 8px 6px;
+        font-size: 10px;
+      }
+
+      .media-cell {
+        padding: 7px !important;
+      }
+
+      .media-card,
+      .media-empty {
+        width: 126px !important;
+        height: 88px !important;
+      }
+
+      .density-comfortable .media-card,
+      .density-comfortable .media-empty {
+        height: 105px !important;
+      }
+
+      .pradako-id {
+        font-size: 8.5px;
+        padding: 4px 5px;
+      }
+
+      .standard-link {
+        padding: 4px 6px;
+        font-size: 9px;
+      }
+
+      .family-pill,
+      .body-pill {
+        font-size: 9px;
+      }
+
+      .footer-note {
+        padding: 14px 16px;
+        font-size: 9.5px;
+      }
+
+      .pradako-back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .engineering-use-note {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .hero-route-pill {
+        font-size: 7.5px;
+        padding: 0 8px;
+      }
+      .hero-trust-item {
+        font-size: 7.8px;
+        padding: 0 8px;
+      }
+      .media-card,
+      .media-empty {
+        width: 116px !important;
+        height: 82px !important;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/bsi/index.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako BSI / British Standards Fastener Standards Library">
+    <meta property="og:description" content="Structured BSI / British Standards fastener reference library covering BS, BS EN, BS ISO and BS EN ISO records for aerospace, defence, precision engineering and high-criticality procurement research.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/bsi/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako BSI / British Standards Fastener Standards Library">
+    <meta name="twitter:description" content="Structured BSI / British Standards fastener reference library covering BS, BS EN, BS ISO and BS EN ISO records for aerospace, defence, precision engineering and high-criticality procurement research.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako BSI / British Standards Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standards/bsi/index.html",
+  "description": "Structured BSI / British Standards fastener reference library covering BS, BS EN, BS ISO and BS EN ISO records for aerospace, defence, precision engineering and high-criticality procurement research.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body class="density-compact">
+
+  <!-- ============================================================
+       SECTION 5: NAVBAR
+       ============================================================ -->
+  <div id="navbar-container"></div>
+
+  <!-- ============================================================
+       SECTION 6: PAGE CONTENT
+       ============================================================ -->
+  <section class="page">
+
+    <!-- ============================================================
+       SUBSECTION 6.1: HERO
+       ============================================================ -->
+    <header class="top-hero">
+      <div class="hero-kicker">
+        <i class="fa-solid fa-gears"></i> Pradako Standards Library · BSI / BS
+      </div>
+      <div class="hero-route" aria-label="Standard series represented">
+        <span class="hero-route-pill">BS</span>
+        <span class="hero-route-pill">BS EN</span>
+        <span class="hero-route-pill">BS ISO</span>
+        <span class="hero-route-pill">BS EN ISO</span>
+      </div>
+      <h1>
+        BSI / British Standards Fastener Standards
+        <span class="hero-subtitle">Engineering Reference Library</span>
+      </h1>
+      <p class="hero-intro">
+        A structured BSI / British Standards reference library for aerospace, defence and precision-engineering research.
+        Explore the supplied BS, BS EN, BS ISO and BS EN ISO records with standard designations, original BSI titles or names,
+        product families and controlled Pradako standard identities through the same engineering reference interface used
+        across the standards library.
+      </p>
+      <div class="hero-trust" aria-label="Library features">
+        <span class="hero-trust-item"><i class="fa-solid fa-database"></i> 94 Standard Records</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-fingerprint"></i> 94 Pradako Standard IDs</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-industry"></i> BS / EN / ISO Reference</span>
+        <span class="hero-trust-item"><i class="fa-solid fa-link"></i> Independent Standard Pages</span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       SUBSECTION 6.2: USE NOTE
+       ============================================================ -->
+    <div class="engineering-use-note" role="note">
+      <span class="note-label">Engineering Use Note</span>
+      <strong>Standard inclusion in this library does not by itself establish aerospace approval, qualification or product conformity.</strong>
+      Applicable dimensional, material, mechanical-property, process, testing and customer-specific requirements should be confirmed
+      against the governing specification and current official publication before design, procurement or release.
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.3: CONTROLS
+       ============================================================ -->
+    <section class="control-zone">
+
+      <!-- ---- Controls Grid ---- -->
+      <div class="controls-grid">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input id="searchInput" type="text" placeholder="Search BS / BSI standard, title, Pradako ID or product family..." />
+        </div>
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft active" id="viewOptionsBtn" onclick="toggleViewPanel()" aria-expanded="true" aria-controls="viewPanel">
+          <i class="fa-solid fa-sliders"></i>&nbsp; View Options
+        </button>
+      </div>
+
+      <!-- ---- Stats Row ---- -->
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> rows</div>
+          <div class="stat-pill"><span id="pageCount">0</span> individual pages</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View: <span id="duplicateGroupsCount">0</span> groups / <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+        <div class="stats-actions">
+          <div class="density-switch">
+            <button class="density-btn active" id="densityCompact" type="button" onclick="setDensity('compact')">Compact</button>
+            <button class="density-btn" id="densityComfortable" type="button" onclick="setDensity('comfortable')">Comfortable</button>
+          </div>
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+          <button type="button" id="duplicateCheckBtn" class="btn duplicate-check-btn" onclick="showDuplicateEntriesInTable()">
+            <span>⧉</span>&nbsp; Check Duplicates
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- View Panel ---- -->
+      <div class="view-panel open" id="viewPanel">
+        <div class="view-panel-head">
+          <div class="view-panel-title">Choose the information you want visible</div>
+          <div class="preset-actions">
+            <button class="mini-btn active" id="presetCore" onclick="applyViewPreset('core')">Core</button>
+            <button class="mini-btn" id="presetTechnical" onclick="applyViewPreset('technical')">Technical</button>
+            <button class="mini-btn" id="presetAll" onclick="applyViewPreset('all')">Show All</button>
+          </div>
+        </div>
+        <div class="view-groups" id="viewGroups"></div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+       SUBSECTION 6.4: STICKY TABLE HEAD
+       ============================================================ -->
+    <div class="sticky-table-head-wrap">
+      <div class="sticky-table-head-scroll" id="stickyTableHeadScroll">
+        <table class="sticky-head-table" aria-hidden="true">
+          <thead>
+            <tr id="stickyTableHeadRow"></tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       SUBSECTION 6.5: TABLE
+       ============================================================ -->
+    <section class="table-zone">
+      <div class="table-scroll" id="tableScroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState">
+          <h3>No standards found</h3>
+          <p>Try another BS / BSI standard, title, Pradako ID or product family.</p>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: EXPORT MODAL
+       ============================================================ -->
+  <section class="modal-overlay" id="exportModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeExportPopup()">&times;</button>
+      <div class="modal-top">
+        <h2>Export Request</h2>
+        <p>The export feature is currently being upgraded for the complete standards database.</p>
+      </div>
+      <div class="modal-body">
+        <div class="work-message">
+          We are working on it.<br />
+          Please email us on:
+          <div class="email-line">info@pradakomechanicals.com</div>
+        </div>
+        <div class="modal-actions">
+          <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=BSI%20British%20Standards%20Library%20Export%20Request">Email Us</a>
+          <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+          <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+        </div>
+        <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: IMAGE PREVIEW MODAL
+       ============================================================ -->
+  <section class="image-preview-overlay" id="imagePreviewModal">
+    <div class="image-preview-card">
+      <button class="image-preview-close" onclick="closeImagePreview()">&times;</button>
+      <div class="image-preview-head">
+        <h3 id="imagePreviewTitle">Standard Media</h3>
+      </div>
+      <div class="image-preview-body">
+        <img id="imagePreviewImg" src="" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: FOOTER
+       ============================================================ -->
+  <div id="footer-container"></div>
+
+  <!-- ============================================================
+       SECTION 10: BACK TO TOP BUTTON
+       ============================================================ -->
+  <button type="button" id="pradakoBackToTop" class="pradako-back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============================================================
+       SECTION 11: SCRIPTS
+       ============================================================ -->
+  <!-- ============================================================
+       SECTION 12: MAIN APPLICATION
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       SUBSECTION 12.1: COMPONENT LOADER
+       ============================================================ */
+    
+    
+    
+
+    /* ============================================================
+       SUBSECTION 12.2: COLUMN DEFINITIONS
+       ============================================================ */
+    const COLUMNS = [{
+      key: "imageSrc",
+      label: "Photo / 2D / 3D",
+      width: 240,
+      minWidth: 240,
+      maxWidth: 240,
+      fixed: true,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "media",
+      searchable: false,
+      sortable: false,
+      weight: 0
+    }, {
+      key: "pradakoId",
+      label: "Pradako Standard ID",
+      width: 145,
+      minWidth: 124,
+      maxWidth: 190,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "id",
+      searchable: true,
+      sortable: true,
+      weight: .55
+    }, {
+      key: "standardCode",
+      label: "BSI / BS Standard",
+      width: 235,
+      minWidth: 165,
+      maxWidth: 350,
+      sticky: true,
+      core: true,
+      group: "core",
+      type: "standard",
+      searchable: true,
+      sortable: true,
+      weight: .95
+    }, {
+      key: "title",
+      label: "Original BSI Title / Name",
+      width: 520,
+      minWidth: 280,
+      maxWidth: 820,
+      core: true,
+      group: "core",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: 2.7
+    }, {
+      key: "productFamily",
+      label: "Product Family",
+      width: 230,
+      minWidth: 160,
+      maxWidth: 360,
+      core: true,
+      group: "core",
+      type: "family",
+      searchable: true,
+      sortable: true,
+      weight: 1.05
+    }, {
+      key: "sourceId",
+      label: "Source Record ID",
+      width: 210,
+      minWidth: 150,
+      maxWidth: 300,
+      core: false,
+      technical: true,
+      group: "details",
+      type: "title",
+      searchable: true,
+      sortable: true,
+      weight: .7
+    }];
+
+    const GROUP_META = {
+      core: { label: "Core Information" },
+      details: { label: "Standard Details" }
+    };
+
+    /* ============================================================
+       SUBSECTION 12.3: UTILITY FUNCTIONS
+       ============================================================ */
+    function slugify(text) {
+      return String(text || "").toLowerCase()
+        .replace(/бдс/g, "bds")
+        .replace(/&/g, "and")
+        .replace(/\+/g, "plus")
+        .replace(/,/g, " ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function escapeHTML(v) {
+      return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
+
+    function escapeRegex(v) {
+      return v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(v, q) {
+      const t = escapeHTML(v);
+      if (!q.trim()) return t;
+      const r = new RegExp("(" + escapeRegex(escapeHTML(q.trim())) + ")", "gi");
+      return t.replace(r, "<mark>$1</mark>");
+    }
+
+    function normalizeDuplicateKey(v) {
+      return String(v || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    /* ============================================================
+       SUBSECTION 12.4: SOURCE DATA (preserved exactly as supplied)
+       ============================================================ */
+    const SOURCE_STANDARDS_DATA = [{
+      "id": "bs-en-iso-3269-2019-001",
+      "standardCode": "BS EN ISO 3269:2019",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Acceptance inspection"
+    }, {
+      "id": "bs-iso-8992-2005-002",
+      "standardCode": "BS ISO 8992:2005",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. General requirements for bolts, screws, studs and nuts"
+    }, {
+      "id": "bs-en-iso-898-1-2013-003",
+      "standardCode": "BS EN ISO 898-1:2013",
+      "productFamily": ["Bolts / screws / studs"],
+      "title": "Mechanical properties of fasteners made of carbon steel and alloy steel - Bolts, screws and studs with specified property classes. Coarse thread and fine pitch thread"
+    }, {
+      "id": "bs-en-iso-898-2-2022-004",
+      "standardCode": "BS EN ISO 898-2:2022",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Mechanical properties of fasteners made of carbon steel and alloy steel - Nuts with specified property classes"
+    }, {
+      "id": "bs-en-iso-898-3-2018-a1-2021-005",
+      "standardCode": "BS EN ISO 898-3:2018+A1:2021",
+      "productFamily": ["Washers"],
+      "title": "Fasteners. Mechanical properties of fasteners made of carbon steel and alloy steel - Flat washers with specified property classes"
+    }, {
+      "id": "bs-en-iso-3506-1-2020-006",
+      "standardCode": "BS EN ISO 3506-1:2020",
+      "productFamily": ["Bolts / screws / studs"],
+      "title": "Fasteners. Mechanical properties of corrosion-resistant stainless steel fasteners - Bolts, screws and studs with specified grades and property classes"
+    }, {
+      "id": "bs-en-iso-3506-2-2020-007",
+      "standardCode": "BS EN ISO 3506-2:2020",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Mechanical properties of corrosion-resistant stainless steel fasteners - Nuts with specified grades and property classes"
+    }, {
+      "id": "bs-en-iso-3506-4-2025-008",
+      "standardCode": "BS EN ISO 3506-4:2025",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Mechanical properties of corrosion-resistant stainless steel fasteners - Tapping screws with specified grades and hardness classes"
+    }, {
+      "id": "bs-en-iso-3506-6-2022-009",
+      "standardCode": "BS EN ISO 3506-6:2022",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Mechanical properties of corrosion-resistant stainless steel fasteners - General rules for the selection of stainless steels and nickel alloys for fasteners"
+    }, {
+      "id": "bs-en-iso-3506-7-2025-010",
+      "standardCode": "BS EN ISO 3506-7:2025",
+      "productFamily": ["Washers"],
+      "title": "Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners - Flat washers with specified grades and property classes"
+    }, {
+      "id": "bs-en-iso-4042-2018-011",
+      "standardCode": "BS EN ISO 4042:2018",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Electroplated coating systems"
+    }, {
+      "id": "bs-en-iso-10683-2014-012",
+      "standardCode": "BS EN ISO 10683:2014",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Non-electrolytically applied zinc flake coatings"
+    }, {
+      "id": "bs-en-iso-10684-2004-013",
+      "standardCode": "BS EN ISO 10684:2004",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Hot dip galvanized coatings"
+    }, {
+      "id": "bs-en-iso-16047-2005-014",
+      "standardCode": "BS EN ISO 16047:2005",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Torque/clamp force testing"
+    }, {
+      "id": "bs-en-iso-16426-2002-015",
+      "standardCode": "BS EN ISO 16426:2002",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Quality assurance system"
+    }, {
+      "id": "bs-en-iso-15330-1999-016",
+      "standardCode": "BS EN ISO 15330:1999",
+      "productFamily": ["General fasteners"],
+      "title": "Fasteners. Preloading test for the detection of hydrogen embrittlement. Parallel bearing surface method"
+    }, {
+      "id": "bs-en-iso-4759-1-2001-017",
+      "standardCode": "BS EN ISO 4759-1:2001",
+      "productFamily": ["Bolts / screws / studs / nuts"],
+      "title": "Tolerances for fasteners - Bolts, screws, studs and nuts. Product grades A, B and C"
+    }, {
+      "id": "bs-en-iso-4759-3-2016-018",
+      "standardCode": "BS EN ISO 4759-3:2016",
+      "productFamily": ["Washers"],
+      "title": "Tolerances for fasteners - Washers for bolts, screws and nuts. Product grades A, C and F"
+    }, {
+      "id": "bs-3692-2014-019",
+      "standardCode": "BS 3692:2014",
+      "productFamily": ["Bolts / screws / nuts"],
+      "title": "ISO metric precision hexagon bolts, screws and nuts. Specification"
+    }, {
+      "id": "bs-4190-2014-020",
+      "standardCode": "BS 4190:2014",
+      "productFamily": ["Bolts / screws / nuts"],
+      "title": "ISO metric black hexagon bolts, screws and nuts. Specification"
+    }, {
+      "id": "bs-en-iso-4014-2022-021",
+      "standardCode": "BS EN ISO 4014:2022",
+      "productFamily": ["Bolts"],
+      "title": "Fasteners. Hexagon head bolts. Product grades A and B"
+    }, {
+      "id": "bs-en-iso-4016-2022-022",
+      "standardCode": "BS EN ISO 4016:2022",
+      "productFamily": ["Bolts"],
+      "title": "Fasteners. Hexagon head bolts. Product grade C"
+    }, {
+      "id": "bs-en-iso-4017-2022-023",
+      "standardCode": "BS EN ISO 4017:2022",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Hexagon head screws. Product grades A and B"
+    }, {
+      "id": "bs-en-iso-4018-2022-024",
+      "standardCode": "BS EN ISO 4018:2022",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Hexagon head screws. Product grade C"
+    }, {
+      "id": "bs-en-iso-8765-2022-025",
+      "standardCode": "BS EN ISO 8765:2022",
+      "productFamily": ["Bolts"],
+      "title": "Fasteners. Hexagon head bolts, with fine pitch thread. Product grades A and B"
+    }, {
+      "id": "bs-en-iso-8676-2022-026",
+      "standardCode": "BS EN ISO 8676:2022",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Hexagon head screws, with fine pitch thread. Product grades A and B"
+    }, {
+      "id": "bs-en-iso-4762-2004-027",
+      "standardCode": "BS EN ISO 4762:2004",
+      "productFamily": ["Screws"],
+      "title": "Hexagon socket head cap screws"
+    }, {
+      "id": "bs-en-iso-10642-2026-028",
+      "standardCode": "BS EN ISO 10642:2026",
+      "productFamily": ["Screws"],
+      "title": "Fasteners — Hexagon socket countersunk head screws with reduced loadability"
+    }, {
+      "id": "bs-en-iso-7380-1-2023-029",
+      "standardCode": "BS EN ISO 7380-1:2023",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Button head screws with reduced loadability - Hexagon socket button head screws"
+    }, {
+      "id": "bs-en-iso-7380-2-2023-030",
+      "standardCode": "BS EN ISO 7380-2:2023",
+      "productFamily": ["Screws"],
+      "title": "Fasteners. Button head screws with reduced loadability - Hexagon socket button head screws with collar"
+    }, {
+      "id": "bs-en-iso-14579-2011-031",
+      "standardCode": "BS EN ISO 14579:2011",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket head cap screws"
+    }, {
+      "id": "bs-en-iso-14580-2011-032",
+      "standardCode": "BS EN ISO 14580:2011",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket cheese head screws"
+    }, {
+      "id": "bs-en-iso-14581-2013-033",
+      "standardCode": "BS EN ISO 14581:2013",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket countersunk flat head screws"
+    }, {
+      "id": "bs-en-iso-14582-2011-034",
+      "standardCode": "BS EN ISO 14582:2011",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket countersunk head screws, high head"
+    }, {
+      "id": "bs-en-iso-14583-2011-035",
+      "standardCode": "BS EN ISO 14583:2011",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket pan head screws"
+    }, {
+      "id": "bs-en-iso-14584-2011-036",
+      "standardCode": "BS EN ISO 14584:2011",
+      "productFamily": ["Screws"],
+      "title": "Hexalobular socket raised countersunk head screws"
+    }, {
+      "id": "bs-en-iso-1207-2011-037",
+      "standardCode": "BS EN ISO 1207:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted cheese head screws. Product grade A"
+    }, {
+      "id": "bs-en-iso-1580-2011-038",
+      "standardCode": "BS EN ISO 1580:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted pan head screws. Product grade A"
+    }, {
+      "id": "bs-en-iso-2009-2011-039",
+      "standardCode": "BS EN ISO 2009:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted countersunk flat head screws. Product grade A"
+    }, {
+      "id": "bs-en-iso-2010-2011-040",
+      "standardCode": "BS EN ISO 2010:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted raised countersunk head screws. Product grade A"
+    }, {
+      "id": "bs-en-iso-7045-2011-041",
+      "standardCode": "BS EN ISO 7045:2011",
+      "productFamily": ["Screws"],
+      "title": "Pan head screws with type H or type Z cross recess. Product grade A"
+    }, {
+      "id": "bs-en-iso-7046-2-2011-042",
+      "standardCode": "BS EN ISO 7046-2:2011",
+      "productFamily": ["Screws"],
+      "title": "Countersunk flat head screws (common head style) with type H or type Z cross recess. Product grade A - Stainless steel screws"
+    }, {
+      "id": "bs-en-iso-7047-2011-043",
+      "standardCode": "BS EN ISO 7047:2011",
+      "productFamily": ["Screws"],
+      "title": "Raised countersunk head screws (common head style) with type H or type Z cross recess. Product grade A"
+    }, {
+      "id": "bs-en-iso-7049-2011-044",
+      "standardCode": "BS EN ISO 7049:2011",
+      "productFamily": ["Screws"],
+      "title": "Cross-recessed pan head tapping screws"
+    }, {
+      "id": "bs-en-iso-7050-2011-045",
+      "standardCode": "BS EN ISO 7050:2011",
+      "productFamily": ["Screws"],
+      "title": "Cross-recessed countersunk (flat) head tapping screws"
+    }, {
+      "id": "bs-en-iso-7051-2011-046",
+      "standardCode": "BS EN ISO 7051:2011",
+      "productFamily": ["Screws"],
+      "title": "Cross-recessed raised countersunk (oval) head tapping screws"
+    }, {
+      "id": "bs-en-iso-1481-2011-047",
+      "standardCode": "BS EN ISO 1481:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted pan head tapping screws"
+    }, {
+      "id": "bs-en-iso-1482-2011-048",
+      "standardCode": "BS EN ISO 1482:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted countersunk flat head tapping screws"
+    }, {
+      "id": "bs-en-iso-1483-2011-049",
+      "standardCode": "BS EN ISO 1483:2011",
+      "productFamily": ["Screws"],
+      "title": "Slotted raised countersunk (oval) head tapping screws"
+    }, {
+      "id": "bs-en-iso-4026-050",
+      "standardCode": "BS EN ISO 4026",
+      "productFamily": ["Screws"],
+      "title": "Fasteners - Hexagon socket set screws with flat point"
+    }, {
+      "id": "bs-en-iso-4032-2023-051",
+      "standardCode": "BS EN ISO 4032:2023",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Hexagon regular nuts (style 1)"
+    }, {
+      "id": "bs-en-iso-4033-2023-052",
+      "standardCode": "BS EN ISO 4033:2023",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Hexagon high nuts (style 2)"
+    }, {
+      "id": "bs-en-iso-4034-2012-053",
+      "standardCode": "BS EN ISO 4034:2012",
+      "productFamily": ["Nuts"],
+      "title": "Hexagon regular nuts (style 1). Product grade C"
+    }, {
+      "id": "bs-en-iso-4035-2012-054",
+      "standardCode": "BS EN ISO 4035:2012",
+      "productFamily": ["Nuts"],
+      "title": "Hexagon thin nuts (chamfered). Product grades A and B"
+    }, {
+      "id": "bs-en-iso-4036-2012-055",
+      "standardCode": "BS EN ISO 4036:2012",
+      "productFamily": ["Nuts"],
+      "title": "Hexagon thin nuts (unchamfered). Product grade B"
+    }, {
+      "id": "bs-en-iso-8673-2023-056",
+      "standardCode": "BS EN ISO 8673:2023",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Hexagon regular nuts (style 1), with fine pitch thread"
+    }, {
+      "id": "bs-en-iso-8674-2023-057",
+      "standardCode": "BS EN ISO 8674:2023",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Hexagon high nuts (style 2), with fine pitch thread"
+    }, {
+      "id": "bs-en-iso-8675-2023-058",
+      "standardCode": "BS EN ISO 8675:2023",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Hexagon thin nuts (chamfered), with fine pitch thread"
+    }, {
+      "id": "bs-en-iso-2320-2015-059",
+      "standardCode": "BS EN ISO 2320:2015",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners. Prevailing torque steel nuts. Functional properties"
+    }, {
+      "id": "bs-en-iso-10484-2004-060",
+      "standardCode": "BS EN ISO 10484:2004",
+      "productFamily": ["Nuts"],
+      "title": "Widening test on nuts"
+    }, {
+      "id": "bs-en-iso-7040-061",
+      "standardCode": "BS EN ISO 7040",
+      "productFamily": ["Nuts"],
+      "title": "Fasteners - Prevailing torque hexagon nuts - Regular nuts (with non-metallic insert)"
+    }, {
+      "id": "bs-en-iso-887-2000-062",
+      "standardCode": "BS EN ISO 887:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers for metric bolts, screws and nuts for general purposes. General plan"
+    }, {
+      "id": "bs-en-iso-7089-2000-063",
+      "standardCode": "BS EN ISO 7089:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Normal series. Product grade A"
+    }, {
+      "id": "bs-en-iso-7090-2000-064",
+      "standardCode": "BS EN ISO 7090:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers, chamfered. Normal series. Product grade A"
+    }, {
+      "id": "bs-en-iso-7091-2000-065",
+      "standardCode": "BS EN ISO 7091:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Normal series. Product grade C"
+    }, {
+      "id": "bs-en-iso-7092-2000-066",
+      "standardCode": "BS EN ISO 7092:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Small series. Product grade A"
+    }, {
+      "id": "bs-en-iso-7093-1-2000-067",
+      "standardCode": "BS EN ISO 7093-1:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Large series. Product grade A"
+    }, {
+      "id": "bs-en-iso-7093-2-2000-068",
+      "standardCode": "BS EN ISO 7093-2:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Large series. Product grade C"
+    }, {
+      "id": "bs-en-iso-7094-2000-069",
+      "standardCode": "BS EN ISO 7094:2000",
+      "productFamily": ["Washers"],
+      "title": "Plain washers. Extra large series. Product grade C"
+    }, {
+      "id": "bs-en-14399-1-2015-070",
+      "standardCode": "BS EN 14399-1:2015",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - General requirements"
+    }, {
+      "id": "bs-en-14399-2-2015-071",
+      "standardCode": "BS EN 14399-2:2015",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - Suitability for preloading"
+    }, {
+      "id": "bs-en-14399-3-2015-072",
+      "standardCode": "BS EN 14399-3:2015",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - System HR. Hexagon bolt and nut assemblies"
+    }, {
+      "id": "bs-en-14399-4-2015-073",
+      "standardCode": "BS EN 14399-4:2015",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - System HV. Hexagon bolt and nut assemblies"
+    }, {
+      "id": "bs-en-14399-5-2015-074",
+      "standardCode": "BS EN 14399-5:2015",
+      "productFamily": ["Washers / structural bolting"],
+      "title": "High-strength structural bolting assemblies for preloading - Plain washers"
+    }, {
+      "id": "bs-en-14399-6-2015-075",
+      "standardCode": "BS EN 14399-6:2015",
+      "productFamily": ["Washers / structural bolting"],
+      "title": "High-strength structural bolting assemblies for preloading - Plain chamfered washers"
+    }, {
+      "id": "bs-en-14399-7-2018-076",
+      "standardCode": "BS EN 14399-7:2018",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - System HR. Countersunk head bolt and nut assemblies"
+    }, {
+      "id": "bs-en-14399-8-2018-077",
+      "standardCode": "BS EN 14399-8:2018",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - System HV. Hexagon fit bolt and nut assemblies"
+    }, {
+      "id": "bs-en-14399-9-2018-078",
+      "standardCode": "BS EN 14399-9:2018",
+      "productFamily": ["Washers / structural bolting"],
+      "title": "High-strength structural bolting assemblies for preloading - System HR or HV. Direct tension indicators for bolt and nut assemblies"
+    }, {
+      "id": "bs-en-14399-10-2018-079",
+      "standardCode": "BS EN 14399-10:2018",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "High-strength structural bolting assemblies for preloading - System HRC. Bolt and nut assemblies with calibrated preload"
+    }, {
+      "id": "bs-en-15048-1-2016-080",
+      "standardCode": "BS EN 15048-1:2016",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "Non-preloaded structural bolting assemblies - General requirements"
+    }, {
+      "id": "bs-en-15048-2-2016-081",
+      "standardCode": "BS EN 15048-2:2016",
+      "productFamily": ["Structural bolting assemblies"],
+      "title": "Non-preloaded structural bolting assemblies - Fitness for purpose"
+    }, {
+      "id": "bs-en-iso-14588-2001-082",
+      "standardCode": "BS EN ISO 14588:2001",
+      "productFamily": ["Rivets"],
+      "title": "Blind rivets. Terminology and definitions"
+    }, {
+      "id": "bs-en-iso-14589-2001-083",
+      "standardCode": "BS EN ISO 14589:2001",
+      "productFamily": ["Rivets"],
+      "title": "Blind rivets. Mechanical testing"
+    }, {
+      "id": "bs-en-iso-15973-2000-084",
+      "standardCode": "BS EN ISO 15973:2000",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and protruding head. AI/St"
+    }, {
+      "id": "bs-en-iso-15974-2000-085",
+      "standardCode": "BS EN ISO 15974:2000",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and protruding head. St/St"
+    }, {
+      "id": "bs-en-iso-15975-2002-086",
+      "standardCode": "BS EN ISO 15975:2002",
+      "productFamily": ["Rivets"],
+      "title": "Closed end blind rivets with break pull mandrel and protruding head. AI/AIA"
+    }, {
+      "id": "bs-en-iso-15976-2002-087",
+      "standardCode": "BS EN ISO 15976:2002",
+      "productFamily": ["Rivets"],
+      "title": "Closed end blind rivets with break pull mandrel and protruding head. St/St"
+    }, {
+      "id": "bs-en-iso-15977-2002-088",
+      "standardCode": "BS EN ISO 15977:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and countersunk head. AI/St"
+    }, {
+      "id": "bs-en-iso-15978-2002-089",
+      "standardCode": "BS EN ISO 15978:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and countersunk head. St/St"
+    }, {
+      "id": "bs-en-iso-15980-2002-090",
+      "standardCode": "BS EN ISO 15980:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and countersunk head. St/St"
+    }, {
+      "id": "bs-en-iso-15981-2002-091",
+      "standardCode": "BS EN ISO 15981:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and protruding head. AIA/AIA"
+    }, {
+      "id": "bs-en-iso-15982-2002-092",
+      "standardCode": "BS EN ISO 15982:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and countersunk head. AIA/AIA"
+    }, {
+      "id": "bs-en-iso-15983-2002-093",
+      "standardCode": "BS EN ISO 15983:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and protruding head. A2/A2"
+    }, {
+      "id": "bs-en-iso-15984-2002-094",
+      "standardCode": "BS EN ISO 15984:2002",
+      "productFamily": ["Rivets"],
+      "title": "Open end blind rivets with break pull mandrel and countersunk head. A2/A2"
+    }];
+
+    /* ============================================================
+       SUBSECTION 12.5: ENRICH DATA WITH PRADAKO IDs & PAGE URLs
+       ============================================================ */
+    const PAGE_SLUG_COUNTERS = {};
+    const standardsData = SOURCE_STANDARDS_DATA.map((row, index) => {
+      const base = slugify(row.standardCode);
+      PAGE_SLUG_COUNTERS[base] = (PAGE_SLUG_COUNTERS[base] || 0) + 1;
+      const pageSlug = PAGE_SLUG_COUNTERS[base] === 1 ? base : `${base}-${String(PAGE_SLUG_COUNTERS[base]).padStart(2, "0")}`;
+      return {
+        ...row,
+        sourceId: row.id,
+        pradakoId: `PRA-STD-BSI-${String(index + 1).padStart(4, "0")}`,
+        imageSrc: `/assets/images/products/standards-products/${base}.png`,
+        imageAlt: `${row.standardCode} standard media`,
+        pageUrl: `/pages/standards/bsi/${pageSlug}.html`
+      };
+    });
+
+    /* ============================================================
+       SUBSECTION 12.6: DOM REFERENCES & STATE
+       ============================================================ */
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const stickyTableHeadRow = document.getElementById("stickyTableHeadRow");
+    const tableBody = document.getElementById("standardsTableBody");
+    const searchInput = document.getElementById("searchInput");
+    const familyFilter = document.getElementById("familyFilter");
+    const emptyState = document.getElementById("emptyState");
+    const viewPanel = document.getElementById("viewPanel");
+    const viewGroups = document.getElementById("viewGroups");
+    const viewOptionsBtn = document.getElementById("viewOptionsBtn");
+    const exportModal = document.getElementById("exportModal");
+    const copyStatus = document.getElementById("copyStatus");
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const imagePreviewImg = document.getElementById("imagePreviewImg");
+    const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+    const visibleCount = document.getElementById("visibleCount");
+    const totalCount = document.getElementById("totalCount");
+    const pageCount = document.getElementById("pageCount");
+    const visibleColumnCount = document.getElementById("visibleColumnCount");
+    const duplicateModePill = document.getElementById("duplicateModePill");
+    const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+    const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+    const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+    let visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+    let currentFilteredData = [...standardsData];
+    let duplicateMode = false;
+    let duplicateBaseData = [];
+    let sortState = { key: null, direction: "asc" };
+    let currentDensity = "compact";
+    let searchTimer;
+
+    /* ============================================================
+       SUBSECTION 12.7: VIEW & FILTER HELPERS
+       ============================================================ */
+    function getVisibleColumns() {
+      return COLUMNS.filter(c => visibleColumns.has(c.key));
+    }
+
+    function buildFamilyFilter() {
+      const fs = [...new Set(standardsData.flatMap(x => x.productFamily || []))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      familyFilter.innerHTML = '<option value="">All Product Families</option>';
+      fs.forEach(f => {
+        const o = document.createElement("option");
+        o.value = f;
+        o.textContent = f;
+        familyFilter.appendChild(o);
+      });
+    }
+
+    function buildViewPanel() {
+      viewGroups.innerHTML = "";
+      Object.entries(GROUP_META).forEach(([key, meta]) => {
+        const cols = COLUMNS.filter(c => c.group === key);
+        if (!cols.length) return;
+        const g = document.createElement("div");
+        g.className = "view-group";
+        const h = document.createElement("h4");
+        h.textContent = meta.label;
+        const wrap = document.createElement("div");
+        wrap.className = "column-checks";
+        cols.forEach(c => {
+          const label = document.createElement("label");
+          label.className = "check-item";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.checked = visibleColumns.has(c.key);
+          input.addEventListener("change", () => {
+            if (input.checked) {
+              visibleColumns.add(c.key);
+            } else {
+              if (visibleColumns.size === 1) { input.checked = true; return; }
+              visibleColumns.delete(c.key);
+            }
+            setPresetState("custom");
+            buildViewPanel();
+            renderTable(currentFilteredData);
+          });
+          const span = document.createElement("span");
+          span.textContent = c.label;
+          label.append(input, span);
+          wrap.appendChild(label);
+        });
+        g.append(h, wrap);
+        viewGroups.appendChild(g);
+      });
+    }
+
+    function toggleViewPanel() {
+      viewPanel.classList.toggle("open");
+      const open = viewPanel.classList.contains("open");
+      viewOptionsBtn.classList.toggle("active", open);
+      viewOptionsBtn.setAttribute("aria-expanded", String(open));
+    }
+
+    function setPresetState(which) {
+      ["Core", "Technical", "All"].forEach(n =>
+        document.getElementById("preset" + n)?.classList.toggle("active", which === n.toLowerCase())
+      );
+    }
+
+    function applyViewPreset(which) {
+      if (which === "core") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core).map(c => c.key));
+      } else if (which === "technical") {
+        visibleColumns = new Set(COLUMNS.filter(c => c.core || c.technical).map(c => c.key));
+      } else {
+        visibleColumns = new Set(COLUMNS.map(c => c.key));
+      }
+      setPresetState(which);
+      buildViewPanel();
+      renderTable(currentFilteredData);
+    }
+
+    function setDensity(mode) {
+      currentDensity = mode === "comfortable" ? "comfortable" : "compact";
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+      try { localStorage.setItem("pradakoBsiDensity", currentDensity); } catch (_) {}
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.8: RENDERING ENGINE
+       ============================================================ */
+    function renderMediaCell(item) {
+      const src = item.imageSrc || "";
+      const alt = item.imageAlt || item.standardCode || "Standard media";
+      return `<div class="media-card" data-image-src="${escapeHTML(src)}" data-image-alt="${escapeHTML(alt)}" data-image-title="${escapeHTML(item.standardCode)}">
+                <img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;media-empty&quot;><i class=&quot;fa-regular fa-image&quot;></i><span>Photo / 2D / 3D<br>Coming Soon</span></div>'" />
+              </div>`;
+    }
+
+    function resolveColumnWidths(list) {
+      const scroller = document.querySelector(".table-scroll");
+      const viewport = Math.max(320, Math.floor(scroller?.clientWidth || window.innerWidth || 1440));
+
+      if (window.innerWidth <= 900) {
+        const mobile = { imageSrc: 140, pradakoId: 132, standardCode: 190, title: 315, productFamily: 190, sourceId: 170 };
+        const widths = list.map(c => mobile[c.key] || 160);
+        const total = widths.reduce((a, b) => a + b, 0);
+        return { widths, total, viewport, minimumTotal: total, fit: total <= viewport, scrollRequired: total > viewport };
+      }
+
+      const widths = list.map(c => c.fixed ? c.width : Math.max(c.minWidth, Math.min(c.width, c.maxWidth)));
+      const mins = list.map(c => c.fixed ? c.width : c.minWidth);
+      let total = widths.reduce((a, b) => a + b, 0);
+      const minimumTotal = mins.reduce((a, b) => a + b, 0);
+
+      if (total > viewport) {
+        let excess = total - viewport;
+        let guard = 0;
+        while (excess > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({ i, room: Math.max(0, widths[i] - mins[i]) })).filter(x => x.room > 0);
+          if (!active.length) break;
+          const rt = active.reduce((s, x) => s + x.room, 0);
+          let removed = 0;
+          active.forEach((x, idx) => {
+            let cut = idx === active.length - 1 ?
+              Math.min(x.room, Math.max(0, excess - removed)) :
+              Math.min(x.room, Math.max(1, Math.floor(excess * (x.room / rt))));
+            widths[x.i] -= cut;
+            removed += cut;
+          });
+          if (!removed) break;
+          excess -= removed;
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+
+      if (total < viewport) {
+        let spare = viewport - total;
+        let guard = 0;
+        while (spare > 0 && guard++ < 20) {
+          const active = list.map((c, i) => ({
+            i,
+            weight: c.fixed ? 0 : Math.max(.1, c.weight || 1),
+            room: c.fixed ? 0 : Math.max(0, c.maxWidth - widths[i])
+          })).filter(x => x.weight > 0 && x.room > 0);
+          if (!active.length) break;
+          const wt = active.reduce((s, x) => s + x.weight, 0);
+          let added = 0;
+          active.forEach((x, idx) => {
+            const grow = Math.min(x.room, idx === active.length - 1 ?
+              Math.max(0, spare - added) :
+              Math.max(1, Math.floor(spare * (x.weight / wt))));
+            widths[x.i] += grow;
+            added += grow;
+          });
+          if (!added) break;
+          spare -= added;
+        }
+        total = widths.reduce((a, b) => a + b, 0);
+        spare = Math.max(0, viewport - total);
+        if (spare > 0) {
+          const elastic = list.map((c, i) => ({ i, weight: c.fixed ? 0 : Math.max(.1, c.weight || 1) }))
+            .filter(x => x.weight > 0);
+          const wt = elastic.reduce((s, x) => s + x.weight, 0) || 1;
+          let added = 0;
+          elastic.forEach((x, idx) => {
+            const grow = idx === elastic.length - 1 ?
+              spare - added :
+              Math.floor(spare * (x.weight / wt));
+            widths[x.i] += Math.max(0, grow);
+            added += Math.max(0, grow);
+          });
+        }
+      }
+
+      total = widths.reduce((a, b) => a + b, 0);
+      return { widths, total, viewport, minimumTotal, fit: total <= viewport, scrollRequired: minimumTotal > viewport };
+    }
+
+    function getStickyLeftOffset(list, widths, index) {
+      let left = 0;
+      for (let i = 0; i < index; i++) {
+        if (list[i].sticky) left += widths[i];
+      }
+      return left;
+    }
+
+    function applyAdaptiveRowSizing(count) {
+      let row = count <= 5 ? 122 : count === 6 ? 126 : count === 7 ? 134 : 142;
+      let clamp = count <= 6 ? 3 : 4;
+      let x = count <= 6 ? 8 : 7;
+      let y = count <= 6 ? 10 : 11;
+      if (currentDensity === "comfortable") { row += 38;
+        clamp += 2;
+        y += 3; }
+      document.documentElement.style.setProperty("--dynamic-row-height", row + "px");
+      document.documentElement.style.setProperty("--title-clamp", String(clamp));
+      document.documentElement.style.setProperty("--dynamic-cell-x", x + "px");
+      document.documentElement.style.setProperty("--dynamic-cell-y", y + "px");
+    }
+
+    function applyExactColumnLayout(list) {
+      const layout = resolveColumnWidths(list);
+      const body = document.getElementById("standardsTable");
+      const head = document.querySelector(".sticky-head-table");
+      const bodyScroll = document.querySelector(".table-scroll");
+      const headScroll = document.getElementById("stickyTableHeadScroll");
+      const rendered = Math.max(layout.total, layout.viewport);
+
+      bodyScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+      headScroll.classList.toggle("has-horizontal-scroll", layout.total > layout.viewport);
+
+      [body, head].forEach(t => {
+        if (!t) return;
+        t.style.width = rendered + "px";
+        t.style.minWidth = rendered + "px";
+        t.querySelector("colgroup")?.remove();
+        const cg = document.createElement("colgroup");
+        layout.widths.forEach(w => {
+          const col = document.createElement("col");
+          col.style.width = w + "px";
+          cg.appendChild(col);
+        });
+        t.insertBefore(cg, t.firstChild);
+      });
+
+      return layout;
+    }
+
+    function renderTable(data) {
+      const q = searchInput.value.trim();
+      const list = getVisibleColumns();
+      const layout = applyExactColumnLayout(list);
+      applyAdaptiveRowSizing(list.length);
+
+      visibleColumnCount.textContent = list.length;
+      visibleCount.textContent = data.length;
+
+      tableHeadRow.innerHTML = "";
+      stickyTableHeadRow.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      function thFor(c, i) {
+        const th = document.createElement("th");
+        th.textContent = sortState.key === c.key ?
+          c.label + (sortState.direction === "asc" ? " ▲" : " ▼") :
+          c.label;
+        th.style.width = layout.widths[i] + "px";
+        if (c.sticky && window.innerWidth > 900) {
+          th.classList.add("sticky-col");
+          th.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+        }
+        if (c.sortable === false) {
+          th.classList.add("not-sortable");
+        } else {
+          th.addEventListener("click", () => sortByColumn(c.key));
+        }
+        return th;
+      }
+
+      list.forEach((c, i) => {
+        tableHeadRow.appendChild(thFor(c, i));
+        stickyTableHeadRow.appendChild(thFor(c, i));
+      });
+
+      const frag = document.createDocumentFragment();
+      data.forEach(item => {
+        const tr = document.createElement("tr");
+        list.forEach((c, i) => {
+          const td = document.createElement("td");
+          const v = item[c.key] !== undefined ? item[c.key] : "—";
+          td.style.width = layout.widths[i] + "px";
+          if (c.sticky && window.innerWidth > 900) {
+            td.classList.add("sticky-col");
+            td.style.setProperty("--sticky-left", getStickyLeftOffset(list, layout.widths, i) + "px");
+          }
+          if (c.type === "media") {
+            td.classList.add("media-cell");
+            td.innerHTML = renderMediaCell(item);
+          } else if (c.type === "id") {
+            td.innerHTML = `<span class="pradako-id">${highlightText(v, q)}</span>`;
+          } else if (c.type === "standard") {
+            td.innerHTML =
+              `<a class="standard-link" href="${escapeHTML(item.pageUrl)}"><span>${highlightText(item.standardCode, q)}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+          } else if (c.type === "body") {
+            td.innerHTML = `<span class="body-pill">${highlightText(v, q)}</span>`;
+          } else if (c.type === "family") {
+            const a = Array.isArray(v) ? v : [v];
+            td.innerHTML = a.map(x => `<span class="family-pill">${highlightText(x, q)}</span>`).join("");
+          } else {
+            td.innerHTML = `<div class="title-cell" title="${escapeHTML(v)}">${highlightText(v, q)}</div>`;
+          }
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      });
+      tableBody.appendChild(frag);
+      emptyState.style.display = data.length ? "none" : "block";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.9: DUPLICATE DETECTION
+       ============================================================ */
+    function getDuplicateGroups() {
+      const m = new Map();
+      standardsData.forEach(x => {
+        const k = normalizeDuplicateKey(x.standardCode);
+        if (!k) return;
+        if (!m.has(k)) m.set(k, []);
+        m.get(k).push(x);
+      });
+      return [...m.values()].filter(g => g.length > 1)
+        .sort((a, b) => a[0].standardCode.localeCompare(b[0].standardCode, undefined, { numeric: true,
+        sensitivity: "base" }));
+    }
+
+    function updateDuplicateViewPill(gc, rc) {
+      if (!duplicateMode) {
+        duplicateModePill.classList.remove("show");
+        duplicateGroupsCount.textContent = "0";
+        duplicateRowsCount.textContent = "0";
+        return;
+      }
+      duplicateGroupsCount.textContent = gc;
+      duplicateRowsCount.textContent = rc;
+      duplicateModePill.classList.add("show");
+    }
+
+    function showDuplicateEntriesInTable() {
+      const groups = getDuplicateGroups();
+      const r = groups.flat();
+      duplicateMode = true;
+      duplicateBaseData = r;
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      currentFilteredData = [...r];
+      updateDuplicateViewPill(groups.length, r.length);
+      duplicateCheckBtn.classList.add("active");
+      searchInput.placeholder = "Search within duplicate BS / BSI entries...";
+      renderTable(currentFilteredData);
+    }
+
+    function hideDuplicateView() {
+      duplicateMode = false;
+      duplicateBaseData = [];
+      updateDuplicateViewPill(0, 0);
+      duplicateCheckBtn.classList.remove("active");
+      searchInput.placeholder = "Search BS / BSI standard, title, Pradako ID or product family...";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.10: SEARCH / SORT
+       ============================================================ */
+    function searchStandards() {
+      const q = searchInput.value.trim().toLowerCase();
+      const f = familyFilter.value;
+      const src = duplicateMode ? duplicateBaseData : standardsData;
+      currentFilteredData = src.filter(item => {
+        const ms = !q || COLUMNS.some(c => {
+          if (c.searchable === false) return false;
+          const v = item[c.key];
+          if (v == null) return false;
+          if (Array.isArray(v)) return v.some(e => String(e).toLowerCase().includes(q));
+          return String(v).toLowerCase().includes(q);
+        });
+        const mf = !f || item.productFamily.includes(f);
+        return ms && mf;
+      });
+      if (sortState.key) {
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+      }
+      renderTable(currentFilteredData);
+    }
+
+    function clearSearch() {
+      searchInput.value = "";
+      familyFilter.value = "";
+      sortState = { key: null, direction: "asc" };
+      hideDuplicateView();
+      currentFilteredData = [...standardsData];
+      renderTable(currentFilteredData);
+    }
+
+    function sortData(data, key, direction) {
+      return [...data].sort((a, b) => {
+        let A = a[key],
+          B = b[key];
+        if (Array.isArray(A)) A = A.join(", ");
+        if (Array.isArray(B)) B = B.join(", ");
+        A = String(A ?? "").toLowerCase();
+        B = String(B ?? "").toLowerCase();
+        return A < B ? (direction === "asc" ? -1 : 1) : A > B ? (direction === "asc" ? 1 : -1) : 0;
+      });
+    }
+
+    function sortByColumn(key) {
+      const c = COLUMNS.find(x => x.key === key);
+      if (!c || c.sortable === false) return;
+      if (sortState.key === key) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+      } else {
+        sortState = { key, direction: "asc" };
+      }
+      currentFilteredData = sortData(currentFilteredData, key, sortState.direction);
+      renderTable(currentFilteredData);
+    }
+
+    /* ============================================================
+       SUBSECTION 12.11: MODALS / POPUPS
+       ============================================================ */
+    function openExportPopup() {
+      exportModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+      copyStatus.classList.remove("show");
+    }
+
+    function closeExportPopup() {
+      exportModal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function copyEmail() {
+      const e = "info@pradakomechanicals.com";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(e).then(() => copyStatus.classList.add("show"));
+      } else {
+        const t = document.createElement("textarea");
+        t.value = e;
+        t.style.position = "fixed";
+        t.style.left = "-9999px";
+        document.body.appendChild(t);
+        t.select();
+        try {
+          document.execCommand("copy");
+          copyStatus.classList.add("show");
+        } catch (_) {
+          copyStatus.textContent = "Please copy manually: " + e;
+          copyStatus.classList.add("show");
+        }
+        t.remove();
+      }
+    }
+
+    function openImagePreview(src, alt, title) {
+      imagePreviewImg.src = src;
+      imagePreviewImg.alt = alt;
+      imagePreviewTitle.textContent = title + " · Photo / 2D / 3D";
+      imagePreviewModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImagePreview() {
+      imagePreviewModal.classList.remove("show");
+      imagePreviewImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    /* ============================================================
+       SUBSECTION 12.12: SCROLL SYNC
+       ============================================================ */
+    function syncScroll() {
+      const b = document.querySelector(".table-scroll");
+      const h = document.getElementById("stickyTableHeadScroll");
+      let syncing = false;
+
+      const sync = (from, to) => {
+        if (syncing) return;
+        syncing = true;
+        to.scrollLeft = from.scrollLeft;
+        syncing = false;
+      };
+
+      b.addEventListener("scroll", () => sync(b, h), { passive: true });
+      h.addEventListener("scroll", () => sync(h, b), { passive: true });
+    }
+
+    /* ============================================================
+       SUBSECTION 12.13: EVENT LISTENERS & INITIALISATION
+       ============================================================ */
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(searchStandards, 160);
+    });
+
+    familyFilter.addEventListener("change", searchStandards);
+
+    tableBody.addEventListener("click", e => {
+      const box = e.target.closest(".media-card");
+      if (box) {
+        openImagePreview(box.dataset.imageSrc, box.dataset.imageAlt, box.dataset.imageTitle);
+      }
+    });
+
+    exportModal.addEventListener("click", e => {
+      if (e.target === exportModal) closeExportPopup();
+    });
+
+    imagePreviewModal.addEventListener("click", e => {
+      if (e.target === imagePreviewModal) closeImagePreview();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") { closeExportPopup();
+        closeImagePreview(); }
+    });
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => renderTable(currentFilteredData), 100);
+    });
+
+    function init() {
+      try {
+        if (localStorage.getItem("pradakoBsiDensity") === "comfortable") currentDensity = "comfortable";
+      } catch (_) {}
+
+      document.body.classList.toggle("density-comfortable", currentDensity === "comfortable");
+      document.body.classList.toggle("density-compact", currentDensity === "compact");
+      document.getElementById("densityCompact")?.classList.toggle("active", currentDensity === "compact");
+      document.getElementById("densityComfortable")?.classList.toggle("active", currentDensity === "comfortable");
+
+      totalCount.textContent = standardsData.length;
+      pageCount.textContent = standardsData.length;
+
+      buildFamilyFilter();
+      buildViewPanel();
+      renderTable(currentFilteredData);
+      syncScroll();
+
+      // Back to top
+      const button = document.getElementById("pradakoBackToTop");
+      if (button) {
+        const update = () => {
+          const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          button.classList.toggle("is-visible", y > 300);
+        };
+        button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      }
+    }
+
+    /* ============================================================
+       SUBSECTION 12.14: GLOBAL EXPOSURE
+       ============================================================ */
+    window.searchStandards = searchStandards;
+    window.clearSearch = clearSearch;
+    window.toggleViewPanel = toggleViewPanel;
+    window.setDensity = setDensity;
+    window.applyViewPreset = applyViewPreset;
+    window.showDuplicateEntriesInTable = showDuplicateEntriesInTable;
+    window.openExportPopup = openExportPopup;
+    window.closeExportPopup = closeExportPopup;
+    window.copyEmail = copyEmail;
+    window.openImagePreview = openImagePreview;
+    window.closeImagePreview = closeImagePreview;
+
+    /* ============================================================
+       SUBSECTION 12.15: START
+       ============================================================ */
+    init();
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

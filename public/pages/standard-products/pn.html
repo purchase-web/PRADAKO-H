@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pradako DIN Standards Library</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- <link rel="stylesheet" href="/assets/css/page-style.css"> -->
+
+<style>
+  :root {
+    --white: #ffffff;
+    --navy: #0a3d62;
+    --blue: #0b5fc6;
+    --gold: #c5a028;
+    --line: #e5edf5;
+    --text: #1f3f5b;
+    --muted: #63778a;
+    --soft-blue: #f4f9ff;
+
+    --shadow-main: 0 24px 70px rgba(10, 61, 98, 0.08);
+    --shadow-card: 0 12px 30px rgba(10, 61, 98, 0.07);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  .page {
+    min-height: 100vh;
+    background: var(--white);
+  }
+
+  /* .library-shell {
+    max-width: 1880px;
+    margin: auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    overflow: visible;
+    box-shadow: var(--shadow-main);
+  } */
+
+  /* ===== FIXED BACK TO TOP BUTTON ===== */
+.back-to-top-fixed {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: #ffd24a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100000;
+  box-shadow: 0 18px 40px rgba(197, 160, 40, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: all 0.25s ease;
+}
+
+.back-to-top-fixed.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top-fixed:hover {
+  background: #f4c430;
+  transform: translateY(-3px);
+}
+
+  .top-hero {
+    padding: 58px 58px 50px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    border-radius: 34px 34px 0 0;
+  }
+
+  .top-hero h1 {
+    margin: 0;
+    max-width: 1120px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(52px, 5vw, 90px);
+    line-height: 0.94;
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .top-hero p {
+    max-width: 1080px;
+    margin: 24px 0 0;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .control-zone {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 26px 32px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 300px auto auto auto;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-wrap input,
+  .family-filter {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+
+  .search-wrap input {
+    padding: 0 20px 0 52px;
+  }
+
+  .family-filter {
+    padding: 0 16px;
+  }
+
+  .search-wrap input::placeholder {
+    color: var(--muted);
+  }
+
+  .search-wrap input:focus,
+  .family-filter:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px var(--soft-blue);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .btn {
+    height: 58px;
+    border-radius: 16px;
+    padding: 0 23px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    transition: 0.22s ease;
+  }
+
+  .btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    box-shadow: 0 10px 22px rgba(10, 61, 98, 0.12);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .btn-soft:hover {
+    background: var(--soft-blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .duplicate-check-btn {
+    border: 1px solid #ffbf00;
+    background: #fff8df;
+    color: #1f2937;
+    font-weight: 900;
+  }
+
+  .duplicate-check-btn:hover {
+    background: #ffbf00;
+    color: #111827;
+    border-color: #ffbf00;
+  }
+
+  .duplicate-check-btn.active {
+    background: #ffbf00;
+    border-color: #ffbf00;
+    color: #111827;
+    box-shadow: 0 10px 24px rgba(255, 191, 0, 0.22);
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .stats-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .stat-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stat-pill {
+    padding: 10px 15px;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 900;
+  }
+
+  .duplicate-mode-pill {
+    display: none;
+    border-color: #ffbf00;
+    background: #fff8df;
+    color: var(--navy);
+  }
+
+  .duplicate-mode-pill.show {
+    display: inline-flex;
+  }
+
+  .column-panel {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .column-panel.open {
+    display: block;
+  }
+
+  .column-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .column-panel-title {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .column-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mini-btn {
+    height: 36px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--navy);
+    padding: 0 13px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .mini-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .column-checks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 10px;
+    max-height: 260px;
+    overflow: auto;
+    padding-right: 4px;
+  }
+
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--white);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .check-item input {
+    accent-color: var(--navy);
+  }
+
+  .table-zone {
+    background: var(--white);
+  }
+
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-width: 200px;
+    padding: 17px 18px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: var(--white);
+    background: var(--navy);
+    border-right: 1px solid rgba(255, 255, 255, 0.22);
+    border-bottom: 1px solid var(--navy);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  thead th.not-sortable {
+    cursor: default;
+  }
+
+  tbody td {
+    min-width: 200px;
+    padding: 22px 18px;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 1.56;
+    background: var(--white);
+    color: var(--text);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: var(--white);
+  }
+
+  tbody tr:hover td {
+    background: var(--soft-blue);
+  }
+
+  th.sticky-col,
+  td.sticky-col {
+    position: sticky;
+    left: var(--sticky-left);
+  }
+
+  th.sticky-col {
+    z-index: 30;
+  }
+
+  td.sticky-col {
+    z-index: 10;
+    box-shadow: 8px 0 16px rgba(10, 61, 98, 0.05);
+  }
+
+  .part-image-wrap {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow-card);
+  }
+
+  .part-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 10px;
+    background: var(--white);
+    transition: 0.25s ease;
+  }
+
+  .part-image-wrap:hover {
+    border-color: var(--blue);
+  }
+
+  .part-image-wrap:hover img {
+    transform: scale(1.05);
+  }
+
+  .part-image-empty {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .family-pill {
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.35;
+    border: 1px solid var(--line);
+  }
+
+  .standard-code {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .title-cell {
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .keyword-cell {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  mark {
+    background: var(--soft-blue);
+    color: var(--navy);
+    padding: 0 3px;
+    border-radius: 4px;
+  }
+
+  .empty-state {
+    display: none;
+    padding: 65px 20px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--white);
+  }
+
+  .empty-state h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 24px;
+  }
+
+  .footer-note {
+    padding: 18px 34px;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    font-weight: 700;
+    border-radius: 0 0 34px 34px;
+  }
+
+  .modal-overlay,
+  .image-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(10, 61, 98, 0.84);
+    backdrop-filter: blur(8px);
+  }
+
+  .modal-overlay.show,
+  .image-preview-overlay.show {
+    display: flex;
+  }
+
+  .modal-card,
+  .image-preview-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-main);
+  }
+
+  .modal-card {
+    width: min(560px, 100%);
+  }
+
+  .image-preview-card {
+    width: min(1000px, 96vw);
+    max-height: 92vh;
+  }
+
+  .modal-top,
+  .image-preview-head {
+    color: var(--white);
+    background: var(--navy);
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .modal-top {
+    padding: 30px 32px 24px;
+  }
+
+  .image-preview-head {
+    padding: 22px 26px;
+  }
+
+  .modal-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    margin-bottom: 15px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .modal-top h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.4px;
+    color: var(--white);
+  }
+
+  .modal-top p {
+    margin: 12px 0 0;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .modal-body,
+  .image-preview-body {
+    padding: 28px 32px 32px;
+    background: var(--white);
+  }
+
+  .work-message {
+    padding: 20px;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 700;
+  }
+
+  .email-line {
+    margin-top: 10px;
+    display: inline-flex;
+    font-weight: 900;
+    color: var(--navy);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 11px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .modal-btn {
+    height: 50px;
+    border-radius: 15px;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 900;
+    transition: 0.22s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .modal-btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+  }
+
+  .modal-btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .modal-btn:hover {
+    transform: translateY(-1px);
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+
+  .modal-close,
+  .image-preview-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--navy);
+    background: var(--white);
+    font-size: 24px;
+    line-height: 1;
+    z-index: 4;
+  }
+
+  .copy-status {
+    display: none;
+    margin-top: 13px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .copy-status.show {
+    display: block;
+  }
+
+  .image-preview-head h3 {
+    margin: 0;
+    padding-right: 45px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+
+  .image-preview-body img {
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 1200px) {
+    .controls-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .control-zone {
+      position: relative;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page {
+      padding: 14px;
+    }
+
+    .library-shell {
+      border-radius: 24px;
+    }
+
+    .top-hero {
+      padding: 36px 22px;
+      border-radius: 22px 22px 0 0;
+    }
+
+    .control-zone {
+      padding: 20px;
+    }
+
+    .controls-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .stats-actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .stats-actions .btn {
+      width: 100%;
+    }
+
+    .top-hero h1 {
+      font-size: 44px;
+    }
+
+    .part-image-wrap,
+    .part-image-empty {
+      width: 160px;
+      height: 118px;
+    }
+
+    .modal-top h2 {
+      font-size: 31px;
+    }
+
+    .modal-actions {
+      flex-direction: column;
+    }
+
+    .modal-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Pradako DIN Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 19.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standard-products/pn.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako DIN Standards Library">
+    <meta property="og:description" content="Pradako DIN Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 19.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standard-products/pn.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako DIN Standards Library">
+    <meta name="twitter:description" content="Pradako DIN Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 19.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako DIN Standards Library",
+  "url": "https://www.pradako.co/pages/standard-products/pn.html",
+  "description": "Pradako DIN Standards Library from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 19.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+
+<div id="navbar-container"></div>
+
+
+<section class="page">
+  <section class="library-shell">
+
+    <header class="top-hero">
+      <h1>PN / Polish Standards Fastener Reference</h1>
+      <p>
+        Premium searchable database for PN / Polish Standards fastener references covering bolts, screws, studs, threaded rods, nuts, washers, rivets and related product families.
+      </p>
+    </header>
+
+    <section class="control-zone">
+      <div class="controls-grid">
+
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by Indian standard number, product family, sub-family, ISO reference, edition or BIS title..."
+          />
+        </div>
+
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft" onclick="toggleColumnPanel()">Columns</button>
+
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> standards</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View:
+            <span id="duplicateGroupsCount">0</span> groups /
+            <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+
+        <div class="stats-actions">
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+
+          <button
+            type="button"
+            id="duplicateCheckBtn"
+            class="btn duplicate-check-btn"
+            aria-label="Check duplicate entries"
+            onclick="showDuplicateEntriesInTable()"
+          >
+            <span class="duplicate-icon" aria-hidden="true">⧉</span>
+            <span>Check Duplicates</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="column-panel" id="columnPanel">
+        <div class="column-panel-head">
+          <div class="column-panel-title">Show / Hide Table Columns</div>
+          <div class="column-actions">
+            <button class="mini-btn" onclick="showAllColumns()">Show All</button>
+            <button class="mini-btn" onclick="showCoreColumns()">Core Only</button>
+          </div>
+        </div>
+
+        <div class="column-checks" id="columnChecks"></div>
+      </div>
+    </section>
+
+    <section class="table-zone">
+      <div class="table-scroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+
+        <div class="empty-state" id="emptyState">
+          <h3 id="emptyStateTitle">No standards found</h3>
+          <p id="emptyStateText">Try another standard number, product family, keyword or title.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Data is controlled from JavaScript. To add more BSI standards, add them inside <strong>standardsData</strong>.
+      To add more columns, add them inside <strong>columns</strong> and use the same key in your data rows.
+    </footer>
+
+  </section>
+</section>
+
+<section class="modal-overlay" id="exportModal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeExportPopup()" aria-label="Close popup">&times;</button>
+
+    <div class="modal-top">
+      <div class="modal-badge">Export Request</div>
+      <h2 id="exportModalTitle">We are working on it</h2>
+      <p>
+        The export feature is currently being upgraded for the complete standards database.
+      </p>
+    </div>
+
+    <div class="modal-body">
+      <div class="work-message">
+        We are working on it.<br />
+        Please email us on:
+        <div class="email-line">info@pradakomechanicals.com</div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=BDS%20Standards%20Library%20Export%20Request">
+          Email Us
+        </a>
+        <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+        <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+      </div>
+
+      <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+    </div>
+  </div>
+</section>
+
+<section class="image-preview-overlay" id="imagePreviewModal" role="dialog" aria-modal="true">
+  <div class="image-preview-card">
+    <button class="image-preview-close" onclick="closeImagePreview()" aria-label="Close image preview">&times;</button>
+
+    <div class="image-preview-head">
+      <h3 id="imagePreviewTitle">Product Image</h3>
+    </div>
+
+    <div class="image-preview-body">
+      <img id="imagePreviewImg" src="" alt="">
+    </div>
+  </div>
+</section>
+
+    <!-- ======================================================
+        FOOTER
+    ======================================================= -->
+
+    <div id="footer-container"></div>
+    <button class="back-to-top-fixed" id="backToTopFixed" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ======================================================
+        MAIN JS
+    ======================================================= -->
+
+    <script>
+
+        
+
+    
+
+    
+
+
+const columns = [
+    {
+        "key": "imageSrc",
+        "label": "Image",
+        "width": 240,
+        "sticky": true,
+        "core": true,
+        "type": "image",
+        "searchable": false,
+        "sortable": false
+    },
+    {
+        "key": "standardCode",
+        "label": "PN / PKN Designation",
+        "width": 360,
+        "sticky": true,
+        "core": true,
+        "type": "standard",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "category",
+        "label": "Category",
+        "width": 340,
+        "sticky": false,
+        "core": true,
+        "type": "title",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "sourceReference",
+        "label": "Source EN / ISO Standard",
+        "width": 360,
+        "sticky": false,
+        "core": true,
+        "type": "title",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "edition",
+        "label": "Edition / Publication",
+        "width": 260,
+        "sticky": false,
+        "core": true,
+        "type": "title",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "title",
+        "label": "Official / Original Title",
+        "width": 900,
+        "sticky": false,
+        "core": true,
+        "type": "title",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "polishNote",
+        "label": "Polish / PKN Title Note",
+        "width": 520,
+        "sticky": false,
+        "core": false,
+        "type": "title",
+        "searchable": true,
+        "sortable": true
+    },
+    {
+        "key": "productFamily",
+        "label": "Product / Process Family",
+        "width": 430,
+        "sticky": false,
+        "core": true,
+        "type": "family",
+        "searchable": true,
+        "sortable": true
+    }
+];
+
+function standardSlug(text) {
+    return String(text || "")
+        .toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/\+/g, "plus")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
+function makeStandard(row, index) {
+    const slug = standardSlug(row.standardCode);
+
+    return {
+        "id": `${slug}-${String(index + 1).padStart(3, "0")}`,
+        "imageSrc": `/assets/images/products/standards-products/${slug}.png`,
+        "imageAlt": `${row.standardCode} reference image`,
+        "imageExists": true,
+        "standardCode": row.standardCode,
+        "category": row.category || "—",
+        "sourceReference": row.sourceReference || "—",
+        "edition": row.edition || "—",
+        "title": row.title || "—",
+        "polishNote": row.polishNote || "—",
+        "productFamily": [row.family || "—"]
+    };
+}
+
+const rawPNTSV = `PN Standard Number	Category	Source EN / ISO Standard	Edition / Publication	Title	Polish / PKN Title Note	Family
+PN 82101	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN 82105	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN 82343	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN 82406	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN 82408	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN 82418	Existing PN page entry	—	—	Title to be added	—	Family to be added
+PN-EN ISO 225	Fastener standard / PKN reference	ISO 225	2010	Fasteners — Bolts, screws, studs and nuts — Symbols and descriptions of dimensions	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	General fastener reference / dimensions
+PN-EN ISO 888	Fastener standard / PKN reference	ISO 888	2012 / PN references often 2018-08	Fasteners — Bolts, screws and studs — Nominal lengths and thread lengths	Polish title seen in Polish tender references as Części złączne — Śruby, wkręty i śruby dwustronne — Długości nominalne i długości gwintów.	General fastener reference / lengths
+PN-EN ISO 4753	Fastener standard / PKN reference	ISO 4753	2011	Fasteners — Ends of parts with external ISO metric thread	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Threaded-end geometry
+PN-EN ISO 4757	Fastener standard / PKN reference	ISO 4757	1983 / 2025 revision status to verify	Cross recesses for screws	PN adoption and current edition require PKN confirmation.	Drive features / recesses
+PN-EN ISO 8992	Fastener standard / PKN reference	ISO 8992	2005	Fasteners — General requirements for bolts, screws, studs and nuts	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	General fastener requirements
+PN-EN ISO 1891-1	Fastener standard / PKN reference	ISO 1891-1	2024	Fasteners — Terminology — Part 1: Fasteners with external thread	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Terminology / externally threaded fasteners
+PN-EN ISO 1891-2	Fastener standard / PKN reference	ISO 1891-2	2014	Fasteners — Terminology — Part 2: Vocabulary and definitions for coatings	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Terminology / coatings
+PN-EN ISO 1891-4	Fastener standard / PKN reference	ISO 1891-4	2018	Fasteners — Vocabulary — Part 4: Control, inspection, delivery, acceptance and quality	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Terminology / inspection and quality
+PN-EN ISO 4014:2022-12	Fastener standard / PKN reference	ISO 4014:2022 / EN ISO 4014:2022	2022-12	Fasteners — Hexagon head bolts — Product grades A and B	Części złączne — Śruby z łbem sześciokątnym — Klasy dokładności A i B.	Hexagon head bolts
+PN-EN ISO 4015:2022-12	Fastener standard / PKN reference	ISO 4015:2022 / EN ISO 4015:2022	2022-12	Fasteners — Hexagon head bolts with reduced shank (shank diameter ≈ pitch diameter) — Product grade B	Części złączne — Śruby z łbem sześciokątnym z trzpieniem przewężonym — Klasa dokładności B.	Reduced-shank hexagon head bolts
+PN-EN ISO 4016:2022-12	Fastener standard / PKN reference	ISO 4016:2022 / EN ISO 4016:2022	2022-12	Fasteners — Hexagon head bolts — Product grade C	Części złączne — Śruby z łbem sześciokątnym — Klasa dokładności C.	Hexagon head bolts, product grade C
+PN-EN ISO 4017:2022-12	Fastener standard / PKN reference	ISO 4017:2022 / EN ISO 4017:2022	2022-12	Fasteners — Hexagon head screws — Product grades A and B	Części złączne — Śruby z gwintem na całej długości z łbem sześciokątnym — Klasy dokładności A i B.	Hexagon head screws / fully threaded hex screws
+PN-EN ISO 4018:2022-12	Fastener standard / PKN reference	ISO 4018:2022 / EN ISO 4018:2022	2022-12	Fasteners — Hexagon head screws — Product grade C	Części złączne — Śruby z gwintem na całej długości z łbem sześciokątnym — Klasa dokładności C.	Hexagon head screws, product grade C
+PN-EN ISO 8676:2022-12	Fastener standard / PKN reference	ISO 8676:2022 / EN ISO 8676:2022	2022-12	Fasteners — Hexagon head screws with metric fine pitch thread — Product grades A and B	Części złączne — Śruby z łbem sześciokątnym z gwintem drobnozwojnym na całej długości — Klasy dokładności A i B.	Fine-pitch hexagon head screws
+PN-EN ISO 8765:2022-12	Fastener standard / PKN reference	ISO 8765:2022 / EN ISO 8765:2022	2022-12	Fasteners — Hexagon head bolts with metric fine pitch thread — Product grades A and B	Części złączne — Śruby z łbem sześciokątnym z gwintem drobnozwojnym — Klasy dokładności A i B.	Fine-pitch hexagon head bolts
+PN-EN ISO 1207	Fastener standard / PKN reference	ISO 1207:2011	2011	Slotted cheese head screws — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Slotted machine screws
+PN-EN ISO 1580	Fastener standard / PKN reference	ISO 1580:2011	2011	Slotted pan head screws — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Slotted machine screws
+PN-EN ISO 2009	Fastener standard / PKN reference	ISO 2009:2011	2011	Slotted countersunk flat head screws — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Countersunk slotted screws
+PN-EN ISO 2010	Fastener standard / PKN reference	ISO 2010:2011	2011	Slotted raised countersunk head screws — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Raised countersunk slotted screws
+PN-EN ISO 7045	Fastener standard / PKN reference	ISO 7045:2011	2011	Pan head screws with type H or type Z cross recess — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Cross recessed pan head screws
+PN-EN ISO 7046-1	Fastener standard / PKN reference	ISO 7046-1:2011	2011	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A — Part 1: Steel screws of property class 4.8	PN title mirrors EN/ISO title; confirm exact PN month.	Cross recessed countersunk screws
+PN-EN ISO 7046-2	Fastener standard / PKN reference	ISO 7046-2:2011	2011	Countersunk flat head screws (common head style) with type H or type Z cross recess — Product grade A — Part 2: Steel screws of property class 8.8, stainless steel screws and non-ferrous metal screws	PN title mirrors EN/ISO title; confirm exact PN month.	Cross recessed countersunk screws
+PN-EN ISO 7047	Fastener standard / PKN reference	ISO 7047:2011	2011	Raised countersunk head screws (common head style) with type H or type Z cross recess — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Cross recessed raised countersunk screws
+PN-EN ISO 4026	Fastener standard / PKN reference	ISO 4026:2026	2026	Fasteners — Hexagon socket set screws with flat point	Current ISO edition is 2026; wait for / confirm PN-EN ISO publication in PKN WIEDZA.	Socket set screws
+PN-EN ISO 4027	Fastener standard / PKN reference	ISO 4027:2026	2026	Fasteners — Hexagon socket set screws with cone point	Current ISO edition is 2026; wait for / confirm PN-EN ISO publication in PKN WIEDZA.	Socket set screws
+PN-EN ISO 4028	Fastener standard / PKN reference	ISO 4028:2026	2026	Fasteners — Hexagon socket set screws with dog point	Current ISO edition is 2026; wait for / confirm PN-EN ISO publication in PKN WIEDZA.	Socket set screws
+PN-EN ISO 4029	Fastener standard / PKN reference	ISO 4029:2026	2026	Fasteners — Hexagon socket set screws with cup point	Current ISO edition is 2026; wait for / confirm PN-EN ISO publication in PKN WIEDZA.	Socket set screws
+PN-EN ISO 4762	Fastener standard / PKN reference	ISO 4762:2004	2004	Hexagon socket head cap screws	PN title mirrors EN/ISO title; confirm exact PN month.	Socket head cap screws
+PN-EN ISO 7380-1	Fastener standard / PKN reference	ISO 7380-1:2022 / EN ISO 7380-1:2023	2023 PN/EN adoption to verify	Fasteners — Button head screws with reduced loadability — Part 1: Hexagon socket button head screws	PN title mirrors EN/ISO title; confirm exact PN month.	Button head socket screws
+PN-EN ISO 7380-2	Fastener standard / PKN reference	ISO 7380-2:2022 / EN ISO 7380-2:2023	2023 PN/EN adoption to verify	Fasteners — Button head screws with reduced loadability — Part 2: Hexagon socket button head screws with collar	PN title mirrors EN/ISO title; confirm exact PN month.	Button head socket screws with collar
+PN-EN ISO 10642	Fastener standard / PKN reference	ISO 10642:2026	2026	Fasteners — Hexagon socket countersunk head screws with reduced loadability	Current ISO edition is 2026; confirm PN-EN ISO adoption in PKN WIEDZA before posting as PN.	Socket countersunk screws
+PN-EN ISO 14579	Fastener standard / PKN reference	ISO 14579:2011	2011	Hexalobular socket head cap screws	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx socket screws
+PN-EN ISO 14580	Fastener standard / PKN reference	ISO 14580:2011	2011	Hexalobular socket cheese head screws	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx cheese head screws
+PN-EN ISO 14583	Fastener standard / PKN reference	ISO 14583:2011	2011	Hexalobular socket pan head screws	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx pan head screws
+PN-EN ISO 14584	Fastener standard / PKN reference	ISO 14584:2011	2011	Hexalobular socket raised countersunk head screws	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx raised countersunk screws
+PN-EN ISO 14585	Fastener standard / PKN reference	ISO 14585:2011	2011	Hexalobular socket countersunk flat head screws	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx countersunk screws
+PN-EN ISO 14586	Fastener standard / PKN reference	ISO 14586:2011	2011	Hexalobular socket set screws with flat point	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx set screws
+PN-EN ISO 14587	Fastener standard / PKN reference	ISO 14587:2011	2011	Hexalobular socket set screws with cone point	PN title mirrors EN/ISO title; confirm exact PN month.	Hexalobular / Torx set screws
+PN-EN ISO 13918	Fastener standard / PKN reference	ISO 13918:2017 / EN ISO 13918:2018	2017/2018	Welding — Studs and ceramic ferrules for arc stud welding	PN title mirrors EN/ISO title; confirm exact PN month.	Weld studs and ceramic ferrules
+PN-EN ISO 2320	Fastener standard / PKN reference	ISO 2320:2015	2015	Fasteners — Prevailing torque steel nuts — Functional properties	PN title mirrors EN/ISO title; confirm exact PN month.	Prevailing torque nuts / functional properties
+PN-EN ISO 4032:2024-02	Fastener standard / PKN reference	ISO 4032:2023 / EN ISO 4032:2023	2024-02	Fasteners — Hexagon regular nuts (style 1)	Części złączne — Nakrętki sześciokątne (odmiana 1).	Hexagon regular nuts, coarse thread
+PN-EN ISO 4033:2024-02	Fastener standard / PKN reference	ISO 4033:2023 / EN ISO 4033:2023	2024-02	Fasteners — Hexagon high nuts (style 2)	Części złączne — Nakrętki sześciokątne wysokie (odmiana 2).	Hexagon high nuts
+PN-EN ISO 4034:2024-02	Fastener standard / PKN reference	ISO 4034:2023 / EN ISO 4034:2023	2024-02	Fasteners — Hexagon regular nuts (style 1) — Product grade C	PN title to confirm in PKN WIEDZA.	Hexagon regular nuts, product grade C
+PN-EN ISO 4035:2024-02	Fastener standard / PKN reference	ISO 4035:2023 / EN ISO 4035:2023	2024-02	Fasteners — Hexagon thin nuts (style 0)	Części złączne — Nakrętki sześciokątne niskie (odmiana 0).	Hexagon thin nuts / jam nuts
+PN-EN ISO 8673:2024-02	Fastener standard / PKN reference	ISO 8673:2023 / EN ISO 8673:2023	2024-02	Fasteners — Hexagon regular nuts (style 1), with fine pitch thread	Części złączne — Nakrętki sześciokątne (odmiana 1) z gwintem metrycznym drobnozwojnym.	Hexagon regular nuts, fine pitch
+PN-EN ISO 8674:2024-02	Fastener standard / PKN reference	ISO 8674:2023 / EN ISO 8674:2023	2024-02	Fasteners — Hexagon high nuts (style 2), with fine pitch thread	Części złączne — Nakrętki sześciokątne wysokie (odmiana 2) z gwintem metrycznym drobnozwojnym.	Hexagon high nuts, fine pitch
+PN-EN ISO 8675:2024-02	Fastener standard / PKN reference	ISO 8675:2023 / EN ISO 8675:2023	2024-02	Fasteners — Hexagon thin nuts (style 0), with fine pitch thread	Części złączne — Nakrętki sześciokątne niskie (odmiana 0) z gwintem metrycznym drobnozwojnym.	Hexagon thin nuts, fine pitch
+PN-EN ISO 7040	Fastener standard / PKN reference	ISO 7040:2025	2025	Fasteners — Prevailing torque hexagon regular nuts (with non-metallic insert)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	Nylon insert / prevailing torque regular nuts
+PN-EN ISO 7041	Fastener standard / PKN reference	ISO 7041:2025	2025	Fasteners — Prevailing torque hexagon high nuts (with non-metallic insert)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	Nylon insert / prevailing torque high nuts
+PN-EN ISO 7042	Fastener standard / PKN reference	ISO 7042:2025	2025	Fasteners — Prevailing torque hexagon nuts — Regular nuts (all metal)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	All-metal prevailing torque nuts
+PN-EN ISO 10511	Fastener standard / PKN reference	ISO 10511:2025	2025	Fasteners — Prevailing torque hexagon nuts — Thin nuts (with non-metallic insert)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	Prevailing torque thin nuts with non-metallic insert
+PN-EN ISO 10512	Fastener standard / PKN reference	ISO 10512:2025	2025	Fasteners — Prevailing torque hexagon nuts — Regular nuts (all metal) with slot(s)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	All-metal slotted prevailing torque nuts
+PN-EN ISO 10513	Fastener standard / PKN reference	ISO 10513:2025	2025	Fasteners — Prevailing torque hexagon nuts — High nuts (all metal)	Current ISO edition is 2025; confirm PN-EN ISO adoption in PKN WIEDZA.	All-metal prevailing torque high nuts
+PN-EN ISO 4161	Fastener standard / PKN reference	ISO 4161:2012	2012	Hexagon nuts with flange — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month and current revision status.	Flange nuts
+PN-EN ISO 7043	Fastener standard / PKN reference	ISO 7043:2012	2012	Prevailing torque type hexagon nuts with flange (with non-metallic insert) — Product grades A and B	PN title mirrors EN/ISO title; confirm exact PN month and current revision status.	Flange prevailing torque nuts with insert
+PN-EN ISO 7044	Fastener standard / PKN reference	ISO 7044:2012	2012	Prevailing torque type all-metal hexagon nuts with flange, style 2 — Product grades A and B	PN title mirrors EN/ISO title; confirm exact PN month and current revision status.	All-metal flange prevailing torque nuts
+PN-EN ISO 7089	Fastener standard / PKN reference	ISO 7089:2000	2000	Plain washers — Normal series — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Plain washers, normal series, grade A
+PN-EN ISO 7090	Fastener standard / PKN reference	ISO 7090:2000	2000	Plain washers, chamfered — Normal series — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Chamfered plain washers, normal series
+PN-EN ISO 7091	Fastener standard / PKN reference	ISO 7091:2000	2000	Plain washers — Normal series — Product grade C	PN title mirrors EN/ISO title; confirm exact PN month.	Plain washers, normal series, grade C
+PN-EN ISO 7092	Fastener standard / PKN reference	ISO 7092:2000	2000	Plain washers — Small series — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Small-series plain washers
+PN-EN ISO 7093-1	Fastener standard / PKN reference	ISO 7093-1:2000	2000	Plain washers — Large series — Part 1: Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Large-series plain washers, grade A
+PN-EN ISO 7093-2	Fastener standard / PKN reference	ISO 7093-2:2000	2000	Plain washers — Large series — Part 2: Product grade C	PN title mirrors EN/ISO title; confirm exact PN month.	Large-series plain washers, grade C
+PN-EN ISO 7094	Fastener standard / PKN reference	ISO 7094:2000	2000	Plain washers — Extra large series — Product grade C	PN title mirrors EN/ISO title; confirm exact PN month.	Extra-large plain washers
+PN-EN ISO 8738	Fastener standard / PKN reference	ISO 8738:1986	1986	Plain washers for clevis pins — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Washers for clevis pins
+PN-EN ISO 10669	Fastener standard / PKN reference	ISO 10669:1999	1999	Plain washers for tapping screw and washer assemblies — Normal and large series — Product grade A	PN title mirrors EN/ISO title; confirm exact PN month.	Washers for tapping screws / SEMS assemblies
+PN-EN ISO 1234	Fastener standard / PKN reference	ISO 1234:1997	1997	Split pins	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Split pins / cotter pins
+PN-EN ISO 2338	Fastener standard / PKN reference	ISO 2338:1997	1997	Parallel pins, of unhardened steel and austenitic stainless steel	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Parallel pins / dowel pins
+PN-EN ISO 2339	Fastener standard / PKN reference	ISO 2339:1986	1986	Taper pins, unhardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Taper pins
+PN-EN ISO 2340	Fastener standard / PKN reference	ISO 2340:1986	1986	Clevis pins without head	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Clevis pins without head
+PN-EN ISO 2341	Fastener standard / PKN reference	ISO 2341:1986	1986	Clevis pins with head	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Clevis pins with head
+PN-EN ISO 8733	Fastener standard / PKN reference	ISO 8733:1997	1997	Parallel pins with internal thread, unhardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Parallel pins with internal thread
+PN-EN ISO 8734	Fastener standard / PKN reference	ISO 8734:1997	1997	Parallel pins, hardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Hardened dowel pins
+PN-EN ISO 8735	Fastener standard / PKN reference	ISO 8735:1997	1997	Parallel pins with internal thread, hardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Hardened internally threaded pins
+PN-EN ISO 8736	Fastener standard / PKN reference	ISO 8736:1986	1986	Taper pins with internal thread, unhardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Internally threaded taper pins
+PN-EN ISO 8737	Fastener standard / PKN reference	ISO 8737:1986	1986	Taper pins with external thread, unhardened	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Externally threaded taper pins
+PN-EN ISO 8739	Fastener standard / PKN reference	ISO 8739:2025	2025	Grooved pins — Full-length parallel grooved, with pilot	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8740	Fastener standard / PKN reference	ISO 8740:2025	2025	Grooved pins — Full-length parallel grooved, with chamfer	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8741	Fastener standard / PKN reference	ISO 8741:2025	2025	Grooved pins — Half-length reverse taper grooved	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8742	Fastener standard / PKN reference	ISO 8742:2026	2026	Grooved pins — One-third-length centre grooved	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8743	Fastener standard / PKN reference	ISO 8743:2026	2026	Grooved pins — Half-length centre grooved	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8744	Fastener standard / PKN reference	ISO 8744:2025	2025	Grooved pins — Full-length taper grooved	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8745	Fastener standard / PKN reference	ISO 8745:2025	2025	Grooved pins — Half-length taper grooved	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins
+PN-EN ISO 8746	Fastener standard / PKN reference	ISO 8746:2025	2025	Grooved pins with round head	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Round-head grooved pins / grooved nails
+PN-EN ISO 8747	Fastener standard / PKN reference	ISO 8747:2025	2025	Grooved pins with countersunk head	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Countersunk-head grooved pins / grooved nails
+PN-EN ISO 8748	Fastener standard / PKN reference	ISO 8748:2007	2007	Spring-type straight pins — Coiled, heavy duty	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Coiled spring pins, heavy duty
+PN-EN ISO 8750	Fastener standard / PKN reference	ISO 8750:2007	2007	Spring-type straight pins — Coiled, standard duty	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Coiled spring pins, standard duty
+PN-EN ISO 8751	Fastener standard / PKN reference	ISO 8751:2007	2007	Spring-type straight pins — Coiled, light duty	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Coiled spring pins, light duty
+PN-EN ISO 8752	Fastener standard / PKN reference	ISO 8752:2009	2009	Spring-type straight pins — Slotted, heavy duty	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Slotted spring pins, heavy duty
+PN-EN ISO 13337	Fastener standard / PKN reference	ISO 13337:2009	2009	Spring-type straight pins — Slotted, light duty	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Slotted spring pins, light duty
+PN-EN ISO 8749	Fastener standard / PKN reference	ISO 8749:1986	1986	Pins and grooved pins — Shear test	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Pin testing / shear test
+PN-EN ISO 13669	Fastener standard / PKN reference	ISO 13669:2025	2025	Fasteners — General requirements for grooved pins	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Grooved pins / general requirements
+PN-EN ISO 13670	Fastener standard / PKN reference	ISO 13670:2025	2025	Fasteners — Reverse-taper grooved pins with one-quarter-length progressive grooves on both sides	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Reverse-taper grooved pins
+PN-EN ISO 13672	Fastener standard / PKN reference	ISO 13672:2025	2025	Fasteners — Parallel grooved pins with half-length diamond grooves	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Parallel grooved pins with diamond grooves
+PN-EN ISO 14588	Fastener standard / PKN reference	ISO 14588:2000	2000	Blind rivets — Terminology and definitions	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets / terminology
+PN-EN ISO 14589	Fastener standard / PKN reference	ISO 14589:2000	2000	Blind rivets — Mechanical testing	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets / mechanical testing
+PN-EN ISO 15973	Fastener standard / PKN reference	ISO 15973:2000	2000	Closed end blind rivets with break pull mandrel and protruding head — AlA/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15974	Fastener standard / PKN reference	ISO 15974:2000	2000	Closed end blind rivets with break pull mandrel and countersunk head — AlA/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15975	Fastener standard / PKN reference	ISO 15975:2000	2000	Closed end blind rivets with break pull mandrel and protruding head — AlA/AlA	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15976	Fastener standard / PKN reference	ISO 15976:2002	2002	Closed end blind rivets with break pull mandrel and protruding head — St/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15977	Fastener standard / PKN reference	ISO 15977:2002	2002	Open end blind rivets with break pull mandrel and protruding head — AlA/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15978	Fastener standard / PKN reference	ISO 15978:2002	2002	Open end blind rivets with break pull mandrel and countersunk head — AlA/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15979	Fastener standard / PKN reference	ISO 15979:2002	2002	Open end blind rivets with break pull mandrel and protruding head — St/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15980	Fastener standard / PKN reference	ISO 15980:2002	2002	Open end blind rivets with break pull mandrel and countersunk head — St/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15981	Fastener standard / PKN reference	ISO 15981:2002	2002	Open end blind rivets with break pull mandrel and protruding head — AlA/AlA	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15982	Fastener standard / PKN reference	ISO 15982:2002	2002	Open end blind rivets with break pull mandrel and countersunk head — AlA/AlA	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Blind rivets
+PN-EN ISO 15983	Fastener standard / PKN reference	ISO 15983:2002	2002	Open end blind rivets with break pull mandrel and protruding head — A2/A2	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Stainless blind rivets
+PN-EN ISO 15984	Fastener standard / PKN reference	ISO 15984:2002	2002	Open end blind rivets with break pull mandrel and countersunk head — A2/A2	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Stainless blind rivets
+PN-EN ISO 16582	Fastener standard / PKN reference	ISO 16582:2002	2002	Open end blind rivets with break pull mandrel and protruding head — Cu/St or Cu/Br	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Copper blind rivets
+PN-EN ISO 16583	Fastener standard / PKN reference	ISO 16583:2002	2002	Open end blind rivets with break pull mandrel and countersunk head — Cu/St or Cu/Br	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Copper blind rivets
+PN-EN ISO 16584	Fastener standard / PKN reference	ISO 16584:2002	2002	Open end blind rivets with break pull mandrel and protruding head — NiCu/St	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Nickel copper blind rivets
+PN-EN ISO 16585	Fastener standard / PKN reference	ISO 16585:2002	2002	Closed end blind rivets with break pull mandrel and protruding head — A2/A2	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA.	Stainless closed-end blind rivets
+PN-EN 14399-1	Fastener standard / PKN reference	EN 14399-1	2015	High-strength structural bolting assemblies for preloading — Part 1: General requirements	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HV/HR preloaded structural bolting
+PN-EN 14399-2	Fastener standard / PKN reference	EN 14399-2	2015	High-strength structural bolting assemblies for preloading — Part 2: Suitability for preloading	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	Preload suitability testing
+PN-EN 14399-3	Fastener standard / PKN reference	EN 14399-3	2015	High-strength structural bolting assemblies for preloading — Part 3: System HR — Hexagon bolt and nut assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HR structural bolt/nut assemblies
+PN-EN 14399-4	Fastener standard / PKN reference	EN 14399-4	2015	High-strength structural bolting assemblies for preloading — Part 4: System HV — Hexagon bolt and nut assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HV structural bolt/nut assemblies
+PN-EN 14399-5	Fastener standard / PKN reference	EN 14399-5	2015	High-strength structural bolting assemblies for preloading — Part 5: Plain washers	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	Structural washers
+PN-EN 14399-6	Fastener standard / PKN reference	EN 14399-6	2015	High-strength structural bolting assemblies for preloading — Part 6: Plain chamfered washers	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	Structural chamfered washers
+PN-EN 14399-7	Fastener standard / PKN reference	EN 14399-7	2018	High-strength structural bolting assemblies for preloading — Part 7: System HR — Countersunk head bolt and nut assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HR countersunk structural assemblies
+PN-EN 14399-8	Fastener standard / PKN reference	EN 14399-8	2018	High-strength structural bolting assemblies for preloading — Part 8: System HV — Hexagon fit bolt and nut assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HV fit bolt/nut assemblies
+PN-EN 14399-9	Fastener standard / PKN reference	EN 14399-9	2018	High-strength structural bolting assemblies for preloading — Part 9: Direct tension indicators for bolt and nut assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	DTI washers / load indicators
+PN-EN 14399-10	Fastener standard / PKN reference	EN 14399-10	2018	High-strength structural bolting assemblies for preloading — Part 10: System HRC — Bolt and nut assemblies with calibrated preload	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	HRC structural assemblies
+PN-EN 15048-1	Fastener standard / PKN reference	EN 15048-1	2016	Non-preloaded structural bolting assemblies — Part 1: General requirements	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	Non-preloaded structural bolts/nuts
+PN-EN 15048-2	Fastener standard / PKN reference	EN 15048-2	2016	Non-preloaded structural bolting assemblies — Part 2: Suitability for non-preloaded structural bolting assemblies	PN title mirrors EN title; confirm exact PN month in PKN WIEDZA.	Non-preloaded structural bolting testing
+PN-EN ISO 898-1	Fastener standard / PKN reference	ISO 898-1:2013	2013	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 1: Bolts, screws and studs with specified property classes — Coarse thread and fine pitch thread	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Mechanical properties — carbon/alloy steel external thread
+PN-EN ISO 898-2	Fastener standard / PKN reference	ISO 898-2:2022	2022	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 2: Nuts with specified property classes	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Mechanical properties — carbon/alloy steel nuts
+PN-EN ISO 898-3	Fastener standard / PKN reference	ISO 898-3:2018 + Amd 1:2021	2018 + A1:2021	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 3: Flat washers with specified property classes	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Mechanical properties — flat washers
+PN-EN ISO 898-5	Fastener standard / PKN reference	ISO 898-5:2012	2012	Mechanical properties of fasteners made of carbon steel and alloy steel — Part 5: Set screws and similar threaded fasteners with specified hardness classes	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Mechanical properties — set screws
+PN-EN ISO 3506-1:2020-10	Fastener standard / PKN reference	ISO 3506-1:2020 / EN ISO 3506-1:2020	2020-10	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 1: Bolts, screws and studs with specified steel grade and property class	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel fasteners — bolts, screws and studs
+PN-EN ISO 3506-2	Fastener standard / PKN reference	ISO 3506-2:2020	2020	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 2: Nuts with specified grades and property classes	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel fasteners — nuts
+PN-EN ISO 3506-3	Fastener standard / PKN reference	ISO 3506-3:2025	2025	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 3: Set screws and similar fasteners not under tensile stress	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel fasteners — set screws
+PN-EN ISO 3506-4	Fastener standard / PKN reference	ISO 3506-4:2025	2025	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 4: Tapping screws	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel tapping screws
+PN-EN ISO 3506-5	Fastener standard / PKN reference	ISO 3506-5:2022	2022	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 5: Special fasteners	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel special fasteners
+PN-EN ISO 3506-6	Fastener standard / PKN reference	ISO 3506-6:2020	2020	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 6: General rules for the selection of stainless steels and nickel alloys for fasteners	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel selection rules
+PN-EN ISO 3506-7	Fastener standard / PKN reference	ISO 3506-7:2024	2024	Fasteners — Mechanical properties of corrosion-resistant stainless steel fasteners — Part 7: Flat washers	PN title mirrors EN/ISO title; confirm exact PN month in PKN WIEDZA where not shown.	Stainless steel flat washers
+PN-EN ISO 3269	Inspection / acceptance	ISO 3269:2019 / EN ISO 3269:2019	2019	Fasteners — Acceptance inspection	—	Acceptance inspection, sampling and acceptance procedure
+PN-EN ISO 16426	Quality assurance	ISO 16426:2002	2002	Fasteners — Quality assurance system	—	Fastener manufacturing quality assurance
+PN-EN ISO 4042	Electroplating / hydrogen embrittlement	ISO 4042:2022 / EN ISO 4042:2022	2022	Fasteners — Electroplated coating systems	—	Electroplated zinc / zinc alloy coatings on fasteners
+PN-EN ISO 10683:2018-11	Zinc flake coating	ISO 10683:2018 / EN ISO 10683:2018	2018-11	Fasteners — Non-electrolytically applied zinc flake coating systems	—	Zinc flake coating systems for bolts, screws, studs, nuts, washers, pins, clips and related fasteners
+PN-EN ISO 10684	Hot-dip galvanizing	ISO 10684:2004	2004	Fasteners — Hot dip galvanized coatings	—	Hot-dip galvanized coatings on threaded fasteners
+PN-EN ISO 15330	Hydrogen embrittlement test	ISO 15330:1999	1999	Fasteners — Preloading test for the detection of hydrogen embrittlement — Parallel bearing surface method	—	Hydrogen embrittlement testing
+PN-EN ISO 16047	Torque / clamp-force testing	ISO 16047:2005	2005	Fasteners — Torque/clamp force testing	—	Torque-tension testing / coefficient of friction
+PN-EN ISO 6157-1	Surface discontinuities	ISO 6157-1:1988	1988	Fasteners — Surface discontinuities — Part 1: Bolts, screws and studs for general requirements	—	Surface defect inspection — bolts/screws/studs
+PN-EN ISO 6157-2	Surface discontinuities	ISO 6157-2:1995	1995	Fasteners — Surface discontinuities — Part 2: Nuts	—	Surface defect inspection — nuts
+PN-EN ISO 6157-3	Surface discontinuities	ISO 6157-3:2002	2002	Fasteners — Surface discontinuities — Part 3: Bolts, screws and studs for special requirements	—	Surface defect inspection — high-requirement bolts/screws/studs
+PN-EN ISO 16048	Passivation / corrosion resistance	ISO 16048:2003	2003	Passivation of corrosion-resistant stainless-steel fasteners	—	Stainless fastener passivation
+PN-EN ISO 9227	Salt spray / corrosion test	ISO 9227:2022	2022	Corrosion tests in artificial atmospheres — Salt spray tests	—	Neutral salt spray / corrosion testing
+PN-EN ISO 1461:2023-02	General hot-dip galvanizing	ISO 1461:2022 / EN ISO 1461:2022	2023-02	Hot dip galvanized coatings on fabricated iron and steel articles — Specifications and test methods	—	General HDG coating inspection
+PN-EN ISO 2081	Electroplated zinc coating / general	ISO 2081:2018	2018	Metallic and other inorganic coatings — Electroplated coatings of zinc with supplementary treatments on iron or steel	—	General zinc electroplating
+PN-EN ISO 9717	Phosphate conversion coating	ISO 9717:2017	2017	Metallic and other inorganic coatings — Phosphate conversion coatings of metals	—	Phosphating / conversion coatings
+PN-EN ISO 2178	Coating thickness	ISO 2178:2016	2016	Non-magnetic coatings on magnetic substrates — Measurement of coating thickness — Magnetic method	—	Coating thickness measurement
+PN-EN ISO 3497	Coating thickness	ISO 3497:2000	2000	Metallic coatings — Measurement of coating thickness — X-ray spectrometric methods	—	XRF coating thickness measurement
+PN-EN ISO 6506-1	Hardness testing	ISO 6506-1:2014	2014	Metallic materials — Brinell hardness test — Part 1: Test method	—	Brinell hardness testing
+PN-EN ISO 6507-1:2018-05	Hardness testing	ISO 6507-1:2018	2018-05	Metallic materials — Vickers hardness test — Part 1: Test method	—	Vickers hardness testing
+PN-EN ISO 6508-1:2016-10	Hardness testing	ISO 6508-1:2016	2016-10	Metallic materials — Rockwell hardness test — Part 1: Test method	—	Rockwell hardness testing
+PN-EN ISO 6892-1:2020-05	Tensile testing	ISO 6892-1:2019 / EN ISO 6892-1:2019	2020-05	Metallic materials — Tensile testing — Part 1: Method of test at room temperature	—	Tensile testing of metallic materials
+PN-EN ISO 7438:2021-04	Bend testing	ISO 7438:2020 / EN ISO 7438:2020	2021-04	Metallic materials — Bend test	—	Material bend testing
+PN-EN ISO 148-1	Charpy impact	ISO 148-1:2024	2024	Metallic materials — Charpy pendulum impact test — Part 1: Test method	—	Impact testing / low-temperature material testing
+PN-EN 10263-1	Cold heading raw material	EN 10263-1:2017	2017	Steel rod, bars and wire for cold heading and cold extrusion — Part 1: General technical delivery conditions	—	Cold heading wire / raw material
+PN-EN 10263-2	Cold heading raw material	EN 10263-2:2017	2017	Steel rod, bars and wire for cold heading and cold extrusion — Part 2: Technical delivery conditions for steels not intended for heat treatment after cold working	—	Cold heading wire / non-heat treated steels
+PN-EN 10263-3	Cold heading raw material	EN 10263-3:2017	2017	Steel rod, bars and wire for cold heading and cold extrusion — Part 3: Technical delivery conditions for case hardening steels	—	Cold heading wire / case hardening steels
+PN-EN 10263-4	Cold heading raw material	EN 10263-4:2017	2017	Steel rod, bars and wire for cold heading and cold extrusion — Part 4: Technical delivery conditions for steels for quenching and tempering	—	Cold heading wire / quench and temper steels
+PN-EN 10263-5	Cold heading raw material	EN 10263-5:2017	2017	Steel rod, bars and wire for cold heading and cold extrusion — Part 5: Technical delivery conditions for stainless steels	—	Cold heading wire / stainless steels
+PN-EN 10269	High/low temperature fastener materials	EN 10269:2013	2013	Steels and nickel alloys for fasteners with specified elevated and/or low temperature properties	—	Bolting materials for pressure/high temperature service
+PN-EN 10083-1	Heat treatable steels	EN 10083-1:2006	2006	Steels for quenching and tempering — Part 1: General technical delivery conditions	—	Heat-treatable steels / material standard
+PN-EN 10083-2	Heat treatable steels	EN 10083-2:2006	2006	Steels for quenching and tempering — Part 2: Technical delivery conditions for non alloy steels	—	Heat-treatable non-alloy steels
+PN-EN 10083-3	Heat treatable steels	EN 10083-3:2006	2006	Steels for quenching and tempering — Part 3: Technical delivery conditions for alloy steels	—	Heat-treatable alloy steels`;
+
+const standardsData = rawPNTSV
+    .trim()
+    .split("\n")
+    .slice(1)
+    .map((line, index) => {
+        const [
+            standardCode,
+            category,
+            sourceReference,
+            edition,
+            title,
+            polishNote,
+            family
+        ] = line.split("\t");
+
+        return makeStandard({
+            standardCode: (standardCode || "").trim(),
+            category: (category || "—").trim(),
+            sourceReference: (sourceReference || "—").trim(),
+            edition: (edition || "—").trim(),
+            title: (title || "—").trim(),
+            polishNote: (polishNote || "—").trim(),
+            family: (family || "—").trim()
+        }, index);
+    });
+
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const tableBody = document.getElementById("standardsTableBody");
+    const searchInput = document.getElementById("searchInput");
+    const familyFilter = document.getElementById("familyFilter");
+    const emptyState = document.getElementById("emptyState");
+    const emptyStateTitle = document.getElementById("emptyStateTitle");
+    const emptyStateText = document.getElementById("emptyStateText");
+    const columnPanel = document.getElementById("columnPanel");
+    const columnChecks = document.getElementById("columnChecks");
+    const exportModal = document.getElementById("exportModal");
+    const copyStatus = document.getElementById("copyStatus");
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const imagePreviewImg = document.getElementById("imagePreviewImg");
+    const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+
+    const visibleCount = document.getElementById("visibleCount");
+    const totalCount = document.getElementById("totalCount");
+    const visibleColumnCount = document.getElementById("visibleColumnCount");
+
+    const duplicateModePill = document.getElementById("duplicateModePill");
+    const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+    const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+    const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+    let visibleColumns = new Set(columns.map(column => column.key));
+    let currentFilteredData = [...standardsData];
+
+    let duplicateMode = false;
+    let duplicateBaseData = [];
+
+    let sortState = {
+        key: null,
+        direction: "asc"
+    };
+
+    totalCount.textContent = standardsData.length;
+
+    function escapeHTML(value) {
+        return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function escapeRegex(value) {
+        return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(value, query) {
+        const safeText = escapeHTML(value);
+
+        if (!query.trim()) {
+        return safeText;
+        }
+
+        const safeQuery = escapeRegex(escapeHTML(query.trim()));
+        const regex = new RegExp("(" + safeQuery + ")", "gi");
+
+        return safeText.replace(regex, "<mark>$1</mark>");
+    }
+
+    function getVisibleColumns() {
+        return columns.filter(column => visibleColumns.has(column.key));
+    }
+
+    function getStickyLeftOffset(visibleColumnList, currentIndex) {
+        let offset = 0;
+
+        for (let i = 0; i < currentIndex; i++) {
+        if (visibleColumnList[i].sticky) {
+            offset += visibleColumnList[i].width;
+        }
+        }
+
+        return offset;
+    }
+
+    function buildFamilyFilter() {
+        const families = [
+            ...new Set(
+                standardsData.flatMap(item => item.productFamily || [])
+            )
+        ].sort();
+
+        familyFilter.innerHTML =
+            '<option value="">All Product Families</option>';
+
+        families.forEach(family => {
+            const option = document.createElement("option");
+
+            option.value = family;
+            option.textContent = family;
+
+            familyFilter.appendChild(option);
+        });
+    }
+
+    function buildColumnPanel() {
+        columnChecks.innerHTML = "";
+
+        columns.forEach(column => {
+        const label = document.createElement("label");
+        label.className = "check-item";
+
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.checked = visibleColumns.has(column.key);
+
+        input.addEventListener("change", () => {
+            if (input.checked) {
+            visibleColumns.add(column.key);
+            } else {
+            if (visibleColumns.size === 1) {
+                input.checked = true;
+                return;
+            }
+
+            visibleColumns.delete(column.key);
+            }
+
+            renderTable(currentFilteredData);
+            buildColumnPanel();
+        });
+
+        const span = document.createElement("span");
+        span.textContent = column.label;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        columnChecks.appendChild(label);
+        });
+    }
+
+    function toggleColumnPanel() {
+        columnPanel.classList.toggle("open");
+    }
+
+    function showAllColumns() {
+        visibleColumns = new Set(columns.map(column => column.key));
+        buildColumnPanel();
+        renderTable(currentFilteredData);
+    }
+
+    function showCoreColumns() {
+        visibleColumns = new Set(
+        columns
+            .filter(column => column.core)
+            .map(column => column.key)
+        );
+
+        buildColumnPanel();
+        renderTable(currentFilteredData);
+    }
+
+    function renderImageCell(item) {
+        const imageSrc = item.imageSrc || "";
+        const imageAlt =
+        item.imageAlt ||
+        item.standardCode ||
+        "Product image";
+
+        if (!item.imageExists || !imageSrc) {
+        return '<div class="part-image-empty">Image<br>Coming Soon</div>';
+        }
+
+        return `
+        <div
+            class="part-image-wrap"
+            data-image-src="${escapeHTML(imageSrc)}"
+            data-image-alt="${escapeHTML(imageAlt)}"
+            data-image-title="${escapeHTML(item.standardCode)}"
+        >
+            <img
+            src="${escapeHTML(imageSrc)}"
+            alt="${escapeHTML(imageAlt)}"
+            loading="lazy"
+            onerror="this.parentElement.outerHTML='<div class=&quot;part-image-empty&quot;>Image<br>Coming Soon</div>'"
+            >
+        </div>
+        `;
+    }
+
+    function renderTable(data) {
+        const query = searchInput.value.trim();
+        const visibleColumnList = getVisibleColumns();
+
+        visibleColumnCount.textContent = visibleColumnList.length;
+        visibleCount.textContent = data.length;
+
+        tableHeadRow.innerHTML = "";
+        tableBody.innerHTML = "";
+
+        visibleColumnList.forEach((column, index) => {
+        const th = document.createElement("th");
+
+        th.textContent =
+            sortState.key === column.key
+            ? column.label + (sortState.direction === "asc" ? " ▲" : " ▼")
+            : column.label;
+
+        th.style.width = column.width + "px";
+        th.style.minWidth = column.width + "px";
+
+        if (column.sortable === false) {
+            th.classList.add("not-sortable");
+        } else {
+            th.addEventListener("click", () => sortByColumn(column.key));
+        }
+
+        if (column.sticky) {
+            th.classList.add("sticky-col");
+            th.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+        }
+
+        tableHeadRow.appendChild(th);
+        });
+
+        const fragment = document.createDocumentFragment();
+
+        data.forEach(item => {
+        const row = document.createElement("tr");
+
+        visibleColumnList.forEach((column, index) => {
+            const td = document.createElement("td");
+            const value = item[column.key] !== undefined
+            ? item[column.key]
+            : "-";
+
+            td.style.width = column.width + "px";
+            td.style.minWidth = column.width + "px";
+
+            if (column.sticky) {
+            td.classList.add("sticky-col");
+            td.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+            }
+
+            if (column.type === "image") {
+            td.innerHTML = renderImageCell(item);
+            } 
+            else if (column.type === "family") {
+
+                const families =
+                    Array.isArray(value)
+                        ? value
+                        : [value];
+
+                td.innerHTML = families
+                    .map(family =>
+                        `<span class="family-pill">
+                            ${highlightText(family, query)}
+                        </span>`
+                    )
+                    .join("");
+            } 
+
+            else if (column.type === "category") {
+
+                td.innerHTML =
+                    `<span class="category-pill">
+                        ${highlightText(item.category, query)}
+                    </span>`;
+            }
+
+            else if (column.type === "standard") {
+                td.innerHTML =
+                    '<span class="standard-code">' +
+                    highlightText(item.standardCode, query) +
+                    '</span>';
+            } 
+
+            else if (column.type === "title") {
+            td.innerHTML = '<div class="title-cell">' + highlightText(value, query) + '</div>';
+            } 
+
+            else if (column.type === "year") {
+
+                td.innerHTML =
+                    '<div class="year-cell">' +
+                    item.year +
+                    '</div>';
+            }
+
+            else if (column.type === "keywords") {
+
+                const keywords =
+                    Array.isArray(value)
+                        ? value
+                        : [value];
+
+                td.innerHTML =
+                    '<div class="keyword-cell">' +
+                    keywords
+                        .map(keyword =>
+                            `<span class="keyword-tag">
+                                ${highlightText(keyword, query)}
+                            </span>`
+                        )
+                        .join("") +
+                    '</div>';
+            }
+
+            else if (column.type === "boolean") {
+
+                td.innerHTML =
+                    value
+                        ? '<span class="status-yes">Yes</span>'
+                        : '<span class="status-no">No</span>';
+            }
+
+            row.appendChild(td);
+        });
+
+        fragment.appendChild(row);
+        });
+
+        tableBody.appendChild(fragment);
+
+        if (data.length === 0 && duplicateMode) {
+            emptyStateTitle.textContent = "No duplicate entries found";
+            emptyStateText.textContent = "No exact duplicate PN / PKN Designation entries are currently present in this page data.";
+        } else {
+            emptyStateTitle.textContent = "No standards found";
+            emptyStateText.textContent = "Try another standard number, product family, keyword or title.";
+        }
+
+        emptyState.style.display = data.length === 0 ? "block" : "none";
+    }
+
+    function normalizeDuplicateKeyForTable(value) {
+        return String(value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, " ");
+    }
+
+    function getDuplicateGroupsForTable() {
+        const grouped = new Map();
+
+        standardsData.forEach((item, index) => {
+            const key = normalizeDuplicateKeyForTable(item.standardCode);
+
+            if (!key || key === "—") {
+                return;
+            }
+
+            if (!grouped.has(key)) {
+                grouped.set(key, []);
+            }
+
+            grouped.get(key).push({
+                item,
+                rowNumber: index + 1
+            });
+        });
+
+        return Array.from(grouped.values())
+            .filter(group => group.length > 1)
+            .sort((a, b) => {
+                const firstA = a[0].item.standardCode || "";
+                const firstB = b[0].item.standardCode || "";
+
+                return firstA.localeCompare(firstB, undefined, {
+                    numeric: true,
+                    sensitivity: "base"
+                });
+            });
+    }
+
+    function updateDuplicateViewPill(groupCount, rowCount) {
+        if (!duplicateModePill || !duplicateGroupsCount || !duplicateRowsCount) {
+            return;
+        }
+
+        if (!duplicateMode) {
+            duplicateModePill.classList.remove("show");
+            duplicateGroupsCount.textContent = "0";
+            duplicateRowsCount.textContent = "0";
+            return;
+        }
+
+        duplicateGroupsCount.textContent = groupCount;
+        duplicateRowsCount.textContent = rowCount;
+        duplicateModePill.classList.add("show");
+    }
+
+    function getActiveSearchSourceData() {
+        return duplicateMode ? duplicateBaseData : standardsData;
+    }
+
+    function showDuplicateEntriesInTable() {
+        const duplicateGroups = getDuplicateGroupsForTable();
+        const duplicateRows = duplicateGroups.flatMap(group =>
+            group.map(entry => entry.item)
+        );
+
+        duplicateMode = true;
+        duplicateBaseData = duplicateRows;
+
+        searchInput.value = "";
+        familyFilter.value = "";
+
+        sortState = {
+            key: null,
+            direction: "asc"
+        };
+
+        currentFilteredData = [...duplicateBaseData];
+
+        updateDuplicateViewPill(duplicateGroups.length, duplicateRows.length);
+
+        if (duplicateCheckBtn) {
+            duplicateCheckBtn.classList.add("active");
+        }
+
+        searchInput.placeholder = "Search within duplicate PN entries...";
+        renderTable(currentFilteredData);
+
+        const tableZone = document.querySelector(".table-zone");
+
+        if (tableZone) {
+            tableZone.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+    function hideDuplicateView() {
+        duplicateMode = false;
+        duplicateBaseData = [];
+
+        updateDuplicateViewPill(0, 0);
+
+        if (duplicateCheckBtn) {
+            duplicateCheckBtn.classList.remove("active");
+        }
+
+        searchInput.placeholder = "Search by Indian standard number, product family, sub-family, ISO reference, edition or BIS title...";
+    }
+
+    function searchStandards() {
+        const query = searchInput.value.trim().toLowerCase();
+        const selectedFamily = familyFilter.value;
+
+        currentFilteredData = getActiveSearchSourceData().filter(item => {
+        const matchesSearch =
+            !query ||
+            columns.some(column => {
+            if (column.searchable === false) return false;
+
+            const value = item[column.key];
+
+                if (value === undefined || value === null) {
+                    return false;
+                }
+
+                if (Array.isArray(value)) {
+                    return value.some(entry =>
+                        String(entry)
+                            .toLowerCase()
+                            .includes(query)
+                    );
+                }
+
+                return String(value || "")
+                    .toLowerCase()
+                    .includes(query);
+            });
+
+        const matchesFamily =
+            !selectedFamily ||
+            item.productFamily.includes(selectedFamily);
+
+        return matchesSearch && matchesFamily;
+        });
+
+        if (sortState.key) {
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+        }
+
+        renderTable(currentFilteredData);
+    }
+
+    function clearSearch() {
+        searchInput.value = "";
+        familyFilter.value = "";
+
+        sortState = {
+        key: null,
+        direction: "asc"
+        };
+
+        hideDuplicateView();
+
+        currentFilteredData = [...standardsData];
+        renderTable(currentFilteredData);
+    }
+
+    function sortData(data, key, direction) {
+
+        return [...data].sort((a, b) => {
+
+            let valueA = a[key];
+            let valueB = b[key];
+
+            if (Array.isArray(valueA)) {
+                valueA = valueA.join(", ");
+            }
+
+            if (Array.isArray(valueB)) {
+                valueB = valueB.join(", ");
+            }
+
+            if (typeof valueA === "boolean") {
+                valueA = valueA ? 1 : 0;
+            }
+
+            if (typeof valueB === "boolean") {
+                valueB = valueB ? 1 : 0;
+            }
+
+            valueA = String(valueA ?? "").toLowerCase();
+            valueB = String(valueB ?? "").toLowerCase();
+
+            if (valueA < valueB) {
+                return direction === "asc" ? -1 : 1;
+            }
+
+            if (valueA > valueB) {
+                return direction === "asc" ? 1 : -1;
+            }
+
+            return 0;
+        });
+    }
+
+    function sortByColumn(key) {
+        const column = columns.find(item => item.key === key);
+
+        if (!column || column.sortable === false) {
+        return;
+        }
+
+        if (sortState.key === key) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+        } else {
+        sortState.key = key;
+        sortState.direction = "asc";
+        }
+
+        currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+        renderTable(currentFilteredData);
+    }
+
+    function openExportPopup() {
+        exportModal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        copyStatus.classList.remove("show");
+    }
+
+    function closeExportPopup() {
+        exportModal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+
+    function copyEmail() {
+        const email = "info@pradakomechanicals.com";
+
+        if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(() => {
+            copyStatus.classList.add("show");
+        });
+        } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            document.execCommand("copy");
+            copyStatus.classList.add("show");
+        } catch (err) {
+            copyStatus.textContent = "Please copy manually: " + email;
+            copyStatus.classList.add("show");
+        }
+
+        document.body.removeChild(textArea);
+        }
+    }
+
+    function openImagePreview(src, alt, title) {
+        imagePreviewImg.src = src;
+        imagePreviewImg.alt = alt;
+        imagePreviewTitle.textContent = title;
+        imagePreviewModal.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeImagePreview() {
+        imagePreviewModal.classList.remove("show");
+        imagePreviewImg.src = "";
+        imagePreviewImg.alt = "";
+        document.body.style.overflow = "";
+    }
+
+    let searchTimer;
+
+    searchInput.addEventListener("input", () => {
+        clearTimeout(searchTimer);
+
+        searchTimer = setTimeout(() => {
+        searchStandards();
+        }, 180);
+    });
+
+    familyFilter.addEventListener("change", searchStandards);
+
+    tableBody.addEventListener("click", event => {
+        const imageBox = event.target.closest(".part-image-wrap");
+
+        if (!imageBox) {
+        return;
+        }
+
+        openImagePreview(
+        imageBox.dataset.imageSrc,
+        imageBox.dataset.imageAlt,
+        imageBox.dataset.imageTitle
+        );
+    });
+
+    exportModal.addEventListener("click", event => {
+        if (event.target === exportModal) {
+        closeExportPopup();
+        }
+    });
+
+    imagePreviewModal.addEventListener("click", event => {
+        if (event.target === imagePreviewModal) {
+        closeImagePreview();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+        if (exportModal.classList.contains("show")) {
+            closeExportPopup();
+        }
+
+        if (imagePreviewModal.classList.contains("show")) {
+            closeImagePreview();
+        }
+        }
+    });
+
+    buildFamilyFilter();
+    buildColumnPanel();
+    renderTable(currentFilteredData);
+
+  const backToTopFixed = document.getElementById("backToTopFixed");
+
+  function toggleBackToTopFixed() {
+    if (window.scrollY > 250) {
+      backToTopFixed.classList.add("show");
+    } else {
+      backToTopFixed.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", toggleBackToTopFixed, { passive: true });
+
+  backToTopFixed.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  toggleBackToTopFixed();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

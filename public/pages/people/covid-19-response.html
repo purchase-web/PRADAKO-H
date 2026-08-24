@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>covid-19_response | Pradako Mechanical</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+=
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: #1b2430;
+    line-height: 1.7;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* HARD RESET FOR THIS PAGE - REMOVES GLOBAL SHADOW EFFECTS */
+.pmew-covid-page,
+.pmew-covid-page *,
+.pmew-covid-hero,
+.pmew-covid-letter-section,
+.pmew-covid-letter,
+.pmew-covid-letter__heading-area,
+.pmew-covid-letter__title,
+.pmew-covid-letter__salutation {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+.pmew-covid-page {
+    width: 100%;
+    background: #ffffff;
+}
+
+/* HERO */
+.pmew-covid-hero {
+    width: 100%;
+    padding: 130px clamp(22px, 7vw, 110px) 62px;
+    background: #ffffff;
+    text-align: left;
+    border-bottom: 1px solid #e6edf5;
+}
+
+.pmew-covid-hero__inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.pmew-covid-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5.7vw, 78px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.7px;
+    color: #061833;
+    max-width: 1180px;
+    margin-bottom: 18px;
+}
+
+.pmew-covid-hero__subtitle {
+    font-size: clamp(15px, 1.7vw, 18px);
+    font-weight: 500;
+    color: #53657a;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* LETTER */
+.pmew-covid-letter-section {
+    width: 100%;
+    padding: 72px clamp(22px, 7vw, 110px) 110px;
+    background: #ffffff;
+}
+
+.pmew-covid-letter {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* META */
+.pmew-covid-letter__meta {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: 60px;
+    padding-bottom: 34px;
+    margin-bottom: 46px;
+    border-bottom: 1px solid #e3ebf3;
+}
+
+.pmew-covid-letter__meta-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #7a8ba0;
+    margin-bottom: 7px;
+}
+
+.pmew-covid-letter__meta-value {
+    display: block;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 600;
+    color: #061833;
+}
+
+/* CHANGED FROM HEADER TAG TO DIV CLASS */
+.pmew-covid-letter__heading-area {
+    margin-bottom: 48px;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 !important;
+}
+
+.pmew-covid-letter__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.8vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    color: #061833;
+    max-width: 1260px;
+    margin-bottom: 24px;
+    background: transparent !important;
+}
+
+.pmew-covid-letter__salutation {
+    font-size: 16px;
+    font-weight: 600;
+    color: #23344a;
+    background: transparent !important;
+}
+
+/* CONTENT */
+.pmew-covid-letter__content {
+    width: 100%;
+}
+
+.pmew-covid-letter__section {
+    width: 100%;
+    margin-bottom: 44px;
+}
+
+.pmew-covid-letter__section:last-child {
+    margin-bottom: 0;
+}
+
+.pmew-covid-letter__section-title {
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #0A3D62;
+    margin-bottom: 17px;
+    text-align: left;
+}
+
+.pmew-covid-letter__paragraph {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.95;
+    font-weight: 400;
+    color: #243244;
+    margin-bottom: 17px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+    hyphens: auto;
+}
+
+.pmew-covid-letter__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.pmew-covid-letter__list {
+    list-style-type: disc;
+    margin: 16px 0 22px 22px;
+    padding-left: 18px;
+}
+
+.pmew-covid-letter__list-item {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #243244;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+    hyphens: auto;
+}
+
+.pmew-covid-letter__list-item::marker {
+    color: #0A3D62;
+    font-size: 13px;
+}
+
+.pmew-covid-letter__closing {
+    padding-top: 24px;
+    margin-top: 8px;
+    border-top: 1px solid #e6edf5;
+}
+
+.pmew-covid-letter__signature {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #e6edf5;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.pmew-covid-letter__signature-intro {
+    font-size: 16px;
+    color: #243244;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.pmew-covid-letter__signature-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #061833;
+    margin-bottom: 4px;
+}
+
+.pmew-covid-letter__signature-designation {
+    font-size: 14px;
+    font-weight: 600;
+    color: #53657a;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .pmew-covid-hero {
+        padding: 115px 36px 56px;
+    }
+
+    .pmew-covid-letter-section {
+        padding: 62px 36px 90px;
+    }
+
+    .pmew-covid-letter__meta {
+        gap: 40px;
+    }
+
+    .pmew-covid-letter__title {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pmew-covid-hero {
+        padding: 96px 24px 48px;
+    }
+
+    .pmew-covid-hero__title {
+        letter-spacing: -0.9px;
+    }
+
+    .pmew-covid-hero__subtitle {
+        letter-spacing: 0.06em;
+    }
+
+    .pmew-covid-letter-section {
+        padding: 48px 24px 76px;
+    }
+
+    .pmew-covid-letter__meta {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-bottom: 28px;
+        margin-bottom: 38px;
+    }
+
+    .pmew-covid-letter__heading-area {
+        margin-bottom: 38px;
+    }
+
+    .pmew-covid-letter__section {
+        margin-bottom: 36px;
+    }
+
+    .pmew-covid-letter__section-title {
+        font-size: 17px;
+    }
+
+    .pmew-covid-letter__paragraph,
+    .pmew-covid-letter__list-item,
+    .pmew-covid-letter__signature-intro {
+        font-size: 14.8px;
+        line-height: 1.88;
+    }
+
+    .pmew-covid-letter__signature {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pmew-covid-hero {
+        padding: 86px 18px 42px;
+    }
+
+    .pmew-covid-letter-section {
+        padding: 38px 18px 64px;
+    }
+
+    .pmew-covid-letter__title {
+        letter-spacing: -0.5px;
+    }
+
+    .pmew-covid-letter__section-title {
+        font-size: 16px;
+    }
+
+    .pmew-covid-letter__paragraph,
+    .pmew-covid-letter__list-item,
+    .pmew-covid-letter__signature-intro {
+        font-size: 14px;
+    }
+
+    .pmew-covid-letter__list {
+        margin-left: 18px;
+    }
+
+    .pmew-covid-letter__signature-name {
+        font-size: 24px;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="covid-19_response from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/people/covid-19-response.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="covid-19_response | Pradako Mechanical">
+    <meta property="og:description" content="covid-19_response from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/people/covid-19-response.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="covid-19_response | Pradako Mechanical">
+    <meta name="twitter:description" content="covid-19_response from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "covid-19_response | Pradako Mechanical",
+  "url": "https://www.pradako.co/pages/people/covid-19-response.html",
+  "description": "covid-19_response from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+<div id="navbar-container"></div>
+
+<main class="pmew-covid-page">
+
+    <section class="pmew-covid-hero" aria-labelledby="pmew-covid-hero-title">
+        <div class="pmew-covid-hero__inner">
+            <h1 class="pmew-covid-hero__title" id="pmew-covid-hero-title">Proven in a Defining Global Moment</h1>
+            <p class="pmew-covid-hero__subtitle">Strengthened by Trust, Delivered Through Performance</p>
+        </div>
+    </section>
+
+    <section class="pmew-covid-letter-section">
+        <article class="pmew-covid-letter">
+
+            <div class="pmew-covid-letter__meta">
+                <div class="pmew-covid-letter__meta-item">
+                    <span class="pmew-covid-letter__meta-label">Period</span>
+                    <span class="pmew-covid-letter__meta-value">2020 - 2022</span>
+                </div>
+
+                <div class="pmew-covid-letter__meta-item">
+                    <span class="pmew-covid-letter__meta-label">Response</span>
+                    <span class="pmew-covid-letter__meta-value">Lockdown Response · Operational Stability · Strengthened Supply Chains</span>
+                </div>
+            </div>
+
+            <div class="pmew-covid-letter__heading-area">
+                <h2 class="pmew-covid-letter__title">Our COVID-19 Journey: A Story of Success, Commitment, and Resilience</h2>
+                <p class="pmew-covid-letter__salutation">To Our Valued Clients, Partners, and Employees,</p>
+            </div>
+
+            <div class="pmew-covid-letter__content">
+
+                <section class="pmew-covid-letter__section">
+                    <p class="pmew-covid-letter__paragraph">The global pandemic created a defining period for industries across the world. During this time, our organization continued advancing forward with discipline, unity, and a deep sense of responsibility toward our employees, partners, and customers.</p>
+                    <p class="pmew-covid-letter__paragraph">At Pradako Mechanical & Engineering Works, this period highlighted the strength of our values and the resilience of our people. Guided by teamwork, operational discipline, and strong partnerships, our organization continued delivering excellence while supporting industries that rely on precision engineering and dependable supply chains.</p>
+                    <p class="pmew-covid-letter__paragraph">This journey strengthened our relationships, enhanced our operational systems, and reinforced our commitment to responsible manufacturing and long-term collaboration.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">Achieving Excellence Through Collective Commitment</h3>
+                    <p class="pmew-covid-letter__paragraph">Through the dedication and professionalism of our teams, our organization maintained 0 PPM (Parts Per Million) quality performance, ensuring that every fastener delivered reflected the highest manufacturing standards.</p>
+                    <p class="pmew-covid-letter__paragraph">Our facilities operated with consistent stability across the entire period, supporting customers with continuous production flow and dependable delivery performance. Customer operations across industries remained fully supported through our disciplined manufacturing processes and strong operational coordination.</p>
+                    <p class="pmew-covid-letter__paragraph">Demand across several sectors expanded significantly, including the healthcare industry where our fasteners supported equipment such as ventilators, ambulances, and other essential medical systems. Our teams responded with agility and dedication, ensuring that production capacity aligned with the evolving needs of our partners.</p>
+                    <p class="pmew-covid-letter__paragraph">Strong operational planning, coordinated logistics, and disciplined manufacturing practices allowed our organization to maintain stable production output and consistent delivery performance throughout this period.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">A Trusted Supplier During a Global Turning Point</h3>
+                    <p class="pmew-covid-letter__paragraph">Our customers continued placing strong confidence in our organization through their ongoing collaboration and partnership. Reliable supply, consistent quality performance, and transparent communication strengthened these relationships even further.</p>
+                    <p class="pmew-covid-letter__paragraph">During this period, one valued customer elevated our role from co-supplier to sole supplier, recognizing the strength of our performance and the reliability of our manufacturing operations.</p>
+                    <p class="pmew-covid-letter__paragraph">Such recognition reflects the enduring partnerships built through years of collaboration, shared commitment to quality, and a mutual focus on long-term success.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">Strategic Raw Material Procurement</h3>
+                    <p class="pmew-covid-letter__paragraph">Early operational planning played a significant role in sustaining production stability. Our procurement teams advanced strategic material sourcing and inventory planning to support continuous manufacturing operations.</p>
+                    <p class="pmew-covid-letter__paragraph">Through proactive booking, procurement coordination, and inventory management, our facilities maintained strong material availability, enabling production teams to meet growing demand while sustaining high standards of delivery reliability.</p>
+                    <p class="pmew-covid-letter__paragraph">These strategic actions strengthened our supply chain stability and reinforced the resilience of our manufacturing ecosystem.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">Supporting Our Suppliers and Employees</h3>
+                    <p class="pmew-covid-letter__paragraph">Our organization values strong partnerships across the entire ecosystem of suppliers, employees, and collaborators.</p>
+                    <p class="pmew-covid-letter__paragraph">Supplier partners received consistent support through timely financial coordination and active engagement, strengthening the stability of our shared supply network.</p>
+                    <p class="pmew-covid-letter__paragraph">At the same time, our employees continued their professional journey with stability, appreciation, and expanded benefits recognizing their dedication and commitment during this important period.</p>
+                    <p class="pmew-covid-letter__paragraph">These initiatives reflect our enduring belief that strong organizations grow through the strength and well-being of their people and partners.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">Prioritizing Health and Workplace Safety</h3>
+                    <p class="pmew-covid-letter__paragraph">From the earliest stages of the pandemic, comprehensive safety initiatives were implemented across our facilities to protect employees and maintain responsible operations.</p>
+                    <p class="pmew-covid-letter__paragraph">Workplace practices included:</p>
+
+                    <ul class="pmew-covid-letter__list">
+                        <li class="pmew-covid-letter__list-item">Provision of personal protective equipment (PPE)</li>
+                        <li class="pmew-covid-letter__list-item">Enhanced facility sanitization programs</li>
+                        <li class="pmew-covid-letter__list-item">Structured workplace hygiene initiatives</li>
+                        <li class="pmew-covid-letter__list-item">Organized shift planning and operational coordination</li>
+                    </ul>
+
+                    <p class="pmew-covid-letter__paragraph">Through disciplined execution of these measures, our facilities resumed operations efficiently while maintaining a strong focus on workforce well-being and workplace responsibility.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section">
+                    <h3 class="pmew-covid-letter__section-title">Looking Forward with Confidence</h3>
+                    <p class="pmew-covid-letter__paragraph">The experiences gained during this period strengthened our operational systems, enhanced our supply chain coordination, and deepened the partnerships that support our organization's continued growth.</p>
+                    <p class="pmew-covid-letter__paragraph">The dedication of our employees, the collaboration of our suppliers, and the trust of our customers together created a powerful demonstration of resilience and shared purpose.</p>
+                    <p class="pmew-covid-letter__paragraph">As we continue advancing forward, these experiences serve as a foundation for stronger manufacturing capabilities, enhanced global partnerships, and sustained progress across the industries we serve.</p>
+                    <p class="pmew-covid-letter__paragraph">With renewed confidence and collective determination, Pradako Mechanical & Engineering Works continues its journey of engineering excellence, responsible leadership, and long-term value creation.</p>
+                </section>
+
+                <section class="pmew-covid-letter__section pmew-covid-letter__closing">
+                    <p class="pmew-covid-letter__paragraph">Thank you for your continued trust and partnership.</p>
+                </section>
+
+                <div class="pmew-covid-letter__signature">
+                    <p class="pmew-covid-letter__signature-intro">With appreciation,</p>
+                    <p class="pmew-covid-letter__signature-name">Falguni Trivedi</p>
+                    <p class="pmew-covid-letter__signature-designation">Chairwoman & Managing Director</p>
+                </div>
+
+            </div>
+
+        </article>
+    </section>
+
+</main>
+
+<div id="footer-container"></div>
+
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

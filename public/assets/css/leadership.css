@@ -1,0 +1,229 @@
+/* ==========================================================================
+   PMEW LEADERSHIP — SHARED BASE
+   --------------------------------------------------------------------------
+   Shared by Founder, Chairman and Chairwoman pages. Page-specific colours,
+   hero treatments and unique layouts remain in their theme files.
+   ========================================================================== */
+@import url("./design-system.css");
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+.reveal {
+    opacity: 0;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pradako-leadership-footer {
+    background: var(--leadership-white);
+    display: block;
+    min-height: auto;
+    padding: 0 26px 62px;
+    position: relative;
+    width: 100%;
+}
+
+.pradako-leadership-footer-inner {
+    align-items: center;
+    border-radius: 34px;
+    display: grid;
+    gap: 58px;
+    grid-template-columns: 1.08fr 0.92fr;
+    margin: 0 auto;
+    max-width: 1480px;
+    overflow: hidden;
+    padding: 60px 52px 52px;
+    position: relative;
+}
+
+.pradako-leadership-footer-inner::before {
+    border-radius: 0 999px 999px 0;
+    bottom: 56px;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 56px;
+    width: 8px;
+}
+
+.pradako-leadership-kicker {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3.5px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.pradako-leadership-footer-content h2 {
+    color: var(--leadership-white);
+    font-size: clamp(54px, 6.8vw, 108px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 0.92;
+    margin: 0 0 28px;
+    text-transform: uppercase;
+}
+
+.pradako-leadership-footer-content p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.78;
+    margin: 0 0 26px;
+    max-width: 830px;
+}
+
+.pradako-leadership-quote {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0 18px 18px 0;
+    color: var(--leadership-white);
+    font-size: clamp(18px, 1.7vw, 26px);
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    line-height: 1.45;
+    margin: 0 0 30px;
+    max-width: 820px;
+    padding: 18px 22px;
+}
+
+.pradako-leadership-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.pradako-leadership-btn {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 900;
+    justify-content: center;
+    letter-spacing: 0.6px;
+    min-height: 54px;
+    padding: 0 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.pradako-leadership-btn-gold {
+    background: var(--leadership-gold);
+    border: 2px solid var(--leadership-gold);
+}
+
+.pradako-leadership-btn-outline {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    color: var(--leadership-white);
+}
+
+.pradako-leadership-btn:hover {
+    transform: translateY(-3px);
+}
+
+.pradako-leadership-contact-strip {
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    display: grid;
+    gap: 12px;
+    max-width: 880px;
+    padding-top: 24px;
+    width: 100%;
+}
+
+.pradako-leadership-contact-line {
+    color: var(--leadership-white);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: clamp(14px, 1.15vw, 18px);
+    font-weight: 900;
+    gap: 10px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+.pradako-leadership-contact-line a {
+    color: var(--leadership-white);
+    text-decoration: none;
+}
+
+.pradako-leadership-form-card {
+    background: var(--leadership-white);
+    border-radius: 30px;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.16);
+    padding: 28px;
+}
+
+.pradako-leadership-form-card h3 {
+    color: var(--leadership-blue);
+    font-size: clamp(24px, 2.2vw, 36px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.12;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+}
+
+.pradako-leadership-form-card p {
+    color: var(--leadership-muted);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.65;
+    margin: 0 0 20px;
+}
+
+.pradako-leadership-form {
+    display: grid;
+    gap: 14px;
+}
+
+.pradako-leadership-form input, .pradako-leadership-form select, .pradako-leadership-form textarea {
+    background: var(--leadership-white);
+    border: 1px solid var(--leadership-border);
+    border-radius: 16px;
+    color: var(--leadership-text);
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
+    padding: 16px 18px;
+    transition: 0.2s ease;
+    width: 100%;
+}
+
+.pradako-leadership-form textarea {
+    min-height: 124px;
+    resize: vertical;
+}
+
+.pradako-leadership-form button {
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    min-height: 56px;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.pradako-leadership-form button:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1100px) {
+    .pradako-leadership-footer-inner {
+        gap: 38px;
+        grid-template-columns: 1fr;
+    }
+    
+    .pradako-leadership-footer-content h2 {
+        font-size: clamp(48px, 10vw, 82px);
+    }
+    
+    }
+

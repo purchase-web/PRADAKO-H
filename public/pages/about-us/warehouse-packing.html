@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works</title>
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+:root{
+  --pw-white:#ffffff;--pw-off:#f2f3f1;--pw-ink:#111214;
+  --pw-muted:#63666c;--pw-line:#dcdedb;
+  --pw-teal:#0F6E72;--pw-teal-deep:#0A4F52;--pw-teal-dark:#083C3E;--pw-teal-soft:#e7f0f0;--pw-teal-bright:#39C2C7;
+  --pw-d:"Montserrat",Arial,sans-serif;--pw-b:"Space Grotesk",Arial,sans-serif;--pw-m:"JetBrains Mono",ui-monospace,monospace;
+  --pw-max:1480px;--pw-e:cubic-bezier(.2,.8,.2,1);
+}
+.pmew-pw *{margin:0;padding:0;box-sizing:border-box}
+.pmew-pw{background:var(--pw-white);color:#34373d;font-family:var(--pw-b);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.pmew-pw ::selection{background:var(--pw-teal);color:#fff}
+.pmew-pw a{color:inherit;text-decoration:none}
+.pw-wrap{max-width:var(--pw-max);margin:0 auto;padding:0 clamp(22px,4vw,64px)}
+.pw-sec{padding:clamp(78px,8.5vw,124px) 0;position:relative}
+.pw-paper{background:var(--pw-off);border-top:1px solid var(--pw-line);border-bottom:1px solid var(--pw-line)}
+#pw-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--pw-teal);z-index:400;transition:width .08s linear}
+.pw-stencil{font-family:var(--pw-m);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pw-teal);display:inline-flex;align-items:center;gap:12px;margin-bottom:22px}
+.pw-stencil::before{content:"";width:30px;height:0;border-top:3px double var(--pw-teal)}
+.pw-h{font-family:var(--pw-d);font-weight:900;letter-spacing:-.032em;line-height:.95;text-transform:uppercase;color:var(--pw-ink)}
+.pw-h .t{color:var(--pw-teal)}
+.pw-h-lg{font-size:clamp(31px,4.4vw,62px)}
+.pw-lead{font-size:clamp(15.5px,1.28vw,18.5px);color:var(--pw-muted);max-width:880px;line-height:1.78;margin-top:24px}
+.pw-lead b{color:var(--pw-ink);font-weight:700}
+.pw-note{margin-top:26px;border-left:4px solid var(--pw-teal);padding:6px 0 6px 20px;font-size:14.5px;color:#3f434a;line-height:1.75;max-width:840px}
+.pw-btn{font-family:var(--pw-d);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;padding:17px 32px;border-radius:2px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--pw-e),background .16s,color .16s,box-shadow .16s}
+.pw-btn--teal{background:var(--pw-teal);color:#fff !important;border-color:var(--pw-teal)}
+.pw-btn--teal:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,110,114,.36)}
+.pw-btn--line{background:transparent;border-color:var(--pw-line);color:var(--pw-ink)}
+.pw-btn--line:hover{border-color:var(--pw-ink);transform:translateY(-3px)}
+.pw-btn--white{background:#fff;color:var(--pw-teal-dark);border-color:#fff}
+.pw-btn--white:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.pw-btn--ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff !important;}
+.pw-btn--ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-3px)}
+
+/* HERO · SPLIT LAYOUT */
+.pw-hero{
+  position:relative;
+  min-height:clamp(700px,88svh,900px);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--pw-white);
+  border-bottom:1px solid var(--pw-line);
+}
+.pw-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent 0 49.95%,rgba(17,18,20,.055) 50%,transparent 50.05%),
+    repeating-linear-gradient(90deg,transparent 0 119px,rgba(17,18,20,.035) 119px 120px);
+  mask-image:linear-gradient(90deg,#000 0 54%,transparent 78%);
+}
+.pw-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:42%;
+  height:7px;
+  background:var(--pw-teal);
+}
+.pw-hero .pw-wrap{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding-top:clamp(96px,11vh,138px);
+  padding-bottom:clamp(72px,9vh,110px);
+}
+.pw-hero__grid{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(540px,1.12fr);
+  gap:clamp(42px,5vw,92px);
+  align-items:center;
+}
+.pw-hero__content{min-width:0;max-width:650px}
+.pw-hero .pw-stencil{margin-bottom:24px}
+.pw-hero h1{
+  font-family:var(--pw-d);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-.045em;
+  line-height:.89;
+  font-size:clamp(48px,6.25vw,102px);
+  color:var(--pw-ink);
+  max-width:9.6ch;
+}
+.pw-hero h1 .t{color:var(--pw-teal)}
+.pw-hero h1 span{display:block}
+.pw-hero__sub{
+  margin-top:27px;
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.76;
+  color:var(--pw-muted);
+  max-width:585px;
+}
+.pw-hero__actions{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap}
+.pw-mark{
+  margin-top:46px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border:2px solid var(--pw-ink);
+  font-family:var(--pw-m);
+  background:var(--pw-white);
+  width:min(100%,620px);
+}
+.pw-mark div{padding:12px 15px;border-left:1px solid var(--pw-line)}
+.pw-mark div:first-child{border-left:none}
+.pw-mark b{
+  display:block;
+  font-size:8.8px;
+  line-height:1.4;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--pw-muted);
+  font-weight:500;
+  margin-bottom:4px;
+}
+.pw-mark span{font-size:14px;font-weight:700;color:var(--pw-ink);letter-spacing:-.01em}
+
+.pw-hero__visual{
+  min-width:0;
+}
+.pw-hero__image-frame{
+  position:relative;
+  overflow:hidden;
+  background:#d5d2cb;
+  border:1px solid var(--pw-line);
+  border-radius:22px;
+  box-shadow:0 18px 44px rgba(17,18,20,.10);
+  aspect-ratio:3 / 2;
+}
+.pw-hero__image-frame img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .8s var(--pw-e);
+}
+.pw-hero__visual:hover .pw-hero__image-frame img{transform:scale(1.018)}
+
+@media(max-width:1180px){
+  .pw-hero__grid{grid-template-columns:minmax(0,.92fr) minmax(470px,1.08fr);gap:40px}
+  .pw-hero h1{font-size:clamp(46px,6vw,78px)}
+  .pw-mark{grid-template-columns:1fr 1fr;width:min(100%,460px)}
+  .pw-mark div:nth-child(odd){border-left:none}
+  .pw-mark div:nth-child(n+3){border-top:1px solid var(--pw-line)}
+}
+@media(max-width:960px){
+  .pw-hero{min-height:auto}
+  .pw-hero::before{mask-image:none;opacity:.7}
+  .pw-hero::after{width:100%}
+  .pw-hero .pw-wrap{padding-top:125px;padding-bottom:74px}
+  .pw-hero__grid{grid-template-columns:1fr;gap:50px}
+  .pw-hero__content{max-width:720px}
+  .pw-hero h1{font-size:clamp(52px,10vw,88px);max-width:10ch}
+  .pw-hero__sub{max-width:670px}
+  .pw-hero__visual{width:100%}
+}
+@media(max-width:640px){
+  .pw-hero .pw-wrap{padding-top:104px;padding-bottom:58px}
+  .pw-hero__grid{gap:38px}
+  .pw-hero h1{font-size:clamp(42px,13vw,64px);max-width:9ch}
+  .pw-hero__sub{font-size:14.5px;line-height:1.66}
+  .pw-hero__actions{display:grid;grid-template-columns:1fr;width:100%}
+  .pw-hero__actions .pw-btn{justify-content:center}
+  .pw-mark{margin-top:30px;width:100%}
+  .pw-mark div{padding:10px 11px}
+  .pw-hero__image-frame{aspect-ratio:4 / 3;border-radius:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .pw-hero__image-frame img{transition:none}
+  .pw-hero__visual:hover .pw-hero__image-frame img{transform:none}
+}
+
+/* ACRONYM */
+.pw-acro{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:2px solid var(--pw-ink)}
+@media(max-width:980px){.pw-acro{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pw-acro{grid-template-columns:1fr}}
+.pw-acell{padding:clamp(26px,3vw,40px) clamp(20px,2.2vw,30px);border-left:1px solid var(--pw-line);position:relative;overflow:hidden;transition:background .2s}
+.pw-acell:first-child{border-left:none}
+@media(max-width:980px){.pw-acell{border-top:1px solid var(--pw-line)}.pw-acell:nth-child(-n+2){border-top:none}.pw-acell:nth-child(odd){border-left:none}}
+@media(max-width:600px){.pw-acell{border-left:none;border-top:1px solid var(--pw-line)}.pw-acell:first-child{border-top:none}}
+.pw-acell:hover{background:var(--pw-teal-soft)}
+.pw-acell .ltr{font-family:var(--pw-d);font-weight:900;font-size:clamp(54px,6vw,88px);line-height:.82;color:var(--pw-teal);letter-spacing:-.05em;display:block;margin-bottom:16px}
+.pw-acell h4{font-family:var(--pw-d);font-weight:800;text-transform:uppercase;font-size:clamp(14px,1.4vw,17px);color:var(--pw-ink);margin-bottom:9px;line-height:1.2}
+.pw-acell p{font-size:13.5px;color:var(--pw-muted);line-height:1.62}
+.pw-acell::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--pw-teal);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--pw-e)}
+.pw-acell:hover::after{transform:scaleX(1)}
+
+/* SPEC LIST (checklist grid) */
+.pw-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2px 34px;margin-top:44px}
+.pw-list.two{grid-template-columns:1fr 1fr}
+.pw-list.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.pw-list,.pw-list.four{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.pw-list,.pw-list.two,.pw-list.four{grid-template-columns:1fr}}
+.pw-list li{position:relative;padding:9px 0 9px 28px;font-size:14.4px;color:#3f434a;line-height:1.6;border-bottom:1px solid var(--pw-line)}
+.pw-list li::before{content:"";position:absolute;left:0;top:18px;width:13px;height:2.5px;background:var(--pw-teal)}
+
+/* PANELS */
+.pw-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,2.6vw,44px);margin-top:52px}
+.pw-two.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.pw-two.three{grid-template-columns:1fr}}
+@media(max-width:880px){.pw-two{grid-template-columns:1fr}}
+.pw-panel{border:2px solid var(--pw-ink);padding:clamp(26px,3vw,42px);background:var(--pw-white)}
+.pw-panel__tag{font-family:var(--pw-m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--pw-ink);display:inline-block;padding:6px 14px;margin-bottom:20px}
+.pw-panel h3{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.1vw,28px);color:var(--pw-ink);letter-spacing:-.02em;line-height:1.06;margin-bottom:14px}
+.pw-panel p{font-size:14.6px;color:#3f434a;line-height:1.78;margin-bottom:12px}
+.pw-panel ul{list-style:none;margin-top:14px}
+.pw-panel li{position:relative;padding:6px 0 6px 24px;font-size:13.9px;color:#3f434a;line-height:1.6}
+.pw-panel li::before{content:"";position:absolute;left:0;top:14px;width:12px;height:2.5px;background:var(--pw-teal)}
+.pw-panel .ico{width:38px;height:38px;color:var(--pw-teal);margin-bottom:18px}
+/* MARKET / SOLUTION CARD GRID */
+.pw-mkt{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+@media(max-width:1060px){.pw-mkt{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pw-mkt{grid-template-columns:1fr}}
+.pw-mcard{border:1.5px solid var(--pw-line);padding:28px 24px;background:var(--pw-white);transition:transform .18s var(--pw-e),border-color .18s,box-shadow .18s;position:relative}
+.pw-mcard:hover{transform:translateY(-6px);border-color:var(--pw-teal);box-shadow:0 18px 44px rgba(15,110,114,.13)}
+.pw-mcard .ico{width:44px;height:44px;color:var(--pw-teal);margin-bottom:18px}
+.pw-mcard h4{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;font-size:16px;color:var(--pw-ink);margin-bottom:10px;letter-spacing:-.01em;line-height:1.2}
+.pw-mcard p{font-size:13.6px;color:var(--pw-muted);line-height:1.68}
+
+/* CHIPS */
+.pw-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:38px}
+.pw-chip{font-family:var(--pw-m);font-size:12px;font-weight:500;color:var(--pw-ink);border:1.5px solid var(--pw-line);background:var(--pw-white);padding:9px 15px;transition:border-color .16s,background .16s,color .16s}
+.pw-chip:hover{border-color:var(--pw-teal);background:var(--pw-teal-soft);color:var(--pw-teal)}
+
+/* FULL-BLEED ONE-LINERS · PHOTOGRAPHIC BACKGROUNDS */
+.pw-say{
+  position:relative;
+  min-height:86svh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  background-color:var(--pw-ink);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:var(--pw-say-position,center center);
+}
+.pw-say--teal{background-color:var(--pw-teal-dark)}
+.pw-say--ink{background-color:var(--pw-ink)}
+
+/* Individual image assignments */
+.pw-say--engineering{
+  --pw-say-image:url("/assets/images/global-presence/warehouse-packing/packaging-engineering.png");
+  --pw-say-position:center center;
+}
+.pw-say--formats{
+  --pw-say-image:url("/assets/images/global-presence/warehouse-packing/ten-format-one-standard.png");
+  --pw-say-position:center center;
+}
+.pw-say--traceability{
+  --pw-say-image:url("/assets/images/global-presence/warehouse-packing/traceability.png");
+  --pw-say-position:center center;
+}
+.pw-say--planned{
+  --pw-say-image:url("/assets/images/global-presence/warehouse-packing/planned-in-advance.png");
+  --pw-say-position:center center;
+}
+.pw-say--objective{
+  --pw-say-image:url("/assets/images/global-presence/warehouse-packing/objective.png");
+  --pw-say-position:center center;
+}
+.pw-say--image{background-image:var(--pw-say-image)}
+
+/* Light directional overlay for text readability. No stripes, hatch or dot textures. */
+.pw-say--image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(5,10,12,.68) 0%,
+      rgba(5,10,12,.52) 30%,
+      rgba(5,10,12,.28) 53%,
+      rgba(5,10,12,.10) 76%,
+      rgba(5,10,12,.03) 100%),
+    linear-gradient(180deg,rgba(4,9,10,.04),rgba(4,9,10,.10));
+}
+.pw-say .pw-wrap{position:relative;z-index:2;width:100%}
+.pw-say__mark{font-family:var(--pw-m);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--pw-teal-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:12px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.pw-say__mark::before{content:"";width:30px;border-top:3px double var(--pw-teal-bright)}
+.pw-say h2{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;letter-spacing:-.032em;line-height:.94;font-size:clamp(34px,5.6vw,88px);color:#fff;max-width:17ch;text-shadow:0 5px 30px rgba(0,0,0,.28)}
+.pw-say h2 .t{color:var(--pw-teal-bright)}
+.pw-say h2 .ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.72);text-shadow:none}
+.pw-say p{margin-top:24px;font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.88);max-width:660px;text-shadow:0 3px 20px rgba(0,0,0,.38)}
+
+@media(max-width:900px){
+  .pw-say--image{background-position:68% center}
+  .pw-say--image::before{
+    background:
+      linear-gradient(90deg,
+        rgba(5,10,12,.72) 0%,
+        rgba(5,10,12,.58) 48%,
+        rgba(5,10,12,.34) 78%,
+        rgba(5,10,12,.16) 100%),
+      linear-gradient(180deg,rgba(4,9,10,.05),rgba(4,9,10,.12));
+  }
+}
+@media(max-width:640px){
+  .pw-say{min-height:76svh}
+  .pw-say--image{background-position:72% center}
+  .pw-say--image::before{
+    background:linear-gradient(90deg,rgba(5,10,12,.64) 0%,rgba(5,10,12,.48) 62%,rgba(5,10,12,.24) 100%);
+  }
+  .pw-say h2 .ghost{color:rgba(255,255,255,.08);-webkit-text-stroke:1.4px rgba(255,255,255,.78)}
+}
+
+.pw-rv{opacity:0;transform:translateY(26px);transition:opacity .6s var(--pw-e),transform .6s var(--pw-e)}
+.pw-rv.is-in{opacity:1;transform:none}
+.pw-pal{opacity:0;transform:translateX(-40px)}
+.pw-pal.loaded{opacity:1;transform:none;transition:opacity .5s var(--pw-e),transform .6s var(--pw-e)}
+@media(prefers-reduced-motion:reduce){.pw-rv,.pw-pal{opacity:1;transform:none;transition:none}}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/warehouse-packing.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/warehouse-packing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Packaging &amp; Warehousing — Pradako Mechanical &amp; Engineering Works from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Packaging & Warehousing — Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/about-us/warehouse-packing.html",
+  "description": "Packaging & Warehousing — Pradako Mechanical & Engineering Works from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="pmew-pw">
+
+<div id="navbar-container"></div>
+
+<!-- HERO · SPLIT LAYOUT -->
+<header class="pw-hero" id="top">
+  <div class="pw-wrap">
+    <div class="pw-hero__grid">
+      <div class="pw-hero__content">
+        <div class="pw-stencil">Packaging &amp; Warehousing · P.A.C.K.</div>
+        <h1><span>Packed for the journey.</span><span class="t">Built for arrival.</span></h1>
+        <p class="pw-hero__sub">Engineered packaging, structured warehousing and export-ready logistics designed to protect every fastener — from small precision components to tonne-scale industrial consignments.</p>
+
+        <div class="pw-hero__actions">
+          <a href="#portfolio" class="pw-btn pw-btn--teal">Packaging Portfolio</a>
+          <a href="#store" class="pw-btn pw-btn--line">Warehousing Systems</a>
+        </div>
+
+        <div class="pw-mark" aria-label="Packaging capabilities at a glance">
+          <div><b>Packaging formats</b><span>10</span></div>
+          <div><b>Label data fields</b><span>24</span></div>
+          <div><b>Loading methods</b><span>4</span></div>
+          <div><b>Containers</b><span>20 / 40 FT</span></div>
+        </div>
+      </div>
+
+      <figure class="pw-hero__visual">
+        <div class="pw-hero__image-frame">
+          <img
+            src="/assets/images/global-presence/warehouse-packing/packing-hero-img.png"
+            alt="Traceable Pradako packaging carton inside a modern fastener warehouse"
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+            decoding="async">
+        </div>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<!-- P.A.C.K. -->
+<section class="pw-sec" id="pack">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">P.A.C.K. — Precision, Assurance, Customization &amp; Kitting</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Complete specifications,<br>packaging solutions <span class="t">and shipping capability.</span></h2>
+    <p class="pw-lead pw-rv">Our packaging and warehousing systems are developed to support safe handling, efficient storage, accurate identification and seamless global distribution. Every shipment is packed according to <b>product specifications, surface finish, transportation mode, customer requirements and destination conditions</b>.</p>
+    <p class="pw-lead pw-rv">With experience serving OEMs, Tier 1 and Tier 2 suppliers, distributors, sourcing companies and industrial customers, PMEW provides flexible solutions for automotive, aerospace, construction, defence, electronics, renewable energy, railways and heavy-engineering applications.</p>
+    <div class="pw-acro pw-rv">
+      <div class="pw-acell"><span class="ltr">P</span><h4>Precision</h4><p>Correct quantity, correct identification, verified before the pack is sealed.</p></div>
+      <div class="pw-acell"><span class="ltr">A</span><h4>Assurance</h4><p>Batch identity maintained from package to pallet to container.</p></div>
+      <div class="pw-acell"><span class="ltr">C</span><h4>Customization</h4><p>Configured to your drawing, label format, pack quantity and pallet pattern.</p></div>
+      <div class="pw-acell"><span class="ltr">K</span><h4>Kitting</h4><p>Assembly-wise sets packed to the exact quantity one operation requires.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER-SPECIFIC -->
+<section class="pw-sec pw-paper" id="customer-specific">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Customer-specific packaging solutions</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Configured around<br><span class="t">your requirement.</span></h2>
+    <p class="pw-lead pw-rv">Every customer has different requirements for pack quantity, identification, handling, storage and line-side supply. Our packaging systems can be configured according to:</p>
+    <ul class="pw-list pw-rv">
+      <li>Customer drawings and packaging specifications</li>
+      <li>Product dimensions and unit weight</li>
+      <li>Material grade and property class</li>
+      <li>Plating, coating and surface finish</li>
+      <li>Corrosion sensitivity</li>
+      <li>Quantity per bag, box, carton or pallet</li>
+      <li>Manual or automated handling requirements</li>
+      <li>Transportation mode and transit duration</li>
+      <li>Export destination and climatic conditions</li>
+      <li>Customer warehouse and assembly-line requirements</li>
+    </ul>
+    <p class="pw-note pw-rv">Where required, sample packaging, label formats, pack quantities and pallet configurations can be submitted for customer approval before regular supplies begin.</p>
+  </div>
+</section>
+
+<!-- HOW WE PACK -->
+<section class="pw-sec" id="specification">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">How we pack</div>
+    <h2 class="pw-h pw-h-lg pw-rv">To your specification.<br><span class="t">At any volume.</span></h2>
+    <div class="pw-two">
+      <div class="pw-panel pw-rv">
+        <span class="pw-panel__tag">Customer-specific packaging</span>
+        <h3>Packed to the standard you work to</h3>
+        <p>We supply fasteners as per strict customer specifications, ensuring compliance with global industry standards. Whether it's OEMs, Tier 1 &amp; Tier 2 suppliers, or aftermarket clients, our packaging is optimized for protection, handling, and supply chain efficiency.</p>
+      </div>
+      <div class="pw-panel pw-rv">
+        <span class="pw-panel__tag">Bulk &amp; containerized shipments</span>
+        <h3>Full MT containers, damage-free</h3>
+        <p>For high-volume customers, we ship in full metric ton (MT) containers, ensuring cost-effective and damage-free transportation. Bulk packaging solutions include palletized shipments with reinforced strapping, reducing transit risks while optimizing storage and unloading efficiency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-LINER 1 · PACKAGING ENGINEERING IMAGE -->
+<section class="pw-say pw-say--ink pw-say--image pw-say--engineering">
+  <div class="pw-wrap pw-rv">
+    <div class="pw-say__mark">Packaging engineering</div>
+    <h2>Packaging is not selected. <span class="ghost">It is engineered.</span></h2>
+    <p>It is built around the complete supply-chain requirement — product, protection, handling, transit and destination.</p>
+  </div>
+</section>
+
+<!-- GLOBAL MARKETS -->
+<section class="pw-sec" id="markets">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Diverse packaging options for global markets</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Every market has its own<br><span class="t">rules of arrival.</span></h2>
+    <div class="pw-mkt">
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h36v22H6zM6 18l4-8h28l4 8M18 40V18M30 40V18"/></svg>
+        <h4>USA &amp; Europe</h4>
+        <p>Heavy-duty wooden pallets, corrugated cartons, and shrink-wrapped stacks to meet international freight and warehouse storage regulations.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30l3-11a3 3 0 013-2h18a4 4 0 013 1.4l5 5.6h3a3 3 0 013 3v3h-4M6 30v4h4M18 34h12"/><circle cx="14" cy="35" r="3.4"/><circle cx="34" cy="35" r="3.4"/><path d="M8 22h8"/></svg>
+        <h4>Automotive Industry</h4>
+        <p>Labeled small boxes, returnable plastic crates, and barcoded kits for seamless integration into assembly lines.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c3 4 4.5 9 4.5 14v6l12 7v4l-12-3.5V40l4 3v3l-8.5-2.5L15.5 46v-3l4-3v-6.5L7.5 37v-4l12-7v-6c0-5 1.5-10 4.5-14z"/></svg>
+        <h4>Aerospace &amp; High-Precision</h4>
+        <p>Anti-corrosion vacuum-sealed packs, compartmentalized trays, and foam-layered protective packaging.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 42V16l10-6 10 6v26M26 42V24h16v18M6 42h36M12 22h8M12 30h8M32 30h4M32 36h4"/></svg>
+        <h4>Construction &amp; Industrial</h4>
+        <p>Bulk-packed steel drums, reinforced fiber cartons, and moisture-resistant packaging for durability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-LINER · TEN FORMATS IMAGE -->
+<section class="pw-say pw-say--ink pw-say--image pw-say--formats">
+  <div class="pw-wrap pw-rv">
+    <div class="pw-say__mark">Ten formats · One standard</div>
+    <h2>If it leaves our dock, <span class="ghost">it arrives as it left.</span></h2>
+    <p>Carton, poly bag, VCI, pail, drum, crate, pallet, collar or your own OEM format — the specification decides the pack.</p>
+  </div>
+</section>
+
+<style>
+/* PORTFOLIO */
+.pw-port{margin-top:56px;border-top:2px solid var(--pw-ink)}
+.pw-item{border-bottom:1px solid var(--pw-line);background:var(--pw-white);transition:background .2s}
+.pw-item.open{background:var(--pw-off)}
+.pw-itemq{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px clamp(4px,1vw,14px);display:grid;grid-template-columns:78px 1fr auto 34px;gap:20px;align-items:center;font-family:inherit}
+@media(max-width:820px){.pw-itemq{grid-template-columns:52px 1fr 30px}.pw-itemq .use{display:none}}
+.pw-itemq .num{font-family:var(--pw-m);font-weight:700;font-size:13px;color:var(--pw-teal);letter-spacing:.08em}
+.pw-itemq h3{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;font-size:clamp(17px,1.9vw,26px);color:var(--pw-ink);letter-spacing:-.018em;line-height:1.12}
+.pw-itemq .use{font-family:var(--pw-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pw-muted);text-align:right;max-width:280px;line-height:1.6}
+.pw-itemq .ic{width:32px;height:32px;border:1.5px solid var(--pw-line);display:flex;align-items:center;justify-content:center;color:var(--pw-ink);font-size:19px;transition:transform .24s var(--pw-e),background .18s,border-color .18s,color .18s}
+.pw-item.open .ic{transform:rotate(135deg);background:var(--pw-teal);border-color:var(--pw-teal);color:#fff}
+.pw-itema{max-height:0;overflow:hidden;transition:max-height .4s var(--pw-e)}
+.pw-itema__in{padding:2px 0 36px clamp(4px,1vw,78px)}
+.pw-itema p{font-size:14.6px;color:#3f434a;line-height:1.75;max-width:820px;margin-bottom:22px}
+.pw-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1160px}
+@media(max-width:900px){.pw-cols{grid-template-columns:1fr}}
+.pw-col b{display:block;font-family:var(--pw-m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--pw-teal);margin-bottom:12px;font-weight:700;padding-bottom:8px;border-bottom:1.5px solid var(--pw-teal)}
+.pw-col ul{list-style:none}
+.pw-col li{position:relative;padding:5px 0 5px 22px;font-size:13.8px;color:#3f434a;line-height:1.6}
+.pw-col li::before{content:"";position:absolute;left:0;top:13px;width:11px;height:2.5px;background:var(--pw-teal);opacity:.65}
+.pw-col .big{font-family:var(--pw-d);font-weight:900;font-size:clamp(24px,2.6vw,34px);color:var(--pw-ink);letter-spacing:-.02em;line-height:1.1}
+/* process rail */
+.pw-rail{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pw-rail span{font-family:var(--pw-m);font-size:11.5px;font-weight:500;color:#3f434a;border:1.5px solid var(--pw-line);padding:8px 13px;background:var(--pw-white);position:relative}
+.pw-rail span:not(:last-child)::after{content:"→";margin-left:9px;color:var(--pw-teal);font-weight:700}
+/* LABEL CARD */
+.pw-label{margin-top:52px;display:grid;grid-template-columns:340px 1fr;gap:clamp(24px,3.4vw,56px);align-items:start}
+@media(max-width:900px){.pw-label{grid-template-columns:1fr}}
+.pw-labelcard{border:2.5px solid var(--pw-ink);background:var(--pw-white);font-family:var(--pw-m);position:sticky;top:24px}
+@media(max-width:900px){.pw-labelcard{position:relative;top:0}}
+.pw-labelcard__top{background:var(--pw-ink);color:#fff;padding:12px 18px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.pw-labelcard__body{padding:18px}
+.pw-lrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px dashed var(--pw-line);font-size:11.5px}
+.pw-lrow b{color:var(--pw-muted);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:9.5px;padding-top:2px}
+.pw-lrow span{color:var(--pw-ink);font-weight:700;text-align:right}
+.pw-barcode{margin-top:16px;display:flex;align-items:flex-end;gap:2px;height:52px}
+.pw-barcode i{display:block;width:2px;background:var(--pw-ink);height:100%}
+.pw-barcode i:nth-child(3n){width:4px}
+.pw-barcode i:nth-child(4n){height:78%}
+.pw-labelcard__qr{width:54px;height:54px;border:2px solid var(--pw-ink);display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:1px;padding:3px;margin-top:14px}
+.pw-labelcard__qr i{background:var(--pw-ink)}
+.pw-labelcard__qr i:nth-child(2n){background:transparent}
+</style>
+
+<!-- PORTFOLIO -->
+<section class="pw-sec" id="portfolio">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Complete packaging solutions portfolio</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Ten ways to leave<br><span class="t">our warehouse.</span></h2>
+    <p class="pw-lead pw-rv">Select a format to see specifications, features and typical applications.</p>
+    <div class="pw-port pw-rv" id="portList">
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">01</span><h3>Bulk Carton Packaging</h3><span class="use">Screws · Bolts · Nuts · Washers · Rivets</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>High-strength corrugated cartons designed for efficient industrial handling and transportation.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Typical pack weight</b><span class="big">10 – 25 kg</span></div>
+            <div class="pw-col"><b>Available features</b><ul><li>Reinforced corrugated construction</li><li>Inner poly bags</li><li>Batch identification</li><li>Barcoded or QR-coded labels</li><li>Quantity and weight marking</li><li>Pallet-ready configuration</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Screws</li><li>Bolts</li><li>Nuts</li><li>Washers</li><li>Rivets</li><li>General industrial fasteners</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">02</span><h3>Small Box Packaging</h3><span class="use">Hardware · Distribution · Assembly lines</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Compact boxes designed for controlled quantities, organized storage and easy line-side handling.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Typical options</b><ul><li>50-piece packs</li><li>100-piece packs</li><li>500-piece packs</li><li>Customer-defined quantities</li></ul></div>
+            <div class="pw-col"><b>Available features</b><ul><li>Printed or adhesive labels</li><li>SKU identification</li><li>Customer branding</li><li>Barcode or QR-code integration</li><li>Retail-ready presentation</li><li>Batch-level traceability</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Hardware stores</li><li>Distribution networks</li><li>Assembly lines</li><li>Maintenance kits</li><li>Aftermarket customers</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">03</span><h3>Poly Bag Packaging</h3><span class="use">Screws · Washers · Clips · Rivets</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Flexible packaging for small fasteners and controlled-count quantities.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Advantages</b><ul><li>Moisture resistance</li><li>Easy visual identification</li><li>Flexible packing quantities</li><li>Convenient counting and handling</li><li>Inner packaging for cartons and crates</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Screws</li><li>Washers</li><li>Clips</li><li>Rivets</li><li>Small precision fasteners</li></ul></div>
+            <div class="pw-col"><b>Used as</b><ul><li>Primary pack</li><li>Inner pack within cartons</li><li>Inner pack within crates</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">04</span><h3>VCI &amp; Anti-Corrosion Packaging</h3><span class="use">Plated · Coated · Stainless · Marine · Export</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Specialized protection for corrosion-sensitive fasteners during storage and international transportation. The packaging method is selected according to product material, surface finish, expected storage period, transit duration and destination climate.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Materials may include</b><ul><li>VCI paper</li><li>VCI bags</li><li>VCI films</li><li>VCI foam</li><li>Moisture-barrier liners</li></ul></div>
+            <div class="pw-col"><b>Additional protection</b><ul><li>Desiccant sachets</li><li>Protective oil</li><li>Heat-sealed inner packs</li><li>Container desiccants</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Plated fasteners</li><li>Coated fasteners</li><li>Stainless-steel fasteners</li><li>Marine applications</li><li>Long-term storage</li><li>Export consignments</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">05</span><h3>Plastic Pail &amp; Bucket Packaging</h3><span class="use">Medium-volume industrial supply</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Reusable, moisture-resistant packaging designed for medium-volume industrial supply.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Typical options</b><ul><li>10 kg buckets</li><li>20 kg buckets</li><li>25 kg buckets</li></ul></div>
+            <div class="pw-col"><b>Advantages</b><ul><li>Improved handling</li><li>Reusable construction</li><li>Moisture resistance</li><li>Secure lids</li></ul></div>
+            <div class="pw-col"><b>In operation</b><ul><li>Easy line-side movement</li><li>Reduced carton damage</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">06</span><h3>Steel Drum Packaging</h3><span class="use">Structural · Stud · Anchor bolts · Export</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Heavy-duty packaging for high-weight fasteners and demanding industrial applications.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Typical options</b><ul><li>100 kg drums</li><li>200 kg drums</li><li>Customer-specific drum capacities</li></ul></div>
+            <div class="pw-col"><b>Advantages</b><ul><li>High load-bearing strength</li><li>Forklift-compatible handling</li><li>Secure transportation</li><li>Improved protection for heavy components</li><li>Efficient storage and stacking</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Structural bolts</li><li>Stud bolts</li><li>Anchor bolts</li><li>Heavy industrial fasteners</li><li>Export consignments</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">07</span><h3>Wooden Crate Packaging</h3><span class="use">Anchor bolts · Threaded rods · Assemblies</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Heavy-duty packaging for long, oversized or specialized fastener assemblies.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Available features</b><ul><li>Export-compliant treated wood</li><li>Reinforced construction</li><li>Internal supports and separators</li><li>Protective lining</li><li>Strapping and blocking</li><li>Customer-specific crate dimensions</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Anchor bolts</li><li>Stud bolts</li><li>Threaded rods</li><li>Special assemblies</li><li>Large or irregular components</li></ul></div>
+            <div class="pw-col"><b>Compliance</b><ul><li>Treated to export requirements</li><li>Built for international transit</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">08</span><h3>Palletized Packaging</h3><span class="use">Container loading · Warehouse handling</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>A structured packaging system designed for faster material handling, improved warehouse compatibility and efficient container loading.</p>
+          <div class="pw-col" style="max-width:none"><b>Typical process</b>
+            <div class="pw-rail"><span>Cartons or packages</span><span>Pallet arrangement</span><span>Corner protection</span><span>Reinforced strapping</span><span>Stretch wrapping</span><span>Identification</span><span>Container loading</span></div>
+          </div>
+          <div class="pw-cols" style="margin-top:28px">
+            <div class="pw-col"><b>Advantages</b><ul><li>Faster loading and unloading</li><li>Improved package stability</li></ul></div>
+            <div class="pw-col"><b>In the warehouse</b><ul><li>Forklift compatibility</li><li>Better warehouse organization</li></ul></div>
+            <div class="pw-col"><b>On receipt</b><ul><li>Reduced handling damage</li><li>Easier shipment verification</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">09</span><h3>Pallet Collar Packaging</h3><span class="use">Reusable · Collapsible · Mixed consignments</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Reusable and collapsible wooden collars mounted on standard pallets.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Advantages</b><ul><li>Adjustable height</li><li>Reusable construction</li><li>Space-saving storage</li></ul></div>
+            <div class="pw-col"><b>In handling</b><ul><li>Easy access to components</li><li>Suitable for variable quantities</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Mixed fastener consignments</li><li>Returnable packaging loops</li></ul></div>
+          </div>
+        </div></div></div>
+
+      <div class="pw-item"><button class="pw-itemq" type="button"><span class="num">10</span><h3>Customized OEM Packaging</h3><span class="use">Automotive · Aerospace · Electronics</span><span class="ic">+</span></button>
+        <div class="pw-itema"><div class="pw-itema__in">
+          <p>Packaging designed specifically for customer production systems, assembly lines and inventory-management programs.</p>
+          <div class="pw-cols">
+            <div class="pw-col"><b>Capabilities may include</b><ul><li>Customer-specific pack quantities</li><li>Branded boxes and labels</li><li>Kit packaging</li><li>Assembly-wise component grouping</li><li>Kanban packaging</li></ul></div>
+            <div class="pw-col"><b>Systems supported</b><ul><li>Returnable plastic crates</li><li>Line-side packs</li><li>Barcode and QR-code integration</li><li>Customer part-number identification</li><li>Sequence-based packaging</li></ul></div>
+            <div class="pw-col"><b>Suitable for</b><ul><li>Automotive supply chains</li><li>Aerospace applications</li><li>Electronics manufacturers</li><li>Industrial assembly lines</li><li>Customer-specific production programs</li></ul></div>
+          </div>
+        </div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGING ENGINEERING -->
+<section class="pw-sec pw-paper" id="engineering">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Packaging engineering and approval</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Engineered around the<br><span class="t">complete supply chain.</span></h2>
+    <p class="pw-lead pw-rv">Packaging is not selected only according to product quantity. Our packaging planning process may include:</p>
+    <ul class="pw-list pw-rv">
+      <li>Product and packaging-specification review</li>
+      <li>Unit-weight calculation</li>
+      <li>Pack-quantity finalization</li>
+      <li>Carton-strength selection</li>
+      <li>Corrosion-protection assessment</li>
+      <li>Label-content review</li>
+      <li>Pallet-pattern planning</li>
+      <li>Stacking and handling evaluation</li>
+      <li>Trial packing</li>
+      <li>Packaging sample development</li>
+      <li>Container-space-utilization planning</li>
+      <li>Customer approval before regular dispatch</li>
+    </ul>
+    <p class="pw-note pw-rv">Where contractually required, packaging configurations can also be reviewed for stacking, compression, handling and transportation suitability.</p>
+  </div>
+</section>
+
+<!-- LABELLING -->
+<section class="pw-sec" id="traceability">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Identification, labelling and traceability</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Every package<br><span class="t">carries its record.</span></h2>
+    <p class="pw-lead pw-rv">Every bag, box, carton, bucket, drum, crate or pallet can be identified according to customer and shipment requirements.</p>
+    <div class="pw-label">
+      <div class="pw-labelcard pw-rv">
+        <div class="pw-labelcard__top"><span>PMEW · Pack Label</span><span>REV 00</span></div>
+        <div class="pw-labelcard__body">
+          <div class="pw-lrow"><b>PMEW part no.</b><span>PM-HX-M12-8.8</span></div>
+          <div class="pw-lrow"><b>Customer part no.</b><span>— as specified —</span></div>
+          <div class="pw-lrow"><b>Property class</b><span>8.8</span></div>
+          <div class="pw-lrow"><b>Batch / heat no.</b><span>TRACEABLE</span></div>
+          <div class="pw-lrow"><b>Quantity</b><span>1,000 PCS</span></div>
+          <div class="pw-lrow"><b>Net / gross weight</b><span>24.0 / 25.2 KG</span></div>
+          <div class="pw-lrow"><b>Box no.</b><span>04 OF 40</span></div>
+          <div class="pw-lrow"><b>Country of origin</b><span>INDIA</span></div>
+          <div class="pw-lrow" style="border-bottom:none"><b>Inspection status</b><span>RELEASED</span></div>
+          <div class="pw-barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="pw-labelcard__qr"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div>
+        <p class="pw-lead pw-rv" style="margin-top:0">Labels may include any combination of the following fields:</p>
+        <div class="pw-chips pw-rv">
+          <span class="pw-chip">PMEW part number</span><span class="pw-chip">Customer part number</span><span class="pw-chip">Product description</span><span class="pw-chip">Drawing number &amp; revision</span><span class="pw-chip">Purchase order number</span><span class="pw-chip">Schedule / release number</span><span class="pw-chip">Quantity</span><span class="pw-chip">Batch, lot or heat number</span><span class="pw-chip">Material grade</span><span class="pw-chip">Property class</span><span class="pw-chip">Plating / coating specification</span><span class="pw-chip">Manufacturing date</span><span class="pw-chip">Packing date</span><span class="pw-chip">Net weight</span><span class="pw-chip">Gross weight</span><span class="pw-chip">Box number</span><span class="pw-chip">Total number of boxes</span><span class="pw-chip">Pallet number</span><span class="pw-chip">Country of origin</span><span class="pw-chip">Inspection status</span><span class="pw-chip">Barcode</span><span class="pw-chip">QR code</span><span class="pw-chip">Customer-specific digital ID</span>
+        </div>
+        <p class="pw-note pw-rv">Traceability can be maintained from the individual package to the pallet, dispatch lot and shipping container.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-LINER 2 · TRACEABILITY IMAGE -->
+<section class="pw-say pw-say--teal pw-say--image pw-say--traceability">
+  <div class="pw-wrap pw-rv">
+    <div class="pw-say__mark">Traceability</div>
+    <h2>From the package<br>to the pallet <span class="t">to the container.</span></h2>
+    <p>Batch identity is maintained through receiving, storage, picking, packing, palletization and dispatch — reducing the risk of material mixing, incorrect picking and traceability loss.</p>
+  </div>
+</section>
+
+<style>
+/* STORE ROWS (expandable) */
+.pw-store{margin-top:56px;border-top:2px solid var(--pw-ink)}
+.pw-srow{border-bottom:1px solid var(--pw-line);transition:background .2s}
+.pw-srow.open{background:var(--pw-teal-soft)}
+.pw-srowq{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;padding:28px clamp(4px,1vw,14px);display:grid;grid-template-columns:96px 1fr 34px;gap:24px;align-items:center}
+@media(max-width:760px){.pw-srowq{grid-template-columns:56px 1fr 30px;gap:14px}}
+.pw-srowq .ltr{font-family:var(--pw-d);font-weight:900;font-size:clamp(44px,4.6vw,72px);line-height:.8;color:var(--pw-teal);letter-spacing:-.05em}
+.pw-srowq h3{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;font-size:clamp(17px,2vw,27px);color:var(--pw-ink);letter-spacing:-.018em;line-height:1.1}
+.pw-srowq .ic{width:32px;height:32px;border:1.5px solid var(--pw-line);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--pw-ink);transition:transform .24s var(--pw-e),background .18s,border-color .18s,color .18s}
+.pw-srow.open .ic{transform:rotate(135deg);background:var(--pw-teal);border-color:var(--pw-teal);color:#fff}
+.pw-srowa{max-height:0;overflow:hidden;transition:max-height .4s var(--pw-e)}
+.pw-srowa__in{padding:0 clamp(4px,1vw,14px) 34px clamp(4px,1vw,120px)}
+@media(max-width:760px){.pw-srowa__in{padding-left:14px}}
+.pw-srowa p{font-size:14.5px;color:#3f434a;line-height:1.75;max-width:840px;margin-bottom:18px}
+/* ZONES */
+.pw-zones{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;background:var(--pw-line);border:2px solid var(--pw-ink)}
+@media(max-width:900px){.pw-zones{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pw-zones{grid-template-columns:1fr}}
+.pw-zone{background:var(--pw-white);padding:22px 20px;transition:background .18s}
+.pw-zone:hover{background:var(--pw-teal-soft)}
+.pw-zone b{display:block;font-family:var(--pw-m);font-size:10px;letter-spacing:.14em;color:var(--pw-teal);font-weight:700;margin-bottom:7px}
+.pw-zone span{font-family:var(--pw-d);font-weight:800;font-size:14.5px;color:var(--pw-ink);text-transform:uppercase;letter-spacing:-.005em;line-height:1.25;display:block}
+/* LOADING CARDS */
+.pw-load{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+@media(max-width:1060px){.pw-load{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.pw-load{grid-template-columns:1fr}}
+.pw-lcard{border:1.5px solid var(--pw-line);background:var(--pw-white);padding:26px 24px;transition:transform .18s var(--pw-e),border-color .18s,box-shadow .18s}
+.pw-lcard:hover{transform:translateY(-6px);border-color:var(--pw-teal);box-shadow:0 18px 44px rgba(15,110,114,.13)}
+.pw-lcard .num{font-family:var(--pw-m);font-size:12px;font-weight:700;color:var(--pw-teal);letter-spacing:.1em;margin-bottom:14px;display:block}
+.pw-lcard svg{width:100%;height:78px;margin-bottom:18px}
+.pw-lcard h4{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;font-size:15.5px;color:var(--pw-ink);margin-bottom:9px;letter-spacing:-.01em;line-height:1.2}
+.pw-lcard p{font-size:13.4px;color:var(--pw-muted);line-height:1.66;margin-bottom:12px}
+.pw-lcard ul{list-style:none;margin-bottom:10px}
+.pw-lcard li{position:relative;padding:4px 0 4px 20px;font-size:12.8px;color:#3f434a;line-height:1.55}
+.pw-lcard li::before{content:"";position:absolute;left:0;top:12px;width:10px;height:2px;background:var(--pw-teal)}
+.pw-lcard .chip{display:inline-block;font-family:var(--pw-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--pw-teal);border:1px solid var(--pw-teal);padding:5px 11px;margin:3px 4px 0 0}
+/* MANIFEST */
+.pw-manifest{margin-top:52px;border:2px solid var(--pw-ink);background:var(--pw-white)}
+.pw-mhead,.pw-mrow{display:grid;grid-template-columns:1fr 340px;gap:20px;padding:16px clamp(18px,2.4vw,32px);align-items:center}
+@media(max-width:700px){.pw-mhead,.pw-mrow{grid-template-columns:1fr 150px;gap:12px}}
+.pw-mhead{background:var(--pw-ink);color:#fff;font-family:var(--pw-m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.pw-mrow{border-bottom:1px solid var(--pw-line);transition:background .16s}
+.pw-mrow:last-child{border-bottom:none}
+.pw-mrow:hover{background:var(--pw-teal-soft)}
+.pw-mrow .cat{font-family:var(--pw-d);font-weight:800;font-size:15px;color:var(--pw-ink);text-transform:uppercase;display:flex;align-items:center;gap:14px}
+.pw-mrow .cat svg{width:22px;height:22px;color:var(--pw-teal);flex-shrink:0}
+.pw-mrow .cap{font-family:var(--pw-m);font-size:12.8px;font-weight:700;color:var(--pw-teal);text-align:right;line-height:1.5}
+@media(max-width:700px){.pw-mrow .cap{font-size:10.5px}.pw-mrow .cat{font-size:12.5px}.pw-mrow .cat svg{display:none}}
+/* FLOW RAIL */
+.pw-flow{margin-top:52px;position:relative;padding-left:30px}
+.pw-flow::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2.5px;background:var(--pw-line)}
+.pw-flow__fill{position:absolute;left:9px;top:8px;width:2.5px;background:var(--pw-teal);height:0;transition:height .1s linear}
+.pw-fstep{position:relative;padding:11px 0}
+.pw-fstep::before{content:"";position:absolute;left:-26px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--pw-white);border:2.5px solid var(--pw-line);transition:border-color .3s,background .3s}
+.pw-fstep.lit::before{border-color:var(--pw-teal);background:var(--pw-teal)}
+.pw-fstep span{font-family:var(--pw-d);font-weight:800;text-transform:uppercase;font-size:clamp(15px,1.7vw,22px);color:var(--pw-muted);letter-spacing:-.01em;transition:color .3s}
+.pw-fstep.lit span{color:var(--pw-ink)}
+/* CTA */
+.pw-cta{position:relative;min-height:90svh;display:flex;align-items:center;text-align:center;background:var(--pw-teal-dark);overflow:hidden}
+.pw-cta__hatch{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 14px,transparent 14px 30px)}
+.pw-cta__ring{position:absolute;width:520px;height:520px;border:3px solid rgba(255,255,255,.1);border-radius:50%;right:-160px;bottom:-190px;animation:pw-spin 60s linear infinite}
+@keyframes pw-spin{to{transform:rotate(360deg)}}
+.pw-cta .pw-wrap{position:relative;z-index:2;width:100%}
+.pw-cta h2{font-family:var(--pw-d);font-weight:900;text-transform:uppercase;letter-spacing:-.034em;line-height:.92;font-size:clamp(34px,5.6vw,86px);color:#fff}
+.pw-cta h2 .t{color:var(--pw-teal-bright)}
+.pw-cta p{margin:26px auto 0;font-size:clamp(15px,1.4vw,19px);color:rgba(255,255,255,.84);max-width:700px}
+.pw-cta__actions{display:flex;gap:15px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+.pw-cta__mark{margin-top:52px;display:inline-grid;grid-template-columns:repeat(3,auto);border:2px solid rgba(255,255,255,.34);font-family:var(--pw-m)}
+@media(max-width:620px){.pw-cta__mark{grid-template-columns:1fr}}
+.pw-cta__mark div{padding:13px 26px;border-left:1px solid rgba(255,255,255,.2)}
+.pw-cta__mark div:first-child{border-left:none}
+@media(max-width:620px){.pw-cta__mark div{border-left:none;border-top:1px solid rgba(255,255,255,.2)}.pw-cta__mark div:first-child{border-top:none}}
+.pw-cta__mark b{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:4px}
+.pw-cta__mark span{font-size:14px;font-weight:700;color:#fff}
+@media(prefers-reduced-motion:reduce){.pw-cta__ring{animation:none}}
+</style>
+
+<!-- SMART PACKAGING + KITTING -->
+<section class="pw-sec" id="smart">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Smart packaging solutions</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Efficiency, traceability<br><span class="t">and custom kitting.</span></h2>
+    <p class="pw-lead pw-rv">Our smart packaging systems are designed to simplify customer receiving, storage, inventory control and production-line usage.</p>
+    <p class="pw-lead pw-rv">We incorporate <b>barcoding, QR codes, and RFID tracking</b> for streamlined inventory management and traceability. Custom kitting solutions allow us to pre-pack sets of fasteners for specific assemblies, reducing installation time and operational inefficiencies for our clients.</p>
+    <div class="pw-mkt" style="margin-top:48px">
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 12v24M13 12v24M18 12v24M23 12v18M28 12v24M33 12v18M38 12v24M43 12v24"/></svg>
+        <h4>Barcoding</h4><p>Scan-ready labels on every carton, tying each pack to its batch record.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14"/><rect x="27" y="7" width="14" height="14"/><rect x="7" y="27" width="14" height="14"/><path d="M27 27h6v6h-6zM39 27h2M27 39h6M37 33h4v8h-8"/></svg>
+        <h4>QR Codes</h4><p>Instant access to specification, quantity and batch data at the point of use.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="24" cy="30" r="4"/><path d="M17 23a10 10 0 0114 0M11 17a18.5 18.5 0 0126 0M24 34v8"/></svg>
+        <h4>RFID Tracking</h4><p>Real-time visibility of stock position and movement across the warehouse.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="6" y="14" width="16" height="12"/><rect x="26" y="14" width="16" height="12"/><rect x="6" y="30" width="16" height="12"/><rect x="26" y="30" width="16" height="12"/><path d="M14 8v6M34 8v6"/></svg>
+        <h4>Custom Kitting</h4><p>Assembly sets pre-packed to your bill of materials, ready to fit.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h26l10 12-10 12H6z"/><path d="M13 20h13M13 28h9"/></svg>
+        <h4>Customer-Specific Labels</h4><p>Label layout, data fields and barcode format matched to your receiving system.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="26" width="34" height="15"/><path d="M13 26V15M24 26V11M35 26V17"/><circle cx="13" cy="11" r="3.4"/><rect x="19" y="5" width="10" height="6"/><circle cx="35" cy="13" r="3.4"/></svg>
+        <h4>Assembly-Wise Packaging</h4><p>Components grouped and packed by assembly, not by part number.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="15" width="15" height="19"/><rect x="28" y="15" width="15" height="19"/><path d="M20 21h8M28 29h-8"/><path d="M25 18l3.4 3-3.4 3M23 32l-3.4-3 3.4-3"/></svg>
+        <h4>Kanban Replenishment</h4><p>Bin-signal replenishment against agreed stock levels and call-off triggers.</p>
+      </div>
+      <div class="pw-mcard pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h32v20H8z"/><path d="M8 28h32M21 21v20"/><path d="M14 14a11 11 0 0119.4-2"/><path d="M12.6 8.4L14 14l5.6-1.4"/></svg>
+        <h4>Returnable Packaging</h4><p>Reusable crates, pallets and collars circulating on an agreed loop.</p>
+      </div>
+    </div>
+    <div class="pw-two" style="margin-top:56px">
+      <div class="pw-panel pw-rv">
+        <span class="pw-panel__tag">Custom kitting solutions</span>
+        <h3>One kit. One assembly.</h3>
+        <p>Fasteners can be pre-packed into application-specific or assembly-specific kits, packed to the exact quantity required for one assembly, workstation, project or maintenance operation.</p>
+        <b style="font-family:var(--pw-m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--pw-teal);display:block;margin-top:20px">A kit may contain</b>
+        <ul><li>Bolts</li><li>Nuts</li><li>Washers</li><li>Screws</li><li>Rivets</li><li>Clips</li><li>Spacers</li><li>Special components</li></ul>
+      </div>
+      <div class="pw-panel pw-rv">
+        <span class="pw-panel__tag">Customer benefits</span>
+        <h3>Less counting. Faster building.</h3>
+        <ul>
+          <li>Reduced counting time</li><li>Faster assembly</li><li>Lower inventory complexity</li><li>Fewer line-side shortages</li>
+          <li>Reduced handling errors</li><li>Improved material control</li><li>Simplified replenishment</li><li>Better productivity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM INTEGRATION OPTIONS -->
+<section class="pw-sec pw-paper" id="integration">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">System integration and supply options</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Beyond the label.<br><span class="t">Into your line.</span></h2>
+    <p class="pw-lead pw-rv">Depending on the agreed working arrangement, our packaging and identification systems can be extended further into your receiving, stores and production-line processes:</p>
+    <ul class="pw-list pw-rv">
+      <li>ERP-linked inventory records</li><li>Scan-based picking verification</li>
+      <li>Kit-wise packaging</li><li>Sequence-based supply</li>
+    </ul>
+    <p class="pw-note pw-rv">Label formats, scanning standards, kit contents and supply sequences are agreed with the customer before regular supplies begin.</p>
+  </div>
+</section>
+
+<!-- STORAGE &amp; ADVANCED WAREHOUSING -->
+<section class="pw-sec" id="storage">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Storage &amp; advanced warehousing</div>
+    <h2 class="pw-h pw-h-lg pw-rv">From development<br>to dispatch, <span class="t">meticulously aligned.</span></h2>
+    <p class="pw-lead pw-rv">At PMEW, we combine advanced warehousing, precise storage planning, and efficient material management to serve OEMs, sourcing companies, and industries including <b>automotive, aerospace, construction, renewable energy, electronics and railways</b>.</p>
+    <p class="pw-lead pw-rv">Every stage is aligned to deliver <b>shorter schedules, zero PPM quality, and seamless supply chains</b>.</p>
+  </div>
+</section>
+
+<!-- S.T.O.R.E. -->
+<section class="pw-sec pw-paper" id="store">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">S.T.O.R.E. — Smart Tracking. Optimized Resources. Efficient Warehousing.</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Structured for stock control,<br>fulfilment <span class="t">and dispatch.</span></h2>
+    <p class="pw-lead pw-rv">From production completion to final dispatch, every stage is aligned with inventory status, batch traceability, quality release and customer requirements.</p>
+    <div class="pw-store pw-rv" id="storeList">
+
+      <div class="pw-srow"><button class="pw-srowq" type="button"><span class="ltr">S</span><h3>Smart Racking and Segmentation</h3><span class="ic">+</span></button>
+        <div class="pw-srowa"><div class="pw-srowa__in">
+          <p>Structured storage systems categorized according to product type, dimensions, material grade, surface treatment, customer, batch number, inspection status, packaging format and delivery schedule.</p>
+          <ul class="pw-list" style="margin-top:0">
+            <li>Product type</li><li>Product dimensions</li><li>Material grade</li><li>Surface treatment</li><li>Customer</li>
+            <li>Batch number</li><li>Inspection status</li><li>Packaging format</li><li>Delivery schedule</li>
+          </ul>
+          <p style="margin-top:20px;margin-bottom:0">High-density pallet storage, shelving and bin-storage systems support efficient space utilization and quick material retrieval.</p>
+        </div></div></div>
+
+      <div class="pw-srow"><button class="pw-srowq" type="button"><span class="ltr">T</span><h3>Temperature &amp; Environment-Controlled Storage</h3><span class="ic">+</span></button>
+        <div class="pw-srowa"><div class="pw-srowa__in">
+          <p>Where required and available, dedicated storage arrangements can be provided for corrosion-sensitive, precision and customer-specific components.</p>
+          <ul class="pw-list" style="margin-top:0">
+            <li>Dry-storage areas</li><li>Moisture-control measures</li><li>Protected packaging</li><li>Controlled exposure</li>
+            <li>VCI protection</li><li>Desiccant usage</li><li>Periodic stock inspection</li><li>Restricted handling areas</li>
+          </ul>
+        </div></div></div>
+
+      <div class="pw-srow"><button class="pw-srowq" type="button"><span class="ltr">O</span><h3>Optimized Bulk &amp; Small-Part Storage</h3><span class="ic">+</span></button>
+        <div class="pw-srowa"><div class="pw-srowa__in">
+          <p>Separate storage systems are maintained for high-volume industrial consignments and small precision components.</p>
+          <ul class="pw-list" style="margin-top:0">
+            <li>Pallet storage areas</li><li>Drum-storage zones</li><li>Bulk-carton locations</li><li>Bin-storage systems</li>
+            <li>Small-parts shelving</li><li>Pick-and-pack zones</li><li>Customer-specific stock areas</li><li>Export consolidation areas</li>
+          </ul>
+        </div></div></div>
+
+      <div class="pw-srow"><button class="pw-srowq" type="button"><span class="ltr">R</span><h3>Real-Time Inventory Tracking</h3><span class="ic">+</span></button>
+        <div class="pw-srowa"><div class="pw-srowa__in">
+          <p>Inventory can be controlled through ERP-supported records, barcode identification and structured stock-location management.</p>
+          <ul class="pw-list" style="margin-top:0">
+            <li>Batch traceability</li><li>Stock-location tracking</li><li>FIFO movement</li><li>Quantity reconciliation</li><li>Customer-specific inventory</li>
+            <li>Dispatch planning</li><li>Pick-list generation</li><li>Cycle counting</li><li>Stock-status visibility</li><li>Package and pallet identification</li>
+          </ul>
+        </div></div></div>
+
+      <div class="pw-srow"><button class="pw-srowq" type="button"><span class="ltr">E</span><h3>Efficient Dispatch and Distribution</h3><span class="ic">+</span></button>
+        <div class="pw-srowa"><div class="pw-srowa__in">
+          <p>Dispatch operations are aligned with customer schedules, quality-release status, packaging requirements and export documentation.</p>
+          <ul class="pw-list" style="margin-top:0">
+            <li>Order verification</li><li>Stock allocation</li><li>Picking</li><li>Quantity confirmation</li><li>Packing</li><li>Palletization</li>
+            <li>Documentation review</li><li>Dispatch staging</li><li>Vehicle or container loading</li><li>Seal recording</li><li>Final shipment release</li>
+          </ul>
+        </div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEGREGATION -->
+<section class="pw-sec" id="segregation">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Controlled warehouse segregation</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Twelve zones.<br><span class="t">No stock mixing.</span></h2>
+    <p class="pw-lead pw-rv">Clear physical and system-based segregation helps prevent stock mixing and unauthorized material movement. Each stock category is identified according to its inspection, release and dispatch status.</p>
+    <div class="pw-zones pw-rv">
+      <div class="pw-zone"><b>ZONE 01</b><span>Incoming material</span></div>
+      <div class="pw-zone"><b>ZONE 02</b><span>Inspection-pending material</span></div>
+      <div class="pw-zone"><b>ZONE 03</b><span>Accepted stock</span></div>
+      <div class="pw-zone"><b>ZONE 04</b><span>Released stock</span></div>
+      <div class="pw-zone"><b>ZONE 05</b><span>Customer-specific inventory</span></div>
+      <div class="pw-zone"><b>ZONE 06</b><span>Export-ready stock</span></div>
+      <div class="pw-zone"><b>ZONE 07</b><span>Kitting &amp; pick-and-pack</span></div>
+      <div class="pw-zone"><b>ZONE 08</b><span>Quarantine stock</span></div>
+      <div class="pw-zone"><b>ZONE 09</b><span>Hold material</span></div>
+      <div class="pw-zone"><b>ZONE 10</b><span>Nonconforming material</span></div>
+      <div class="pw-zone"><b>ZONE 11</b><span>Returned material</span></div>
+      <div class="pw-zone"><b>ZONE 12</b><span>Dispatch staging</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIN / FIFO / BATCH -->
+<section class="pw-sec pw-paper" id="controls">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Storage systems and stock control</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Located, rotated<br><span class="t">and lot-controlled.</span></h2>
+    <div class="pw-two three">
+      <div class="pw-panel pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="10" width="17" height="12"/><rect x="26" y="10" width="17" height="12"/><rect x="5" y="26" width="17" height="12"/><rect x="26" y="26" width="17" height="12"/><path d="M11 16h5M32 16h5M11 32h5M32 32h5"/></svg>
+        <h3>Bin Storage Systems</h3>
+        <p>Used for small fasteners, precision components and controlled-quantity inventory — screws, washers, rivets, clips, nuts and small precision fasteners.</p>
+        <ul><li>Organized stock locations</li><li>Faster picking</li><li>Reduced component mixing</li><li>Easier quantity control</li><li>Efficient use of warehouse space</li><li>Improved line-side replenishment</li></ul>
+      </div>
+      <div class="pw-panel pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14h22M6 24h22M6 34h22M34 10v28M34 38l-6-6M34 38l6-6"/></svg>
+        <h3>FIFO Warehousing</h3>
+        <p>First-In-First-Out systems are applied where required to support controlled stock rotation and consistent product integrity.</p>
+        <ul><li>Batch-wise storage</li><li>Date-wise inventory movement</li><li>Structured stock rotation</li><li>Complete lot identification</li><li>Controlled material issue</li><li>Reduced long-term stock ageing</li><li>Improved inventory traceability</li><li>Enhanced quality control</li></ul>
+        <p style="margin-top:16px;font-size:13.4px">For customer-specific requirements, other stock-rotation methods may also be implemented.</p>
+      </div>
+      <div class="pw-panel pw-rv">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l16 8v22l-16 8-16-8V13z"/><path d="M8 13l16 8 16-8M24 21v22"/></svg>
+        <h3>Batch Integrity &amp; Lot Control</h3>
+        <p>Batch identity is maintained throughout receiving, storage, picking, packing, palletization and dispatch.</p>
+        <ul><li>One-lot-per-package identification</li><li>Controlled splitting of production batches</li><li>Controlled consolidation of approved lots</li><li>Box-to-pallet traceability</li><li>Pallet-to-container traceability</li><li>Coating and plating verification</li><li>Material-grade verification</li><li>Scan-based picking confirmation</li><li>Dispatch verification against approved documents</li><li>Final quantity reconciliation</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-LINER 3 · PLANNED-IN-ADVANCE IMAGE -->
+<section class="pw-say pw-say--teal pw-say--image pw-say--planned">
+  <div class="pw-wrap pw-rv">
+    <div class="pw-say__mark">Planned in advance</div>
+    <h2>We stock to your schedule, <span class="t">not to guesswork.</span></h2>
+    <p>Receiving production and delivery schedules in advance from OEMs lets us plan proactively, hold optimal inventory, and align manufacturing and warehousing to customer-specific requirements — standard and customized fasteners alike.</p>
+  </div>
+</section>
+
+<!-- REPLENISHMENT -->
+<section class="pw-sec" id="replenishment">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Customer inventory and replenishment programs</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Material availability,<br><span class="t">without your storage burden.</span></h2>
+    <p class="pw-lead pw-rv">Depending on the agreed commercial arrangement, PMEW can support:</p>
+    <ul class="pw-list pw-rv">
+      <li>Just-in-Time delivery</li><li>Customer-dedicated inventory</li><li>Safety-stock programs</li>
+      <li>Forecast-based stock planning</li><li>Scheduled call-off deliveries</li><li>Blanket-order management</li>
+      <li>Weekly release schedules</li><li>Monthly release schedules</li><li>Kanban replenishment</li>
+      <li>Vendor-managed inventory programs</li><li>Line-side packaging</li><li>Emergency dispatch support</li>
+    </ul>
+    <p class="pw-note pw-rv">These systems help customers improve material availability, reduce internal storage requirements and maintain continuity of production.</p>
+  </div>
+</section>
+
+<!-- EXPORT CONSOLIDATION -->
+<section class="pw-sec pw-paper" id="consolidation">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Export consolidation warehousing</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Consolidated, verified<br><span class="t">and loaded to plan.</span></h2>
+    <p class="pw-lead pw-rv">Our export warehousing systems are designed to support accurate consolidation, documentation and loading of global shipments.</p>
+    <ul class="pw-list pw-rv">
+      <li>Customer-wise stock consolidation</li><li>Purchase-order-wise segregation</li><li>Product and batch verification</li>
+      <li>Pallet building</li><li>Package labelling</li><li>Packing-list preparation</li>
+      <li>Weight verification</li><li>Container planning</li><li>Loading-sequence planning</li>
+      <li>Export documentation coordination</li><li>Container loading</li><li>Seal recording</li><li>Shipment photography</li>
+    </ul>
+    <p class="pw-note pw-rv">Mixed-product shipments can be organized according to purchase order, product category, unloading sequence or customer instructions.</p>
+  </div>
+</section>
+
+<!-- CONTAINER SHIPPING -->
+<section class="pw-sec" id="shipping">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Container shipping</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Four ways we load<br><span class="t">a container.</span></h2>
+    <p class="pw-lead pw-rv">Our container-loading systems are selected according to product type, shipment volume, package format, destination and customer requirements.</p>
+    <div class="pw-load">
+      <div class="pw-lcard pw-rv"><span class="num">Method 01</span>
+        <svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--pw-teal)"><rect x="4" y="10" width="192" height="60" stroke-opacity=".35"/><rect x="16" y="42" width="40" height="20"/><rect x="62" y="42" width="40" height="20"/><rect x="108" y="42" width="40" height="20"/><rect x="16" y="20" width="40" height="20"/><rect x="62" y="20" width="40" height="20"/><path d="M16 62h132" stroke-width="3"/></svg>
+        <h4>Palletized Container Loading</h4>
+        <p>Cartons, crates or packages are systematically arranged on pallets, secured and loaded using forklifts.</p>
+        <ul><li>Faster loading and unloading</li><li>Improved package stability</li><li>Easier warehouse handling</li><li>Reduced manual movement</li><li>Better shipment organization</li></ul>
+        <span class="chip">20 ft</span><span class="chip">40 ft</span>
+      </div>
+      <div class="pw-lcard pw-rv"><span class="num">Method 02</span>
+        <svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--pw-teal)"><rect x="4" y="10" width="192" height="60" stroke-opacity=".35"/><rect x="12" y="16" width="28" height="16"/><rect x="42" y="16" width="28" height="16"/><rect x="72" y="16" width="28" height="16"/><rect x="102" y="16" width="28" height="16"/><rect x="132" y="16" width="28" height="16"/><rect x="12" y="34" width="28" height="16"/><rect x="42" y="34" width="28" height="16"/><rect x="72" y="34" width="28" height="16"/><rect x="102" y="34" width="28" height="16"/><rect x="132" y="34" width="28" height="16"/><rect x="12" y="52" width="28" height="16"/><rect x="42" y="52" width="28" height="16"/><rect x="72" y="52" width="28" height="16"/></svg>
+        <h4>Loose Carton Loading</h4>
+        <p>Cartons are loaded directly into the container according to an approved stacking and weight-distribution plan.</p>
+        <ul><li>Higher container-space utilization</li></ul>
+        <p style="font-size:12.6px">Selected where product weight, carton strength, handling systems and customer unloading arrangements permit.</p>
+        <span class="chip">Max utilization</span>
+      </div>
+      <div class="pw-lcard pw-rv"><span class="num">Method 03</span>
+        <svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--pw-teal)"><rect x="4" y="10" width="192" height="60" stroke-opacity=".35"/><rect x="20" y="28" width="28" height="36" rx="3"/><rect x="56" y="28" width="28" height="36" rx="3"/><rect x="92" y="28" width="28" height="36" rx="3"/><rect x="128" y="28" width="28" height="36" rx="3"/><path d="M20 40h136M20 52h136" stroke-opacity=".5"/></svg>
+        <h4>Drum Container Loading</h4>
+        <p>Steel or industrial drums are positioned and secured inside the container using appropriate load-restraint methods.</p>
+        <ul><li>Heavy fasteners</li><li>Structural bolts</li><li>Stud bolts</li><li>Industrial bulk supplies</li></ul>
+        <span class="chip">Load-restrained</span>
+      </div>
+      <div class="pw-lcard pw-rv"><span class="num">Method 04</span>
+        <svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--pw-teal)"><rect x="4" y="10" width="192" height="60" stroke-opacity=".35"/><rect x="14" y="40" width="36" height="24"/><rect x="56" y="30" width="26" height="34" rx="3"/><rect x="88" y="44" width="30" height="20"/><rect x="124" y="34" width="24" height="30"/><rect x="154" y="46" width="28" height="18"/></svg>
+        <h4>Mixed Cargo Loading</h4>
+        <p>Multiple products, package formats or purchase-order lines consolidated into a single container.</p>
+        <ul><li>Cartons</li><li>Pallets</li><li>Drums</li><li>Crates</li><li>Buckets</li><li>Customer-specific packages</li></ul>
+        <span class="chip">Identified per package</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOADING CONTROLS -->
+<section class="pw-sec pw-paper" id="loading-controls">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Container loading and shipment controls</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Seventeen checks<br><span class="t">before the seal goes on.</span></h2>
+    <p class="pw-lead pw-rv">Before loading, the container and shipment are reviewed for suitability, condition and documentation accuracy.</p>
+    <ul class="pw-list four pw-rv">
+      <li>Container cleanliness inspection</li><li>Floor, wall, roof and door inspection</li><li>Moisture and contamination checks</li><li>Load-distribution planning</li>
+      <li>Pallet-position planning</li><li>Blocking and bracing</li><li>Reinforced strapping</li><li>Corner and edge protection</li>
+      <li>Anti-slip materials</li><li>Void-space management</li><li>Container desiccants</li><li>Package-count verification</li>
+      <li>Gross-weight verification</li><li>Packing-list reconciliation</li><li>Container seal recording</li><li>Loading photographs</li>
+      <li>Final dispatch approval</li>
+    </ul>
+    <p class="pw-note pw-rv">Every loading method is selected to protect the fasteners, maintain package stability and support efficient unloading at the destination.</p>
+  </div>
+</section>
+
+<!-- DOCUMENTATION -->
+<section class="pw-sec" id="documentation">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Documentation and dispatch readiness</div>
+    <h2 class="pw-h pw-h-lg pw-rv">The paperwork travels<br><span class="t">with the product.</span></h2>
+    <p class="pw-lead pw-rv">Applicable commercial, logistical and quality documentation can be prepared according to customer and destination requirements.</p>
+    <div class="pw-chips pw-rv">
+      <span class="pw-chip">Commercial invoice</span><span class="pw-chip">Packing list</span><span class="pw-chip">Certificate of origin</span><span class="pw-chip">Certificate of conformity</span><span class="pw-chip">Material test certificate</span><span class="pw-chip">Dimensional inspection report</span><span class="pw-chip">Plating or coating report</span><span class="pw-chip">Customer-specific quality documentation</span><span class="pw-chip">Product identification list</span><span class="pw-chip">Package and pallet list</span><span class="pw-chip">Container details</span><span class="pw-chip">Seal details</span><span class="pw-chip">Shipping documentation</span><span class="pw-chip">Export documentation</span><span class="pw-chip">Loading photographs</span><span class="pw-chip">Dispatch-release records</span>
+    </div>
+    <p class="pw-note pw-rv">Before shipment release, physical quantities, package labels and documentation are cross-verified for consistency.</p>
+  </div>
+</section>
+
+<!-- CAPACITY MANIFEST -->
+<section class="pw-sec pw-paper" id="capacity">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">High-volume packaging and export capability</div>
+    <h2 class="pw-h pw-h-lg pw-rv">From piece counts<br><span class="t">to tonne-scale.</span></h2>
+    <p class="pw-lead pw-rv">Our packaging and warehousing systems are designed to support both high-piece-count fasteners and tonne-scale industrial consignments.</p>
+    <div class="pw-manifest pw-rv">
+      <div class="pw-mhead"><span>Product category</span><span style="text-align:right">Supply &amp; packaging capability</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v4l-1 12-2 2-2-2-1-12z"/><path d="M9 7h6M9 11h6M9 15h6"/></svg>Screws</span><span class="cap">High-volume piece-count shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9z"/><circle cx="12" cy="12" r="3.4"/></svg>Nuts</span><span class="cap">High-volume piece-count and bulk shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4h10v5H7z"/><path d="M9.5 9v11h5V9M9.5 13h5M9.5 16.5h5"/></svg>Bolts</span><span class="cap">Piece-count and tonne-scale shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5h12M6 9h12M6 13h12M6 17h12M6 21h12"/></svg>Studs</span><span class="cap">Bundled, crate and tonne-scale shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="6" r="3.2"/><path d="M10.4 9.2L9 20l3 1.5 3-1.5-1.4-10.8"/></svg>Rivets</span><span class="cap">High-volume piece-count shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.4"/></svg>Washers</span><span class="cap">High-volume piece-count and bulk shipments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 21V9l8-5 8 5v12M9 21v-7h6v7"/></svg>Structural bolts</span><span class="cap">Tonne-scale industrial consignments</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="4.6"/><path d="M12.4 12.4L20 20M17 17l2.4-2.4M14.6 14.6L17 12.2"/></svg>Socket screws</span><span class="cap">Precision and high-volume packaging</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Shoulder screws</span><span class="cap">Controlled-count precision packaging</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l3 3-3 3-3-3zM12 9v12M6 12l-3 3 3 3M18 12l3 3-3 3"/></svg>Special fasteners</span><span class="cap">Customer-specific packaging</span></div>
+      <div class="pw-mrow"><span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l1.6-5h14.8L21 18M5 13V8h14v5M2.5 21h19"/></svg>Export containers</span><span class="cap">20-foot and 40-foot container shipments</span></div>
+    </div>
+    <p class="pw-note pw-rv">Exact shipment quantities, packaging formats and container utilization are finalized according to product dimensions, unit weight, order volume and customer requirements.</p>
+  </div>
+</section>
+
+<!-- SUSTAINABLE -->
+<section class="pw-sec" id="sustainable">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">Sustainable and returnable packaging</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Protection, efficiency<br><span class="t">and responsibility.</span></h2>
+    <p class="pw-lead pw-rv">We continue to evaluate packaging systems that balance product protection, supply-chain efficiency and environmental responsibility.</p>
+    <ul class="pw-list pw-rv">
+      <li>Right-sized cartons</li><li>Packaging-weight optimization</li><li>Recyclable corrugated materials</li>
+      <li>Reusable plastic crates</li><li>Returnable pallets</li><li>Collapsible pallet collars</li>
+      <li>Reduced unnecessary plastic</li><li>Recycled-content packaging where available</li><li>Improved pallet-space utilization</li>
+      <li>Reduced empty transportation space</li><li>Customer-specific returnable-packaging loops</li><li>Segregation of packaging waste</li>
+      <li>Monitoring of packaging-material consumption</li>
+    </ul>
+    <p class="pw-note pw-rv">Sustainable packaging solutions can be developed according to customer requirements, product protection needs and destination-market regulations.</p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="pw-sec pw-paper" id="flow">
+  <div class="pw-wrap">
+    <div class="pw-stencil pw-rv">The complete packaging process</div>
+    <h2 class="pw-h pw-h-lg pw-rv">Fifteen stages.<br><span class="t">One structured process.</span></h2>
+    <div class="pw-flow pw-rv" id="flowRail">
+      <div class="pw-flow__fill" id="flowFill"></div>
+      <div class="pw-fstep"><span>Customer requirement</span></div>
+      <div class="pw-fstep"><span>Packaging review</span></div>
+      <div class="pw-fstep"><span>Material and surface-finish assessment</span></div>
+      <div class="pw-fstep"><span>Pack-quantity planning</span></div>
+      <div class="pw-fstep"><span>Packaging selection</span></div>
+      <div class="pw-fstep"><span>Label approval</span></div>
+      <div class="pw-fstep"><span>Trial packing</span></div>
+      <div class="pw-fstep"><span>Batch identification</span></div>
+      <div class="pw-fstep"><span>Warehousing</span></div>
+      <div class="pw-fstep"><span>Picking and kitting</span></div>
+      <div class="pw-fstep"><span>Palletization</span></div>
+      <div class="pw-fstep"><span>Export consolidation</span></div>
+      <div class="pw-fstep"><span>Documentation</span></div>
+      <div class="pw-fstep"><span>Container loading</span></div>
+      <div class="pw-fstep"><span>Dispatch</span></div>
+    </div>
+    <p class="pw-note pw-rv">This integrated approach helps support shorter delivery schedules, accurate traceability, consistent product protection and seamless supply-chain execution.</p>
+  </div>
+</section>
+
+<!-- ONE-LINER 4 · OBJECTIVE IMAGE -->
+<section class="pw-say pw-say--teal pw-say--image pw-say--objective">
+  <div class="pw-wrap pw-rv">
+    <div class="pw-say__mark">The objective</div>
+    <h2>Precision packed. Securely stored. <span class="t">Globally delivered.</span></h2>
+    <p>The correct fastener, in the correct quantity, with the correct identification and documentation — reaching the customer safely and efficiently.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pw-cta" id="cta">
+  <div class="pw-cta__hatch"></div>
+  <span class="pw-cta__ring"></span>
+  <div class="pw-wrap pw-rv">
+    <h2>Tell us how it should<br><span class="t">arrive.</span></h2>
+    <p>Send us your packing specification, labelling standard or kitting requirement — and we will pack, mark, consolidate and ship to it.</p>
+    <div class="pw-cta__actions">
+      <a href="/pages/contact/contact-us.html" class="pw-btn pw-btn--white">Discuss Your Packing Specification</a>
+      <a href="#portfolio" class="pw-btn pw-btn--ghost">Review Packaging Formats</a>
+    </div>
+    <div class="pw-cta__mark">
+      <div><b>Packing to</b><span>YOUR SPECIFICATION</span></div>
+      <div><b>Shipping in</b><span>20 FT / 40 FT FCL</span></div>
+      <div><b>Quality target</b><span>ZERO PPM</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+    <script src="/assets/js/pradako-global-animations.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('pw-progress');
+  addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(scrollY/h*100)+'%';},{passive:true});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},{threshold:.1});
+  document.querySelectorAll('.pw-rv').forEach(function(el){io.observe(el)});
+
+  function accordion(qSel,itemSel,panelSel){
+    document.querySelectorAll(qSel).forEach(function(q){
+      q.addEventListener('click',function(){
+        var it=q.parentElement,a=it.querySelector(panelSel),open=it.classList.contains('open');
+        it.parentElement.querySelectorAll(itemSel+'.open').forEach(function(o){o.classList.remove('open');o.querySelector(panelSel).style.maxHeight=null;});
+        if(!open){it.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+      });
+    });
+  }
+  accordion('.pw-itemq','.pw-item','.pw-itema');
+  accordion('.pw-srowq','.pw-srow','.pw-srowa');
+
+  /* scroll-driven process rail */
+  var rail=document.getElementById('flowRail'),fill=document.getElementById('flowFill');
+  if(rail){
+    var steps=[].slice.call(rail.querySelectorAll('.pw-fstep'));
+    function railUpdate(){
+      var r=rail.getBoundingClientRect(),vh=innerHeight;
+      var p=Math.min(1,Math.max(0,(vh*0.72-r.top)/(r.height)));
+      fill.style.height=(p*(rail.offsetHeight-16))+'px';
+      steps.forEach(function(s,i){s.classList.toggle('lit', (i+1)/steps.length <= p+0.04);});
+    }
+    addEventListener('scroll',railUpdate,{passive:true});addEventListener('resize',railUpdate);railUpdate();
+  }
+})();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

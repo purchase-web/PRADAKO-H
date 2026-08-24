@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- <link rel="stylesheet" href="/assets/css/page-style.css"> -->
+
+<style>
+  :root {
+    --white: #ffffff;
+    --navy: #0a3d62;
+    --blue: #0b5fc6;
+    --gold: #c5a028;
+    --line: #e5edf5;
+    --text: #1f3f5b;
+    --muted: #63778a;
+    --soft-blue: #f4f9ff;
+
+    --shadow-main: 0 24px 70px rgba(10, 61, 98, 0.08);
+    --shadow-card: 0 12px 30px rgba(10, 61, 98, 0.07);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  .page {
+    min-height: 100vh;
+    background: var(--white);
+  }
+
+  /* .library-shell {
+    max-width: 1880px;
+    margin: auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    overflow: visible;
+    box-shadow: var(--shadow-main);
+  } */
+
+  /* ===== FIXED BACK TO TOP BUTTON ===== */
+.back-to-top-fixed {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: #ffd24a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100000;
+  box-shadow: 0 18px 40px rgba(197, 160, 40, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: all 0.25s ease;
+}
+
+.back-to-top-fixed.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top-fixed:hover {
+  background: #f4c430;
+  transform: translateY(-3px);
+}
+
+  .top-hero {
+    padding: 58px 58px 50px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    border-radius: 34px 34px 0 0;
+  }
+
+  .top-hero h1 {
+    margin: 0;
+    max-width: 1120px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(52px, 5vw, 90px);
+    line-height: 0.94;
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .top-hero p {
+    max-width: 1080px;
+    margin: 24px 0 0;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .control-zone {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 26px 32px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 300px auto auto auto;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-wrap input,
+  .family-filter {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+
+  .search-wrap input {
+    padding: 0 20px 0 52px;
+  }
+
+  .family-filter {
+    padding: 0 16px;
+  }
+
+  .search-wrap input::placeholder {
+    color: var(--muted);
+  }
+
+  .search-wrap input:focus,
+  .family-filter:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px var(--soft-blue);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .btn {
+    height: 58px;
+    border-radius: 16px;
+    padding: 0 23px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    transition: 0.22s ease;
+  }
+
+  .btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    box-shadow: 0 10px 22px rgba(10, 61, 98, 0.12);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .btn-soft:hover {
+    background: var(--soft-blue);
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  .duplicate-check-btn {
+    border: 1px solid #ffbf00;
+    background: #fff8df;
+    color: #1f2937;
+    font-weight: 900;
+  }
+
+  .duplicate-check-btn:hover {
+    background: #ffbf00;
+    color: #111827;
+    border-color: #ffbf00;
+  }
+
+  .duplicate-check-btn.active {
+    background: #ffbf00;
+    border-color: #ffbf00;
+    color: #111827;
+    box-shadow: 0 10px 24px rgba(255, 191, 0, 0.22);
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .stats-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .stat-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stat-pill {
+    padding: 10px 15px;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 900;
+  }
+
+  .duplicate-mode-pill {
+    display: none;
+    border-color: #ffbf00;
+    background: #fff8df;
+    color: var(--navy);
+  }
+
+  .duplicate-mode-pill.show {
+    display: inline-flex;
+  }
+
+  .column-panel {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .column-panel.open {
+    display: block;
+  }
+
+  .column-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .column-panel-title {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .column-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mini-btn {
+    height: 36px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--navy);
+    padding: 0 13px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .mini-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .column-checks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 10px;
+    max-height: 260px;
+    overflow: auto;
+    padding-right: 4px;
+  }
+
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--white);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .check-item input {
+    accent-color: var(--navy);
+  }
+
+  .table-zone {
+    background: var(--white);
+  }
+
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-width: 200px;
+    padding: 17px 18px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: var(--white);
+    background: var(--navy);
+    border-right: 1px solid rgba(255, 255, 255, 0.22);
+    border-bottom: 1px solid var(--navy);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  thead th.not-sortable {
+    cursor: default;
+  }
+
+  tbody td {
+    min-width: 200px;
+    padding: 22px 18px;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 1.56;
+    background: var(--white);
+    color: var(--text);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: var(--white);
+  }
+
+  tbody tr:hover td {
+    background: var(--soft-blue);
+  }
+
+  th.sticky-col,
+  td.sticky-col {
+    position: sticky;
+    left: var(--sticky-left);
+  }
+
+  th.sticky-col {
+    z-index: 30;
+  }
+
+  td.sticky-col {
+    z-index: 10;
+    box-shadow: 8px 0 16px rgba(10, 61, 98, 0.05);
+  }
+
+  .part-image-wrap {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow-card);
+  }
+
+  .part-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 10px;
+    background: var(--white);
+    transition: 0.25s ease;
+  }
+
+  .part-image-wrap:hover {
+    border-color: var(--blue);
+  }
+
+  .part-image-wrap:hover img {
+    transform: scale(1.05);
+  }
+
+  .part-image-empty {
+    width: 200px;
+    height: 146px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .family-pill {
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.35;
+    border: 1px solid var(--line);
+  }
+
+  .standard-code {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .title-cell {
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .keyword-cell {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  mark {
+    background: var(--soft-blue);
+    color: var(--navy);
+    padding: 0 3px;
+    border-radius: 4px;
+  }
+
+  .empty-state {
+    display: none;
+    padding: 65px 20px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--white);
+  }
+
+  .empty-state h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 24px;
+  }
+
+  .footer-note {
+    padding: 18px 34px;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    font-weight: 700;
+    border-radius: 0 0 34px 34px;
+  }
+
+  .modal-overlay,
+  .image-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(10, 61, 98, 0.84);
+    backdrop-filter: blur(8px);
+  }
+
+  .modal-overlay.show,
+  .image-preview-overlay.show {
+    display: flex;
+  }
+
+  .modal-card,
+  .image-preview-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-main);
+  }
+
+  .modal-card {
+    width: min(560px, 100%);
+  }
+
+  .image-preview-card {
+    width: min(1000px, 96vw);
+    max-height: 92vh;
+  }
+
+  .modal-top,
+  .image-preview-head {
+    color: var(--white);
+    background: var(--navy);
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .modal-top {
+    padding: 30px 32px 24px;
+  }
+
+  .image-preview-head {
+    padding: 22px 26px;
+  }
+
+  .modal-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    margin-bottom: 15px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .modal-top h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.4px;
+    color: var(--white);
+  }
+
+  .modal-top p {
+    margin: 12px 0 0;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .modal-body,
+  .image-preview-body {
+    padding: 28px 32px 32px;
+    background: var(--white);
+  }
+
+  .work-message {
+    padding: 20px;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 700;
+  }
+
+  .email-line {
+    margin-top: 10px;
+    display: inline-flex;
+    font-weight: 900;
+    color: var(--navy);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 11px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .modal-btn {
+    height: 50px;
+    border-radius: 15px;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 900;
+    transition: 0.22s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .modal-btn-primary {
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+  }
+
+  .modal-btn-soft {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .modal-btn:hover {
+    transform: translateY(-1px);
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+
+  .modal-close,
+  .image-preview-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--navy);
+    background: var(--white);
+    font-size: 24px;
+    line-height: 1;
+    z-index: 4;
+  }
+
+  .copy-status {
+    display: none;
+    margin-top: 13px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .copy-status.show {
+    display: block;
+  }
+
+  .image-preview-head h3 {
+    margin: 0;
+    padding-right: 45px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+
+  .image-preview-body img {
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 1200px) {
+    .controls-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .control-zone {
+      position: relative;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page {
+      padding: 14px;
+    }
+
+    .library-shell {
+      border-radius: 24px;
+    }
+
+    .top-hero {
+      padding: 36px 22px;
+      border-radius: 22px 22px 0 0;
+    }
+
+    .control-zone {
+      padding: 20px;
+    }
+
+    .controls-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .stats-actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .stats-actions .btn {
+      width: 100%;
+    }
+
+    .top-hero h1 {
+      font-size: 44px;
+    }
+
+    .part-image-wrap,
+    .part-image-empty {
+      width: 160px;
+      height: 118px;
+    }
+
+    .modal-top h2 {
+      font-size: 31px;
+    }
+
+    .modal-actions {
+      flex-direction: column;
+    }
+
+    .modal-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufa.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standard-products/ansi.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library">
+    <meta property="og:description" content="Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufa.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standard-products/ansi.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library">
+    <meta name="twitter:description" content="Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufa.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library",
+  "url": "https://www.pradako.co/pages/standard-products/ansi.html",
+  "description": "Pradako ANSI ASME ASTM IFI SAE Fastener Standards Library from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufa.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+
+<div id="navbar-container"></div>
+
+
+<section class="page">
+  <section class="library-shell">
+
+    <header class="top-hero">
+      <h1>ANSI / ASME / ASTM / IFI / SAE Fastener Standards Reference</h1>
+      <p>
+        Premium searchable database for ASME, ASTM, IFI, SAE, ISO and IEEE fastener standards covering bolts, screws, studs, nuts, washers, rivets, pins, coatings, inspection, testing, quality assurance and related product families.
+      </p>
+    </header>
+
+    <section class="control-zone">
+      <div class="controls-grid">
+
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by standard number, standard body, title, family, testing, coating or scope..."
+          />
+        </div>
+
+        <select id="familyFilter" class="family-filter">
+          <option value="">All Product Families</option>
+        </select>
+
+        <button class="btn btn-primary" onclick="searchStandards()">Search</button>
+        <button class="btn btn-soft" onclick="clearSearch()">Clear</button>
+        <button class="btn btn-soft" onclick="toggleColumnPanel()">Columns</button>
+
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-pills">
+          <div class="stat-pill">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> standards</div>
+          <div class="stat-pill"><span id="visibleColumnCount">0</span> visible columns</div>
+
+          <div class="stat-pill duplicate-mode-pill" id="duplicateModePill">
+            Duplicate View:
+            <span id="duplicateGroupsCount">0</span> groups /
+            <span id="duplicateRowsCount">0</span> rows
+          </div>
+        </div>
+
+        <div class="stats-actions">
+          <button class="btn btn-soft" onclick="openExportPopup()">Export CSV</button>
+
+          <button
+            type="button"
+            id="duplicateCheckBtn"
+            class="btn duplicate-check-btn"
+            aria-label="Check duplicate entries"
+            onclick="showDuplicateEntriesInTable()"
+          >
+            <span class="duplicate-icon" aria-hidden="true">⧉</span>
+            <span>Check Duplicates</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="column-panel" id="columnPanel">
+        <div class="column-panel-head">
+          <div class="column-panel-title">Show / Hide Table Columns</div>
+          <div class="column-actions">
+            <button class="mini-btn" onclick="showAllColumns()">Show All</button>
+            <button class="mini-btn" onclick="showCoreColumns()">Core Only</button>
+          </div>
+        </div>
+
+        <div class="column-checks" id="columnChecks"></div>
+      </div>
+    </section>
+
+    <section class="table-zone">
+      <div class="table-scroll">
+        <table id="standardsTable">
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="standardsTableBody"></tbody>
+        </table>
+
+        <div class="empty-state" id="emptyState">
+          <h3 id="emptyStateTitle">No standards found</h3>
+          <p id="emptyStateText">Try another standard number, product family, keyword or title.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Data is controlled from JavaScript. To add more ANSI / ASME / ASTM / IFI / SAE standards, add them inside <strong>rawStandardsTSV</strong>.
+      To add more columns, add them inside <strong>columns</strong> and use the same key in your data rows.
+    </footer>
+
+  </section>
+</section>
+
+<section class="modal-overlay" id="exportModal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeExportPopup()" aria-label="Close popup">&times;</button>
+
+    <div class="modal-top">
+      <div class="modal-badge">Export Request</div>
+      <h2 id="exportModalTitle">We are working on it</h2>
+      <p>
+        The export feature is currently being upgraded for the complete standards database.
+      </p>
+    </div>
+
+    <div class="modal-body">
+      <div class="work-message">
+        We are working on it.<br />
+        Please email us on:
+        <div class="email-line">info@pradakomechanicals.com</div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="modal-btn modal-btn-primary" href="mailto:info@pradakomechanicals.com?subject=ANSI%20ASME%20ASTM%20IFI%20SAE%20Standards%20Library%20Export%20Request">
+          Email Us
+        </a>
+        <button class="modal-btn modal-btn-soft" onclick="copyEmail()">Copy Email</button>
+        <button class="modal-btn modal-btn-soft" onclick="closeExportPopup()">Close</button>
+      </div>
+
+      <div class="copy-status" id="copyStatus">Email copied successfully.</div>
+    </div>
+  </div>
+</section>
+
+<section class="image-preview-overlay" id="imagePreviewModal" role="dialog" aria-modal="true">
+  <div class="image-preview-card">
+    <button class="image-preview-close" onclick="closeImagePreview()" aria-label="Close image preview">&times;</button>
+
+    <div class="image-preview-head">
+      <h3 id="imagePreviewTitle">Product Image</h3>
+    </div>
+
+    <div class="image-preview-body">
+      <img id="imagePreviewImg" src="" alt="">
+    </div>
+  </div>
+</section>
+
+    <!-- ======================================================
+        FOOTER
+    ======================================================= -->
+
+    <div id="footer-container"></div>
+    <button class="back-to-top-fixed" id="backToTopFixed" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ======================================================
+        MAIN JS
+    ======================================================= -->
+
+    <script>
+
+
+
+
+
+const columns = [
+  {
+    key: "imageSrc",
+    label: "Image",
+    width: 240,
+    sticky: true,
+    core: true,
+    type: "image",
+    searchable: false,
+    sortable: false
+  },
+  {
+    key: "standardCode",
+    label: "Standard Number",
+    width: 360,
+    sticky: true,
+    core: true,
+    type: "standard",
+    searchable: true,
+    sortable: true
+  },
+  {
+    key: "standardBody",
+    label: "Standard Body",
+    width: 220,
+    sticky: false,
+    core: true,
+    type: "body",
+    searchable: true,
+    sortable: true
+  },
+  {
+    key: "title",
+    label: "Original Standard Title",
+    width: 820,
+    sticky: false,
+    core: true,
+    type: "title",
+    searchable: true,
+    sortable: true
+  },
+  {
+    key: "productFamily",
+    label: "Product Family",
+    width: 360,
+    sticky: false,
+    core: true,
+    type: "family",
+    searchable: true,
+    sortable: true
+  },
+  {
+    key: "scope",
+    label: "Fastener Relevance / Scope",
+    width: 640,
+    sticky: false,
+    core: true,
+    type: "scope",
+    searchable: true,
+    sortable: true
+  }
+];
+
+function standardSlug(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/\+/g, "plus")
+    .replace(/,/g, ".")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function makeStandard(row, index) {
+  const slug = standardSlug(row.standardCode);
+
+  return {
+    id: `${slug}-${String(index + 1).padStart(3, "0")}`,
+    imageSrc: `/assets/images/products/standards-products/${slug}.png`,
+    imageAlt: `${row.standardCode} reference image`,
+    imageExists: true,
+    standardCode: row.standardCode,
+    standardBody: row.standardBody || "—",
+    title: row.title || "—",
+    productFamily: [row.family || "Unclassified"],
+    scope: row.scope || "—"
+  };
+}
+
+const rawStandardsTSV = `Standard number	Standard body	Original standard title	Product family	Fastener relevance / scope
+ASME B18.1.1-1972 (R2021)	ASME / ANSI	Small Solid Rivets	Solid rivets	Dimensional standard for small solid rivets.
+ASME B18.1.2-1972 (R2021)	ASME / ANSI	Large Rivets	Solid rivets	Dimensional standard for large rivets.
+ASME B18.1.3M-1983 (R2021)	ASME / ANSI	Metric Small Solid Rivets (with Errata)	Metric solid rivets	Metric dimensional standard for small solid rivets.
+ASME B18.2.1-2012 (R2021)	ASME / ANSI	Square, Hex, Heavy Hex, and Askew Head Bolts and Hex, Heavy Hex, Hex Flange, Lobed Head, and Lag Screws (Inch Series)	Bolts and screws	Inch-series square/hex/heavy hex bolts and screws.
+ASME B18.2.2-2022	ASME / ANSI	Nuts for General Applications: Machine Screw Nuts; and Hex, Square, Hex Flange, and Coupling Nuts (Inch Series)	Nuts	General inch-series nut dimensions and product forms.
+ASME B18.2.3.1M-1999 (R2011)	ASME / ANSI	Metric Hex Cap Screws	Metric hex cap screws	Metric hex cap screw dimensional standard.
+ASME B18.2.3.3M-2007 (R2014)	ASME / ANSI	Metric Heavy Hex Screws	Metric heavy hex screws	Metric heavy hex screw dimensional standard.
+ASME B18.2.3.4M-2001 (R2014)	ASME / ANSI	Metric Hex Flange Screws	Metric hex flange screws	Metric hex flange screw dimensional standard.
+ASME B18.2.3.6M-1979 (R2006)	ASME / ANSI	Metric Heavy Hex Bolts	Metric heavy hex bolts	Metric heavy hex bolt dimensional standard.
+ASME B18.2.3.9M-2001 (R2020)	ASME / ANSI	Metric Heavy Hex Flange Screws	Metric heavy hex flange screws	Metric heavy hex flange screw dimensional standard.
+ASME B18.2.4.1M-2002	ASME / ANSI	Hex Nuts, Style 1, Metric	Metric hex nuts	Metric style 1 hex nuts.
+ASME B18.2.4.2M-2005	ASME / ANSI	Metric Hex Nuts, Style 2	Metric hex nuts	Metric style 2 hex nuts.
+ASME B18.2.4.5M-2008	ASME / ANSI	Metric Hex Jam Nuts	Metric hex jam nuts	Metric thin/jam nuts.
+ASME B18.2.5M-2013	ASME / ANSI	Metric 12-Point Flange Head Screws	Metric 12-point flange screws	Metric 12-point flange head screws.
+ASME B18.2.6-2019	ASME / ANSI	Fasteners for Use in Structural Applications	Structural fasteners	Structural bolting/fastener dimensions and requirements.
+ASME B18.2.6M-2012 (R2021)	ASME / ANSI	Metric Fasteners for Use in Structural Applications	Metric structural fasteners	Metric structural fasteners for structural applications.
+ASME B18.2.7.1M-2002 (R2007)	ASME / ANSI	Metric 12-Spline Flange Screws	Metric 12-spline flange screws	Metric 12-spline flange screws.
+ASME B18.2.8-1999 (R2017)	ASME / ANSI	Clearance Holes for Bolts Screws and Studs	Clearance holes	Hole sizes related to bolts, screws and studs.
+ASME B18.2.9-2010 (R2021)	ASME / ANSI	Straightness Gage and Gaging for Bolts and Screws	Gaging / inspection	Gaging of bolt and screw straightness.
+ASME B18.3-2012	ASME / ANSI	Socket Cap, Shoulder, Set Screws, and Hex Keys (Inch Series)	Socket screws and hex keys	Inch-series socket head cap, shoulder, set screws and hex keys.
+ASME B18.5-2012 (R2023)	ASME / ANSI	Round Head Bolts (Inch Series)	Round head bolts	Inch-series round head bolts.
+ASME B18.5.2.1M-2006 (R2011)	ASME / ANSI	Metric Round Head Short Square Neck Bolts	Metric carriage-style bolts	Metric round head short square neck bolts.
+ASME B18.6.1-1981 (R2016)	ASME / ANSI	Wood Screws (Inch Series)	Wood screws	Inch-series wood screws.
+ASME B18.6.2-2020	ASME / ANSI	Square Head Set Screws and Slotted Headless Set Screws (Inch Series)	Set screws	Inch-series square head and slotted headless set screws.
+ASME B18.6.3-2024	ASME / ANSI	Machine Screws, Tapping Screws, and Metallic Drive Screws (Inch Series)	Machine / tapping screws	Inch-series machine screws, tapping screws and metallic drive screws.
+ASME B18.6.4-1998 (R2005)	ASME / ANSI	Thread Forming And Thread Cutting Tapping Screws And Metallic Drive Screws - Inch	Tapping screws	Thread forming/thread cutting tapping screws and metallic drive screws.
+ASME B18.6.5M-2000 (R2010)	ASME / ANSI	Metric Thread Forming and Thread Cutting Tapping Screws	Metric tapping screws	Metric thread forming and thread cutting tapping screws.
+ASME B18.6.8-2010 (R2017)	ASME / ANSI	Thumb Screws and Wing Screws (Inch Series)	Thumb screws / wing screws	Inch-series thumb and wing screws.
+ASME B18.6.9-2010 (R2017)	ASME / ANSI	Wing Nuts (Inch Series)	Wing nuts	Inch-series wing nuts.
+ASME B18.7-2007 (R2022)	ASME / ANSI	General Purpose Semi-Tubular Rivets, Full Tubular Rivets, Split Rivets, and End Caps	Tubular / split rivets	Semi-tubular, tubular, split rivets and end caps.
+ASME B18.7.1M-2007 (R2017)	ASME / ANSI	Metric General Purpose Semi-Tubular Rivets	Metric semi-tubular rivets	Metric semi-tubular rivets.
+ASME B18.8.1-2014 (R2025)	ASME / ANSI	Clevis Pins and Cotter Pins (Inch Series)	Pins	Inch-series clevis pins and cotter pins.
+ASME B18.8.2-2020	ASME / ANSI	Taper Pins, Dowel Pins, Straight Pins, Grooved Pins, and Spring Pins (Inch Series)	Industrial pins	Inch-series taper, dowel, straight, grooved and spring pins.
+ASME B18.9-2012 (R2025)	ASME / ANSI	Plow Bolts	Plow bolts	Inch-series plow bolts.
+ASME B18.10-2006 (R2021)	ASME / ANSI	Track Bolts and Nuts	Track bolts and nuts	Track bolts and nuts.
+ASME B18.11-1961 (R2017)	ASME / ANSI	Miniature Screws	Miniature screws	Miniature screw dimensional standard.
+ASME B18.12-2020 (R2025)	ASME / ANSI	Glossary of Terms for Mechanical Fasteners	Terminology	Fastener terminology reference.
+ASME B18.13-2017 (R2022)	ASME / ANSI	Screw and Washer Assemblies--SEMS (Inch Series)	SEMS screw-washer assemblies	Inch-series screw and washer assemblies.
+ASME B18.13.1M-2011 (R2022)	ASME / ANSI	Screw and Washer Assemblies: SEMS (Metric Series)	Metric SEMS assemblies	Metric screw and washer assemblies.
+ASME B18.15-2025	ASME / ANSI	Forged Eyebolts	Forged eyebolts	Forged eye bolts.
+ASME B18.16M-2004 (R2021)	ASME / ANSI	Prevailing-Torque-Type Steel Metric Hex Nuts and Hex Flange Nuts	Metric prevailing torque nuts	Metric prevailing torque steel hex and hex flange nuts.
+ASME B18.16.4-2008 (R2013)	ASME / ANSI	Serrated Hex Flange Locknuts 90,000 psi (Inch Series)	Serrated hex flange locknuts	Inch-series serrated hex flange locknuts.
+ASME B18.16.6-2017 (R2022)	ASME / ANSI	Prevailing Torque Locknuts (Inch Series)	Prevailing torque locknuts	Inch-series prevailing torque locknuts.
+ASME B18.18-2017 (R2021)	ASME / ANSI	Quality Assurance for Fasteners	Quality assurance / inspection	Quality assurance requirements for fasteners.
+ASME B18.21.1-2009 (R2016)	ASME / ANSI	Washers: Helical Spring-Lock, Tooth Lock, and Plain Washers (Inch Series)	Washers	Inch-series spring lock, tooth lock and plain washers.
+ASME B18.21.2M-1999 (R2014)	ASME / ANSI	Lock Washers (Metric Series)	Metric lock washers	Metric lock washers.
+ASME B18.22M-1981 (R2017)	ASME / ANSI	Metric Plain Washers	Metric plain washers	Metric plain washer dimensions.
+ASME B18.24-2023	ASME / ANSI	Part Identifying Number (PIN) Code System Standard for B18 Fastener Products	PIN / identification	Part identifying number system for B18 fastener products.
+ASME B18.27-1998	ASME / ANSI	Tapered and Reduced Cross Section Retaining Rings (Inch Series)	Retaining rings	Tapered and reduced cross-section retaining rings.
+ASME B18.29.2M-2005 (R2017)	ASME / ANSI	Helical Coil Screw Thread Inserts: Free Running and Screw Locking (Metric Series)	Thread inserts	Metric helical coil screw thread inserts.
+ASME B18.31.1M-2008 (R2021)	ASME / ANSI	Metric Continuous and Double-End Studs	Metric studs	Metric continuous thread and double-end studs.
+ASME B18.31.4M-2009 (R2021)	ASME / ANSI	Threaded Rod (Metric Series)	Metric threaded rod	Metric threaded rod.
+ASME B18.31.5-2011 (R2021)	ASME / ANSI	Bent Bolts (Inch Series)	Bent bolts / U-bolts	Inch-series bent bolts.
+ASTM F3125/F3125M-25a	ASTM	Standard Specification for High Strength Structural Bolts and Assemblies, Steel and Alloy Steel, Heat Treated, Inch Dimensions 120 ksi, 144 ksi, and 150 ksi Minimum Tensile Strength, and Metric Dimensions 830 MPa and 1040 MPa Minimum Tensile Strength	Structural bolts and assemblies	Heat-treated high-strength structural bolts and assemblies; consolidation/replacement of A325/A325M/A490/A490M/F1852/F2280.
+ASTM A563/A563M-26	ASTM	Standard Specification for Carbon and Alloy Steel Nuts (Inch and Metric)	Carbon/alloy steel nuts	Chemical, mechanical and dimensional requirements for carbon and alloy steel nuts.
+ASTM A193/A193M-26	ASTM	Standard Specification for Alloy-Steel and Stainless Steel Bolting for High Temperature or High Pressure Service and Other Special Purpose Applications	Pressure / high-temperature bolting	Alloy and stainless steel bolting materials/components for pressure vessels, valves, flanges and fittings.
+ASTM A194/A194M-26	ASTM	Standard Specification for Carbon Steel, Alloy Steel, and Stainless Steel Nuts for Bolts for High Pressure or High Temperature Service, or Both	Pressure / high-temperature nuts	Nuts for high-pressure or high-temperature service.
+ASTM A320/A320M-26	ASTM	Standard Specification for Alloy-Steel and Stainless Steel Bolting for Low-Temperature Service	Low-temperature bolting	Bolting materials/components for low-temperature pressure service.
+ASTM A962/A962M-26	ASTM	Standard Specification for Common Requirements for Bolting Intended for Use at Any Temperature from Cryogenic to the Creep Range	Common bolting requirements	Common requirements for bolting; associated with A193, A194, A320 and related bolting specifications.
+ASTM F1554-20	ASTM	Standard Specification for Anchor Bolts, Steel, 36, 55, and 105-ksi Yield Strength	Anchor bolts / anchor rods	Straight, bent, headed and headless anchor bolts/rods including all-thread rod for anchoring to concrete.
+ASTM F2282-23	ASTM	Standard Specification for Quality Assurance Requirements for Carbon and Alloy Steel Wire, Rods, and Bars for Mechanical Fasteners	Wire rod / cold-heading raw material	QA requirements for carbon/alloy steel wire, rods and bars in coils for bolts, nuts, rivets, screws, washers and cold-formed special parts.
+ASTM F606/F606M-26a	ASTM	Standard Test Methods for Determining the Mechanical Properties of Externally and Internally Threaded Fasteners, Washers, Direct Tension Indicators, and Rivets	Mechanical testing	Mechanical test methods for threaded fasteners, washers, DTI washers and rivets.
+ASTM F1470-24	ASTM	Standard Practice for Fastener Sampling for Specified Mechanical Properties and Performance Inspection	Sampling / inspection	Sampling practice for mechanical-property and performance inspection of fasteners.
+ASTM F788-20	ASTM	Standard Specification for Surface Discontinuities of Bolts, Screws, and Studs, Inch and Metric Series	Surface discontinuities	Surface discontinuity limits for bolts, screws and studs.
+ASTM F812-12(2022)	ASTM	Standard Specification for Surface Discontinuities of Nuts, Inch and Metric Series	Surface discontinuities	Surface discontinuity limits for nuts.
+ASTM F959/F959M-17a(2023)	ASTM	Standard Specification for Compressible-Washer-Type Direct Tension Indicators for Use with Structural Fasteners, Inch and Metric Series	DTI washers	Direct tension indicator washers for structural fasteners.
+ASTM F436/F436M-19	ASTM	Standard Specification for Hardened Steel Washers, Inch and Metric Dimensions	Hardened steel washers	Hardened washers for use with fasteners.
+ASTM F3393-24	ASTM	Standard Specification for Zinc-Flake Coating Systems for Fasteners	Zinc flake coating	Non-electrolytically applied zinc-flake coatings for unified inch and metric threaded fasteners.
+ASTM F2329/F2329M-15(2023)	ASTM	Standard Specification for Zinc Coating, Hot-Dip, Requirements for Application to Carbon and Alloy Steel Bolts, Screws, Washers, Nuts, and Special Threaded Fasteners	Hot-dip galvanizing for fasteners	Hot-dip zinc coating for bolts, screws, washers, nuts and special threaded fasteners.
+ASTM F1137/F1137M-25	ASTM	Standard Specification for Phosphate/Oil Corrosion Protective Coatings for Fasteners	Phosphate/oil coating	Phosphate/oil corrosion protective coatings for nuts, clips, washers and other ferrous threaded/non-threaded fasteners.
+ASTM F1940-07a(2024)	ASTM	Standard Test Method for Process Control Verification to Prevent Hydrogen Embrittlement in Plated or Coated Fasteners	Hydrogen embrittlement / process control	Process control verification to prevent hydrogen embrittlement in plated/coated fasteners.
+ASTM F2660-20(2025)	ASTM	Standard Test Method for Qualifying Coatings for Use on ASTM A490 Structural Bolts Relative to Environmental Hydrogen Embrittlement	Coating qualification / EHE	Coating qualification for high-strength structural bolts relative to environmental hydrogen embrittlement.
+ASTM A239-21	ASTM	Standard Practice for Locating the Thinnest Spot in a Zinc (Galvanized) Coating on Iron or Steel Articles	Zinc coating inspection	Inspection practice to locate thinnest spot in zinc coating.
+ASTM B633	ASTM	Standard Specification for Electrodeposited Coatings of Zinc on Iron and Steel	Electroplated zinc coating	General zinc electroplating for iron/steel parts; use with fastener-specific requirements when specified.
+ASTM F1941/F1941M	ASTM	Standard Specification for Electrodeposited Coatings on Mechanical Fasteners, Inch and Metric	Electroplated coatings for fasteners	Fastener-specific electrodeposited coatings on mechanical fasteners.
+ASTM B117	ASTM	Standard Practice for Operating Salt Spray (Fog) Apparatus	Corrosion testing	Salt spray corrosion testing commonly used for plated/coated fasteners.
+ASTM E18	ASTM	Standard Test Methods for Rockwell Hardness of Metallic Materials	Hardness testing	Rockwell hardness testing for metallic materials and heat-treated fasteners.
+ASTM E384	ASTM	Standard Test Method for Microindentation Hardness of Materials	Microhardness testing	Microhardness testing for case depth, carburization/decarburization and heat treatment verification.
+ASTM A370-26	ASTM	Standard Test Methods and Definitions for Mechanical Testing of Steel Products	Mechanical testing	Mechanical testing of steel products used as fastener raw materials/bolting materials.
+ASTM A394-08(2024)	ASTM	Standard Specification for Steel Transmission Tower Bolts, Zinc-Coated and Bare	Transmission tower bolts	Steel transmission tower bolts, zinc-coated and bare.
+ASTM A307-21	ASTM	Standard Specification for Carbon Steel Bolts, Studs, and Threaded Rod 60,000 PSI Tensile Strength	Carbon steel bolts / studs / rods	Carbon steel bolts, studs and threaded rod.
+ASTM A354-26	ASTM	Standard Specification for Quenched and Tempered Alloy Steel Bolts, Studs, and Other Externally Threaded Fasteners	Alloy steel bolts / studs	Quenched and tempered alloy steel bolts, studs and externally threaded fasteners.
+ASTM A449-14(2020)	ASTM	Standard Specification for Quenched and Tempered Steel Bolts and Studs	Medium-strength bolts / studs	Quenched and tempered steel bolts and studs.
+ASTM A574-21	ASTM	Standard Specification for Alloy Steel Socket-Head Cap Screws	Alloy steel socket head cap screws	Alloy steel socket-head cap screws.
+ASTM A574M-12	ASTM	Standard Specification for Alloy Steel Socket-Head Cap Screws [Metric]	Metric alloy steel socket head cap screws	Metric alloy steel socket-head cap screws.
+ASTM F835-23	ASTM	Standard Specification for Alloy Steel Socket Button and Flat Countersunk Head Cap Screws	Alloy steel socket button / flat CSK screws	Quenched and tempered alloy steel socket button and flat countersunk head cap screws.
+ASTM F837-20	ASTM	Standard Specification for Stainless Steel Socket Head Cap Screws	Stainless socket head cap screws	Stainless steel inch socket head cap screws.
+ASTM F912-26	ASTM	Standard Specification for Alloy Steel Socket Set Screws	Alloy steel socket set screws	Alloy steel socket set screws.
+ASTM F912M-11	ASTM	Standard Specification for Alloy Steel Socket Set Screws (Metric)	Metric alloy steel socket set screws	Metric alloy steel socket set screws.
+ASTM F593	ASTM	Standard Specification for Stainless Steel Bolts, Hex Cap Screws, and Studs	Stainless bolts / cap screws / studs	Stainless steel externally threaded fasteners.
+ASTM F594	ASTM	Standard Specification for Stainless Steel Nuts	Stainless steel nuts	Stainless steel nuts.
+ASTM F467	ASTM	Standard Specification for Nonferrous Nuts for General Use	Nonferrous nuts	Nonferrous nuts for general use.
+ASTM F468	ASTM	Standard Specification for Nonferrous Bolts, Hex Cap Screws, Socket Head Cap Screws, and Studs for General Use	Nonferrous bolts / screws / studs	Nonferrous externally threaded fasteners.
+ASTM F844	ASTM	Standard Specification for Washers, Steel, Plain (Flat), Unhardened for General Use	Plain washers	Unhardened steel plain washers.
+IFI-140:2000	IFI	Carbon and Alloy Steel Wire, Rods, and Bars for Mechanical Fasteners	Wire / rod / bar raw material	Physical, mechanical and metallurgical requirements for wire, rods and bars in coils for cold-manufactured mechanical fasteners.
+IFI-153:2005	IFI	Class 12.9 Alloy Steel Socket Head Cap Screws, Metric Series	Metric socket head cap screws	IFI product/material standard for metric class 12.9 socket head cap screws.
+IFI-149:2002	IFI	Large Size Heavy Hex Screws	Heavy hex screws	Large size heavy hex screws.
+IFI-139:1991	IFI	Inspection Standards for Fasteners	Inspection / quality assurance	Fastener inspection standard.
+IFI-167:2006	IFI	Fastener Quality Act: Third Party Accreditation	Quality / accreditation	Related to fastener quality systems and third-party accreditation.
+IFI-144:2000	IFI	Test Evaluation Procedures for Coating Qualification Intended for Use on High-Strength Structural Bolts	Coating qualification	Procedures/tests for coating qualification intended for high-strength structural bolts.
+IFI-166:2007	IFI	Fastener Drive Test	Fastener testing	Drive test procedure for fasteners.
+IFI-154:2005	IFI	Metric Mechanical Testing	Mechanical testing	Mechanical testing of metric fasteners.
+IFI-124:2002	IFI	Test Procedure for the Performance of Locking Type Fasteners	Locking fastener testing	Performance testing for locking type fasteners.
+IFI-125:2007	IFI	Test Procedure for the Performance of Prevailing-Torque Type Fasteners	Prevailing torque testing	Performance testing for prevailing-torque fasteners.
+IFI-524:2002	IFI	Metric Test Procedure for the Performance of Prevailing-Torque Type Fasteners	Metric prevailing torque testing	Metric performance testing for prevailing-torque fasteners.
+IFI-155:2005	IFI	Test Procedure for Evaluating the Performance of Chemical Adhesive Locking Compounds	Adhesive locking tests	Testing locking compound performance.
+IFI-555:2005	IFI	Metric Test Procedure for Evaluating the Performance of Chemical Adhesive Locking Compounds	Metric adhesive locking tests	Metric test procedure for locking compounds.
+IFI-160:2007	IFI	Test Procedure for Evaluating the Performance of Nonmetallic Resistant Elements on Externally Threaded Fasteners	Nonmetallic locking element tests	Testing nonmetallic prevailing torque elements.
+IFI-560:2007	IFI	Metric Test Procedure for Evaluating the Performance of Nonmetallic Resistant Elements on Externally Threaded Fasteners	Metric nonmetallic locking element tests	Metric testing of nonmetallic prevailing-torque elements.
+IFI-135:2003	IFI	Mechanical Testing of Blind Rivets	Blind rivet testing	Mechanical testing of blind rivets.
+IFI-522:1999	IFI	Mechanical Testing of Metric Blind Rivets	Metric blind rivet testing	Mechanical testing of metric blind rivets.
+IFI-137:2003	IFI	Inspection and Quality Assurance for General Purpose Blind Rivets	Blind rivet inspection / QA	Inspection and QA for general purpose blind rivets.
+IFI-114:2003	IFI	Break Mandrel Blind Rivets	Blind rivets	Break mandrel blind rivets.
+IFI-505:1999	IFI	Metric Break Mandrel Blind Rivets	Metric blind rivets	Metric break mandrel blind rivets.
+IFI-117:2003	IFI	Pull Through Mandrel Blind Rivets	Blind rivets	Pull-through mandrel blind rivets.
+IFI-520:1999	IFI	Metric Pull Through Mandrel Blind Rivets	Metric blind rivets	Metric pull-through mandrel blind rivets.
+IFI-123:2003	IFI	Drive Pin Blind Rivets	Blind rivets	Drive pin blind rivets.
+IFI-553:1999	IFI	Metric Drive Pin Blind Rivets	Metric blind rivets	Metric drive pin blind rivets.
+SAE J82-2013	SAE	Mechanical and Quality Requirements for Machine Screws	Machine screws	Mechanical and quality requirements for machine screws.
+SAE J995-2017	SAE	Mechanical and Material Requirements for Steel Nuts	Steel nuts	Mechanical and material requirements for steel nuts.
+SAE J2485-2012	SAE	Mechanical and Material Requirements for Steel Metric Nuts	Metric steel nuts	Mechanical and material requirements for steel metric nuts.
+SAE J2295-2016	SAE	Fasteners - Part Standard - Cap Screws, Hex Bolts, and Hex Nuts (Inch Dimensioned)	Hex bolts / cap screws / nuts	Part standard for inch cap screws, hex bolts and hex nuts.
+SAE J122-2017	SAE	Surface Discontinuities on Nuts	Surface discontinuities	Nut surface discontinuity requirements.
+SAE J123-2012	SAE	Surface Discontinuities on Bolts, Screws, and Studs in Fatigue Applications	Surface discontinuities	Surface discontinuities for bolts, screws and studs in fatigue applications.
+SAE J1061-2012	SAE	Surface Discontinuities on General Application Bolts, Screws, and Studs	Surface discontinuities	Surface discontinuities for general application bolts/screws/studs.
+SAE J1648-2019	SAE	Protective Coatings for Fasteners	Protective coatings	Protective coatings for fasteners.
+SAE AMS2506E-2018	SAE	Coating of Fasteners, Aluminum Filled, Ceramic Bonded Coating	Aluminum-filled ceramic coating	Corrosion/heat resistant aluminum coating for fasteners.
+SAE AS5447A-2024	SAE	Surface Discontinuities on Bolts, Screws, and Studs in Fatigue Applications	Aerospace surface discontinuities	Aerospace fatigue-related surface discontinuity requirements.
+SAE AS1177B-2018	SAE	Nuts, Self-Locking, Aircraft, Design and Usage Limitations	Aerospace self-locking nuts	Design and use limitations for aircraft self-locking nuts.
+SAE AIR3260A-2024	SAE	Aerospace Threaded Fastener Strength in Combined Shear and Tension Loading	Aerospace fastener strength	Aerospace threaded fastener strength under combined shear/tension.
+SAE J891-2016	SAE	Fastener Part Standard - Bolts and Screws, Inch Dimensioned	Bolts and screws	Inch dimensioned bolts and screws.
+SAE J892-2016	SAE	Fastener Part Standard - Nuts, Inch Dimensioned	Nuts	Inch dimensioned nuts.
+ISO 3269:2019	ISO	Fasteners - Acceptance inspection	Inspection / acceptance	Acceptance inspection for bolts, screws, studs, nuts, pins, washers, rivets and other fasteners.
+ISO 16426:2002	ISO	Fasteners - Quality assurance system	Quality assurance	Fastener quality assurance system.
+ISO 4042:2022	ISO	Fasteners - Electroplated coating systems	Electroplated coatings	Fastener-specific electroplated coating systems for bolts, screws, studs, nuts, washers, pins, clips and rivets.
+ISO 10683:2018	ISO	Fasteners - Non-electrolytically applied zinc flake coating systems	Zinc flake coating	Zinc flake coatings for threaded and non-threaded fasteners.
+ISO 10684:2004	ISO	Fasteners - Hot dip galvanized coatings	Hot-dip galvanized coating	Hot dip galvanized coatings for fasteners.
+ISO 4759-1:2000	ISO	Tolerances for fasteners - Part 1: Bolts, screws, studs and nuts - Product grades A, B and C	Dimensional tolerances	Tolerances for bolts, screws, studs and nuts.
+ISO 2320:2015	ISO	Fasteners - Prevailing torque steel nuts - Functional properties	Prevailing torque nuts	Functional properties for prevailing torque steel nuts.
+ISO 898-2:2022	ISO	Fasteners - Mechanical properties of fasteners made of carbon steel and alloy steel - Part 2: Nuts with specified property classes	Mechanical properties / nuts	Mechanical properties of carbon/alloy steel nuts.
+ISO 3506-2:2020	ISO	Fasteners - Mechanical properties of corrosion-resistant stainless steel fasteners - Part 2: Nuts with specified grades and property classes	Stainless steel nuts	Mechanical properties of stainless steel nuts.
+ISO 6157-1:1988	ISO	Fasteners - Surface discontinuities - Part 1: Bolts, screws and studs for general requirements	Surface discontinuities	Surface discontinuities for bolts, screws and studs.
+ISO 6157-2:1995	ISO	Fasteners - Surface discontinuities - Part 2: Nuts	Surface discontinuities / nuts	Surface discontinuities for nuts.
+ISO 10484:1997	ISO	Widening test on nuts	Nut testing	Widening test on nuts.
+ISO 14588:2000	ISO	Blind rivets - Terminology and definitions	Blind rivet terminology	Terminology and definitions for blind rivets.
+ISO 14589:2000	ISO	Blind rivets - Mechanical testing	Blind rivet testing	Mechanical testing of blind rivets.
+ISO 887:2000	ISO	Plain washers for metric bolts, screws and nuts for general purposes - General plan	Metric plain washers	General plan for plain washers for metric bolts, screws and nuts.
+ISO 8788:2020	ISO	Aerospace - Nuts, metric - Tolerances of form and position	Aerospace nuts	Tolerances of form and position for metric aerospace nuts.
+ISO 9139:1998	ISO	Aerospace - Nuts, anchor, self-locking, fixed, one lug, with counterbore, classification 1100 MPa/235 °C	Aerospace anchor nuts	Aerospace one-lug fixed self-locking anchor nuts.
+ISO 5843-3:1997	ISO	Aerospace - List of equivalent terms - Part 3: Aerospace bolts and nuts	Aerospace terminology	Equivalent terms for aerospace bolts and nuts.
+ISO 1461:2022	ISO	Hot dip galvanized coatings on fabricated iron and steel articles - Specifications and test methods	Hot-dip galvanizing (general)	General HDG coating; use only when no fastener-specific standard applies.
+ISO 14713-2:2019	ISO	Zinc coatings - Guidelines and recommendations for the protection against corrosion of iron and steel in structures - Part 2: Hot dip galvanizing	HDG guidance	Guidance for corrosion protection with hot dip galvanizing.
+ISO 14713-3:2017	ISO	Zinc coatings - Guidelines and recommendations for the protection against corrosion of iron and steel in structures - Part 3: Sherardizing	Sherardizing guidance	Guidance for zinc diffusion/sherardized coatings.
+ISO 4519:1980	ISO	Electrodeposited metallic coatings and related finishes - Sampling procedures for inspection by attributes	Coating inspection	Sampling procedures for electrodeposited coatings.
+ISO 10587:2000	ISO	Metallic and other inorganic coatings - Test for residual embrittlement in both metallic-coated and uncoated externally-threaded articles and rods - Inclined wedge method	Embrittlement testing	Residual embrittlement test; ANSI page notes it is not applicable to fasteners.
+IEEE C135.1-1999	IEEE	Zinc-Coated Steel Bolts and Nuts for Overhead Line Construction	Utility / overhead line bolts and nuts	Bolts and nuts for overhead line construction.
+IEEE C135.2-1999	IEEE	Zinc-Coated Ferrous Strand-Eye Anchor Rods and Nuts for Overhead Line Construction	Anchor rods and nuts	Anchor rods and nuts for overhead line construction.
+IEEE C135.80-2012	IEEE	Fasteners for Overhead Line Construction	Overhead line fasteners	Fasteners used in overhead line construction.`;
+
+const standardsData = rawStandardsTSV
+  .trim()
+  .split("\n")
+  .slice(1)
+  .map((line, index) => {
+    const [
+      standardCode,
+      standardBody,
+      title,
+      family,
+      scope
+    ] = line.split("\t");
+
+    return makeStandard({
+      standardCode: (standardCode || "").trim(),
+      standardBody: (standardBody || "—").trim(),
+      title: (title || "—").trim(),
+      family: (family || "Unclassified").trim(),
+      scope: (scope || "—").trim()
+    }, index);
+  });
+
+const tableHeadRow = document.getElementById("tableHeadRow");
+const tableBody = document.getElementById("standardsTableBody");
+const searchInput = document.getElementById("searchInput");
+const familyFilter = document.getElementById("familyFilter");
+const emptyState = document.getElementById("emptyState");
+const emptyStateTitle = document.getElementById("emptyStateTitle");
+const emptyStateText = document.getElementById("emptyStateText");
+const columnPanel = document.getElementById("columnPanel");
+const columnChecks = document.getElementById("columnChecks");
+const exportModal = document.getElementById("exportModal");
+const copyStatus = document.getElementById("copyStatus");
+const imagePreviewModal = document.getElementById("imagePreviewModal");
+const imagePreviewImg = document.getElementById("imagePreviewImg");
+const imagePreviewTitle = document.getElementById("imagePreviewTitle");
+
+const visibleCount = document.getElementById("visibleCount");
+const totalCount = document.getElementById("totalCount");
+const visibleColumnCount = document.getElementById("visibleColumnCount");
+
+const duplicateModePill = document.getElementById("duplicateModePill");
+const duplicateGroupsCount = document.getElementById("duplicateGroupsCount");
+const duplicateRowsCount = document.getElementById("duplicateRowsCount");
+const duplicateCheckBtn = document.getElementById("duplicateCheckBtn");
+
+let visibleColumns = new Set(columns.map(column => column.key));
+let currentFilteredData = [...standardsData];
+
+let duplicateMode = false;
+let duplicateBaseData = [];
+
+let sortState = {
+  key: null,
+  direction: "asc"
+};
+
+totalCount.textContent = standardsData.length;
+
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function highlightText(value, query) {
+  const safeText = escapeHTML(value);
+
+  if (!query.trim()) {
+    return safeText;
+  }
+
+  const safeQuery = escapeRegex(escapeHTML(query.trim()));
+  const regex = new RegExp("(" + safeQuery + ")", "gi");
+
+  return safeText.replace(regex, "<mark>$1</mark>");
+}
+
+function getVisibleColumns() {
+  return columns.filter(column => visibleColumns.has(column.key));
+}
+
+function getStickyLeftOffset(visibleColumnList, currentIndex) {
+  let offset = 0;
+
+  for (let i = 0; i < currentIndex; i++) {
+    if (visibleColumnList[i].sticky) {
+      offset += visibleColumnList[i].width;
+    }
+  }
+
+  return offset;
+}
+
+function buildFamilyFilter() {
+  const families = [
+    ...new Set(
+      standardsData.flatMap(item => item.productFamily || [])
+    )
+  ].sort();
+
+  familyFilter.innerHTML =
+    '<option value="">All Product Families</option>';
+
+  families.forEach(family => {
+    const option = document.createElement("option");
+
+    option.value = family;
+    option.textContent = family;
+
+    familyFilter.appendChild(option);
+  });
+}
+
+function buildColumnPanel() {
+  columnChecks.innerHTML = "";
+
+  columns.forEach(column => {
+    const label = document.createElement("label");
+    label.className = "check-item";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = visibleColumns.has(column.key);
+
+    input.addEventListener("change", () => {
+      if (input.checked) {
+        visibleColumns.add(column.key);
+      } else {
+        if (visibleColumns.size === 1) {
+          input.checked = true;
+          return;
+        }
+
+        visibleColumns.delete(column.key);
+      }
+
+      renderTable(currentFilteredData);
+      buildColumnPanel();
+    });
+
+    const span = document.createElement("span");
+    span.textContent = column.label;
+
+    label.appendChild(input);
+    label.appendChild(span);
+    columnChecks.appendChild(label);
+  });
+}
+
+function toggleColumnPanel() {
+  columnPanel.classList.toggle("open");
+}
+
+function showAllColumns() {
+  visibleColumns = new Set(columns.map(column => column.key));
+  buildColumnPanel();
+  renderTable(currentFilteredData);
+}
+
+function showCoreColumns() {
+  visibleColumns = new Set(
+    columns
+      .filter(column => column.core)
+      .map(column => column.key)
+  );
+
+  buildColumnPanel();
+  renderTable(currentFilteredData);
+}
+
+function renderImageCell(item) {
+  const imageSrc = item.imageSrc || "";
+  const imageAlt = item.imageAlt || item.standardCode || "Product image";
+
+  if (!item.imageExists || !imageSrc) {
+    return '<div class="part-image-empty">Image<br>Coming Soon</div>';
+  }
+
+  return `
+    <div
+      class="part-image-wrap"
+      data-image-src="${escapeHTML(imageSrc)}"
+      data-image-alt="${escapeHTML(imageAlt)}"
+      data-image-title="${escapeHTML(item.standardCode)}"
+    >
+      <img
+        src="${escapeHTML(imageSrc)}"
+        alt="${escapeHTML(imageAlt)}"
+        loading="lazy"
+        onerror="this.parentElement.outerHTML='<div class=&quot;part-image-empty&quot;>Image<br>Coming Soon</div>'"
+      >
+    </div>
+  `;
+}
+
+function renderTable(data) {
+  const query = searchInput.value.trim();
+  const visibleColumnList = getVisibleColumns();
+
+  visibleColumnCount.textContent = visibleColumnList.length;
+  visibleCount.textContent = data.length;
+
+  tableHeadRow.innerHTML = "";
+  tableBody.innerHTML = "";
+
+  visibleColumnList.forEach((column, index) => {
+    const th = document.createElement("th");
+
+    th.textContent =
+      sortState.key === column.key
+        ? column.label + (sortState.direction === "asc" ? " ▲" : " ▼")
+        : column.label;
+
+    th.style.width = column.width + "px";
+    th.style.minWidth = column.width + "px";
+
+    if (column.sortable === false) {
+      th.classList.add("not-sortable");
+    } else {
+      th.addEventListener("click", () => sortByColumn(column.key));
+    }
+
+    if (column.sticky) {
+      th.classList.add("sticky-col");
+      th.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+    }
+
+    tableHeadRow.appendChild(th);
+  });
+
+  const fragment = document.createDocumentFragment();
+
+  data.forEach(item => {
+    const row = document.createElement("tr");
+
+    visibleColumnList.forEach((column, index) => {
+      const td = document.createElement("td");
+      const value = item[column.key] !== undefined
+        ? item[column.key]
+        : "-";
+
+      td.style.width = column.width + "px";
+      td.style.minWidth = column.width + "px";
+
+      if (column.sticky) {
+        td.classList.add("sticky-col");
+        td.style.setProperty("--sticky-left", getStickyLeftOffset(visibleColumnList, index) + "px");
+      }
+
+      if (column.type === "image") {
+        td.innerHTML = renderImageCell(item);
+      } else if (column.type === "standard") {
+        td.innerHTML =
+          '<span class="standard-code">' +
+          highlightText(item.standardCode, query) +
+          '</span>';
+      } else if (column.type === "family") {
+        const families = Array.isArray(value) ? value : [value];
+
+        td.innerHTML = families
+          .map(family =>
+            `<span class="family-pill">${highlightText(family, query)}</span>`
+          )
+          .join("");
+      } else if (column.type === "body") {
+        td.innerHTML =
+          `<span class="family-pill">${highlightText(value, query)}</span>`;
+      } else if (column.type === "scope") {
+        td.innerHTML =
+          '<div class="keyword-cell">' +
+          highlightText(value, query) +
+          '</div>';
+      } else if (column.type === "title") {
+        td.innerHTML =
+          '<div class="title-cell">' +
+          highlightText(value, query) +
+          '</div>';
+      } else {
+        td.innerHTML = highlightText(value, query);
+      }
+
+      row.appendChild(td);
+    });
+
+    fragment.appendChild(row);
+  });
+
+  tableBody.appendChild(fragment);
+
+  if (data.length === 0 && duplicateMode) {
+    emptyStateTitle.textContent = "No duplicate entries found";
+    emptyStateText.textContent = "No exact duplicate Standard Number entries are currently present in this page data.";
+  } else {
+    emptyStateTitle.textContent = "No standards found";
+    emptyStateText.textContent = "Try another standard number, product family, keyword or title.";
+  }
+
+  emptyState.style.display = data.length === 0 ? "block" : "none";
+}
+
+function normalizeDuplicateKeyForTable(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function getDuplicateGroupsForTable() {
+  const grouped = new Map();
+
+  standardsData.forEach((item, index) => {
+    const key = normalizeDuplicateKeyForTable(item.standardCode);
+
+    if (!key || key === "—") {
+      return;
+    }
+
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+
+    grouped.get(key).push({
+      item,
+      rowNumber: index + 1
+    });
+  });
+
+  return Array.from(grouped.values())
+    .filter(group => group.length > 1)
+    .sort((a, b) => {
+      const firstA = a[0].item.standardCode || "";
+      const firstB = b[0].item.standardCode || "";
+
+      return firstA.localeCompare(firstB, undefined, {
+        numeric: true,
+        sensitivity: "base"
+      });
+    });
+}
+
+function updateDuplicateViewPill(groupCount, rowCount) {
+  if (!duplicateModePill || !duplicateGroupsCount || !duplicateRowsCount) {
+    return;
+  }
+
+  if (!duplicateMode) {
+    duplicateModePill.classList.remove("show");
+    duplicateGroupsCount.textContent = "0";
+    duplicateRowsCount.textContent = "0";
+    return;
+  }
+
+  duplicateGroupsCount.textContent = groupCount;
+  duplicateRowsCount.textContent = rowCount;
+  duplicateModePill.classList.add("show");
+}
+
+function getActiveSearchSourceData() {
+  return duplicateMode ? duplicateBaseData : standardsData;
+}
+
+function showDuplicateEntriesInTable() {
+  const duplicateGroups = getDuplicateGroupsForTable();
+  const duplicateRows = duplicateGroups.flatMap(group =>
+    group.map(entry => entry.item)
+  );
+
+  duplicateMode = true;
+  duplicateBaseData = duplicateRows;
+
+  searchInput.value = "";
+  familyFilter.value = "";
+
+  sortState = {
+    key: null,
+    direction: "asc"
+  };
+
+  currentFilteredData = [...duplicateBaseData];
+
+  updateDuplicateViewPill(duplicateGroups.length, duplicateRows.length);
+
+  if (duplicateCheckBtn) {
+    duplicateCheckBtn.classList.add("active");
+  }
+
+  searchInput.placeholder = "Search within duplicate entries...";
+  renderTable(currentFilteredData);
+
+  const tableZone = document.querySelector(".table-zone");
+
+  if (tableZone) {
+    tableZone.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+function hideDuplicateView() {
+  duplicateMode = false;
+  duplicateBaseData = [];
+
+  updateDuplicateViewPill(0, 0);
+
+  if (duplicateCheckBtn) {
+    duplicateCheckBtn.classList.remove("active");
+  }
+
+  searchInput.placeholder = "Search by standard number, standard body, title, family, testing, coating or scope...";
+}
+
+function searchStandards() {
+  const query = searchInput.value.trim().toLowerCase();
+  const selectedFamily = familyFilter.value;
+
+  currentFilteredData = getActiveSearchSourceData().filter(item => {
+    const matchesSearch =
+      !query ||
+      columns.some(column => {
+        if (column.searchable === false) return false;
+
+        const value = item[column.key];
+
+        if (value === undefined || value === null) {
+          return false;
+        }
+
+        if (Array.isArray(value)) {
+          return value.some(entry =>
+            String(entry)
+              .toLowerCase()
+              .includes(query)
+          );
+        }
+
+        return String(value || "")
+          .toLowerCase()
+          .includes(query);
+      });
+
+    const matchesFamily =
+      !selectedFamily ||
+      item.productFamily.includes(selectedFamily);
+
+    return matchesSearch && matchesFamily;
+  });
+
+  if (sortState.key) {
+    currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+  }
+
+  renderTable(currentFilteredData);
+}
+
+function clearSearch() {
+  searchInput.value = "";
+  familyFilter.value = "";
+
+  sortState = {
+    key: null,
+    direction: "asc"
+  };
+
+  hideDuplicateView();
+
+  currentFilteredData = [...standardsData];
+  renderTable(currentFilteredData);
+}
+
+function sortData(data, key, direction) {
+  return [...data].sort((a, b) => {
+    let valueA = a[key];
+    let valueB = b[key];
+
+    if (Array.isArray(valueA)) {
+      valueA = valueA.join(", ");
+    }
+
+    if (Array.isArray(valueB)) {
+      valueB = valueB.join(", ");
+    }
+
+    if (typeof valueA === "boolean") {
+      valueA = valueA ? 1 : 0;
+    }
+
+    if (typeof valueB === "boolean") {
+      valueB = valueB ? 1 : 0;
+    }
+
+    valueA = String(valueA ?? "").toLowerCase();
+    valueB = String(valueB ?? "").toLowerCase();
+
+    if (valueA < valueB) {
+      return direction === "asc" ? -1 : 1;
+    }
+
+    if (valueA > valueB) {
+      return direction === "asc" ? 1 : -1;
+    }
+
+    return 0;
+  });
+}
+
+function sortByColumn(key) {
+  const column = columns.find(item => item.key === key);
+
+  if (!column || column.sortable === false) {
+    return;
+  }
+
+  if (sortState.key === key) {
+    sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+  } else {
+    sortState.key = key;
+    sortState.direction = "asc";
+  }
+
+  currentFilteredData = sortData(currentFilteredData, sortState.key, sortState.direction);
+  renderTable(currentFilteredData);
+}
+
+function openExportPopup() {
+  exportModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  copyStatus.classList.remove("show");
+}
+
+function closeExportPopup() {
+  exportModal.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function copyEmail() {
+  const email = "info@pradakomechanicals.com";
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(() => {
+      copyStatus.classList.add("show");
+    });
+  } else {
+    const textArea = document.createElement("textarea");
+    textArea.value = email;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      copyStatus.classList.add("show");
+    } catch (err) {
+      copyStatus.textContent = "Please copy manually: " + email;
+      copyStatus.classList.add("show");
+    }
+
+    document.body.removeChild(textArea);
+  }
+}
+
+function openImagePreview(src, alt, title) {
+  imagePreviewImg.src = src;
+  imagePreviewImg.alt = alt;
+  imagePreviewTitle.textContent = title;
+  imagePreviewModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeImagePreview() {
+  imagePreviewModal.classList.remove("show");
+  imagePreviewImg.src = "";
+  imagePreviewImg.alt = "";
+  document.body.style.overflow = "";
+}
+
+let searchTimer;
+
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchTimer);
+
+  searchTimer = setTimeout(() => {
+    searchStandards();
+  }, 180);
+});
+
+familyFilter.addEventListener("change", searchStandards);
+
+tableBody.addEventListener("click", event => {
+  const imageBox = event.target.closest(".part-image-wrap");
+
+  if (!imageBox) {
+    return;
+  }
+
+  openImagePreview(
+    imageBox.dataset.imageSrc,
+    imageBox.dataset.imageAlt,
+    imageBox.dataset.imageTitle
+  );
+});
+
+exportModal.addEventListener("click", event => {
+  if (event.target === exportModal) {
+    closeExportPopup();
+  }
+});
+
+imagePreviewModal.addEventListener("click", event => {
+  if (event.target === imagePreviewModal) {
+    closeImagePreview();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    if (exportModal.classList.contains("show")) {
+      closeExportPopup();
+    }
+
+    if (imagePreviewModal.classList.contains("show")) {
+      closeImagePreview();
+    }
+  }
+});
+
+buildFamilyFilter();
+buildColumnPanel();
+renderTable(currentFilteredData);
+
+const backToTopFixed = document.getElementById("backToTopFixed");
+
+function toggleBackToTopFixed() {
+  if (window.scrollY > 250) {
+    backToTopFixed.classList.add("show");
+  } else {
+    backToTopFixed.classList.remove("show");
+  }
+}
+
+window.addEventListener("scroll", toggleBackToTopFixed, { passive: true });
+
+backToTopFixed.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+toggleBackToTopFixed();
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

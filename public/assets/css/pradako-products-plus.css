@@ -1,0 +1,3075 @@
+/* ==========================================================================
+   PRADAKO — PRODUCTS PLUS
+   --------------------------------------------------------------------------
+   Purely ADDITIVE stylesheet. It introduces no rule that overrides an existing
+   component, so the Grid / Matrix / Chart views look exactly as before.
+
+   Adds:
+     01. Inline SVG icon sizing (CDN-independent icons)
+     02. Fail-safe reveal animation
+     03. Scrollable family tab strip (fixes the clipped tabs)
+     04. Details view — product cards with Add to Enquiry
+     05. View all / show less controls
+     06. Family page enhancements (breadcrumb, tabs, add buttons)
+     07. Full-page enquiry CTA band
+     08. Provisional-range badge
+     09. Print styles
+
+   Load AFTER every existing stylesheet.
+   ========================================================================== */
+
+:root {
+    --pmew-navy: #0A3D62;
+    --pmew-navy-deep: #082f4b;
+    --pmew-gold: #C5A028;
+    --pmew-orange: #F28C28;
+    --pmew-line: #e5ebf2;
+    --pmew-line-soft: #eef3f8;
+    --pmew-muted: #607487;
+    --pmew-canvas: #f8fafc;
+}
+
+/* ==========================================================================
+   01. INLINE SVG ICONS
+   The Font Awesome CDN is a single point of failure: when it is blocked the
+   close, remove and submit controls previously rendered as empty circles.
+   These icons are inline SVG and always render.
+   ========================================================================== */
+
+.pmew-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-style: normal;
+}
+
+.pmew-icon svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+}
+
+.rfq-close .pmew-icon,
+.rfq-remove-item .pmew-icon {
+    font-size: 17px;
+}
+
+.rfq-fab-icon .pmew-icon {
+    font-size: 20px;
+}
+
+.rfq-empty i .pmew-icon,
+.rfq-empty > i > svg {
+    font-size: 26px;
+}
+
+.rfq-success-icon .pmew-icon {
+    font-size: 30px;
+}
+
+.toast > .pmew-icon {
+    font-size: 17px;
+    margin-top: 2px;
+}
+
+.rfq-item-image-blank {
+    display: grid;
+    place-items: center;
+    color: rgba(10, 61, 98, 0.32);
+    font-size: 22px;
+}
+
+/* ==========================================================================
+   02. FAIL-SAFE REVEAL
+   The original reveal set opacity:0 and relied entirely on IntersectionObserver.
+   If the observer never fired — no JS, print, screenshot, older browser — the
+   content stayed invisible. These rules guarantee content is always readable.
+   ========================================================================== */
+
+.no-js .pmew-page-animate,
+.pmew-page-animate.pmew-reveal-failsafe {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+@media print {
+    .pmew-page-animate,
+    .ptype-cta-ready {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* ==========================================================================
+   03. FAMILY TAB STRIP — scrollable
+   Previously the strip clipped Bushes, Plugs, Stainless Steel and High Tensile
+   with no affordance that more tabs existed.
+   ========================================================================== */
+
+.pradako-custom-family-tabs {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap !important;
+    scrollbar-width: thin;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pradako-custom-family-tabs > .pradako-custom-family-tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.pradako-custom-family-tabs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pradako-custom-family-tabs::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.18);
+}
+
+.pmew-tabs-shell {
+    position: relative;
+}
+
+.pmew-tabs-shell::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 6px;
+    width: 46px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 78%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.pmew-tabs-shell.is-overflowing::after {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   04. DETAILS VIEW
+   ========================================================================== */
+
+.pmew-details-view {
+    margin-top: 26px;
+}
+
+.pmew-details-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 18px 20px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.pmew-details-toolbar-copy {
+    min-width: 0;
+}
+
+.pmew-details-toolbar-copy strong {
+    display: block;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.pmew-details-toolbar-copy span {
+    display: block;
+    margin-top: 3px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.pmew-details-sort {
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid #cfdbe7;
+    border-radius: 12px;
+    background: #f9fbfd;
+    color: #122b40;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pmew-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 24px;
+}
+
+.pmew-detail-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--pmew-line);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(13, 54, 82, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pmew-detail-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(10, 61, 98, 0.22);
+    box-shadow: 0 22px 50px rgba(13, 54, 82, 0.13);
+}
+
+.pmew-detail-media {
+    position: relative;
+    height: 196px;
+    display: grid;
+    place-items: center;
+    padding: 14px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-detail-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.pmew-detail-card:hover .pmew-detail-media img {
+    transform: scale(1.06);
+}
+
+.pmew-detail-media-fallback {
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f8fafc, #eef3f8);
+    color: rgba(10, 61, 98, 0.5);
+    text-align: center;
+}
+
+.pmew-detail-media-fallback span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.55px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.pmew-detail-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 9px;
+    padding: 16px 16px 18px;
+}
+
+.pmew-detail-meta {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.62px;
+    line-height: 1.45;
+    text-transform: uppercase;
+}
+
+.pmew-detail-title {
+    margin: 0;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.32;
+}
+
+.pmew-detail-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.pmew-detail-spec {
+    padding: 4px 9px;
+    border: 1px solid rgba(10, 61, 98, 0.14);
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.045);
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    white-space: nowrap;
+}
+
+.pmew-detail-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.pmew-detail-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.pmew-detail-open:hover {
+    border-color: rgba(10, 61, 98, 0.28);
+    background: #f4f8fc;
+}
+
+/* ==========================================================================
+   05. VIEW ALL / SHOW LESS
+   ========================================================================== */
+
+.pmew-showmore-row {
+    display: flex;
+    justify-content: center;
+    margin: 26px 0 4px;
+}
+
+.pmew-showmore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 28px;
+    border: 1px solid var(--pmew-navy);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.24s ease, color 0.24s ease, transform 0.24s ease;
+}
+
+.pmew-showmore-btn:hover,
+.pmew-showmore-btn:focus-visible {
+    transform: translateY(-1px);
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-showmore-btn .pmew-icon {
+    font-size: 14px;
+}
+
+.pmew-showmore-count {
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: rgba(242, 140, 40, 0.14);
+    color: #b65d08;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.pmew-showmore-btn:hover .pmew-showmore-count {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.pmew-is-collapsed {
+    display: none !important;
+}
+
+/* ==========================================================================
+   06. FAMILY PAGE ENHANCEMENTS
+   Injected by js/pradako-family-page.js into the existing family pages so the
+   190 KB screw.html and 110 KB bolt.html do not have to be rewritten by hand.
+   ========================================================================== */
+
+.pmew-fp-bar {
+    position: relative;
+    z-index: 5;
+    margin: 0 auto 20px;
+    padding: 16px 22px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 26px rgba(13, 54, 82, 0.05);
+}
+
+.pmew-fp-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pmew-fp-breadcrumb a {
+    color: var(--pmew-navy);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.pmew-fp-breadcrumb a:hover {
+    color: var(--pmew-orange);
+    text-decoration: underline;
+}
+
+.pmew-fp-breadcrumb .pmew-fp-sep {
+    color: #b6c4d2;
+}
+
+.pmew-fp-breadcrumb strong {
+    color: var(--pmew-orange);
+    font-weight: 800;
+}
+
+.pmew-fp-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 14px;
+    padding-bottom: 6px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmew-fp-tab {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 38px;
+    padding: 0 15px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pmew-fp-tab:hover {
+    border-color: rgba(10, 61, 98, 0.28);
+    background: #f4f8fc;
+}
+
+.pmew-fp-tab.is-current {
+    border-color: var(--pmew-navy);
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-fp-tab small {
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.08);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.pmew-fp-tab.is-current small {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pmew-fp-tab.is-empty {
+    opacity: 0.62;
+}
+
+/* Add-to-enquiry button injected into every existing product card. */
+.pmew-card-enquiry {
+    width: 100%;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 0 14px;
+    border: 1px solid rgba(10, 61, 98, 0.2);
+    border-radius: 11px;
+    background: #f4f8fc;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+.pmew-card-enquiry:hover:not(:disabled) {
+    border-color: var(--pmew-navy);
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-card-enquiry.is-added {
+    border-color: rgba(18, 128, 92, 0.32);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+.pmew-card-enquiry:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pmew-card-enquiry .pmew-icon {
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   07. FULL-PAGE ENQUIRY CTA
+   ========================================================================== */
+
+.pmew-cta-band {
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+    padding: clamp(56px, 6vw, 92px) clamp(20px, 5vw, 72px);
+    background: linear-gradient(135deg, var(--pmew-navy) 0%, var(--pmew-navy-deep) 100%);
+    color: #ffffff;
+}
+
+.pmew-cta-band::before {
+    content: "";
+    position: absolute;
+    top: -140px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    border: 46px solid rgba(197, 160, 40, 0.09);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pmew-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.pmew-cta-kicker {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 7px 16px;
+    border: 1px solid rgba(197, 160, 40, 0.42);
+    border-radius: 999px;
+    color: var(--pmew-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+.pmew-cta-band h2 {
+    margin: 0 0 16px;
+    max-width: 18ch;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(30px, 4.4vw, 56px);
+    font-weight: 900;
+    line-height: 1.06;
+    text-transform: uppercase;
+}
+
+.pmew-cta-band > .pmew-cta-inner > p {
+    max-width: 62ch;
+    margin: 0 0 30px;
+    color: rgba(255, 255, 255, 0.82);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.78;
+}
+
+.pmew-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 42px;
+}
+
+.pmew-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 30px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pmew-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.pmew-cta-btn-gold {
+    background: var(--pmew-gold);
+    color: #14212e;
+    box-shadow: 0 14px 34px rgba(197, 160, 40, 0.28);
+}
+
+.pmew-cta-btn-gold:hover {
+    background: #d8b134;
+}
+
+.pmew-cta-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: transparent;
+    color: #ffffff;
+}
+
+.pmew-cta-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pmew-cta-btn .pmew-cta-badge {
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.18);
+    font-size: 11px;
+}
+
+.pmew-cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.pmew-cta-card {
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pmew-cta-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--pmew-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+.pmew-cta-card span {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.pmew-cta-contact {
+    display: grid;
+    gap: 10px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pmew-cta-contact-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.pmew-cta-contact-line span {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.pmew-cta-contact-line a {
+    color: var(--pmew-gold);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.pmew-cta-contact-line a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   08. PROVISIONAL RANGE BADGE
+   Marks ranges compiled from published standards and awaiting sign-off.
+   ========================================================================== */
+
+.pmew-provisional-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 18px 0 24px;
+    padding: 15px 18px;
+    border: 1px dashed rgba(242, 140, 40, 0.45);
+    border-radius: 16px;
+    background: rgba(242, 140, 40, 0.06);
+    color: #8a4a06;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.65;
+}
+
+.pmew-provisional-note strong {
+    color: #b65d08;
+}
+
+.pmew-provisional-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px;
+    padding: 2px 8px;
+    border: 1px solid rgba(242, 140, 40, 0.4);
+    border-radius: 999px;
+    background: rgba(242, 140, 40, 0.1);
+    color: #b65d08;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   09. RESPONSIVE + PRINT
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .pmew-details-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+    }
+
+    .pmew-detail-media {
+        height: 150px;
+    }
+
+    .pmew-detail-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .pmew-cta-band {
+        margin-top: 46px;
+    }
+
+    .pmew-fp-bar {
+        padding: 14px 16px;
+        border-radius: 16px;
+    }
+}
+
+@media print {
+    .rfq-fab,
+    .rfq-drawer,
+    .rfq-overlay,
+    .toast-region,
+    .draft-recovery-banner,
+    .draft-session-nudge,
+    .pmew-card-enquiry,
+    .pmew-showmore-row {
+        display: none !important;
+    }
+
+    .pmew-is-collapsed {
+        display: block !important;
+    }
+}
+
+/* ==========================================================================
+   10. SAVED-DRAFT BANNER REPOSITION  (bug fix)
+   --------------------------------------------------------------------------
+   The extracted banner was positioned top:96px right:22px, which was fine on
+   bolt.html where nothing sat behind it. On customised-products.html that
+   rectangle lands directly on the Grid / Details / Matrix / Chart toggle, and
+   because the banner is a fixed 560 px panel it swallowed every click on the
+   view switcher for as long as it was on screen. Verified in headless
+   Chromium: the toggle was unclickable.
+
+   Moved to the bottom-right, which is clear on every page in this package
+   (the enquiry FAB is bottom-left). The JS also auto-dismisses it after 12
+   seconds and on first scroll.
+   ========================================================================== */
+
+.draft-recovery-banner {
+    top: auto !important;
+    bottom: 24px !important;
+    right: 22px !important;
+    width: min(460px, calc(100% - 44px)) !important;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+}
+
+.draft-recovery-banner.is-visible {
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* While hidden it must not intercept pointer events at all. */
+.draft-recovery-banner:not(.is-visible) {
+    pointer-events: none !important;
+}
+
+.draft-session-nudge:not(.is-visible) {
+    pointer-events: none !important;
+}
+
+@media (max-width: 700px) {
+    .draft-recovery-banner {
+        top: auto !important;
+        bottom: 96px !important;
+        right: 12px !important;
+        width: calc(100% - 24px) !important;
+    }
+}
+
+/* ==========================================================================
+   11. GENERATED SECTION STYLES  (bug fix)
+   --------------------------------------------------------------------------
+   Four pages have their product sections built at runtime by
+   js/pradako-family-page.js rather than shipping static markup:
+
+     bolt.html            its inline renderer was removed with the duplicate cart
+     pin.html             was a "coming soon" placeholder
+     stainless-steel.html was a "coming soon" placeholder
+     high-tensile.html    was a "coming soon" placeholder
+
+   The seven static pages carry their own .grid-4 / .product-card rules in an
+   inline <style> block. These four do not — bolt used a different grid class
+   and the placeholders had no product CSS at all — so generated cards stacked
+   one per row at full width. bolt.html measured 35,756 px tall; pin.html
+   23,221 px.
+
+   These rules are scoped to .pmew-generated-sections, which only the enhancer
+   applies. The seven static pages never match this selector and are untouched.
+   ========================================================================== */
+
+.pmew-generated-sections .mega-category {
+    margin-bottom: 54px;
+    padding: 0;
+}
+
+.pmew-generated-sections .mega-category.alt-bg {
+    padding: 34px 26px;
+    border-radius: 24px;
+    background: #f5f8fb;
+}
+
+.pmew-generated-sections .category-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.pmew-generated-sections .category-title {
+    margin: 0;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 2vw, 27px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.pmew-generated-sections .category-line {
+    width: 62px;
+    height: 4px;
+    margin-top: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--pmew-gold), #FFCC29);
+}
+
+.pmew-generated-sections .category-count {
+    padding: 7px 16px;
+    border: 1px solid rgba(197, 160, 40, 0.3);
+    border-radius: 999px;
+    background: rgba(197, 160, 40, 0.1);
+    color: #8a6d13;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.pmew-generated-sections .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+}
+
+.pmew-generated-sections .product-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--pmew-line);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(13, 54, 82, 0.06);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pmew-generated-sections .product-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(10, 61, 98, 0.22);
+    box-shadow: 0 22px 50px rgba(13, 54, 82, 0.13);
+}
+
+.pmew-generated-sections .card-img {
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    padding: 14px;
+    object-fit: contain;
+    background: #ffffff;
+    border-bottom: 1px solid var(--pmew-line-soft);
+    transition: transform 0.35s ease;
+}
+
+.pmew-generated-sections .product-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+.pmew-generated-sections .card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px 15px 18px;
+}
+
+.pmew-generated-sections .card-content h3 {
+    margin: 0;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.pmew-generated-sections .product-card.image-missing .card-img {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .pmew-generated-sections .grid-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+@media (max-width: 820px) {
+    .pmew-generated-sections .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .pmew-generated-sections .card-img {
+        height: 150px;
+        min-height: 150px;
+    }
+}
+
+/* ==========================================================================
+   12. GENERATED PAGE SHELL  (bug fix)
+   --------------------------------------------------------------------------
+   pin.html, stainless-steel.html and high-tensile.html shipped as "coming
+   soon" panels and carry none of the showcase CSS the other nine pages have
+   inline. Once the enhancer filled them with real products, the content sat
+   flush against the viewport edge with an unstyled hero.
+
+   Scoped to .pmew-generated-page so the nine pages with their own showcase
+   styling are unaffected.
+   ========================================================================== */
+
+.pmew-generated-page {
+    display: block;
+    padding: 42px 0 90px;
+    background: linear-gradient(180deg, #f5f8fb 0%, #ffffff 42%);
+}
+
+.pmew-generated-page .showcase-container {
+    width: min(1320px, 100%);
+    margin: 0 auto;
+    padding: 0 clamp(18px, 4vw, 46px);
+}
+
+.pmew-generated-page .showcase-hero {
+    margin-bottom: 30px;
+    padding: clamp(30px, 4vw, 54px);
+    border: 1px solid var(--pmew-line);
+    border-radius: 26px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(13, 54, 82, 0.06);
+}
+
+.pmew-generated-page .hero-badge {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 18px;
+    border: 1px solid rgba(197, 160, 40, 0.34);
+    border-radius: 999px;
+    background: rgba(197, 160, 40, 0.1);
+    color: #8a6d13;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+.pmew-generated-page .showcase-title {
+    margin: 0 0 16px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(38px, 6vw, 66px);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.5px;
+}
+
+.pmew-generated-page .showcase-desc {
+    max-width: 74ch;
+    margin: 0;
+    color: #4a5568;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   13. GLOBAL TOOLBAR  (review point 1)
+   Sticky so search and filters stay reachable while scrolling long families.
+   ========================================================================== */
+
+.pmew-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin: 0 0 18px;
+    padding: 14px 18px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 26px rgba(13, 54, 82, 0.07);
+}
+
+.pmew-toolbar-search {
+    position: relative;
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+.pmew-toolbar-input {
+    width: 100%;
+    height: 46px;
+    padding: 0 16px;
+    border: 1px solid #d6e0ea;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #122b40;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.pmew-toolbar-input:focus {
+    outline: none;
+    border-color: var(--pmew-navy);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+}
+
+.pmew-toolbar-btn,
+.pmew-toolbar-clear,
+.pmew-toolbar-basket {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 46px;
+    padding: 0 18px;
+    border: 1px solid #d6e0ea;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pmew-toolbar-btn:hover,
+.pmew-toolbar-clear:hover {
+    border-color: var(--pmew-navy);
+    background: #f4f8fc;
+}
+
+.pmew-toolbar-basket {
+    border-color: var(--pmew-navy);
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-toolbar-basket:hover { background: var(--pmew-navy-deep); }
+
+.pmew-toolbar-badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--pmew-orange);
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.pmew-toolbar-count {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pmew-headbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.pmew-breadcrumb-item {
+    border: 0;
+    background: none;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+button.pmew-breadcrumb-item:hover { color: var(--pmew-orange); text-decoration: underline; }
+strong.pmew-breadcrumb-item { color: var(--pmew-orange); font-weight: 800; cursor: default; }
+
+/* ==========================================================================
+   14. WORKSPACE + FACET RAIL
+   ========================================================================== */
+
+.pmew-workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.pmew-facets-open .pmew-workspace { grid-template-columns: 268px minmax(0, 1fr); }
+
+.pmew-facet-rail {
+    display: none;
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    padding: 18px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+.pmew-facets-open .pmew-facet-rail { display: block; }
+
+.pmew-facet-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-facet-head strong {
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pmew-facet-reset {
+    border: 0;
+    background: none;
+    color: var(--pmew-orange);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pmew-facet-group { margin-bottom: 18px; }
+
+.pmew-facet-group h4 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 9px;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.pmew-facet-active {
+    display: inline-grid;
+    place-items: center;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 999px;
+    background: var(--pmew-orange);
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.pmew-facet-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    transition: background 0.15s ease;
+}
+
+.pmew-facet-option:hover { background: #f4f8fc; }
+.pmew-facet-option.is-checked { background: rgba(10, 61, 98, 0.06); font-weight: 700; }
+.pmew-facet-option input { accent-color: var(--pmew-navy); flex: 0 0 auto; }
+.pmew-facet-name { flex: 1; min-width: 0; color: #2c4055; overflow-wrap: anywhere; }
+.pmew-facet-count { color: #8fa2b4; font-size: 11px; font-weight: 700; }
+
+.pmew-facet-more {
+    margin-top: 5px;
+    border: 0;
+    background: none;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pmew-facet-empty { color: var(--pmew-muted); font-size: 12px; }
+
+/* ==========================================================================
+   15. SUB-TYPE RAIL  (review points 6, 8)
+   ========================================================================== */
+
+.pmew-subtype-rail {
+    position: sticky;
+    top: 78px;
+    z-index: 35;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 11px 14px;
+    overflow-x: auto;
+    border: 1px solid var(--pmew-line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmew-rail-label {
+    flex: 0 0 auto;
+    padding-right: 6px;
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pmew-rail-chip {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 14px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pmew-rail-chip:hover { border-color: rgba(10, 61, 98, 0.3); background: #f4f8fc; }
+.pmew-rail-chip.active { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-rail-chip small {
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.08);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.pmew-rail-chip.active small { background: rgba(255, 255, 255, 0.22); }
+
+/* ==========================================================================
+   16. GRID DRILL-DOWN  (review point 8)
+   ========================================================================== */
+
+.pmew-family-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.pmew-family-card-meta {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pmew-family-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    background: none;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pmew-drill-header {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 26px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 24px;
+    background: linear-gradient(135deg, #ffffff, #f6f9fc);
+}
+
+.pmew-drill-eyebrow {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: var(--pmew-orange);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.pmew-drill-copy h3 {
+    margin: 0 0 10px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: 900;
+    line-height: 1.18;
+}
+
+.pmew-drill-copy p {
+    max-width: 68ch;
+    margin: 0 0 18px;
+    color: #4a5568;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.72;
+}
+
+.pmew-drill-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin-bottom: 16px;
+}
+
+.pmew-drill-stats span {
+    display: flex;
+    flex-direction: column;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.pmew-drill-stats strong {
+    color: var(--pmew-navy);
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.pmew-drill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.pmew-drill-link:hover { color: var(--pmew-orange); }
+
+.pmew-subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.pmew-subtype-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 18px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.pmew-subtype-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--pmew-navy);
+    box-shadow: 0 16px 38px rgba(13, 54, 82, 0.12);
+}
+
+.pmew-subtype-media {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 104px;
+    border-radius: 12px;
+    background: #f7fafc;
+    color: rgba(10, 61, 98, 0.35);
+    font-size: 26px;
+    overflow: hidden;
+}
+
+.pmew-subtype-media img { max-width: 88%; max-height: 88%; object-fit: contain; }
+
+.pmew-subtype-name {
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.pmew-subtype-count {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pmew-type-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 22px;
+    border-top: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-type-strip-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 11px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 12px;
+    background: #fbfdff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pmew-type-strip-item strong { color: var(--pmew-navy); font-size: 12.5px; font-weight: 800; }
+.pmew-type-strip-item span { color: var(--pmew-muted); font-size: 11px; }
+
+.pmew-drill-results-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.pmew-drill-results-head strong {
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.pmew-chip-clear {
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    padding: 7px 15px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   17. DETAILS CARD SPEC PANEL  (review point 3)
+   ========================================================================== */
+
+.pmew-detail-rows {
+    display: grid;
+    gap: 4px;
+    margin: 10px 0 0;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-detail-row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 10px;
+    align-items: baseline;
+}
+
+.pmew-detail-row dt {
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+}
+
+.pmew-detail-row dd {
+    margin: 0;
+    color: #2c4055;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.pmew-detail-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgba(197, 160, 40, 0.35);
+    border-radius: 999px;
+    background: rgba(197, 160, 40, 0.09);
+    color: #8a6d13;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.pmew-tool-link:hover { background: rgba(197, 160, 40, 0.2); }
+.pmew-tool-link .pmew-icon { font-size: 12px; }
+
+.pmew-card-compare {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 42px;
+    padding: 0 13px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pmew-card-compare:hover { border-color: var(--pmew-navy); background: #f4f8fc; }
+
+.pmew-card-compare.is-added {
+    border-color: var(--pmew-orange);
+    background: rgba(242, 140, 40, 0.12);
+    color: #b65d08;
+}
+
+.pmew-detail-actions { grid-template-columns: 1fr auto; }
+
+.pmew-detail-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 8px;
+    padding: 9px;
+    border-radius: 10px;
+    background: #f5f8fb;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 0;
+    height: auto;
+}
+
+.pmew-detail-open:hover { background: var(--pmew-navy); color: #ffffff; }
+
+/* ==========================================================================
+   18. MATRIX MULTI-SELECT  (review points 4, 7)
+   ========================================================================== */
+
+.pmew-chip-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--pmew-line);
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.pmew-chip-select:hover { border-color: rgba(10, 61, 98, 0.35); transform: translateY(-1px); }
+
+.pmew-chip-select.is-picked {
+    border-color: var(--pmew-navy);
+    background: rgba(10, 61, 98, 0.08);
+    font-weight: 700;
+}
+
+.pmew-chip-select.is-in-enquiry { border-color: rgba(18, 128, 92, 0.4); }
+
+.pmew-chip-box {
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    border: 1.5px solid #b9c8d6;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.pmew-chip-select.is-picked .pmew-chip-box {
+    border-color: var(--pmew-navy);
+    background: var(--pmew-navy);
+}
+
+.pmew-chip-flag { color: #12805c; font-size: 11px; }
+
+.pmew-select-all,
+.pmew-footer-note {
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    padding: 6px 13px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pmew-select-all:hover { background: var(--pmew-navy); color: #ffffff; }
+.pmew-footer-note { border-style: dashed; color: #8fa2b4; cursor: default; }
+
+/* Property-class blocks — review point 7 */
+.pmew-class-block {
+    margin-bottom: 26px;
+    padding: 20px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fbfdff, #ffffff);
+}
+
+.pmew-class-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.pmew-class-badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 62px;
+    padding: 7px 14px;
+    border-radius: 10px;
+    background: var(--pmew-navy);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.pmew-class-head h5 {
+    margin: 0;
+    flex: 1;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.pmew-class-count {
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+/* Batch selection bar — canonical PMEW shared UI
+   Used by Customised Products and Individual PDP alternative selection. */
+.pmew-selection-bar {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 68020;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    min-height: 62px;
+    padding: 9px 10px 9px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #d5e2ea;
+    border-radius: 18px;
+    background: rgba(255,255,255,.985);
+    color: #0b3553;
+    box-shadow: 0 18px 42px rgba(8,46,72,.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 18px);
+    transition: opacity .2s ease, transform .22s ease, visibility .2s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pmew-selection-bar.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.pmew-selbar-count {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 13px;
+    border: 1px solid #e1e9ef;
+    border-radius: 12px;
+    background: #f7fafc;
+    color: #49677d;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.pmew-selbar-count strong {
+    color: #e87616;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.pmew-selbar-warn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #b75b0d;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pmew-selection-bar button,
+.pmew-selbar-btn {
+    min-height: 42px;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: .018em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.pmew-selection-bar button i,
+.pmew-selection-bar button svg,
+.pmew-selection-bar button .pmew-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+.pmew-selbar-primary,
+.pmew-selection-bar [data-add-selected],
+.pmew-selection-bar [data-add-compare-selection],
+.pmew-selection-bar [data-pdp-add-selected-alternatives] {
+    border: 1px solid #0b3553;
+    background: #0b3553;
+    color: #fff;
+    box-shadow: 0 7px 16px rgba(11,53,83,.13);
+}
+.pmew-selbar-primary:not(:disabled):hover,
+.pmew-selbar-primary:not(:disabled):focus-visible,
+.pmew-selection-bar [data-add-selected]:not(:disabled):hover,
+.pmew-selection-bar [data-add-compare-selection]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-add-selected-alternatives]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-add-selected-alternatives]:not(:disabled):focus-visible {
+    border-color: #072a43;
+    background: #072a43;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.pmew-selbar-secondary,
+.pmew-selection-bar [data-compare-selected],
+.pmew-selection-bar [data-open-shared-compare],
+.pmew-selection-bar [data-pdp-open-selected-compare] {
+    border: 1px solid #b9ccda;
+    background: #fff;
+    color: #0b3553;
+}
+.pmew-selbar-secondary:not(:disabled):hover,
+.pmew-selbar-secondary:not(:disabled):focus-visible,
+.pmew-selection-bar [data-compare-selected]:not(:disabled):hover,
+.pmew-selection-bar [data-open-shared-compare]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-open-selected-compare]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-open-selected-compare]:not(:disabled):focus-visible {
+    border-color: #0b3553;
+    background: #f3f8fb;
+    color: #072a43;
+    transform: translateY(-1px);
+}
+
+.pmew-selbar-clear,
+.pmew-selection-bar [data-clear-selection],
+.pmew-selection-bar [data-clear-shared-compare],
+.pmew-selection-bar [data-pdp-clear-selection] {
+    border: 1px solid #d8e3ea;
+    background: #f7fafc;
+    color: #5f7688;
+}
+.pmew-selbar-clear:not(:disabled):hover,
+.pmew-selbar-clear:not(:disabled):focus-visible,
+.pmew-selection-bar [data-clear-selection]:not(:disabled):hover,
+.pmew-selection-bar [data-clear-shared-compare]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-clear-selection]:not(:disabled):hover,
+.pmew-selection-bar [data-pdp-clear-selection]:not(:disabled):focus-visible {
+    border-color: #c7d6e1;
+    background: #eef4f8;
+    color: #0b3553;
+}
+
+.pmew-selection-bar button:disabled {
+    opacity: .42;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================================================
+   19. CHART LEAF ACTIONS  (review point 5)
+   ========================================================================== */
+
+.pmew-chart-leaf {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.pmew-chart-leaf-name { flex: 1; min-width: 0; }
+.pmew-chart-leaf.is-in-enquiry { border-left-color: #12805c !important; }
+
+.pmew-chart-add {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.pmew-chart-add:hover { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-chart-add.is-added {
+    border-color: rgba(18, 128, 92, 0.4);
+    background: #eaf7f2;
+    color: #12805c;
+}
+
+.pmew-chart-add-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px dashed rgba(10, 61, 98, 0.3);
+    border-radius: 10px;
+    background: #f7fafd;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pmew-chart-add-all:hover { border-style: solid; background: var(--pmew-navy); color: #ffffff; }
+
+/* ==========================================================================
+   20. COMPARE TRAY + MODAL  (review point 2)
+   ========================================================================== */
+
+.pmew-compare-tray {
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    z-index: 1150;
+    display: flex;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    background: #14212e;
+    box-shadow: 0 20px 48px rgba(7, 43, 68, 0.32);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.pmew-compare-tray.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.pmew-compare-tray-inner { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+.pmew-compare-tray-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pmew-compare-tray-label strong { color: var(--pmew-gold); font-size: 14px; }
+
+.pmew-compare-thumbs { display: flex; gap: 7px; }
+
+.pmew-compare-thumb {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.pmew-compare-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.pmew-compare-thumb-blank { color: rgba(10, 61, 98, 0.4); font-size: 16px; }
+
+.pmew-compare-thumb-remove {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: grid;
+    place-items: center;
+    width: 17px;
+    height: 17px;
+    border: 0;
+    border-radius: 999px;
+    background: #d64545;
+    color: #ffffff;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.pmew-compare-tray-actions { display: flex; gap: 8px; }
+
+.pmew-compare-open,
+.pmew-compare-clear {
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 999px;
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pmew-compare-open { border-color: var(--pmew-gold); background: var(--pmew-gold); color: #14212e; }
+.pmew-compare-open:disabled { opacity: 0.45; cursor: not-allowed; }
+.pmew-compare-clear:hover { background: rgba(255, 255, 255, 0.12); }
+
+.pmew-compare-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    background: rgba(9, 30, 48, 0.55);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.pmew-compare-overlay.is-open { opacity: 1; visibility: visible; }
+
+.pmew-compare-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1310;
+    display: flex;
+    flex-direction: column;
+    width: min(1180px, calc(100vw - 40px));
+    max-height: min(86vh, 900px);
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 40px 100px rgba(7, 43, 68, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -46%) scale(0.98);
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+    overflow: hidden;
+}
+
+.pmew-compare-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+body.pmew-compare-open { overflow: hidden; }
+
+.pmew-compare-modal-head {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 26px;
+    border-bottom: 1px solid var(--pmew-line);
+}
+
+.pmew-compare-eyebrow {
+    color: var(--pmew-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pmew-compare-modal-head h2 {
+    margin: 4px 0 0;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.pmew-compare-head-actions { display: flex; gap: 14px; align-items: center; }
+
+.pmew-compare-diffonly {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pmew-compare-diffonly input { accent-color: var(--pmew-navy); }
+
+.pmew-compare-close {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pmew-compare-close:hover { background: #f4f8fc; }
+
+.pmew-compare-scroll { flex: 1; overflow: auto; padding: 22px 26px 30px; }
+
+.pmew-compare-summary {
+    margin: 0 0 14px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pmew-compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pmew-compare-table th,
+.pmew-compare-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--pmew-line-soft);
+    text-align: left;
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.pmew-compare-corner,
+.pmew-compare-table tbody th {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 150px;
+    background: #f7fafd;
+    color: #37516a;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.pmew-compare-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #ffffff;
+    border-bottom: 2px solid var(--pmew-line);
+}
+
+.pmew-compare-corner { z-index: 4; }
+
+.pmew-compare-col-inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; min-width: 190px; }
+.pmew-compare-col-inner img { width: 100%; max-width: 130px; height: 82px; object-fit: contain; }
+.pmew-compare-col-inner strong { color: var(--pmew-navy); font-size: 13.5px; font-weight: 800; line-height: 1.3; }
+
+.pmew-compare-col-remove {
+    border: 0;
+    background: none;
+    color: #d64545;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+}
+
+.pmew-compare-col-add { margin-top: 0; }
+
+/* Rows where every product agrees are dimmed, so differences read first. */
+.pmew-compare-same td,
+.pmew-compare-same th { color: #9aabbb; background: #fcfdfe; }
+.pmew-compare-diff td { color: #16283a; font-weight: 600; }
+
+.pmew-compare-diff-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: 6px;
+    border-radius: 999px;
+    background: var(--pmew-orange);
+    vertical-align: middle;
+}
+
+.pmew-compare-na { color: #c3cfda; }
+.pmew-compare-empty { color: var(--pmew-muted); font-family: 'Montserrat', sans-serif; font-size: 13px; }
+
+/* ==========================================================================
+   21. MICRO-INTERACTIONS + VIEW TRANSITIONS
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) { animation: pmew-fade-out 0.18s ease both; }
+    ::view-transition-new(root) { animation: pmew-fade-in 0.26s ease both; }
+
+    .pmew-detail-card,
+    .pmew-subtype-card { will-change: transform; }
+}
+
+@keyframes pmew-fade-out { to { opacity: 0; } }
+@keyframes pmew-fade-in { from { opacity: 0; transform: translateY(6px); } }
+
+.pmew-card-enquiry.is-added .pmew-icon { animation: pmew-pop 0.32s ease; }
+
+@keyframes pmew-pop {
+    0% { transform: scale(0.5); }
+    60% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   22. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+    .pmew-facets-open .pmew-workspace { grid-template-columns: 1fr; }
+    .pmew-facet-rail { position: static; max-height: none; }
+    .pmew-drill-header { grid-template-columns: 1fr; gap: 20px; }
+    .pmew-compare-modal { width: calc(100vw - 20px); max-height: 92vh; }
+}
+
+@media (max-width: 700px) {
+    .pmew-toolbar { padding: 11px 12px; border-radius: 14px; }
+    .pmew-toolbar-count { display: none; }
+    .pmew-selection-bar {
+        left: 50%;
+        right: auto;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        width: calc(100vw - 24px);
+        min-height: 0;
+        padding: 10px;
+        gap: 7px;
+        border-radius: 16px;
+        flex-wrap: wrap;
+        transform: translate(-50%, 18px);
+    }
+    .pmew-selection-bar.is-visible { transform: translate(-50%, 0); }
+    .pmew-selection-bar .pmew-selbar-count { width: 100%; justify-content: center; }
+    .pmew-selection-bar button { min-height: 40px; flex: 1 1 auto; padding: 0 12px; font-size: 10px; }
+    .pmew-compare-tray { left: 12px; right: 12px; bottom: 78px; }
+    .pmew-drill-stats { gap: 16px; }
+    .pmew-drill-stats strong { font-size: 20px; }
+}
+
+@media print {
+    .pmew-toolbar, .pmew-subtype-rail, .pmew-facet-rail,
+    .pmew-selection-bar, .pmew-compare-tray, .pmew-compare-modal,
+    .pmew-compare-overlay { display: none !important; }
+}
+
+/* ==========================================================================
+   23. COMPARE TABLE LAYOUT  (bug fix)
+   --------------------------------------------------------------------------
+   Two faults caught in headless Chromium:
+
+   1. The table auto-sized its columns to content, so the first product ate the
+      full width and products 2 and 3 sat off-screen with no scroll cue. Fixed
+      layout with explicit column widths puts all four columns in view.
+   2. An inherited text-transform from products.css was upper-casing every cell,
+      turning "DIN 931 · DIN 933" into shouting and making mixed-case values
+      like "42CrMo4 / AISI 4140" unreadable. Reset locally.
+   ========================================================================== */
+
+.pmew-compare-table {
+    table-layout: fixed;
+    width: 100%;
+    min-width: 0;
+}
+
+.pmew-compare-corner,
+.pmew-compare-table tbody th {
+    width: 124px;
+    min-width: 0;
+}
+
+.pmew-compare-col { width: auto; }
+
+.pmew-compare-table th,
+.pmew-compare-table td {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    overflow-wrap: anywhere;
+}
+
+/* Row labels keep their small-caps treatment. */
+.pmew-compare-corner,
+.pmew-compare-table tbody th {
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.pmew-compare-col-inner {
+    min-width: 0;
+    width: 100%;
+    align-items: stretch;
+    text-align: center;
+}
+
+.pmew-compare-col-inner img {
+    max-width: 100%;
+    height: 74px;
+    margin: 0 auto;
+}
+
+.pmew-compare-col-inner strong { text-align: center; }
+
+.pmew-compare-col-add {
+    width: 100%;
+    min-height: 36px;
+    margin-top: 2px;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+}
+
+.pmew-compare-col-add .pmew-icon { font-size: 11px; }
+
+/* Below three columns the fixed layout gets cramped; allow horizontal scroll. */
+@media (max-width: 820px) {
+    .pmew-compare-table { table-layout: auto; width: auto; min-width: 100%; }
+    .pmew-compare-col-inner { min-width: 150px; }
+}
+
+/* Long values (standards lists, material lists) were overflowing their column
+   and printing on top of the neighbouring product, because an inherited
+   white-space:nowrap from products.css defeated the fixed table layout. */
+.pmew-compare-table td,
+.pmew-compare-table th {
+    white-space: normal !important;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* ==========================================================================
+   24. STICKY CATEGORY RAIL ON FAMILY PAGES  (review point 6)
+   ========================================================================== */
+
+.pmew-cat-rail {
+    position: sticky;
+    top: 8px;
+    z-index: 30;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 0 0 26px;
+    padding: 11px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 26px rgba(13, 54, 82, 0.07);
+}
+
+.pmew-cat-rail-label {
+    flex: 0 0 auto;
+    color: #8fa2b4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.pmew-cat-rail-track {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmew-cat-rail-track::-webkit-scrollbar { height: 4px; }
+.pmew-cat-rail-track::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(10, 61, 98, 0.18); }
+
+.pmew-cat-chip {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 15px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pmew-cat-chip:hover { border-color: rgba(10, 61, 98, 0.3); background: #f4f8fc; }
+
+.pmew-cat-chip.is-current {
+    border-color: var(--pmew-navy);
+    background: var(--pmew-navy);
+    color: #ffffff;
+}
+
+.pmew-cat-chip small {
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(10, 61, 98, 0.08);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.pmew-cat-chip.is-current small { background: rgba(255, 255, 255, 0.22); }
+
+@media (max-width: 700px) {
+    .pmew-cat-rail { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 12px; }
+    .pmew-cat-rail-label { padding-left: 2px; }
+}
+
+@media print { .pmew-cat-rail { display: none !important; } }
+
+/* ==========================================================================
+   25. PRODUCT DETAIL PAGES
+   --------------------------------------------------------------------------
+   One static page per product (277 of them), generated by
+   tools/build_product_pages.py. These are the pages that can rank for
+   "DIN 933 hex bolt manufacturer" and the URLs a buyer can paste into an RFQ.
+   ========================================================================== */
+
+body.pmew-product-page {
+    margin: 0;
+    background: #f6f9fc;
+    font-family: 'Montserrat', sans-serif;
+    color: #16283a;
+}
+
+.pmew-pd-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 34px 22px 90px;
+}
+
+.pmew-pd-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pmew-pd-crumb a { color: var(--pmew-navy); text-decoration: none; }
+.pmew-pd-crumb a:hover { color: var(--pmew-orange); text-decoration: underline; }
+.pmew-pd-crumb span { color: #b9c8d6; }
+.pmew-pd-crumb strong { color: var(--pmew-orange); font-weight: 800; }
+
+.pmew-pd-hero {
+    display: grid;
+    grid-template-columns: 380px minmax(0, 1fr);
+    gap: 36px;
+    align-items: start;
+    margin-bottom: 34px;
+    padding: 30px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 10px 34px rgba(13, 54, 82, 0.06);
+}
+
+.pmew-pd-media {
+    display: grid;
+    place-items: center;
+    min-height: 280px;
+    padding: 22px;
+    border-radius: 18px;
+    background: #f7fafd;
+    overflow: hidden;
+}
+
+.pmew-pd-media img { max-width: 100%; max-height: 300px; object-fit: contain; }
+
+.pmew-pd-media-blank {
+    color: rgba(10, 61, 98, 0.35);
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.pmew-pd-eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--pmew-orange);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.pmew-pd-title {
+    margin: 0 0 12px;
+    color: var(--pmew-navy);
+    font-size: clamp(24px, 3.2vw, 38px);
+    font-weight: 900;
+    line-height: 1.14;
+}
+
+.pmew-pd-lead {
+    max-width: 62ch;
+    margin: 0 0 22px;
+    color: #4a5568;
+    font-size: 14.5px;
+    line-height: 1.75;
+}
+
+.pmew-pd-keyspecs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--pmew-line-soft);
+    border-bottom: 1px solid var(--pmew-line-soft);
+}
+
+.pmew-pd-keyspec { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+.pmew-pd-keyspec small {
+    color: #8fa2b4;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.pmew-pd-keyspec strong {
+    color: var(--pmew-navy);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.pmew-pd-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.pmew-pd-enquiry { min-width: 220px; }
+
+.pmew-pd-secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 20px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pmew-pd-secondary:hover { border-color: var(--pmew-navy); background: #f4f8fc; }
+
+.pmew-pd-source { margin: 0; color: #8fa2b4; font-size: 11.5px; line-height: 1.6; }
+
+.pmew-pd-section {
+    margin-bottom: 26px;
+    padding: 28px 30px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 22px;
+    background: #ffffff;
+}
+
+.pmew-pd-section h2 {
+    margin: 0 0 18px;
+    color: var(--pmew-navy);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+.pmew-pd-note { margin: -8px 0 16px; color: #8fa2b4; font-size: 12px; line-height: 1.65; }
+
+.pmew-pd-table { width: 100%; border-collapse: collapse; }
+
+.pmew-pd-table th,
+.pmew-pd-table td {
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--pmew-line-soft);
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.pmew-pd-table th {
+    width: 200px;
+    color: #8fa2b4;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.pmew-pd-table td { color: #24384c; }
+
+.pmew-pd-xref { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+
+.pmew-pd-xref li {
+    padding: 11px 16px;
+    border-left: 3px solid var(--pmew-gold);
+    border-radius: 0 10px 10px 0;
+    background: #fbfaf5;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4c3f16;
+}
+
+.pmew-pd-tools { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.pmew-pd-tool {
+    padding: 13px 20px;
+    border: 1px solid rgba(197, 160, 40, 0.4);
+    border-radius: 12px;
+    background: rgba(197, 160, 40, 0.08);
+    color: #7d6212;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.pmew-pd-tool:hover { background: rgba(197, 160, 40, 0.2); }
+
+.pmew-pd-related { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.pmew-pd-related a {
+    padding: 9px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--pmew-navy);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pmew-pd-related a:hover { border-color: var(--pmew-navy); background: var(--pmew-navy); color: #ffffff; }
+
+.pmew-pd-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 30px;
+    align-items: center;
+    padding: 34px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--pmew-navy), #14212e);
+    color: #ffffff;
+}
+
+.pmew-pd-cta h2 { margin: 0 0 10px; font-size: 22px; font-weight: 900; }
+.pmew-pd-cta p { margin: 0; max-width: 62ch; color: rgba(255, 255, 255, 0.78); font-size: 13.5px; line-height: 1.75; }
+
+.pmew-pd-cta-actions { display: flex; flex-direction: column; gap: 10px; }
+
+.pmew-pd-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 0 26px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--pmew-gold);
+    color: #14212e;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pmew-pd-cta-btn:hover { background: #d8b134; }
+
+.pmew-pd-cta-link {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 11.5px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.pmew-pd-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+}
+
+.pmew-pd-index a {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 13px 16px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 12px;
+    background: #ffffff;
+    text-decoration: none;
+}
+
+.pmew-pd-index a:hover { border-color: var(--pmew-navy); background: #f4f8fc; }
+.pmew-pd-index strong { color: var(--pmew-navy); font-size: 13px; font-weight: 800; }
+.pmew-pd-index small { color: #8fa2b4; font-size: 11px; font-weight: 600; }
+
+@media (max-width: 900px) {
+    .pmew-pd-hero { grid-template-columns: 1fr; gap: 24px; padding: 22px; }
+    .pmew-pd-cta { grid-template-columns: 1fr; }
+    .pmew-pd-table th { width: 130px; }
+    .pmew-pd-section { padding: 22px 20px; }
+}
+
+/* The eyebrow carries family + full category name, which on bolt products runs
+   to "Specialty Bolts (High Strength and Custom Applications)" and was being
+   clipped by the hero's grid column. Let it wrap. */
+.pmew-pd-eyebrow {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* The gallery breadcrumb reused the .pmew-fp-sep separator, but that rule was
+   scoped to .pmew-fp-breadcrumb (the family pages), so on the gallery the
+   chevrons rendered with no spacing at all — "Customized ProductsProduct
+   FamiliesScrews". Give the gallery breadcrumb its own layout. */
+.pradako-custom-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    min-width: 0;
+}
+
+.pradako-custom-breadcrumb .pmew-fp-sep {
+    color: #b9c8d6;
+    font-size: 13px;
+    line-height: 1;
+}
+
+/* display:flex on the rail was overriding the [hidden] attribute, so a family
+   with nothing to show still rendered an empty white bar. */
+.pmew-subtype-rail[hidden] { display: none !important; }
+
+/* ==========================================================================
+   26. STATIC CRAWL INDEX
+   --------------------------------------------------------------------------
+   bolt, pin, stainless-steel and high-tensile build their product cards at
+   runtime, so the HTML a crawler sees contained no product links at all. This
+   block lists every product as a plain <a>, giving the crawl a route to all
+   286 detail pages. It is a genuine index for a human too — someone who knows
+   the product name can find it faster here than by scrolling the cards — so it
+   is styled quietly rather than hidden.
+
+   It must NOT be display:none. Hidden link farms are a spam signal and will do
+   more harm than the links do good.
+   ========================================================================== */
+
+.pmew-crawl-index {
+    max-width: 1240px;
+    margin: 46px auto 0;
+    padding: 34px 26px;
+    border-top: 1px solid var(--pmew-line);
+}
+
+.pmew-crawl-index h2 {
+    margin: 0 0 6px;
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.pmew-crawl-index > p {
+    margin: 0 0 24px;
+    color: var(--pmew-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+}
+
+.pmew-crawl-group { margin-bottom: 22px; }
+
+.pmew-crawl-group h3 {
+    margin: 0 0 10px;
+    color: #37516a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+.pmew-crawl-group ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 4px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pmew-crawl-group a {
+    display: block;
+    padding: 5px 0;
+    color: #4a5f74;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.pmew-crawl-group a:hover {
+    color: var(--pmew-navy);
+    border-bottom-color: var(--pmew-line);
+}
+
+@media (max-width: 700px) {
+    .pmew-crawl-index { padding: 26px 16px; }
+    .pmew-crawl-group ul { grid-template-columns: 1fr; }
+}
+
+.pmew-az-link {
+    margin: 34px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--pmew-line-soft);
+    text-align: center;
+}
+
+.pmew-az-link a {
+    color: var(--pmew-navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 800;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pmew-line);
+}
+
+.pmew-az-link a:hover { color: var(--pmew-orange); border-bottom-color: var(--pmew-orange); }
+
+/* Part number on the generated product detail pages. */
+.pmew-pd-partno {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 5px 12px;
+    border: 1px solid var(--pmew-line);
+    border-radius: 7px;
+    background: #f1f5f9;
+    color: var(--pmew-navy);
+    font-family: 'Space Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    user-select: all;
+}
+
+/* ==========================================================================
+   27. PRODUCT NAME LINKS ON FAMILY PAGES  (bug fix)
+   --------------------------------------------------------------------------
+   Making the product name a crawlable <a> gave the 286 detail pages a route in,
+   but nothing styled the anchor. The cards rendered with raw browser link
+   colours — blue underlined, and purple once visited, so a page read as half
+   visited and half not, like a 1997 directory.
+
+   The anchor inherits the heading's typography entirely. It must still LOOK
+   like a heading; only the cursor and the hover reveal that it is a link.
+   ========================================================================== */
+
+.product-card .card-content h3 a,
+.pill-card .card-content a,
+.special-card h3 a,
+.head-card h3 a,
+.mega-category .card-content a {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    transition: color 0.2s ease;
+}
+
+.product-card .card-content h3 a:visited,
+.pill-card .card-content a:visited,
+.special-card h3 a:visited,
+.head-card h3 a:visited,
+.mega-category .card-content a:visited {
+    color: inherit;
+}
+
+.product-card .card-content h3 a:hover,
+.pill-card .card-content a:hover,
+.special-card h3 a:hover,
+.head-card h3 a:hover,
+.mega-category .card-content a:hover {
+    color: #F28C28;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.product-card .card-content h3 a:focus-visible,
+.mega-category .card-content a:focus-visible {
+    outline: 2px solid #0A3D62;
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+/* The static crawl index is a list of links and SHOULD look like one, but not
+   like unstyled browser links. */
+.pmew-crawl-group a:visited { color: #4a5f74; }

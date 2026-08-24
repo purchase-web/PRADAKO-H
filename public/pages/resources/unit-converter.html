@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fastener Unit Converter | Pradako Engineering Tools</title>
+<meta name="description" content="Convert torque, force, stress, length, mass, area and temperature for fastener engineering, plus indicative HRC / HB / HV / tensile hardness cross-reference.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- PMEW GLOBAL STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" >
+<style>
+.fastener-tool-page{--tk-white:#fff;--tk-off:#f4f5f7;--tk-ink:#0E2033;--tk-ink-deep:#081522;--tk-muted:#5f6875;--tk-line:#dde1e7;
+ --tk-ac:#C2540C;--tk-ac-bright:#FF8A2B;--tk-ac-soft:#fdf1e7;--tk-ok:#0B7A4B;--tk-ok-soft:#e9f7f0;--tk-warn:#B3261E;--tk-warn-soft:#fdf3f2;
+ --tk-d:"Montserrat",Arial,sans-serif;--tk-b:"Space Grotesk",Arial,sans-serif;--tk-m:"JetBrains Mono",ui-monospace,monospace;
+ --tk-max:1320px;--tk-e:cubic-bezier(.2,.8,.2,1)}
+.fastener-tool-page,.fastener-tool-page *{margin:0;padding:0;box-sizing:border-box}
+.fastener-tool-page{background:var(--tk-white);color:#30363f;font-family:var(--tk-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.fastener-tool-page ::selection{background:var(--tk-ac);color:#fff}
+.fastener-tool-page a{color:inherit;text-decoration:none}
+.fastener-tool-page :focus-visible{outline:3px solid var(--tk-ac);outline-offset:3px}
+.fastener-tool-page .tk-wrap{max-width:var(--tk-max);margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+.fastener-tool-page .tk-sec{padding:clamp(38px,4.4vw,64px) 0}
+.fastener-tool-page .tk-paper{background:var(--tk-off);border-top:1px solid var(--tk-line);border-bottom:1px solid var(--tk-line)}
+
+.fastener-tool-page .tk-bar{background:var(--tk-ink);position:sticky;top:0;z-index:20}
+.fastener-tool-page .tk-bar__in{display:flex;align-items:center;gap:18px;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.fastener-tool-page .tk-bar__in::-webkit-scrollbar{display:none}
+.fastener-tool-page .tk-bar__id{font-family:var(--tk-d);font-weight:900;color:#fff;font-size:14px;letter-spacing:-.01em;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.16)}
+.fastener-tool-page .tk-bar__id span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar a{font-family:var(--tk-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.fastener-tool-page .tk-bar a:hover,.fastener-tool-page .tk-bar a.on{color:var(--tk-ac-bright);border-bottom-color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar__sp{flex:1}
+.fastener-tool-page .tk-units{display:inline-flex;border:1.5px solid rgba(255,255,255,.28)}
+.fastener-tool-page .tk-units button{font-family:var(--tk-m);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer}
+.fastener-tool-page .tk-units button.on{background:var(--tk-ac);color:#fff!important;border-color:var(--tk-ac)!important}
+
+.fastener-tool-page .tk-hero{padding:clamp(34px,4vw,58px) 0 clamp(20px,2.4vw,32px);position:relative;overflow:hidden;background:var(--tk-white)}
+.fastener-tool-page .tk-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(194,84,12,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(194,84,12,.07) 1px,transparent 1px);background-size:44px 44px;
+ mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%)}
+.fastener-tool-page .tk-hero .tk-wrap{position:relative;z-index:2}
+.fastener-tool-page .tk-eyebrow{font-family:var(--tk-m);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-ac);display:inline-flex;align-items:center;gap:11px;margin-bottom:14px}
+.fastener-tool-page .tk-eyebrow::before{content:"";width:26px;border-top:3px double var(--tk-ac)}
+.fastener-tool-page h1{font-family:var(--tk-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;font-size:clamp(32px,5.4vw,68px);color:var(--tk-ink)}
+.fastener-tool-page h1 em{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-sub{margin-top:14px;font-size:15.5px;color:var(--tk-muted);max-width:720px}
+
+.fastener-tool-page .tk-panel{border:2px solid var(--tk-ink);background:var(--tk-white)}
+.fastener-tool-page .tk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--tk-ink)}
+@media(max-width:900px){.fastener-tool-page .tk-grid2{grid-template-columns:1fr}}
+.fastener-tool-page .tk-in{padding:clamp(20px,2.6vw,34px);border-right:1px solid var(--tk-line)}
+@media(max-width:900px){.fastener-tool-page .tk-in{border-right:none;border-bottom:1px solid var(--tk-line)}}
+.fastener-tool-page .tk-out{padding:clamp(20px,2.6vw,34px);background:var(--tk-ink);color:#fff}
+.fastener-tool-page .tk-field{margin-bottom:15px}
+.fastener-tool-page .tk-field label{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tk-muted);font-weight:700;margin-bottom:6px}
+.fastener-tool-page .tk-field label i{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-field select,.fastener-tool-page .tk-field input{width:100%;font-family:var(--tk-b);font-size:15px;color:var(--tk-ink);padding:11px 13px;border:2px solid var(--tk-line);background:var(--tk-white);outline:none;transition:border-color .16s}
+.fastener-tool-page .tk-field select:focus,.fastener-tool-page .tk-field input:focus{border-color:var(--tk-ac)}
+.fastener-tool-page .tk-r2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fastener-tool-page .tk-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:560px){.fastener-tool-page .tk-r2,.fastener-tool-page .tk-r3{grid-template-columns:1fr}}
+.fastener-tool-page .tk-res{margin-bottom:20px}
+.fastener-tool-page .tk-res b{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:700}
+.fastener-tool-page .tk-res span{font-family:var(--tk-d);font-weight:900;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.045em;line-height:.95;display:block}
+.fastener-tool-page .tk-res span em{font-style:normal;font-size:.42em;color:var(--tk-ac-bright);margin-left:6px}
+.fastener-tool-page .tk-res--hi span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-top:18px}
+.fastener-tool-page .tk-mini div{background:var(--tk-ink);padding:11px 13px}
+.fastener-tool-page .tk-mini b{display:block;font-family:var(--tk-m);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;font-weight:700}
+.fastener-tool-page .tk-mini span{font-family:var(--tk-m);font-size:13px;font-weight:700;color:#fff}
+.fastener-tool-page .tk-note{font-family:var(--tk-m);font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;border-top:1px solid rgba(255,255,255,.16);padding-top:13px;margin-top:16px}
+
+.fastener-tool-page .tk-warn{border-left:4px solid var(--tk-warn);background:var(--tk-warn-soft);padding:14px 16px;margin-top:22px}
+.fastener-tool-page .tk-warn b{font-family:var(--tk-d);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--tk-warn);letter-spacing:.02em;display:block;margin-bottom:5px}
+.fastener-tool-page .tk-warn p{font-size:13px;color:#5a4340;line-height:1.6}
+
+.fastener-tool-page .tk-tblwrap{margin-top:22px;border:2px solid var(--tk-ink);overflow:hidden}
+.fastener-tool-page .tk-tblscroll{overflow-x:auto}
+.fastener-tool-page table.tk-tbl{border-collapse:collapse;width:100%;font-family:var(--tk-m);font-size:12.5px}
+.fastener-tool-page table.tk-tbl th,.fastener-tool-page table.tk-tbl td{padding:9px 12px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--tk-line);border-right:1px solid var(--tk-line)}
+.fastener-tool-page table.tk-tbl thead th{background:var(--tk-ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;position:sticky;top:0;z-index:3}
+.fastener-tool-page table.tk-tbl td:first-child,.fastener-tool-page table.tk-tbl thead th:first-child{position:sticky;left:0;background:var(--tk-off);font-weight:700;color:var(--tk-ink);text-align:left;z-index:2}
+.fastener-tool-page table.tk-tbl thead th:first-child{background:var(--tk-ink);color:#fff;z-index:4}
+.fastener-tool-page table.tk-tbl tbody tr:hover td{background:var(--tk-ac-soft)}
+.fastener-tool-page table.tk-tbl tbody tr.hl td{background:var(--tk-ac-soft);color:var(--tk-ac);font-weight:700}
+.fastener-tool-page .tk-filter{display:flex;align-items:center;gap:10px;border:2px solid var(--tk-line);padding:0 14px;background:var(--tk-white);max-width:380px;margin-top:20px}
+.fastener-tool-page .tk-filter input{flex:1;border:none;outline:none;font-family:var(--tk-b);font-size:14.5px;padding:11px 0;background:transparent}
+.fastener-tool-page .tk-filter svg{width:17px;height:17px;color:var(--tk-muted)}
+.fastener-tool-page .tk-btn{font-family:var(--tk-d);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:800;padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--tk-e),background .16s,color .16s}
+.fastener-tool-page .tk-btn--ac{background:var(--tk-ac);color:#fff;border-color:var(--tk-ac)}
+.fastener-tool-page .tk-btn--ac:hover{transform:translateY(-2px)}
+.fastener-tool-page .tk-btn--line{background:transparent;border-color:var(--tk-line);color:var(--tk-ink)}
+.fastener-tool-page .tk-btn--line:hover{border-color:var(--tk-ac);color:var(--tk-ac)}
+.fastener-tool-page .tk-foot{background:var(--tk-ink);color:rgba(255,255,255,.6);padding:26px 0;font-family:var(--tk-m);font-size:11px;letter-spacing:.06em}
+.fastener-tool-page .tk-foot a{color:var(--tk-ac-bright)}
+@media print{.fastener-tool-page .tk-bar,.fastener-tool-page .tk-btn{display:none!important}}
+@media(prefers-reduced-motion:reduce){.fastener-tool-page,.fastener-tool-page *{transition:none!important;animation:none!important}}
+
+/* ==========================================================
+   LIGHT ENGINEERING-TOOLS SUB-NAVIGATION
+   Keeps the utility bar distinct without a heavy dark strip.
+   ========================================================== */
+.fastener-tool-page .tk-bar {
+    background: #ffffff;
+    border-top: 1px solid #e8edf1;
+    border-bottom: 1px solid #dfe5ea;
+    box-shadow: 0 5px 16px rgba(20, 39, 55, 0.045);
+}
+.fastener-tool-page .tk-bar__in {
+    gap: clamp(14px, 1.35vw, 24px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fastener-tool-page .tk-bar__id {
+    color: #24394a;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-right-color: #dce3e8;
+}
+.fastener-tool-page .tk-bar__id span {
+    color: #c75b18;
+}
+.fastener-tool-page .tk-bar a {
+    color: #647481;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-bottom-color: transparent;
+}
+.fastener-tool-page .tk-bar a:hover,
+.fastener-tool-page .tk-bar a.on {
+    color: #c2540c;
+    border-bottom-color: #c2540c;
+}
+.fastener-tool-page .tk-units {
+    border-color: #ccd5dc;
+    background: #f8fafb;
+}
+.fastener-tool-page .tk-units button {
+    color: #61717e;
+    font-weight: 600;
+}
+.fastener-tool-page .tk-units button.on {
+    color: #b64e0e !important;
+    background: #fff2e9;
+    border-color: #f0c7ab !important;
+}
+@media (max-width: 760px) {
+    .fastener-tool-page .tk-bar__in {
+        gap: 16px;
+    }
+    .fastener-tool-page .tk-bar__id {
+        font-size: 12px;
+        padding-right: 13px;
+    }
+    .fastener-tool-page .tk-bar a {
+        font-size: 9.5px;
+    }
+}
+
+
+
+/* ==========================================================
+   PMEW PAGE-LOCAL NAVIGATION LAYER SAFEGUARD
+   Kept in every tool page to prevent stale cached CSS from
+   allowing the sticky tools bar to cover a mega dropdown.
+   ========================================================== */
+#navbar-container{position:relative;z-index:50000;isolation:isolate;overflow:visible!important}
+#navbar-container .main-header{position:relative;z-index:50000!important;isolation:isolate;overflow:visible!important}
+#navbar-container .navbar{position:relative;z-index:50001!important;overflow:visible!important}
+#navbar-container .dropdown .mega-menu{top:calc(100% - 1px)!important;z-index:50010!important}
+.pmew-main{position:relative;z-index:1;isolation:isolate}
+.fastener-tool-page .tk-bar{z-index:20!important}
+body.pmew-mega-open .fastener-tool-page .tk-bar{z-index:0!important;pointer-events:none}
+@media(max-width:768px){#navbar-container{z-index:60000}#navbar-container .mobile-menu-overlay{z-index:60010!important}#navbar-container .mobile-menu-container{z-index:60020!important}}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/resources/unit-converter.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Fastener Unit Converter | Pradako Engineering Tools">
+    <meta property="og:description" content="Convert torque, force, stress, length, mass, area and temperature for fastener engineering, plus indicative HRC / HB / HV / tensile hardness cross-reference.">
+    <meta property="og:url" content="https://www.pradako.co/pages/resources/unit-converter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fastener Unit Converter | Pradako Engineering Tools">
+    <meta name="twitter:description" content="Convert torque, force, stress, length, mass, area and temperature for fastener engineering, plus indicative HRC / HB / HV / tensile hardness cross-reference.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Fastener Unit Converter | Pradako Engineering Tools",
+  "url": "https://www.pradako.co/pages/resources/unit-converter.html",
+  "description": "Convert torque, force, stress, length, mass, area and temperature for fastener engineering, plus indicative HRC / HB / HV / tensile hardness cross-reference.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head><body class="page-products page-fastener-tools">
+<!-- PMEW GLOBAL NAVBAR: injected by /js/navbar.js -->
+<div id="navbar-container"></div>
+
+<main class="pmew-main" id="main-content">
+<div class="fastener-tool-page">
+  <div class="tk-bar">
+    <div class="tk-wrap tk-bar__in">
+      <div class="tk-bar__id">PRADAKO <span>TOOLS</span></div>
+        <a href="/pages/resources/torque-calculator.html">Torque &amp; Preload</a>
+        <a href="/pages/resources/thread-tap-drill.html">Thread &amp; Tap Drill</a>
+        <a href="/pages/resources/weight-calculator.html">Weight Calculator</a>
+        <a href="/pages/resources/container-load.html">Container Load</a>
+        <a href="/pages/resources/head-marking.html">Head Marking</a>
+        <a href="/pages/resources/galvanic-compatibility.html">Galvanic</a>
+        <a href="/pages/resources/unit-converter.html" class="on">Unit Converter</a>
+        <span class="tk-bar__sp"></span>
+      </div>
+    </div>
+
+<header class="tk-hero"><div class="tk-hero__grid"></div><div class="tk-wrap">
+<div class="tk-eyebrow">Engineering tool 04</div>
+<h1>Fastener <em>unit</em> converter</h1>
+<p class="tk-sub">The conversions that actually come up in fastener work — torque, force, stress, length, mass — plus indicative hardness cross-conversion between HRC, HB, HV and tensile strength.</p>
+</div></header>
+
+<section class="tk-sec"><div class="tk-wrap">
+<div class="tk-grid2">
+ <div class="tk-in">
+  <div class="tk-field"><label for="cat">Quantity</label><select id="cat"></select></div>
+  <div class="tk-r2">
+   <div class="tk-field"><label for="fromU">From</label><select id="fromU"></select></div>
+   <div class="tk-field"><label for="toU">To</label><select id="toU"></select></div>
+  </div>
+  <div class="tk-field"><label for="val">Value</label><input id="val" type="number" value="100" step="any"></div>
+  <button class="tk-btn tk-btn--line" id="swap">Swap units</button>
+  <div class="tk-warn" id="hardWarn" style="display:none">
+   <b>Hardness conversion is indicative only</b>
+   <p>Hardness scales measure different things and no exact conversion exists. Values follow ASTM&nbsp;A370 / ISO&nbsp;18265 for non-austenitic steels and are invalid for stainless, non-ferrous, case-hardened or heavily cold-worked material. Never use a converted value for acceptance — test on the scale the specification calls for.</p>
+  </div>
+ </div>
+ <div class="tk-out">
+  <div class="tk-res tk-res--hi"><b>Result</b><span id="oVal">—</span></div>
+  <div class="tk-res"><b>Expression</b><span id="oExp" style="font-size:clamp(14px,1.5vw,19px);font-family:var(--tk-m);letter-spacing:0;line-height:1.5">—</span></div>
+  <div class="tk-mini" id="oAll"></div>
+  <p class="tk-note">Conversions are exact by definition except where marked indicative. Standard gravity g = 9.80665 m/s².</p>
+ </div>
+</div>
+
+<h2 style="font-family:var(--tk-d);font-weight:900;text-transform:uppercase;font-size:22px;color:var(--tk-ink);margin-top:44px;letter-spacing:-.02em">Hardness cross-reference</h2>
+<p style="font-size:14px;color:var(--tk-muted);margin-top:8px">Indicative equivalents for non-austenitic steel, with the approximate ISO 898-1 property class that lands in each band.</p>
+<div class="tk-tblwrap"><div class="tk-tblscroll"><table class="tk-tbl" id="hTbl"></table></div></div>
+</div></section>
+
+<script>
+(function(){
+"use strict";
+var CATS={"Length": [["mm", 1], ["cm", 10], ["m", 1000], ["micron (\u00b5m)", 0.001], ["in", 25.4], ["ft", 304.8], ["thou / mil", 0.0254]], "Force": [["N", 1], ["kN", 1000], ["kgf", 9.80665], ["lbf", 4.4482216], ["tonf (metric)", 9806.65]], "Torque": [["Nm", 1], ["N\u00b7cm", 0.01], ["kgf\u00b7m", 9.80665], ["lbf\u00b7ft", 1.3558179], ["lbf\u00b7in", 0.1129848], ["oz\u00b7in", 0.00706155]], "Stress / Pressure": [["N/mm\u00b2 (MPa)", 1], ["psi", 0.00689476], ["ksi", 6.89476], ["bar", 0.1], ["kgf/mm\u00b2", 9.80665], ["kgf/cm\u00b2", 0.0980665]], "Mass": [["kg", 1], ["g", 0.001], ["tonne (metric)", 1000], ["lb", 0.45359237], ["oz", 0.028349523], ["short ton (US)", 907.18474]], "Area": [["mm\u00b2", 1], ["cm\u00b2", 100], ["in\u00b2", 645.16]], "Temperature": [["\u00b0C", null], ["\u00b0F", null], ["K", null]], "Hardness (indicative)": [["HRC", null], ["HB", null], ["HV", null], ["Rm N/mm\u00b2", null]]}, HARD=[[20, 226, 238, 770], [22, 235, 248, 800], [24, 247, 260, 840], [26, 258, 272, 880], [28, 271, 285, 930], [30, 286, 302, 980], [32, 301, 318, 1030], [34, 317, 336, 1090], [36, 335, 354, 1150], [38, 353, 373, 1220], [40, 371, 392, 1290], [42, 390, 412, 1360], [44, 409, 435, 1440], [46, 432, 458, 1520], [48, 455, 485, 1610], [50, 481, 513, 1710], [52, 509, 544, 1820], [54, 535, 578, 1930], [56, 560, 615, 2050], [58, 587, 653, 2180], [60, 613, 697, 2320]], $=function(i){return document.getElementById(i);};
+var names=Object.keys(CATS);
+$('cat').innerHTML=names.map(function(n){return '<option>'+n+'</option>';}).join('');
+
+function units(){return CATS[$('cat').value];}
+function fillU(){
+  var u=units(), h=u.map(function(x,i){return '<option value="'+i+'">'+x[0]+'</option>';}).join('');
+  $('fromU').innerHTML=h; $('toU').innerHTML=h; $('toU').value=Math.min(1,u.length-1);
+}
+function c2f(c){return c*9/5+32;} function f2c(f){return (f-32)*5/9;}
+function tempTo(v,from,to){
+  var C = from==='°C'?v : from==='°F'?f2c(v) : v-273.15;
+  return to==='°C'?C : to==='°F'?c2f(C) : C+273.15;
+}
+function interp(v,fi,ti){
+  // hardness: interpolate across the HARD table columns
+  var rows=HARD;
+  if(v<=rows[0][fi]) return rows[0][ti];
+  for(var i=1;i<rows.length;i++){
+    if(v<=rows[i][fi]){
+      var a=rows[i-1], b=rows[i], f=(v-a[fi])/(b[fi]-a[fi]);
+      return a[ti]+f*(b[ti]-a[ti]);
+    }
+  }
+  return rows[rows.length-1][ti];
+}
+function fmt(n){
+  if(!isFinite(n)) return '—';
+  var a=Math.abs(n);
+  if(a===0) return '0';
+  if(a<0.001||a>=1e7) return n.toExponential(4);
+  return (+n.toFixed(a<1?6:a<100?4:a<10000?2:1)).toLocaleString('en-IN');
+}
+function calc(){
+  var cat=$('cat').value, u=units(), v=parseFloat($('val').value);
+  var fi=+$('fromU').value, ti=+$('toU').value, out;
+  $('hardWarn').style.display = cat.indexOf('Hardness')===0 ? '' : 'none';
+  if(isNaN(v)){ $('oVal').textContent='—'; $('oExp').textContent='—'; $('oAll').innerHTML=''; return; }
+  if(cat==='Temperature') out=tempTo(v,u[fi][0],u[ti][0]);
+  else if(cat.indexOf('Hardness')===0) out=interp(v,fi,ti);
+  else out=v*u[fi][1]/u[ti][1];
+  $('oVal').textContent=fmt(out)+' '+u[ti][0];
+  $('oExp').textContent=fmt(v)+' '+u[fi][0]+'  =  '+fmt(out)+' '+u[ti][0];
+  $('oAll').innerHTML=u.map(function(x,i){
+    var r = cat==='Temperature'?tempTo(v,u[fi][0],x[0]) : cat.indexOf('Hardness')===0?interp(v,fi,i) : v*u[fi][1]/x[1];
+    return '<div><b>'+x[0]+'</b><span>'+fmt(r)+'</span></div>';
+  }).join('');
+}
+function hTable(){
+  var h='<thead><tr><th>HRC</th><th>HB (Brinell)</th><th>HV (Vickers)</th><th>Approx tensile N/mm²</th><th>Nearest class</th></tr></thead><tbody>';
+  HARD.forEach(function(r){
+    var cls = r[3]>=1220?'12.9' : r[3]>=1040?'10.9' : r[3]>=900?'9.8' : r[3]>=800?'8.8' : '—';
+    h+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td>'+cls+'</td></tr>';
+  });
+  $('hTbl').innerHTML=h+'</tbody>';
+}
+fillU(); calc(); hTable();
+$('cat').addEventListener('change',function(){fillU();calc();});
+['fromU','toU','val'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc);});
+$('swap').addEventListener('click',function(){var a=$('fromU').value;$('fromU').value=$('toU').value;$('toU').value=a;calc();});
+})();
+</script>
+
+</div>
+</main>
+
+<!-- PMEW GLOBAL FOOTER: injected by /js/footer.js -->
+<div id="footer-container"></div>
+
+<!-- PMEW GLOBAL SCRIPTS -->
+<script ></script>
+<script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

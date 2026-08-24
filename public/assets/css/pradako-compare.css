@@ -1,0 +1,621 @@
+/* ==========================================================================
+   PRADAKO / PMEW — SHARED PRODUCT COMPARISON UI
+   Responsive source of truth — v8
+   --------------------------------------------------------------------------
+   Desktop: centered bottom drawer.
+   Mobile/tablet: full-width bottom sheet with horizontal comparison table.
+   The JS may add a small scale compensation only when a mobile device reports
+   a desktop-sized layout viewport (for example, a scaled/emulated viewport).
+   ========================================================================== */
+
+:root {
+    --pmew-compare-navy: #0b304c;
+    --pmew-compare-navy-deep: #06243b;
+    --pmew-compare-orange: #F47A14;
+    --pmew-compare-line: #dce6ed;
+    --pmew-compare-line-soft: #e3eaf0;
+    --pmew-compare-muted: #60788b;
+    --pmew-compare-surface: #ffffff;
+    --pmew-compare-soft: #f6f9fb;
+}
+
+.pmew-compare-overlay,
+.pmew-compare-panel,
+.pmew-compare-panel *,
+.pmew-compare-panel *::before,
+.pmew-compare-panel *::after {
+    box-sizing: border-box;
+}
+
+body.pmew-compare-open {
+    overflow: hidden !important;
+}
+
+.pmew-compare-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 69000;
+    background: rgba(4, 24, 38, .54);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .22s ease, visibility .22s ease;
+}
+
+.pmew-compare-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.pmew-compare-panel {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 69010;
+
+    width: min(1180px, calc(100vw - 28px));
+    max-width: calc(100vw - 28px);
+    max-height: min(86dvh, 820px);
+
+    overflow: hidden;
+    border: 1px solid var(--pmew-compare-line);
+    border-bottom: 0;
+    border-radius: 24px 24px 0 0;
+    background: var(--pmew-compare-surface);
+    color: #18364d;
+    box-shadow: 0 -30px 80px rgba(4, 24, 38, .24);
+
+    font-family: "Poppins", "Montserrat", Arial, sans-serif;
+
+    transform: translate(-50%, 105%);
+    transition: transform .28s cubic-bezier(.2,.75,.2,1);
+    overscroll-behavior: contain;
+}
+
+.pmew-compare-panel.is-open {
+    transform: translate(-50%, 0);
+}
+
+/* A single internal wrapper makes responsive scale compensation safe: the
+   outer panel continues to own the real viewport-sized hit area. */
+.pmew-compare-ui {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    transform-origin: top left;
+}
+
+.pmew-compare-head {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 22px 18px;
+    border-bottom: 1px solid #dfe7ee;
+    background: #fff;
+}
+
+.pmew-compare-head > div {
+    min-width: 0;
+}
+
+.pmew-compare-kicker {
+    display: block;
+    margin-bottom: 5px;
+    color: #D85E06;
+    font: 800 12px/1.2 "Montserrat", sans-serif;
+    letter-spacing: .1em;
+}
+
+.pmew-compare-head h2 {
+    margin: 0;
+    color: var(--pmew-compare-navy);
+    font: 800 clamp(20px, 2vw, 26px)/1.15 "Montserrat", sans-serif;
+    letter-spacing: -.025em;
+}
+
+.pmew-compare-help {
+    max-width: 64ch;
+    margin: 6px 0 0;
+    color: var(--pmew-compare-muted);
+    font-size: 14px;
+    line-height: 1.58;
+}
+
+.pmew-compare-close {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #dbe5ed;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--pmew-compare-navy);
+    font: 700 20px/1 "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.pmew-compare-close:hover,
+.pmew-compare-close:focus-visible {
+    border-color: #b8ccd9;
+    background: #f1f7fa;
+    color: var(--pmew-compare-navy-deep);
+}
+
+.pmew-compare-body {
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    touch-action: pan-y;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmew-compare-empty {
+    padding: 46px 22px;
+    border: 1px dashed #c9d7e2;
+    border-radius: 18px;
+    background: #f8fafc;
+    color: #61778a;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.pmew-compare-single-guide {
+    display: grid;
+    grid-template-columns: 42px minmax(0,1fr) auto;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 14px;
+    padding: 13px 14px;
+    border: 1px solid #f2c7a6;
+    border-radius: 12px;
+    background: #fff7f0;
+}
+
+.pmew-compare-single-guide > div {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--pmew-compare-orange);
+    font-size: 14px;
+}
+
+.pmew-compare-single-guide > span {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+}
+
+.pmew-compare-single-guide strong {
+    color: var(--pmew-compare-navy);
+    font: 800 14px/1.35 "Montserrat", sans-serif;
+}
+
+.pmew-compare-single-guide small {
+    color: var(--pmew-compare-muted);
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
+.pmew-compare-single-guide button {
+    min-height: 40px;
+    padding: 0 13px;
+    border: 1px solid var(--pmew-compare-orange);
+    border-radius: 8px;
+    background: var(--pmew-compare-orange);
+    color: #fff;
+    font: 800 12px/1 "Montserrat", sans-serif;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease;
+}
+
+.pmew-compare-single-guide button:hover,
+.pmew-compare-single-guide button:focus-visible {
+    background: #d96009;
+    border-color: #d96009;
+}
+
+/* The body scrolls vertically. Only this surface scrolls horizontally. */
+.pmew-compare-table-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    border-radius: 14px;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmew-compare-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    font-size: 14px;
+    line-height: 1.58;
+}
+
+.pmew-compare-table th,
+.pmew-compare-table td {
+    padding: 14px 16px;
+    border-right: 1px solid var(--pmew-compare-line-soft);
+    border-bottom: 1px solid var(--pmew-compare-line-soft);
+    vertical-align: top;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.pmew-compare-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--pmew-compare-navy);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.pmew-compare-table thead th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+.pmew-compare-table thead th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+.pmew-compare-table tbody th[scope="row"] {
+    color: var(--pmew-compare-navy);
+    background: var(--pmew-compare-soft);
+    font-size: 13.5px;
+    font-weight: 800;
+}
+
+.pmew-compare-product-head {
+    min-width: 155px;
+    display: grid;
+    grid-template-columns: 48px minmax(0,1fr);
+    gap: 10px;
+    align-items: center;
+}
+
+.pmew-compare-product-head > img,
+.pmew-compare-image-fallback {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    background: #fff;
+    object-fit: contain;
+}
+
+.pmew-compare-product-copy {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+}
+
+.pmew-compare-product-copy strong {
+    color: #fff;
+    font: 800 13.5px/1.3 "Montserrat", sans-serif;
+}
+
+.pmew-compare-product-copy small {
+    color: rgba(255,255,255,.72);
+    font: 700 12px/1.35 ui-monospace, Menlo, monospace;
+}
+
+.pmew-compare-role {
+    width: fit-content;
+    padding: 3px 6px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 999px;
+    color: rgba(255,255,255,.88);
+    font: 800 12px/1 "Montserrat", sans-serif;
+    letter-spacing: .03em;
+}
+
+.pmew-compare-role.is-current {
+    border-color: rgba(244,122,20,.75);
+    background: var(--pmew-compare-orange);
+    color: #fff;
+}
+
+.pmew-compare-locked {
+    grid-column: 1 / -1;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    color: rgba(255,255,255,.75);
+    font: 700 12px/1.2 "Montserrat", sans-serif;
+}
+
+.pmew-compare-remove {
+    min-height: 32px;
+    margin-top: 8px;
+    padding: 0 9px;
+    border: 1px solid rgba(180,81,0,.22);
+    border-radius: 7px;
+    background: #fff;
+    color: #a34800;
+    font: 800 12px/1 "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.pmew-compare-product-head .pmew-compare-remove {
+    grid-column: 1 / -1;
+    justify-self: start;
+}
+
+.pmew-compare-remove:hover,
+.pmew-compare-remove:focus-visible {
+    background: #fff5ec;
+}
+
+.pmew-compare-panel :focus-visible {
+    outline: 3px solid rgba(244,122,20,.32);
+    outline-offset: 2px;
+}
+
+.pmew-visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE BOTTOM SHEET
+   JS adds .pmew-compare-compact when the effective viewport/device <= 900px.
+   ========================================================================== */
+.pmew-compare-panel.pmew-compare-compact {
+    top: auto !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    height: var(--pmew-compare-height, 82dvh) !important;
+    max-height: calc(100dvh - env(safe-area-inset-top)) !important;
+
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-radius: 20px 20px 0 0 !important;
+
+    transform: translateY(105%) !important;
+}
+
+.pmew-compare-panel.pmew-compare-compact.is-open {
+    transform: translateY(0) !important;
+}
+
+/* Compensation is used only for an emulated/scaled mobile viewport where the
+   CSS layout width is substantially wider than screen.width. */
+.pmew-compare-panel.pmew-compare-viewport-compensated .pmew-compare-ui {
+    width: var(--pmew-compare-ui-width) !important;
+    height: var(--pmew-compare-ui-height) !important;
+    flex: 0 0 auto !important;
+    transform: scale(var(--pmew-compare-ui-scale, 1));
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-head {
+    gap: 12px;
+    padding: 14px 14px 12px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-kicker {
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-head h2 {
+    font-size: 20px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-help {
+    max-width: 38ch;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.48;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-close {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-body {
+    padding: 10px 0 calc(14px + env(safe-area-inset-bottom));
+    scrollbar-gutter: auto;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-single-guide {
+    grid-template-columns: 38px minmax(0,1fr);
+    gap: 10px;
+    margin: 0 10px 10px;
+    padding: 10px 11px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-single-guide > div {
+    width: 38px;
+    height: 38px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-single-guide strong,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-single-guide small {
+    font-size: 12px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-single-guide button {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table-wrap {
+    padding: 0 10px 12px;
+    border-radius: 0;
+    scrollbar-width: thin;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table {
+    width: max-content;
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 12.5px;
+    line-height: 1.48;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table th,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table td {
+    padding: 10px 9px;
+    white-space: normal;
+    font-size: 12.5px;
+    line-height: 1.48;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table th:first-child,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table td:first-child {
+    width: 124px;
+    min-width: 124px;
+    max-width: 124px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table th:not(:first-child),
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table td:not(:first-child) {
+    width: 190px;
+    min-width: 190px;
+    max-width: 190px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table thead th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 12;
+    box-shadow: 1px 0 0 #31546c;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-table tbody th[scope="row"] {
+    position: sticky;
+    left: 0;
+    z-index: 8;
+    background: var(--pmew-compare-soft);
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 1px 0 0 var(--pmew-compare-line-soft), 7px 0 14px rgba(11,48,76,.045);
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-product-head {
+    min-width: 0;
+    grid-template-columns: 44px minmax(0,1fr);
+    gap: 8px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-product-head > img,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-image-fallback {
+    width: 44px;
+    height: 44px;
+}
+
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-product-copy strong,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-product-copy small,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-role,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-locked,
+.pmew-compare-panel.pmew-compare-compact .pmew-compare-remove {
+    font-size: 12px;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small {
+    height: var(--pmew-compare-height, 88dvh) !important;
+    border-radius: 16px 16px 0 0 !important;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-head {
+    padding: 12px 11px 10px;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-head h2 {
+    font-size: 19px;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-help {
+    max-width: 31ch;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-table-wrap {
+    padding-inline: 8px;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-table th:first-child,
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-table td:first-child {
+    width: 116px;
+    min-width: 116px;
+    max-width: 116px;
+}
+
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-table th:not(:first-child),
+.pmew-compare-panel.pmew-compare-compact-small .pmew-compare-table td:not(:first-child) {
+    width: 178px;
+    min-width: 178px;
+    max-width: 178px;
+}
+
+/* CSS-only fallback before JS has synchronized the component class. */
+@media (max-width: 900px) {
+    .pmew-compare-panel:not(.pmew-compare-compact) {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        max-height: 86dvh;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(105%);
+    }
+
+    .pmew-compare-panel:not(.pmew-compare-compact).is-open {
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pmew-compare-overlay,
+    .pmew-compare-panel {
+        transition-duration: .001ms !important;
+    }
+}
+
+@media print {
+    .pmew-compare-overlay,
+    .pmew-compare-panel {
+        display: none !important;
+    }
+}

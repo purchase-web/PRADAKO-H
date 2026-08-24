@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
+<title>Pradako Testing | Precision Testing Laboratory</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+
+<!-- PMEW GLOBAL CSS FILES -->
+<link href="/assets/css/page-style.css" rel="stylesheet"/>
+<link href="/assets/css/global-presence.css" rel="stylesheet"/>
+<link href="/assets/css/responsive.css" rel="stylesheet"/>
+<style>
+/* ==========================================================
+   PRADAKO TESTING PAGE — DEEP-TEAL ONE-ACCENT SOLID-COLOUR UI
+   ========================================================== */
+
+:root {
+    /* ONE ACCENT COLOUR FOR THE COMPLETE PAGE — DEEP TEAL */
+    --pmtq-accent: #28766A;
+    --pmtq-accent-soft: #EFF8F6;
+    --pmtq-accent-border: #CFE4DF;
+
+    /* NEUTRAL UI COLOURS */
+    --pmtq-white: #FFFFFF;
+    --pmtq-ink: #17202A;
+    --pmtq-text: #334155;
+    --pmtq-muted: #667085;
+    --pmtq-surface: #FAFAFA;
+    --pmtq-surface-strong: #F5F6F7;
+    --pmtq-border: #E4E8EC;
+
+    /* PMEW TYPOGRAPHY */
+    --pmtq-font-primary: 'Montserrat', Arial, sans-serif;
+    --pmtq-font-heading: 'Montserrat', Arial, sans-serif;
+    --pmtq-font-display: 'Playfair Display', Georgia, serif;
+    --pmtq-font-ui: 'Space Grotesk', 'Montserrat', Arial, sans-serif;
+    --pmtq-font-footer: 'Inter', 'Montserrat', Arial, sans-serif;
+    --pmtq-shadow: 0 18px 55px rgba(23, 32, 42, 0.08);
+    --pmtq-shadow-hover: 0 26px 70px rgba(23, 32, 42, 0.14);
+    --pmtq-radius-xl: 34px;
+    --pmtq-radius-lg: 25px;
+    --pmtq-radius-md: 17px;
+    --pmtq-container: 1480px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--pmtq-font-primary);
+    background: var(--pmtq-white);
+    overflow-x: hidden;
+}
+
+.pmtq-page,
+.pmtq-page * {
+    box-sizing: border-box;
+}
+
+.pmtq-page {
+    margin: 0;
+    padding: 0;
+    font-family: var(--pmtq-font-primary);
+    color: var(--pmtq-text);
+    background: var(--pmtq-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.pmtq-page h1,
+.pmtq-page h2,
+.pmtq-page h3,
+.pmtq-page h4,
+.pmtq-page h5,
+.pmtq-page h6,
+.pmtq-page p {
+    margin: 0;
+}
+
+/* PMEW GLOBAL HEADING TYPOGRAPHY — SAME FONT USED ACROSS OTHER PMEW PAGES */
+.pmtq-page h1,
+.pmtq-page h2,
+.pmtq-page h3,
+.pmtq-page h4,
+.pmtq-page h5,
+.pmtq-page h6 {
+    font-family: var(--pmtq-font-heading) !important;
+}
+
+.pmtq-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pmtq-shell {
+    width: min(var(--pmtq-container), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   SHARED ELEMENTS
+   ========================================================== */
+
+.pmtq-page .pmtq-section {
+    position: relative;
+    padding: clamp(76px, 8vw, 118px) 0;
+}
+
+.pmtq-page .pmtq-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid var(--pmtq-accent-border);
+    background: var(--pmtq-white);
+    border-radius: 999px;
+    color: var(--pmtq-accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 28px rgba(23, 32, 42, 0.05);
+}
+
+.pmtq-page .pmtq-eyebrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--pmtq-accent);
+    box-shadow: none;
+}
+
+.pmtq-page .pmtq-section-title {
+    font-family: var(--pmtq-font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.04;
+    color: var(--pmtq-ink);
+    letter-spacing: -0.045em;
+}
+
+.pmtq-page .pmtq-section-copy {
+    color: var(--pmtq-muted);
+    font-size: clamp(15px, 1.35vw, 18px);
+    line-height: 1.9;
+}
+
+/* ==========================================================
+   HERO — IMAGE + SIMPLE ONE-LINER
+   ========================================================== */
+
+.pmtq-page .pmtq-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(650px, 78vh, 900px);
+    display: flex;
+    align-items: center;
+    padding: clamp(110px, 11vw, 165px) 0 clamp(84px, 8vw, 122px);
+    background-color: var(--pmtq-white);
+    background-image: var(--pmtq-hero-image);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #E4E8EC;
+    overflow: hidden;
+}
+
+.pmtq-page .pmtq-hero::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 7px;
+    z-index: 1;
+    background: var(--pmtq-accent);
+}
+
+.pmtq-page .pmtq-hero .pmtq-shell {
+    position: relative;
+    z-index: 2;
+}
+
+.pmtq-page .pmtq-hero-statement {
+    max-width: 760px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.pmtq-page .pmtq-hero-statement::before {
+    content: 'PRECISION TESTING';
+    display: block;
+    margin-bottom: 18px;
+    color: var(--pmtq-accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 18px rgba(255, 255, 255, 0.9);
+}
+
+.pmtq-page .pmtq-hero-line {
+    max-width: 690px;
+    font-family: var(--pmtq-font-display);
+    font-size: clamp(48px, 6.2vw, 90px);
+    line-height: 0.98;
+    color: var(--pmtq-ink);
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+    text-shadow:
+        0 2px 24px rgba(255, 255, 255, 0.92),
+        0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.pmtq-page .pmtq-hero-line span {
+    color: var(--pmtq-accent);
+}
+
+/* ==========================================================
+   INTRODUCTION — ORIGINAL HERO CONTENT MOVED BELOW IMAGE
+   ========================================================== */
+
+.pmtq-page .pmtq-intro {
+    background: var(--pmtq-surface);
+    border-bottom: 1px solid var(--pmtq-accent-border);
+}
+
+.pmtq-page .pmtq-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.88fr) minmax(0, 1.12fr);
+    gap: clamp(38px, 6vw, 92px);
+    align-items: center;
+}
+
+.pmtq-page .pmtq-intro-heading .pmtq-eyebrow {
+    margin-bottom: 24px;
+}
+
+.pmtq-page .pmtq-intro-title {
+    font-family: var(--pmtq-font-display);
+    font-size: clamp(48px, 6.5vw, 88px);
+    line-height: 0.98;
+    color: var(--pmtq-ink);
+    letter-spacing: -0.058em;
+}
+
+.pmtq-page .pmtq-intro-title span {
+    color: var(--pmtq-accent);
+}
+
+.pmtq-page .pmtq-intro-content {
+    padding: clamp(28px, 4vw, 46px);
+    border: 1px solid #E4E8EC;
+    border-radius: 30px;
+    background: var(--pmtq-white);
+    box-shadow: var(--pmtq-shadow);
+}
+
+.pmtq-page .pmtq-intro-content h3 {
+    color: var(--pmtq-accent);
+    font-size: clamp(22px, 2.4vw, 34px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+}
+
+.pmtq-page .pmtq-intro-tagline {
+    color: #5E6F82;
+    font-size: clamp(15px, 1.45vw, 20px);
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+
+.pmtq-page .pmtq-intro-description {
+    max-width: 760px;
+    color: #425166;
+    font-size: clamp(15px, 1.28vw, 19px);
+    line-height: 1.88;
+}
+
+.pmtq-page .pmtq-intro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 31px;
+}
+
+.pmtq-page .pmtq-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 23px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.pmtq-page .pmtq-button-primary {
+    color: #fff;
+    background: var(--pmtq-accent);
+    border: 1px solid var(--pmtq-accent);
+    box-shadow: 0 14px 32px rgba(40, 118, 106, 0.24);
+}
+
+.pmtq-page .pmtq-button-primary:hover {
+    transform: translateY(-3px);
+    background: var(--pmtq-accent);
+    box-shadow: 0 18px 36px rgba(40, 118, 106, 0.30);
+}
+
+.pmtq-page .pmtq-button-secondary {
+    color: var(--pmtq-accent);
+    background: var(--pmtq-white);
+    border: 1px solid var(--pmtq-accent-border);
+}
+
+.pmtq-page .pmtq-button-secondary:hover {
+    transform: translateY(-3px);
+    border-color: var(--pmtq-accent);
+    box-shadow: 0 14px 32px rgba(40, 118, 106, 0.15);
+}
+
+/* ==========================================================
+   TESTING SCOPE STRIP
+   ========================================================== */
+
+.pmtq-page .pmtq-scope {
+    padding: 58px 0;
+    background: var(--pmtq-surface);
+    border-bottom: 1px solid var(--pmtq-accent-border);
+}
+
+.pmtq-page .pmtq-scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.pmtq-page .pmtq-scope-card {
+    position: relative;
+    min-height: 170px;
+    padding: 28px;
+    border: 1px solid #E4E8EC;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--pmtq-shadow);
+    transition: transform 0.32s ease, box-shadow 0.32s ease;
+}
+
+.pmtq-page .pmtq-scope-card:nth-child(1) { background: var(--pmtq-white); }
+.pmtq-page .pmtq-scope-card:nth-child(2) { background: var(--pmtq-white); }
+.pmtq-page .pmtq-scope-card:nth-child(3) { background: var(--pmtq-white); }
+.pmtq-page .pmtq-scope-card:nth-child(4) { background: var(--pmtq-white); }
+
+.pmtq-page .pmtq-scope-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: var(--item-accent, var(--pmtq-accent));
+}
+
+.pmtq-page .pmtq-scope-card:nth-child(1) { --item-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-scope-card:nth-child(2) { --item-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-scope-card:nth-child(3) { --item-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-scope-card:nth-child(4) { --item-accent: var(--pmtq-accent); }
+
+.pmtq-page .pmtq-scope-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--pmtq-shadow-hover);
+}
+
+.pmtq-page .pmtq-scope-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 19px;
+    border-radius: 14px;
+    color: #fff;
+    background: var(--item-accent, var(--pmtq-accent));
+    box-shadow: 0 12px 24px rgba(23, 32, 42, 0.12);
+}
+
+.pmtq-page .pmtq-scope-card span {
+    display: block;
+    color: var(--item-accent, var(--pmtq-accent));
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.pmtq-page .pmtq-scope-card strong {
+    display: block;
+    color: var(--pmtq-ink);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.2;
+}
+
+/* ==========================================================
+   INSPECTION CAPABILITIES
+   ========================================================== */
+
+.pmtq-page .pmtq-inspection {
+    background: var(--pmtq-white);
+}
+
+.pmtq-page .pmtq-inspection-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.86fr) minmax(0, 1.14fr);
+    gap: clamp(38px, 6vw, 88px);
+    align-items: start;
+}
+
+.pmtq-page .pmtq-inspection-copy {
+    position: sticky;
+    top: 110px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 28px;
+    border: 1px solid var(--pmtq-accent-border);
+    background: var(--pmtq-white);
+}
+
+.pmtq-page .pmtq-inspection-copy .pmtq-eyebrow {
+    margin-bottom: 20px;
+}
+
+.pmtq-page .pmtq-inspection-copy h2 {
+    margin-bottom: 22px;
+}
+
+.pmtq-page .pmtq-inspection-copy p {
+    max-width: 560px;
+}
+
+.pmtq-page .pmtq-inspection-list {
+    display: grid;
+    gap: 17px;
+    counter-reset: storyCounter;
+}
+
+.pmtq-page .pmtq-inspection-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 19px;
+    align-items: center;
+    padding: 27px;
+    background: var(--pmtq-white);
+    border: 1px solid #E4E8EC;
+    border-radius: 23px;
+    box-shadow: 0 14px 42px rgba(23, 32, 42, 0.055);
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+    counter-increment: storyCounter;
+    overflow: hidden;
+}
+
+.pmtq-page .pmtq-inspection-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: var(--story-accent, var(--pmtq-accent));
+}
+
+.pmtq-page .pmtq-inspection-card:nth-child(1) { --story-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-inspection-card:nth-child(2) { --story-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-inspection-card:nth-child(3) { --story-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-inspection-card:nth-child(4) { --story-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-inspection-card:nth-child(5) { --story-accent: var(--pmtq-accent); }
+
+.pmtq-page .pmtq-inspection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--pmtq-shadow-hover);
+    border-color: var(--story-accent);
+}
+
+.pmtq-page .pmtq-inspection-number {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: var(--pmtq-accent-soft);
+    color: var(--story-accent);
+    font-weight: 900;
+    border: 1px solid var(--pmtq-accent-border);
+}
+
+.pmtq-page .pmtq-inspection-number::before {
+    content: counter(storyCounter, decimal-leading-zero);
+}
+
+.pmtq-page .pmtq-inspection-card p {
+    font-size: clamp(15px, 1.35vw, 18px);
+    color: #445268;
+    line-height: 1.78;
+}
+
+/* ==========================================================
+   TESTING LEVELS
+   ========================================================== */
+
+.pmtq-page .pmtq-validation {
+    background: var(--pmtq-accent-soft);
+    border-top: 1px solid #CFE4DF;
+    border-bottom: 1px solid #CFE4DF;
+}
+
+.pmtq-page .pmtq-validation-head {
+    max-width: 950px;
+    margin-bottom: 48px;
+}
+
+.pmtq-page .pmtq-validation-head .pmtq-eyebrow {
+    margin-bottom: 20px;
+}
+
+.pmtq-page .pmtq-validation-head h2 {
+    margin-bottom: 19px;
+}
+
+.pmtq-page .pmtq-validation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.pmtq-page .pmtq-validation-card {
+    position: relative;
+    min-height: 275px;
+    padding: 29px;
+    border-radius: 25px;
+    border: 1px solid #E4E8EC;
+    box-shadow: 0 16px 44px rgba(23, 32, 42, 0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    overflow: hidden;
+}
+
+.pmtq-page .pmtq-validation-card:nth-child(1) { --level-accent: var(--pmtq-accent); background: var(--pmtq-white); }
+.pmtq-page .pmtq-validation-card:nth-child(2) { --level-accent: var(--pmtq-accent); background: var(--pmtq-white); }
+.pmtq-page .pmtq-validation-card:nth-child(3) { --level-accent: var(--pmtq-accent); background: var(--pmtq-white); }
+.pmtq-page .pmtq-validation-card:nth-child(4) { --level-accent: var(--pmtq-accent); background: var(--pmtq-white); }
+
+.pmtq-page .pmtq-validation-card::before {
+    content: '';
+    position: absolute;
+    right: -35px;
+    bottom: -35px;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: var(--pmtq-accent-soft);
+}
+
+.pmtq-page .pmtq-validation-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--pmtq-shadow-hover);
+}
+
+.pmtq-page .pmtq-validation-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 24px;
+    border-radius: 15px;
+    color: #fff;
+    background: var(--level-accent);
+    box-shadow: none;
+}
+
+.pmtq-page .pmtq-validation-label {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: var(--pmtq-white);
+    color: var(--level-accent);
+    border: 1px solid var(--level-accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.pmtq-page .pmtq-validation-card p {
+    position: relative;
+    z-index: 1;
+    color: #344054;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.78;
+    font-weight: 650;
+}
+
+.pmtq-page .pmtq-validation-note {
+    margin-top: 38px;
+    padding: 30px 34px;
+    border-radius: 24px;
+    background: var(--pmtq-ink);
+    border: 1px solid var(--pmtq-ink);
+    box-shadow: 0 20px 48px rgba(23, 32, 42, 0.18);
+}
+
+.pmtq-page .pmtq-validation-note p {
+    max-width: 1180px;
+    color: #fff;
+    font-size: clamp(16px, 1.45vw, 20px);
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   TESTING REPORTS
+   ========================================================== */
+
+.pmtq-page .pmtq-reports {
+    position: relative;
+    padding: clamp(80px, 8vw, 120px) 0;
+    background: var(--pmtq-surface);
+    overflow: hidden;
+}
+
+.pmtq-page .pmtq-reports-head {
+    max-width: 920px;
+    margin-bottom: 45px;
+}
+
+.pmtq-page .pmtq-reports-head .pmtq-eyebrow {
+    margin-bottom: 18px;
+}
+
+.pmtq-page .pmtq-reports-head h2 {
+    font-family: var(--pmtq-font-display);
+    font-size: clamp(38px, 5vw, 66px);
+    line-height: 1.04;
+    color: var(--pmtq-ink);
+    letter-spacing: -0.045em;
+    margin-bottom: 15px;
+}
+
+.pmtq-page .pmtq-reports-head p {
+    max-width: 780px;
+    color: var(--pmtq-muted);
+    font-size: clamp(15px, 1.35vw, 18px);
+    line-height: 1.85;
+}
+
+.pmtq-page .pmtq-reports-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 0 24px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmtq-page .pmtq-reports-viewport::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.pmtq-page .pmtq-reports-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: pmtqReportMarquee 78s linear infinite;
+}
+
+.pmtq-page .pmtq-reports-viewport:hover .pmtq-reports-track,
+.pmtq-page .pmtq-reports-viewport:focus-within .pmtq-reports-track {
+    animation-play-state: paused;
+}
+
+.pmtq-page .pmtq-report-card {
+    --pmtq-report-accent: var(--pmtq-accent);
+    flex: 0 0 clamp(760px, 79vw, 1120px);
+    max-height: none;
+    overflow: hidden;
+    padding: clamp(24px, 3vw, 36px);
+    border-radius: 28px;
+    background: var(--pmtq-white);
+    border: 1px solid #E4E8EC;
+    border-top: 6px solid var(--pmtq-report-accent);
+    box-shadow: 0 22px 62px rgba(23, 32, 42, 0.10);
+}
+
+.pmtq-page .pmtq-report-card:nth-child(5n + 1) { --pmtq-report-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-report-card:nth-child(5n + 2) { --pmtq-report-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-report-card:nth-child(5n + 3) { --pmtq-report-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-report-card:nth-child(5n + 4) { --pmtq-report-accent: var(--pmtq-accent); }
+.pmtq-page .pmtq-report-card:nth-child(5n + 5) { --pmtq-report-accent: var(--pmtq-accent); }
+
+.pmtq-page .pmtq-report-card h3 {
+    font-family: var(--pmtq-font-display);
+    color: var(--pmtq-ink);
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+}
+
+.pmtq-page .pmtq-report-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 18px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pmtq-page .pmtq-report-table-wrap::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.pmtq-page .pmtq-report-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 760px;
+    border: 1px solid #E4E8EC;
+    border-radius: 18px;
+}
+
+.pmtq-page .pmtq-report-table th,
+.pmtq-page .pmtq-report-table td {
+    padding: 15px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--pmtq-border);
+    border-right: 1px solid var(--pmtq-border);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.pmtq-page .pmtq-report-table th:last-child,
+.pmtq-page .pmtq-report-table td:last-child {
+    border-right: 0;
+}
+
+.pmtq-page .pmtq-report-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.pmtq-page .pmtq-report-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--pmtq-surface-strong);
+    color: #243342;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pmtq-page .pmtq-report-table tbody tr:nth-child(even) td {
+    background: var(--pmtq-surface);
+}
+
+.pmtq-page .pmtq-report-table tbody tr:hover td {
+    background: var(--pmtq-accent-soft);
+}
+
+@keyframes pmtqReportMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 12px)); }
+}
+
+/* ==========================================================
+   FINAL STATEMENT
+   ========================================================== */
+
+.pmtq-page .pmtq-closing {
+    background: var(--pmtq-accent-soft);
+}
+
+.pmtq-page .pmtq-closing-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    background: var(--pmtq-ink);
+    color: #fff;
+    padding: clamp(40px, 6vw, 76px);
+    box-shadow: 0 30px 82px rgba(23, 32, 42, 0.22);
+}
+
+.pmtq-page .pmtq-closing-panel::before {
+    content: '“';
+    position: absolute;
+    top: -42px;
+    right: 28px;
+    color: rgba(255, 255, 255, 0.08);
+    font-family: var(--pmtq-font-display);
+    font-size: 250px;
+    line-height: 1;
+}
+
+.pmtq-page .pmtq-closing-panel .pmtq-eyebrow {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    color: #fff;
+    background: var(--pmtq-accent);
+    border-color: var(--pmtq-white);
+    box-shadow: none;
+}
+
+.pmtq-page .pmtq-closing p {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    font-size: clamp(23px, 3vw, 43px);
+    line-height: 1.35;
+    font-family: var(--pmtq-font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+}
+
+.pmtq-page .pmtq-closing p strong {
+    color: var(--pmtq-accent);
+}
+
+/* ==========================================================
+   REVEAL ANIMATION
+   ========================================================== */
+
+.pmtq-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.pmtq-reveal.pmtq-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1200px) {
+    .pmtq-page .pmtq-inspection-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pmtq-page .pmtq-inspection-copy {
+        position: relative;
+        top: auto;
+    }
+
+    .pmtq-page .pmtq-validation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .pmtq-shell {
+        width: min(100% - 34px, var(--pmtq-container));
+    }
+
+    .pmtq-page .pmtq-scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pmtq-page .pmtq-hero-statement {
+        max-width: 680px;
+    }
+
+    .pmtq-page .pmtq-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+}
+
+@media (max-width: 640px) {
+    .pmtq-shell {
+        width: min(100% - 26px, var(--pmtq-container));
+    }
+
+    .pmtq-page .pmtq-section,
+    .pmtq-page .pmtq-reports {
+        padding: 66px 0;
+    }
+
+    .pmtq-page .pmtq-hero {
+        min-height: 650px;
+        align-items: flex-end;
+        padding: 110px 0 64px;
+        background-image: var(--pmtq-hero-image);
+        background-position: 67% center;
+    }
+
+    .pmtq-page .pmtq-hero-statement {
+        max-width: 100%;
+        padding: 0;
+        background: none;
+    }
+
+    .pmtq-page .pmtq-hero-statement::before {
+        margin-bottom: 13px;
+        font-size: 10px;
+    }
+
+    .pmtq-page .pmtq-hero-line {
+        font-size: clamp(41px, 12.8vw, 62px);
+        line-height: 1;
+    }
+
+    .pmtq-page .pmtq-intro-content {
+        padding: 25px 21px;
+        border-radius: 24px;
+    }
+
+    .pmtq-page .pmtq-intro-title {
+        font-size: clamp(45px, 14vw, 66px);
+    }
+
+    .pmtq-page .pmtq-intro-actions {
+        flex-direction: column;
+    }
+
+    .pmtq-page .pmtq-button {
+        width: 100%;
+    }
+
+    .pmtq-page .pmtq-scope {
+        padding: 42px 0;
+    }
+
+    .pmtq-page .pmtq-scope-grid,
+    .pmtq-page .pmtq-validation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pmtq-page .pmtq-scope-card {
+        min-height: auto;
+    }
+
+    .pmtq-page .pmtq-inspection-card {
+        grid-template-columns: 1fr;
+        padding: 23px;
+    }
+
+    .pmtq-page .pmtq-validation-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .pmtq-page .pmtq-validation-note {
+        padding: 25px;
+    }
+
+    .pmtq-page .pmtq-report-card {
+        flex-basis: calc(100vw - 38px);
+        padding: 21px;
+    }
+
+    .pmtq-page .pmtq-report-table {
+        min-width: 690px;
+    }
+
+    .pmtq-page .pmtq-closing-panel {
+        border-radius: 25px;
+        padding: 35px 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .pmtq-reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .pmtq-page .pmtq-reports-track {
+        transform: none !important;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Pradako Testing | Precision Testing Laboratory from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing sup.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/quality-manufacturing/precision-desk.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pradako Testing | Precision Testing Laboratory">
+    <meta property="og:description" content="Pradako Testing | Precision Testing Laboratory from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing sup.">
+    <meta property="og:url" content="https://www.pradako.co/pages/quality-manufacturing/precision-desk.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradako Testing | Precision Testing Laboratory">
+    <meta name="twitter:description" content="Pradako Testing | Precision Testing Laboratory from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing sup.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pradako Testing | Precision Testing Laboratory",
+  "url": "https://www.pradako.co/pages/quality-manufacturing/precision-desk.html",
+  "description": "Pradako Testing | Precision Testing Laboratory from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing sup.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+<!-- ======================================================= 
+HEADER WITH PROPER LOGO & HAMBURGER 
+======================================================== -->
+<div id="navbar-container"></div>
+<main class="pmtq-page">
+<!-- HERO: IMAGE WITH SIMPLE TEXT ONLY -->
+<!-- HERO BACKGROUND IMAGE: update this path when the image location changes -->
+<section class="pmtq-hero" style="--pmtq-hero-image: url('/assets/images/quality/precision-desk/testing-lab.png');">
+<div class="pmtq-shell">
+<div class="pmtq-hero-statement pmtq-reveal">
+<h1 class="pmtq-hero-line">
+                    Every Fastener Tested.<br/>
+<span>Every Standard Proven.</span>
+</h1>
+</div>
+</div>
+</section>
+<!-- ORIGINAL HERO CONTENT MOVED BELOW THE HERO IMAGE -->
+<section aria-labelledby="testing-page-title" class="pmtq-section pmtq-intro">
+<div class="pmtq-shell">
+<div class="pmtq-intro-grid">
+<div class="pmtq-intro-heading pmtq-reveal">
+<div class="pmtq-eyebrow">Precision Testing Laboratory</div>
+<h2 class="pmtq-intro-title" id="testing-page-title">
+                        Pradako <span>Testing</span>
+</h2>
+</div>
+<div class="pmtq-intro-content pmtq-reveal">
+<h3>The Precision Deck – Testing</h3>
+<p class="pmtq-intro-tagline">From Core to Core TESTS: Integrity in Every Stage</p>
+<p class="pmtq-intro-description">
+                        We ensure comprehensive quality control through Raw Material (RM) Testing, Heat Treatment Analysis, Surface Finishing &amp; Coating Testing, and Mechanical &amp; Dimensional Inspections, guaranteeing that every fastener meets the highest standards of strength, durability, and precision.
+                    </p>
+<div class="pmtq-intro-actions">
+<a class="pmtq-button pmtq-button-primary" href="#testing-capabilities">
+                            View Testing Levels
+                        </a>
+<a class="pmtq-button pmtq-button-secondary" href="#inspection-capabilities">
+                            Inspecting Capabilities
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTING SCOPE STRIP -->
+<section class="pmtq-scope">
+<div class="pmtq-shell">
+<div class="pmtq-scope-grid pmtq-reveal">
+<div class="pmtq-scope-card">
+<div class="pmtq-scope-icon"><i class="fa-solid fa-flask-vial"></i></div>
+<span>Testing Scope</span>
+<strong>Raw Material</strong>
+</div>
+<div class="pmtq-scope-card">
+<div class="pmtq-scope-icon"><i class="fa-solid fa-temperature-high"></i></div>
+<span>Process Control</span>
+<strong>Heat Treatment</strong>
+</div>
+<div class="pmtq-scope-card">
+<div class="pmtq-scope-icon"><i class="fa-solid fa-layer-group"></i></div>
+<span>Surface Quality</span>
+<strong>Coating Testing</strong>
+</div>
+<div class="pmtq-scope-card">
+<div class="pmtq-scope-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+<span>Final Assurance</span>
+<strong>Dimensional Inspection</strong>
+</div>
+</div>
+</div>
+</section>
+<!-- INSPECTION CAPABILITIES -->
+<section class="pmtq-section pmtq-inspection" id="inspection-capabilities">
+<div class="pmtq-shell">
+<div class="pmtq-inspection-layout">
+<div class="pmtq-inspection-copy pmtq-reveal">
+<div class="pmtq-eyebrow">
+                        Inspection System
+                    </div>
+<h2 class="pmtq-section-title">Built to verify every fastener before dispatch.</h2>
+<p class="pmtq-section-copy">
+                        A clean inspection layout focused on control, calibration and multi-level verification across the manufacturing value chain.
+                    </p>
+</div>
+<div class="pmtq-inspection-list">
+<article class="pmtq-inspection-card pmtq-reveal">
+<div class="pmtq-inspection-number"></div>
+<p>Our Inspecting Capabilities is designed to ensure that every fastener leaving the facility meets the highest industry standards.</p>
+</article>
+<article class="pmtq-inspection-card pmtq-reveal">
+<div class="pmtq-inspection-number"></div>
+<p>We implement in-process quality controls at multiple levels within our facility, at supplier ends, and through third-party inspections.</p>
+</article>
+<article class="pmtq-inspection-card pmtq-reveal">
+<div class="pmtq-inspection-number"></div>
+<p>Our measuring instruments are meticulously checked and certified by NABL-approved agencies.</p>
+</article>
+<article class="pmtq-inspection-card pmtq-reveal">
+<div class="pmtq-inspection-number"></div>
+<p>All devices are regularly calibrated in Government-approved laboratories.</p>
+</article>
+<article class="pmtq-inspection-card pmtq-reveal">
+<div class="pmtq-inspection-number"></div>
+<p>This ensures we consistently meet the evolving demands of the global fastener industry.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTING LEVELS -->
+<section class="pmtq-section pmtq-validation" id="testing-capabilities">
+<div class="pmtq-shell">
+<div class="pmtq-validation-head pmtq-reveal">
+<div class="pmtq-eyebrow">
+                    Multi-Level Validation
+                </div>
+<h2 class="pmtq-section-title">Multi-Level Testing for Absolute Reliability</h2>
+<p class="pmtq-section-copy">
+                    Testing is structured across internal, supplier, third-party and customer-approved laboratory networks.
+                </p>
+</div>
+<div class="pmtq-validation-grid">
+<article class="pmtq-validation-card pmtq-reveal">
+<div class="pmtq-validation-icon"><i class="fa-solid fa-microscope"></i></div>
+<span class="pmtq-validation-label">Level 01</span>
+<p>Our In-House Laboratory — world-class equipment ensuring quality.</p>
+</article>
+<article class="pmtq-validation-card pmtq-reveal">
+<div class="pmtq-validation-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+<span class="pmtq-validation-label">Level 02</span>
+<p>Supplier's Laboratory — raw material validation.</p>
+</article>
+<article class="pmtq-validation-card pmtq-reveal">
+<div class="pmtq-validation-icon"><i class="fa-solid fa-certificate"></i></div>
+<span class="pmtq-validation-label">Level 03</span>
+<p>Third-Party Labs — independent certified validation.</p>
+</article>
+<article class="pmtq-validation-card pmtq-reveal">
+<div class="pmtq-validation-icon"><i class="fa-solid fa-user-check"></i></div>
+<span class="pmtq-validation-label">Level 04</span>
+<p>Customer-Approved Labs — project-specific testing.</p>
+</article>
+</div>
+<div class="pmtq-validation-note pmtq-reveal">
+<p>
+                    Our testing processes are aligned with ISO, NABL and global standards to deliver flawless fastening solutions.
+                </p>
+</div>
+</div>
+</section>
+
+    <!-- REPORT CAROUSEL: scrollbars are hidden; touch, mouse-wheel and trackpad scrolling still work. -->
+    <section class="pmtq-reports">
+<div class="pmtq-shell">
+<!-- CONTENT -->
+<div class="pmtq-reports-head pmtq-reveal">
+<div class="pmtq-eyebrow">Report Library</div>
+<h2>Testing &amp; Inspection Reports</h2>
+<p>Explore the complete testing framework across mechanical, dimensional, surface, corrosion, calibration and metallurgical validation.</p>
+</div>
+<!-- CARDS -->
+<div aria-label="Scrollable testing and inspection report cards" class="pmtq-reports-viewport pmtq-reveal" tabindex="0">
+<div class="pmtq-reports-track">
+<!-- 1. MECHANICAL -->
+<div class="pmtq-report-card">
+<h3>Mechanical / Material Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Universal Testing Machine (UTM)</td>
+<td>Tensile, Compression, Bend</td>
+<td>UTS, Yield, Compression, Bend</td>
+<td>ASTM E8, ISO 6892</td>
+</tr>
+<tr>
+<td>Brinell Hardness Test Report</td>
+<td>Macrohardness (Brinell)</td>
+<td>HB values, large-grain steels</td>
+<td>ASTM E10, ISO 6506</td>
+</tr>
+<tr>
+<td>Rockwell Hardness Test Report</td>
+<td>Macrohardness (Rockwell)</td>
+<td>HRC, HRB, HRA values</td>
+<td>ASTM E18, ISO 6508</td>
+</tr>
+<tr>
+<td>Vickers / Micro Vickers Report</td>
+<td>Microhardness</td>
+<td>Case hardness HV10, Surface HV0.3</td>
+<td>ASTM E384, ISO 6507-1</td>
+</tr>
+<tr>
+<td>Screw-in Torque Test Report</td>
+<td>Torque / Friction Test</td>
+<td>Torque, (friction Coefficient)</td>
+<td>ISO 16047, ASTM F606</td>
+</tr>
+<tr>
+<td>Coefficient of Friction (COF) Report</td>
+<td>Friction Testing</td>
+<td>static/dynamic friction</td>
+<td>ISO 16047</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 2. DIMENSIONAL -->
+<div class="pmtq-report-card">
+<h3>Dimensional / Precision / Visual Inspection</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profile / Optical Projection Report</td>
+<td>Dimensional Inspection</td>
+<td>Threads, Angles, Diameters</td>
+<td>ISO 3280, DIN 267</td>
+</tr>
+<tr>
+<td>Precision Measurement Reports (Vernier, Micrometer, Gauges, Height Gauge, Gauge Blocks)</td>
+<td>Dimensional Verification</td>
+<td>Length, Diameter, Thread pitch, Calibration</td>
+<td>ISO 3611, ISO 1502</td>
+</tr>
+<tr>
+<td>Optical Sorting Reports</td>
+<td>Automated Visual Inspection</td>
+<td>100% sorting, defect detection</td>
+<td>ISO 3269</td>
+</tr>
+<tr>
+<td>Visual Controls &amp; Packaging Reports</td>
+<td>Visual Compliance</td>
+<td>Labeling, packaging, Legislation request</td>
+<td>EN / Country-specific</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 3. SURFACE & CORROSION -->
+<div class="pmtq-report-card">
+<h3>Surface &amp; Corrosion Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salt Spray Test Report</td>
+<td>Corrosion Resistance</td>
+<td>Hours to rust (white/red)</td>
+<td>ASTM B117, ISO 9227</td>
+</tr>
+<tr>
+<td>Kesternich Test Report</td>
+<td>Acidic Corrosion</td>
+<td>Cycles in SO<sub>2</sub> chamber</td>
+<td>DIN 50018, ISO 6988</td>
+</tr>
+<tr>
+<td>Plating Thickness Report</td>
+<td>Coating Thickness</td>
+<td>Zn,Zn-Ni,Cr,Cd, Anodize layers</td>
+<td>ASTM B499, ISO 3497, ASTM B568</td>
+</tr>
+<tr>
+<td>Spectrometer Analysis Report</td>
+<td>Material Composition</td>
+<td>Alloying elements (Fe, Ni, Cr, etc.)</td>
+<td>ASTM E415, ISO 15350</td>
+</tr>
+<tr>
+<td>Hydrogen Embrittlement Test Report</td>
+<td>Embrittlement Resistance</td>
+<td>Cracking under plating/coating stress</td>
+<td>ISO 15330</td>
+</tr>
+<tr>
+<td>Zahn Cup Report</td>
+<td>Coating Viscosity</td>
+<td>Flow time in seconds</td>
+<td>ASTM D4212</td>
+</tr>
+<tr>
+<td>Solution Chemistry Reports (pH, Conductivity, TDS, Hydrometer, Thermometer)</td>
+<td>Plating Bath Analysis</td>
+<td>Batch chemistry, density, temperature</td>
+<td>ASTM E70, ISO 10523</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 4. SUPPORTING / CALIBRATION -->
+<div class="pmtq-report-card">
+<!-- <div class="pmtq-report-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div> -->
+<h3>Supporting / Calibration</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronic Weighing Reports (Balances, Scales)</td>
+<td>Weight Measurement &amp; Validation</td>
+<td>mg to kg</td>
+<td>OIML, ISO 9001 traceability</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 5. METALLURGICAL -->
+<div class="pmtq-report-card">
+<h3>Metallurgical Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metallographic Sample Prep &amp; Report</td>
+<td>Sample Preparation</td>
+<td>Polished cross-sections</td>
+<td>ASTM E3, ASTM E407</td>
+</tr>
+<tr>
+<td>Microscopy Reports (Basic, Metallurgical, Digital with Image Analyzer)</td>
+<td>Metallography</td>
+<td>Grain flow, phases, micro-cracks</td>
+<td>ASTM E3</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- DUPLICATE ALL 5 FOR SEAMLESS LOOP -->
+<!-- 1. MECHANICAL -->
+<div class="pmtq-report-card">
+<!-- <div class="pmtq-report-icon">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </div> -->
+<h3>Mechanical / Material Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Universal Testing Machine (UTM)</td>
+<td>Tensile, Compression, Bend</td>
+<td>UTS, Yield, Compression, Bend</td>
+<td>ASTM E8, ISO 6892</td>
+</tr>
+<tr>
+<td>Brinell Hardness Test Report</td>
+<td>Macrohardness (Brinell)</td>
+<td>HB values, large-grain steels</td>
+<td>ASTM E10, ISO 6506</td>
+</tr>
+<tr>
+<td>Rockwell Hardness Test Report</td>
+<td>Macrohardness (Rockwell)</td>
+<td>HRC, HRB, HRA values</td>
+<td>ASTM E18, ISO 6508</td>
+</tr>
+<tr>
+<td>Vickers / Micro Vickers Report</td>
+<td>Microhardness</td>
+<td>Case hardness HV10, Surface HV0.3</td>
+<td>ASTM E384, ISO 6507-1</td>
+</tr>
+<tr>
+<td>Screw-in Torque Test Report</td>
+<td>Torque / Friction Test</td>
+<td>Torque, (friction Coefficient)</td>
+<td>ISO 16047, ASTM F606</td>
+</tr>
+<tr>
+<td>Coefficient of Friction (COF) Report</td>
+<td>Friction Testing</td>
+<td>static/dynamic friction</td>
+<td>ISO 16047</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 2. DIMENSIONAL -->
+<div class="pmtq-report-card">
+<h3>Dimensional / Precision / Visual Inspection</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profile / Optical Projection Report</td>
+<td>Dimensional Inspection</td>
+<td>Threads, Angles, Diameters</td>
+<td>ISO 3280, DIN 267</td>
+</tr>
+<tr>
+<td>Precision Measurement Reports (Vernier, Micrometer, Gauges, Height Gauge, Gauge Blocks)</td>
+<td>Dimensional Verification</td>
+<td>Length, Diameter, Thread pitch, Calibration</td>
+<td>ISO 3611, ISO 1502</td>
+</tr>
+<tr>
+<td>Optical Sorting Reports</td>
+<td>Automated Visual Inspection</td>
+<td>100% sorting, defect detection</td>
+<td>ISO 3269</td>
+</tr>
+<tr>
+<td>Visual Controls &amp; Packaging Reports</td>
+<td>Visual Compliance</td>
+<td>Labeling, packaging, Legislation request</td>
+<td>EN / Country-specific</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 3. SURFACE & CORROSION -->
+<div class="pmtq-report-card">
+<h3>Surface &amp; Corrosion Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salt Spray Test Report</td>
+<td>Corrosion Resistance</td>
+<td>Hours to rust (white/red)</td>
+<td>ASTM B117, ISO 9227</td>
+</tr>
+<tr>
+<td>Kesternich Test Report</td>
+<td>Acidic Corrosion</td>
+<td>Cycles in SO<sub>2</sub> chamber</td>
+<td>DIN 50018, ISO 6988</td>
+</tr>
+<tr>
+<td>Plating Thickness Report</td>
+<td>Coating Thickness</td>
+<td>Zn,Zn-Ni,Cr,Cd, Anodize layers</td>
+<td>ASTM B499, ISO 3497, ASTM B568</td>
+</tr>
+<tr>
+<td>Spectrometer Analysis Report</td>
+<td>Material Composition</td>
+<td>Alloying elements (Fe, Ni, Cr, etc.)</td>
+<td>ASTM E415, ISO 15350</td>
+</tr>
+<tr>
+<td>Hydrogen Embrittlement Test Report</td>
+<td>Embrittlement Resistance</td>
+<td>Cracking under plating/coating stress</td>
+<td>ISO 15330</td>
+</tr>
+<tr>
+<td>Zahn Cup Report</td>
+<td>Coating Viscosity</td>
+<td>Flow time in seconds</td>
+<td>ASTM D4212</td>
+</tr>
+<tr>
+<td>Solution Chemistry Reports (pH, Conductivity, TDS, Hydrometer, Thermometer)</td>
+<td>Plating Bath Analysis</td>
+<td>Batch chemistry, density, temperature</td>
+<td>ASTM E70, ISO 10523</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 4. SUPPORTING / CALIBRATION -->
+<div class="pmtq-report-card">
+<h3>Supporting / Calibration</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronic Weighing Reports (Balances, Scales)</td>
+<td>Weight Measurement &amp; Validation</td>
+<td>mg to kg</td>
+<td>OIML, ISO 9001 traceability</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<!-- 5. METALLURGICAL -->
+<div class="pmtq-report-card">
+<h3>Metallurgical Testing</h3>
+<div aria-label="Scrollable report table" class="pmtq-report-table-wrap" role="region" tabindex="0"><table class="pmtq-report-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Major Function</th>
+<th>Parameters</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metallographic Sample Prep &amp; Report</td>
+<td>Sample Preparation</td>
+<td>Polished cross-sections</td>
+<td>ASTM E3, ASTM E407</td>
+</tr>
+<tr>
+<td>Microscopy Reports (Basic, Metallurgical, Digital with Image Analyzer)</td>
+<td>Metallography</td>
+<td>Grain flow, phases, micro-cracks</td>
+<td>ASTM E3</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL -->
+<section class="pmtq-section pmtq-closing">
+<div class="pmtq-shell">
+<div class="pmtq-closing-panel pmtq-reveal">
+<div class="pmtq-eyebrow">Quality Philosophy</div>
+<p>At Pradako, quality is not just tested—it is <strong>ensured, reinforced and perfected</strong> at every manufacturing value-addition stage.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script defer="" src="/assets/js/pradako-global-animations.js"></script>
+<script>
+/* ==========================================================
+   PAGE REVEAL ANIMATION
+   ========================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+    const revealElements = document.querySelectorAll('.pmtq-reveal');
+
+    if (!revealElements.length) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('pmtq-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.14,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+});
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

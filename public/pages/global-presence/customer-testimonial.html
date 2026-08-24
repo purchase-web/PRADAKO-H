@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Testimonials | Pradako Mechanical &amp; Engineering Works</title>
+<meta content="Twenty-five customer experiences across global markets, OEMs, automotive, EV, defence, electronics, seating, rubber, moulding, HVAC, switchgear and industrial manufacturing." name="description"/>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="/assets/css/page-style.css" rel="stylesheet"/>
+<link href="/assets/css/responsive.css" rel="stylesheet"/>
+<style>
+        :root {
+            --pmew-testimonials-ink: #17232d;
+            --pmew-testimonials-muted: #626b73;
+            --pmew-testimonials-line: #d9e1de;
+            --pmew-testimonials-paper: #fffefd;
+            --pmew-testimonials-soft: #f4f8f6;
+            --pmew-testimonials-warm: #fff5e7;
+            --pmew-testimonials-blue: #5d8aa3;
+            --pmew-testimonials-teal: #4f8d87;
+            --pmew-testimonials-deep-teal: #1d5556;
+            --pmew-testimonials-gold: #d6a23d;
+            --pmew-testimonials-terracotta: #c96f4e;
+            --pmew-testimonials-sage: #8fa47f;
+            --pmew-testimonials-bronze: #aa8758;
+            --pmew-testimonials-shadow: 0 24px 70px rgba(30, 61, 68, 0.13);
+            --pmew-testimonials-radius-lg: 34px;
+            --pmew-testimonials-radius-md: 24px;
+            --pmew-testimonials-radius-sm: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--pmew-testimonials-ink);
+            background: var(--pmew-testimonials-paper);
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .pmew-testimonials-page {
+            overflow: clip;
+            background: #ffffff;
+        }
+
+        .pmew-testimonials-shell {
+            width: min(1440px, calc(100% - 64px));
+            margin-inline: auto;
+        }
+
+        .pmew-testimonials-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 24px;
+            color: #5d5f65;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-eyebrow::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .pmew-testimonials-hero {
+            position: relative;
+            min-height: 88vh;
+            display: grid;
+            align-items: center;
+            overflow: hidden;
+            padding: 150px 0 92px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(93, 138, 163, 0.18), transparent 28%),
+                radial-gradient(circle at 88% 18%, rgba(214, 162, 61, 0.18), transparent 27%),
+                radial-gradient(circle at 78% 88%, rgba(201, 111, 78, 0.12), transparent 25%),
+                linear-gradient(135deg, #f8fbfa 0%, #fffaf1 52%, #f8f3ed 100%);
+            border-bottom: 1px solid var(--pmew-testimonials-line);
+        }
+
+        .pmew-testimonials-hero::before,
+        .pmew-testimonials-hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(2px);
+        }
+
+        .pmew-testimonials-hero::before {
+            width: 320px;
+            height: 320px;
+            top: -120px;
+            right: 8%;
+            border: 1px solid rgba(214, 162, 61, 0.36);
+        }
+
+        .pmew-testimonials-hero::after {
+            width: 210px;
+            height: 210px;
+            bottom: -90px;
+            left: 4%;
+            border: 1px solid rgba(79, 141, 135, 0.32);
+        }
+
+        .pmew-testimonials-hero .pmew-testimonials-shell {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pmew-testimonials-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.65fr);
+            gap: 68px;
+            align-items: end;
+        }
+
+        .pmew-testimonials-hero-title {
+            max-width: 1000px;
+            margin: 0;
+            font-size: clamp(4rem, 8.2vw, 9.4rem);
+            line-height: 0.88;
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .pmew-testimonials-hero-title span {
+            display: block;
+        }
+
+        .pmew-testimonials-hero-title .pmew-testimonials-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--pmew-testimonials-terracotta);
+            --text-stroke: 2px var(--pmew-testimonials-terracotta);
+        }
+
+        .pmew-testimonials-hero-copy {
+            max-width: 760px;
+            margin: 38px 0 0;
+            color: #4f5258;
+            font-size: clamp(1rem, 1.3vw, 1.22rem);
+            line-height: 1.8;
+        }
+
+        .pmew-testimonials-hero-panel {
+            position: relative;
+            padding: 36px;
+            overflow: hidden;
+            border-radius: var(--pmew-testimonials-radius-lg);
+            background:
+                linear-gradient(145deg, rgba(255,255,255,0.07), transparent 42%),
+                var(--pmew-testimonials-deep-teal);
+            color: #ffffff;
+            box-shadow: var(--pmew-testimonials-shadow);
+        }
+
+        .pmew-testimonials-hero-panel::after {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            right: -80px;
+            bottom: -90px;
+            border-radius: 50%;
+            background: rgba(214, 162, 61, 0.18);
+        }
+
+        .pmew-testimonials-hero-panel::before {
+            content: "“";
+            position: absolute;
+            top: -31px;
+            right: 24px;
+            color: var(--pmew-testimonials-gold);
+            font-family: "Playfair Display", serif;
+            font-size: 9rem;
+            line-height: 1;
+        }
+
+        .pmew-testimonials-hero-panel p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.55rem, 2.2vw, 2.6rem);
+            line-height: 1.3;
+        }
+
+        .pmew-testimonials-hero-panel small {
+            display: block;
+            margin-top: 28px;
+            color: #c9c9c5;
+            line-height: 1.6;
+        }
+
+        .pmew-testimonials-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            margin-top: 44px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.18);
+        }
+
+        .pmew-testimonials-metric {
+            min-height: 118px;
+            padding: 22px 16px;
+            background: var(--pmew-testimonials-deep-teal);
+        }
+
+        .pmew-testimonials-metric strong {
+            display: block;
+            font-size: 2.1rem;
+            line-height: 1;
+        }
+
+        .pmew-testimonials-metric span {
+            display: block;
+            margin-top: 10px;
+            color: #b9bab6;
+            font-size: 0.76rem;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .pmew-testimonials-section {
+            padding: 112px 0;
+        }
+
+        .pmew-testimonials-section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 38px;
+            margin-bottom: 52px;
+        }
+
+        .pmew-testimonials-section-title {
+            max-width: 850px;
+            margin: 0;
+            font-size: clamp(2.65rem, 5vw, 5.9rem);
+            line-height: 0.96;
+            letter-spacing: -0.055em;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .pmew-testimonials-section-note {
+            max-width: 460px;
+            margin: 0;
+            color: var(--pmew-testimonials-muted);
+            line-height: 1.8;
+        }
+
+        .pmew-testimonials-global-map {
+            position: relative;
+            padding: 112px 0;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, #fffefd 0%, #f5faf8 100%);
+            border-bottom: 1px solid var(--pmew-testimonials-line);
+        }
+
+        .pmew-testimonials-global-map::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            left: -260px;
+            top: 10%;
+            border-radius: 50%;
+            background: rgba(93, 138, 163, 0.08);
+        }
+
+        .pmew-testimonials-global-map::after {
+            content: "";
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            right: -240px;
+            bottom: -160px;
+            border-radius: 50%;
+            background: rgba(201, 111, 78, 0.08);
+        }
+
+        .pmew-testimonials-map-layout {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(320px, 0.42fr) minmax(0, 1.58fr);
+            gap: 50px;
+            align-items: center;
+        }
+
+        .pmew-testimonials-map-copy h2 {
+            margin: 0;
+            font-size: clamp(2.8rem, 5vw, 6.1rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-map-copy h2 span {
+            color: var(--pmew-testimonials-terracotta);
+        }
+
+        .pmew-testimonials-map-copy > p:not(.pmew-testimonials-eyebrow) {
+            max-width: 560px;
+            margin: 30px 0 0;
+            color: var(--pmew-testimonials-muted);
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        .pmew-testimonials-map-regions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 34px;
+        }
+
+        .pmew-testimonials-map-region {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 42px;
+            padding: 0 15px;
+            border: 1px solid var(--pmew-testimonials-line);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.8);
+            color: #46515a;
+            font-size: 0.76rem;
+            font-weight: 750;
+        }
+
+        .pmew-testimonials-map-region::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--region-colour, var(--pmew-testimonials-gold));
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--region-colour, var(--pmew-testimonials-gold)) 16%, transparent);
+        }
+
+        .pmew-testimonials-map-frame {
+            position: relative;
+            overflow: hidden;
+            padding: 18px;
+            border: 1px solid rgba(93, 138, 163, 0.22);
+            border-radius: 38px;
+            background: rgba(255,255,255,0.92);
+            box-shadow: 0 30px 90px rgba(49, 78, 84, 0.14);
+        }
+
+        .pmew-testimonials-map-frame::before {
+            content: "GLOBAL CUSTOMER CONNECTIONS";
+            position: absolute;
+            top: 36px;
+            left: 38px;
+            z-index: 2;
+            padding: 11px 15px;
+            border-radius: 999px;
+            background: rgba(23, 35, 45, 0.86);
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            backdrop-filter: blur(10px);
+        }
+
+        .pmew-testimonials-map-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 480px;
+            object-fit: cover;
+            border-radius: 26px;
+            background: #ffffff;
+        }
+
+        .pmew-testimonials-map-caption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-top: 16px;
+            padding: 0 8px 4px;
+            color: #6e767c;
+            font-size: 0.76rem;
+            line-height: 1.6;
+        }
+
+        .pmew-testimonials-map-caption strong {
+            color: var(--pmew-testimonials-deep-teal);
+        }
+
+        .pmew-testimonials-featured {
+            background:
+                radial-gradient(circle at 9% 12%, rgba(214, 162, 61, 0.10), transparent 26%),
+                #fffdf9;
+        }
+
+        .pmew-testimonials-featured-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .pmew-testimonials-feature-card {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 38px;
+            border: 1px solid var(--pmew-testimonials-line);
+            border-radius: var(--pmew-testimonials-radius-lg);
+            background: var(--pmew-testimonials-soft);
+            transition: transform 240ms ease, box-shadow 240ms ease;
+        }
+
+        .pmew-testimonials-feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--pmew-testimonials-shadow);
+        }
+
+        .pmew-testimonials-feature-card:nth-child(1) {
+            grid-column: span 7;
+            background: #f5e1bf;
+        }
+
+        .pmew-testimonials-feature-card:nth-child(2) {
+            grid-column: span 5;
+            background: #dcece8;
+        }
+
+        .pmew-testimonials-feature-card:nth-child(3) {
+            grid-column: span 5;
+            background: #f3d9cf;
+        }
+
+        .pmew-testimonials-feature-card:nth-child(4) {
+            grid-column: span 7;
+            background: #e1e9d9;
+        }
+
+        .pmew-testimonials-feature-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .pmew-testimonials-feature-index {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-feature-icon {
+            width: 52px;
+            height: 52px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--pmew-testimonials-deep-teal);
+            color: #ffffff;
+        }
+
+        .pmew-testimonials-feature-block {
+            width: fit-content;
+            max-width: 92%;
+            margin: 52px 0 0;
+            padding: 14px 18px;
+            border-left: 5px solid var(--pmew-testimonials-deep-teal);
+            border-radius: 0 14px 14px 0;
+            background: rgba(255,255,255,0.56);
+            color: var(--pmew-testimonials-ink);
+            font-size: clamp(0.92rem, 1.3vw, 1.18rem);
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: 0.055em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-feature-quote {
+            max-width: 870px;
+            margin: 60px 0 26px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2rem, 3.3vw, 4.2rem);
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+        }
+
+        .pmew-testimonials-feature-block + .pmew-testimonials-feature-quote {
+            margin-top: 28px;
+        }
+
+        .pmew-testimonials-feature-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(23,25,29,0.25);
+        }
+
+        .pmew-testimonials-feature-meta strong {
+            display: block;
+            line-height: 1.4;
+        }
+
+        .pmew-testimonials-feature-meta span {
+            display: block;
+            margin-top: 6px;
+            color: #595b60;
+            font-size: 0.86rem;
+        }
+
+        .pmew-testimonials-read-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 46px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--pmew-testimonials-ink);
+            font-weight: 750;
+        }
+
+        .pmew-testimonials-read-button i {
+            transition: transform 180ms ease;
+        }
+
+        .pmew-testimonials-read-button:hover i {
+            transform: translateX(6px);
+        }
+
+        .pmew-testimonials-library {
+            background:
+                radial-gradient(circle at 96% 4%, rgba(93, 138, 163, 0.13), transparent 25%),
+                radial-gradient(circle at 2% 96%, rgba(143, 164, 127, 0.13), transparent 24%),
+                var(--pmew-testimonials-soft);
+            border-top: 1px solid var(--pmew-testimonials-line);
+            border-bottom: 1px solid var(--pmew-testimonials-line);
+        }
+
+        .pmew-testimonials-toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            margin-bottom: 44px;
+            padding: 18px;
+            border: 1px solid var(--pmew-testimonials-line);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 16px 40px rgba(23,25,29,0.08);
+            backdrop-filter: blur(14px);
+        }
+
+        .pmew-testimonials-toolbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .pmew-testimonials-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pmew-testimonials-filter {
+            min-height: 44px;
+            padding: 0 18px;
+            border: 1px solid var(--pmew-testimonials-line);
+            border-radius: 999px;
+            background: #ffffff;
+            color: #4d5055;
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+        }
+
+        .pmew-testimonials-filter:hover,
+        .pmew-testimonials-filter.is-active {
+            border-color: var(--pmew-testimonials-deep-teal);
+            background: var(--pmew-testimonials-deep-teal);
+            color: #ffffff;
+        }
+
+        .pmew-testimonials-search {
+            position: relative;
+            width: min(340px, 100%);
+            flex: 0 0 auto;
+        }
+
+        .pmew-testimonials-search i {
+            position: absolute;
+            top: 50%;
+            left: 17px;
+            transform: translateY(-50%);
+            color: #767980;
+        }
+
+        .pmew-testimonials-search input {
+            width: 100%;
+            min-height: 48px;
+            padding: 0 18px 0 46px;
+            border: 1px solid var(--pmew-testimonials-line);
+            border-radius: 999px;
+            outline: none;
+            background: #ffffff;
+            color: var(--pmew-testimonials-ink);
+        }
+
+        .pmew-testimonials-search input:focus {
+            border-color: var(--pmew-testimonials-ink);
+            box-shadow: 0 0 0 4px rgba(23,25,29,0.08);
+        }
+
+        .pmew-testimonials-results {
+            margin-bottom: 20px;
+            color: #666970;
+            font-size: 0.86rem;
+            font-weight: 650;
+        }
+
+        .pmew-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .pmew-testimonial-card {
+            --card-accent: #b66a3c;
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 34px;
+            border: 1px solid color-mix(in srgb, var(--card-accent) 22%, var(--pmew-testimonials-line));
+            border-radius: var(--pmew-testimonials-radius-md);
+            background:
+                linear-gradient(145deg, color-mix(in srgb, var(--card-accent) 5%, white), #ffffff 38%);
+            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        }
+
+        .pmew-testimonial-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 7px;
+            background: var(--card-accent);
+        }
+
+        .pmew-testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: #c7c8c4;
+            box-shadow: var(--pmew-testimonials-shadow);
+        }
+
+        .pmew-testimonial-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 20px;
+            margin-bottom: 34px;
+        }
+
+        .pmew-testimonial-card-number {
+            color: var(--card-accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        .pmew-testimonial-card-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: color-mix(in srgb, var(--card-accent) 13%, white);
+            color: var(--card-accent);
+            font-size: 1rem;
+        }
+
+        .pmew-testimonial-card-category {
+            margin: 0 0 14px;
+            color: #787b81;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonial-card-title {
+            margin: 0;
+            font-size: clamp(1.55rem, 2.2vw, 2.35rem);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+        }
+
+        .pmew-testimonial-card-block {
+            margin: 22px 0 0;
+            padding: 13px 14px;
+            border-left: 4px solid var(--card-accent);
+            border-radius: 0 12px 12px 0;
+            background: color-mix(in srgb, var(--card-accent) 11%, white);
+            color: var(--pmew-testimonials-ink);
+            font-size: 0.86rem;
+            font-weight: 800;
+            line-height: 1.45;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonial-card-excerpt {
+            display: -webkit-box;
+            overflow: hidden;
+            margin: 24px 0 30px;
+            color: #5e6167;
+            line-height: 1.82;
+            --webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+        }
+
+        .pmew-testimonial-card-footer {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--pmew-testimonials-line);
+        }
+
+        .pmew-testimonial-card-attribution strong {
+            display: block;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+
+        .pmew-testimonial-card-attribution span {
+            display: block;
+            margin-top: 5px;
+            color: #7a7d82;
+            font-size: 0.78rem;
+        }
+
+        .pmew-testimonial-card-open {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--pmew-testimonials-ink);
+            border-radius: 50%;
+            background: #ffffff;
+            color: var(--pmew-testimonials-ink);
+            transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+        }
+
+        .pmew-testimonial-card-open:hover {
+            transform: rotate(-45deg);
+            background: var(--pmew-testimonials-ink);
+            color: #ffffff;
+        }
+
+        .pmew-testimonials-empty {
+            grid-column: 1 / -1;
+            padding: 70px 30px;
+            border: 1px dashed #c9cac6;
+            border-radius: 24px;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .pmew-testimonials-empty i {
+            margin-bottom: 18px;
+            color: #8b8e93;
+            font-size: 2rem;
+        }
+
+        .pmew-testimonials-empty h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .pmew-testimonials-empty p {
+            margin: 0;
+            color: var(--pmew-testimonials-muted);
+        }
+
+        .pmew-testimonials-closing {
+            position: relative;
+            overflow: hidden;
+            padding: 118px 0;
+            background:
+                radial-gradient(circle at 86% 18%, rgba(214, 162, 61, 0.18), transparent 28%),
+                radial-gradient(circle at 8% 100%, rgba(93, 138, 163, 0.19), transparent 27%),
+                var(--pmew-testimonials-deep-teal);
+            color: #ffffff;
+        }
+
+        .pmew-testimonials-closing-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+            gap: 72px;
+            align-items: end;
+        }
+
+        .pmew-testimonials-closing h2 {
+            max-width: 1050px;
+            margin: 0;
+            font-size: clamp(3.2rem, 6.6vw, 8.4rem);
+            line-height: 0.9;
+            letter-spacing: -0.065em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-closing h2 span {
+            color: var(--pmew-testimonials-gold);
+        }
+
+        .pmew-testimonials-closing-side {
+            padding-left: 28px;
+            border-left: 1px solid rgba(255,255,255,0.22);
+        }
+
+        .pmew-testimonials-closing-side p {
+            margin: 0 0 28px;
+            color: #c6c7c2;
+            line-height: 1.8;
+        }
+
+        .pmew-testimonials-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 54px;
+            padding: 0 24px;
+            border: 1px solid #ffffff;
+            border-radius: 999px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 750;
+            transition: background 180ms ease, color 180ms ease;
+        }
+
+        .pmew-testimonials-cta:hover {
+            background: #ffffff;
+            color: var(--pmew-testimonials-ink);
+        }
+
+        .pmew-testimonials-disclaimer {
+            padding: 28px 0;
+            background: #ece8df;
+            border-bottom: 1px solid #dad5ca;
+        }
+
+        .pmew-testimonials-disclaimer-inner {
+            display: flex;
+            align-items: start;
+            gap: 16px;
+            color: #565960;
+            font-size: 0.86rem;
+            line-height: 1.7;
+        }
+
+        .pmew-testimonials-disclaimer i {
+            margin-top: 4px;
+            color: #916827;
+        }
+
+        .pmew-testimonials-dialog {
+            width: min(920px, calc(100% - 32px));
+            max-height: min(88vh, 940px);
+            overflow: auto;
+            padding: 0;
+            border: 0;
+            border-radius: 30px;
+            background: #ffffff;
+            color: var(--pmew-testimonials-ink);
+            box-shadow: 0 40px 120px rgba(0,0,0,0.28);
+        }
+
+        .pmew-testimonials-dialog::backdrop {
+            background: rgba(16,17,20,0.72);
+            backdrop-filter: blur(8px);
+        }
+
+        .pmew-testimonials-dialog-inner {
+            position: relative;
+            padding: clamp(34px, 6vw, 72px);
+        }
+
+        .pmew-testimonials-dialog-accent {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 8px;
+            background: var(--dialog-accent, #b66a3c);
+        }
+
+        .pmew-testimonials-dialog-close {
+            position: sticky;
+            top: 18px;
+            z-index: 2;
+            float: right;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #d6d7d3;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.94);
+            color: var(--pmew-testimonials-ink);
+        }
+
+        .pmew-testimonials-dialog-kicker {
+            margin: 22px 0 16px;
+            color: var(--dialog-accent, #b66a3c);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-dialog-title {
+            max-width: 720px;
+            margin: 0 0 30px;
+            font-size: clamp(2.1rem, 4.3vw, 4.8rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+        }
+
+        .pmew-testimonials-dialog-block {
+            display: none;
+            margin: 0 0 30px;
+            padding: 18px 20px;
+            border-left: 6px solid var(--dialog-accent, #b66a3c);
+            border-radius: 0 16px 16px 0;
+            background: color-mix(in srgb, var(--dialog-accent, #b66a3c) 11%, white);
+            color: var(--pmew-testimonials-ink);
+            font-size: clamp(1.05rem, 2vw, 1.55rem);
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+
+        .pmew-testimonials-dialog-block.is-visible {
+            display: block;
+        }
+
+        .pmew-testimonials-dialog-quote {
+            margin: 0;
+            color: #44474d;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.18rem, 1.9vw, 1.55rem);
+            line-height: 1.75;
+            white-space: pre-line;
+        }
+
+        .pmew-testimonials-dialog-footer {
+            margin-top: 42px;
+            padding-top: 28px;
+            border-top: 1px solid var(--pmew-testimonials-line);
+        }
+
+        .pmew-testimonials-dialog-footer strong {
+            display: block;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .pmew-testimonials-dialog-footer span {
+            display: block;
+            margin-top: 6px;
+            color: #73767c;
+        }
+
+        @media (max-width: 1120px) {
+            .pmew-testimonials-map-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-testimonials-map-copy {
+                max-width: 900px;
+            }
+
+            .pmew-testimonials-map-image {
+                min-height: 0;
+            }
+
+            .pmew-testimonials-hero-grid,
+            .pmew-testimonials-closing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-testimonials-hero {
+                min-height: auto;
+            }
+
+            .pmew-testimonials-hero-panel {
+                max-width: 760px;
+            }
+
+            .pmew-testimonials-feature-card:nth-child(n) {
+                grid-column: span 6;
+            }
+
+            .pmew-testimonials-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .pmew-testimonials-toolbar-inner {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .pmew-testimonials-search {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .pmew-testimonials-global-map {
+                padding: 82px 0;
+            }
+
+            .pmew-testimonials-map-layout {
+                gap: 34px;
+            }
+
+            .pmew-testimonials-map-frame {
+                padding: 8px;
+                border-radius: 24px;
+            }
+
+            .pmew-testimonials-map-frame::before {
+                top: 18px;
+                left: 18px;
+                padding: 9px 12px;
+                font-size: 0.56rem;
+            }
+
+            .pmew-testimonials-map-image {
+                border-radius: 18px;
+            }
+
+            .pmew-testimonials-map-caption {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .pmew-testimonials-shell {
+                width: min(100% - 30px, 1440px);
+            }
+
+            .pmew-testimonials-hero {
+                padding: 118px 0 68px;
+            }
+
+            .pmew-testimonials-hero-title {
+                font-size: clamp(3.5rem, 18vw, 6.2rem);
+            }
+
+            .pmew-testimonials-hero-title .pmew-testimonials-outline {
+                -webkit-text-stroke-width: 1.4px;
+            }
+
+            .pmew-testimonials-hero-panel {
+                padding: 28px;
+            }
+
+            .pmew-testimonials-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-testimonials-metric {
+                min-height: auto;
+            }
+
+            .pmew-testimonials-section {
+                padding: 82px 0;
+            }
+
+            .pmew-testimonials-section-head {
+                align-items: start;
+                flex-direction: column;
+                margin-bottom: 38px;
+            }
+
+            .pmew-testimonials-feature-card:nth-child(n) {
+                grid-column: 1 / -1;
+                min-height: 440px;
+                padding: 28px;
+            }
+
+            .pmew-testimonials-feature-quote {
+                margin-top: 46px;
+            }
+
+            .pmew-testimonials-toolbar {
+                position: static;
+                padding: 14px;
+            }
+
+            .pmew-testimonials-filters {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                scrollbar-width: none;
+            }
+
+            .pmew-testimonials-filters::-webkit-scrollbar {
+                display: none;
+            }
+
+            .pmew-testimonials-filter {
+                flex: 0 0 auto;
+            }
+
+            .pmew-testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pmew-testimonial-card {
+                min-height: 0;
+                padding: 28px;
+            }
+
+            .pmew-testimonials-feature-block {
+                max-width: 100%;
+                margin-top: 42px;
+                font-size: 0.86rem;
+            }
+
+            .pmew-testimonial-card-block {
+                font-size: 0.78rem;
+            }
+
+            .pmew-testimonials-closing {
+                padding: 86px 0;
+            }
+
+            .pmew-testimonials-closing h2 {
+                font-size: clamp(3.2rem, 15vw, 6rem);
+            }
+
+            .pmew-testimonials-closing-side {
+                padding: 28px 0 0;
+                border-top: 1px solid rgba(255,255,255,0.22);
+                border-left: 0;
+            }
+
+            .pmew-testimonials-disclaimer-inner {
+                align-items: start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/global-presence/customer-testimonial.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Customer Testimonials | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Twenty-five customer experiences across global markets, OEMs, automotive, EV, defence, electronics, seating, rubber, moulding, HVAC, switchgear and industrial manufacturing.">
+    <meta property="og:url" content="https://www.pradako.co/pages/global-presence/customer-testimonial.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customer Testimonials | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Twenty-five customer experiences across global markets, OEMs, automotive, EV, defence, electronics, seating, rubber, moulding, HVAC, switchgear and industrial manufacturing.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Customer Testimonials | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/global-presence/customer-testimonial.html",
+  "description": "Twenty-five customer experiences across global markets, OEMs, automotive, EV, defence, electronics, seating, rubber, moulding, HVAC, switchgear and industrial manufacturing.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+<div id="navbar-container"></div>
+<main class="pmew-testimonials-page">
+<section aria-labelledby="pmew-testimonials-main-title" class="pmew-testimonials-hero">
+<div class="pmew-testimonials-shell">
+<div class="pmew-testimonials-hero-grid">
+<div>
+<p class="pmew-testimonials-eyebrow">Customer Stories · Global Trust</p>
+<h1 class="pmew-testimonials-hero-title" id="pmew-testimonials-main-title">
+<span>Trust,</span>
+<span class="pmew-testimonials-outline">Built One</span>
+<span>Order At</span>
+<span>A Time.</span>
+</h1>
+<p class="pmew-testimonials-hero-copy">
+                            From global sourcing teams and industrial distributors to automotive, defence,
+                            electronics and emerging-mobility manufacturers, these stories reflect the value
+                            of precision, responsibility and relationships that grow stronger with every supply.
+                        </p>
+</div>
+<aside aria-label="Customer trust statement" class="pmew-testimonials-hero-panel">
+<p>
+                            “The product earns approval. The people, consistency and ownership earn the relationship.”
+                        </p>
+<small>
+                            A collection of professional testimonial drafts representing customer experiences
+                            across markets, applications and industries.
+                        </small>
+<div class="pmew-testimonials-metrics">
+<div class="pmew-testimonials-metric">
+<strong>25</strong>
+<span>Customer perspectives</span>
+</div>
+<div class="pmew-testimonials-metric">
+<strong>10+</strong>
+<span>Industry segments</span>
+</div>
+<div class="pmew-testimonials-metric">
+<strong>1</strong>
+<span>Shared standard of trust</span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<section aria-labelledby="pmew-global-map-title" class="pmew-testimonials-global-map">
+<div class="pmew-testimonials-shell">
+<div class="pmew-testimonials-map-layout">
+<div class="pmew-testimonials-map-copy">
+<p class="pmew-testimonials-eyebrow">Global Customer Footprint</p>
+<h2 id="pmew-global-map-title">
+                            Trusted Across <span>Markets And Industries.</span>
+</h2>
+<p>
+                            Customer relationships connect Pradako with sourcing teams, distributors,
+                            OEMs and manufacturing organisations across India, Europe, North America,
+                            Southeast Asia, Africa and other developing global supply networks.
+                        </p>
+<div aria-label="Customer regions" class="pmew-testimonials-map-regions">
+<span class="pmew-testimonials-map-region" style="--region-colour:#5d8aa3;">North America</span>
+<span class="pmew-testimonials-map-region" style="--region-colour:#d6a23d;">Europe</span>
+<span class="pmew-testimonials-map-region" style="--region-colour:#c96f4e;">Asia Pacific</span>
+<span class="pmew-testimonials-map-region" style="--region-colour:#4f8d87;">Africa</span>
+<span class="pmew-testimonials-map-region" style="--region-colour:#8fa47f;">India</span>
+</div>
+</div>
+<figure class="pmew-testimonials-map-frame">
+<img alt="Colourful global customer and supply network map showing international connections across North America, Europe, Africa and Asia-Pacific" class="pmew-testimonials-map-image" decoding="async" loading="eager" src="/assets/images/global-presence/global-network-connectivity-map.png"/>
+<figcaption class="pmew-testimonials-map-caption">
+<span><strong>Global relationships:</strong> connected through engineering, service and dependable supply.</span>
+<span>Illustrative customer network</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="pmew-featured-title" class="pmew-testimonials-section pmew-testimonials-featured">
+<div class="pmew-testimonials-shell">
+<div class="pmew-testimonials-section-head">
+<div>
+<p class="pmew-testimonials-eyebrow">Featured Experiences</p>
+<h2 class="pmew-testimonials-section-title" id="pmew-featured-title">
+                            Relationships That Go Beyond Supply.
+                        </h2>
+</div>
+<p class="pmew-testimonials-section-note">
+                        Four perspectives that capture Pradako’s approach to digital accessibility,
+                        electric mobility, automotive systems and global OEM collaboration.
+                    </p>
+</div>
+<div class="pmew-testimonials-featured-grid" id="pmew-featured-grid"></div>
+</div>
+</section>
+<section aria-labelledby="pmew-library-title" class="pmew-testimonials-section pmew-testimonials-library">
+<div class="pmew-testimonials-shell">
+<div class="pmew-testimonials-section-head">
+<div>
+<p class="pmew-testimonials-eyebrow">All Customer Stories</p>
+<h2 class="pmew-testimonials-section-title" id="pmew-library-title">
+                            Across Markets. Across Industries.
+                        </h2>
+</div>
+<p class="pmew-testimonials-section-note">
+                        Browse by customer category or search by market, product, application and industry.
+                        Key proof points appear in bold blocks; open any card to read the complete testimonial.
+                    </p>
+</div>
+<div aria-label="Testimonial filters" class="pmew-testimonials-toolbar">
+<div class="pmew-testimonials-toolbar-inner">
+<div aria-label="Filter testimonials" class="pmew-testimonials-filters" role="group">
+<button class="pmew-testimonials-filter is-active" data-filter="all" type="button">All 25</button>
+<button class="pmew-testimonials-filter" data-filter="global" type="button">Global Markets</button>
+<button class="pmew-testimonials-filter" data-filter="automotive" type="button">Automotive and Mobility</button>
+<button class="pmew-testimonials-filter" data-filter="oem" type="button">OEM and Engineering</button>
+<button class="pmew-testimonials-filter" data-filter="electrical" type="button">Electrical and Electronics</button>
+<button class="pmew-testimonials-filter" data-filter="specialised" type="button">Specialised Industries</button>
+</div>
+<label class="pmew-testimonials-search">
+<span class="sr-only">Search testimonials</span>
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+<input id="pmew-testimonials-search-input" placeholder="Search market, product or industry" type="search"/>
+</label>
+</div>
+</div>
+<div aria-live="polite" class="pmew-testimonials-results" id="pmew-testimonials-results"></div>
+<div class="pmew-testimonials-grid" id="pmew-testimonials-grid"></div>
+</div>
+</section>
+<section class="pmew-testimonials-closing">
+<div class="pmew-testimonials-shell">
+<div class="pmew-testimonials-closing-grid">
+<h2>
+                        Precision Starts The Order. <span>Trust Builds The Future.</span>
+</h2>
+<div class="pmew-testimonials-closing-side">
+<p>
+                            Every drawing, batch, delivery and conversation is an opportunity to strengthen
+                            confidence and create long-term value together.
+                        </p>
+<a class="pmew-testimonials-cta" href="/pages/contact/contact-us.html">
+                            Start a conversation
+                            <i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<dialog aria-labelledby="pmew-dialog-title" class="pmew-testimonials-dialog" id="pmew-testimonials-dialog">
+<div class="pmew-testimonials-dialog-inner">
+<div class="pmew-testimonials-dialog-accent"></div>
+<button aria-label="Close testimonial" class="pmew-testimonials-dialog-close" type="button">
+<i aria-hidden="true" class="fa-solid fa-xmark"></i>
+</button>
+<p class="pmew-testimonials-dialog-kicker" id="pmew-dialog-kicker"></p>
+<h2 class="pmew-testimonials-dialog-title" id="pmew-dialog-title"></h2>
+<p class="pmew-testimonials-dialog-block" id="pmew-dialog-block"></p>
+<blockquote class="pmew-testimonials-dialog-quote" id="pmew-dialog-quote"></blockquote>
+<div class="pmew-testimonials-dialog-footer">
+<strong id="pmew-dialog-author"></strong>
+<span id="pmew-dialog-location"></span>
+</div>
+</div>
+</dialog>
+<div id="footer-container"></div>
+<script src="/assets/js/pradako-global-animations.js"></script>
+<script>
+        (() => {
+            const testimonials = [
+                {
+                    id: 1,
+                    category: "global",
+                    icon: "fa-earth-europe",
+                    accent: "#d19d35",
+                    label: "European Industrial Customer",
+                    location: "Europe",
+                    title: "Precision That Consistently Meets European Expectations",
+                    author: "Procurement Director, Industrial Engineering Company",
+                    quote: `Working with Pradako has given us the confidence of having a manufacturing partner that understands the expectations of the European industrial market. Their team approaches every requirement with technical discipline, clear documentation and a genuine willingness to understand the application before proposing a solution. The consistency of the fasteners, packaging quality and shipment coordination has remained dependable across repeated orders. What we particularly value is their responsiveness whenever specifications, quantities or delivery priorities change. Over time, the relationship has grown beyond regular procurement—it has become a partnership built on reliability, transparency and mutual respect.`
+                },
+                {
+                    id: 2,
+                    category: "oem",
+                    icon: "fa-gears",
+                    accent: "#728f72",
+                    label: "German OEM Customer",
+                    location: "Germany",
+                    title: "Engineering Discipline Supported by Genuine Commitment",
+                    author: "Supplier Development Manager, OEM Manufacturing Group",
+                    quote: `Pradako’s ability to understand detailed drawings, material requirements, tolerances and quality documentation has made them a valued part of our supplier network. Their engineering and quality teams communicate with clarity and remain actively involved from development and sampling through approval and serial production. We have appreciated their structured approach to corrective actions, process control and continuous improvement. Equally important is the personal commitment shown by their team; they take responsibility for every order and treat our deadlines with the same seriousness as their own. That combination of technical capability and dependable human engagement is what makes the relationship meaningful.`
+                },
+                {
+                    id: 3,
+                    category: "global",
+                    icon: "fa-compass",
+                    accent: "#ce7657",
+                    label: "Thailand Customer",
+                    location: "Thailand",
+                    title: "Responsive, Adaptable and Easy to Work With",
+                    author: "Managing Director, Industrial Components Distributor",
+                    quote: `Our experience with Pradako has been highly positive. They understood that supplying the Southeast Asian market requires flexibility, responsive communication and careful coordination across different time zones and logistics schedules. Their team supported us through product selection, sample development, packaging requirements and export documentation with patience and professionalism. Even when our demand forecasts changed, they worked closely with us to realign production and delivery plans. We value suppliers who listen carefully and respond with practical solutions, and Pradako has consistently demonstrated this quality. Their approachable team and sincere attention to our requirements have made every interaction comfortable and productive.`
+                },
+                {
+                    id: 4,
+                    category: "global",
+                    icon: "fa-truck-fast",
+                    accent: "#5d8aa3",
+                    label: "United States Customer",
+                    location: "USA",
+                    title: "A Reliable Extension of Our Global Supply Chain",
+                    blockLine: "ONE OF THE FINEST PARTS WE SOURCE—SUPPLIED WITHOUT INTERRUPTION, YEAR AFTER YEAR.",
+                    author: "Strategic Sourcing Manager, Industrial Products Company",
+                    quote: `Pradako has become one of the most dependable sources in our international supply network. Across years of supply, the parts have remained consistent, the communication has stayed organised and the flow of material has continued without disruption. Their control over traceability, packaging identification, inspection documentation and dispatch planning gives our purchasing and receiving teams confidence before every shipment leaves India.
+
+We source a range of industrial fastening products from them, including machine screws and self-tapping screws for controlled assembly applications. Dimensional consistency, thread formation, finishes and packaging have remained dependable across repeat orders, allowing the components to move smoothly through our stores and production processes.
+
+Their support has been especially valuable when timelines became critical. On one urgent requirement, Pradako reorganised production, completed the required checks and arranged shipment by air so that the parts reached us before the shortage could affect our customer programme. They kept us informed at every stage rather than leaving us to follow up repeatedly.
+
+A supplier becomes valuable through the product, but becomes trusted through years of uninterrupted performance. Pradako has earned that trust through responsibility, responsiveness and a genuine understanding of what reliable global supply means to the customer.`
+                },
+                {
+                    id: 5,
+                    category: "oem",
+                    icon: "fa-industry",
+                    accent: "#aa8758",
+                    label: "Indian Engineering Customer",
+                    location: "India",
+                    title: "A Partnership Built on Trust, Speed and Technical Understanding",
+                    blockLine: "25 YEARS—AND STILL THE SAME DEPENDABLE FLOW OF PARTS.",
+                    author: "Head of Purchase, Heavy Engineering Company",
+                    quote: `Our relationship with Pradako has continued for approximately twenty-five years, and the most meaningful compliment we can offer is that the flow of parts, personal attention and sense of responsibility have remained dependable throughout that journey. Products, processes and market expectations have evolved, yet the commitment behind every order has remained familiar.
+
+Their team supports us with standard as well as application-specific fasteners and understands the realities of Indian heavy engineering—production urgency, development changes, small trial quantities, commercial pressures and the need to move quickly from a drawing to a stable production part. Rapid development has been one of their strongest contributions, particularly when a new component had to be sampled, evaluated and brought into supply within a compressed schedule.
+
+Their support during the lockdown period strengthened the relationship further. Despite extraordinary operating and logistics constraints, the team maintained communication, planned material carefully and worked to protect our production requirements. Several consignments were delivered before the committed date, giving us valuable operating assurance at a time when supply chains were uncertain.
+
+Twenty-five years of continued business cannot be sustained by quotations alone. It is built through familiarity, fairness, technical understanding and the confidence that the supplier will stand beside the customer when conditions become difficult. That is the value Pradako has consistently brought to our organisation.`
+                },
+                {
+                    id: 6,
+                    category: "global",
+                    icon: "fa-mountain-sun",
+                    accent: "#4f8d87",
+                    label: "South African Customer",
+                    location: "South Africa",
+                    title: "Dependable Support Across Distance and Demanding Applications",
+                    blockLine: "AIRBAG BOLTS SUPPLIED WITH THE DISCIPLINE SAFETY-CRITICAL PARTS DESERVE.",
+                    author: "Operations Director, Industrial and Automotive Supplies Company",
+                    quote: `Supplying components across distance requires confidence in both the product and the people behind it. Our experience with Pradako has included airbag bolts and other demanding fastening requirements where dimensional control, material integrity, surface condition, traceability and lot consistency must be treated with exceptional seriousness.
+
+Their team takes time to understand the application and the inspection expectations before proceeding. Product identification, packaging, supporting documents and export coordination are handled carefully, helping our quality and receiving teams maintain clear control from dispatch through final use. Communication has remained prompt despite the geographical distance between our organisations.
+
+We particularly value their willingness to discuss technical observations openly and respond with structured action. Safety-related components require a supplier who understands that reliability is built into the process rather than inspected only at the end. Pradako’s approach reflects that responsibility.
+
+It is reassuring to know that there is a committed manufacturing team in India taking personal ownership of our requirements. Their dependable support has helped us serve customers in South Africa with greater confidence, even when applications and schedules have been demanding.`
+                },
+                {
+                    id: 7,
+                    category: "oem",
+                    icon: "fa-diagram-project",
+                    accent: "#8d6f8c",
+                    label: "Global OEM Customer",
+                    location: "Global",
+                    title: "From Component Supplier to Strategic Manufacturing Partner",
+                    author: "Global Commodity Manager, Original Equipment Manufacturer",
+                    quote: `Pradako’s contribution extends beyond the supply of fasteners. Their team participates in technical discussions, evaluates drawings, supports product development and works constructively with our engineering, quality and sourcing departments. They understand that an OEM relationship requires consistency over thousands of components, disciplined change management and complete alignment with approved specifications. Their responsiveness during trials and development programmes has been particularly valuable. We have seen a genuine willingness to invest time, resources and manufacturing attention into building a long-term programme. This sense of shared responsibility has strengthened our confidence and transformed the relationship from a transactional supply arrangement into a strategic manufacturing partnership.`
+                },
+                {
+                    id: 8,
+                    category: "automotive",
+                    icon: "fa-car-side",
+                    accent: "#c96f4e",
+                    label: "Automotive OEM Customer",
+                    location: "Automotive OEM",
+                    title: "Consistency That Supports the Automotive Production Line",
+                    author: "Supplier Quality Head, Automotive OEM",
+                    quote: `In automotive manufacturing, every component must perform consistently because even a small variation can affect assembly efficiency and final product quality. Pradako has demonstrated a strong understanding of these expectations through disciplined process control, dimensional consistency and dependable production support. Their team has worked closely with our quality and supplier-development functions during sampling, validation and regular supply. Documentation, traceability and response to technical observations have been handled with professionalism. We also appreciate their focus on preventive action and continuous improvement. The confidence we have developed in their products comes from repeated performance, but the trust comes from the seriousness and personal accountability shown by their people.`
+                },
+                {
+                    id: 9,
+                    category: "electrical",
+                    icon: "fa-microchip",
+                    accent: "#657b9b",
+                    label: "Electronics OEM Customer",
+                    location: "Electronics OEM",
+                    title: "Precision Components Supported by Careful Attention to Detail",
+                    author: "Procurement and Quality Manager, Electronics OEM",
+                    quote: `Our products require small, precise and visually consistent fastening components that must integrate smoothly into controlled assembly processes. Pradako understood these requirements from the beginning and supported us through detailed evaluation, sampling and production stabilisation. Their attention to dimensions, surface finish, cleanliness, packaging and lot identification has been highly appreciated. The team remains responsive when technical clarifications are required and communicates openly regarding production and dispatch schedules. Beyond the product itself, we value the care with which they handle our business. Their willingness to listen, adapt and continuously improve has made them a dependable partner for our electronics manufacturing requirements.`
+                },
+                {
+                    id: 10,
+                    category: "global",
+                    icon: "fa-handshake",
+                    accent: "#9a8b64",
+                    label: "Long-Term International Distributor",
+                    location: "International",
+                    title: "A Relationship Strengthened Through Every Order",
+                    blockLine: "WHEN AN EMERGENCY REACHED OUR CUSTOMER, PRADAKO RESPONDED LIKE A PARTNER.",
+                    author: "Director, International Fastener and Engineering Products Distributor",
+                    quote: `Our association with Pradako has developed over several years and across many product requirements. During this period, we have seen their organisation respond to changing demand, urgent customer enquiries and evolving technical expectations with maturity and commitment. They support us with samples, technical information, flexible production planning, customised packaging and dependable export coordination.
+
+One experience remains particularly memorable. An end customer faced an emergency requirement that could have interrupted its production programme. Pradako reviewed the available material, adjusted the manufacturing sequence, completed inspection and prepared the order on priority. The response was calm, transparent and focused entirely on protecting the customer’s schedule.
+
+Their team did more than accelerate dispatch. They kept both our organisation and the end customer informed, verified the exact requirement before production and ensured that urgency did not reduce quality discipline. That balance between speed and control is difficult to achieve and is one of the reasons we continue to place confidence in them.
+
+Repeated orders are ultimately built on trust. Our continued relationship reflects the confidence Pradako has earned through consistent service, practical support and genuine personal involvement when the situation matters most.`
+                },
+                {
+                    id: 11,
+                    category: "oem",
+                    icon: "fa-magnifying-glass-chart",
+                    accent: "#d6a23d",
+                    label: "Indian Strategic Sourcing Company",
+                    location: "India",
+                    title: "A Digitally Accessible Supplier That Makes Sourcing Simpler",
+                    blockLine: "FROM DIGITAL DISCOVERY TO CUSTOMER-READY PACKAGING AND BRANDING.",
+                    author: "Director, Strategic Sourcing and Supplier Development Company",
+                    quote: `As a sourcing organisation, we regularly evaluate manufacturers across product categories, capabilities and regions. What immediately stood out about Pradako was the clarity and professionalism of its digital presence. The website allows our sourcing team to understand the product range, manufacturing capabilities, industries served, quality approach and global experience without searching through multiple disconnected sources.
+
+The product images are detailed, consistently presented and genuinely useful during initial identification. Whether we are reviewing standard fasteners or a specialised requirement, the visual presentation helps us conduct more productive internal discussions with engineering and procurement teams. Drawings, specifications, quality documents, inspection records and commercial information are also organised through the company’s digital systems and secure server, making the required information easy to locate and share.
+
+Pradako also supports us beyond component manufacturing by helping develop packaging and branding solutions suited to the destination market and the end customer. This includes private-label presentation, product identification, branded labels, carton and inner-pack concepts, kit organisation, barcode or batch information and packaging formats designed around handling, storage and customer expectations. Their flexibility allows us to present a more complete and professional sourcing solution to our clients.
+
+What makes the experience especially effective is the combination of digital accessibility and human support. We can find information quickly online, yet their team remains available when technical, packaging or branding decisions require direct discussion. This balance has made the complete sourcing process efficient, transparent and dependable.`
+                },
+                {
+                    id: 12,
+                    category: "automotive",
+                    icon: "fa-tractor",
+                    accent: "#829b68",
+                    label: "Tractor Manufacturing Company",
+                    location: "Agricultural Mobility",
+                    title: "Fasteners Engineered for Strength, Endurance and Field Reliability",
+                    author: "General Manager, Purchase and Supplier Development",
+                    quote: `Tractor manufacturing places unique demands on every component. Our products operate across farms, construction sites and challenging rural environments where vibration, dust, moisture, variable loads and continuous usage are part of everyday performance. Pradako has demonstrated a clear understanding of these conditions and has supported us with fastening solutions that meet our expectations for strength, consistency and durability.
+
+Their team works closely with our engineering, purchase and quality departments to understand the application rather than treating each requirement as a standard part number. From product development and sample approval to production supply, they have shown good technical discipline and attention to material grades, dimensional accuracy, surface treatment and assembly performance.
+
+We especially value their response during production priorities and model-development programmes. They understand that the timely availability of even a small fastener can influence an entire assembly line. Their communication remains direct, their documentation is organised and their team takes ownership whenever a requirement needs immediate attention.
+
+Over time, Pradako has become more than a component supplier to us. They have become a reliable manufacturing partner whose products contribute quietly but meaningfully to the strength and dependability our customers expect from every tractor.`
+                },
+                {
+                    id: 13,
+                    category: "specialised",
+                    icon: "fa-shield-halved",
+                    accent: "#66736c",
+                    label: "Defence Sector Client",
+                    location: "Defence Engineering",
+                    title: "Precision, Confidentiality and Responsibility in Every Requirement",
+                    author: "Authorised Representative, Defence Engineering and Systems Organisation",
+                    quote: `Requirements for defence-related applications demand a level of discipline that extends far beyond normal component supply. Accuracy, material integrity, documentation, traceability, confidentiality and controlled communication are essential throughout the development and manufacturing process. Pradako has approached our requirements with the seriousness and responsibility expected in this sector.
+
+Their engineering and quality teams take time to understand drawings, technical specifications, inspection parameters and application conditions before proceeding with development. Samples, production records and supporting documents are handled through structured processes, and technical discussions are conducted with appropriate attention to confidentiality.
+
+We have been particularly impressed by the sense of ownership shown by their team. They recognise that every supplied component may become part of a larger system where reliability is critical. This understanding is reflected in their careful manufacturing approach, inspection discipline and willingness to address technical observations thoroughly.
+
+The relationship has been strengthened by trust, professional communication and a shared commitment to quality. Pradako’s combination of manufacturing experience, technical responsiveness and respect for sensitive programmes has made them a valued participant in our approved supply chain.`
+                },
+                {
+                    id: 14,
+                    category: "electrical",
+                    icon: "fa-bolt",
+                    accent: "#b18a45",
+                    label: "Switchgear Industry Customer",
+                    location: "Electrical Equipment",
+                    title: "Dependable Fastening Solutions for Electrical Safety and Performance",
+                    blockLine: "MICRO SCREWS-CONSISTENCY FOR THE SMALLEST PARTS FOR MULTI-MILLION PIECES FOR EVERY MONTH.",
+                    author: "Head of Supply Chain, Switchgear and Electrical Equipment Manufacturer",
+                    quote: `In the switchgear industry, small fasteners carry significant responsibility. Micro screws, machine screws and self-tapping screws are used across compact electrical assemblies where thread formation, head geometry, drive engagement, finish and dimensional repeatability can influence assembly efficiency and long-term product reliability.
+
+Pradako has supplied these components with a high level of consistency. Their team understands that a very small dimensional variation can create cross-threading, poor seating, drive damage or interruption on an automated or manual assembly line. They therefore approach micro-fastener requirements with careful process control, inspection discipline and appropriate packaging to protect the parts during handling.
+
+We also appreciate the range of options they are able to discuss with our design and sourcing teams. Different head styles, drives, materials, finishes, thread forms and packaging configurations can be evaluated according to the electrical assembly and production method. Product identification, traceability and documentation remain organised across repeated supplies.
+
+The strongest compliment we can give is that these small components rarely draw attention during production—and that is exactly what reliable fasteners should achieve. Pradako’s consistency in micro screws, machine screws and self-tapping screws has made them a dependable part of our switchgear supply chain.`
+                },
+                {
+                    id: 15,
+                    category: "specialised",
+                    icon: "fa-wind",
+                    accent: "#5e9b91",
+                    label: "HVAC Industry Customer",
+                    location: "HVAC Systems",
+                    title: "Reliable Components for Systems Designed to Perform Every Day",
+                    author: "Procurement Manager, HVAC Systems and Equipment Manufacturer",
+                    quote: `HVAC systems operate continuously across commercial buildings, industrial facilities and infrastructure projects, making component reliability essential. Our fastener requirements cover several assemblies where corrosion resistance, vibration performance, dimensional consistency and installation convenience directly affect the quality of the final system. Pradako has supported these requirements with dependable products and attentive technical service.
+
+Their team understands that HVAC manufacturing involves both standardised production and customised project requirements. They have shown the flexibility to support regular schedules while also responding to special materials, coatings, dimensions and packaging configurations when required.
+
+We value their practical approach during development. Instead of offering only a product, they consider the application, assembly process and operating environment. This has helped us improve product selection and avoid complications during manufacturing and installation.
+
+The relationship has also been supported by transparent communication and reliable logistics coordination. Whether the requirement is planned well in advance or connected to a time-sensitive project, their team remains accessible and committed. Pradako’s products may be small within the overall HVAC system, but the reliability they provide makes a meaningful difference to our operations and to the comfort experienced by the end user.`
+                },
+                {
+                    id: 16,
+                    category: "specialised",
+                    icon: "fa-cubes-stacked",
+                    accent: "#bd7568",
+                    label: "Injection Moulding Company",
+                    location: "Precision Moulding",
+                    title: "A Responsive Partner for Moulds, Machines and Production Assemblies",
+                    blockLine: "ZERO PPM—MAINTAINED CONTINUOUSLY ACROSS APPROVED SUPPLIES.",
+                    author: "Managing Director, Precision Injection Moulding Company",
+                    quote: `Our injection moulding operations depend on the consistent performance of machines, moulds, fixtures, inserts and supporting assemblies. Fasteners used in these applications must withstand repeated operating cycles, heat, pressure, vibration and frequent maintenance while maintaining dimensional accuracy and dependable fitment.
+
+Across the approved supplies covered by our performance records, Pradako has maintained zero parts per million defects on a continuous basis. This performance has reduced inspection concerns, protected moulding schedules and strengthened confidence among our production, quality and maintenance teams. The result reflects control over tooling, manufacturing, measurement, segregation, packaging and lot identification rather than dependence on final inspection alone.
+
+Their team is also highly responsive when breakdown-related or production-critical requirements arise. They communicate closely with our technical teams, clarify the application and work to provide the correct component without allowing urgency to weaken process discipline.
+
+A small component can delay an entire moulding programme when it does not perform as expected. Pradako’s sustained zero-PPM performance, practical engineering support and consistent delivery have made them a trusted partner for our moulds, machines and production assemblies.`
+                },
+                {
+                    id: 17,
+                    category: "automotive",
+                    icon: "fa-car-rear",
+                    accent: "#be624e",
+                    label: "Indian Passenger Car Manufacturer",
+                    location: "India",
+                    title: "Automotive Quality Supported by Consistency and Accountability",
+                    blockLine: "ZINC-FLAKE COATING OPTIONS BUILT AROUND PERFORMANCE, OFFERING HIGH SALT-SPRAY RESISTANCE FROM 500-6000 HRS, MULTIPLE COATING TECHNOLOGIES WITH DIFFERENT COLOR OPTIONS AND THIRD PARTY CERTIFICATION FOR VERIFIED QUALITY AND COMPLIANCE.",
+                    author: "Vice President, Purchase and Supplier Quality",
+                    quote: `In passenger vehicle manufacturing, fasteners must remain consistent across every production shift and every supplied batch. Their performance influences assembly efficiency, structural reliability, serviceability, corrosion protection and the overall ownership experience. Pradako has demonstrated a strong understanding of this responsibility.
+
+Their team works systematically with our engineering, supplier-quality and purchase departments during product development, validation and regular production. We particularly value the range of coating and finish options they are able to evaluate for different applications. Zinc-flake coating systems, topcoats, friction-control requirements, corrosion-resistance targets, colour or appearance expectations and assembly torque behaviour are discussed according to the actual component and operating environment.
+
+This ability to provide a variety of technically suitable options helps our teams balance performance, assembly characteristics, durability and programme requirements rather than relying on one universal finish. Documentation, traceability, packaging and technical observations are handled through structured communication and corrective action.
+
+What we appreciate most is the accountability shown by their people. They recognise that every component reaching our assembly line carries the reputation of both organisations. Their coating knowledge, manufacturing consistency and long-term partnership approach have made them a trusted member of our automotive supply chain.`
+                },
+                {
+                    id: 18,
+                    category: "automotive",
+                    icon: "fa-charging-station",
+                    accent: "#3f896d",
+                    label: "Pioneering Indian Electric Vehicle Manufacturer",
+                    location: "India",
+                    title: "Zero PPM Performance That Strengthened Our Confidence",
+                    blockLine: "ZERO PPM—MAINTAINED CONSISTENTLY FOR OUR EV PROGRAMMES.",
+                    author: "Head of Supplier Quality, Pioneering Electric Vehicle Manufacturer",
+                    quote: `Electric vehicle manufacturing combines advanced engineering with demanding expectations for quality, efficiency and rapid innovation. Every component must support the larger objective of building vehicles that are reliable, safe and ready for the future. Pradako has contributed to this objective through consistent fastening products, disciplined process control and close coordination with our engineering and supplier-quality teams.
+
+Across the approved performance period and the supplies evaluated by our organisation, Pradako maintained zero parts per million defects on a consistent basis. This was not an isolated achievement linked to one batch. It reflected sustained control over raw materials, tooling, manufacturing processes, measurement systems, segregation, packaging and traceability while supporting the changing schedules of an EV programme.
+
+Their team remains actively involved during development, validation and serial supply. They respond promptly to technical questions, maintain clear documentation and treat improvement as an ongoing responsibility. We also value their willingness to adapt as vehicle platforms, production volumes and engineering requirements evolve.
+
+For a pioneering Indian EV manufacturer, it is encouraging to work with an Indian component partner that shares the same ambition for precision, innovation and dependable manufacturing. Pradako’s consistently maintained zero-PPM performance has made them a trusted contributor to our journey towards the future of mobility.`
+                },
+                {
+                    id: 19,
+                    category: "automotive",
+                    icon: "fa-chair",
+                    accent: "#6f8fa6",
+                    label: "Multinational Automotive Seating Manufacturer",
+                    location: "Global Automotive Supply Chain",
+                    title: "A Dependable Partner Behind Comfort, Safety and Every Production Schedule",
+                    author: "Director, Strategic Purchasing and Supplier Development",
+                    quote: `Automotive seating is a highly engineered system where structural strength, dimensional accuracy, occupant comfort and safety must come together without compromise. Our manufacturing operations require fastening components that perform consistently across seat frames, recliner mechanisms, tracks, brackets and several subassemblies produced for different vehicle platforms. Pradako has supported these requirements with a disciplined understanding of automotive quality and serial-production expectations.
+
+Their team works closely with our engineering, supplier-quality and purchasing functions from the initial drawing review through sampling, validation and regular supply. We value their attention to material grades, thread accuracy, coatings, torque behaviour, traceability and packaging presentation. Their responses to technical observations are organised and supported by clear corrective and preventive actions.
+
+Automotive seating programmes frequently involve changing production volumes, multiple plants and strict customer timelines. Pradako has shown the flexibility to respond to these changes while maintaining control over quality and delivery. Their communication remains accessible, and their team takes personal responsibility when a programme requires additional attention.
+
+The components they supply may remain unseen inside the finished seat, yet their reliability contributes directly to the confidence, comfort and safety experienced by the vehicle occupant. That understanding, combined with their consistent performance, has made Pradako a valued partner within our multinational supply network.`
+                },
+                {
+                    id: 20,
+                    category: "automotive",
+                    icon: "fa-car-battery",
+                    accent: "#3f8f7a",
+                    label: "Leading Electric Four-Wheeler Manufacturer",
+                    location: "India",
+                    title: "Supporting the Rapid Evolution of Electric Four-Wheeler Manufacturing",
+                    author: "Head, Procurement and New Product Development",
+                    quote: `Electric four-wheeler manufacturing develops at a remarkable pace. Vehicle architecture, battery systems, lightweight structures, electronics and production volumes continue to evolve, requiring suppliers who can respond quickly while maintaining complete process discipline. Pradako has supported our programmes with the responsiveness and technical involvement expected from a dependable EV supply-chain partner.
+
+Their engineering team studies each application carefully and works constructively with our design, quality and sourcing departments during development. We appreciate their attention to dimensional requirements, material compatibility, surface protection, assembly performance and traceability. Samples and technical documentation are handled systematically, helping our teams move efficiently through evaluation and approval stages.
+
+What differentiates Pradako is their willingness to adapt as the programme progresses. When design revisions, volume changes or urgent validation requirements arise, their team communicates transparently and works towards a practical solution. This flexibility is especially valuable in the EV industry, where development speed must be supported by manufacturing stability.
+
+Our relationship has grown through open communication, consistent deliveries and a shared interest in strengthening Indian electric mobility. Pradako brings together established manufacturing experience and a forward-looking approach, making them a reliable contributor to our journey of building the next generation of electric four-wheelers.`
+                },
+                {
+                    id: 21,
+                    category: "automotive",
+                    icon: "fa-solar-panel",
+                    accent: "#c77750",
+                    label: "Automotive Exterior Components and Clean Energy Systems Company",
+                    location: "Automotive and Clean Technology",
+                    title: "Reliable Engineering Across Mobility and Clean-Energy Applications",
+                    author: "Vice President, Supply Chain and Operations",
+                    quote: `Our organisation serves two demanding areas—automotive exterior components and clean-energy systems. Both require suppliers who understand that appearance, structural performance, corrosion resistance, durability and process consistency must be maintained together. Pradako has demonstrated the technical discipline and responsiveness needed to support this diverse application environment.
+
+For automotive exterior programmes, their products contribute to assemblies that must withstand vibration, weather exposure, repeated operating conditions and strict visual-quality expectations. For clean-energy applications, long-term reliability and appropriate material and coating selection are equally important. Pradako’s team takes time to understand where the component will be used before recommending or developing the fastening solution.
+
+We have appreciated their structured support through drawing review, sampling, testing and serial supply. Product identification, documentation, packaging and delivery coordination are managed professionally, allowing our manufacturing and quality teams to work with greater confidence. Their ability to support both standard and application-specific requirements also simplifies our sourcing process.
+
+Most importantly, their people remain approachable and accountable. They recognise that the industries we serve are changing rapidly and that a supplier must participate actively in improvement. Pradako’s combination of engineering attention, manufacturing consistency and genuine partnership has made them a dependable supplier across both our mobility and clean-energy programmes.`
+                },
+                {
+                    id: 22,
+                    category: "specialised",
+                    icon: "fa-ring",
+                    accent: "#8b765e",
+                    label: "Rubber Products Manufacturing Company",
+                    location: "Industrial and Automotive Rubber",
+                    title: "A Practical Partner for Rubber-to-Metal and Production-Critical Assemblies",
+                    author: "General Manager, Purchase and Plant Operations",
+                    quote: `Rubber manufacturing involves much more than moulding a component. Tooling, inserts, fastening arrangements, curing conditions, assembly interfaces and dimensional stability must work together consistently. Pradako has supported our operations with fastening products and customised components suited to rubber-to-metal assemblies, production fixtures and finished-product applications.
+
+Their team understands that the interaction between rubber, metal and surface treatment can influence bonding, fitment and long-term performance. They communicate closely with our technical and production teams to review dimensions, materials, finishes and application conditions before finalising a requirement. This practical approach has helped us reduce trial iterations and improve assembly consistency.
+
+We also value their response to production-critical situations. In rubber manufacturing, a delayed insert or fastener can interrupt moulding schedules and affect customer deliveries. Pradako makes a sincere effort to understand the urgency, provide clear status updates and coordinate production and dispatch responsibly.
+
+The relationship feels dependable because their support is both technical and personal. They treat regular orders, development quantities and urgent requirements with equal attention. Their consistent quality and willingness to work through application details have made them a trusted partner for our automotive and industrial rubber product lines.`
+                },
+                {
+                    id: 23,
+                    category: "automotive",
+                    icon: "fa-layer-group",
+                    accent: "#8d6d96",
+                    label: "Diversified Automotive, Rubber and Consumer Electronics Manufacturer",
+                    location: "Multi-Industry Manufacturing",
+                    title: "One Manufacturing Partner Across Diverse Product Families",
+                    author: "Group Head, Strategic Sourcing",
+                    quote: `Our business operates across specialised automotive components, commercial rubber products and consumer electronics. Each division has different technical expectations, production rhythms and quality requirements, making supplier capability and coordination especially important. Pradako has shown the versatility to understand these differences while maintaining a consistent standard of service.
+
+For automotive applications, we require controlled dimensions, material integrity, traceability and dependable serial supply. Rubber-product assemblies demand careful consideration of inserts, finishes and fitment, while consumer-electronics applications require precision, clean appearance, careful packaging and stable high-volume performance. Pradako’s teams have approached each requirement with the relevant application knowledge rather than applying a single standard solution to every product.
+
+Their organised communication is particularly valuable to our central sourcing function. Drawings, samples, inspection information, quotations and delivery updates are handled clearly, allowing multiple internal teams to coordinate efficiently. When new developments or production priorities arise, their engineering and commercial teams remain accessible and solution oriented.
+
+Working with a supplier across several business divisions requires confidence built over time. Pradako has earned that confidence through consistent follow-through, technical curiosity and a genuine interest in understanding how every supplied component contributes to our final product.`
+                },
+                {
+                    id: 24,
+                    category: "specialised",
+                    icon: "fa-bottle-droplet",
+                    accent: "#5792a0",
+                    label: "Injection and Blow Moulding Manufacturer",
+                    location: "Polymer Processing Industry",
+                    title: "Fast, Technical Support for Moulding Machines, Tooling and Product Assemblies",
+                    author: "Director, Manufacturing and Engineering",
+                    quote: `Injection and blow moulding operations depend on stable machines, accurate tooling and reliable supporting components. Our facilities operate with demanding cycle times, controlled temperatures and continuous production schedules, where even a small fastening issue can affect equipment availability, mould alignment or finished-product consistency. Pradako has supported us with products suited to both machinery and application-specific assembly requirements.
+
+Their team takes a practical interest in the operating conditions behind each enquiry. They review whether the component will be exposed to repeated tightening, heat, vibration, pressure, maintenance activity or contact with moulded polymers. This attention helps identify appropriate material grades, geometries, finishes and tolerances before production begins.
+
+We have also valued their support during mould development and maintenance requirements. Prototype quantities, customised fasteners and urgent replacement components are handled with clear communication and a genuine understanding of production pressure. Their organised documentation and packaging further help our stores and maintenance teams identify and use the correct parts without delay.
+
+Pradako has become a reliable extension of our engineering and procurement functions. Their combination of manufacturing capability, responsiveness and willingness to solve practical shop-floor problems gives us confidence across both injection and blow moulding operations.`
+                },
+                {
+                    id: 25,
+                    category: "automotive",
+                    icon: "fa-gauge-high",
+                    accent: "#b96b52",
+                    label: "Global Automotive Interiors, Safety and Electronics OEM",
+                    location: "Multinational Automotive OEM Supply Network",
+                    title: "Precision Supporting the Complete Vehicle Interior Experience",
+                    author: "Global Supplier Quality and Commodity Management Team",
+                    quote: `Our organisation manufactures a broad range of automotive systems, including instrument panels, door panels, floor consoles, seating, passive-safety systems such as airbags and steering wheels, cockpit electronics and lightweight composite exterior components. This diversity requires suppliers who can understand different applications while maintaining one uncompromising standard of quality. Pradako has demonstrated the discipline and adaptability required to support such an environment.
+
+Fastening requirements across these product families vary considerably. Interior components demand precise fit, appearance and noise-free assembly. Seating and steering systems require strength, repeatable torque performance and traceability. Passive-safety applications require exceptional process control, while cockpit electronics and lightweight composites call for dimensional accuracy, material compatibility and careful handling. Pradako’s engineering and quality teams engage with these distinctions thoughtfully during development and production.
+
+We appreciate their structured approach to drawing review, sampling, validation, change control and serial supply. Documentation is clear, technical observations are addressed responsibly and delivery communication remains transparent across programme stages. Their team also understands the importance of supporting multiple plants and customer platforms without allowing complexity to weaken consistency.
+
+The strongest supplier relationships are built when technical capability is matched by personal accountability. Pradako’s people remain accessible, take ownership of commitments and work collaboratively with our teams. Their components support systems that drivers and passengers see, touch and depend upon every day, and their reliable contribution has made them a valued partner in our global automotive supply chain.`
+                }
+            ];
+
+            const featuredIds = [11, 18, 19, 25];
+
+            const grid = document.getElementById("pmew-testimonials-grid");
+            const featuredGrid = document.getElementById("pmew-featured-grid");
+            const searchInput = document.getElementById("pmew-testimonials-search-input");
+            const filterButtons = [...document.querySelectorAll(".pmew-testimonials-filter")];
+            const results = document.getElementById("pmew-testimonials-results");
+            const dialog = document.getElementById("pmew-testimonials-dialog");
+            const closeDialogButton = dialog.querySelector(".pmew-testimonials-dialog-close");
+
+            let activeFilter = "all";
+
+            const excerpt = (text, maxLength = 360) => {
+                const clean = text.replace(/\s+/g, " ").trim();
+                return clean.length > maxLength ? `${clean.slice(0, maxLength).trim()}…` : clean;
+            };
+
+            const openDialog = (testimonial) => {
+                dialog.style.setProperty("--dialog-accent", testimonial.accent);
+                document.getElementById("pmew-dialog-kicker").textContent =
+                    `${String(testimonial.id).padStart(2, "0")} · ${testimonial.label} · ${testimonial.location}`;
+                document.getElementById("pmew-dialog-title").textContent = testimonial.title;
+
+                const dialogBlock = document.getElementById("pmew-dialog-block");
+                dialogBlock.textContent = testimonial.blockLine || "";
+                dialogBlock.classList.toggle("is-visible", Boolean(testimonial.blockLine));
+
+                document.getElementById("pmew-dialog-quote").textContent = `“${testimonial.quote}”`;
+                document.getElementById("pmew-dialog-author").textContent = testimonial.author;
+                document.getElementById("pmew-dialog-location").textContent = testimonial.location;
+
+                if (typeof dialog.showModal === "function") {
+                    dialog.showModal();
+                } else {
+                    dialog.setAttribute("open", "");
+                }
+            };
+
+            const createFeatureCard = (testimonial, index) => {
+                const article = document.createElement("article");
+                article.className = "pmew-testimonials-feature-card";
+
+                article.innerHTML = `
+                    <div>
+                        <div class="pmew-testimonials-feature-top">
+                            <span class="pmew-testimonials-feature-index">
+                                Featured ${String(index + 1).padStart(2, "0")}
+                            </span>
+                            <span class="pmew-testimonials-feature-icon" aria-hidden="true">
+                                <i class="fa-solid ${testimonial.icon}"></i>
+                            </span>
+                        </div>
+
+                        ${testimonial.blockLine ? `
+                            <p class="pmew-testimonials-feature-block">${testimonial.blockLine}</p>
+                        ` : ""}
+
+                        <p class="pmew-testimonials-feature-quote">
+                            “${excerpt(testimonial.quote, index === 0 || index === 3 ? 260 : 220)}”
+                        </p>
+                    </div>
+
+                    <div class="pmew-testimonials-feature-meta">
+                        <div>
+                            <strong>${testimonial.label}</strong>
+                            <span>${testimonial.location}</span>
+                        </div>
+
+                        <button class="pmew-testimonials-read-button" type="button">
+                            Read full story
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                `;
+
+                article.querySelector("button").addEventListener("click", () => openDialog(testimonial));
+                return article;
+            };
+
+            const createCard = (testimonial) => {
+                const article = document.createElement("article");
+                article.className = "pmew-testimonial-card";
+                article.style.setProperty("--card-accent", testimonial.accent);
+
+                article.innerHTML = `
+                    <div class="pmew-testimonial-card-top">
+                        <span class="pmew-testimonial-card-number">
+                            ${String(testimonial.id).padStart(2, "0")}
+                        </span>
+
+                        <span class="pmew-testimonial-card-icon" aria-hidden="true">
+                            <i class="fa-solid ${testimonial.icon}"></i>
+                        </span>
+                    </div>
+
+                    <p class="pmew-testimonial-card-category">
+                        ${testimonial.label} · ${testimonial.location}
+                    </p>
+
+                    <h3 class="pmew-testimonial-card-title">${testimonial.title}</h3>
+
+                    ${testimonial.blockLine ? `
+                        <p class="pmew-testimonial-card-block">${testimonial.blockLine}</p>
+                    ` : ""}
+
+                    <p class="pmew-testimonial-card-excerpt">
+                        “${excerpt(testimonial.quote)}”
+                    </p>
+
+                    <div class="pmew-testimonial-card-footer">
+                        <div class="pmew-testimonial-card-attribution">
+                            <strong>${testimonial.author}</strong>
+                            <span>${testimonial.location}</span>
+                        </div>
+
+                        <button class="pmew-testimonial-card-open" type="button" aria-label="Read full testimonial: ${testimonial.title}">
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                `;
+
+                article.querySelector("button").addEventListener("click", () => openDialog(testimonial));
+                return article;
+            };
+
+            const renderFeatured = () => {
+                const featuredTestimonials = featuredIds
+                    .map(id => testimonials.find(item => item.id === id))
+                    .filter(Boolean);
+
+                featuredGrid.replaceChildren(
+                    ...featuredTestimonials.map((item, index) => createFeatureCard(item, index))
+                );
+            };
+
+            const renderGrid = () => {
+                const query = searchInput.value.toLowerCase().trim();
+
+                const filtered = testimonials.filter(item => {
+                    const categoryMatches = activeFilter === "all" || item.category === activeFilter;
+                    const searchText = [
+                        item.label,
+                        item.location,
+                        item.title,
+                        item.blockLine || "",
+                        item.author,
+                        item.quote
+                    ].join(" ").toLowerCase();
+
+                    return categoryMatches && searchText.includes(query);
+                });
+
+                results.textContent = `${filtered.length} testimonial${filtered.length === 1 ? "" : "s"} shown`;
+
+                if (!filtered.length) {
+                    const empty = document.createElement("div");
+                    empty.className = "pmew-testimonials-empty";
+                    empty.innerHTML = `
+                        <i class="fa-regular fa-message" aria-hidden="true"></i>
+                        <h3>No matching testimonial found</h3>
+                        <p>Try another market, industry or customer category.</p>
+                    `;
+                    grid.replaceChildren(empty);
+                    return;
+                }
+
+                grid.replaceChildren(...filtered.map(createCard));
+            };
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    activeFilter = button.dataset.filter;
+
+                    filterButtons.forEach(item => {
+                        const isActive = item === button;
+                        item.classList.toggle("is-active", isActive);
+                        item.setAttribute("aria-pressed", String(isActive));
+                    });
+
+                    renderGrid();
+                });
+            });
+
+            searchInput.addEventListener("input", renderGrid);
+
+            closeDialogButton.addEventListener("click", () => dialog.close());
+
+            dialog.addEventListener("click", event => {
+                const rect = dialog.getBoundingClientRect();
+                const clickedOutside =
+                    event.clientX < rect.left ||
+                    event.clientX > rect.right ||
+                    event.clientY < rect.top ||
+                    event.clientY > rect.bottom;
+
+                if (clickedOutside) {
+                    dialog.close();
+                }
+            });
+
+            renderFeatured();
+            renderGrid();
+        })();
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

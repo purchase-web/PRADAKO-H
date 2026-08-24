@@ -1,0 +1,1569 @@
+/*
+===============================================================================
+PMEW YOGA PAGE — /assets/css/yoga.css
+Page-specific stylesheet for the International Day of Yoga page.
+
+Integration safeguards:
+- All Yoga design tokens use the --yoga- prefix.
+- Page visuals are scoped to body.yoga-page and #main-content.
+- Shared PMEW navbar and footer styling remains outside this file.
+- The sticky PMEW navbar remains in normal document flow.
+===============================================================================
+*/
+
+/* ==========================================================================
+   1. DESIGN TOKENS, RESET AND INTEGRATION
+   ========================================================================== */
+
+body.yoga-page {
+  --yoga-white: #ffffff;
+  --yoga-paper: #f7f7f3;
+  --yoga-ink: #11120f;
+  --yoga-muted: #666a64;
+  --yoga-line: #dcded7;
+  --yoga-teal: #28766a;
+  --yoga-saffron: #dc7c2f;
+  --yoga-gold: #bd9254;
+  --yoga-max: 1480px;
+  --yoga-pad: clamp(22px, 4.5vw, 76px);
+
+  margin: 0;
+  overflow-x: clip;
+  color: var(--yoga-ink);
+  background: var(--yoga-white);
+  font-family: "Montserrat", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.yoga-page #navbar-container,
+.yoga-page #footer-container {
+  position: relative;
+  z-index: 20;
+}
+
+.yoga-page #main-content {
+  min-width: 0;
+  overflow: clip;
+  isolation: isolate;
+  color: var(--yoga-ink);
+  background: var(--yoga-white);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.yoga-page #main-content,
+.yoga-page #main-content *,
+.yoga-page #main-content *::before,
+.yoga-page #main-content *::after {
+  box-sizing: border-box;
+}
+
+.yoga-page #main-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.yoga-page #main-content a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.yoga-page #main-content :is(button, input, select, textarea) {
+  font: inherit;
+}
+
+.yoga-page #main-content ::selection {
+  color: var(--yoga-white);
+  background: var(--yoga-teal);
+}
+
+.yoga-page #main-content section[id],
+.yoga-page #main-content [id].scroll-target {
+  scroll-margin-top: calc(var(--yoga-navbar-height, 130px) + 16px);
+}
+
+/* Keep page headings independent from shared PMEW heading colours. */
+.yoga-page #main-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--yoga-ink) !important;
+}
+
+.yoga-page #main-content :is(h1, h2, h3, h4, h5, h6) em {
+  color: var(--yoga-saffron) !important;
+}
+
+.yoga-page #main-content .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.yoga-page > .skip-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 1000;
+  padding: 12px 16px;
+  transform: translateY(-150%);
+  color: var(--yoga-white);
+  background: var(--yoga-ink);
+  font-weight: 700;
+}
+
+.yoga-page > .skip-link:focus {
+  transform: translateY(0);
+}
+
+.yoga-page #main-content :where(a, button):focus-visible,
+.yoga-page > .skip-link:focus-visible {
+  outline: 3px solid var(--yoga-saffron);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   2. HERO IMAGE
+   ========================================================================== */
+
+.yoga-page #main-content .hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--yoga-ink);
+}
+
+.yoga-page #main-content .hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/images/sustainability/yoga/hero-global-yoga.webp") center / contain no-repeat;
+}
+
+/* ==========================================================================
+   3. HERO INTRODUCTION
+   ========================================================================== */
+
+.yoga-page #main-content .hero-intro {
+  min-height: 100svh;
+  padding: clamp(112px, 14vh, 180px) var(--yoga-pad)
+    clamp(90px, 12vh, 150px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--yoga-white);
+  border-bottom: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .hero-intro-inner {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+}
+
+.yoga-page #main-content .hero-kicker,
+.yoga-page #main-content .eyebrow {
+  color: var(--yoga-teal);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.18em;
+}
+
+.yoga-page #main-content .hero-kicker span {
+  color: var(--yoga-saffron);
+}
+
+.yoga-page #main-content .hero-date {
+  margin: clamp(26px, 4vh, 48px) 0 12px;
+  color: var(--yoga-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+.yoga-page #main-content .hero-date span {
+  margin-right: 8px;
+  color: var(--yoga-saffron);
+  font-size: clamp(26px, 2.3vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.yoga-page #main-content .hero-intro h1 {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(72px, 11.25vw, 178px);
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.082em;
+  white-space: nowrap;
+}
+
+.yoga-page #main-content .hero-intro h1 span,
+.yoga-page #main-content .hero-intro h1 em {
+  display: block;
+}
+
+.yoga-page #main-content .hero-intro h1 em {
+  margin-top: 0.08em;
+  font-size: 0.93em;
+  letter-spacing: -0.055em;
+}
+
+.yoga-page #main-content h1 em,
+.yoga-page #main-content h2 em {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+}
+
+.yoga-page #main-content .hero-intro-bottom {
+  margin-top: clamp(48px, 7vh, 88px);
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(380px, 1.2fr);
+  gap: clamp(48px, 10vw, 160px);
+  align-items: end;
+}
+
+.yoga-page #main-content .hero-lead {
+  margin: 0;
+  padding-left: 24px;
+  border-left: 5px solid var(--yoga-teal);
+  font-size: clamp(22px, 2.1vw, 34px);
+  font-weight: 800;
+  line-height: 1.24;
+  letter-spacing: 0.025em;
+}
+
+.yoga-page #main-content .hero-intro-details {
+  max-width: 650px;
+  justify-self: end;
+}
+
+.yoga-page #main-content .hero-copy {
+  max-width: 620px;
+  margin: 0;
+  color: var(--yoga-muted);
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.9;
+}
+
+/* ==========================================================================
+   4. BUTTONS AND ACTIONS
+   ========================================================================== */
+
+.yoga-page #main-content .hero-actions,
+.yoga-page #main-content .pledge-actions {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.yoga-page #main-content .button {
+  min-height: 50px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.yoga-page #main-content .button:hover {
+  transform: translateY(-2px);
+}
+
+.yoga-page #main-content .button:active {
+  transform: translateY(0);
+}
+
+.yoga-page #main-content .button:disabled {
+  cursor: default;
+  opacity: 0.76;
+  transform: none;
+}
+
+.yoga-page #main-content .button[aria-pressed="true"] {
+  color: var(--yoga-white);
+  border-color: var(--yoga-teal);
+  background: var(--yoga-teal);
+}
+
+.yoga-page #main-content .button-primary {
+  color: var(--yoga-white);
+  background: var(--yoga-teal);
+}
+
+.yoga-page #main-content .button-primary:hover {
+  background: var(--yoga-ink);
+}
+
+.yoga-page #main-content .button-outline {
+  color: var(--yoga-ink);
+  background: transparent;
+  border-color: var(--yoga-ink);
+}
+
+.yoga-page #main-content .button-outline:hover {
+  color: var(--yoga-white);
+  background: var(--yoga-ink);
+}
+
+.yoga-page #main-content .button-text {
+  min-height: auto;
+  padding: 0;
+  border-bottom: 1px solid var(--yoga-ink);
+}
+
+.yoga-page #main-content .button-text span {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.yoga-page #main-content .scroll-cue {
+  position: absolute;
+  bottom: 26px;
+  left: var(--yoga-pad);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--yoga-white);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+.yoga-page #main-content .scroll-cue i {
+  display: block;
+  width: 66px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* ==========================================================================
+   5. MANIFESTO
+   ========================================================================== */
+
+.yoga-page #main-content .manifesto {
+  padding: clamp(70px, 9vw, 140px) var(--yoga-pad);
+  overflow: hidden;
+  border-bottom: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .manifesto-track {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 28px;
+  align-items: end;
+}
+
+.yoga-page #main-content .manifesto-track p {
+  margin: 0;
+  color: var(--yoga-ink) !important;
+  font-size: clamp(62px, 10.5vw, 174px);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.075em;
+}
+
+.yoga-page #main-content .manifesto-track p:nth-of-type(2) {
+  color: var(--yoga-teal) !important;
+}
+
+.yoga-page #main-content .manifesto-track p:nth-of-type(3) {
+  color: var(--yoga-saffron) !important;
+}
+
+.yoga-page #main-content .manifesto-track span {
+  padding-bottom: 12px;
+  color: var(--yoga-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.yoga-page #main-content .manifesto-line {
+  width: min(var(--yoga-max), 100%);
+  margin: clamp(55px, 7vw, 100px) auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--yoga-ink);
+  font-size: clamp(18px, 2.1vw, 32px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   6. SHARED SECTION LAYOUT
+   ========================================================================== */
+
+.yoga-page #main-content .section {
+  padding: clamp(90px, 11vw, 170px) var(--yoga-pad);
+}
+
+.yoga-page #main-content .section-grid {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.68fr) 1.32fr;
+  gap: clamp(50px, 8vw, 130px);
+  align-items: start;
+}
+
+.yoga-page #main-content .origin-content h2,
+.yoga-page #main-content .section-intro h2,
+.yoga-page #main-content .quote-heading h2,
+.yoga-page #main-content .pledge-copy h2,
+.yoga-page #main-content .block-statement h2,
+.yoga-page #main-content .image-manifesto h2 {
+  margin: 18px 0 34px;
+  font-size: clamp(44px, 6.2vw, 94px);
+  font-weight: 900;
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+}
+
+/* ==========================================================================
+   7. ORIGIN
+   ========================================================================== */
+
+.yoga-page #main-content .origin {
+  background: var(--yoga-paper);
+}
+
+.yoga-page #main-content .origin-year {
+  position: sticky;
+  top: 110px;
+}
+
+.yoga-page #main-content .origin-year > span {
+  display: block;
+  color: var(--yoga-teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.yoga-page #main-content .origin-year strong {
+  display: block;
+  margin: 20px 0 26px;
+  color: var(--yoga-ink);
+  font-size: clamp(120px, 18vw, 276px);
+  font-weight: 900;
+  line-height: 0.58;
+  letter-spacing: -0.105em;
+}
+
+.yoga-page #main-content .origin-year p {
+  margin: 0;
+  padding-top: 20px;
+  color: var(--yoga-muted);
+  border-top: 1px solid var(--yoga-ink);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.16em;
+}
+
+.yoga-page #main-content .origin-content {
+  padding-top: clamp(30px, 9vw, 130px);
+}
+
+.yoga-page #main-content .origin-content > p:not(.eyebrow) {
+  max-width: 880px;
+  margin: 0 0 22px;
+  color: var(--yoga-muted);
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.85;
+}
+
+.yoga-page #main-content .inline-statement {
+  margin-top: 56px;
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 26px;
+  align-items: center;
+  border-top: 1px solid var(--yoga-line);
+  border-bottom: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .inline-statement span {
+  color: var(--yoga-saffron);
+  font-size: 42px;
+  font-weight: 900;
+}
+
+.yoga-page #main-content .inline-statement p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+.yoga-page #main-content .inline-statement strong {
+  color: var(--yoga-teal);
+}
+
+/* ==========================================================================
+   8. QUOTE SECTION
+   ========================================================================== */
+
+.yoga-page #main-content .quote-section {
+  padding: clamp(90px, 11vw, 170px) var(--yoga-pad);
+  background: var(--yoga-white);
+}
+
+.yoga-page #main-content .quote-heading,
+.yoga-page #main-content .address-quote,
+.yoga-page #main-content .hindi-panel {
+  width: min(1200px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.yoga-page #main-content .quote-heading h2 {
+  margin-bottom: 70px;
+}
+
+.yoga-page #main-content .address-quote {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 42px 0 42px clamp(40px, 8vw, 130px);
+  border-top: 1px solid var(--yoga-ink);
+  border-bottom: 1px solid var(--yoga-ink);
+}
+
+.yoga-page #main-content .quote-mark {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  color: var(--yoga-saffron);
+  font-family: Georgia, serif;
+  font-size: clamp(90px, 12vw, 180px);
+  line-height: 0.7;
+}
+
+.yoga-page #main-content .address-quote p {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 3.25vw, 48px);
+  line-height: 1.42;
+}
+
+.yoga-page #main-content .hindi-panel {
+  margin-top: 44px;
+  padding: clamp(28px, 4vw, 52px);
+  background: var(--yoga-paper);
+  border-left: 5px solid var(--yoga-teal);
+}
+
+.yoga-page #main-content .hindi-panel p {
+  margin: 0;
+  font-size: clamp(16px, 1.55vw, 21px);
+  line-height: 1.95;
+}
+
+.yoga-page #main-content .hindi-panel span {
+  display: block;
+  margin-top: 28px;
+  color: var(--yoga-saffron);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.16em;
+}
+
+/* ==========================================================================
+   9. SOLSTICE AND PRINCIPLES
+   ========================================================================== */
+
+.yoga-page #main-content .solstice {
+  border-top: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .section-intro {
+  width: min(1040px, 100%);
+  margin: 0 auto 70px;
+}
+
+.yoga-page #main-content .section-intro > p:not(.eyebrow) {
+  max-width: 760px;
+  color: var(--yoga-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.yoga-page #main-content .principles {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--yoga-ink);
+  border-bottom: 1px solid var(--yoga-ink);
+}
+
+.yoga-page #main-content .principle {
+  min-height: 400px;
+  padding: 42px;
+  border-right: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .principle:last-child {
+  border-right: 0;
+}
+
+.yoga-page #main-content .principle-icon {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 72px;
+  color: var(--yoga-teal);
+}
+
+.yoga-page #main-content .principle-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.yoga-page #main-content .principle > span {
+  color: var(--yoga-saffron);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.yoga-page #main-content .principle h3 {
+  margin: 18px 0;
+  font-size: clamp(21px, 2vw, 30px);
+  line-height: 1.1;
+}
+
+.yoga-page #main-content .principle p {
+  margin: 0;
+  color: var(--yoga-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   10. BLOCK STATEMENT
+   ========================================================================== */
+
+.yoga-page #main-content .block-statement {
+  padding: clamp(90px, 12vw, 190px) var(--yoga-pad);
+  text-align: center;
+  background: var(--yoga-paper);
+}
+
+.yoga-page #main-content .block-statement p {
+  margin: 0;
+  color: var(--yoga-teal);
+  font-size: clamp(13px, 1.4vw, 20px);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.yoga-page #main-content .block-statement h2 {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   11. GLOBAL VISUALS
+   ========================================================================== */
+
+.yoga-page #main-content .global {
+  padding: clamp(90px, 11vw, 170px) var(--yoga-pad);
+}
+
+.yoga-page #main-content .global-heading {
+  margin-left: 0;
+}
+
+.yoga-page #main-content .visual-grid {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.45fr 0.75fr;
+  gap: 22px;
+}
+
+.yoga-page #main-content .visual-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--yoga-paper);
+}
+
+.yoga-page #main-content .visual-card-wide {
+  grid-row: span 2;
+  min-height: 780px;
+}
+
+.yoga-page #main-content .visual-card-tall {
+  min-height: 470px;
+}
+
+.yoga-page #main-content .visual-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.yoga-page #main-content .visual-card:hover img {
+  transform: scale(1.025);
+}
+
+.yoga-page #main-content .visual-card-wide img {
+  object-position: 43% center;
+}
+
+.yoga-page #main-content .visual-card-tall img {
+  object-position: center;
+}
+
+.yoga-page #main-content .visual-card figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 28px;
+  color: var(--yoga-white);
+  background: rgba(17, 18, 15, 0.78);
+}
+
+.yoga-page #main-content .visual-card figcaption span {
+  display: block;
+  margin-bottom: 8px;
+  color: #f1be77;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.yoga-page #main-content .visual-card figcaption strong {
+  font-size: clamp(17px, 1.8vw, 25px);
+  letter-spacing: 0.03em;
+}
+
+.yoga-page #main-content .visual-quote {
+  min-height: 288px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid var(--yoga-ink);
+}
+
+.yoga-page #main-content .sanskrit {
+  color: var(--yoga-saffron);
+  font-size: 54px;
+  line-height: 1;
+}
+
+.yoga-page #main-content .visual-quote blockquote {
+  margin: 22px 0 16px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.25;
+}
+
+.yoga-page #main-content .visual-quote cite {
+  color: var(--yoga-muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   12. ADIYOGI LINE
+   ========================================================================== */
+
+.yoga-page #main-content .adiyogi-line {
+  padding: clamp(70px, 8vw, 110px) var(--yoga-pad);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(30px, 5vw, 80px);
+  align-items: center;
+  border-top: 1px solid var(--yoga-line);
+  border-bottom: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .adiyogi-symbol {
+  color: var(--yoga-teal);
+  font-size: clamp(70px, 9vw, 130px);
+}
+
+.yoga-page #main-content .adiyogi-line p {
+  max-width: 1250px;
+  margin: 0;
+  color: var(--yoga-ink) !important;
+  font-size: clamp(24px, 3.3vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+/* ==========================================================================
+   13. IMPACT
+   ========================================================================== */
+
+.yoga-page #main-content .impact {
+  background: var(--yoga-paper);
+}
+
+.yoga-page #main-content .impact-grid {
+  width: min(var(--yoga-max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.yoga-page #main-content .impact-card {
+  min-height: 440px;
+  padding: clamp(30px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  background: var(--yoga-white);
+  border-top: 5px solid var(--yoga-teal);
+}
+
+.yoga-page #main-content .impact-card:nth-child(2) {
+  border-color: var(--yoga-saffron);
+}
+
+.yoga-page #main-content .impact-card:nth-child(3) {
+  border-color: var(--yoga-gold);
+}
+
+.yoga-page #main-content .impact-card > span {
+  color: var(--yoga-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.yoga-page #main-content .impact-card h3 {
+  margin: 35px 0 22px;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.03;
+}
+
+.yoga-page #main-content .impact-card p {
+  margin: 0;
+  color: var(--yoga-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.yoga-page #main-content .impact-card strong {
+  margin-top: auto;
+  padding-top: 34px;
+  color: var(--yoga-teal);
+  font-size: 10px;
+  line-height: 1.65;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   14. IMAGE MANIFESTO
+   ========================================================================== */
+
+.yoga-page #main-content .image-manifesto {
+  min-height: 760px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  background: var(--yoga-white);
+}
+
+.yoga-page #main-content .image-manifesto-photo {
+  min-height: 760px;
+  background: url("/assets/images/sustainability/yoga/meditation-mudra.webp") center / cover no-repeat;
+}
+
+.yoga-page #main-content .image-manifesto-copy {
+  padding: var(--yoga-pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--yoga-line);
+}
+
+.yoga-page #main-content .image-manifesto-copy > p {
+  margin: 0 0 14px;
+  color: var(--yoga-teal);
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.yoga-page #main-content .image-manifesto-copy > p:nth-child(2) {
+  color: var(--yoga-saffron);
+}
+
+.yoga-page #main-content .image-manifesto h2 {
+  margin-top: 38px;
+}
+
+/* ==========================================================================
+   15. PLEDGE
+   ========================================================================== */
+
+.yoga-page #main-content .pledge {
+  padding: clamp(90px, 11vw, 170px) var(--yoga-pad);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(50px, 8vw, 130px);
+  align-items: center;
+  background: var(--yoga-paper);
+}
+
+.yoga-page #main-content .pledge-copy > p:not(.eyebrow):not(.pledge-message) {
+  max-width: 720px;
+  color: var(--yoga-muted);
+  line-height: 1.8;
+}
+
+.yoga-page #main-content .pledge-message {
+  min-height: 24px;
+  margin: 22px 0 0;
+  color: var(--yoga-teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.yoga-page #main-content .pledge-block {
+  padding: clamp(34px, 5vw, 72px);
+  background: var(--yoga-white);
+  border: 1px solid var(--yoga-ink);
+}
+
+.yoga-page #main-content .pledge-block span {
+  display: block;
+  margin: 18px 0 4px;
+  color: var(--yoga-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.yoga-page #main-content .pledge-block strong {
+  display: block;
+  color: var(--yoga-ink) !important;
+  font-size: clamp(38px, 5.2vw, 78px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.yoga-page #main-content .pledge-block strong:nth-of-type(2) {
+  color: var(--yoga-teal) !important;
+}
+
+.yoga-page #main-content .pledge-block strong:nth-of-type(3) {
+  color: var(--yoga-saffron) !important;
+}
+
+/* ==========================================================================
+   16. REVEAL INTERACTION
+   ========================================================================== */
+
+.yoga-page #main-content .reveal {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Content remains visible if yoga.js does not initialise. */
+.yoga-page:not(.yoga-reveal-ready) #main-content .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.yoga-page.yoga-reveal-ready #main-content .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.yoga-page.yoga-reveal-ready #main-content .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   17. FULL-PAGE YOGA STORY BANNERS
+   ========================================================================== */
+
+.yoga-page #main-content .story-banner {
+  --story-image: none;
+  --story-position: center;
+  --story-align: flex-end;
+  --story-text: #ffffff;
+  --story-accent: #f1a04d;
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: var(--story-align);
+  overflow: hidden;
+  background: var(--yoga-ink);
+  scroll-margin-top: calc(var(--yoga-navbar-height, 130px) + 16px);
+}
+
+.yoga-page #main-content .story-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image: var(--story-image);
+  background-position: var(--story-position);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.002);
+}
+
+.yoga-page #main-content .story-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 15, 16, 0.06) 0%,
+      rgba(8, 15, 16, 0.03) 38%,
+      rgba(8, 15, 16, 0.56) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.04) 44%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+}
+
+.yoga-page #main-content .story-banner--light {
+  --story-text: #10120f;
+  --story-accent: var(--yoga-teal);
+}
+
+.yoga-page #main-content .story-banner--light::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.05) 48%,
+      rgba(255, 255, 255, 0.62) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 52%,
+      rgba(255, 255, 255, 0.18) 100%
+    );
+}
+
+.yoga-page #main-content .story-banner--left {
+  --story-align: flex-start;
+}
+
+.yoga-page #main-content .story-banner--left::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 15, 16, 0.62) 0%,
+      rgba(8, 15, 16, 0.24) 42%,
+      rgba(8, 15, 16, 0.02) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.02) 48%,
+      rgba(0, 0, 0, 0.26) 100%
+    );
+}
+
+.yoga-page #main-content .story-banner__copy {
+  width: min(760px, 47vw);
+  margin: clamp(96px, 11vw, 180px) var(--yoga-pad)
+    clamp(72px, 9vw, 136px);
+  color: var(--story-text);
+  text-align: right;
+}
+
+.yoga-page #main-content .story-banner--left .story-banner__copy {
+  text-align: left;
+}
+
+.yoga-page #main-content .story-banner__index {
+  margin-bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.yoga-page #main-content .story-banner__index::before {
+  content: "";
+  width: 48px;
+  height: 2px;
+  background: var(--story-accent);
+}
+
+.yoga-page #main-content .story-banner__copy h2 {
+  max-width: 820px;
+  margin: 0;
+  font-size: clamp(52px, 7.25vw, 126px);
+  line-height: 0.86;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.yoga-page #main-content .story-banner__copy h2 span,
+.yoga-page #main-content .story-banner__copy h2 em {
+  display: block;
+}
+
+.yoga-page #main-content .story-banner__copy h2 > span {
+  color: var(--yoga-ink) !important;
+}
+
+.yoga-page #main-content .story-banner--light-ring .story-banner__copy h2 > span {
+  color: #ffffff !important;
+}
+
+.yoga-page #main-content .story-banner__copy h2 em {
+  color: var(--story-accent) !important;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  text-transform: none;
+}
+
+.yoga-page #main-content .story-banner__copy p {
+  max-width: 620px;
+  margin: 28px 0 0 auto;
+  font-size: clamp(16px, 1.25vw, 21px);
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.yoga-page #main-content .story-banner--left .story-banner__copy p {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.yoga-page #main-content .story-banner__footer {
+  position: absolute;
+  right: var(--yoga-pad);
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--story-text);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.yoga-page #main-content .story-banner--left .story-banner__footer {
+  right: auto;
+  left: var(--yoga-pad);
+}
+
+.yoga-page #main-content .story-banner__footer::after {
+  content: "";
+  width: 58px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* Individual composition controls. */
+.yoga-page #main-content .story-banner--sea {
+  --story-image: url("/assets/images/sustainability/yoga/banner-stillness-sea.webp");
+  --story-position: center center;
+}
+
+.yoga-page #main-content .story-banner--mountains {
+  --story-image: url("/assets/images/sustainability/yoga/banner-clarity-mountains.webp");
+  --story-position: center center;
+}
+
+.yoga-page #main-content .story-banner--light-ring {
+  --story-image: url("/assets/images/sustainability/yoga/banner-align-light.webp");
+  --story-position: center center;
+}
+.yoga-page #main-content .story-banner--ecology {
+  --story-image: url("/assets/images/sustainability/yoga/banner-inner-ecology.webp");
+  --story-position: center center;
+}
+
+/* ==========================================================================
+   18. RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 1120px) {
+  .yoga-page #main-content .visual-card-wide {
+    min-height: 650px;
+  }
+
+  .yoga-page #main-content .principle {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 980px) {
+  .yoga-page #main-content .story-banner {
+    min-height: 92svh;
+    align-items: flex-end;
+  }
+
+  .yoga-page #main-content .story-banner::after,
+  .yoga-page #main-content .story-banner--left::after {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 15, 16, 0) 28%,
+      rgba(8, 15, 16, 0.22) 57%,
+      rgba(8, 15, 16, 0.82) 100%
+    );
+  }
+
+  .yoga-page #main-content .story-banner--light::after {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 28%,
+      rgba(255, 255, 255, 0.18) 58%,
+      rgba(255, 255, 255, 0.86) 100%
+    );
+  }
+
+  .yoga-page #main-content .story-banner__copy {
+    width: 100%;
+    margin: 0;
+    padding: 0 var(--yoga-pad) 88px;
+    text-align: left;
+  }
+
+  .yoga-page #main-content .story-banner__copy h2 {
+    max-width: 760px;
+    font-size: clamp(54px, 11vw, 98px);
+  }
+
+  .yoga-page #main-content .story-banner__copy p,
+  .yoga-page #main-content .story-banner--left .story-banner__copy p {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .yoga-page #main-content .story-banner__footer {
+    right: auto;
+    left: var(--yoga-pad);
+  }
+}
+
+@media (max-width: 900px) {
+  .yoga-page #main-content .hero-intro {
+    min-height: 100svh;
+    padding-top: clamp(96px, 12vh, 136px);
+  }
+
+  .yoga-page #main-content .hero-intro h1 {
+    font-size: clamp(66px, 14.2vw, 112px);
+    white-space: normal;
+  }
+
+  .yoga-page #main-content .hero-intro-bottom {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .yoga-page #main-content .hero-intro-details {
+    max-width: 680px;
+    justify-self: start;
+  }
+
+  .yoga-page #main-content .manifesto-track {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .yoga-page #main-content .manifesto-track span {
+    padding-bottom: 28px;
+  }
+
+  .yoga-page #main-content .manifesto-track p {
+    font-size: clamp(58px, 17vw, 140px);
+  }
+
+  .yoga-page #main-content .section-grid,
+  .yoga-page #main-content .pledge,
+  .yoga-page #main-content .image-manifesto {
+    grid-template-columns: 1fr;
+  }
+
+  .yoga-page #main-content .origin-year {
+    position: static;
+  }
+
+  .yoga-page #main-content .origin-year strong {
+    font-size: clamp(130px, 39vw, 300px);
+  }
+
+  .yoga-page #main-content .origin-content {
+    padding-top: 10px;
+  }
+
+  .yoga-page #main-content .principles,
+  .yoga-page #main-content .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yoga-page #main-content .principle {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--yoga-line);
+  }
+
+  .yoga-page #main-content .principle:last-child {
+    border-bottom: 0;
+  }
+
+  .yoga-page #main-content .principle-icon {
+    margin-bottom: 45px;
+  }
+
+  .yoga-page #main-content .visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yoga-page #main-content .visual-card-wide {
+    grid-row: auto;
+    min-height: 62vw;
+  }
+
+  .yoga-page #main-content .visual-card-tall {
+    min-height: 58vw;
+  }
+
+  .yoga-page #main-content .image-manifesto-photo {
+    min-height: 72vw;
+  }
+
+  .yoga-page #main-content .image-manifesto-copy {
+    min-height: 550px;
+    border-top: 1px solid var(--yoga-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .yoga-page #main-content .hero-intro {
+    min-height: auto;
+    padding-top: 84px;
+    padding-bottom: 76px;
+  }
+
+  .yoga-page #main-content .hero-kicker {
+    max-width: 330px;
+  }
+
+  .yoga-page #main-content .hero-intro h1 {
+    font-size: 15.5vw;
+    line-height: 0.84;
+  }
+
+  .yoga-page #main-content .hero-intro h1 em {
+    margin-top: 0.16em;
+  }
+
+  .yoga-page #main-content .hero-intro-bottom {
+    margin-top: 48px;
+  }
+
+  .yoga-page #main-content .hero-lead {
+    padding-left: 18px;
+    font-size: 21px;
+  }
+
+  .yoga-page #main-content .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .yoga-page #main-content .manifesto {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .yoga-page #main-content .manifesto-track p {
+    font-size: 16.3vw;
+  }
+
+  .yoga-page #main-content .manifesto-line {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .yoga-page #main-content .inline-statement,
+  .yoga-page #main-content .adiyogi-line {
+    grid-template-columns: 1fr;
+  }
+
+  .yoga-page #main-content .address-quote {
+    padding-left: 45px;
+  }
+
+  .yoga-page #main-content .quote-mark {
+    font-size: 88px;
+  }
+
+  .yoga-page #main-content .address-quote p {
+    font-size: 23px;
+  }
+
+  .yoga-page #main-content .adiyogi-symbol {
+    font-size: 76px;
+  }
+
+  .yoga-page #main-content .visual-card-wide,
+  .yoga-page #main-content .visual-card-tall {
+    min-height: 92vw;
+  }
+
+  .yoga-page #main-content .visual-card-wide img {
+    object-position: 30% center;
+  }
+
+  .yoga-page #main-content .visual-card figcaption {
+    padding: 20px;
+  }
+
+  .yoga-page #main-content .pledge-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .yoga-page #main-content .button {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .yoga-page #main-content .button-text {
+    width: auto;
+  }
+
+  .yoga-page #main-content .story-banner {
+    min-height: 100svh;
+  }
+
+  .yoga-page #main-content .story-banner--sea {
+    --story-position: 32% center;
+  }
+
+  .yoga-page #main-content .story-banner--mountains {
+    --story-position: 44% center;
+  }
+
+  .yoga-page #main-content .story-banner--light-ring,
+  .yoga-page #main-content .story-banner--ecology {
+    --story-position: 31% center;
+  }
+
+  .yoga-page #main-content .story-banner__copy {
+    padding-bottom: 72px;
+  }
+
+  .yoga-page #main-content .story-banner__index {
+    margin-bottom: 16px;
+    font-size: 9px;
+  }
+
+  .yoga-page #main-content .story-banner__copy h2 {
+    font-size: clamp(46px, 15vw, 72px);
+  }
+
+  .yoga-page #main-content .story-banner__copy p {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .yoga-page #main-content .story-banner__footer {
+    bottom: 21px;
+    font-size: 8px;
+  }
+
+  .yoga-page #main-content .story-banner__copy h2,
+  .yoga-page #main-content .hero-intro h1,
+  .yoga-page #main-content .manifesto-track p {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (hover: none) {
+  .yoga-page #main-content .visual-card:hover img,
+  .yoga-page #main-content .button:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .yoga-page #main-content,
+  .yoga-page #main-content *,
+  .yoga-page #main-content *::before,
+  .yoga-page #main-content *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .yoga-page.yoga-reveal-ready #main-content .reveal,
+  .yoga-page.yoga-reveal-ready #main-content .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

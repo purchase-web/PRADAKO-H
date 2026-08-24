@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Hot Dip Galvanising (HDG) | Pradako Mechanical & Engineering Works</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME - KEEP ONLY ONE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS FILES -->
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<style>
+:root{
+    --hdg-white:#ffffff;
+    --hdg-off-white:#fcfbf8;
+    --hdg-soft:#f7f3eb;
+    --hdg-soft-blue:#f3ede2;
+
+    --hdg-navy:#4d6170;
+    --hdg-blue:#b98234;
+    --hdg-blue-dark:#996b2a;
+
+    --hdg-zinc:#d9ddd8;
+    --hdg-zinc-dark:#8d989d;
+    --hdg-gold:#b98234;
+    --hdg-gold-soft:#f8efe1;
+
+    --hdg-ink:#435866;
+    --hdg-muted:#748390;
+    --hdg-line:#e6ddd0;
+    --hdg-line-strong:#d6c3a8;
+
+    --hdg-font:'Montserrat',sans-serif;
+    --hdg-display:'Space Grotesk', sans-serif;
+
+    --hdg-max:1180px;
+    --hdg-radius:18px;
+    --hdg-radius-lg:28px;
+
+    --hdg-shadow-sm:0 1px 3px rgba(10,61,98,.06),0 1px 2px rgba(10,61,98,.04);
+    --hdg-shadow-md:0 12px 34px rgba(10,61,98,.09);
+    --hdg-shadow-lg:0 24px 70px rgba(10,61,98,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--hdg-white);
+    color:var(--hdg-ink);
+    font-family:var(--hdg-font);
+    overflow-x:hidden;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+}
+
+::selection{
+    background:var(--hdg-blue);
+    color:#fff;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* ======================================================
+   PAGE UTILITIES
+====================================================== */
+
+.hdg-scrollbar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:2px;
+    width:0;
+    background:var(--hdg-blue);
+    z-index:9999;
+    transition:width .1s linear;
+}
+
+.hdg-wrap{
+    max-width:var(--hdg-max);
+    margin:0 auto;
+    padding:0 28px;
+}
+
+.hdg-section{
+    position:relative;
+    padding:104px 0;
+    background:var(--hdg-white);
+}
+
+.hdg-section.hdg-band{
+    background:var(--hdg-off-white);
+    border-top:1px solid var(--hdg-line);
+    border-bottom:1px solid var(--hdg-line);
+}
+
+.hdg-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--hdg-blue);
+}
+
+.hdg-eyebrow::before{
+    content:"";
+    width:30px;
+    height:1px;
+    background:var(--hdg-blue);
+}
+
+.hdg-section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-bottom:42px;
+}
+
+.hdg-index{
+    font-size:12px;
+    letter-spacing:.14em;
+    color:#9fb6c8;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.hdg-title{
+    font-family:var(--hdg-display);
+    color:var(--hdg-navy);
+    font-size:clamp(32px,4.3vw,54px);
+    line-height:1.08;
+    letter-spacing:-.02em;
+    font-weight:800;
+    margin-top:18px;
+}
+
+.hdg-lead,
+.hdg-text{
+    font-family:var(--hdg-font);
+    color:var(--hdg-muted);
+    line-height:1.78;
+}
+
+.hdg-lead{
+    font-size:clamp(16px,1.45vw,18px);
+    max-width:880px;
+}
+
+.hdg-text{
+    font-size:15px;
+}
+
+.hdg-text + .hdg-text{
+    margin-top:18px;
+}
+
+.hdg-subtitle{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:800;
+    color:var(--hdg-navy);
+    margin:30px 0 16px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    background:#fff;
+    border:1px solid var(--hdg-line);
+    border-radius:999px;
+    padding:10px 16px;
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-subtitle::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--hdg-blue);
+}
+
+/* ======================================================
+   HEADER PLACEHOLDER
+====================================================== */
+
+#navbar-container{
+    position:relative;
+    z-index:1000;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hdg-hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:110px 0 80px;
+    background:var(--hdg-white);
+    overflow:hidden;
+}
+
+.hdg-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(10,61,98,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,61,98,.045) 1px, transparent 1px);
+    background-size:70px 70px;
+    mask-image:radial-gradient(ellipse 75% 60% at 68% 45%, #000 15%, transparent 72%);
+    pointer-events:none;
+}
+
+.hdg-hero::after{
+    content:"";
+    position:absolute;
+    width:620px;
+    height:620px;
+    border:1px solid rgba(0,174,239,.14);
+    border-radius:50%;
+    right:-230px;
+    top:60px;
+    pointer-events:none;
+}
+
+.hdg-hero .hdg-wrap{
+    position:relative;
+    z-index:2;
+    width:100%;
+}
+
+.hdg-hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:56px;
+    align-items:center;
+}
+
+.hdg-hero-kicker{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--hdg-blue);
+    margin-bottom:24px;
+}
+
+.hdg-hero h1{
+    font-family:var(--hdg-display);
+    font-size:clamp(44px,6.6vw,88px);
+    line-height:.96;
+    letter-spacing:-.035em;
+    color:var(--hdg-navy);
+    font-weight:900;
+}
+
+.hdg-hero h1 span{
+    display:block;
+    color:var(--hdg-blue);
+}
+
+.hdg-hero-sub{
+    margin-top:28px;
+    max-width:680px;
+    color:var(--hdg-muted);
+    font-size:clamp(16px,1.45vw,19px);
+    line-height:1.78;
+}
+
+.hdg-hero-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:38px;
+}
+
+.hdg-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    border-radius:999px;
+    padding:15px 28px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    transition:.25s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+}
+
+.hdg-btn-primary{
+    background:var(--hdg-blue);
+    color:#fff;
+    border-color:var(--hdg-blue);
+}
+
+.hdg-btn-primary:hover{
+    background:var(--hdg-blue-dark);
+    border-color:var(--hdg-blue-dark);
+    transform:translateY(-2px);
+    box-shadow:var(--hdg-shadow-md);
+}
+
+.hdg-btn-ghost{
+    background:#fff;
+    color:var(--hdg-navy);
+    border-color:var(--hdg-line-strong);
+}
+
+.hdg-btn-ghost:hover{
+    color:var(--hdg-blue);
+    border-color:var(--hdg-blue);
+    transform:translateY(-2px);
+}
+
+.hdg-hero-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:54px;
+    max-width:880px;
+}
+
+.hdg-stat{
+    padding:20px 18px;
+    border:1px solid var(--hdg-line);
+    border-radius:18px;
+    background:rgba(255,255,255,.86);
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-stat b{
+    display:block;
+    font-family:var(--hdg-display);
+    font-size:27px;
+    line-height:1;
+    color:var(--hdg-navy);
+    font-weight:900;
+    margin-bottom:9px;
+}
+
+.hdg-stat span{
+    display:block;
+    font-size:10px;
+    line-height:1.4;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#8aa3b6;
+    font-weight:800;
+}
+
+/* ======================================================
+   HDG HERO VISUAL
+====================================================== */
+
+.hdg-visual{
+    position:relative;
+    min-height:520px;
+    border:1px solid var(--hdg-line);
+    border-radius:34px;
+    background:var(--hdg-off-white);
+    box-shadow:var(--hdg-shadow-lg);
+    overflow:hidden;
+    padding:42px 34px 34px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hdg-visual::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(0,174,239,.14);
+    border-radius:26px;
+    pointer-events:none;
+}
+
+.hdg-hoist{
+    position:relative;
+    z-index:3;
+    width:70%;
+    height:72px;
+    margin:0 auto 0;
+}
+
+.hdg-chain{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:2px;
+    height:90px;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(10,61,98,.20), rgba(10,61,98,.08));
+}
+
+.hdg-hook{
+    position:absolute;
+    top:78px;
+    left:50%;
+    width:72px;
+    height:34px;
+    transform:translateX(-50%);
+    border:2px solid rgba(10,61,98,.18);
+    border-top:none;
+    border-radius:0 0 30px 30px;
+    background:transparent;
+}
+
+.hdg-bolt{
+    position:absolute;
+    left:50%;
+    top:106px;
+    transform:translateX(-50%);
+    width:72px;
+    height:194px;
+    z-index:4;
+}
+
+.hdg-bolt-head{
+    width:72px;
+    height:42px;
+    border-radius:14px 14px 10px 10px;
+    background:#fff;
+    border:1px solid var(--hdg-line-strong);
+    box-shadow:0 16px 30px rgba(10,61,98,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--hdg-blue);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.16em;
+}
+
+.hdg-bolt-shank{
+    width:42px;
+    height:152px;
+    margin:0 auto;
+    background:#fff;
+    border:1px solid var(--hdg-line-strong);
+    border-top:none;
+    border-radius:0 0 16px 16px;
+    box-shadow:0 16px 30px rgba(10,61,98,.06);
+    position:relative;
+    overflow:hidden;
+}
+
+.hdg-bolt-shank::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:55%;
+    background:linear-gradient(180deg, rgba(201,151,76,.10), rgba(201,151,76,.34));
+}
+
+.hdg-tank{
+    position:relative;
+    z-index:2;
+    width:90%;
+    height:250px;
+    margin:54px auto 24px;
+    border:2px solid rgba(10,61,98,.16);
+    border-radius:30px;
+    background:#fff;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.hdg-tank::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:72%;
+    background:
+        radial-gradient(circle at 30% 34%, rgba(255,255,255,.58), transparent 20%),
+        linear-gradient(180deg, #fff7df 0%, #f3c35c 45%, #d9982f 100%);
+    border-top:1px solid rgba(201,151,76,.35);
+}
+
+.hdg-heat{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.7;
+    animation:hdgBubble 4.8s linear infinite;
+    z-index:3;
+}
+
+.hdg-heat.h1{left:34%;bottom:60px;animation-delay:0s}
+.hdg-heat.h2{left:44%;bottom:84px;animation-delay:.9s}
+.hdg-heat.h3{left:54%;bottom:52px;animation-delay:1.8s}
+.hdg-heat.h4{left:64%;bottom:94px;animation-delay:2.7s}
+.hdg-heat.h5{left:48%;bottom:122px;animation-delay:3.3s}
+
+@keyframes hdgBubble{
+    0%{transform:translateY(36px) scale(.7);opacity:.05}
+    30%{opacity:.85}
+    100%{transform:translateY(-78px) scale(1.2);opacity:0}
+}
+
+.hdg-visual-pills{
+    position:relative;
+    z-index:3;
+    width:90%;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.hdg-v-pill{
+    min-height:62px;
+    padding:13px 12px;
+    border:1px solid var(--hdg-line);
+    border-radius:999px;
+    background:#fff;
+    color:var(--hdg-muted);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1.45;
+    box-shadow:0 8px 22px rgba(10,61,98,.04);
+}
+
+/* ======================================================
+   INTRO CARD
+====================================================== */
+
+.hdg-intro-card{
+    padding:42px;
+    border:1px solid var(--hdg-line);
+    border-radius:var(--hdg-radius-lg);
+    background:#fff;
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-chip-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.hdg-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 15px;
+    border-radius:999px;
+    background:var(--hdg-soft);
+    border:1px solid var(--hdg-line);
+    color:var(--hdg-muted);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.hdg-chip i{
+    color:var(--hdg-blue);
+}
+
+/* ======================================================
+   GRID / CARDS
+====================================================== */
+
+.hdg-grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:34px;
+}
+
+.hdg-grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:34px;
+}
+
+.hdg-grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:34px;
+}
+
+.hdg-card{
+    position:relative;
+    padding:30px;
+    border:1px solid var(--hdg-line);
+    border-radius:var(--hdg-radius);
+    background:#fff;
+    box-shadow:var(--hdg-shadow-sm);
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+.hdg-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:linear-gradient(180deg,var(--hdg-blue),var(--hdg-gold));
+    transform:scaleY(.22);
+    transform-origin:top;
+    transition:.3s ease;
+}
+
+.hdg-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--hdg-line-strong);
+    box-shadow:var(--hdg-shadow-md);
+}
+
+.hdg-card:hover::before{
+    transform:scaleY(1);
+}
+
+.hdg-card-icon{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--hdg-soft-blue);
+    color:var(--hdg-blue);
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.hdg-card h3{
+    font-family:var(--hdg-display);
+    font-size:23px;
+    line-height:1.15;
+    color:var(--hdg-navy);
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.hdg-card p{
+    color:var(--hdg-muted);
+    font-size:14px;
+    line-height:1.7;
+}
+
+.hdg-note{
+    margin-top:30px;
+    padding:24px 26px;
+    border-radius:18px;
+    border:1px solid var(--hdg-line);
+    background:var(--hdg-soft);
+    color:var(--hdg-muted);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.hdg-note strong{
+    color:var(--hdg-navy);
+}
+
+/* ======================================================
+   LISTS
+====================================================== */
+
+.hdg-list{
+    list-style:none;
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.hdg-list li{
+    position:relative;
+    padding:15px 18px 15px 46px;
+    border:1px solid var(--hdg-line);
+    border-radius:14px;
+    background:#fff;
+    color:var(--hdg-muted);
+    font-size:14px;
+    line-height:1.6;
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-list li::before{
+    content:"\f00c";
+    font-family:"Font Awesome 6 Free";
+    font-weight:900;
+    position:absolute;
+    left:16px;
+    top:17px;
+    width:20px;
+    height:20px;
+    border-radius:7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--hdg-soft-blue);
+    color:var(--hdg-blue);
+    font-size:11px;
+}
+
+.hdg-inline-metric{
+    margin:18px 0;
+    padding:24px 26px;
+    border-radius:18px;
+    border:1px solid var(--hdg-line);
+    border-left:4px solid var(--hdg-blue);
+    background:#fff;
+    color:var(--hdg-muted);
+    line-height:1.75;
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-inline-metric strong{
+    color:var(--hdg-navy);
+}
+
+/* ======================================================
+   FEATURE SPLIT
+====================================================== */
+
+.hdg-feature{
+    display:grid;
+    grid-template-columns:1.04fr .96fr;
+    gap:52px;
+    align-items:center;
+}
+
+.hdg-feature.reverse .hdg-feature-visual{
+    order:-1;
+}
+
+.hdg-feature-visual{
+    min-height:330px;
+    border:1px solid var(--hdg-line);
+    border-radius:var(--hdg-radius-lg);
+    background:#fff;
+    box-shadow:var(--hdg-shadow-md);
+    padding:34px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hdg-feature-visual::before{
+    content:"";
+    position:absolute;
+    inset:22px;
+    border:1px solid rgba(0,174,239,.13);
+    border-radius:22px;
+    pointer-events:none;
+}
+
+.hdg-process-bars{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.hdg-process-bar{
+    display:grid;
+    grid-template-columns:46px 1fr;
+    gap:14px;
+    align-items:center;
+    padding:13px;
+    border:1px solid var(--hdg-line);
+    border-radius:16px;
+    background:#fff;
+}
+
+.hdg-process-bar .num{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--hdg-soft-blue);
+    color:var(--hdg-blue);
+    font-size:12px;
+    font-weight:900;
+}
+
+.hdg-process-bar p{
+    color:var(--hdg-muted);
+    font-size:13px;
+    line-height:1.55;
+}
+
+.hdg-process-bar p b{
+    display:block;
+    color:var(--hdg-navy);
+    font-size:14px;
+    margin-bottom:2px;
+}
+
+/* ======================================================
+   FLOW
+====================================================== */
+
+.hdg-flow{
+    margin-top:38px;
+    border-top:1px solid var(--hdg-line);
+}
+
+.hdg-flow-step{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:26px;
+    padding:26px 0;
+    border-bottom:1px solid var(--hdg-line);
+}
+
+.hdg-flow-num{
+    font-family:var(--hdg-display);
+    font-size:42px;
+    line-height:1;
+    color:#c9deee;
+    font-weight:900;
+    transition:.25s ease;
+}
+
+.hdg-flow-step:hover .hdg-flow-num{
+    color:var(--hdg-blue);
+}
+
+.hdg-flow-step h4{
+    font-family:var(--hdg-display);
+    font-size:22px;
+    color:var(--hdg-navy);
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.hdg-flow-step p{
+    color:var(--hdg-muted);
+    font-size:14px;
+    line-height:1.75;
+}
+
+/* ======================================================
+   HDG LAYER SYSTEM
+====================================================== */
+
+.hdg-layer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:24px;
+}
+
+.hdg-layer-card{
+    position:relative;
+    padding:26px 22px;
+    border:1px solid var(--hdg-line);
+    border-radius:20px;
+    background:#fff;
+    box-shadow:var(--hdg-shadow-sm);
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+.hdg-layer-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--hdg-gold),var(--hdg-blue));
+}
+
+.hdg-layer-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--hdg-shadow-md);
+    border-color:var(--hdg-line-strong);
+}
+
+.hdg-layer-card .layer-count{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:26px;
+    margin-bottom:16px;
+    border-radius:999px;
+    background:var(--hdg-gold-soft);
+    color:var(--hdg-gold);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.1em;
+}
+
+.hdg-layer-card strong{
+    display:block;
+    font-family:var(--hdg-display);
+    font-size:28px;
+    color:var(--hdg-navy);
+    margin-bottom:8px;
+    line-height:1;
+}
+
+.hdg-layer-card span{
+    display:block;
+    color:var(--hdg-muted);
+    font-size:13px;
+    line-height:1.65;
+}
+
+/* ======================================================
+   TABLES
+====================================================== */
+
+.hdg-table-wrap{
+    margin-top:28px;
+    overflow-x:auto;
+    border:1px solid var(--hdg-line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:var(--hdg-shadow-sm);
+}
+
+.hdg-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:660px;
+}
+
+.hdg-table th{
+    text-align:left;
+    padding:17px 22px;
+    background:var(--hdg-off-white);
+    color:#89a4b9;
+    border-bottom:1px solid var(--hdg-line);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-weight:900;
+}
+
+.hdg-table td{
+    padding:18px 22px;
+    border-bottom:1px solid var(--hdg-line);
+    color:var(--hdg-muted);
+    font-size:14px;
+    vertical-align:top;
+}
+
+.hdg-table tr:last-child td{
+    border-bottom:none;
+}
+
+.hdg-table td:first-child{
+    color:var(--hdg-navy);
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.hdg-table tbody tr:hover td{
+    background:var(--hdg-soft);
+}
+
+/* ======================================================
+   APPLICATION PILLS
+====================================================== */
+
+.hdg-app-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:24px;
+}
+
+.hdg-app{
+    min-height:86px;
+    padding:18px;
+    border:1px solid var(--hdg-line);
+    border-radius:18px;
+    background:#fff;
+    color:var(--hdg-muted);
+    font-size:14px;
+    font-weight:700;
+    line-height:1.55;
+    box-shadow:var(--hdg-shadow-sm);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s ease;
+}
+
+.hdg-app i{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+    background:var(--hdg-soft-blue);
+    color:var(--hdg-blue);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.hdg-app:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--hdg-shadow-md);
+    border-color:var(--hdg-line-strong);
+}
+
+/* ======================================================
+   PMEW QUALITY FLOW / PROCESS FLOWCHART
+====================================================== */
+
+.hdg-integration{
+    background:var(--hdg-off-white);
+    border-top:1px solid var(--hdg-line);
+    border-bottom:1px solid var(--hdg-line);
+}
+
+.hdg-integration-flow{
+    display:grid;
+    grid-template-columns:minmax(180px,1fr) 34px minmax(180px,1fr) 34px minmax(180px,1fr) 34px minmax(180px,1fr) 34px minmax(180px,1fr);
+    align-items:center;
+    gap:14px;
+    margin-top:46px;
+}
+
+.hdg-integration-node{
+    position:relative;
+    min-height:108px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px 18px;
+    border:1px solid #b7c8d2;
+    border-radius:14px;
+    background:#fbfdff;
+    box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 6px 16px rgba(67,88,102,.08);
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.hdg-integration-node::before{
+    display:none;
+}
+
+.hdg-integration-node span{
+    position:relative;
+    z-index:1;
+    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    line-height:1.42;
+    text-transform:uppercase;
+    color:#718697;
+}
+
+.hdg-integration-node:hover{
+    transform:translateY(-2px);
+    box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 10px 22px rgba(67,88,102,.12);
+}
+
+.hdg-integration-node.highlight{
+    background:var(--hdg-gold-soft);
+    border-color:var(--hdg-blue);
+    box-shadow:0 1px 0 rgba(255,255,255,.88) inset, 0 6px 16px rgba(185,130,52,.14);
+}
+
+.hdg-integration-node.highlight span{
+    color:var(--hdg-blue);
+}
+
+.hdg-integration-arrow{
+    color:#9aaab4;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hdg-integration-pills{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:32px;
+}
+
+.hdg-integration-pills .hdg-ip{
+    font-size:12px;
+    color:var(--hdg-muted);
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid var(--hdg-line);
+    background:#fff;
+}
+
+.hdg-integration-pills .hdg-ip b{
+    color:var(--hdg-blue);
+}
+
+@media(max-width:980px){
+    .hdg-integration-flow{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .hdg-integration-arrow{
+        transform:rotate(90deg);
+        padding:2px 0;
+    }
+
+    .hdg-integration-node{
+        min-height:84px;
+    }
+}
+
+/* ======================================================
+   CTA
+====================================================== */
+
+.hdg-cta{
+    position:relative;
+    padding:116px 0;
+    background:var(--hdg-navy);
+    overflow:hidden;
+    text-align:center;
+}
+
+.hdg-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size:62px 62px;
+    mask-image:radial-gradient(ellipse 75% 70% at 50% 50%, #000 10%, transparent 78%);
+    pointer-events:none;
+}
+
+.hdg-cta .hdg-wrap{
+    position:relative;
+    z-index:1;
+}
+
+.hdg-cta .hdg-eyebrow{
+    color:#e7c999;
+    justify-content:center;
+}
+
+.hdg-cta .hdg-eyebrow::before{
+    background:#e7c999;
+}
+
+.hdg-cta h2{
+    font-family:var(--hdg-display);
+    color:#fff;
+    font-size:clamp(34px,5.2vw,62px);
+    line-height:1.04;
+    letter-spacing:-.025em;
+    font-weight:900;
+    margin-top:18px;
+}
+
+.hdg-cta p{
+    max-width:740px;
+    margin:24px auto 0;
+    color:rgba(255,255,255,.82);
+    font-size:17px;
+    line-height:1.75;
+}
+
+.hdg-cta-actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.hdg-cta .hdg-btn-primary{
+    background:#fff;
+    border-color:#fff;
+    color:var(--hdg-navy);
+}
+
+.hdg-cta .hdg-btn-primary:hover{
+    background:var(--hdg-blue);
+    border-color:var(--hdg-blue);
+    color:#fff;
+}
+
+.hdg-cta .hdg-btn-ghost{
+    background:transparent;
+    border-color:rgba(255,255,255,.38);
+    color:#fff;
+}
+
+.hdg-cta .hdg-btn-ghost:hover{
+    border-color:#fff;
+    color:#fff;
+}
+
+/* ======================================================
+   REVEAL ANIMATION
+====================================================== */
+
+.hdg-reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1);
+}
+
+.hdg-reveal.hdg-in{
+    opacity:1;
+    transform:none;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:1020px){
+    .hdg-hero-grid,
+    .hdg-feature{
+        grid-template-columns:1fr;
+        gap:38px;
+    }
+
+    .hdg-feature.reverse .hdg-feature-visual{
+        order:0;
+    }
+
+    .hdg-visual{
+        min-height:500px;
+        max-width:620px;
+        margin:0 auto;
+        width:100%;
+    }
+
+    .hdg-grid-4,
+    .hdg-layer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:880px){
+    .hdg-section{
+        padding:78px 0;
+    }
+
+    .hdg-hero{
+        min-height:auto;
+        padding:100px 0 72px;
+    }
+
+    .hdg-hero-stats,
+    .hdg-grid-3,
+    .hdg-app-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hdg-grid-2{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:640px){
+    .hdg-wrap{
+        padding:0 20px;
+    }
+
+    .hdg-hero h1{
+        font-size:44px;
+    }
+
+    .hdg-hero-actions,
+    .hdg-cta-actions{
+        align-items:stretch;
+        flex-direction:column;
+    }
+
+    .hdg-btn{
+        width:100%;
+    }
+
+    .hdg-hero-stats,
+    .hdg-grid-4,
+    .hdg-layer-grid,
+    .hdg-app-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hdg-intro-card,
+    .hdg-card,
+    .hdg-feature-visual{
+        padding:24px;
+    }
+
+    .hdg-flow-step{
+        grid-template-columns:54px 1fr;
+        gap:16px;
+    }
+
+    .hdg-flow-num{
+        font-size:30px;
+    }
+
+    .hdg-visual{
+        min-height:auto;
+        padding:30px 22px;
+    }
+
+    .hdg-tank{
+        width:100%;
+        height:230px;
+        margin-bottom:20px;
+    }
+
+    .hdg-visual-pills{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .hdg-v-pill{
+        min-height:50px;
+    }
+}
+
+@media(max-width:480px){
+    .hdg-section-head{
+        gap:18px;
+    }
+
+    .hdg-title{
+        font-size:32px;
+    }
+
+    .hdg-visual{
+        display:none;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .hdg-reveal{
+        opacity:1;
+        transform:none;
+        transition:none;
+    }
+
+    .hdg-heat{
+        animation:none;
+    }
+}
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Hot Dip Galvanising (HDG) from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/hot-dip-galvanizing.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Hot Dip Galvanising (HDG) | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Hot Dip Galvanising (HDG) from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/hot-dip-galvanizing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hot Dip Galvanising (HDG) | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Hot Dip Galvanising (HDG) from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Hot Dip Galvanising (HDG) | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/hot-dip-galvanizing.html",
+  "description": "Hot Dip Galvanising (HDG) from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+
+<!-- ======================================================= 
+HEADER WITH PROPER LOGO & HAMBURGER 
+======================================================== --> 
+<div id="navbar-container"></div>
+
+<!-- ======================================================
+    HERO
+======================================================= -->
+<header class="hdg-hero" id="top">
+    <div class="hdg-wrap">
+        <div class="hdg-hero-grid">
+            <div>
+                <div class="hdg-hero-kicker">Surface Protection System</div>
+                <h1>
+                    Hot Dip
+                    <span>Galvanising</span>
+                </h1>
+                <p class="hdg-hero-sub">
+                    Engineered Corrosion Protection Through Metallurgical Bonding
+                </p>
+
+                <div class="hdg-hero-actions">
+                    <a href="#rfq" class="hdg-btn hdg-btn-primary">
+                        Send RFQ <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#process" class="hdg-btn hdg-btn-ghost">
+                        View Process
+                    </a>
+                </div>
+
+                <div class="hdg-hero-stats">
+                    <div class="hdg-stat">
+                        <b>HDG</b>
+                        <span>Hot dip system</span>
+                    </div>
+                    <div class="hdg-stat">
+                        <b>ISO</b>
+                        <span>10684 fasteners</span>
+                    </div>
+                    <div class="hdg-stat">
+                        <b>ASTM</b>
+                        <span>A153 / F2329</span>
+                    </div>
+                    <div class="hdg-stat">
+                        <b>Zn-Fe</b>
+                        <span>Metallurgical bond</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hdg-visual" aria-hidden="true">
+                <div class="hdg-hoist">
+                    <div class="hdg-chain"></div>
+                    <div class="hdg-hook"></div>
+                    <div class="hdg-bolt">
+                        <div class="hdg-bolt-head">HDG</div>
+                        <div class="hdg-bolt-shank"></div>
+                    </div>
+                </div>
+
+                <div class="hdg-tank">
+                    <span class="hdg-heat h1"></span>
+                    <span class="hdg-heat h2"></span>
+                    <span class="hdg-heat h3"></span>
+                    <span class="hdg-heat h4"></span>
+                    <span class="hdg-heat h5"></span>
+                </div>
+
+                <div class="hdg-visual-pills">
+                    <div class="hdg-v-pill">Surface Prep</div>
+                    <div class="hdg-v-pill">Molten Zinc</div>
+                    <div class="hdg-v-pill">Metallurgical Bond</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ======================================================
+    INTRO
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-intro-card">
+            <div class="hdg-eyebrow">Engineering Perspective</div>
+            <h2 class="hdg-title">Long-term corrosion protection,<br>engineered as a system.</h2>
+
+            <p class="hdg-lead">
+                Hot Dip Galvanising is approached as a long-term corrosion protection system, where steel fasteners are coated through immersion in molten zinc, forming a metallurgically bonded multi-layer structure.
+                This process is not viewed as a surface finish alone, but as a system-driven engineering solution, where coating thickness, environmental exposure, material grade, and service life are aligned to ensure consistent field performance.
+            </p>
+
+            <p class="hdg-lead" style="margin-top:18px;">
+                The objective is to deliver robust, maintenance-efficient protection across demanding applications including infrastructure, energy systems, and outdoor structural assemblies.
+            </p>
+
+            <div class="hdg-chip-row">
+                <span class="hdg-chip"><i class="fa-solid fa-shield-halved"></i> Barrier Protection</span>
+                <span class="hdg-chip"><i class="fa-solid fa-layer-group"></i> Zn-Fe Layers</span>
+                <span class="hdg-chip"><i class="fa-solid fa-fire-flame-curved"></i> Molten Zinc</span>
+                <span class="hdg-chip"><i class="fa-solid fa-bridge"></i> Infrastructure</span>
+                <span class="hdg-chip"><i class="fa-solid fa-solar-panel"></i> Energy Systems</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    01 PROCESS CONTROL PHILOSOPHY
+======================================================= -->
+<section class="hdg-section hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Process Control Philosophy</div>
+                <h2 class="hdg-title">Every galvanising cycle<br>controlled by defined parameters.</h2>
+            </div>
+            <span class="hdg-index">01 / 10</span>
+        </div>
+
+        <div class="hdg-feature">
+            <div>
+                <p class="hdg-text">
+                    We ensure that every stage of the galvanising cycle is governed by defined and controlled parameters, including:
+                </p>
+
+                <ul class="hdg-list">
+                    <li>Surface preparation integrity</li>
+                    <li>Chemical balance and bath composition</li>
+                    <li>Immersion temperature and dwell time</li>
+                    <li>Withdrawal dynamics and coating build-up</li>
+                    <li>Cooling and post-treatment conditions</li>
+                </ul>
+
+                <p class="hdg-text" style="margin-top:22px;">
+                    This structured control enables uniform coating growth, repeatability, and predictable corrosion performance across batches.
+                </p>
+            </div>
+
+            <div class="hdg-feature-visual">
+                <div class="hdg-process-bars">
+                    <div class="hdg-process-bar">
+                        <div class="num">01</div>
+                        <p><b>Surface preparation integrity</b>Foundation of coating performance</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">02</div>
+                        <p><b>Bath composition</b>Chemical balance and zinc control</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">03</div>
+                        <p><b>Immersion control</b>Temperature and dwell time</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">04</div>
+                        <p><b>Withdrawal dynamics</b>Coating build-up and uniformity</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">05</div>
+                        <p><b>Cooling conditions</b>Stabilised coating performance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    02 PROCESS OVERVIEW
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal" id="process">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Process Overview</div>
+                <h2 class="hdg-title">A controlled route from<br>surface preparation to stabilisation.</h2>
+            </div>
+            <span class="hdg-index">02 / 10</span>
+        </div>
+
+        <div class="hdg-flow">
+            <div class="hdg-flow-step">
+                <div class="hdg-flow-num">01</div>
+                <div>
+                    <h4>Surface Preparation</h4>
+                    <p>
+                        Surface preparation is treated as the foundation of coating performance, ensuring complete removal of contaminants and oxides prior to galvanising.
+                        The process typically includes degreasing and cleaning to eliminate oils and organic residues, pickling to remove mill scale and oxides, and fluxing to activate the surface and prevent re-oxidation.
+                    </p>
+                    <div class="hdg-note">
+                        This stage ensures that the steel surface is chemically clean and reactive, enabling proper metallurgical bonding during immersion.
+                    </div>
+                </div>
+            </div>
+
+            <div class="hdg-flow-step">
+                <div class="hdg-flow-num">02</div>
+                <div>
+                    <h4>Molten Zinc Immersion</h4>
+                    <p>
+                        Fasteners are immersed in molten zinc maintained within controlled temperature ranges, enabling a diffusion-based reaction between zinc and iron.
+                        During this stage, the coating develops through intermetallic layer formation, creating a structure that is fundamentally different from conventional coatings.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hdg-flow-step">
+                <div class="hdg-flow-num">03</div>
+                <div>
+                    <h4>Metallurgical Layer Formation</h4>
+                    <p>
+                        The galvanised coating consists of a graded multi-layer system, each layer contributing to adhesion and durability:
+                    </p>
+
+                    <div class="hdg-layer-grid">
+                        <div class="hdg-layer-card">
+                            <span class="layer-count">01</span>
+                            <strong>Gamma (Γ)</strong>
+                            <span>Initial zinc-iron interface providing strong adhesion</span>
+                        </div>
+                        <div class="hdg-layer-card">
+                            <span class="layer-count">02</span>
+                            <strong>Delta (δ)</strong>
+                            <span>Dense alloy layer contributing to coating integrity</span>
+                        </div>
+                        <div class="hdg-layer-card">
+                            <span class="layer-count">03</span>
+                            <strong>Zeta (ζ)</strong>
+                            <span>Intermediate layer adding thickness and durability</span>
+                        </div>
+                        <div class="hdg-layer-card">
+                            <span class="layer-count">04</span>
+                            <strong>Eta (η)</strong>
+                            <span>Outer pure zinc layer offering sacrificial protection</span>
+                        </div>
+                    </div>
+
+                    <p class="hdg-text" style="margin-top:22px;">
+                        This layered structure ensures that the coating is integrally bonded to the base metal, rather than mechanically attached.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hdg-flow-step">
+                <div class="hdg-flow-num">04</div>
+                <div>
+                    <h4>Cooling and Stabilisation</h4>
+                    <p>
+                        After withdrawal, the coating solidifies and stabilises, forming a uniform, continuous protective layer across the entire component, including edges, threads, and geometrical complexities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    03 COATING CHARACTERISTICS
+======================================================= -->
+<section class="hdg-section hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Coating Characteristics</div>
+                <h2 class="hdg-title">A durable protective layer<br>bonded into the steel.</h2>
+            </div>
+            <span class="hdg-index">03 / 10</span>
+        </div>
+
+        <div class="hdg-grid-2">
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-link"></i></div>
+                <h3>Metallurgical Bonding</h3>
+                <p>Ensures strong adhesion, no risk of peeling or delamination.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                <h3>Thick Coating</h3>
+                <p>Provides extended durability and mechanical robustness.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-border-all"></i></div>
+                <h3>Uniform Coverage</h3>
+                <p>Complete protection across edges, recesses, and threads.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Dual Protection</h3>
+                <p>Barrier + sacrificial mechanism, with stable patina formation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    04 CORROSION PROTECTION MECHANISM
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Corrosion Protection Mechanism</div>
+                <h2 class="hdg-title">Barrier, sacrificial action,<br>and stable patina formation.</h2>
+            </div>
+            <span class="hdg-index">04 / 10</span>
+        </div>
+
+        <div class="hdg-grid-3">
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-shield"></i></div>
+                <h3>Barrier Protection</h3>
+                <p>The zinc coating isolates the steel from environmental exposure.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-recycle"></i></div>
+                <h3>Sacrificial Protection</h3>
+                <p>Zinc preferentially corrodes, protecting the underlying steel even if the coating is locally damaged.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Patina Formation</h3>
+                <p>Exposure to atmosphere leads to formation of zinc carbonate, creating a stable and durable protective layer.</p>
+            </div>
+        </div>
+
+        <div class="hdg-note">
+            This combination ensures long-term corrosion resistance with minimal maintenance requirements.
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    05 DIMENSIONAL & ASSEMBLY CONSIDERATIONS
+======================================================= -->
+<section class="hdg-section hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Dimensional & Assembly Considerations</div>
+                <h2 class="hdg-title">Balancing coating thickness<br>with assembly performance.</h2>
+            </div>
+            <span class="hdg-index">05 / 10</span>
+        </div>
+
+        <div class="hdg-feature">
+            <div>
+                <p class="hdg-text">
+                    Given the relatively thicker coating associated with hot dip galvanising, functional tolerances are evaluated during design and application:
+                </p>
+
+                <ul class="hdg-list">
+                    <li>Thread fit and engagement are considered in relation to coating build-up</li>
+                    <li>Mating components are aligned to ensure proper assembly</li>
+                    <li>Coating growth is controlled to balance protection with functionality</li>
+                </ul>
+
+                <p class="hdg-text" style="margin-top:22px;">
+                    This ensures that corrosion resistance is achieved without compromising assembly performance.
+                </p>
+            </div>
+
+            <div class="hdg-feature-visual">
+                <div class="hdg-process-bars">
+                    <div class="hdg-process-bar">
+                        <div class="num">01</div>
+                        <p><b>Thread fit</b>Evaluated in relation to coating build-up</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">02</div>
+                        <p><b>Mating components</b>Aligned to ensure proper assembly</p>
+                    </div>
+                    <div class="hdg-process-bar">
+                        <div class="num">03</div>
+                        <p><b>Coating growth</b>Controlled to balance protection and functionality</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="hdg-subtitle">Material and Application Considerations</h3>
+
+        <p class="hdg-text">
+            Hot dip galvanising is selected based on material grade, mechanical requirements, and service environment:
+        </p>
+
+        <ul class="hdg-list">
+            <li>Suitable for carbon steel fasteners across structural applications</li>
+            <li>Application-dependent evaluation for higher strength grades</li>
+            <li>Controlled processing for components exposed to cyclic loading or critical stress conditions</li>
+        </ul>
+
+        <p class="hdg-text" style="margin-top:22px;">
+            The selection process ensures that the coating system aligns with functional, mechanical, and environmental requirements.
+        </p>
+    </div>
+</section>
+
+<!-- ======================================================
+    06 STANDARDS
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Standards & Compliance Framework</div>
+                <h2 class="hdg-title">Aligned to recognised<br>HDG coating references.</h2>
+            </div>
+            <span class="hdg-index">06 / 10</span>
+        </div>
+
+        <div class="hdg-table-wrap">
+            <table class="hdg-table">
+                <thead>
+                    <tr>
+                        <th>Standard</th>
+                        <th>Scope</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ASTM A153 / A153M</td>
+                        <td>Hot dip galvanised coatings on iron and steel hardware</td>
+                    </tr>
+                    <tr>
+                        <td>ASTM F2329</td>
+                        <td>Hot dip galvanised coatings for fasteners</td>
+                    </tr>
+                    <tr>
+                        <td>ISO 10684</td>
+                        <td>Fasteners — Hot dip galvanised coatings</td>
+                    </tr>
+                    <tr>
+                        <td>ISO 1461</td>
+                        <td>General galvanised coatings on fabricated steel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="hdg-text" style="margin-top:22px;">
+            Additional process controls and validations are carried out in line with application-specific requirements.
+        </p>
+    </div>
+</section>
+
+<!-- ======================================================
+    07 COATING THICKNESS
+======================================================= -->
+<section class="hdg-section hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Coating Thickness & Classification</div>
+                <h2 class="hdg-title">Thickness selection guided<br>by size, service, and exposure.</h2>
+            </div>
+            <span class="hdg-index">07 / 10</span>
+        </div>
+
+        <p class="hdg-lead">
+            Hot dip galvanised coatings are defined based on minimum coating thickness requirements, which vary with fastener size, standards, and service conditions.
+        </p>
+
+        <div class="hdg-table-wrap">
+            <table class="hdg-table">
+                <thead>
+                    <tr>
+                        <th>Fastener Size Range</th>
+                        <th>Coating Thickness (µm)</th>
+                        <th>Application Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>≤ M8</td>
+                        <td>40 – 50 µm</td>
+                        <td>Light to moderate environments</td>
+                    </tr>
+                    <tr>
+                        <td>M10 – M16</td>
+                        <td>50 – 70 µm</td>
+                        <td>General outdoor and industrial use</td>
+                    </tr>
+                    <tr>
+                        <td>≥ M20</td>
+                        <td>70 – 100 µm</td>
+                        <td>Heavy-duty and high-corrosion environments</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="hdg-text" style="margin-top:22px;">
+            Thickness selection is guided by environmental exposure, service life, structural requirements, and assembly compatibility, ensuring reliable long-term performance.
+        </p>
+    </div>
+</section>
+
+<!-- ======================================================
+    08 INSPECTION & APPLICATION AREAS
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Inspection & Quality Assurance</div>
+                <h2 class="hdg-title">Validated for function,<br>visual quality, and traceability.</h2>
+            </div>
+            <span class="hdg-index">08 / 10</span>
+        </div>
+
+        <div class="hdg-grid-2">
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Verification</h3>
+                <p>Coating thickness verification as per applicable standards, surface condition and uniformity assessment, adhesion integrity across coating layers, dimensional verification post-coating.</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h3>Outcome</h3>
+                <p>Each batch meets functional, visual, and performance expectations with full traceability.</p>
+            </div>
+        </div>
+
+        <h3 class="hdg-subtitle">Application Areas</h3>
+
+        <div class="hdg-app-grid">
+            <div class="hdg-app"><i class="fa-solid fa-industry"></i>Structural steel assemblies</div>
+            <div class="hdg-app"><i class="fa-solid fa-tower-broadcast"></i>Transmission & distribution infrastructure</div>
+            <div class="hdg-app"><i class="fa-solid fa-solar-panel"></i>Solar mounting systems</div>
+            <div class="hdg-app"><i class="fa-solid fa-road-bridge"></i>Bridges and highway installations</div>
+            <div class="hdg-app"><i class="fa-solid fa-water"></i>Marine and coastal environments</div>
+            <div class="hdg-app"><i class="fa-solid fa-gears"></i>Heavy engineering & industrial projects</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    09 ENGINEERING APPROACH
+======================================================= -->
+<section class="hdg-section hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Engineering Approach to System Selection</div>
+                <h2 class="hdg-title">Selected by service conditions,<br>life expectations, and assembly needs.</h2>
+            </div>
+            <span class="hdg-index">09 / 10</span>
+        </div>
+
+        <p class="hdg-text">
+            Hot dip galvanising is selected based on a comprehensive evaluation of service conditions, including:
+        </p>
+
+        <ul class="hdg-list">
+            <li>Environmental exposure (urban, industrial, marine, rural)</li>
+            <li>Required service life and maintenance expectations</li>
+            <li>Mechanical and structural requirements</li>
+            <li>Compatibility with mating components and assemblies</li>
+        </ul>
+
+        <p class="hdg-text" style="margin-top:22px;">
+            Different applications may require different coating systems, and the selection is guided by performance objectives, regulatory requirements, and long-term reliability considerations.
+        </p>
+    </div>
+</section>
+
+<!-- ======================================================
+    10 ENVIRONMENTAL ALIGNMENT
+======================================================= -->
+<section class="hdg-section hdg-band hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Environmental and Regulatory Alignment</div>
+                <h2 class="hdg-title">Aligned with evolving<br>global compliance expectations.</h2>
+            </div>
+            <span class="hdg-index">10 / 10</span>
+        </div>
+
+        <p class="hdg-text">
+            Hot dip galvanising systems are evaluated in alignment with global environmental and regulatory frameworks:
+        </p>
+
+        <div class="hdg-grid-3">
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-leaf"></i></div>
+                <h3>REACH</h3>
+                <p>Compliance with chemical safety requirements</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-ban"></i></div>
+                <h3>RoHS</h3>
+                <p>Restriction of hazardous substances</p>
+            </div>
+
+            <div class="hdg-card">
+                <div class="hdg-card-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3>PFAS considerations</h3>
+                <p>Selection of coating systems aligned with evolving environmental guidelines</p>
+            </div>
+        </div>
+
+        <div class="hdg-note">
+            This ensures that coating solutions are aligned with sustainability expectations and regulatory compliance across global markets.
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    11 PMEW QUALITY FLOW
+======================================================= -->
+<section class="hdg-section hdg-integration hdg-reveal">
+    <div class="hdg-wrap">
+        <div class="hdg-section-head">
+            <div>
+                <div class="hdg-eyebrow">Integration with PMEW Quality Flow</div>
+                <h2 class="hdg-title">One controlled chain,<br>from steel to release.</h2>
+            </div>
+            <span class="hdg-index">11 / 11</span>
+        </div>
+
+        <p class="hdg-lead">
+            Hot dip galvanizing is integrated into the broader PMEW manufacturing and quality ecosystem — connected with material review, surface preparation, hot dip galvanizing, cooling / finishing, and final release.
+        </p>
+
+        <div class="hdg-integration-flow" aria-label="Hot dip galvanizing process flow">
+            <div class="hdg-integration-node"><span>Material Review</span></div>
+            <div class="hdg-integration-arrow">→</div>
+            <div class="hdg-integration-node"><span>Surface Preparation</span></div>
+            <div class="hdg-integration-arrow">→</div>
+            <div class="hdg-integration-node highlight"><span>Hot Dip Galvanizing</span></div>
+            <div class="hdg-integration-arrow">→</div>
+            <div class="hdg-integration-node"><span>Cooling / Finishing</span></div>
+            <div class="hdg-integration-arrow">→</div>
+            <div class="hdg-integration-node"><span>Final Release</span></div>
+        </div>
+
+        <div class="hdg-integration-pills">
+            <span class="hdg-ip"><b>•</b> Controlled process routing</span>
+            <span class="hdg-ip"><b>•</b> Surface integrity verification</span>
+            <span class="hdg-ip"><b>•</b> Zinc bath monitoring</span>
+            <span class="hdg-ip"><b>•</b> Cooling & finishing discipline</span>
+            <span class="hdg-ip"><b>•</b> Release-ready inspection</span>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    CTA
+======================================================= -->
+<section class="hdg-cta hdg-reveal" id="rfq">
+    <div class="hdg-wrap">
+        <div class="hdg-eyebrow">Request Engineering Support</div>
+        <h2>Need Hot Dip Galvanising<br>for structural fasteners?</h2>
+        <p>
+            Share your fastener size, grade, coating thickness requirement, applicable standard, service environment, and assembly requirement. Our team can support HDG process selection, coating planning, and compliance-aligned execution.
+        </p>
+
+        <div class="hdg-cta-actions">
+            <a href="/pages/contact/contact-us.html" class="hdg-btn hdg-btn-primary">
+                Send RFQ <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="/pages/products/products.html" class="hdg-btn hdg-btn-ghost">
+                Explore Fasteners
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+    FOOTER
+======================================================= -->
+<div id="footer-container"></div>
+
+<!-- ======================================================
+    MAIN JS
+======================================================= -->
+<script src="/assets/js/pradako-global-animations.js" defer></script>
+
+<script>
+const hdgScrollbar = document.getElementById('hdgScrollbar');
+
+window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+    hdgScrollbar.style.width = scrolled + '%';
+}, { passive:true });
+
+const hdgRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('hdg-in');
+            hdgRevealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold:0.12 });
+
+document.querySelectorAll('.hdg-reveal').forEach(el => hdgRevealObserver.observe(el));
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

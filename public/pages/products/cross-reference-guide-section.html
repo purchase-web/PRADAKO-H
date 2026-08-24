@@ -1,0 +1,107 @@
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<section class="pmew-xref" id="cross-reference-guide">
+    <div class="pmew-xref__wrap">
+
+        <header class="pmew-xref__head">
+            <span class="pmew-xref__eyebrow">International Standards</span>
+            <h2>Cross-Reference Guide</h2>
+            <p>
+                Product-wise equivalent fastener standards generated from the same master data used in Standard Products.
+            </p>
+        </header>
+
+        <nav class="pmew-xref__tabs" aria-label="Product family tabs">
+            <button class="pmew-xref__tab is-active" data-family="all">View All</button>
+            <button class="pmew-xref__tab" data-family="screws">Screws</button>
+            <button class="pmew-xref__tab" data-family="socket-screws">Socket Screws</button>
+            <button class="pmew-xref__tab" data-family="nuts">Nuts</button>
+            <button class="pmew-xref__tab" data-family="washers">Washers</button>
+            <button class="pmew-xref__tab" data-family="bolts">Bolts</button>
+            <button class="pmew-xref__tab" data-family="threaded-rods-studs">Threaded Rods / Studs</button>
+            <button class="pmew-xref__tab" data-family="structural-assemblies">Structural Assemblies</button>
+            <button class="pmew-xref__tab" data-family="rivets">Rivets</button>
+        </nav>
+
+        <div class="pmew-xref__title-row">
+            <div>
+                <h3 id="pmewXrefTitle">All Equivalent Standards</h3>
+                <p id="pmewXrefSubtitle">
+                    View all product-wise equivalent standards across fastener families.
+                </p>
+            </div>
+
+            <span class="pmew-xref__count" id="pmewXrefCount">0 entries</span>
+        </div>
+
+        <div class="pmew-xref__tools">
+            <label class="pmew-xref__search">
+                <span>Search</span>
+                <input
+                    type="search"
+                    id="pmewXrefSearch"
+                    placeholder="Search products or standards..."
+                />
+            </label>
+
+            <div class="pmew-xref__column-box">
+                <span>Visible Standards</span>
+
+                <div class="pmew-xref__checks" id="pmewXrefColumnChecks">
+                    <label><input type="checkbox" value="is" checked> IS</label>
+                    <label><input type="checkbox" value="din" checked> DIN</label>
+                    <label><input type="checkbox" value="bs" checked> BS / BSI</label>
+                    <label><input type="checkbox" value="ansi" checked> ANSI</label>
+                    <label><input type="checkbox" value="astm" checked> ASTM</label>
+                    <label><input type="checkbox" value="asme" checked> ASME</label>
+                    <label><input type="checkbox" value="iso" checked> ISO</label>
+                    <label><input type="checkbox" value="jis" checked> JIS</label>
+                    <label><input type="checkbox" value="uni" checked> UNI</label>
+                    <label><input type="checkbox" value="asnz" checked> AS / AS-NZS</label>
+                    <label><input type="checkbox" value="cen" checked> CEN / EN</label>
+                    <label><input type="checkbox" value="dast" checked> DAST</label>
+                    <label><input type="checkbox" value="gost" checked> GOST</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="pmew-xref__table-shell">
+            <div class="pmew-xref__table-scroll">
+                <table class="pmew-xref__table">
+                    <thead>
+                        <tr>
+                            <th class="pmew-xref__product-head" rowspan="2">Products</th>
+                            <th class="pmew-xref__eq-head" colspan="13">Equivalent Standards</th>
+                        </tr>
+                        <tr>
+                            <th data-col="is">IS</th>
+                            <th data-col="din">DIN</th>
+                            <th data-col="bs">BS / BSI</th>
+                            <th data-col="ansi">ANSI</th>
+                            <th data-col="astm">ASTM</th>
+                            <th data-col="asme">ASME</th>
+                            <th data-col="iso">ISO</th>
+                            <th data-col="jis">JIS</th>
+                            <th data-col="uni">UNI</th>
+                            <th data-col="asnz">AS / AS-NZS</th>
+                            <th data-col="cen">CEN / EN</th>
+                            <th data-col="dast">DAST</th>
+                            <th data-col="gost">GOST</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="pmewXrefBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="pmew-xref__empty" id="pmewXrefEmpty">
+            No equivalent standards found for this product family or search.
+        </div>
+
+    </div>
+</section>

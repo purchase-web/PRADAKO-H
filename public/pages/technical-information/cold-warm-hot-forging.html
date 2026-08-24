@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>Cold, Warm &amp; Hot Forging for Fasteners | PMEW Technical Guide</title>
+<meta content="A technical fastener-manufacturing guide to cold, warm and hot forging: metallurgy, deformation, tooling, defects, heat treatment, inspection, myths and process selection." name="description"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- PMEW SHARED WEBSITE SHELL -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="/assets/css/page-style.css" rel="stylesheet"/>
+<link href="/assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    /* ==========================================================
+       PAGE-SCOPED TEXT COLOUR CONTRACT
+       ----------------------------------------------------------
+       These variables/classes belong ONLY to this technical page.
+       They intentionally define black/white text without touching
+       PMEW navbar/footer typography.
+    ========================================================== */
+    .pmew-forging-guide{--fgx-text-black:#0b0f14;--fgx-text-white:#ffffff;}
+    .pmew-forging-guide .fgx-text-black{color:var(--fgx-text-black)!important;}
+    .pmew-forging-guide .fgx-text-white{color:var(--fgx-text-white)!important;}
+
+  .pmew-forging-guide{
+    --white:#ffffff;
+    --ink:#0b0f14;
+    --ink-2:#151b23;
+    --steel:#5d6978;
+    --steel-2:#8792a2;
+    --line:#dce2e9;
+    --line-dark:#252d37;
+    --cold:#2367ff;
+    --cold-soft:#eaf0ff;
+    --warm:#f59e0b;
+    --warm-soft:#fff4d8;
+    --hot:#ff4d00;
+    --hot-2:#e93700;
+    --hot-soft:#fff0e9;
+    --success:#0b7f68;
+    --radius-xl:36px;
+    --radius-lg:26px;
+    --radius-md:18px;
+    --shadow:0 18px 60px rgba(13,20,30,.08);
+    --shadow-strong:0 26px 90px rgba(10,16,24,.14);
+    --max:1380px;
+  }
+
+  .pmew-forging-guide, .pmew-forging-guide *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  .pmew-forging-guide{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  .pmew-forging-guide a{color:inherit}
+  .pmew-forging-guide button,.pmew-forging-guide input,.pmew-forging-guide select{font:inherit}
+  .pmew-forging-guide ::selection{background:#0b0f14;color:#fff}
+
+  .pmew-forging-guide .fgx-reading-progress{
+    position:fixed;
+    inset:0 auto auto 0;
+    width:0%;
+    height:4px;
+    z-index:9999;
+    background:linear-gradient(90deg,var(--cold) 0 33%,var(--warm) 52%,var(--hot) 100%);
+    box-shadow:0 0 18px rgba(35,103,255,.28);
+  }
+
+  .pmew-forging-guide .fgx-site-shell{min-height:100vh}
+  .pmew-forging-guide .fgx-wrap{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+  .pmew-forging-guide .fgx-section{padding:112px 0;position:relative}
+  .pmew-forging-guide .fgx-section.fgx-tight{padding:76px 0}
+  .pmew-forging-guide .fgx-section.fgx-dark{background:var(--ink);color:#fff}
+  .pmew-forging-guide .fgx-section.fgx-soft{
+    background:
+      linear-gradient(#fff,#fff) padding-box,
+      radial-gradient(circle at top left,rgba(35,103,255,.07),transparent 34%),
+      radial-gradient(circle at bottom right,rgba(255,77,0,.06),transparent 32%);
+  }
+
+  .pmew-forging-guide .fgx-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    font-size:12px;
+    color:var(--steel);
+  }
+  .pmew-forging-guide .fgx-eyebrow::before{
+    content:"";
+    width:26px;height:2px;background:currentColor;
+  }
+
+  .pmew-forging-guide h1,.pmew-forging-guide h2,.pmew-forging-guide h3,.pmew-forging-guide h4,.pmew-forging-guide p{margin-top:0}
+  .pmew-forging-guide h1{
+    margin-bottom:24px;
+    max-width:1100px;
+    font-size:clamp(58px,8vw,138px);
+    line-height:.85;
+    letter-spacing:-.066em;
+    font-weight:900;
+  }
+  .pmew-forging-guide h2{
+    margin-bottom:20px;
+    max-width:980px;
+    font-size:clamp(38px,5.7vw,82px);
+    line-height:.96;
+    letter-spacing:-.048em;
+    font-weight:880;
+  }
+  .pmew-forging-guide h3{
+    margin-bottom:12px;
+    font-size:clamp(24px,2.4vw,36px);
+    line-height:1.05;
+    letter-spacing:-.03em;
+  }
+  .pmew-forging-guide .fgx-lead{
+    max-width:860px;
+    font-size:clamp(18px,1.6vw,24px);
+    color:#44505f;
+    line-height:1.55;
+  }
+  .pmew-forging-guide .fgx-dark .fgx-lead{color:#c8d0d9}
+  .pmew-forging-guide .fgx-copy{max-width:860px;color:#495565}
+  .pmew-forging-guide .fgx-copy strong{color:var(--ink)}
+  .pmew-forging-guide .fgx-dark .fgx-copy{color:#c8d0d9}.pmew-forging-guide .fgx-dark .fgx-copy strong{color:#fff}
+
+  /* NAV */
+  
+  
+  
+  
+  
+  
+  
+  .pmew-forging-guide .fgx-navlinks{
+    display:flex;align-items:center;gap:22px;overflow:auto;scrollbar-width:none;
+  }
+  .pmew-forging-guide .fgx-navlinks::-webkit-scrollbar{display:none}
+  .pmew-forging-guide .fgx-navlinks a{
+    text-decoration:none;
+    color:#4a5563;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-weight:800;
+    white-space:nowrap;
+  }
+  .pmew-forging-guide .fgx-navlinks a:hover{color:var(--ink)}
+  .pmew-forging-guide .fgx-nav-cta{
+    border:1px solid var(--ink)!important;color:#fff!important;background:var(--ink);
+    padding:10px 14px;border-radius:999px;
+  }
+
+  /* HERO */
+  .pmew-forging-guide .fgx-hero{
+    min-height:calc(100vh - 72px);
+    display:grid;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    background:#fff;
+  }
+  .pmew-forging-guide .fgx-hero::before{
+    content:"";
+    position:absolute;
+    inset:auto -12vw -20vh auto;
+    width:min(70vw,980px);aspect-ratio:1;border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%,transparent 0 20%,rgba(35,103,255,.06) 20.4% 20.8%,transparent 21.2% 34%,rgba(245,158,11,.07) 34.4% 34.8%,transparent 35.2% 48%,rgba(255,77,0,.07) 48.4% 48.8%,transparent 49.2%);
+    z-index:-2;
+    animation:spinSlow 24s linear infinite;
+  }
+  .pmew-forging-guide .fgx-hero-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+    gap:56px;align-items:center;padding:76px 0;
+  }
+  .pmew-forging-guide .fgx-hero h1 span{
+    display:block;
+  }
+  .pmew-forging-guide .fgx-hero h1 .fgx-cold-word{color:var(--cold)}
+  .pmew-forging-guide .fgx-hero h1 .fgx-warm-word{color:var(--warm)}
+  .pmew-forging-guide .fgx-hero h1 .fgx-hot-word{color:var(--hot)}
+  .pmew-forging-guide .fgx-hero-copy{
+    max-width:760px;
+    font-size:clamp(18px,1.5vw,23px);
+    color:#4e5967;
+    margin-bottom:28px;
+  }
+  .pmew-forging-guide .fgx-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .pmew-forging-guide .fgx-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    min-height:48px;padding:0 18px;border-radius:999px;border:1px solid var(--ink);
+    text-decoration:none;font-weight:850;font-size:13px;letter-spacing:.02em;
+    transition:.25s ease;
+  }
+  .pmew-forging-guide .fgx-btn.fgx-primary{background:var(--ink);color:#fff}
+  .pmew-forging-guide .fgx-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(11,15,20,.12)}
+  .pmew-forging-guide .fgx-btn.fgx-ghost{background:#fff;color:var(--ink)}
+
+  .pmew-forging-guide .fgx-hero-visual{
+    position:relative;
+    min-height:620px;
+    display:grid;
+    place-items:center;
+  }
+  .pmew-forging-guide .fgx-forge-orbit{
+    position:relative;
+    width:min(46vw,590px);
+    aspect-ratio:1;
+    border-radius:50%;
+    border:1px solid #e5eaf0;
+    background:#fff;
+    box-shadow:var(--shadow);
+  }
+  .pmew-forging-guide .fgx-forge-orbit::before,.pmew-forging-guide .fgx-forge-orbit::after{
+    content:"";position:absolute;border-radius:50%;inset:11%;border:1px dashed #cfd6df;
+  }
+  .pmew-forging-guide .fgx-forge-orbit::after{inset:27%;border-style:solid;border-color:#e8edf3}
+  .pmew-forging-guide .fgx-center-die{
+    position:absolute;inset:36%;border-radius:22px;background:var(--ink);
+    display:grid;place-items:center;color:#fff;text-align:center;
+    font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;
+    box-shadow:0 22px 46px rgba(11,15,20,.2);
+  }
+  .pmew-forging-guide .fgx-state{
+    position:absolute;
+    width:152px;
+    min-height:136px;
+    border:1px solid #dfe5ec;
+    background:#fff;
+    border-radius:26px;
+    padding:18px;
+    box-shadow:0 14px 38px rgba(12,18,26,.08);
+    transform-origin:center;
+  }
+  .pmew-forging-guide .fgx-state::before{
+    content:"";
+    display:block;
+    width:48px;height:48px;border-radius:15px;margin-bottom:14px;
+    box-shadow:inset 0 -8px 16px rgba(0,0,0,.12);
+  }
+  .pmew-forging-guide .fgx-state b{display:block;font-size:18px;letter-spacing:-.02em}
+  .pmew-forging-guide .fgx-state small{display:block;color:#6f7a88;line-height:1.4;margin-top:3px}
+  .pmew-forging-guide .fgx-state.fgx-cold{left:-2%;top:47%;transform:translateY(-50%) rotate(-5deg)}
+  .pmew-forging-guide .fgx-state.fgx-warm{right:4%;top:2%;transform:rotate(6deg)}
+  .pmew-forging-guide .fgx-state.fgx-hot{right:-4%;bottom:6%;transform:rotate(-4deg)}
+  .pmew-forging-guide .fgx-state.fgx-cold::before{background:linear-gradient(145deg,#cfe1ff,var(--cold))}
+  .pmew-forging-guide .fgx-state.fgx-warm::before{background:linear-gradient(145deg,#ffe3a5,var(--warm))}
+  .pmew-forging-guide .fgx-state.fgx-hot::before{background:linear-gradient(145deg,#ffb08e,var(--hot))}
+  .pmew-forging-guide .fgx-energy-line{
+    position:absolute;
+    inset:50% auto auto 50%;
+    width:42%;
+    height:2px;
+    transform-origin:left center;
+    opacity:.4;
+  }
+  .pmew-forging-guide .fgx-energy-line.fgx-one{background:var(--cold);transform:rotate(180deg)}
+  .pmew-forging-guide .fgx-energy-line.fgx-two{background:var(--warm);transform:rotate(-52deg)}
+  .pmew-forging-guide .fgx-energy-line.fgx-three{background:var(--hot);transform:rotate(41deg)}
+
+  .pmew-forging-guide .fgx-hero-note{
+    position:absolute;left:0;bottom:10px;
+    display:flex;align-items:center;gap:10px;
+    font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#697584;
+  }
+  .pmew-forging-guide .fgx-hero-note i{width:34px;height:1px;background:#9da7b3;display:block}
+
+  /* HERO ONE LINER */
+  .pmew-forging-guide .fgx-hero-line{
+    background:var(--ink);
+    color:#fff;
+    overflow:hidden;
+    border-top:1px solid #202832;
+    border-bottom:1px solid #202832;
+  }
+  .pmew-forging-guide .fgx-ticker{
+    display:flex;
+    width:max-content;
+    animation:ticker 30s linear infinite;
+  }
+  .pmew-forging-guide .fgx-ticker span{
+    display:flex;align-items:center;gap:24px;
+    white-space:nowrap;
+    padding:24px 28px;
+    font-weight:850;
+    letter-spacing:.02em;
+    font-size:clamp(18px,1.8vw,28px);
+  }
+  .pmew-forging-guide .fgx-ticker span::after{content:"✦";font-size:13px;color:#768290}
+
+  /* PAGE ONE LINERS */
+  .pmew-forging-guide .fgx-statement{
+    min-height:62vh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:100px 0;
+    overflow:hidden;
+  }
+  .pmew-forging-guide .fgx-statement .fgx-inner{max-width:1180px;padding:0 20px}
+  .pmew-forging-guide .fgx-statement p{
+    margin:0;
+    font-size:clamp(42px,7vw,112px);
+    line-height:.92;
+    letter-spacing:-.06em;
+    font-weight:900;
+  }
+  .pmew-forging-guide .fgx-statement small{
+    display:block;margin-top:24px;color:var(--steel);
+    text-transform:uppercase;letter-spacing:.18em;font-weight:800;
+  }
+  .pmew-forging-guide .fgx-statement .fgx-accent-cold{color:var(--cold)}
+  .pmew-forging-guide .fgx-statement .fgx-accent-warm{color:var(--warm)}
+  .pmew-forging-guide .fgx-statement .fgx-accent-hot{color:var(--hot)}
+
+  /* SECTION HEAD */
+  .pmew-forging-guide .fgx-section-head{
+    display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;align-items:start;margin-bottom:56px;
+  }
+  .pmew-forging-guide .fgx-section-head .fgx-side-note{
+    padding-top:12px;
+    color:#65717f;
+    max-width:440px;
+    font-size:15px;
+  }
+
+  /* TEMPERATURE */
+  .pmew-forging-guide .fgx-temp-board{
+    border:1px solid var(--line);
+    border-radius:var(--radius-xl);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:#fff;
+  }
+  .pmew-forging-guide .fgx-temp-scale{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    min-height:420px;
+  }
+  .pmew-forging-guide .fgx-temp-zone{
+    padding:38px;
+    position:relative;
+    overflow:hidden;
+  }
+  .pmew-forging-guide .fgx-temp-zone + .fgx-temp-zone{border-left:1px solid var(--line)}
+  .pmew-forging-guide .fgx-temp-zone::after{
+    content:"";
+    position:absolute;inset:auto -20% -48% -20%;height:80%;
+    border-radius:50%;
+    filter:blur(14px);opacity:.12;
+  }
+  .pmew-forging-guide .fgx-temp-zone.fgx-cold::after{background:var(--cold)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-warm::after{background:var(--warm)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-hot::after{background:var(--hot)}
+  .pmew-forging-guide .fgx-temp-zone .fgx-num{
+    font-size:clamp(54px,6vw,92px);font-weight:900;letter-spacing:-.06em;line-height:1;
+  }
+  .pmew-forging-guide .fgx-temp-zone.fgx-cold .fgx-num{color:var(--cold)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-warm .fgx-num{color:var(--warm)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-hot .fgx-num{color:var(--hot)}
+  .pmew-forging-guide .fgx-temp-zone .fgx-unit{color:#6a7584;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.11em}
+  .pmew-forging-guide .fgx-temp-zone h3{margin-top:52px}
+  .pmew-forging-guide .fgx-temp-zone p{color:#5c6877;max-width:330px}
+  .pmew-forging-guide .fgx-temp-meter{
+    height:6px;background:#edf1f5;border-radius:999px;overflow:hidden;margin-top:28px;
+  }
+  .pmew-forging-guide .fgx-temp-meter i{display:block;height:100%;width:0;border-radius:inherit;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-cold .fgx-temp-meter i{background:var(--cold)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-warm .fgx-temp-meter i{background:var(--warm)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-hot .fgx-temp-meter i{background:var(--hot)}
+  .pmew-forging-guide .fgx-temp-zone.fgx-show .fgx-temp-meter i{width:var(--fill)}
+
+  /* PROCESS CARDS */
+  .pmew-forging-guide .fgx-process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pmew-forging-guide .fgx-process-card{
+    min-height:560px;border:1px solid var(--line);border-radius:30px;background:#fff;padding:30px;
+    position:relative;overflow:hidden;transition:.3s ease;
+  }
+  .pmew-forging-guide .fgx-process-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong)}
+  .pmew-forging-guide .fgx-process-card .fgx-bar{height:7px;border-radius:999px;margin-bottom:28px;width:72px}
+  .pmew-forging-guide .fgx-process-card.fgx-cold .fgx-bar{background:var(--cold)}
+  .pmew-forging-guide .fgx-process-card.fgx-warm .fgx-bar{background:var(--warm)}
+  .pmew-forging-guide .fgx-process-card.fgx-hot .fgx-bar{background:var(--hot)}
+  .pmew-forging-guide .fgx-process-card .fgx-tag{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:#6a7582}
+  .pmew-forging-guide .fgx-process-card ul{padding-left:20px;color:#52606f}
+  .pmew-forging-guide .fgx-process-card li{margin:7px 0}
+  .pmew-forging-guide .fgx-process-card .fgx-bottom{
+    position:absolute;left:30px;right:30px;bottom:28px;padding-top:20px;border-top:1px solid var(--line);
+  }
+  .pmew-forging-guide .fgx-process-card .fgx-bottom strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:#7a8593}
+  .pmew-forging-guide .fgx-process-card .fgx-bottom span{font-size:18px;font-weight:850}
+
+  /* COMPARISON TABLE */
+  .pmew-forging-guide .fgx-table-shell{
+    border:1px solid var(--line);border-radius:26px;overflow:auto;background:#fff;box-shadow:var(--shadow);
+  }
+  .pmew-forging-guide table{width:100%;border-collapse:collapse;min-width:900px}
+  .pmew-forging-guide th,.pmew-forging-guide td{padding:18px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .pmew-forging-guide th{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:#687482;background:#f7f9fb}
+  .pmew-forging-guide tr:last-child td{border-bottom:0}
+  .pmew-forging-guide td:first-child{font-weight:800;color:#29323d}
+  .pmew-forging-guide .fgx-cold-t{color:var(--cold)!important}.pmew-forging-guide .fgx-warm-t{color:#c77d00!important}.pmew-forging-guide .fgx-hot-t{color:var(--hot)!important}
+
+  /* TAXONOMY */
+  .pmew-forging-guide .fgx-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .pmew-forging-guide .fgx-mini-card{
+    border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff;
+  }
+  .pmew-forging-guide .fgx-mini-card .fgx-index{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;color:#8a95a2;font-size:12px;margin-bottom:28px}
+  .pmew-forging-guide .fgx-mini-card p{color:#5c6877;margin-bottom:0}
+  .pmew-forging-guide .fgx-mini-card strong{font-size:20px}
+
+  /* FLOW */
+  .pmew-forging-guide .fgx-flow-line{
+    display:flex;align-items:stretch;gap:0;overflow:auto;padding-bottom:8px;scrollbar-width:thin;
+  }
+  .pmew-forging-guide .fgx-flow-step{
+    min-width:180px;flex:1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:24px 18px;position:relative;background:#fff;
+  }
+  .pmew-forging-guide .fgx-flow-step:first-child{border-left:1px solid var(--line);border-radius:20px 0 0 20px}
+  .pmew-forging-guide .fgx-flow-step:last-child{border-right:1px solid var(--line);border-radius:0 20px 20px 0}
+  .pmew-forging-guide .fgx-flow-step:not(:last-child)::after{
+    content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+    z-index:2;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:11px;
+  }
+  .pmew-forging-guide .fgx-flow-step small{display:block;color:#8792a0;font-family:ui-monospace,monospace;margin-bottom:11px}
+  .pmew-forging-guide .fgx-flow-step b{display:block;line-height:1.35}
+
+  /* ENGINEERING SPLIT */
+  .pmew-forging-guide .fgx-split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .pmew-forging-guide .fgx-panel{
+    border:1px solid var(--line);border-radius:28px;padding:34px;background:#fff;box-shadow:0 12px 30px rgba(10,16,24,.04);
+  }
+  .pmew-forging-guide .fgx-panel.fgx-dark-panel{background:var(--ink);color:#fff;border-color:#1f2833}
+  .pmew-forging-guide .fgx-panel p{color:#586574}
+  .pmew-forging-guide .fgx-dark-panel p{color:#c7d0d9}
+  .pmew-forging-guide .fgx-formula{
+    margin:26px 0;padding:24px;border-radius:22px;background:#f4f7fa;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(20px,3vw,34px);
+    letter-spacing:-.03em;overflow:auto;
+  }
+  .pmew-forging-guide .fgx-dark-panel .fgx-formula{background:#151d27}
+  .pmew-forging-guide .fgx-key-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .pmew-forging-guide .fgx-key{
+    border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;color:#586474;
+  }
+  .pmew-forging-guide .fgx-dark-panel .fgx-key{border-color:#2c3642;color:#cbd3dc}
+
+  /* MULTI STATION */
+  .pmew-forging-guide .fgx-stations{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .pmew-forging-guide .fgx-station{
+    min-height:260px;border:1px solid var(--line);border-radius:24px;padding:22px;position:relative;overflow:hidden;
+  }
+  .pmew-forging-guide .fgx-station::before{
+    content:"";position:absolute;left:22px;right:22px;bottom:30px;height:72px;border-radius:18px 18px 10px 10px;
+    background:linear-gradient(180deg,#cbd3dc,#7f8b99);box-shadow:inset 0 -12px 20px rgba(0,0,0,.18);
+    transform:scaleX(var(--sx,1)) scaleY(var(--sy,1));transform-origin:bottom center;
+    transition:transform .8s cubic-bezier(.2,.8,.2,1);
+  }
+  .pmew-forging-guide .fgx-station:nth-child(1){--sx:.48;--sy:.55}
+  .pmew-forging-guide .fgx-station:nth-child(2){--sx:.62;--sy:.72}
+  .pmew-forging-guide .fgx-station:nth-child(3){--sx:.78;--sy:.82}
+  .pmew-forging-guide .fgx-station:nth-child(4){--sx:.92;--sy:.95}
+  .pmew-forging-guide .fgx-station:nth-child(5){--sx:1;--sy:1}
+  .pmew-forging-guide .fgx-station small{font-family:ui-monospace,monospace;color:#818c99}
+  .pmew-forging-guide .fgx-station b{display:block;margin-top:5px}
+  .pmew-forging-guide .fgx-station p{font-size:13px;color:#677381}
+
+  /* ORIGIN DEFECT GRID */
+  .pmew-forging-guide .fgx-origin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .pmew-forging-guide .fgx-origin{
+    border:1px solid var(--line);border-radius:24px;padding:26px;background:#fff;
+  }
+  .pmew-forging-guide .fgx-origin .fgx-dot{width:10px;height:10px;border-radius:50%;background:var(--ink);margin-bottom:22px}
+  .pmew-forging-guide .fgx-origin:nth-child(1) .fgx-dot{background:var(--steel)}
+  .pmew-forging-guide .fgx-origin:nth-child(2) .fgx-dot{background:var(--cold)}
+  .pmew-forging-guide .fgx-origin:nth-child(3) .fgx-dot{background:var(--warm)}
+  .pmew-forging-guide .fgx-origin:nth-child(4) .fgx-dot{background:var(--hot)}
+  .pmew-forging-guide .fgx-origin ul{padding-left:18px;color:#607080;font-size:14px}
+
+  /* INSPECTION */
+  .pmew-forging-guide .fgx-inspection{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  }
+  .pmew-forging-guide .fgx-inspection .fgx-item{
+    padding:24px;border:1px solid var(--line);border-radius:22px;background:#fff;
+  }
+  .pmew-forging-guide .fgx-inspection .fgx-icon{
+    width:44px;height:44px;border-radius:14px;background:var(--ink);display:grid;place-items:center;color:#fff;
+    font-weight:900;margin-bottom:18px;
+  }
+  .pmew-forging-guide .fgx-inspection ul{padding-left:17px;color:#657180;font-size:13px}
+
+  /* CASE STUDIES */
+  .pmew-forging-guide .fgx-cases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .pmew-forging-guide .fgx-case{
+    border:1px solid var(--line);border-radius:24px;padding:26px;background:#fff;min-height:340px;display:flex;flex-direction:column;
+  }
+  .pmew-forging-guide .fgx-case .fgx-size{font-size:50px;font-weight:900;letter-spacing:-.06em}
+  .pmew-forging-guide .fgx-case small{color:#7b8692;text-transform:uppercase;letter-spacing:.1em;font-weight:850}
+  .pmew-forging-guide .fgx-case .fgx-route{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-weight:900}
+  .pmew-forging-guide .fgx-case.fgx-cold .fgx-route{color:var(--cold)} .pmew-forging-guide .fgx-case.fgx-warm .fgx-route{color:#c77d00}.pmew-forging-guide .fgx-case.fgx-hot .fgx-route{color:var(--hot)}
+
+  /* DECISION */
+  .pmew-forging-guide .fgx-decision{
+    background:var(--ink);color:#fff;border-radius:36px;padding:42px;box-shadow:var(--shadow-strong);
+  }
+  .pmew-forging-guide .fgx-decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+  .pmew-forging-guide .fgx-decision-card{
+    border:1px solid #26303b;border-radius:22px;padding:24px;background:#111821;
+  }
+  .pmew-forging-guide .fgx-decision-card .fgx-q{color:#96a1ae;font-size:12px;text-transform:uppercase;letter-spacing:.13em;font-weight:850}
+  .pmew-forging-guide .fgx-decision-card b{display:block;font-size:22px;margin-top:8px}
+  .pmew-forging-guide .fgx-decision-card.fgx-cold b{color:#72a0ff}.pmew-forging-guide .fgx-decision-card.fgx-warm b{color:#ffc65a}.pmew-forging-guide .fgx-decision-card.fgx-hot b{color:#ff7c47}
+
+  /* BUYER */
+  .pmew-forging-guide .fgx-spec-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  }
+  .pmew-forging-guide .fgx-spec{
+    border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;
+    font-weight:800;font-size:14px;
+  }
+  .pmew-forging-guide .fgx-spec::before{content:"✓";margin-right:9px;color:var(--success)}
+
+  /* MYTHS */
+  .pmew-forging-guide .fgx-myths{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pmew-forging-guide details{
+    border:1px solid var(--line);border-radius:20px;background:#fff;padding:0 20px;
+  }
+  .pmew-forging-guide summary{
+    list-style:none;cursor:pointer;padding:20px 38px 20px 0;font-weight:850;position:relative;
+  }
+  .pmew-forging-guide summary::-webkit-details-marker{display:none}
+  .pmew-forging-guide summary::after{
+    content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border-radius:50%;background:#eef2f6;display:grid;place-items:center;
+  }
+  .pmew-forging-guide details[open] summary::after{content:"−";background:var(--ink);color:#fff}
+  .pmew-forging-guide details p{color:#5c6876;padding:0 0 20px;margin:0}
+
+  /* STANDARD TABLE */
+  .pmew-forging-guide .fgx-standard-table td:nth-child(1){white-space:nowrap}
+  .pmew-forging-guide .fgx-standard-pill{
+    display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:900;
+  }
+
+  /* FINAL */
+  .pmew-forging-guide .fgx-final-banner{
+    min-height:78vh;display:grid;place-items:center;text-align:center;background:var(--ink);color:#fff;position:relative;overflow:hidden;
+  }
+  .pmew-forging-guide .fgx-final-banner::before{
+    content:"";position:absolute;inset:-30%;background:
+      radial-gradient(circle at 25% 55%,rgba(35,103,255,.19),transparent 24%),
+      radial-gradient(circle at 50% 45%,rgba(245,158,11,.14),transparent 22%),
+      radial-gradient(circle at 75% 52%,rgba(255,77,0,.18),transparent 24%);
+    animation:breathe 7s ease-in-out infinite;
+  }
+  .pmew-forging-guide .fgx-final-banner .fgx-inner{position:relative;z-index:1;width:min(calc(100% - 40px),1180px)}
+  .pmew-forging-guide .fgx-final-banner h2{margin-inline:auto;font-size:clamp(48px,7vw,110px)}
+  .pmew-forging-guide .fgx-final-banner p{color:#bec8d3;font-size:clamp(18px,1.8vw,25px);max-width:880px;margin:0 auto 30px}
+  .pmew-forging-guide .fgx-final-equation{
+    display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px;
+    margin-top:14px;font-family:ui-monospace,monospace;font-weight:900;font-size:clamp(18px,2vw,28px);
+  }
+  .pmew-forging-guide .fgx-final-equation span{padding:9px 12px;border:1px solid #2f3945;border-radius:12px;background:#121923}
+  .pmew-forging-guide .fgx-final-equation .fgx-eq{border:0;background:none;padding-inline:4px;color:#7f8b99}
+
+  
+  
+
+  /* REVEAL */
+  .pmew-forging-guide .fgx-reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .85s ease,transform .85s cubic-bezier(.2,.8,.2,1);
+  }
+  .pmew-forging-guide .fgx-reveal.fgx-in{opacity:1;transform:none}
+  .pmew-forging-guide .fgx-reveal-delay-1{transition-delay:.08s}
+  .pmew-forging-guide .fgx-reveal-delay-2{transition-delay:.16s}
+  .pmew-forging-guide .fgx-reveal-delay-3{transition-delay:.24s}
+
+  @keyframes ticker{to{transform:translateX(-50%)}}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  @keyframes breathe{50%{transform:scale(1.06)}}
+  @keyframes bob{50%{transform:translateY(-8px)}}
+
+  @media(max-width:1100px){
+    .pmew-forging-guide .fgx-hero-grid{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-hero-visual{min-height:500px}
+    .pmew-forging-guide .fgx-forge-orbit{width:min(80vw,560px)}
+    .pmew-forging-guide .fgx-section-head{grid-template-columns:1fr;gap:18px}
+    .pmew-forging-guide .fgx-process-grid{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-process-card{min-height:auto}
+    .pmew-forging-guide .fgx-process-card .fgx-bottom{position:static;margin-top:30px}
+    .pmew-forging-guide .fgx-quad{grid-template-columns:1fr 1fr}
+    .pmew-forging-guide .fgx-stations{grid-template-columns:repeat(5,220px);overflow:auto;padding-bottom:8px}
+    .pmew-forging-guide .fgx-origin-grid{grid-template-columns:1fr 1fr}
+    .pmew-forging-guide .fgx-inspection{grid-template-columns:1fr 1fr}
+    .pmew-forging-guide .fgx-cases{grid-template-columns:1fr 1fr}
+    .pmew-forging-guide .fgx-decision-grid{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-spec-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .pmew-forging-guide .fgx-wrap{width:min(calc(100% - 24px),var(--max))}
+    .pmew-forging-guide .fgx-section{padding:78px 0}
+    
+    .pmew-forging-guide .fgx-navlinks a:not(.fgx-nav-cta){display:none}
+    .pmew-forging-guide .fgx-hero{min-height:auto}
+    .pmew-forging-guide .fgx-hero-grid{padding:54px 0 78px}
+    .pmew-forging-guide h1{font-size:clamp(52px,16vw,84px)}
+    .pmew-forging-guide .fgx-hero-visual{min-height:420px}
+    .pmew-forging-guide .fgx-forge-orbit{width:min(88vw,410px)}
+    .pmew-forging-guide .fgx-state{width:126px;min-height:110px;padding:14px;border-radius:20px}
+    .pmew-forging-guide .fgx-state::before{width:38px;height:38px;border-radius:12px;margin-bottom:10px}
+    .pmew-forging-guide .fgx-state b{font-size:15px}.pmew-forging-guide .fgx-state small{font-size:11px}
+    .pmew-forging-guide .fgx-temp-scale{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-temp-zone+.fgx-temp-zone{border-left:0;border-top:1px solid var(--line)}
+    .pmew-forging-guide .fgx-temp-zone{min-height:330px}
+    .pmew-forging-guide .fgx-split{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-quad,.pmew-forging-guide .fgx-origin-grid,.pmew-forging-guide .fgx-inspection,.pmew-forging-guide .fgx-cases,.pmew-forging-guide .fgx-spec-grid,.pmew-forging-guide .fgx-myths{grid-template-columns:1fr}
+    .pmew-forging-guide .fgx-decision{padding:28px 20px}
+    .pmew-forging-guide .fgx-statement{min-height:48vh}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .pmew-forging-guide, .pmew-forging-guide *,.pmew-forging-guide *::before,.pmew-forging-guide *::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+    .pmew-forging-guide .fgx-reveal{opacity:1;transform:none}
+  }
+
+  @media print{
+    
+    .pmew-forging-guide .fgx-section,.pmew-forging-guide .fgx-statement{padding:36px 0!important;min-height:auto!important}
+    .pmew-forging-guide .fgx-reveal{opacity:1!important;transform:none!important}
+    .pmew-forging-guide .fgx-process-card,.pmew-forging-guide .fgx-panel,.pmew-forging-guide .fgx-mini-card,.pmew-forging-guide .fgx-case,.pmew-forging-guide .fgx-origin,.pmew-forging-guide .fgx-item,.pmew-forging-guide details,.pmew-forging-guide .fgx-temp-board{box-shadow:none!important}
+    .pmew-forging-guide{color:#000}
+  }
+
+/* PMEW integration + responsive hardening */
+.pmew-forging-guide .pmew-main{position:relative;z-index:1}
+.pmew-forging-guide img,.pmew-forging-guide svg{max-width:100%}
+@media(max-width:760px){
+  .pmew-forging-guide .fgx-hero-grid{gap:30px}
+  .pmew-forging-guide .fgx-hero-actions .fgx-btn{flex:1 1 100%}
+  .pmew-forging-guide .fgx-table-shell{border-radius:18px}
+  .pmew-forging-guide .fgx-flow-line{-webkit-overflow-scrolling:touch}
+  .pmew-forging-guide .fgx-final-equation{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+}
+@media(max-width:520px){
+  .pmew-forging-guide .fgx-wrap{width:min(calc(100% - 22px),var(--max))}
+  .pmew-forging-guide .fgx-section{padding:68px 0}
+  .pmew-forging-guide h1{font-size:clamp(46px,15vw,64px)}
+  .pmew-forging-guide h2{font-size:clamp(36px,11vw,48px)}
+  .pmew-forging-guide .fgx-lead,.pmew-forging-guide .fgx-hero-copy{font-size:17px}
+  .pmew-forging-guide .fgx-hero-grid{padding:44px 0 64px}
+  .pmew-forging-guide .fgx-hero-visual{min-height:360px}
+  .pmew-forging-guide .fgx-forge-orbit{width:min(92vw,340px)}
+  .pmew-forging-guide .fgx-state{width:108px;min-height:98px;padding:12px;border-radius:17px}
+  .pmew-forging-guide .fgx-state::before{width:32px;height:32px;border-radius:10px;margin-bottom:8px}
+  .pmew-forging-guide .fgx-state b{font-size:14px}.pmew-forging-guide .fgx-state small{font-size:10px}
+  .pmew-forging-guide .fgx-center-die{font-size:9px;border-radius:14px}
+  .pmew-forging-guide .fgx-statement{padding:72px 0}
+  .pmew-forging-guide .fgx-statement p{font-size:clamp(38px,12vw,62px)}
+  .pmew-forging-guide .fgx-temp-zone{padding:28px 22px;min-height:290px}
+  .pmew-forging-guide .fgx-process-card,.pmew-forging-guide .fgx-mini-card,.pmew-forging-guide .fgx-panel,.pmew-forging-guide .fgx-case,.pmew-forging-guide .fgx-origin,.pmew-forging-guide .fgx-item{padding-left:22px;padding-right:22px}
+  .pmew-forging-guide .fgx-decision{padding:24px 16px}
+  .pmew-forging-guide table{min-width:760px}
+}
+@media(max-width:390px){
+  .pmew-forging-guide .fgx-forge-orbit{width:310px}
+  .pmew-forging-guide .fgx-state{width:96px;min-height:90px;padding:10px}
+  .pmew-forging-guide .fgx-state.fgx-cold{left:-1%}.pmew-forging-guide .fgx-state.fgx-hot{right:-1%}.pmew-forging-guide .fgx-state.fgx-warm{right:2%}
+}
+
+
+/* ==========================================================
+   PMEW FORGING PAGE — HARD TEXT COLOUR ISOLATION
+   ----------------------------------------------------------
+   Prevents global PMEW .page-technical navy/blue typography
+   from leaking into this page.
+
+   COLOUR RULE:
+   • Light / white sections = ink/black
+   • Dark sections          = white
+   • Process accents        = cold / warm / hot only
+========================================================== */
+.pmew-forging-guide{
+  --fgx-text-black:#0b0f14;
+  --fgx-text-white:#ffffff;
+}
+
+/* Default headings on light surfaces */
+.pmew-forging-guide h1,
+.pmew-forging-guide h2,
+.pmew-forging-guide h3,
+.pmew-forging-guide h4,
+.pmew-forging-guide h5,
+.pmew-forging-guide h6{
+  color:var(--fgx-text-black) !important;
+}
+
+/* Prevent global PMEW link colours from recolouring content */
+.pmew-forging-guide a:not(.fgx-btn):not(.fgx-nav-cta){
+  color:inherit !important;
+}
+
+/* Explicit helpers */
+.pmew-forging-guide .fgx-text-black{color:var(--fgx-text-black) !important;}
+.pmew-forging-guide .fgx-text-white{color:var(--fgx-text-white) !important;}
+
+/* Intentional process accents */
+.pmew-forging-guide .fgx-cold-word,
+.pmew-forging-guide .fgx-accent-cold,
+.pmew-forging-guide .fgx-cold-t{
+  color:var(--cold) !important;
+}
+.pmew-forging-guide .fgx-warm-word,
+.pmew-forging-guide .fgx-accent-warm,
+.pmew-forging-guide .fgx-warm-t{
+  color:#c77d00 !important;
+}
+.pmew-forging-guide .fgx-hot-word,
+.pmew-forging-guide .fgx-accent-hot,
+.pmew-forging-guide .fgx-hot-t{
+  color:var(--hot) !important;
+}
+
+/* Dark full-width sections */
+.pmew-forging-guide .fgx-section.fgx-dark h1,
+.pmew-forging-guide .fgx-section.fgx-dark h2,
+.pmew-forging-guide .fgx-section.fgx-dark h3,
+.pmew-forging-guide .fgx-section.fgx-dark h4,
+.pmew-forging-guide .fgx-section.fgx-dark h5,
+.pmew-forging-guide .fgx-section.fgx-dark h6,
+.pmew-forging-guide .fgx-section.fgx-dark strong{
+  color:var(--fgx-text-white) !important;
+}
+.pmew-forging-guide .fgx-section.fgx-dark .fgx-lead,
+.pmew-forging-guide .fgx-section.fgx-dark .fgx-copy,
+.pmew-forging-guide .fgx-section.fgx-dark p{
+  color:#c8d0d9 !important;
+}
+
+/* Dark engineering split panel */
+.pmew-forging-guide .fgx-panel.fgx-dark-panel h1,
+.pmew-forging-guide .fgx-panel.fgx-dark-panel h2,
+.pmew-forging-guide .fgx-panel.fgx-dark-panel h3,
+.pmew-forging-guide .fgx-panel.fgx-dark-panel h4,
+.pmew-forging-guide .fgx-panel.fgx-dark-panel strong,
+.pmew-forging-guide .fgx-panel.fgx-dark-panel b{
+  color:var(--fgx-text-white) !important;
+}
+.pmew-forging-guide .fgx-panel.fgx-dark-panel p{
+  color:#c7d0d9 !important;
+}
+
+/* Hero ticker and centre die */
+.pmew-forging-guide .fgx-hero-line,
+.pmew-forging-guide .fgx-hero-line *,
+.pmew-forging-guide .fgx-center-die,
+.pmew-forging-guide .fgx-center-die *{
+  color:var(--fgx-text-white) !important;
+}
+
+/* Decision module */
+.pmew-forging-guide .fgx-decision h1,
+.pmew-forging-guide .fgx-decision h2,
+.pmew-forging-guide .fgx-decision h3,
+.pmew-forging-guide .fgx-decision h4,
+.pmew-forging-guide .fgx-decision > strong{
+  color:var(--fgx-text-white) !important;
+}
+.pmew-forging-guide .fgx-decision p{
+  color:#c8d0d9 !important;
+}
+/* Preserve decision-card process accents */
+.pmew-forging-guide .fgx-decision-card.fgx-cold b{color:#72a0ff !important;}
+.pmew-forging-guide .fgx-decision-card.fgx-warm b{color:#ffc65a !important;}
+.pmew-forging-guide .fgx-decision-card.fgx-hot b{color:#ff7c47 !important;}
+
+/* Final dark banner */
+.pmew-forging-guide .fgx-final-banner h1,
+.pmew-forging-guide .fgx-final-banner h2,
+.pmew-forging-guide .fgx-final-banner h3,
+.pmew-forging-guide .fgx-final-banner h4,
+.pmew-forging-guide .fgx-final-banner strong,
+.pmew-forging-guide .fgx-final-banner b{
+  color:var(--fgx-text-white) !important;
+}
+.pmew-forging-guide .fgx-final-banner p{
+  color:#bec8d3 !important;
+}
+
+/* Primary dark buttons / controls */
+.pmew-forging-guide .fgx-btn.fgx-primary,
+.pmew-forging-guide .fgx-nav-cta,
+.pmew-forging-guide details[open] summary::after,
+.pmew-forging-guide .fgx-inspection .fgx-icon{
+  color:var(--fgx-text-white) !important;
+}
+.pmew-forging-guide .fgx-btn.fgx-ghost{
+  color:var(--fgx-text-black) !important;
+}
+
+/* Light cards and table headings explicitly stay ink/neutral */
+.pmew-forging-guide .fgx-process-card h3,
+.pmew-forging-guide .fgx-mini-card strong,
+.pmew-forging-guide .fgx-station b,
+.pmew-forging-guide .fgx-origin h3,
+.pmew-forging-guide .fgx-inspection h3,
+.pmew-forging-guide .fgx-case h3,
+.pmew-forging-guide .fgx-spec,
+.pmew-forging-guide summary{
+  color:var(--fgx-text-black) !important;
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/cold-warm-hot-forging.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Cold, Warm &amp; Hot Forging for Fasteners | PMEW Technical Guide">
+    <meta property="og:description" content="A technical fastener-manufacturing guide to cold, warm and hot forging: metallurgy, deformation, tooling, defects, heat treatment, inspection, myths and process selection.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/cold-warm-hot-forging.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cold, Warm &amp; Hot Forging for Fasteners | PMEW Technical Guide">
+    <meta name="twitter:description" content="A technical fastener-manufacturing guide to cold, warm and hot forging: metallurgy, deformation, tooling, defects, heat treatment, inspection, myths and process selection.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Cold, Warm & Hot Forging for Fasteners | PMEW Technical Guide",
+  "url": "https://www.pradako.co/pages/technical-information/cold-warm-hot-forging.html",
+  "description": "A technical fastener-manufacturing guide to cold, warm and hot forging: metallurgy, deformation, tooling, defects, heat treatment, inspection, myths and process selection.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="page-technical"><!-- Shared PMEW navbar: /components/navbar.html -->
+<div id="navbar-container"></div><div class="pmew-forging-guide pmew-forging-guide--forging">
+<div class="fgx-reading-progress" id="readingProgress"></div>
+<div class="fgx-site-shell">
+
+<main class="pmew-main" id="top">
+<!-- HERO -->
+<section class="fgx-hero">
+<div class="fgx-wrap fgx-hero-grid">
+<div class="fgx-reveal">
+<span class="fgx-eyebrow">Fastener Manufacturing / Technical Guide</span>
+<h1>
+<span class="fgx-cold-word">COLD.</span>
+<span class="fgx-warm-word">WARM.</span>
+<span class="fgx-hot-word">HOT.</span>
+<span>FORGED.</span>
+</h1>
+<p class="fgx-hero-copy">
+            The forging temperature is not a quality ranking. It is an engineering decision governed by
+            material, deformation, geometry, tooling, production volume, heat treatment and final performance.
+          </p>
+<div class="fgx-hero-actions">
+<a class="fgx-btn fgx-primary" href="#compare">Compare the processes <span>↓</span></a>
+<a class="fgx-btn fgx-ghost" href="#myths">Break the myths</a>
+</div>
+</div>
+<div aria-label="Illustration of cold, warm and hot forging states" class="fgx-hero-visual fgx-reveal fgx-reveal-delay-2">
+<div class="fgx-forge-orbit">
+<span class="fgx-energy-line fgx-one"></span>
+<span class="fgx-energy-line fgx-two"></span>
+<span class="fgx-energy-line fgx-three"></span>
+<div class="fgx-center-die">Metal<br/>Flow</div>
+<div class="fgx-state fgx-cold">
+<span></span>
+<b>Cold</b>
+<small>Precision + speed</small>
+</div>
+<div class="fgx-state fgx-warm">
+<span></span>
+<b>Warm</b>
+<small>Balance + formability</small>
+</div>
+<div class="fgx-state fgx-hot">
+<span></span>
+<b>Hot</b>
+<small>Maximum deformation</small>
+</div>
+</div>
+<div class="fgx-hero-note"><i></i> Scroll to move from process to proof</div>
+</div>
+</div>
+</section>
+<!-- HERO ONE-LINER -->
+<div aria-label="Key forging principles" class="fgx-hero-line">
+<div class="fgx-ticker">
+<span>NOT A RANKING. A PROCESS DECISION.</span>
+<span>GEOMETRY + MATERIAL + VOLUME + PERFORMANCE.</span>
+<span>THE BEST FORGING ROUTE IS THE MOST CONTROLLED ROUTE.</span>
+<span>NOT A RANKING. A PROCESS DECISION.</span>
+<span>GEOMETRY + MATERIAL + VOLUME + PERFORMANCE.</span>
+<span>THE BEST FORGING ROUTE IS THE MOST CONTROLLED ROUTE.</span>
+</div>
+</div>
+<!-- ONE LINER 1 -->
+<section class="fgx-statement">
+<div class="fgx-inner fgx-reveal">
+<p>
+          One metal.<br/>
+          Three thermal windows.<br/>
+<span class="fgx-accent-cold">Different ways to make it flow.</span>
+</p>
+<small>Temperature changes formability — not the definition of quality.</small>
+</div>
+</section>
+<!-- FUNDAMENTAL DIFFERENCE -->
+<section class="fgx-section fgx-soft" id="compare">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">01 / Fundamental Difference</span>
+<h2>Temperature changes the metal’s resistance to deformation.</h2>
+</div>
+<div class="fgx-side-note">
+            Cold forging retains strong work hardening. Warm forging deliberately lowers flow stress while
+            preserving good control. Hot forging works above the recrystallisation regime to permit the most severe deformation.
+          </div>
+</div>
+<div class="fgx-temp-board fgx-reveal">
+<div class="fgx-temp-scale">
+<article class="fgx-temp-zone fgx-cold" style="--fill:24%">
+<span class="fgx-unit">Cold forging / near room temperature</span>
+<div class="fgx-num">LOW T</div>
+<h3>Precision window</h3>
+<p>Highest forming resistance, excellent dimensional control, minimal thermal scale and very high production potential.</p>
+<div class="fgx-temp-meter"><i></i></div>
+</article>
+<article class="fgx-temp-zone fgx-warm" style="--fill:62%">
+<span class="fgx-unit">Warm forging / intermediate temperature</span>
+<div class="fgx-num">MID T</div>
+<h3>Balance window</h3>
+<p>Lower flow stress than cold forming with better surface condition and dimensional control than conventional hot forging.</p>
+<div class="fgx-temp-meter"><i></i></div>
+</article>
+<article class="fgx-temp-zone fgx-hot" style="--fill:100%">
+<span class="fgx-unit">Hot forging / above recrystallisation</span>
+<div class="fgx-num">HIGH T</div>
+<h3>Formability window</h3>
+<p>Maximum metal flow, lower deformation resistance and the widest practical capability for large or severe geometries.</p>
+<div class="fgx-temp-meter"><i></i></div>
+</article>
+</div>
+</div>
+<div style="height:26px"></div>
+<div class="fgx-process-grid">
+<article class="fgx-process-card fgx-cold fgx-reveal">
+<div class="fgx-bar"></div>
+<span class="fgx-tag">Cold forging</span>
+<h3>Precision + productivity</h3>
+<p class="fgx-copy">Best suited where stable high-volume production, tight dimensions, excellent surface condition and material utilisation dominate the decision.</p>
+<ul>
+<li>Highest forming loads</li>
+<li>Strong work hardening</li>
+<li>Excellent repeatability</li>
+<li>Very low scale from forming</li>
+<li>Highly suitable for automated multi-station headers</li>
+</ul>
+<div class="fgx-bottom">
+<strong>Typical fit</strong>
+<span>Screws, bolts, pins, rivets, precision specials</span>
+</div>
+</article>
+<article class="fgx-process-card fgx-warm fgx-reveal fgx-reveal-delay-1">
+<div class="fgx-bar"></div>
+<span class="fgx-tag">Warm forging</span>
+<h3>Formability + control</h3>
+<p class="fgx-copy">Useful when cold-forming load, cracking or station count becomes excessive, but the precision and surface penalties of full hot forging are undesirable.</p>
+<ul>
+<li>Reduced flow stress</li>
+<li>Improved ductility</li>
+<li>Lower punch and die loading</li>
+<li>Less scale than conventional hot forging</li>
+<li>Strong near-net-shape potential</li>
+</ul>
+<div class="fgx-bottom">
+<strong>Typical fit</strong>
+<span>Severe heads, large flanges, difficult alloys, larger near-net parts</span>
+</div>
+</article>
+<article class="fgx-process-card fgx-hot fgx-reveal fgx-reveal-delay-2">
+<div class="fgx-bar"></div>
+<span class="fgx-tag">Hot forging</span>
+<h3>Maximum forming capability</h3>
+<p class="fgx-copy">The route to large cross-sections, demanding deformation, heavy structural geometry and materials that are difficult to shape economically at lower temperatures.</p>
+<ul>
+<li>Lowest material flow stress</li>
+<li>Highest deformation capability</li>
+<li>Strong large-section feasibility</li>
+<li>Greater thermal scale and contraction</li>
+<li>More allowance for finishing may be required</li>
+</ul>
+<div class="fgx-bottom">
+<strong>Typical fit</strong>
+<span>Large bolts, eye bolts, structural specials, heavy engineering forgings</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ONE LINER 2 -->
+<section class="fgx-statement fgx-dark">
+<div class="fgx-inner fgx-reveal">
+<p>
+<span class="fgx-accent-cold">Cold</span> is not weak.<br/>
+<span class="fgx-accent-hot">Hot</span> is not automatically strong.<br/>
+<span class="fgx-accent-warm">Performance is engineered.</span>
+</p>
+<small>Final properties come from the complete manufacturing route.</small>
+</div>
+</section>
+<!-- COMPLETE COMPARISON -->
+<section class="fgx-section" id="process">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">02 / Process Comparison</span>
+<h2>Same objective. Different manufacturing physics.</h2>
+</div>
+<p class="fgx-lead">The most useful comparison is not “which is best?” but “which process best matches this part, material, volume and performance requirement?”</p>
+</div>
+<div class="fgx-table-shell fgx-reveal">
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th class="fgx-cold-t">Cold forging</th>
+<th class="fgx-warm-t">Warm forging</th>
+<th class="fgx-hot-t">Hot forging</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Material flow stress</td><td>Highest</td><td>Medium</td><td>Lowest</td></tr>
+<tr><td>Press / forming load</td><td>Highest</td><td>Reduced</td><td>Lower for equivalent deformation</td></tr>
+<tr><td>Ductility during forming</td><td>Lowest of the three</td><td>Improved</td><td>Highest</td></tr>
+<tr><td>Work hardening</td><td>Strong</td><td>Reduced</td><td>Limited during hot deformation</td></tr>
+<tr><td>Dimensional control</td><td>Excellent</td><td>Very good</td><td>Moderate to good, process dependent</td></tr>
+<tr><td>Surface scale</td><td>Minimal from forging heat</td><td>Low to moderate</td><td>Highest unless tightly controlled</td></tr>
+<tr><td>Thermal contraction</td><td>Minimal</td><td>Moderate</td><td>Significant consideration</td></tr>
+<tr><td>Tool mechanical load</td><td>Highest</td><td>Medium</td><td>Lower</td></tr>
+<tr><td>Tool thermal load</td><td>Lowest</td><td>Medium</td><td>Highest</td></tr>
+<tr><td>Production speed</td><td>Very high</td><td>Medium to high</td><td>Low to medium</td></tr>
+<tr><td>Best economic fit</td><td>Stable high volume</td><td>Medium / high volume with severe forming</td><td>Large, difficult or lower-volume parts</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- FORGING VS HEADING -->
+<section class="fgx-section fgx-soft">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">03 / Terminology</span>
+<h2>Forging is the family. Heading and extrusion are forming actions.</h2>
+</div>
+<p class="fgx-lead">A modern fastener former is doing far more than simply “making a head.” The process may combine upsetting, extrusion, piercing, sizing and trimming across several stations.</p>
+</div>
+<div class="fgx-quad">
+<div class="fgx-mini-card fgx-reveal">
+<div class="fgx-index">A / FORGING</div>
+<strong>Forging</strong>
+<p>Broad family of manufacturing processes that plastically deform solid metal under compressive force.</p>
+</div>
+<div class="fgx-mini-card fgx-reveal fgx-reveal-delay-1">
+<div class="fgx-index">B / HEADING</div>
+<strong>Heading</strong>
+<p>Upsets material axially so cross-sectional area grows — the classic route from wire or blank into a fastener head.</p>
+</div>
+<div class="fgx-mini-card fgx-reveal fgx-reveal-delay-2">
+<div class="fgx-index">C / EXTRUSION</div>
+<strong>Extrusion</strong>
+<p>Controls the direction in which material flows through or around tooling: forward, backward or combined.</p>
+</div>
+<div class="fgx-mini-card fgx-reveal fgx-reveal-delay-3">
+<div class="fgx-index">D / COLD FORMING</div>
+<strong>Cold forming</strong>
+<p>The broader production route combining cut-off, heading, extrusion, piercing, coining, trimming and sizing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- MANUFACTURING ROUTE -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">04 / Manufacturing Route</span>
+<h2>A forged fastener is a process chain — not one operation.</h2>
+</div>
+<p class="fgx-lead">The final component is the result of everything that happens before, during and after forming.</p>
+</div>
+<div aria-label="Typical cold formed bolt manufacturing route" class="fgx-flow-line fgx-reveal">
+<div class="fgx-flow-step"><small>01</small><b>Wire rod</b></div>
+<div class="fgx-flow-step"><small>02</small><b>Drawing / sizing</b></div>
+<div class="fgx-flow-step"><small>03</small><b>Annealing where required</b></div>
+<div class="fgx-flow-step"><small>04</small><b>Surface preparation</b></div>
+<div class="fgx-flow-step"><small>05</small><b>Cut-off</b></div>
+<div class="fgx-flow-step"><small>06</small><b>Multi-station forming</b></div>
+<div class="fgx-flow-step"><small>07</small><b>Head / shank formation</b></div>
+<div class="fgx-flow-step"><small>08</small><b>Thread rolling</b></div>
+<div class="fgx-flow-step"><small>09</small><b>Heat treatment</b></div>
+<div class="fgx-flow-step"><small>10</small><b>Cleaning / coating</b></div>
+<div class="fgx-flow-step"><small>11</small><b>Inspection / testing</b></div>
+<div class="fgx-flow-step"><small>12</small><b>Packing / traceability</b></div>
+</div>
+</div>
+</section>
+<!-- ONE LINER 3 -->
+<section class="fgx-statement">
+<div class="fgx-inner fgx-reveal">
+<p>
+          The question is not<br/>
+          “Can this bolt be forged?”<br/>
+<span class="fgx-accent-hot">It is: how must the metal flow?</span>
+</p>
+<small>Geometry is a deformation problem before it is a drawing.</small>
+</div>
+</section>
+<!-- METALLURGY -->
+<section class="fgx-section fgx-dark" id="metallurgy">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow" style="color:#aab4bf">05 / Deformation Engineering</span>
+<h2>Temperature alone does not define the process response.</h2>
+</div>
+<p class="fgx-lead">Metal behaviour during forging depends on strain, strain rate, temperature, friction, material condition and tool geometry acting together.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-dark-panel fgx-reveal">
+<h3>Flow stress</h3>
+<p>The resistance of the metal changes as deformation progresses. A useful conceptual relationship is:</p>
+<div class="fgx-formula">σf = f( ε , ε̇ , T )</div>
+<div class="fgx-key-row">
+<span class="fgx-key">σf = flow stress</span>
+<span class="fgx-key">ε = strain</span>
+<span class="fgx-key">ε̇ = strain rate</span>
+<span class="fgx-key">T = temperature</span>
+</div>
+</div>
+<div class="fgx-panel fgx-dark-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Deformation severity</h3>
+<p>Cold-formability is not determined by diameter alone. The real design variables include head volume, upset ratio, extrusion reduction, strain localisation and metal-flow path.</p>
+<div class="fgx-formula">Geometry → Strain → Load → Tooling</div>
+<div class="fgx-key-row">
+<span class="fgx-key">Upset ratio</span>
+<span class="fgx-key">Reduction ratio</span>
+<span class="fgx-key">Volume control</span>
+<span class="fgx-key">Transition radii</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LUBRICATION -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">06 / Tribology</span>
+<h2>Forging happens at the interface between workpiece, lubricant and die.</h2>
+</div>
+<p class="fgx-lead">Lubrication affects forming load, die fill, galling, heat generation, surface quality, metal flow and the life of punches and dies.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-reveal">
+<h3>Why friction matters</h3>
+<p>Too much friction increases load and restricts material flow. Too little or poorly controlled lubrication can change die filling and repeatability. The objective is not simply “less friction,” but controlled friction.</p>
+<div class="fgx-key-row">
+<span class="fgx-key">Load</span><span class="fgx-key">Die fill</span><span class="fgx-key">Galling</span><span class="fgx-key">Heat</span><span class="fgx-key">Surface finish</span>
+</div>
+</div>
+<div class="fgx-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Temperature changes lubrication demands</h3>
+<p><strong>Cold:</strong> strong surface-preparation and lubricant systems. <strong>Warm:</strong> lubricants must remain effective at intermediate temperature. <strong>Hot:</strong> the system must withstand extreme heat, scale interaction and thermal cycling.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- MULTI STATION -->
+<section class="fgx-section fgx-soft">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">07 / Multi-Station Forming</span>
+<h2>Do not force all the deformation into one violent hit.</h2>
+</div>
+<p class="fgx-lead">Progressive forming distributes deformation, controls metal flow and can improve concentricity, tooling reliability and part complexity.</p>
+</div>
+<div class="fgx-stations fgx-reveal">
+<div class="fgx-station"><small>STATION 01</small><b>Preform</b><p>Prepare the material path.</p></div>
+<div class="fgx-station"><small>STATION 02</small><b>Upset</b><p>Build head volume progressively.</p></div>
+<div class="fgx-station"><small>STATION 03</small><b>Intermediate</b><p>Control flow into key features.</p></div>
+<div class="fgx-station"><small>STATION 04</small><b>Final form</b><p>Achieve near-final head geometry.</p></div>
+<div class="fgx-station"><small>STATION 05</small><b>Trim / pierce</b><p>Complete geometry where needed.</p></div>
+</div>
+</div>
+</section>
+<!-- THREADS + HEAT -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">08 / After Forging</span>
+<h2>Forging, threading and heat treatment are separate engineering decisions.</h2>
+</div>
+<p class="fgx-lead">A hot-forged bolt may still have rolled threads. A cold-headed component may still require machining. Final strength comes from the complete route.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-reveal">
+<h3>Rolled vs cut threads</h3>
+<p><strong>Rolled threads</strong> plastically form the thread profile with no material removal and can deliver high productivity, good surface condition and favourable thread-root material flow when correctly controlled.</p>
+<p><strong>Cut threads</strong> remove material and remain useful for unusual geometry, very large sizes, lower volume or manufacturing routes centred on machining.</p>
+</div>
+<div class="fgx-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Forging does not set property class alone</h3>
+<p>For high-strength fasteners, final performance may depend on subsequent austenitising, quenching, tempering, case hardening, solution treatment or age hardening — depending on material and product requirements.</p>
+<div class="fgx-formula">Forging ≠ final property class</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROPERTY CLASS ONE LINER -->
+<section class="fgx-statement fgx-dark">
+<div class="fgx-inner fgx-reveal">
+<p>
+          8.8 is not “cold.”<br/>
+          10.9 is not “hot.”<br/>
+<span class="fgx-accent-warm">12.9 is not a forging temperature.</span>
+</p>
+<small>Property class describes required performance — not one universal forming route.</small>
+</div>
+</section>
+<!-- FATIGUE + GRAIN FLOW -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">09 / Structural Performance</span>
+<h2>The component must survive service — not merely leave the die correctly shaped.</h2>
+</div>
+<p class="fgx-lead">Fatigue-critical regions, grain flow, thread roots, surface defects, decarburisation and residual stresses can matter as much as headline tensile strength.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-reveal">
+<h3>Fatigue-sensitive locations</h3>
+<div class="fgx-key-row">
+<span class="fgx-key">First engaged thread</span>
+<span class="fgx-key">Thread roots</span>
+<span class="fgx-key">Under-head fillet</span>
+<span class="fgx-key">Head / shank transition</span>
+<span class="fgx-key">Tool marks</span>
+<span class="fgx-key">Corrosion pits</span>
+</div>
+<p style="margin-top:20px">A route should be judged not only by whether it can create the geometry, but by the condition it leaves at the most highly stressed surfaces.</p>
+</div>
+<div class="fgx-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Grain flow</h3>
+<p>Forging can produce favourable material flow around the head, fillet and shank. But “forged grain flow” is not automatically good grain flow.</p>
+<div class="fgx-key-row">
+<span class="fgx-key">Avoid laps</span>
+<span class="fgx-key">Avoid folds</span>
+<span class="fgx-key">Avoid dead-metal regions</span>
+<span class="fgx-key">Control fibre direction</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- QUALITY -->
+<section class="fgx-section fgx-soft" id="quality">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">10 / Defect Origins</span>
+<h2>Not every defect found after forging was caused by forging.</h2>
+</div>
+<p class="fgx-lead">Separating raw-material, forming, heat-treatment and coating defects is essential for root-cause analysis.</p>
+</div>
+<div class="fgx-origin-grid">
+<article class="fgx-origin fgx-reveal">
+<div class="fgx-dot"></div>
+<h3>Raw material</h3>
+<ul><li>Seams</li><li>Inclusions</li><li>Segregation</li><li>Surface defects</li><li>Improper spheroidisation</li></ul>
+</article>
+<article class="fgx-origin fgx-reveal fgx-reveal-delay-1">
+<div class="fgx-dot"></div>
+<h3>Forging</h3>
+<ul><li>Laps</li><li>Folds</li><li>Bursts</li><li>Underfill</li><li>Off-centre heads</li></ul>
+</article>
+<article class="fgx-origin fgx-reveal fgx-reveal-delay-2">
+<div class="fgx-dot"></div>
+<h3>Heat treatment</h3>
+<ul><li>Quench cracking</li><li>Distortion</li><li>Incorrect hardness</li><li>Excess decarburisation</li></ul>
+</article>
+<article class="fgx-origin fgx-reveal fgx-reveal-delay-3">
+<div class="fgx-dot"></div>
+<h3>Coating / finishing</h3>
+<ul><li>Hydrogen-related damage</li><li>Excess coating thickness</li><li>Poor adhesion</li><li>Thread interference</li></ul>
+</article>
+</div>
+</div>
+</section>
+<!-- SURFACE INTEGRITY -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">11 / Surface Integrity</span>
+<h2>Correct dimensions and hardness do not make a defective surface acceptable.</h2>
+</div>
+<p class="fgx-lead">Cracks, seams, laps, folds, tool damage, scale pits, carburisation/decarburisation and burrs must be understood in context of the applicable product requirements.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-reveal">
+<h3>Decarburisation</h3>
+<p>Elevated-temperature exposure can reduce surface carbon depending on atmosphere and thermal cycle. That may alter surface hardness, microstructure and fatigue-critical behaviour.</p>
+<div class="fgx-formula">Surface carbon ↓ → surface response changes</div>
+</div>
+<div class="fgx-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Hydrogen embrittlement</h3>
+<p>Hydrogen risk is not simply a “cold-forging problem.” For susceptible high-strength steels, later processes such as acid cleaning, pickling and electroplating can become critical and must be controlled as part of the full manufacturing route.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- INSPECTION -->
+<section class="fgx-section fgx-soft">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">12 / Validation</span>
+<h2>How do we know the forging is good?</h2>
+</div>
+<p class="fgx-lead">Quality is demonstrated through dimensional, surface, metallurgical, mechanical and functional evidence — not the forging-temperature label.</p>
+</div>
+<div class="fgx-inspection">
+<div class="fgx-item fgx-reveal">
+<div class="fgx-icon">D</div>
+<h3>Dimensional</h3>
+<ul><li>Micrometers</li><li>Gauges</li><li>Optical systems</li><li>Thread gauges</li></ul>
+</div>
+<div class="fgx-item fgx-reveal fgx-reveal-delay-1">
+<div class="fgx-icon">S</div>
+<h3>Surface</h3>
+<ul><li>Visual</li><li>Magnification</li><li>Magnetic particle where applicable</li><li>Penetrant where suitable</li></ul>
+</div>
+<div class="fgx-item fgx-reveal fgx-reveal-delay-2">
+<div class="fgx-icon">M</div>
+<h3>Metallurgical</h3>
+<ul><li>Microstructure</li><li>Grain flow</li><li>Decarburisation</li><li>Hardness profile</li></ul>
+</div>
+<div class="fgx-item fgx-reveal fgx-reveal-delay-3">
+<div class="fgx-icon">P</div>
+<h3>Mechanical</h3>
+<ul><li>Tensile</li><li>Proof load</li><li>Wedge tensile</li><li>Hardness / fatigue as required</li></ul>
+</div>
+<div class="fgx-item fgx-reveal">
+<div class="fgx-icon">F</div>
+<h3>Functional</h3>
+<ul><li>Torque / clamp force</li><li>Assembly fit</li><li>Coating function</li><li>Application validation</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- FEM -->
+<section class="fgx-section fgx-dark">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow" style="color:#aab4bf">13 / Digital Process Engineering</span>
+<h2>The best forging route is increasingly engineered before steel enters the machine.</h2>
+</div>
+<p class="fgx-lead">Finite-element simulation can be used to evaluate material flow, strain, temperature, die fill, load, tooling stress, lap risk, fracture risk and wear.</p>
+</div>
+<div class="fgx-split">
+<div class="fgx-panel fgx-dark-panel fgx-reveal">
+<h3>Simulate the workpiece</h3>
+<div class="fgx-key-row">
+<span class="fgx-key">Material flow</span><span class="fgx-key">Effective strain</span><span class="fgx-key">Temperature</span><span class="fgx-key">Fracture risk</span><span class="fgx-key">Underfill</span>
+</div>
+</div>
+<div class="fgx-panel fgx-dark-panel fgx-reveal fgx-reveal-delay-1">
+<h3>Simulate the tooling</h3>
+<div class="fgx-key-row">
+<span class="fgx-key">Contact pressure</span><span class="fgx-key">Punch stress</span><span class="fgx-key">Die stress</span><span class="fgx-key">Heat</span><span class="fgx-key">Wear</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CASES -->
+<section class="fgx-section">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">14 / Fastener Case Logic</span>
+<h2>Process selection becomes clearer when geometry and volume are real.</h2>
+</div>
+<p class="fgx-lead">These examples illustrate manufacturing logic; the final route still depends on material, geometry, available machinery, quality requirements and economics.</p>
+</div>
+<div class="fgx-cases">
+<article class="fgx-case fgx-cold fgx-reveal">
+<small>Case A / high volume</small>
+<div class="fgx-size">M6</div>
+<h3>Machine screw</h3>
+<p class="fgx-copy">Small geometry, high repeatability, strong need for productivity and dimensional control.</p>
+<div class="fgx-route">LIKELY ROUTE → COLD FORMING</div>
+</article>
+<article class="fgx-case fgx-warm fgx-reveal fgx-reveal-delay-1">
+<small>Case B / high strength</small>
+<div class="fgx-size">M16</div>
+<h3>10.9 flange bolt</h3>
+<p class="fgx-copy">Significant head volume. Could favour multi-station cold or warm forming depending on material and severity.</p>
+<div class="fgx-route">LIKELY ROUTE → COLD / WARM</div>
+</article>
+<article class="fgx-case fgx-warm fgx-reveal fgx-reveal-delay-2">
+<small>Case C / large section</small>
+<div class="fgx-size">M36</div>
+<h3>Heavy special bolt</h3>
+<p class="fgx-copy">Larger section, lower volume and significant head deformation shift the economics.</p>
+<div class="fgx-route">POTENTIAL ROUTE → WARM / HOT</div>
+</article>
+<article class="fgx-case fgx-hot fgx-reveal fgx-reveal-delay-3">
+<small>Case D / special alloy</small>
+<div class="fgx-size">M64</div>
+<h3>Petrochemical special</h3>
+<p class="fgx-copy">Very large diameter and lower production quantity may favour hot forging, machining or a hybrid route.</p>
+<div class="fgx-route">POTENTIAL ROUTE → HOT / HYBRID</div>
+</article>
+</div>
+</div>
+</section>
+<!-- HYBRID -->
+<section class="fgx-statement">
+<div class="fgx-inner fgx-reveal">
+<p>
+          Manufacturing is not binary.<br/>
+<span class="fgx-accent-cold">Forge.</span>
+<span class="fgx-accent-warm">Calibrate.</span>
+<span class="fgx-accent-hot">Machine.</span>
+          Roll.
+        </p>
+<small>The best production route may deliberately combine processes.</small>
+</div>
+</section>
+<!-- DECISION -->
+<section class="fgx-section" id="decision">
+<div class="fgx-wrap">
+<div class="fgx-decision fgx-reveal">
+<span class="fgx-eyebrow" style="color:#9aa6b3">15 / Selection Logic</span>
+<h2 style="margin-top:16px">Choose the route from the manufacturing problem — not from reputation.</h2>
+<p class="fgx-lead">Start with finished geometry and performance. Then evaluate material, deformation severity, machine capacity, tooling, production volume and total accepted-part cost.</p>
+<div class="fgx-decision-grid">
+<div class="fgx-decision-card fgx-cold">
+<div class="fgx-q">Need high speed + precision + huge volume?</div>
+<b>Bias toward COLD</b>
+</div>
+<div class="fgx-decision-card fgx-warm">
+<div class="fgx-q">Cold load / cracking too severe but precision still matters?</div>
+<b>Evaluate WARM</b>
+</div>
+<div class="fgx-decision-card fgx-hot">
+<div class="fgx-q">Large section / severe deformation / difficult low-volume part?</div>
+<b>Evaluate HOT</b>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BUYER -->
+<section class="fgx-section fgx-soft">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">16 / What Buyers Should Specify</span>
+<h2>Ask for verified performance — not a forging buzzword.</h2>
+</div>
+<p class="fgx-lead">For most procurement decisions, specification control and validated final performance matter more than choosing a forging temperature by reputation alone.</p>
+</div>
+<div class="fgx-spec-grid">
+<div class="fgx-spec fgx-reveal">Dimensional standard</div>
+<div class="fgx-spec fgx-reveal">Material specification</div>
+<div class="fgx-spec fgx-reveal">Property class / grade</div>
+<div class="fgx-spec fgx-reveal">Heat-treatment requirements</div>
+<div class="fgx-spec fgx-reveal">Hardness</div>
+<div class="fgx-spec fgx-reveal">Proof / tensile requirements</div>
+<div class="fgx-spec fgx-reveal">Surface-discontinuity limits</div>
+<div class="fgx-spec fgx-reveal">Thread requirements</div>
+<div class="fgx-spec fgx-reveal">Coating system</div>
+<div class="fgx-spec fgx-reveal">Friction requirements</div>
+<div class="fgx-spec fgx-reveal">Hydrogen controls</div>
+<div class="fgx-spec fgx-reveal">Traceability / certification</div>
+</div>
+</div>
+</section>
+<!-- MYTHS -->
+<section class="fgx-section" id="myths">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">17 / Myths vs Reality</span>
+<h2>Forging myths survive because they sound simple.</h2>
+</div>
+<p class="fgx-lead">Manufacturing engineering is rarely that simple. Open each myth for the more accurate interpretation.</p>
+</div>
+<div class="fgx-myths">
+<details class="fgx-reveal"><summary>“Hot-forged fasteners are always stronger.”</summary><p>False. Final strength depends on material, heat treatment, geometry, defects, microstructure and validation. Forging temperature alone does not determine strength.</p></details>
+<details class="fgx-reveal"><summary>“Cold forging is only for soft, low-strength bolts.”</summary><p>False. Suitable alloy and stainless steels are intentionally supplied for cold heading, including materials intended for subsequent strengthening heat treatments.</p></details>
+<details class="fgx-reveal"><summary>“Cold-forged components are automatically brittle.”</summary><p>Cold work reduces remaining ductility, but brittleness is not an unavoidable result. Material condition, deformation sequence and later treatment matter.</p></details>
+<details class="fgx-reveal"><summary>“Cold forging uses no heat.”</summary><p>External billet heating may be absent, but plastic work and friction generate heat. Material preparation can also include thermal treatments.</p></details>
+<details class="fgx-reveal"><summary>“Warm forging is just poorly controlled hot forging.”</summary><p>No. Warm forging is a deliberate operating window chosen to lower load while retaining better control and surface condition than conventional hot forging.</p></details>
+<details class="fgx-reveal"><summary>“The hottest billet is always easiest and best.”</summary><p>Higher temperature can lower forming resistance, but excessive heat can create scale, decarburisation, grain growth, poor dimensional control or more serious metallurgical damage.</p></details>
+<details class="fgx-reveal"><summary>“Hot forging removes every internal defect.”</summary><p>Compressive deformation can close some voids under suitable conditions, but inclusions, segregation, contaminated boundaries and all cracks are not magically removed.</p></details>
+<details class="fgx-reveal"><summary>“Forged means defect-free.”</summary><p>Forgings can contain laps, folds, bursts, underfill, tool marks and other discontinuities. Forging improves structural potential; it does not eliminate process control.</p></details>
+<details class="fgx-reveal"><summary>“Cold forging always gives the longest die life.”</summary><p>Cold dies avoid severe thermal cycling but see very high mechanical pressure. Hot dies see lower workpiece flow stress but major thermal fatigue, scale abrasion and heat checking.</p></details>
+<details class="fgx-reveal"><summary>“Hot forging is always inaccurate.”</summary><p>Hot forging usually has wider thermal variation than cold forming, but precision hot-forging and calibration routes can produce very capable geometry.</p></details>
+<details class="fgx-reveal"><summary>“Large bolts must always be hot forged.”</summary><p>No universal diameter decides the process. Geometry, material, deformation severity, machinery, tooling and volume determine feasibility.</p></details>
+<details class="fgx-reveal"><summary>“Stainless steel cannot be cold forged.”</summary><p>Incorrect. Suitable stainless grades and delivery conditions are used specifically for cold heading and cold extrusion.</p></details>
+<details class="fgx-reveal"><summary>“More forming stations mean worse manufacturing.”</summary><p>Often the opposite. Progressive deformation can reduce local severity, control material flow and improve tooling reliability.</p></details>
+<details class="fgx-reveal"><summary>“A harder bolt is always a better bolt.”</summary><p>No. Strength, hardness, toughness, fatigue performance and susceptibility to certain failure mechanisms must be balanced for the application.</p></details>
+<details class="fgx-reveal"><summary>“A property class tells you the forging method.”</summary><p>It does not. Property class communicates required mechanical performance; it is not a universal code for cold, warm or hot forging.</p></details>
+<details class="fgx-reveal"><summary>“One forging temperature range suits every steel.”</summary><p>No. Alloy chemistry, microstructure, strain rate, deformation history and process timing affect the usable working window.</p></details>
+</div>
+</div>
+</section>
+<!-- STANDARDS -->
+<section class="fgx-section fgx-soft" id="standards">
+<div class="fgx-wrap">
+<div class="fgx-section-head">
+<div>
+<span class="fgx-eyebrow">18 / Relevant Standards</span>
+<h2>Use standards to define material, properties, tolerances and validation.</h2>
+</div>
+<p class="fgx-lead">The standards below connect forging decisions to the wider fastener system: material delivery condition, mechanical properties, surface discontinuities, fatigue, torque/clamp-force and coatings.</p>
+</div>
+<div class="fgx-table-shell fgx-reveal">
+<table class="fgx-standard-table">
+<thead><tr><th>Standard</th><th>Relevance to the manufacturing system</th></tr></thead>
+<tbody>
+<tr><td><span class="fgx-standard-pill">ISO 4954-1:2024</span></td><td>Non-alloy and alloy steels for cold heading and cold extrusion.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 4954-2</span></td><td>Stainless steels for cold heading and cold extrusion.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 898-1</span></td><td>Mechanical properties for applicable bolts, screws and studs.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 898-2</span></td><td>Mechanical properties for applicable nuts.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 4759-1</span></td><td>Tolerances for applicable bolts, screws, studs and nuts.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 6157-1</span></td><td>Surface discontinuities — general requirements.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 6157-3</span></td><td>Surface discontinuities — special requirements.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 3800</span></td><td>Axial-load fatigue testing for threaded fasteners.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 16047</span></td><td>Torque / clamp-force testing.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 4042</span></td><td>Electroplated coating systems and relevant hydrogen-risk controls.</td></tr>
+<tr><td><span class="fgx-standard-pill">ISO 10683</span></td><td>Non-electrolytically applied zinc-flake coating systems.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- FINAL -->
+<section class="fgx-final-banner">
+<div class="fgx-inner fgx-reveal">
+<span class="fgx-eyebrow" style="color:#aeb8c2">Final Engineering Conclusion</span>
+<h2>The best forging process is the one that makes the right part — repeatedly.</h2>
+<p>
+          Cold forging is the precision and productivity route. Warm forging is the process-balancing route.
+          Hot forging is the maximum-formability route. None is universally superior.
+        </p>
+<div class="fgx-final-equation">
+<span>GEOMETRY</span><span class="fgx-eq">+</span>
+<span>MATERIAL</span><span class="fgx-eq">+</span>
+<span>PROPERTIES</span><span class="fgx-eq">+</span>
+<span>VOLUME</span><span class="fgx-eq">+</span>
+<span>COST</span>
+</div>
+</div>
+</section>
+</main>
+
+</div>
+
+</div><!-- Shared PMEW footer: /components/footer.html -->
+<div id="footer-container"></div><script>
+(() => {
+  const progress = document.getElementById('readingProgress');
+
+  function updateProgress(){
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+  updateProgress();
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress);
+
+  const revealEls = document.querySelectorAll('.fgx-reveal');
+  const tempZones = document.querySelectorAll('.fgx-temp-zone');
+
+  if ('IntersectionObserver' in window){
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('fgx-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const tempObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('fgx-show');
+          tempObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.3});
+    tempZones.forEach(el => tempObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('fgx-in'));
+    tempZones.forEach(el => el.classList.add('fgx-show'));
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+<!-- PMEW SHARED NAVBAR / FOOTER / GLOBAL BEHAVIOUR -->
+<script defer="" ></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

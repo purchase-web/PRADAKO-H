@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materials | Pradako Mechanical & Engineering Works</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME - KEEP ONLY ONE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="/assets/css/page-style.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <style>
+    :root {
+      --pmat-white: #ffffff;
+      --pmat-soft-white: #f7fbfc;
+      --pmat-ink: #0b1f3a;
+      --pmat-muted: #607180;
+      --pmat-line: #dce7ec;
+
+      --pmat-accent: #1f7891;
+      --pmat-accent-dark: #155d72;
+      --pmat-accent-soft: #e8f4f7;
+      --pmat-accent-soft-2: #f1f8fa;
+
+      --pmat-green: #0f8f72;
+      --pmat-gold: #b47b10;
+      --pmat-red: #dd4b39;
+
+      --pmat-mild: #1f7891;
+      --pmat-alloy: #0b1f3a;
+      --pmat-stainless: #178aa3;
+      --pmat-brass: #b47b10;
+
+      --pmat-radius-xl: 34px;
+      --pmat-radius-lg: 24px;
+      --pmat-radius-md: 16px;
+
+      --pmat-shadow-soft: 0 24px 80px rgba(11, 31, 58, 0.08);
+      --pmat-shadow-min: 0 10px 30px rgba(11, 31, 58, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--pmat-white);
+      color: var(--pmat-ink);
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .pmat-page {
+      background: var(--pmat-white);
+      min-height: 100vh;
+    }
+
+    .pmat-container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .pmat-section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .pmat-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pmat-accent);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .pmat-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    .pmat-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: var(--pmat-ink);
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+    }
+
+    .pmat-section-title {
+      font-size: clamp(2rem, 4vw, 4.25rem);
+      max-width: 850px;
+      margin-bottom: 22px;
+    }
+
+    .pmat-section-text {
+      color: var(--pmat-muted);
+      font-size: 1rem;
+      max-width: 790px;
+      font-weight: 400;
+    }
+
+    .pmat-hero {
+      padding: 150px 0 80px;
+      background: var(--pmat-soft-white);
+      border-bottom: 1px solid var(--pmat-line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pmat-hero::before {
+      content: "";
+      position: absolute;
+      inset: 32px;
+      border: 1px solid rgba(31, 120, 145, 0.18);
+      border-radius: 42px;
+      pointer-events: none;
+    }
+
+    .pmat-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pmat-hero h1 {
+      font-size: clamp(2.8rem, 6.6vw, 7.3rem);
+      margin-bottom: 24px;
+    }
+
+    .pmat-hero p {
+      color: var(--pmat-muted);
+      font-size: clamp(1rem, 1.6vw, 1.22rem);
+      max-width: 780px;
+      font-weight: 400;
+    }
+
+    .pmat-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .pmat-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: 0.28s ease;
+      cursor: pointer;
+    }
+
+    .pmat-btn-primary {
+      background: var(--pmat-accent);
+      color: var(--pmat-white);
+    }
+
+    .pmat-btn-primary:hover {
+      background: var(--pmat-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(31, 120, 145, 0.24);
+    }
+
+    .pmat-btn-ghost {
+      background: var(--pmat-white);
+      color: var(--pmat-ink);
+      border-color: var(--pmat-line);
+    }
+
+    .pmat-btn-ghost:hover {
+      border-color: var(--pmat-accent);
+      color: var(--pmat-accent);
+      transform: translateY(-2px);
+    }
+
+    .pmat-hero-board {
+      background: var(--pmat-white);
+      border: 1px solid var(--pmat-line);
+      border-radius: var(--pmat-radius-xl);
+      padding: 22px;
+      box-shadow: var(--pmat-shadow-soft);
+    }
+
+    .pmat-hero-board-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .pmat-board-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pmat-muted);
+      font-weight: 600;
+    }
+
+    .pmat-board-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--pmat-accent);
+      box-shadow: 0 0 0 8px rgba(31, 120, 145, 0.14);
+    }
+
+    .pmat-material-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pmat-stack-item {
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--pmat-line);
+      border-radius: 20px;
+      background: var(--pmat-white);
+      transition: 0.25s ease;
+    }
+
+    .pmat-stack-item:hover {
+      border-color: rgba(31, 120, 145, 0.42);
+      background: var(--pmat-accent-soft-2);
+      transform: translateY(-2px);
+    }
+
+    .pmat-stack-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--pmat-white);
+      font-size: 1rem;
+    }
+
+    .pmat-stack-icon.mild {
+      background: var(--pmat-mild);
+    }
+
+    .pmat-stack-icon.alloy {
+      background: var(--pmat-alloy);
+    }
+
+    .pmat-stack-icon.stainless {
+      background: var(--pmat-stainless);
+    }
+
+    .pmat-stack-icon.brass {
+      background: var(--pmat-brass);
+    }
+
+    .pmat-stack-item strong {
+      display: block;
+      font-weight: 600;
+      color: var(--pmat-ink);
+      margin-bottom: 2px;
+    }
+
+    .pmat-stack-item span span {
+      color: var(--pmat-muted);
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+
+    .pmat-stack-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--pmat-ink);
+      background: var(--pmat-soft-white);
+      border: 1px solid var(--pmat-line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      white-space: nowrap;
+    }
+
+    .pmat-quick-nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--pmat-line);
+    }
+
+    .pmat-quick-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 14px 0;
+      scrollbar-width: none;
+    }
+
+    .pmat-quick-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pmat-quick-nav a {
+      flex: 0 0 auto;
+      border: 1px solid var(--pmat-line);
+      background: var(--pmat-white);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: var(--pmat-muted);
+      font-size: 0.84rem;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .pmat-quick-nav a:hover,
+    .pmat-quick-nav a.is-active {
+      color: var(--pmat-white);
+      border-color: var(--pmat-accent);
+      background: var(--pmat-accent);
+    }
+
+    .pmat-intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .pmat-intro-note {
+      background: var(--pmat-accent-soft);
+      border-left: 5px solid var(--pmat-accent);
+      border-radius: 0 var(--pmat-radius-lg) var(--pmat-radius-lg) 0;
+      padding: 28px;
+      color: var(--pmat-muted);
+      font-size: 0.98rem;
+      margin-top: 28px;
+    }
+
+    .pmat-intro-note strong {
+      display: block;
+      color: var(--pmat-ink);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .pmat-intro-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--pmat-line);
+    }
+
+    .pmat-intro-list li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--pmat-line);
+    }
+
+    .pmat-intro-list i {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--pmat-accent-soft);
+      color: var(--pmat-accent);
+    }
+
+    .pmat-intro-list strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pmat-intro-list span {
+      color: var(--pmat-muted);
+      font-size: 0.94rem;
+    }
+
+    .pmat-compare {
+      background: var(--pmat-ink);
+      color: var(--pmat-white);
+    }
+
+    .pmat-compare .pmat-eyebrow,
+    .pmat-compare .pmat-heading {
+      color: var(--pmat-white);
+    }
+
+    .pmat-compare .pmat-section-text {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .pmat-compare-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .pmat-comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--pmat-radius-lg);
+      overflow: hidden;
+    }
+
+    .pmat-comparison-table th,
+    .pmat-comparison-table td {
+      padding: 17px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+      font-size: 0.9rem;
+      vertical-align: top;
+    }
+
+    .pmat-comparison-table th {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 600;
+      background: rgba(31, 120, 145, 0.28);
+      white-space: nowrap;
+    }
+
+    .pmat-comparison-table td {
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 400;
+    }
+
+    .pmat-comparison-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .pmat-material-section {
+      background: var(--pmat-white);
+      border-bottom: 1px solid var(--pmat-line);
+    }
+
+    .pmat-material-shell {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .pmat-material-aside {
+      position: sticky;
+      top: 88px;
+    }
+
+    .pmat-material-number {
+      display: inline-flex;
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      align-items: center;
+      justify-content: center;
+      color: var(--pmat-white);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .pmat-material-number.mild {
+      background: var(--pmat-mild);
+    }
+
+    .pmat-material-number.alloy {
+      background: var(--pmat-alloy);
+    }
+
+    .pmat-material-number.stainless {
+      background: var(--pmat-stainless);
+    }
+
+    .pmat-material-number.brass {
+      background: var(--pmat-brass);
+    }
+
+    .pmat-material-title {
+      font-size: clamp(2.1rem, 4vw, 4.7rem);
+      margin-bottom: 18px;
+    }
+
+    .pmat-material-subtitle {
+      font-size: 1rem;
+      color: var(--pmat-muted);
+      max-width: 440px;
+    }
+
+    .pmat-fit-box {
+      margin-top: 30px;
+      border: 1px solid var(--pmat-line);
+      border-radius: var(--pmat-radius-lg);
+      overflow: hidden;
+      background: var(--pmat-soft-white);
+    }
+
+    .pmat-fit-head {
+      padding: 16px 18px;
+      background: var(--pmat-white);
+      border-bottom: 1px solid var(--pmat-line);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .pmat-fit-box ul {
+      padding: 18px;
+      display: grid;
+      gap: 11px;
+    }
+
+    .pmat-fit-box li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--pmat-muted);
+      font-size: 0.9rem;
+    }
+
+    .pmat-fit-box li i {
+      margin-top: 5px;
+      color: var(--pmat-accent);
+      font-size: 0.82rem;
+    }
+
+    .pmat-content-flow {
+      display: grid;
+      gap: 34px;
+    }
+
+    .pmat-copy-block {
+      border-bottom: 1px solid var(--pmat-line);
+      padding-bottom: 32px;
+    }
+
+    .pmat-copy-block:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .pmat-copy-block h3 {
+      font-size: clamp(1.35rem, 2.1vw, 2rem);
+      font-weight: 600;
+      color: var(--pmat-ink);
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+
+    .pmat-copy-block p {
+      color: var(--pmat-muted);
+      font-size: 0.98rem;
+      max-width: 820px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .pmat-data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border: 1px solid var(--pmat-line);
+      border-radius: var(--pmat-radius-lg);
+      overflow: hidden;
+      margin-top: 18px;
+    }
+
+    .pmat-data-item {
+      padding: 19px 20px;
+      border-right: 1px solid var(--pmat-line);
+      border-bottom: 1px solid var(--pmat-line);
+      background: var(--pmat-white);
+    }
+
+    .pmat-data-item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .pmat-data-item:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+
+    .pmat-data-item small {
+      display: block;
+      color: var(--pmat-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .pmat-data-item strong {
+      color: var(--pmat-ink);
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .pmat-tag-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pmat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 13px;
+      border: 1px solid var(--pmat-line);
+      border-radius: 999px;
+      background: var(--pmat-accent-soft-2);
+      color: var(--pmat-ink);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .pmat-tag i {
+      color: var(--pmat-accent);
+      font-size: 0.78rem;
+    }
+
+    .pmat-product-line {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--pmat-line);
+      margin-top: 18px;
+    }
+
+    .pmat-product-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 15px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--pmat-line);
+      align-items: start;
+    }
+
+    .pmat-product-row i {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--pmat-accent-soft);
+      color: var(--pmat-accent);
+    }
+
+    .pmat-product-row strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .pmat-product-row span {
+      color: var(--pmat-muted);
+      font-size: 0.9rem;
+    }
+
+    .pmat-mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--pmat-radius-lg);
+      border: 1px solid var(--pmat-line);
+      margin-top: 18px;
+    }
+
+    .pmat-mini-table th,
+    .pmat-mini-table td {
+      padding: 15px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--pmat-line);
+      font-size: 0.9rem;
+      vertical-align: top;
+    }
+
+    .pmat-mini-table th {
+      background: var(--pmat-accent-soft);
+      color: var(--pmat-ink);
+      font-weight: 600;
+    }
+
+    .pmat-mini-table td {
+      color: var(--pmat-muted);
+      font-weight: 400;
+    }
+
+    .pmat-mini-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .pmat-warning-note {
+      background: #fff8eb;
+      border: 1px solid #f3d7a0;
+      color: #78510b;
+      border-radius: var(--pmat-radius-lg);
+      padding: 22px;
+      margin-top: 20px;
+      font-size: 0.94rem;
+    }
+
+    .pmat-warning-note strong {
+      display: block;
+      color: #5f3d05;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .pmat-selector {
+      background: var(--pmat-soft-white);
+    }
+
+    .pmat-selector-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .pmat-selector-panel {
+      background: var(--pmat-white);
+      border: 1px solid var(--pmat-line);
+      border-radius: var(--pmat-radius-xl);
+      padding: 22px;
+      box-shadow: var(--pmat-shadow-min);
+    }
+
+    .pmat-selector-panel h3 {
+      font-size: 1.18rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .pmat-choice-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pmat-choice-btn {
+      width: 100%;
+      border: 1px solid var(--pmat-line);
+      background: var(--pmat-white);
+      border-radius: 18px;
+      padding: 14px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      color: var(--pmat-ink);
+      font-family: inherit;
+      font-weight: 500;
+      transition: 0.25s ease;
+      text-align: left;
+    }
+
+    .pmat-choice-btn span {
+      color: var(--pmat-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .pmat-choice-btn:hover,
+    .pmat-choice-btn.is-selected {
+      border-color: var(--pmat-accent);
+      background: var(--pmat-accent-soft);
+      color: var(--pmat-accent);
+    }
+
+    .pmat-choice-output {
+      background: var(--pmat-white);
+      border-radius: var(--pmat-radius-xl);
+      border: 1px solid var(--pmat-line);
+      overflow: hidden;
+      box-shadow: var(--pmat-shadow-min);
+    }
+
+    .pmat-output-head {
+      padding: 28px;
+      border-bottom: 1px solid var(--pmat-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .pmat-output-head h3 {
+      font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    .pmat-output-badge {
+      border-radius: 999px;
+      background: var(--pmat-accent);
+      color: var(--pmat-white);
+      padding: 9px 13px;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pmat-output-body {
+      padding: 28px;
+    }
+
+    .pmat-output-body p {
+      color: var(--pmat-muted);
+      margin-bottom: 18px;
+    }
+
+    .pmat-output-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pmat-output-mini {
+      border: 1px solid var(--pmat-line);
+      border-radius: 18px;
+      padding: 16px;
+      background: var(--pmat-soft-white);
+    }
+
+    .pmat-output-mini small {
+      display: block;
+      color: var(--pmat-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pmat-output-mini strong {
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .pmat-cta {
+      background: var(--pmat-ink);
+      color: var(--pmat-white);
+      padding: 88px 0;
+    }
+
+    .pmat-cta-box {
+      max-width: 920px;
+    }
+
+    .pmat-cta h2 {
+      font-size: clamp(2.1rem, 4.5vw, 5rem);
+      color: var(--pmat-white);
+      margin-bottom: 16px;
+    }
+
+    .pmat-cta p {
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 740px;
+      font-weight: 400;
+    }
+
+    .pmat-reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .pmat-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .pmat-hero-grid,
+      .pmat-intro-grid,
+      .pmat-compare-layout,
+      .pmat-material-shell,
+      .pmat-selector-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pmat-material-aside {
+        position: static;
+      }
+
+      .pmat-compare-layout {
+        gap: 34px;
+      }
+
+      .pmat-hero {
+        padding-top: 128px;
+      }
+
+      .pmat-hero::before {
+        inset: 18px;
+        border-radius: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pmat-container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .pmat-section {
+        padding: 68px 0;
+      }
+
+      .pmat-hero {
+        padding: 118px 0 64px;
+      }
+
+      .pmat-hero-actions {
+        flex-direction: column;
+      }
+
+      .pmat-btn {
+        width: 100%;
+      }
+
+      .pmat-stack-item {
+        grid-template-columns: 42px 1fr;
+      }
+
+      .pmat-stack-tag {
+        grid-column: 1 / -1;
+        width: fit-content;
+      }
+
+      .pmat-data-grid,
+      .pmat-output-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pmat-data-item,
+      .pmat-data-item:nth-child(2n),
+      .pmat-data-item:nth-last-child(-n + 2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--pmat-line);
+      }
+
+      .pmat-data-item:last-child {
+        border-bottom: 0;
+      }
+
+      .pmat-comparison-table,
+      .pmat-mini-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .pmat-output-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pmat-cta {
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .pmat-hero h1 {
+        font-size: 2.75rem;
+      }
+
+      .pmat-section-title,
+      .pmat-material-title {
+        font-size: 2.25rem;
+      }
+
+      .pmat-hero-board,
+      .pmat-selector-panel,
+      .pmat-choice-output {
+        border-radius: 24px;
+      }
+
+      .pmat-product-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pmat-product-row i {
+        margin-bottom: 2px;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Materials from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/technical-information/material.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Materials | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Materials from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/technical-information/material.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Materials | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Materials from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Materials | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/technical-information/material.html",
+  "description": "Materials from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="pmat-page">
+
+    <!-- HERO -->
+    <section class="pmat-hero">
+      <div class="pmat-container">
+        <div class="pmat-hero-grid">
+          <div class="pmat-reveal">
+            <span class="pmat-eyebrow">Material Intelligence</span>
+            <h1 class="pmat-heading">Fastener Materials Built for Real Application Demands</h1>
+            <p>
+              Material selection defines the strength, corrosion resistance, service life, coating compatibility,
+              and long-term reliability of every fastening system. Explore PMEW’s material guidance for Mild Steel,
+              Alloy Steel, Stainless Steel, and Brass.
+            </p>
+
+            <div class="pmat-hero-actions">
+              <a href="#material-selector" class="pmat-btn pmat-btn-primary">
+                Find Suitable Material <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#comparison" class="pmat-btn pmat-btn-ghost">
+                View Comparison <i class="fa-solid fa-table"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="pmat-hero-board pmat-reveal">
+            <div class="pmat-hero-board-top">
+              <span class="pmat-board-label">Material Scope</span>
+              <span class="pmat-board-dot" aria-hidden="true"></span>
+            </div>
+
+            <div class="pmat-material-stack">
+              <a href="#mild-steel" class="pmat-stack-item">
+                <span class="pmat-stack-icon mild"><i class="fa-solid fa-layer-group"></i></span>
+                <span>
+                  <strong>Mild Steel</strong>
+                  <span>Economical, formable, coating-friendly</span>
+                </span>
+                <span class="pmat-stack-tag">General Use</span>
+              </a>
+
+              <a href="#alloy-steel" class="pmat-stack-item">
+                <span class="pmat-stack-icon alloy"><i class="fa-solid fa-shield-halved"></i></span>
+                <span>
+                  <strong>Alloy Steel</strong>
+                  <span>High tensile strength and load capacity</span>
+                </span>
+                <span class="pmat-stack-tag">High Strength</span>
+              </a>
+
+              <a href="#stainless-steel" class="pmat-stack-item">
+                <span class="pmat-stack-icon stainless"><i class="fa-solid fa-water"></i></span>
+                <span>
+                  <strong>Stainless Steel</strong>
+                  <span>Corrosion resistance and long service life</span>
+                </span>
+                <span class="pmat-stack-tag">Corrosion Resistant</span>
+              </a>
+
+              <a href="#brass" class="pmat-stack-item">
+                <span class="pmat-stack-icon brass"><i class="fa-solid fa-bolt"></i></span>
+                <span>
+                  <strong>Brass</strong>
+                  <span>Conductive, machinable, decorative</span>
+                </span>
+                <span class="pmat-stack-tag">Non-Ferrous</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="pmat-section" id="overview">
+      <div class="pmat-container">
+        <div class="pmat-intro-grid">
+          <div class="pmat-reveal">
+            <span class="pmat-eyebrow">Overview</span>
+            <h2 class="pmat-heading pmat-section-title">Why Material Selection Matters</h2>
+            <p class="pmat-section-text">
+              A fastener is only reliable when its material is correctly matched with load, environment,
+              assembly method, coating requirement, and service conditions.
+            </p>
+
+            <div class="pmat-intro-note">
+              <strong>Engineering Reminder</strong>
+              The same product type can perform very differently depending on the material. A bolt used in a dry
+              indoor assembly may require an entirely different material or coating for marine, chemical,
+              structural, or high-temperature environments.
+            </div>
+          </div>
+
+          <ul class="pmat-intro-list pmat-reveal">
+            <li>
+              <i class="fa-solid fa-weight-hanging"></i>
+              <div>
+                <strong>Mechanical Load</strong>
+                <span>Material determines tensile strength, yield strength, clamp load, fatigue resistance, and hardness.</span>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-cloud-rain"></i>
+              <div>
+                <strong>Corrosion Exposure</strong>
+                <span>Outdoor, coastal, chemical, and humid environments need corrosion-conscious material selection.</span>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-gears"></i>
+              <div>
+                <strong>Manufacturing Process</strong>
+                <span>Cold forming, thread rolling, heat treatment, machining, and plating must suit the material grade.</span>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <div>
+                <strong>Assembly Behavior</strong>
+                <span>Torque, friction, galling risk, coating thickness, and joint design influence final performance.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="pmat-section pmat-compare" id="comparison">
+      <div class="pmat-container">
+        <div class="pmat-compare-layout">
+          <div class="pmat-reveal">
+            <span class="pmat-eyebrow">Comparison</span>
+            <h2 class="pmat-heading pmat-section-title">Material Comparison at a Glance</h2>
+            <p class="pmat-section-text">
+              Use this quick comparison to understand the practical difference between the four commonly used
+              fastener material categories.
+            </p>
+          </div>
+
+          <div class="pmat-reveal">
+            <table class="pmat-comparison-table">
+              <thead>
+                <tr>
+                  <th>Material</th>
+                  <th>Strength</th>
+                  <th>Corrosion Resistance</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mild Steel</td>
+                  <td>Low to Medium</td>
+                  <td>Low without coating</td>
+                  <td>General fastening, fabrication, economical assemblies</td>
+                </tr>
+                <tr>
+                  <td>Alloy Steel</td>
+                  <td>High to Very High</td>
+                  <td>Low without coating</td>
+                  <td>Automotive, machinery, structural, high-load joints</td>
+                </tr>
+                <tr>
+                  <td>Stainless Steel</td>
+                  <td>Medium to High</td>
+                  <td>High</td>
+                  <td>Marine, chemical, outdoor, food, pharma, hygienic use</td>
+                </tr>
+                <tr>
+                  <td>Brass</td>
+                  <td>Low to Medium</td>
+                  <td>Good in suitable environments</td>
+                  <td>Electrical, decorative, plumbing, precision components</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MILD STEEL -->
+    <section class="pmat-section pmat-material-section" id="mild-steel">
+      <div class="pmat-container">
+        <div class="pmat-material-shell">
+          <aside class="pmat-material-aside pmat-reveal">
+            <span class="pmat-material-number mild">01</span>
+            <span class="pmat-eyebrow">Low Carbon Steel</span>
+            <h2 class="pmat-heading pmat-material-title">Mild Steel</h2>
+            <p class="pmat-material-subtitle">
+              Practical, economical, highly formable, and suitable for general-purpose fastener production.
+            </p>
+
+            <div class="pmat-fit-box">
+              <div class="pmat-fit-head">Best Used When</div>
+              <ul>
+                <li><i class="fa-solid fa-check"></i>Economical fastening is required.</li>
+                <li><i class="fa-solid fa-check"></i>Application needs good formability.</li>
+                <li><i class="fa-solid fa-check"></i>Coating will provide corrosion protection.</li>
+                <li><i class="fa-solid fa-check"></i>Extreme tensile strength is not the main requirement.</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="pmat-content-flow pmat-reveal">
+            <div class="pmat-copy-block">
+              <h3>Overview</h3>
+              <p>
+                Mild Steel, also known as low-carbon steel, is one of the most widely used materials for
+                general-purpose fasteners. It offers a strong balance of cost efficiency, ductility,
+                machinability, cold-forming ability, and coating compatibility.
+              </p>
+              <p>
+                Because of its relatively low carbon content, mild steel is easier to form, forge, thread,
+                bend, and process compared to higher-strength steels.
+              </p>
+
+              <div class="pmat-data-grid">
+                <div class="pmat-data-item">
+                  <small>Material Type</small>
+                  <strong>Low-carbon / plain carbon steel</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Strength Level</small>
+                  <strong>Low to medium strength</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Formability</small>
+                  <strong>Excellent for cold forming and thread rolling</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Corrosion Resistance</small>
+                  <strong>Low in uncoated condition</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Applications</h3>
+              <div class="pmat-tag-flow">
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> General engineering</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Sheet metal fastening</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Furniture assemblies</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Electrical panels</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Fabrication work</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Light construction</span>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Typical Fastener Products</h3>
+              <div class="pmat-product-line">
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-screwdriver"></i>
+                  <div>
+                    <strong>Screws</strong>
+                    <span>Machine screws, self-tapping screws, sheet metal screws, wood screws.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                  <div>
+                    <strong>Bolts, Nuts & Rods</strong>
+                    <span>Hex bolts, carriage bolts, nuts, studs, and threaded rods.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-regular fa-circle"></i>
+                  <div>
+                    <strong>Washers & General Components</strong>
+                    <span>Plain washers, brackets, clamps, frames, housings, and economical custom parts.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Suitable Surface Finishes</h3>
+              <table class="pmat-mini-table">
+                <thead>
+                  <tr>
+                    <th>Finish</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Zinc Plating</td>
+                    <td>General corrosion protection and clean appearance.</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Dip Galvanizing</td>
+                    <td>Heavy-duty outdoor corrosion protection.</td>
+                  </tr>
+                  <tr>
+                    <td>Phosphating</td>
+                    <td>Improves lubricity and supports paint adhesion.</td>
+                  </tr>
+                  <tr>
+                    <td>Black Oxide</td>
+                    <td>Decorative black finish with light protection.</td>
+                  </tr>
+                  <tr>
+                    <td>Zinc Nickel / Special Coatings</td>
+                    <td>Used when higher corrosion resistance or application-specific performance is needed.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pmat-warning-note">
+              <strong>Not Recommended When</strong>
+              Mild steel is not ideal for highly corrosive, marine, chemical, high-temperature, or high-tensile
+              applications unless the correct coating or alternate material is selected.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALLOY STEEL -->
+    <section class="pmat-section pmat-material-section" id="alloy-steel">
+      <div class="pmat-container">
+        <div class="pmat-material-shell">
+          <aside class="pmat-material-aside pmat-reveal">
+            <span class="pmat-material-number alloy">02</span>
+            <span class="pmat-eyebrow">High Strength Steel</span>
+            <h2 class="pmat-heading pmat-material-title">Alloy Steel</h2>
+            <p class="pmat-material-subtitle">
+              High-strength material for demanding fastening applications requiring load capacity, fatigue resistance,
+              hardness, and durability.
+            </p>
+
+            <div class="pmat-fit-box">
+              <div class="pmat-fit-head">Best Used When</div>
+              <ul>
+                <li><i class="fa-solid fa-check"></i>High tensile strength is required.</li>
+                <li><i class="fa-solid fa-check"></i>Joint demands high clamp load.</li>
+                <li><i class="fa-solid fa-check"></i>Application involves machinery or structural loads.</li>
+                <li><i class="fa-solid fa-check"></i>Heat treatment and hardness control are required.</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="pmat-content-flow pmat-reveal">
+            <div class="pmat-copy-block">
+              <h3>Overview</h3>
+              <p>
+                Alloy Steel is used where fasteners require higher tensile strength, fatigue resistance, hardness,
+                toughness, and load-bearing capability. Alloying elements such as chromium, molybdenum, nickel,
+                manganese, or vanadium may be used depending on performance requirements.
+              </p>
+              <p>
+                In fasteners, alloy steel is commonly used for higher property classes such as 8.8, 10.9, and 12.9,
+                as well as high-strength industrial and structural grades.
+              </p>
+
+              <div class="pmat-data-grid">
+                <div class="pmat-data-item">
+                  <small>Material Type</small>
+                  <strong>Steel with controlled alloying elements</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Strength Level</small>
+                  <strong>Medium to very high strength</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Heat Treatment</small>
+                  <strong>Often quenched and tempered</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Coating Need</small>
+                  <strong>Usually required for corrosion protection</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Property Classes & Grades</h3>
+              <table class="pmat-mini-table">
+                <thead>
+                  <tr>
+                    <th>Class / Grade</th>
+                    <th>Typical Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Property Class 8.8</td>
+                    <td>High-strength general engineering fasteners.</td>
+                  </tr>
+                  <tr>
+                    <td>Property Class 10.9</td>
+                    <td>Automotive, machinery, and high-load assemblies.</td>
+                  </tr>
+                  <tr>
+                    <td>Property Class 12.9</td>
+                    <td>Very high-strength socket screws and precision assemblies.</td>
+                  </tr>
+                  <tr>
+                    <td>ASTM A193 B7</td>
+                    <td>High-temperature and pressure service bolting.</td>
+                  </tr>
+                  <tr>
+                    <td>ASTM A320 L7</td>
+                    <td>Low-temperature service bolting.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Applications</h3>
+              <div class="pmat-tag-flow">
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Automotive assemblies</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Heavy machinery</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Railways</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Structural connections</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Oil & gas assemblies</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Renewable energy systems</span>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Typical Fastener Products</h3>
+              <div class="pmat-product-line">
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-bolt"></i>
+                  <div>
+                    <strong>High-Tensile Bolts</strong>
+                    <span>Hex bolts, structural bolts, flange bolts, and high-load mechanical fasteners.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-gear"></i>
+                  <div>
+                    <strong>Socket & Precision Fasteners</strong>
+                    <span>Socket head cap screws, set screws, shoulder screws, and precision assemblies.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-grip-lines"></i>
+                  <div>
+                    <strong>Studs, Rods & Nuts</strong>
+                    <span>Stud bolts, threaded rods, high-strength nuts, and washers for structural assemblies.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Surface Protection</h3>
+              <table class="pmat-mini-table">
+                <thead>
+                  <tr>
+                    <th>Finish</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Zinc Plating</td>
+                    <td>General corrosion protection for suitable strength levels.</td>
+                  </tr>
+                  <tr>
+                    <td>Zinc Nickel</td>
+                    <td>High corrosion resistance for automotive and demanding environments.</td>
+                  </tr>
+                  <tr>
+                    <td>Zinc Flake</td>
+                    <td>High-performance coating commonly used for high-strength fasteners.</td>
+                  </tr>
+                  <tr>
+                    <td>Phosphating</td>
+                    <td>Lubrication support and controlled friction behavior.</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Dip Galvanizing</td>
+                    <td>Used for structural and outdoor applications where suitable.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pmat-warning-note">
+              <strong>Engineering Note</strong>
+              High-strength alloy steel fasteners require controlled heat treatment, hardness verification, thread
+              accuracy, and surface treatment control. Hydrogen embrittlement risk must be managed during electroplating
+              of high-strength parts.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAINLESS STEEL -->
+    <section class="pmat-section pmat-material-section" id="stainless-steel">
+      <div class="pmat-container">
+        <div class="pmat-material-shell">
+          <aside class="pmat-material-aside pmat-reveal">
+            <span class="pmat-material-number stainless">03</span>
+            <span class="pmat-eyebrow">Corrosion Resistant</span>
+            <h2 class="pmat-heading pmat-material-title">Stainless Steel</h2>
+            <p class="pmat-material-subtitle">
+              Corrosion-resistant material for long-life fastening systems used in outdoor, marine, hygienic,
+              and industrial environments.
+            </p>
+
+            <div class="pmat-fit-box">
+              <div class="pmat-fit-head">Best Used When</div>
+              <ul>
+                <li><i class="fa-solid fa-check"></i>Corrosion resistance is a priority.</li>
+                <li><i class="fa-solid fa-check"></i>Application is outdoor, coastal, or chemical.</li>
+                <li><i class="fa-solid fa-check"></i>Clean appearance is required.</li>
+                <li><i class="fa-solid fa-check"></i>Coating-free service life is preferred.</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="pmat-content-flow pmat-reveal">
+            <div class="pmat-copy-block">
+              <h3>Overview</h3>
+              <p>
+                Stainless Steel is selected where corrosion resistance, hygiene, appearance, durability, and long
+                service life are important. Chromium in stainless steel forms a passive protective layer on the
+                surface, helping resist rust and corrosion.
+              </p>
+              <p>
+                Stainless steel fasteners are widely used in outdoor, marine, food processing, chemical,
+                pharmaceutical, architectural, and clean-environment applications.
+              </p>
+
+              <div class="pmat-data-grid">
+                <div class="pmat-data-item">
+                  <small>Material Type</small>
+                  <strong>Corrosion-resistant steel alloy</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Corrosion Resistance</small>
+                  <strong>Good to excellent depending on grade</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Coating Need</small>
+                  <strong>Usually used without coating</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Appearance</small>
+                  <strong>Clean, bright, and premium</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Stainless Steel Grades</h3>
+              <table class="pmat-mini-table">
+                <thead>
+                  <tr>
+                    <th>Grade</th>
+                    <th>Description</th>
+                    <th>Typical Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A2 / 304</td>
+                    <td>General-purpose stainless steel.</td>
+                    <td>Indoor, outdoor, machinery, architecture.</td>
+                  </tr>
+                  <tr>
+                    <td>A4 / 316</td>
+                    <td>Higher corrosion resistance due to molybdenum content.</td>
+                    <td>Marine, coastal, chemical, industrial environments.</td>
+                  </tr>
+                  <tr>
+                    <td>A2-70</td>
+                    <td>A2 stainless with 700 MPa nominal tensile class.</td>
+                    <td>General stainless fasteners.</td>
+                  </tr>
+                  <tr>
+                    <td>A4-70 / A4-80</td>
+                    <td>Higher corrosion-resistant stainless property classes.</td>
+                    <td>Demanding corrosion-resistant assemblies.</td>
+                  </tr>
+                  <tr>
+                    <td>410 / Martensitic SS</td>
+                    <td>Hardenable stainless steel.</td>
+                    <td>Self-drilling screws and cutting applications.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Applications</h3>
+              <div class="pmat-tag-flow">
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Marine environments</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Food processing</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Pharmaceutical equipment</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Water treatment</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Solar structures</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Architectural facades</span>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Typical Fastener Products</h3>
+              <div class="pmat-product-line">
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-screwdriver"></i>
+                  <div>
+                    <strong>Stainless Screws</strong>
+                    <span>Self-tapping screws, self-drilling screws, machine screws, and socket screws.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-bolt"></i>
+                  <div>
+                    <strong>Bolts, Studs & Rods</strong>
+                    <span>Hex bolts, threaded rods, studs, and custom corrosion-resistant fasteners.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-regular fa-circle"></i>
+                  <div>
+                    <strong>Nuts, Washers & Rivets</strong>
+                    <span>Stainless nuts, washers, rivets, and assembled fastening systems.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-warning-note">
+              <strong>Engineering Note</strong>
+              Stainless steel fasteners can be prone to galling, especially in stainless-to-stainless threaded
+              assemblies. Correct thread quality, lubrication, surface finish, and assembly speed help reduce galling risk.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRASS -->
+    <section class="pmat-section pmat-material-section" id="brass">
+      <div class="pmat-container">
+        <div class="pmat-material-shell">
+          <aside class="pmat-material-aside pmat-reveal">
+            <span class="pmat-material-number brass">04</span>
+            <span class="pmat-eyebrow">Non-Ferrous Alloy</span>
+            <h2 class="pmat-heading pmat-material-title">Brass</h2>
+            <p class="pmat-material-subtitle">
+              Copper-zinc alloy used where machinability, conductivity, corrosion resistance, non-magnetic behavior,
+              and decorative appearance matter.
+            </p>
+
+            <div class="pmat-fit-box">
+              <div class="pmat-fit-head">Best Used When</div>
+              <ul>
+                <li><i class="fa-solid fa-check"></i>Electrical conductivity is required.</li>
+                <li><i class="fa-solid fa-check"></i>Decorative appearance matters.</li>
+                <li><i class="fa-solid fa-check"></i>Precision machining is important.</li>
+                <li><i class="fa-solid fa-check"></i>Non-magnetic behavior is preferred.</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="pmat-content-flow pmat-reveal">
+            <div class="pmat-copy-block">
+              <h3>Overview</h3>
+              <p>
+                Brass is a copper-zinc alloy known for corrosion resistance, machinability, electrical conductivity,
+                thermal conductivity, and attractive appearance. It is widely used where fasteners must perform in
+                electrical, decorative, plumbing, instrumentation, and precision applications.
+              </p>
+
+              <div class="pmat-data-grid">
+                <div class="pmat-data-item">
+                  <small>Material Type</small>
+                  <strong>Copper-zinc alloy</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Machinability</small>
+                  <strong>Excellent for turned components</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Magnetism</small>
+                  <strong>Non-magnetic</strong>
+                </div>
+                <div class="pmat-data-item">
+                  <small>Strength Level</small>
+                  <strong>Lower than alloy steel</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Brass Types</h3>
+              <table class="pmat-mini-table">
+                <thead>
+                  <tr>
+                    <th>Grade / Type</th>
+                    <th>Typical Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Free-Cutting Brass</td>
+                    <td>Machined screws, inserts, standoffs, and turned components.</td>
+                  </tr>
+                  <tr>
+                    <td>Cartridge Brass</td>
+                    <td>Formed parts and light-duty fasteners.</td>
+                  </tr>
+                  <tr>
+                    <td>Naval Brass</td>
+                    <td>Selected marine-related and corrosion-resistant uses.</td>
+                  </tr>
+                  <tr>
+                    <td>Lead-Free Brass</td>
+                    <td>Plumbing, water-contact, and regulated applications.</td>
+                  </tr>
+                  <tr>
+                    <td>Nickel-Plated Brass</td>
+                    <td>Electrical, decorative, and appearance-focused applications.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Common Applications</h3>
+              <div class="pmat-tag-flow">
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Electrical terminals</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Switchgear</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Instrumentation</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Decorative hardware</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Plumbing fittings</span>
+                <span class="pmat-tag"><i class="fa-solid fa-circle-check"></i> Precision components</span>
+              </div>
+            </div>
+
+            <div class="pmat-copy-block">
+              <h3>Typical Fastener Products</h3>
+              <div class="pmat-product-line">
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-plug"></i>
+                  <div>
+                    <strong>Electrical Fasteners</strong>
+                    <span>Electrical screws, brass nuts, washers, terminals, and switchgear components.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-circle-dot"></i>
+                  <div>
+                    <strong>Turned Parts</strong>
+                    <span>Threaded inserts, spacers, standoffs, bushes, and precision machined components.</span>
+                  </div>
+                </div>
+                <div class="pmat-product-row">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  <div>
+                    <strong>Decorative Components</strong>
+                    <span>Visible fasteners and fittings where appearance and corrosion resistance are important.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pmat-warning-note">
+              <strong>Not Recommended When</strong>
+              Brass is not normally selected for high-tensile, heavy structural, or high-vibration fastening where
+              very high mechanical strength is required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATERIAL SELECTOR -->
+    <section class="pmat-section pmat-selector" id="material-selector">
+      <div class="pmat-container">
+        <div class="pmat-selector-grid">
+          <div class="pmat-reveal">
+            <span class="pmat-eyebrow">Selection Guide</span>
+            <h2 class="pmat-heading pmat-section-title">Choose Material by Application Need</h2>
+            <p class="pmat-section-text">
+              Select the requirement closest to your application. This guide helps users quickly understand which
+              material family is generally suitable before final engineering validation.
+            </p>
+          </div>
+
+          <div class="pmat-selector-panel pmat-reveal">
+            <h3>What does your application need?</h3>
+
+            <div class="pmat-choice-list">
+              <button class="pmat-choice-btn is-selected" data-material="economy">
+                Economical general fastening <span>Mild Steel</span>
+              </button>
+              <button class="pmat-choice-btn" data-material="strength">
+                High tensile strength <span>Alloy Steel</span>
+              </button>
+              <button class="pmat-choice-btn" data-material="corrosion">
+                Outdoor or corrosion resistance <span>Stainless / Coated Steel</span>
+              </button>
+              <button class="pmat-choice-btn" data-material="marine">
+                Marine or coastal exposure <span>A4 / 316 Stainless</span>
+              </button>
+              <button class="pmat-choice-btn" data-material="electrical">
+                Electrical conductivity <span>Brass</span>
+              </button>
+              <button class="pmat-choice-btn" data-material="hygiene">
+                Food, pharma, or clean environment <span>Stainless Steel</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pmat-choice-output pmat-reveal" style="grid-column: 1 / -1;">
+            <div class="pmat-output-head">
+              <h3 id="pmatOutputTitle">Mild Steel</h3>
+              <span class="pmat-output-badge" id="pmatOutputBadge">General Use</span>
+            </div>
+            <div class="pmat-output-body">
+              <p id="pmatOutputText">
+                Mild Steel is suitable when the application requires economical general fastening, good formability,
+                standard strength, and reliable coating performance.
+              </p>
+
+              <div class="pmat-output-grid">
+                <div class="pmat-output-mini">
+                  <small>Recommended For</small>
+                  <strong id="pmatOutputUse">General fabrication, panels, brackets, light assemblies</strong>
+                </div>
+                <div class="pmat-output-mini">
+                  <small>Important Check</small>
+                  <strong id="pmatOutputCheck">Use suitable coating if corrosion exposure is present</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="pmat-cta">
+      <div class="pmat-container">
+        <div class="pmat-cta-box">
+          <div class="pmat-reveal">
+            <span class="pmat-eyebrow">Material Confidence</span>
+            <h2 class="pmat-heading">Right Material. Right Finish. Reliable Fastening.</h2>
+            <p>
+              PMEW supports fastener selection across Mild Steel, Alloy Steel, Stainless Steel, and Brass to match
+              mechanical strength, corrosion protection, coating requirements, dimensional accuracy, and long-term
+              assembly reliability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- GLOBAL SCRIPTS -->
+  <script ></script>
+  <script>
+    const pmatRevealItems = document.querySelectorAll(".pmat-reveal");
+
+    const pmatRevealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    pmatRevealItems.forEach((item) => pmatRevealObserver.observe(item));
+
+    const pmatQuickLinks = document.querySelectorAll(".pmat-quick-nav a");
+    const pmatSections = [...pmatQuickLinks]
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    window.addEventListener("scroll", () => {
+      let currentSectionId = "";
+
+      pmatSections.forEach((section) => {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      pmatQuickLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === "#" + currentSectionId);
+      });
+    });
+
+    const pmatSelectorData = {
+      economy: {
+        title: "Mild Steel",
+        badge: "General Use",
+        text: "Mild Steel is suitable when the application requires economical general fastening, good formability, standard strength, and reliable coating performance.",
+        use: "General fabrication, panels, brackets, light assemblies",
+        check: "Use suitable coating if corrosion exposure is present"
+      },
+      strength: {
+        title: "Alloy Steel",
+        badge: "High Strength",
+        text: "Alloy Steel is suitable when the application requires high tensile strength, high clamp load, fatigue resistance, and durable mechanical performance.",
+        use: "Automotive, machinery, structural joints, high-load assemblies",
+        check: "Control heat treatment, hardness, and coating process"
+      },
+      corrosion: {
+        title: "Stainless Steel or Coated Steel",
+        badge: "Corrosion Focus",
+        text: "For outdoor or corrosion-exposed environments, stainless steel or properly coated carbon/alloy steel should be selected based on strength and exposure level.",
+        use: "Outdoor machinery, construction, renewable energy, exposed assemblies",
+        check: "Match coating or stainless grade with environment severity"
+      },
+      marine: {
+        title: "A4 / 316 Stainless Steel",
+        badge: "Marine Grade",
+        text: "A4 / 316 stainless steel is preferred for coastal, marine, and chloride-prone environments where stronger corrosion resistance is needed.",
+        use: "Marine, coastal, chemical, water treatment, outdoor exposure",
+        check: "Consider galling control, lubrication, and grade verification"
+      },
+      electrical: {
+        title: "Brass",
+        badge: "Conductive",
+        text: "Brass is suitable for electrical, decorative, precision-machined, and non-magnetic applications where conductivity and machinability matter.",
+        use: "Terminals, switchgear, inserts, standoffs, turned parts",
+        check: "Avoid high-load structural fastening applications"
+      },
+      hygiene: {
+        title: "Stainless Steel",
+        badge: "Clean Environment",
+        text: "Stainless steel is preferred for food, pharma, hygienic, and clean-environment applications because of its corrosion resistance and clean surface appearance.",
+        use: "Food equipment, pharma equipment, clean rooms, hygienic assemblies",
+        check: "Select suitable grade and finish for cleaning conditions"
+      }
+    };
+
+    const pmatChoiceButtons = document.querySelectorAll(".pmat-choice-btn");
+    const pmatOutputTitle = document.getElementById("pmatOutputTitle");
+    const pmatOutputBadge = document.getElementById("pmatOutputBadge");
+    const pmatOutputText = document.getElementById("pmatOutputText");
+    const pmatOutputUse = document.getElementById("pmatOutputUse");
+    const pmatOutputCheck = document.getElementById("pmatOutputCheck");
+
+    pmatChoiceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.material;
+        const data = pmatSelectorData[key];
+
+        pmatChoiceButtons.forEach((btn) => btn.classList.remove("is-selected"));
+        button.classList.add("is-selected");
+
+        pmatOutputTitle.textContent = data.title;
+        pmatOutputBadge.textContent = data.badge;
+        pmatOutputText.textContent = data.text;
+        pmatOutputUse.textContent = data.use;
+        pmatOutputCheck.textContent = data.check;
+      });
+    });
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

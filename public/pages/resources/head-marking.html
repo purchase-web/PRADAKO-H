@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolt Head Marking Identifier | Pradako Engineering Tools</title>
+<meta name="description" content="Identify a bolt from the marks on its head. Metric ISO 898 property classes, SAE inch grades, ASTM structural, stainless ISO 3506 and nut markings with strength, hardness and material.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- PMEW GLOBAL STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" >
+<style>
+.fastener-tool-page{--tk-white:#fff;--tk-off:#f4f5f7;--tk-ink:#0E2033;--tk-ink-deep:#081522;--tk-muted:#5f6875;--tk-line:#dde1e7;
+ --tk-ac:#C2540C;--tk-ac-bright:#FF8A2B;--tk-ac-soft:#fdf1e7;--tk-ok:#0B7A4B;--tk-ok-soft:#e9f7f0;--tk-warn:#B3261E;--tk-warn-soft:#fdf3f2;
+ --tk-d:"Montserrat",Arial,sans-serif;--tk-b:"Space Grotesk",Arial,sans-serif;--tk-m:"JetBrains Mono",ui-monospace,monospace;
+ --tk-max:1320px;--tk-e:cubic-bezier(.2,.8,.2,1)}
+.fastener-tool-page,.fastener-tool-page *{margin:0;padding:0;box-sizing:border-box}
+.fastener-tool-page{background:var(--tk-white);color:#30363f;font-family:var(--tk-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.fastener-tool-page ::selection{background:var(--tk-ac);color:#fff}
+.fastener-tool-page a{color:inherit;text-decoration:none}
+.fastener-tool-page :focus-visible{outline:3px solid var(--tk-ac);outline-offset:3px}
+.fastener-tool-page .tk-wrap{max-width:var(--tk-max);margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+.fastener-tool-page .tk-sec{padding:clamp(38px,4.4vw,64px) 0}
+.fastener-tool-page .tk-paper{background:var(--tk-off);border-top:1px solid var(--tk-line);border-bottom:1px solid var(--tk-line)}
+
+.fastener-tool-page .tk-bar{background:var(--tk-ink);position:sticky;top:0;z-index:20}
+.fastener-tool-page .tk-bar__in{display:flex;align-items:center;gap:18px;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.fastener-tool-page .tk-bar__in::-webkit-scrollbar{display:none}
+.fastener-tool-page .tk-bar__id{font-family:var(--tk-d);font-weight:900;color:#fff;font-size:14px;letter-spacing:-.01em;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.16)}
+.fastener-tool-page .tk-bar__id span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar a{font-family:var(--tk-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.fastener-tool-page .tk-bar a:hover,.fastener-tool-page .tk-bar a.on{color:var(--tk-ac-bright);border-bottom-color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar__sp{flex:1}
+.fastener-tool-page .tk-units{display:inline-flex;border:1.5px solid rgba(255,255,255,.28)}
+.fastener-tool-page .tk-units button{font-family:var(--tk-m);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer}
+.fastener-tool-page .tk-units button.on{background:var(--tk-ac);color:#fff!important;border-color:var(--tk-ac)!important}
+
+.fastener-tool-page .tk-hero{padding:clamp(34px,4vw,58px) 0 clamp(20px,2.4vw,32px);position:relative;overflow:hidden;background:var(--tk-white)}
+.fastener-tool-page .tk-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(194,84,12,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(194,84,12,.07) 1px,transparent 1px);background-size:44px 44px;
+ mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%)}
+.fastener-tool-page .tk-hero .tk-wrap{position:relative;z-index:2}
+.fastener-tool-page .tk-eyebrow{font-family:var(--tk-m);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-ac);display:inline-flex;align-items:center;gap:11px;margin-bottom:14px}
+.fastener-tool-page .tk-eyebrow::before{content:"";width:26px;border-top:3px double var(--tk-ac)}
+.fastener-tool-page h1{font-family:var(--tk-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;font-size:clamp(32px,5.4vw,68px);color:var(--tk-ink)}
+.fastener-tool-page h1 em{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-sub{margin-top:14px;font-size:15.5px;color:var(--tk-muted);max-width:720px}
+
+.fastener-tool-page .tk-panel{border:2px solid var(--tk-ink);background:var(--tk-white)}
+.fastener-tool-page .tk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--tk-ink)}
+@media(max-width:900px){.fastener-tool-page .tk-grid2{grid-template-columns:1fr}}
+.fastener-tool-page .tk-in{padding:clamp(20px,2.6vw,34px);border-right:1px solid var(--tk-line)}
+@media(max-width:900px){.fastener-tool-page .tk-in{border-right:none;border-bottom:1px solid var(--tk-line)}}
+.fastener-tool-page .tk-out{padding:clamp(20px,2.6vw,34px);background:var(--tk-ink);color:#fff}
+.fastener-tool-page .tk-field{margin-bottom:15px}
+.fastener-tool-page .tk-field label{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tk-muted);font-weight:700;margin-bottom:6px}
+.fastener-tool-page .tk-field label i{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-field select,.fastener-tool-page .tk-field input{width:100%;font-family:var(--tk-b);font-size:15px;color:var(--tk-ink);padding:11px 13px;border:2px solid var(--tk-line);background:var(--tk-white);outline:none;transition:border-color .16s}
+.fastener-tool-page .tk-field select:focus,.fastener-tool-page .tk-field input:focus{border-color:var(--tk-ac)}
+.fastener-tool-page .tk-r2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fastener-tool-page .tk-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:560px){.fastener-tool-page .tk-r2,.fastener-tool-page .tk-r3{grid-template-columns:1fr}}
+.fastener-tool-page .tk-res{margin-bottom:20px}
+.fastener-tool-page .tk-res b{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:700}
+.fastener-tool-page .tk-res span{font-family:var(--tk-d);font-weight:900;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.045em;line-height:.95;display:block}
+.fastener-tool-page .tk-res span em{font-style:normal;font-size:.42em;color:var(--tk-ac-bright);margin-left:6px}
+.fastener-tool-page .tk-res--hi span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-top:18px}
+.fastener-tool-page .tk-mini div{background:var(--tk-ink);padding:11px 13px}
+.fastener-tool-page .tk-mini b{display:block;font-family:var(--tk-m);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;font-weight:700}
+.fastener-tool-page .tk-mini span{font-family:var(--tk-m);font-size:13px;font-weight:700;color:#fff}
+.fastener-tool-page .tk-note{font-family:var(--tk-m);font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;border-top:1px solid rgba(255,255,255,.16);padding-top:13px;margin-top:16px}
+
+.fastener-tool-page .tk-warn{border-left:4px solid var(--tk-warn);background:var(--tk-warn-soft);padding:14px 16px;margin-top:22px}
+.fastener-tool-page .tk-warn b{font-family:var(--tk-d);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--tk-warn);letter-spacing:.02em;display:block;margin-bottom:5px}
+.fastener-tool-page .tk-warn p{font-size:13px;color:#5a4340;line-height:1.6}
+
+.fastener-tool-page .tk-tblwrap{margin-top:22px;border:2px solid var(--tk-ink);overflow:hidden}
+.fastener-tool-page .tk-tblscroll{overflow-x:auto}
+.fastener-tool-page table.tk-tbl{border-collapse:collapse;width:100%;font-family:var(--tk-m);font-size:12.5px}
+.fastener-tool-page table.tk-tbl th,.fastener-tool-page table.tk-tbl td{padding:9px 12px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--tk-line);border-right:1px solid var(--tk-line)}
+.fastener-tool-page table.tk-tbl thead th{background:var(--tk-ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;position:sticky;top:0;z-index:3}
+.fastener-tool-page table.tk-tbl td:first-child,.fastener-tool-page table.tk-tbl thead th:first-child{position:sticky;left:0;background:var(--tk-off);font-weight:700;color:var(--tk-ink);text-align:left;z-index:2}
+.fastener-tool-page table.tk-tbl thead th:first-child{background:var(--tk-ink);color:#fff;z-index:4}
+.fastener-tool-page table.tk-tbl tbody tr:hover td{background:var(--tk-ac-soft)}
+.fastener-tool-page table.tk-tbl tbody tr.hl td{background:var(--tk-ac-soft);color:var(--tk-ac);font-weight:700}
+.fastener-tool-page .tk-filter{display:flex;align-items:center;gap:10px;border:2px solid var(--tk-line);padding:0 14px;background:var(--tk-white);max-width:380px;margin-top:20px}
+.fastener-tool-page .tk-filter input{flex:1;border:none;outline:none;font-family:var(--tk-b);font-size:14.5px;padding:11px 0;background:transparent}
+.fastener-tool-page .tk-filter svg{width:17px;height:17px;color:var(--tk-muted)}
+.fastener-tool-page .tk-btn{font-family:var(--tk-d);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:800;padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--tk-e),background .16s,color .16s}
+.fastener-tool-page .tk-btn--ac{background:var(--tk-ac);color:#fff;border-color:var(--tk-ac)}
+.fastener-tool-page .tk-btn--ac:hover{transform:translateY(-2px)}
+.fastener-tool-page .tk-btn--line{background:transparent;border-color:var(--tk-line);color:var(--tk-ink)}
+.fastener-tool-page .tk-btn--line:hover{border-color:var(--tk-ac);color:var(--tk-ac)}
+.fastener-tool-page .tk-foot{background:var(--tk-ink);color:rgba(255,255,255,.6);padding:26px 0;font-family:var(--tk-m);font-size:11px;letter-spacing:.06em}
+.fastener-tool-page .tk-foot a{color:var(--tk-ac-bright)}
+@media print{.fastener-tool-page .tk-bar,.fastener-tool-page .tk-btn{display:none!important}}
+@media(prefers-reduced-motion:reduce){.fastener-tool-page,.fastener-tool-page *{transition:none!important;animation:none!important}}
+
+/* ==========================================================
+   LIGHT ENGINEERING-TOOLS SUB-NAVIGATION
+   Keeps the utility bar distinct without a heavy dark strip.
+   ========================================================== */
+.fastener-tool-page .tk-bar {
+    background: #ffffff;
+    border-top: 1px solid #e8edf1;
+    border-bottom: 1px solid #dfe5ea;
+    box-shadow: 0 5px 16px rgba(20, 39, 55, 0.045);
+}
+.fastener-tool-page .tk-bar__in {
+    gap: clamp(14px, 1.35vw, 24px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fastener-tool-page .tk-bar__id {
+    color: #24394a;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-right-color: #dce3e8;
+}
+.fastener-tool-page .tk-bar__id span {
+    color: #c75b18;
+}
+.fastener-tool-page .tk-bar a {
+    color: #647481;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-bottom-color: transparent;
+}
+.fastener-tool-page .tk-bar a:hover,
+.fastener-tool-page .tk-bar a.on {
+    color: #c2540c;
+    border-bottom-color: #c2540c;
+}
+.fastener-tool-page .tk-units {
+    border-color: #ccd5dc;
+    background: #f8fafb;
+}
+.fastener-tool-page .tk-units button {
+    color: #61717e;
+    font-weight: 600;
+}
+.fastener-tool-page .tk-units button.on {
+    color: #b64e0e !important;
+    background: #fff2e9;
+    border-color: #f0c7ab !important;
+}
+@media (max-width: 760px) {
+    .fastener-tool-page .tk-bar__in {
+        gap: 16px;
+    }
+    .fastener-tool-page .tk-bar__id {
+        font-size: 12px;
+        padding-right: 13px;
+    }
+    .fastener-tool-page .tk-bar a {
+        font-size: 9.5px;
+    }
+}
+
+
+
+/* ==========================================================
+   PMEW PAGE-LOCAL NAVIGATION LAYER SAFEGUARD
+   Kept in every tool page to prevent stale cached CSS from
+   allowing the sticky tools bar to cover a mega dropdown.
+   ========================================================== */
+#navbar-container{position:relative;z-index:50000;isolation:isolate;overflow:visible!important}
+#navbar-container .main-header{position:relative;z-index:50000!important;isolation:isolate;overflow:visible!important}
+#navbar-container .navbar{position:relative;z-index:50001!important;overflow:visible!important}
+#navbar-container .dropdown .mega-menu{top:calc(100% - 1px)!important;z-index:50010!important}
+.pmew-main{position:relative;z-index:1;isolation:isolate}
+.fastener-tool-page .tk-bar{z-index:20!important}
+body.pmew-mega-open .fastener-tool-page .tk-bar{z-index:0!important;pointer-events:none}
+@media(max-width:768px){#navbar-container{z-index:60000}#navbar-container .mobile-menu-overlay{z-index:60010!important}#navbar-container .mobile-menu-container{z-index:60020!important}}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/resources/head-marking.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Bolt Head Marking Identifier | Pradako Engineering Tools">
+    <meta property="og:description" content="Identify a bolt from the marks on its head. Metric ISO 898 property classes, SAE inch grades, ASTM structural, stainless ISO 3506 and nut markings with strength, hardness and material.">
+    <meta property="og:url" content="https://www.pradako.co/pages/resources/head-marking.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bolt Head Marking Identifier | Pradako Engineering Tools">
+    <meta name="twitter:description" content="Identify a bolt from the marks on its head. Metric ISO 898 property classes, SAE inch grades, ASTM structural, stainless ISO 3506 and nut markings with strength, hardness and material.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Bolt Head Marking Identifier | Pradako Engineering Tools",
+  "url": "https://www.pradako.co/pages/resources/head-marking.html",
+  "description": "Identify a bolt from the marks on its head. Metric ISO 898 property classes, SAE inch grades, ASTM structural, stainless ISO 3506 and nut markings with strength, hardness and material.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head><body class="page-products page-fastener-tools">
+<!-- PMEW GLOBAL NAVBAR: injected by /js/navbar.js -->
+<div id="navbar-container"></div>
+
+<main class="pmew-main" id="main-content">
+<div class="fastener-tool-page">
+  <div class="tk-bar">
+    <div class="tk-wrap tk-bar__in">
+      <div class="tk-bar__id">PRADAKO <span>TOOLS</span></div>
+        <a href="/pages/resources/torque-calculator.html">Torque &amp; Preload</a>
+        <a href="/pages/resources/thread-tap-drill.html">Thread &amp; Tap Drill</a>
+        <a href="/pages/resources/weight-calculator.html">Weight Calculator</a>
+        <a href="/pages/resources/container-load.html">Container Load</a>
+        <a href="/pages/resources/head-marking.html"  class="on">Head Marking</a>
+        <a href="/pages/resources/galvanic-compatibility.html">Galvanic</a>
+        <a href="/pages/resources/unit-converter.html">Unit Converter</a>
+        <span class="tk-bar__sp"></span>
+      </div>
+    </div>
+<header class="tk-hero"><div class="tk-hero__grid"></div><div class="tk-wrap">
+<div class="tk-eyebrow">Engineering tool 06</div>
+<h1>Bolt head <em>marking</em> identifier</h1>
+<p class="tk-sub">You are holding a bolt and you do not know what it is. Match the marks on the head to the grade, strength, material and standard — metric ISO&nbsp;898, SAE inch, ASTM structural, stainless and nuts.</p>
+</div></header>
+
+<section class="tk-sec"><div class="tk-wrap">
+<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:22px">
+ <div class="tk-units" id="sysTabs" style="border:none;flex-wrap:wrap;gap:6px;display:flex"></div>
+ <label class="tk-filter" style="margin-top:0;min-width:200px;flex:1">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+  <input id="filter" type="search" placeholder="Search a mark — 8.8, A325, three lines, A4-80"></label>
+ <span style="font-family:var(--tk-m);font-size:11px;color:var(--tk-muted)" id="cnt"></span>
+</div>
+<div id="cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px"></div>
+
+<div class="tk-warn" style="margin-top:30px">
+ <b>Markings identify a grade — they do not certify one</b>
+ <p>Head marks are applied by the manufacturer and are routinely counterfeited on low-cost imports. A mark alone is not evidence of conformity. For any load-bearing or safety-critical application, require a mill test certificate traceable to the batch, and test if the application warrants it. Unmarked bolts should be treated as the lowest grade in the family until proven otherwise.</p>
+</div>
+</div></section>
+
+<div id="modal" style="position:fixed;inset:0;background:rgba(8,21,34,.6);z-index:600;display:none;align-items:center;justify-content:center;padding:20px">
+ <div style="background:#fff;max-width:620px;width:100%;max-height:88vh;overflow:auto;border:2px solid var(--tk-ink)" id="modalIn"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var D=[{"sys": "Metric", "mark": "4.6", "txt": "4.6", "lines": 0, "Rm": 400, "Rp": 240, "hard": "114-209 HB", "mat": "Low or medium carbon steel", "std": "ISO 898-1 / DIN 267", "note": "Mild commercial grade. Rarely used structurally."}, {"sys": "Metric", "mark": "4.8", "txt": "4.8", "lines": 0, "Rm": 420, "Rp": 340, "hard": "124-209 HB", "mat": "Low carbon steel, cold worked", "std": "ISO 898-1", "note": "Common in small sizes and DIN 84 / DIN 85 machine screws."}, {"sys": "Metric", "mark": "5.6", "txt": "5.6", "lines": 0, "Rm": 500, "Rp": 300, "hard": "140-215 HB", "mat": "Medium carbon steel", "std": "ISO 898-1", "note": "Uncommon outside legacy drawings."}, {"sys": "Metric", "mark": "5.8", "txt": "5.8", "lines": 0, "Rm": 520, "Rp": 420, "hard": "152-209 HB", "mat": "Low carbon steel, cold worked", "std": "ISO 898-1", "note": "Widely used for general assembly."}, {"sys": "Metric", "mark": "6.8", "txt": "6.8", "lines": 0, "Rm": 600, "Rp": 480, "hard": "181-238 HB", "mat": "Medium carbon steel", "std": "ISO 898-1", "note": "Being displaced by 8.8."}, {"sys": "Metric", "mark": "8.8", "txt": "8.8", "lines": 0, "Rm": 800, "Rp": 640, "hard": "250-320 HB / 22-32 HRC", "mat": "Medium carbon steel, quenched and tempered", "std": "ISO 898-1 / ISO 4014 / ISO 4017", "note": "The industrial default. Rm 830 for d > 16 mm."}, {"sys": "Metric", "mark": "9.8", "txt": "9.8", "lines": 0, "Rm": 900, "Rp": 720, "hard": "286-360 HB", "mat": "Medium carbon steel Q and T", "std": "ISO 898-1", "note": "Limited to d <= 16 mm."}, {"sys": "Metric", "mark": "10.9", "txt": "10.9", "lines": 0, "Rm": 1040, "Rp": 940, "hard": "320-380 HB / 32-39 HRC", "mat": "Alloy or medium carbon steel Q and T", "std": "ISO 898-1", "note": "Automotive and machine building. Hydrogen embrittlement risk if plated badly."}, {"sys": "Metric", "mark": "12.9", "txt": "12.9", "lines": 0, "Rm": 1220, "Rp": 1100, "hard": "385-435 HB / 39-44 HRC", "mat": "Alloy steel Q and T", "std": "ISO 898-1 / DIN 912", "note": "Highest common class. Notch sensitive - avoid in fatigue or corrosive service."}, {"sys": "SAE inch", "mark": "No marks", "txt": "", "lines": 0, "Rm": 510, "Rp": 393, "hard": "207 HB max", "mat": "Low or medium carbon steel", "std": "SAE J429 Grade 2", "note": "Plain head, no radial lines. Rm 74 ksi to 1/4-3/4 in."}, {"sys": "SAE inch", "mark": "3 radial lines", "txt": "", "lines": 3, "Rm": 827, "Rp": 634, "hard": "25-34 HRC", "mat": "Medium carbon steel Q and T", "std": "SAE J429 Grade 5", "note": "Rm 120 ksi. Roughly comparable to metric 8.8."}, {"sys": "SAE inch", "mark": "6 radial lines", "txt": "", "lines": 6, "Rm": 1034, "Rp": 896, "hard": "33-39 HRC", "mat": "Medium carbon alloy steel Q and T", "std": "SAE J429 Grade 8", "note": "Rm 150 ksi. Roughly comparable to metric 10.9."}, {"sys": "SAE inch", "mark": "3 lines + L", "txt": "", "lines": 3, "Rm": 827, "Rp": 634, "hard": "25-34 HRC", "mat": "Low carbon martensitic steel", "std": "SAE J429 Grade 5.2", "note": "Not interchangeable with Grade 5 in fatigue or elevated temperature."}, {"sys": "SAE inch", "mark": "6 lines + L", "txt": "", "lines": 6, "Rm": 1034, "Rp": 896, "hard": "33-39 HRC", "mat": "Low carbon martensitic steel", "std": "SAE J429 Grade 8.2", "note": "Not for elevated temperature service."}, {"sys": "ASTM structural", "mark": "A325", "txt": "A325", "lines": 0, "Rm": 830, "Rp": 660, "hard": "25-34 HRC", "mat": "Medium carbon steel Q and T", "std": "ASTM F3125 Gr A325", "note": "Structural steel connections. Type 1 plain, Type 3 weathering steel."}, {"sys": "ASTM structural", "mark": "A490", "txt": "A490", "lines": 0, "Rm": 1040, "Rp": 940, "hard": "33-38 HRC", "mat": "Alloy steel Q and T", "std": "ASTM F3125 Gr A490", "note": "High strength structural. Never hot dip galvanise - embrittlement risk."}, {"sys": "ASTM structural", "mark": "A307A", "txt": "307A", "lines": 0, "Rm": 414, "Rp": null, "hard": "121-241 HB", "mat": "Low carbon steel", "std": "ASTM A307 Grade A", "note": "Non structural anchor and general bolting."}, {"sys": "ASTM structural", "mark": "A354 BD", "txt": "6 lines + BD", "lines": 6, "Rm": 1034, "Rp": 896, "hard": "33-39 HRC", "mat": "Alloy steel Q and T", "std": "ASTM A354 Grade BD", "note": "High strength studs and anchor rods."}, {"sys": "Stainless", "mark": "A2-70", "txt": "A2-70", "lines": 0, "Rm": 700, "Rp": 450, "hard": "~210-320 HV", "mat": "Austenitic 304 / 1.4301", "std": "ISO 3506-1", "note": "Cold worked. Non magnetic, general corrosion service."}, {"sys": "Stainless", "mark": "A4-70", "txt": "A4-70", "lines": 0, "Rm": 700, "Rp": 450, "hard": "~210-320 HV", "mat": "Austenitic 316 / 1.4401 molybdenum", "std": "ISO 3506-1", "note": "Marine and chloride service. Preferred over A2 near salt."}, {"sys": "Stainless", "mark": "A4-80", "txt": "A4-80", "lines": 0, "Rm": 800, "Rp": 600, "hard": "~250-350 HV", "mat": "Austenitic 316 cold worked", "std": "ISO 3506-1", "note": "Higher strength stainless. Galling risk when driven dry."}, {"sys": "Stainless", "mark": "A2-50", "txt": "A2-50", "lines": 0, "Rm": 500, "Rp": 210, "hard": "~130-200 HV", "mat": "Austenitic 304 soft / annealed", "std": "ISO 3506-1", "note": "Soft condition, used where forming is needed."}, {"sys": "Nuts", "mark": "Class 8 nut", "txt": "8", "lines": 0, "Rm": null, "Rp": null, "hard": "Proof load 8.8 class", "mat": "Carbon steel", "std": "ISO 898-2", "note": "Mates with 8.8 bolts. Marked with class number or clock-face dashes."}, {"sys": "Nuts", "mark": "Class 10 nut", "txt": "10", "lines": 0, "Rm": null, "Rp": null, "hard": "Proof load 10.9 class", "mat": "Carbon steel Q and T", "std": "ISO 898-2", "note": "Mates with 10.9 bolts."}, {"sys": "Nuts", "mark": "Class 12 nut", "txt": "12", "lines": 0, "Rm": null, "Rp": null, "hard": "Proof load 12.9 class", "mat": "Alloy steel Q and T", "std": "ISO 898-2", "note": "Mates with 12.9 bolts."}, {"sys": "Nuts", "mark": "SAE Gr 5 nut", "txt": "3 marks", "lines": 3, "Rm": null, "Rp": null, "hard": "C 32 HRC max", "mat": "Medium carbon steel", "std": "SAE J995 Grade 5", "note": "Three circumferential marks or dots."}, {"sys": "Nuts", "mark": "SAE Gr 8 nut", "txt": "6 marks", "lines": 6, "Rm": null, "Rp": null, "hard": "C 38 HRC max", "mat": "Medium carbon alloy steel", "std": "SAE J995 Grade 8", "note": "Six circumferential marks or dots."}], $=function(i){return document.getElementById(i);};
+var SYS=['All'].concat(D.map(function(d){return d.sys;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+var active='All';
+$('sysTabs').innerHTML=SYS.map(function(s,i){
+  return '<button data-s="'+s+'"'+(i===0?' class="on"':'')+
+    ' style="border:1.5px solid var(--tk-line);color:var(--tk-ink);padding:8px 13px">'+s.toUpperCase()+'</button>';}).join('');
+
+/* draw a hex head, top view, with radial lines and/or stamped text */
+function svgHead(d){
+  var pts=[],cx=60,cy=60,r=44;
+  for(var i=0;i<6;i++){var a=Math.PI/180*(60*i-90);pts.push((cx+r*Math.cos(a)).toFixed(1)+','+(cy+r*Math.sin(a)).toFixed(1));}
+  var s='<svg viewBox="0 0 120 120" style="width:100%;height:112px">'+
+    '<polygon points="'+pts.join(' ')+'" fill="#f4f5f7" stroke="#0E2033" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<circle cx="60" cy="60" r="31" fill="none" stroke="#c3cad3" stroke-width="1.2"/>';
+  for(var j=0;j<d.lines;j++){
+    var ang=Math.PI/180*(360/d.lines*j-90);
+    s+='<line x1="'+(60+13*Math.cos(ang)).toFixed(1)+'" y1="'+(60+13*Math.sin(ang)).toFixed(1)+
+       '" x2="'+(60+30*Math.cos(ang)).toFixed(1)+'" y2="'+(60+30*Math.sin(ang)).toFixed(1)+
+       '" stroke="#C2540C" stroke-width="3.4" stroke-linecap="round"/>';
+  }
+  if(d.txt) s+='<text x="60" y="66" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="'+
+      (d.txt.length>4?15:d.txt.length>3?18:22)+'" fill="#0E2033">'+d.txt+'</text>';
+  if(!d.txt&&!d.lines) s+='<text x="60" y="66" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9aa3ae">NO MARK</text>';
+  return s+'</svg>';
+}
+function render(){
+  var q=$('filter').value.trim().toLowerCase();
+  var list=D.filter(function(d){
+    if(active!=='All'&&d.sys!==active) return false;
+    if(!q) return true;
+    return (d.mark+' '+d.sys+' '+d.mat+' '+d.std+' '+d.note+' '+(d.lines?d.lines+' lines':'')).toLowerCase().indexOf(q)>-1;
+  });
+  $('cnt').textContent=list.length+' of '+D.length+' markings';
+  $('cards').innerHTML=list.map(function(d){
+    var i=D.indexOf(d);
+    return '<button class="mkCard" data-i="'+i+'" style="border:1.5px solid var(--tk-line);background:#fff;padding:16px;cursor:pointer;text-align:left;font-family:inherit;transition:all .18s">'+
+      svgHead(d)+
+      '<div style="font-family:var(--tk-d);font-weight:900;font-size:15px;color:var(--tk-ink);margin-top:10px;text-transform:uppercase;letter-spacing:-.01em">'+d.mark+'</div>'+
+      '<div style="font-family:var(--tk-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tk-ac);margin-top:5px">'+d.sys+'</div>'+
+      '<div style="font-family:var(--tk-m);font-size:11.5px;color:var(--tk-muted);margin-top:7px">'+
+        (d.Rm?'Rm '+d.Rm+' N/mm²':d.std)+'</div></button>';
+  }).join('');
+  document.querySelectorAll('.mkCard').forEach(function(b){
+    b.addEventListener('mouseenter',function(){b.style.borderColor='var(--tk-ac)';b.style.transform='translateY(-4px)';});
+    b.addEventListener('mouseleave',function(){b.style.borderColor='var(--tk-line)';b.style.transform='none';});
+    b.addEventListener('click',function(){open(+b.dataset.i);});
+  });
+}
+function row(k,v){return v?'<tr><td style="padding:9px 14px;border-bottom:1px solid var(--tk-line);font-family:var(--tk-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tk-muted);white-space:nowrap">'+k+'</td><td style="padding:9px 14px;border-bottom:1px solid var(--tk-line);font-size:14px;color:var(--tk-ink);font-weight:600">'+v+'</td></tr>':'';}
+function open(i){
+  var d=D[i];
+  $('modalIn').innerHTML='<div style="background:var(--tk-ink);color:#fff;padding:18px 22px;display:flex;justify-content:space-between;align-items:center">'+
+    '<div><div style="font-family:var(--tk-m);font-size:10px;letter-spacing:.16em;color:var(--tk-ac-bright)">'+d.sys.toUpperCase()+'</div>'+
+    '<div style="font-family:var(--tk-d);font-weight:900;font-size:21px;text-transform:uppercase;letter-spacing:-.02em">'+d.mark+'</div></div>'+
+    '<button id="mClose" style="background:none;border:none;color:#fff;font-size:28px;cursor:pointer;line-height:1">&times;</button></div>'+
+    '<div style="padding:20px 22px"><div style="max-width:150px;margin:0 auto 16px">'+svgHead(d)+'</div>'+
+    '<table style="width:100%;border-collapse:collapse;border-top:1px solid var(--tk-line)">'+
+    row('Tensile Rm', d.Rm?d.Rm+' N/mm² ('+Math.round(d.Rm*0.145038)+' ksi)':null)+
+    row('Yield Rp0.2', d.Rp?d.Rp+' N/mm² ('+Math.round(d.Rp*0.145038)+' ksi)':null)+
+    row('Hardness', d.hard)+row('Material', d.mat)+row('Standard', d.std)+
+    row('Radial marks', d.lines?d.lines:null)+
+    '</table><p style="font-size:13.5px;color:#3f434a;line-height:1.7;margin-top:16px;border-left:3px solid var(--tk-ac);padding-left:14px">'+d.note+'</p>'+
+    '<a href="/pages/contact/contact-us.html" class="tk-btn tk-btn--ac" style="margin-top:18px;width:100%;justify-content:center">Enquire About This Grade</a></div>';
+  $('modal').style.display='flex';
+  $('mClose').addEventListener('click',close);
+}
+function close(){$('modal').style.display='none';}
+$('modal').addEventListener('click',function(e){if(e.target===$('modal'))close();});
+addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+$('sysTabs').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return;
+  active=b.dataset.s;
+  $('sysTabs').querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
+  render();
+});
+$('filter').addEventListener('input',render);
+render();
+})();
+</script>
+
+</div>
+</main>
+
+<!-- PMEW GLOBAL FOOTER: injected by /js/footer.js -->
+<div id="footer-container"></div>
+
+<!-- PMEW GLOBAL SCRIPTS -->
+<script ></script>
+<script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

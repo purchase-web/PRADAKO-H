@@ -1,0 +1,3565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Search, compare and export international fastener standards through the Pradako Technical Charts workspace." />
+  <title>Technical Charts | Pradako Mechanical & Engineering Works</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME - KEEP ONLY ONE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="/assets/css/page-style.css">
+  <link rel="stylesheet" href="/assets/css/global-presence.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+  <link rel="stylesheet" href="/assets/css/sustainability-roadmap.css">
+  <link rel="stylesheet" href="/assets/css/pmew-engineering-response-desk.css?v=18">
+
+  <style>
+    :root {
+      --tc-navy: #0a3d62;
+      --tc-navy-deep: #062f4c;
+      --tc-blue: #3178c6;
+      --tc-blue-soft: #eaf3ff;
+      --tc-blue-pale: #f6f9fd;
+      --tc-gold: #e9a83a;
+      --tc-gold-soft: #fff6e6;
+      --tc-ink: #153247;
+      --tc-muted: #657785;
+      --tc-line: #dfe8ef;
+      --tc-line-strong: #cbd9e4;
+      --tc-white: #ffffff;
+      --tc-success: #2f7d5c;
+      --tc-danger: #a94442;
+      --tc-shadow-sm: 0 10px 26px rgba(10, 61, 98, 0.06);
+      --tc-shadow-md: 0 20px 55px rgba(10, 61, 98, 0.09);
+      --tc-radius-sm: 12px;
+      --tc-radius-md: 20px;
+      --tc-radius-lg: 30px;
+      --tc-shell: 1680px;
+
+      /* Compatibility aliases used inside the data-rendering templates. */
+      --primary: var(--tc-navy);
+      --muted: var(--tc-muted);
+      --line: var(--tc-line);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--tc-white);
+      color: var(--tc-ink);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+    }
+
+    body.tc-lock-scroll {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #navbar-container,
+    #footer-container {
+      width: 100%;
+    }
+
+    .tc-page {
+      min-height: 100vh;
+      background: var(--tc-white);
+    }
+
+    .tc-shell {
+      width: min(calc(100% - 48px), var(--tc-shell));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .tc-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(58px, 7vw, 108px) 0 clamp(48px, 6vw, 84px);
+      border-bottom: 1px solid var(--tc-line);
+      background: #f8fbff;
+    }
+
+    .tc-hero::before,
+    .tc-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    .tc-hero::before {
+      top: -170px;
+      right: -130px;
+      width: 430px;
+      height: 430px;
+      border: 72px solid rgba(49, 120, 198, 0.06);
+    }
+
+    .tc-hero::after {
+      bottom: -170px;
+      left: -150px;
+      width: 360px;
+      height: 360px;
+      border: 54px solid rgba(233, 168, 58, 0.07);
+    }
+
+    .tc-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.72fr);
+      gap: clamp(42px, 6vw, 90px);
+      align-items: center;
+    }
+
+    .tc-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 36px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border: 1px solid #cfe0ed;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--tc-blue);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .tc-kicker i {
+      color: var(--tc-gold);
+      font-size: 11px;
+    }
+
+    .tc-title {
+      max-width: 960px;
+      margin: 0 0 22px;
+      color: var(--tc-navy-deep);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(44px, 5.8vw, 86px);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .tc-title span {
+      color: var(--tc-blue);
+    }
+
+    .tc-subtitle {
+      max-width: 900px;
+      margin: 0;
+      color: var(--tc-muted);
+      font-size: clamp(15px, 1.15vw, 19px);
+      font-weight: 400;
+      line-height: 1.82;
+    }
+
+    .tc-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .tc-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid var(--tc-line);
+      border-radius: 999px;
+      background: var(--tc-white);
+      color: #4d6474;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+    }
+
+    .tc-hero-panel {
+      position: relative;
+      padding: clamp(24px, 3vw, 38px);
+      border: 1px solid #d4e1eb;
+      border-radius: var(--tc-radius-lg);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--tc-shadow-md);
+    }
+
+    .tc-hero-panel-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--tc-line);
+      color: var(--tc-muted);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tc-live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--tc-success);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .tc-live-dot::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--tc-success);
+      box-shadow: 0 0 0 5px rgba(47, 125, 92, 0.10);
+    }
+
+    .tc-hero-feature-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tc-hero-feature {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 15px;
+      align-items: center;
+    }
+
+    .tc-feature-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--tc-blue-soft);
+      color: var(--tc-blue);
+      font-size: 17px;
+    }
+
+    .tc-hero-feature:nth-child(2) .tc-feature-icon {
+      background: var(--tc-gold-soft);
+      color: #b67610;
+    }
+
+    .tc-hero-feature:nth-child(3) .tc-feature-icon {
+      background: #edf7f2;
+      color: var(--tc-success);
+    }
+
+    .tc-hero-feature h3 {
+      margin: 0 0 4px;
+      color: var(--tc-navy);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .tc-hero-feature p {
+      margin: 0;
+      color: var(--tc-muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       WORKSPACE AND FILTERS
+    ========================================================= */
+
+    .tc-workspace {
+      padding: clamp(34px, 4vw, 64px) 0 clamp(76px, 8vw, 120px);
+      background: var(--tc-white);
+    }
+
+    .tc-control-shell {
+      position: relative;
+      z-index: 5;
+      margin-bottom: 28px;
+      border: 1px solid var(--tc-line);
+      border-radius: 26px;
+      background: var(--tc-white);
+      box-shadow: var(--tc-shadow-sm);
+    }
+
+    .tc-control-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 24px 26px 20px;
+      border-bottom: 1px solid var(--tc-line);
+    }
+
+    .tc-control-heading h2 {
+      margin: 0 0 6px;
+      color: var(--tc-navy);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .tc-control-heading p {
+      margin: 0;
+      color: var(--tc-muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .tc-clear-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid var(--tc-line);
+      border-radius: 11px;
+      background: var(--tc-white);
+      color: var(--tc-navy);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .tc-clear-btn:hover {
+      border-color: #b9cee0;
+      background: var(--tc-blue-pale);
+      color: var(--tc-blue);
+    }
+
+    .tc-controls {
+      padding: 22px 26px 24px;
+    }
+
+    .tc-filter-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.4fr) repeat(2, minmax(210px, 0.62fr)) auto;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .tc-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .tc-field-title {
+      color: #425b6d;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tc-search,
+    .tc-select {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 52px;
+      border: 1px solid var(--tc-line-strong);
+      border-radius: 14px;
+      background: var(--tc-white);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tc-search:focus-within,
+    .tc-select:focus-within {
+      border-color: var(--tc-blue);
+      box-shadow: 0 0 0 4px rgba(49, 120, 198, 0.10);
+    }
+
+    .tc-search i,
+    .tc-select i {
+      flex: 0 0 auto;
+      margin-left: 17px;
+      color: #758896;
+      font-size: 14px;
+    }
+
+    .tc-search input,
+    .tc-select select {
+      width: 100%;
+      min-width: 0;
+      height: 50px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--tc-ink);
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .tc-search input {
+      padding: 0 46px 0 13px;
+    }
+
+    .tc-select select {
+      appearance: none;
+      cursor: pointer;
+      padding: 0 42px 0 13px;
+    }
+
+    .tc-select::after {
+      content: "\f078";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7a8b98;
+      font-family: "Font Awesome 6 Free";
+      font-size: 11px;
+      font-weight: 900;
+      pointer-events: none;
+    }
+
+    .tc-search input::placeholder {
+      color: #8495a2;
+    }
+
+    .tc-search-shortcut {
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-grid;
+      place-items: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 6px;
+      border: 1px solid var(--tc-line);
+      border-radius: 7px;
+      background: #f7f9fb;
+      color: #8796a1;
+      font-size: 10px;
+      font-weight: 500;
+      pointer-events: none;
+    }
+
+    .tc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 10px 15px;
+      border: 1px solid var(--tc-line-strong);
+      border-radius: 12px;
+      background: var(--tc-white);
+      color: var(--tc-navy);
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tc-btn:hover {
+      transform: translateY(-1px);
+      border-color: #b7cddd;
+      background: #f8fbfd;
+      box-shadow: 0 9px 22px rgba(10, 61, 98, 0.08);
+    }
+
+    .tc-btn:focus-visible,
+    .tc-tab:focus-visible,
+    .tc-pill:focus-visible,
+    .std-chip:focus-visible,
+    .tc-close:focus-visible,
+    .family-head:focus-visible {
+      outline: 3px solid rgba(49, 120, 198, 0.25);
+      outline-offset: 2px;
+    }
+
+    .tc-btn.primary {
+      min-height: 52px;
+      border-color: var(--tc-navy);
+      background: var(--tc-navy);
+      color: var(--tc-white);
+    }
+
+    .tc-btn.primary:hover {
+      border-color: var(--tc-navy-deep);
+      background: var(--tc-navy-deep);
+    }
+
+    .tc-btn.gold {
+      border-color: #efd29c;
+      background: var(--tc-gold-soft);
+      color: #8a590c;
+    }
+
+    .tc-navigation-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      align-items: center;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--tc-line);
+    }
+
+    .tc-view-tabs {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      min-width: 0;
+      padding: 5px;
+      border: 1px solid var(--tc-line);
+      border-radius: 14px;
+      background: #f5f8fa;
+    }
+
+    .tc-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: #667987;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tc-tab:hover {
+      color: var(--tc-navy);
+    }
+
+    .tc-tab.active {
+      background: var(--tc-white);
+      color: var(--tc-navy);
+      box-shadow: 0 4px 14px rgba(10, 61, 98, 0.09);
+    }
+
+    .tc-tab i {
+      font-size: 12px;
+    }
+
+    .tc-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .tc-authority-area {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .tc-authority-label {
+      color: #607481;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tc-pill-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+      padding: 2px 2px 7px;
+      scrollbar-width: thin;
+      scrollbar-color: #c6d5df transparent;
+    }
+
+    .tc-pill-row::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .tc-pill-row::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: #c6d5df;
+    }
+
+    .tc-pill {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid var(--tc-line);
+      border-radius: 999px;
+      background: var(--tc-white);
+      color: #5d7180;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .tc-pill:hover {
+      border-color: #b8cddd;
+      color: var(--tc-navy);
+    }
+
+    .tc-pill.active {
+      border-color: var(--tc-blue);
+      background: var(--tc-blue);
+      color: var(--tc-white);
+    }
+
+    .tc-pill.reset {
+      border-style: dashed;
+      color: #7a5660;
+    }
+
+    .tc-pill.reset:hover {
+      border-color: #d5abb6;
+      background: #fff7f9;
+      color: #9e4059;
+    }
+
+    /* =========================================================
+       STATUS AND CONTENT
+    ========================================================= */
+
+    .tc-status-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 0 3px;
+    }
+
+    .tc-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .tc-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--tc-line);
+      border-radius: 10px;
+      background: var(--tc-white);
+      color: #5d7180;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .tc-badge:first-child {
+      border-color: #cbdff4;
+      background: var(--tc-blue-pale);
+      color: var(--tc-navy);
+    }
+
+    .tc-content-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .tc-content-heading h2 {
+      margin: 0 0 7px;
+      color: var(--tc-navy);
+      font-size: clamp(22px, 2.1vw, 31px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .tc-content-heading p {
+      max-width: 820px;
+      margin: 0;
+      color: var(--tc-muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .tc-scroll-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      color: #71838f;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .tc-main {
+      min-width: 0;
+    }
+
+    .tc-loading {
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed #cedce6;
+      border-radius: 22px;
+      background: #fbfdff;
+      color: var(--tc-muted);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .tc-spinner {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 17px;
+      border: 3px solid #e0ebf3;
+      border-top-color: var(--tc-blue);
+      border-radius: 50%;
+      animation: tc-spin 0.75s linear infinite;
+    }
+
+    @keyframes tc-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .tc-view {
+      display: none;
+      animation: tc-fade 0.22s ease;
+    }
+
+    .tc-view.active {
+      display: block;
+    }
+
+    @keyframes tc-fade {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .matrix-wrap,
+    .table-wrap {
+      position: relative;
+      max-height: min(72vh, 880px);
+      overflow: auto;
+      border: 1px solid var(--tc-line);
+      border-radius: 20px;
+      background: var(--tc-white);
+      box-shadow: var(--tc-shadow-sm);
+      scrollbar-width: thin;
+      scrollbar-color: #becfda #f6f9fb;
+    }
+
+    .matrix-wrap::-webkit-scrollbar,
+    .table-wrap::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .matrix-wrap::-webkit-scrollbar-track,
+    .table-wrap::-webkit-scrollbar-track {
+      background: #f6f9fb;
+    }
+
+    .matrix-wrap::-webkit-scrollbar-thumb,
+    .table-wrap::-webkit-scrollbar-thumb {
+      border: 2px solid #f6f9fb;
+      border-radius: 999px;
+      background: #becfda;
+    }
+
+    .matrix-table,
+    .standard-table {
+      width: 100%;
+      min-width: 1500px;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .matrix-table thead th,
+    .standard-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 15px 16px;
+      border-right: 1px solid rgba(255, 255, 255, 0.13);
+      background: var(--tc-navy);
+      color: var(--tc-white);
+      text-align: left;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.065em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .matrix-table thead th:first-child,
+    .standard-table thead th:first-child {
+      left: 0;
+      z-index: 7;
+    }
+
+    .matrix-table tbody td,
+    .standard-table tbody td {
+      padding: 15px 16px;
+      border-right: 1px solid var(--tc-line);
+      border-bottom: 1px solid var(--tc-line);
+      background: var(--tc-white);
+      color: var(--tc-ink);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+
+    .standard-table tbody td {
+      vertical-align: middle;
+    }
+
+    .matrix-table tbody tr:nth-child(even) td,
+    .standard-table tbody tr:nth-child(even) td {
+      background: #fbfdff;
+    }
+
+    .matrix-table tbody tr:hover td,
+    .standard-table tbody tr:hover td {
+      background: #f2f7fc;
+    }
+
+    .matrix-table tbody td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      min-width: 150px;
+      background: #f7fafe;
+      color: var(--tc-navy);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      vertical-align: middle;
+      box-shadow: 1px 0 0 var(--tc-line);
+    }
+
+    .matrix-table tbody tr:nth-child(even) td:first-child,
+    .matrix-table tbody tr:hover td:first-child {
+      background: #edf4fb;
+    }
+
+    .std-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 270px;
+      min-height: 34px;
+      margin: 3px 3px 3px 0;
+      padding: 7px 10px;
+      border: 1px solid #d6e2eb;
+      border-radius: 9px;
+      background: var(--tc-white);
+      color: #23475f;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+
+    .std-chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--tc-blue);
+      background: var(--tc-blue-soft);
+      color: var(--tc-navy);
+    }
+
+    .empty-dash {
+      color: #9aa9b3;
+      font-weight: 400;
+    }
+
+    .image-cell {
+      width: 146px;
+    }
+
+    .image-cell img {
+      display: block;
+      width: 128px !important;
+      height: 82px !important;
+      border: 1px solid var(--tc-line) !important;
+      border-radius: 11px !important;
+      background: var(--tc-white) !important;
+      object-fit: contain;
+    }
+
+    .image-placeholder {
+      display: grid;
+      place-items: center;
+      width: 128px;
+      height: 82px;
+      border: 1px dashed #c9d8e2;
+      border-radius: 11px;
+      background: #fafcfe;
+      color: #80909b;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .table-chip,
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .table-chip {
+      background: var(--tc-navy);
+      color: var(--tc-white);
+    }
+
+    .status-chip {
+      border: 1px solid #d7e5ef;
+      background: #f2f7fb;
+      color: #34546a;
+    }
+
+    .source-link {
+      color: var(--tc-blue);
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: rgba(49, 120, 198, 0.32);
+      text-underline-offset: 3px;
+    }
+
+    .source-link:hover {
+      text-decoration-color: currentColor;
+    }
+
+    /* =========================================================
+       SECONDARY VIEWS
+    ========================================================= */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tc-card {
+      position: relative;
+      min-height: 168px;
+      overflow: hidden;
+      padding: 21px;
+      border: 1px solid var(--tc-line);
+      border-radius: 18px;
+      background: var(--tc-white);
+      box-shadow: 0 8px 24px rgba(10, 61, 98, 0.045);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tc-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--tc-blue);
+      opacity: 0.55;
+    }
+
+    .tc-card:hover {
+      transform: translateY(-2px);
+      border-color: #bfd2e1;
+      box-shadow: var(--tc-shadow-sm);
+    }
+
+    .tc-card small {
+      display: inline-flex;
+      margin-bottom: 16px;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: var(--tc-blue-pale);
+      color: var(--tc-blue);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .tc-card h3 {
+      margin: 0 0 10px;
+      color: var(--tc-navy);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .tc-card p {
+      margin: 0;
+      color: var(--tc-muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .family-map {
+      display: grid;
+      gap: 10px;
+    }
+
+    .family-block {
+      overflow: hidden;
+      border: 1px solid var(--tc-line);
+      border-radius: 15px;
+      background: var(--tc-white);
+      box-shadow: 0 6px 18px rgba(10, 61, 98, 0.035);
+    }
+
+    .family-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      align-items: center;
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: var(--tc-white);
+      color: var(--tc-navy);
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      transition: background 0.2s ease;
+    }
+
+    .family-head:hover {
+      background: #f8fbfd;
+    }
+
+    .family-head span:last-child {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--tc-line);
+      border-radius: 8px;
+      color: var(--tc-blue);
+      transition: transform 0.2s ease;
+    }
+
+    .family-block.open .family-head span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .family-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--tc-line);
+      background: #fbfdff;
+    }
+
+    .family-block.open .family-body {
+      display: block;
+    }
+
+    .family-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 16px;
+    }
+
+    /* =========================================================
+       MODALS AND DRAWER
+    ========================================================= */
+
+    .tc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(5, 31, 48, 0.58);
+      backdrop-filter: blur(7px);
+    }
+
+    .tc-modal.open {
+      display: flex;
+    }
+
+    .tc-modal-card {
+      width: min(860px, 96vw);
+      max-height: 88vh;
+      overflow: auto;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 22px;
+      background: var(--tc-white);
+      box-shadow: 0 30px 90px rgba(2, 23, 36, 0.28);
+    }
+
+    .tc-modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--tc-line);
+    }
+
+    .tc-modal-head h3 {
+      margin: 0;
+      color: var(--tc-navy);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .tc-close {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid var(--tc-line);
+      border-radius: 11px;
+      background: var(--tc-white);
+      color: var(--tc-navy);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .tc-close:hover {
+      border-color: #c1d2de;
+      background: #f6f9fb;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--tc-line);
+      border-radius: 14px;
+    }
+
+    .detail-grid div {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--tc-line);
+      color: var(--tc-ink);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .detail-grid div:nth-child(odd) {
+      background: #f6f9fc;
+      color: var(--tc-navy);
+      font-weight: 600;
+    }
+
+    .detail-grid div:nth-last-child(-n+2) {
+      border-bottom: 0;
+    }
+
+    .tc-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1998;
+      display: none;
+      background: rgba(5, 31, 48, 0.36);
+      backdrop-filter: blur(3px);
+    }
+
+    .tc-drawer-overlay.open {
+      display: block;
+    }
+
+    .column-panel {
+      position: fixed;
+      top: 0;
+      right: -410px;
+      z-index: 1999;
+      width: min(390px, 94vw);
+      height: 100vh;
+      overflow: auto;
+      padding: 24px;
+      border-left: 1px solid var(--tc-line);
+      background: var(--tc-white);
+      box-shadow: -24px 0 70px rgba(4, 34, 52, 0.18);
+      transition: right 0.26s ease;
+    }
+
+    .column-panel.open {
+      right: 0;
+    }
+
+    .column-panel .tc-modal-head {
+      position: sticky;
+      top: -24px;
+      z-index: 2;
+      margin: -24px -24px 8px;
+      padding: 24px;
+      background: var(--tc-white);
+    }
+
+    .column-check {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-height: 48px;
+      padding: 11px 3px;
+      border-bottom: 1px solid var(--tc-line);
+      color: var(--tc-ink);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .column-check input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--tc-blue);
+    }
+
+    .error-box {
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      border: 1px solid #e7bcbc;
+      border-radius: 14px;
+      background: #fff8f8;
+      color: #824545;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .tc-btn:disabled {
+      cursor: wait;
+      opacity: 0.68;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .tc-is-spinning {
+      animation: tc-spin 0.75s linear infinite;
+    }
+
+    .tc-empty-state {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      padding: 38px 20px;
+      border: 1px dashed #cbd9e3;
+      border-radius: 18px;
+      background: #fbfdff;
+      text-align: center;
+    }
+
+    .tc-empty-state i {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 15px;
+      border-radius: 16px;
+      background: var(--tc-blue-soft);
+      color: var(--tc-blue);
+      font-size: 18px;
+    }
+
+    .tc-empty-state h3 {
+      margin: 0 0 7px;
+      color: var(--tc-navy);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .tc-empty-state p {
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--tc-muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .tc-empty-cell {
+      height: 250px;
+      padding: 42px !important;
+      background: #fbfdff !important;
+      color: var(--tc-muted) !important;
+      text-align: center;
+      vertical-align: middle !important;
+    }
+
+    .tc-empty-cell i {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--tc-blue);
+      font-size: 20px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1280px) {
+      .tc-hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+      }
+
+      .tc-filter-grid {
+        grid-template-columns: minmax(300px, 1.25fr) repeat(2, minmax(190px, 0.68fr));
+      }
+
+      .tc-filter-grid > .tc-btn.primary {
+        grid-column: 1 / -1;
+        justify-self: start;
+        min-height: 44px;
+      }
+
+      .tc-navigation-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .tc-actions {
+        justify-content: flex-start;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 960px) {
+      .tc-shell {
+        width: min(calc(100% - 34px), var(--tc-shell));
+      }
+
+      .tc-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tc-hero-panel {
+        max-width: 720px;
+      }
+
+      .tc-filter-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tc-field-search {
+        grid-column: 1 / -1;
+      }
+
+      .tc-filter-grid > .tc-btn.primary {
+        grid-column: 1 / -1;
+      }
+
+      .tc-view-tabs {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .tc-authority-area {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .tc-content-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .tc-shell {
+        width: min(calc(100% - 24px), var(--tc-shell));
+      }
+
+      .tc-hero {
+        padding: 50px 0 44px;
+      }
+
+      .tc-title {
+        font-size: clamp(39px, 12vw, 58px);
+      }
+
+      .tc-subtitle {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .tc-hero-tags {
+        margin-top: 22px;
+      }
+
+      .tc-hero-panel {
+        padding: 21px;
+        border-radius: 22px;
+      }
+
+      .tc-control-shell {
+        border-radius: 19px;
+      }
+
+      .tc-control-heading,
+      .tc-controls {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .tc-control-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .tc-filter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tc-field-search,
+      .tc-filter-grid > .tc-btn.primary {
+        grid-column: auto;
+      }
+
+      .tc-search-shortcut {
+        display: none;
+      }
+
+      .tc-search input {
+        padding-right: 14px;
+      }
+
+      .tc-navigation-row {
+        gap: 16px;
+      }
+
+      .tc-tab {
+        min-height: 38px;
+        padding: 8px 11px;
+        font-size: 11px;
+      }
+
+      .tc-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+
+      .tc-actions .tc-btn {
+        width: 100%;
+      }
+
+      .tc-status-bar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .tc-scroll-note {
+        white-space: normal;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tc-modal {
+        padding: 10px;
+      }
+
+      .tc-modal-card {
+        width: 100%;
+        max-height: 94vh;
+        padding: 18px;
+        border-radius: 17px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-grid div:nth-child(odd) {
+        padding-bottom: 4px;
+        border-bottom: 0;
+      }
+
+      .detail-grid div:nth-last-child(2) {
+        border-bottom: 0;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+    /* =========================================================
+       MATRIX READABILITY ENHANCEMENT
+       Keeps complete words readable and prevents narrow cards.
+    ========================================================= */
+
+    .matrix-table {
+      width: max-content;
+      min-width: 100%;
+      table-layout: auto;
+    }
+
+    .matrix-table thead th {
+      font-size: 12.5px;
+      line-height: 1.45;
+      padding: 17px 18px;
+    }
+
+    .matrix-table thead th:first-child,
+    .matrix-table tbody td:first-child {
+      width: 170px;
+      min-width: 170px;
+      max-width: 170px;
+    }
+
+    .matrix-table thead th:not(:first-child),
+    .matrix-table tbody td:not(:first-child) {
+      width: 210px;
+      min-width: 210px;
+      max-width: 210px;
+    }
+
+    .matrix-table tbody td {
+      padding: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .matrix-table tbody td:first-child {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .matrix-table .std-chip {
+      display: flex;
+      width: 100%;
+      min-width: 176px;
+      max-width: 100%;
+      min-height: 48px;
+      margin: 5px 0;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.45;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
+      text-wrap: pretty;
+    }
+
+    .matrix-table .empty-dash {
+      display: inline-block;
+      min-width: 176px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .matrix-table thead th:first-child,
+      .matrix-table tbody td:first-child {
+        width: 145px;
+        min-width: 145px;
+        max-width: 145px;
+      }
+
+      .matrix-table thead th:not(:first-child),
+      .matrix-table tbody td:not(:first-child) {
+        width: 190px;
+        min-width: 190px;
+        max-width: 190px;
+      }
+
+      .matrix-table tbody td {
+        padding: 13px;
+        font-size: 13.5px;
+      }
+
+      .matrix-table .std-chip {
+        min-width: 164px;
+        min-height: 46px;
+        padding: 9px 11px;
+        font-size: 12.5px;
+      }
+    }
+
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/standards/technical-chart.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Technical Charts | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Search, compare and export international fastener standards through the Pradako Technical Charts workspace.">
+    <meta property="og:url" content="https://www.pradako.co/pages/standards/technical-chart.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Technical Charts | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Search, compare and export international fastener standards through the Pradako Technical Charts workspace.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Technical Charts | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/standards/technical-chart.html",
+  "description": "Search, compare and export international fastener standards through the Pradako Technical Charts workspace.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+  <!-- ========== HEADER WITH PROPER LOGO & HAMBURGER ========== -->
+  <div id="navbar-container"></div>
+
+  <main class="tc-page">
+    <section class="tc-hero" aria-labelledby="tc-page-title">
+      <div class="tc-shell tc-hero-grid">
+        <div class="tc-hero-copy">
+          <div class="tc-kicker">
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+            Technical Charts
+          </div>
+
+          <h1 class="tc-title" id="tc-page-title">
+            Family <span>×</span> Specification Matrix
+          </h1>
+
+          <p class="tc-subtitle">
+            Central technical distribution chart using linked data from DIN, ISO, IS, ASTM, ASME, BS, EN, SAE, NAS, MIL and other individual standards pages.
+          </p>
+
+          <div class="tc-hero-tags" aria-label="Included standards authorities">
+            <span class="tc-hero-tag">DIN</span>
+            <span class="tc-hero-tag">ISO</span>
+            <span class="tc-hero-tag">ASTM</span>
+            <span class="tc-hero-tag">ASME</span>
+            <span class="tc-hero-tag">EN</span>
+            <span class="tc-hero-tag">SAE</span>
+            <span class="tc-hero-tag">NAS</span>
+            <span class="tc-hero-tag">MIL</span>
+          </div>
+        </div>
+
+        <aside class="tc-hero-panel" aria-label="Technical charts capabilities">
+          <div class="tc-hero-panel-label">
+            <span>Technical workspace</span>
+            <span class="tc-live-dot">Linked data</span>
+          </div>
+
+          <div class="tc-hero-feature-list">
+            <article class="tc-hero-feature">
+              <span class="tc-feature-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <div>
+                <h3>Search with context</h3>
+                <p>Find a standard by number, authority, family, title or usage note.</p>
+              </div>
+            </article>
+
+            <article class="tc-hero-feature">
+              <span class="tc-feature-icon" aria-hidden="true"><i class="fa-solid fa-table-cells-large"></i></span>
+              <div>
+                <h3>Compare multiple views</h3>
+                <p>Move between matrix, detailed table, library, authority and family views.</p>
+              </div>
+            </article>
+
+            <article class="tc-hero-feature">
+              <span class="tc-feature-icon" aria-hidden="true"><i class="fa-solid fa-file-export"></i></span>
+              <div>
+                <h3>Review and export</h3>
+                <p>Choose visible columns, check duplicates and export filtered records to CSV.</p>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tc-workspace" aria-label="Technical standards workspace">
+      <div class="tc-shell">
+        <section class="tc-control-shell" aria-label="Search and filter controls">
+          <div class="tc-control-heading">
+            <div>
+              <h2>Find the right specification</h2>
+              <p>Start with a keyword, then narrow the results by product family or standards authority.</p>
+            </div>
+
+            <button class="tc-clear-btn" id="clearFiltersBtn" type="button">
+              <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+              Clear filters
+            </button>
+          </div>
+
+          <div class="tc-controls">
+            <div class="tc-filter-grid">
+              <label class="tc-field tc-field-search" for="searchInput">
+                <span class="tc-field-title">Search standards</span>
+                <span class="tc-search">
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                  <input id="searchInput" type="search" placeholder="Search DIN, ISO, title, product or usage note..." autocomplete="off" />
+                  <span class="tc-search-shortcut" aria-hidden="true">/</span>
+                </span>
+              </label>
+
+              <label class="tc-field" for="familyFilter">
+                <span class="tc-field-title">Product family</span>
+                <span class="tc-select">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                  <select id="familyFilter">
+                    <option value="">All Product Families</option>
+                  </select>
+                </span>
+              </label>
+
+              <label class="tc-field" for="authorityFilter">
+                <span class="tc-field-title">Authority</span>
+                <span class="tc-select">
+                  <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+                  <select id="authorityFilter">
+                    <option value="">All Authorities</option>
+                  </select>
+                </span>
+              </label>
+
+              <button class="tc-btn primary" id="reloadBtn" type="button">
+                <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                Reload data
+              </button>
+            </div>
+
+            <div class="tc-navigation-row">
+              <div class="tc-view-tabs" role="tablist" aria-label="Technical chart views">
+                <button class="tc-tab active" type="button" role="tab" aria-selected="true" data-view="matrix">
+                  <i class="fa-solid fa-table-cells" aria-hidden="true"></i>
+                  Matrix
+                </button>
+                <button class="tc-tab" type="button" role="tab" aria-selected="false" data-view="table">
+                  <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+                  Table
+                </button>
+                <button class="tc-tab" type="button" role="tab" aria-selected="false" data-view="library">
+                  <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+                  Library
+                </button>
+                <button class="tc-tab" type="button" role="tab" aria-selected="false" data-view="authority">
+                  <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+                  Authority
+                </button>
+                <button class="tc-tab" type="button" role="tab" aria-selected="false" data-view="familyMap">
+                  <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                  Family map
+                </button>
+              </div>
+
+              <div class="tc-actions" aria-label="Data actions">
+                <button class="tc-btn" id="exportBtn" type="button">
+                  <i class="fa-solid fa-file-csv" aria-hidden="true"></i>
+                  Export CSV
+                </button>
+                <button class="tc-btn gold" id="duplicateBtn" type="button">
+                  <i class="fa-solid fa-clone" aria-hidden="true"></i>
+                  Check duplicates
+                </button>
+                <button class="tc-btn" id="columnsBtn" type="button">
+                  <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                  Columns
+                </button>
+              </div>
+            </div>
+
+            <div class="tc-authority-area">
+              <span class="tc-authority-label">Quick authority filter</span>
+              <div class="tc-pill-row" id="authorityPills"></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="tc-status-bar">
+          <div class="tc-badges" aria-live="polite">
+            <div class="tc-badge" id="resultBadge">Loading...</div>
+            <div class="tc-badge" id="sourceBadge">0 linked pages</div>
+            <div class="tc-badge" id="columnBadge">8 visible columns</div>
+          </div>
+        </div>
+
+        <div class="tc-content-heading">
+          <div>
+            <h2>Standards intelligence workspace</h2>
+            <p>Open any standard to review its title, family, usage note and linked source page. Filters apply across every view.</p>
+          </div>
+          <span class="tc-scroll-note">
+            <i class="fa-solid fa-left-right" aria-hidden="true"></i>
+            Matrix and table can scroll horizontally
+          </span>
+        </div>
+
+        <section class="tc-main">
+          <div id="errorArea"></div>
+
+          <div id="loadingBox" class="tc-loading">
+            <div>
+              <div class="tc-spinner" aria-hidden="true"></div>
+              <strong id="loadingTitle">Building the technical charts</strong><br>
+              <span id="loadingText">Starting parallel data requests...</span>
+            </div>
+          </div>
+
+          <section id="matrixView" class="tc-view active" role="tabpanel" aria-label="Standards matrix view">
+            <div class="matrix-wrap">
+              <table class="matrix-table" id="matrixTable"></table>
+            </div>
+          </section>
+
+          <section id="tableView" class="tc-view" role="tabpanel" aria-label="Standards table view">
+            <div class="table-wrap">
+              <table class="standard-table" id="standardTable"></table>
+            </div>
+          </section>
+
+          <section id="libraryView" class="tc-view" role="tabpanel" aria-label="Product family library view">
+            <div class="card-grid" id="libraryGrid"></div>
+          </section>
+
+          <section id="authorityView" class="tc-view" role="tabpanel" aria-label="Authority summary view">
+            <div class="card-grid" id="authorityGrid"></div>
+          </section>
+
+          <section id="familyMapView" class="tc-view" role="tabpanel" aria-label="Family map view">
+            <div class="family-map" id="familyMap"></div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="tc-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="tc-modal-card">
+      <div class="tc-modal-head">
+        <h3 id="modalTitle">Standard Details</h3>
+        <button class="tc-close" type="button" data-close-modal aria-label="Close standard details">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="tc-modal" id="duplicateModal" role="dialog" aria-modal="true" aria-labelledby="duplicateModalTitle">
+    <div class="tc-modal-card">
+      <div class="tc-modal-head">
+        <h3 id="duplicateModalTitle">Duplicate Standards Check</h3>
+        <button class="tc-close" type="button" data-close-modal aria-label="Close duplicate standards check">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="duplicateBody"></div>
+    </div>
+  </div>
+
+  <div class="tc-drawer-overlay" id="columnOverlay" aria-hidden="true"></div>
+
+  <aside class="column-panel" id="columnPanel" aria-label="Visible table columns">
+    <div class="tc-modal-head">
+      <h3>Visible Columns</h3>
+      <button class="tc-close" type="button" id="closeColumns" aria-label="Close column settings">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div id="columnChecks"></div>
+  </aside>
+
+  <!-- ======================================================
+      FOOTER
+  ======================================================= -->
+  <div id="footer-container"></div>
+
+  <script>
+    /*****************************************************************
+     * 1) LINK YOUR 27 INDIVIDUAL LIST OF STANDARDS PAGES HERE
+     *
+     * Put this technical-charts.html page in the same folder as your
+     * individual standards pages OR use correct relative paths.
+     *
+     * Example:
+     * url: "/pages/standards/din/index.html"
+     *
+     * IMPORTANT:
+     * This works best when opened through a local/live server or hosted
+     * website. Browser fetch may fail if you open the file directly as
+     * file:///technical-charts.html.
+     *****************************************************************/
+
+    const STANDARD_PAGE_SOURCES = [
+      { authority: "DIN", url: "/pages/standards/din/index.html" },
+      { authority: "ISO", url: "/pages/standards/iso/index.html" },
+      { authority: "IS", url: "/pages/standards/is/index.html" },
+      { authority: "ASTM", url: "/pages/standards/astm/index.html" },
+      { authority: "ASME", url: "/pages/standards/asme/index.html" },
+      { authority: "BS", url: "/pages/standards/bsi/index.html" },
+      { authority: "EN", url: "/pages/standard-products/cen.html" },
+      { authority: "ANSI", url: "/pages/standards/ansi-asme-astm-ifi-sae/index.html" },
+      { authority: "SAE", url: "/pages/standards/sae/index.html" },
+      { authority: "NAS", url: "/pages/standards/aia-nas/index.html" },
+      { authority: "MIL / MS", url: "/pages/standards/mil-ms-fed/index.html" },
+      { authority: "JIS", url: "/pages/standards/jis/index.html" },
+      // { authority: "UNI", url: "/pages/standards/uni/index.html" },
+      { authority: "PN", url: "/pages/standards/pn/index.html" },
+      { authority: "BDS", url: "/pages/standards/bds/index.html" },
+      { authority: "CSN", url: "/pages/standards/csn/index.html" },
+      { authority: "DAST", url: "/pages/standards/dast/index.html" },
+      { authority: "AS", url: "/pages/standards/australia/index.html" },
+      { authority: "AS/NZS", url: "/pages/standards/australia/index.html" },
+      { authority: "DS", url: "/pages/standards/ds/index.html" },
+      { authority: "NEN", url: "/pages/standards/nen/index.html" },
+      { authority: "NF", url: "/pages/standards/nf/index.html" },
+      { authority: "SFS", url: "/pages/standards/sfs/index.html" },
+      { authority: "GOST", url: "/pages/standards/gost/index.html" },
+      { authority: "GSO", url: "/pages/standards/gso/index.html" },
+      // { authority: "SNV", url: "/pages/standards/sn-snv/index.html" },
+      { authority: "UNE", url: "/pages/standards/une/index.html" }
+      // { authority: "TSE", url: "tse_list_of_standards.html" }
+    ];
+
+
+    /*****************************************************************
+     * FAST DATA-LOADING SETTINGS
+     *
+     * - All standards pages are requested in parallel.
+     * - Parsed rows are cached for the current browser tab.
+     * - Normal loads use the browser cache.
+     * - Manual "Reload data" bypasses the parsed cache and revalidates.
+     * - Slow iframe fallback is disabled by default.
+     *****************************************************************/
+
+    const DATA_LOADING_OPTIONS = Object.freeze({
+      requestTimeoutMs: 8000,
+      parsedCacheTtlMs: 12 * 60 * 60 * 1000,
+      parsedCacheVersion: "technical-charts-v4",
+      enableParsedSessionCache: true,
+      enableIframeFallback: false,
+      iframeTimeoutMs: 2500,
+      iframeReadDelayMs: 250
+    });
+
+    const sourceMemoryCache = new Map();
+
+    /*****************************************************************
+     * 2) MATRIX FAMILY COLUMNS
+     *
+     * You can add/remove/rename columns here.
+     *****************************************************************/
+
+    const MATRIX_FAMILIES = [
+      "Bolting",
+      "Structural Bolts",
+      "Screws",
+      "Nuts",
+      "Washers",
+      "Rivets",
+      "Pins / Keys / Inserts",
+      "Coating / Plating",
+      "QA / Testing",
+      "Mechanical Properties",
+      "Threading / Gauging",
+      "Materials",
+      "Other"
+    ];
+
+    const TABLE_COLUMNS = [
+      { key: "image", label: "Image", visible: true },
+      { key: "authority", label: "Authority", visible: true },
+      { key: "givenStandard", label: "Given Standard", visible: true },
+      { key: "standardNumber", label: "Standard Number With Edition", visible: true },
+      { key: "status", label: "Status / Usage Note", visible: true },
+      { key: "officialTitle", label: "Official English Title", visible: true },
+      { key: "productFamily", label: "Product Family", visible: true },
+      { key: "source", label: "Source Page", visible: true }
+    ];
+
+    const state = {
+      allRows: [],
+      filteredRows: [],
+      activeView: "matrix",
+      search: "",
+      family: "",
+      authority: "",
+      activePill: "",
+      columns: structuredClone(TABLE_COLUMNS),
+      loadErrors: [],
+      loadedSources: 0,
+      totalSources: STANDARD_PAGE_SOURCES.length
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+    document.addEventListener("DOMContentLoaded", init);
+
+    async function init() {
+      bindEvents();
+      renderAuthorityPills();
+      renderColumnChecks();
+      await loadAllData({ forceRefresh: false });
+    }
+
+    function bindEvents() {
+      $("#searchInput").addEventListener("input", (event) => {
+        state.search = event.target.value.trim().toLowerCase();
+        applyFilters();
+      });
+
+      $("#familyFilter").addEventListener("change", (event) => {
+        state.family = event.target.value;
+        applyFilters();
+      });
+
+      $("#authorityFilter").addEventListener("change", (event) => {
+        state.authority = event.target.value;
+        state.activePill = event.target.value;
+        syncAuthorityPills();
+        applyFilters();
+      });
+
+      $$(".tc-tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.activeView = button.dataset.view;
+
+          $$(".tc-tab").forEach((tab) => {
+            const isActive = tab === button;
+            tab.classList.toggle("active", isActive);
+            tab.setAttribute("aria-selected", String(isActive));
+          });
+
+          switchView();
+        });
+      });
+
+      $("#clearFiltersBtn").addEventListener("click", resetFilters);
+      $("#reloadBtn").addEventListener("click", () => loadAllData({ forceRefresh: true }));
+      $("#exportBtn").addEventListener("click", exportCSV);
+      $("#duplicateBtn").addEventListener("click", showDuplicates);
+      $("#columnsBtn").addEventListener("click", openColumns);
+      $("#closeColumns").addEventListener("click", closeColumns);
+      $("#columnOverlay").addEventListener("click", closeColumns);
+
+      $$("[data-close-modal]").forEach((button) => {
+        button.addEventListener("click", closeModals);
+      });
+
+      $("#detailModal").addEventListener("click", (event) => {
+        if (event.target.id === "detailModal") closeModals();
+      });
+
+      $("#duplicateModal").addEventListener("click", (event) => {
+        if (event.target.id === "duplicateModal") closeModals();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        const target = event.target;
+        const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
+
+        if (event.key === "/" && !isTyping) {
+          event.preventDefault();
+          $("#searchInput").focus();
+        }
+
+        if (event.key === "Escape") {
+          closeModals();
+          closeColumns();
+        }
+      });
+    }
+
+    function openColumns() {
+      $("#columnPanel").classList.add("open");
+      $("#columnOverlay").classList.add("open");
+      document.body.classList.add("tc-lock-scroll");
+    }
+
+    function closeColumns() {
+      $("#columnPanel").classList.remove("open");
+      $("#columnOverlay").classList.remove("open");
+
+      if (!$(".tc-modal.open")) {
+        document.body.classList.remove("tc-lock-scroll");
+      }
+    }
+
+    function renderAuthorityPills() {
+      const pillAuthorities = [
+        "All",
+        "ASTM",
+        "ISO",
+        "IS",
+        "EN",
+        "DIN",
+        "BS",
+        "SAE",
+        "NAS",
+        "MIL",
+      ];
+
+      const wrap = $("#authorityPills");
+      wrap.innerHTML = "";
+
+      pillAuthorities.forEach((name) => {
+        const button = document.createElement("button");
+        button.className = "tc-pill";
+        button.textContent = name;
+        button.dataset.authority = name === "All" ? "" : name;
+
+        if (name === "All") button.classList.add("active");
+
+        button.addEventListener("click", () => {
+          state.activePill = button.dataset.authority;
+          state.authority = button.dataset.authority;
+          $("#authorityFilter").value = state.authority;
+          syncAuthorityPills();
+          applyFilters();
+        });
+
+        wrap.appendChild(button);
+      });
+
+      const reset = document.createElement("button");
+      reset.className = "tc-pill reset";
+      reset.textContent = "Reset";
+      reset.addEventListener("click", resetFilters);
+      wrap.appendChild(reset);
+    }
+
+    function syncAuthorityPills() {
+      $$("#authorityPills .tc-pill").forEach((button) => {
+        if (button.classList.contains("reset")) return;
+        button.classList.toggle("active", button.dataset.authority === state.activePill);
+      });
+    }
+
+    function resetFilters() {
+      state.search = "";
+      state.family = "";
+      state.authority = "";
+      state.activePill = "";
+
+      $("#searchInput").value = "";
+      $("#familyFilter").value = "";
+      $("#authorityFilter").value = "";
+
+      syncAuthorityPills();
+      applyFilters();
+    }
+
+    async function loadAllData({ forceRefresh = false } = {}) {
+      showLoading(true);
+      state.allRows = [];
+      state.filteredRows = [];
+      state.loadErrors = [];
+      state.loadedSources = 0;
+      $("#errorArea").innerHTML = "";
+
+      const activeSources = STANDARD_PAGE_SOURCES.filter(
+        source => source && source.url && source.authority
+      );
+
+      state.totalSources = activeSources.length;
+      updateLoadingProgress(0, activeSources.length);
+
+      /*
+       * Every source starts immediately. Promise.allSettled prevents one
+       * missing page from stopping the other standards pages from loading.
+       */
+      let completed = 0;
+
+      const tasks = activeSources.map(async (source) => {
+        try {
+          const rows = await loadOneSource(source, { forceRefresh });
+          return rows;
+        } finally {
+          completed += 1;
+          updateLoadingProgress(completed, activeSources.length);
+        }
+      });
+
+      const results = await Promise.allSettled(tasks);
+
+      results.forEach((result, index) => {
+        const source = activeSources[index];
+
+        if (result.status === "fulfilled") {
+          state.loadedSources += 1;
+          state.allRows.push(...result.value);
+          return;
+        }
+
+        const reason = cleanText(result.reason?.message || "Unable to read data");
+        state.loadErrors.push(`${source.authority}: ${source.url}${reason ? ` — ${reason}` : ""}`);
+      });
+
+      state.allRows = normalizeAndDedupeByRowId(state.allRows);
+      populateFilters();
+      applyFilters();
+      showLoading(false);
+      renderErrors();
+    }
+
+    async function loadOneSource(source, { forceRefresh = false } = {}) {
+      let rows = [];
+
+      if (!forceRefresh) {
+        rows = readParsedSourceCache(source);
+      } else {
+        removeParsedSourceCache(source);
+      }
+
+      if (!rows.length) {
+        rows = await loadByFetch(source, { forceRefresh });
+
+        if (!rows.length && DATA_LOADING_OPTIONS.enableIframeFallback) {
+          rows = await loadByIframe(source);
+        }
+
+        if (!rows.length) {
+          throw new Error("No readable standards rows found");
+        }
+
+        writeParsedSourceCache(source, rows);
+      }
+
+      return rows.map((row, index) => {
+        const decoratedRow = {
+          ...row,
+          id: `${source.authority}-${index}-${cleanText(row.givenStandard || row.standardNumber || row.officialTitle || row.productFamily)}`,
+          authority: row.authority || source.authority,
+          sourceUrl: source.url,
+          sourceLabel: source.label || source.authority
+        };
+
+        decoratedRow.searchIndex = buildSearchIndex(decoratedRow);
+        return decoratedRow;
+      });
+    }
+
+    async function loadByFetch(source, { forceRefresh = false } = {}) {
+      const res = await fetchWithTimeout(source.url, {
+        timeoutMs: DATA_LOADING_OPTIONS.requestTimeoutMs,
+        cacheMode: forceRefresh ? "reload" : "force-cache"
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, "text/html");
+
+      let rows = [];
+
+      const jsonRows = parseJsonDataBlock(doc, source);
+      if (jsonRows.length) rows = jsonRows;
+
+      if (!rows.length) {
+        rows = parseStandardsDataArrays(html, source);
+      }
+
+      if (!rows.length) {
+        rows = parseRawTsvBlocks(html, source);
+      }
+
+      if (!rows.length) {
+        rows = parseTablesFromDocument(doc, source);
+      }
+
+      return rows;
+    }
+
+    async function fetchWithTimeout(url, { timeoutMs, cacheMode }) {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
+
+      try {
+        return await fetch(encodeURI(url), {
+          cache: cacheMode,
+          credentials: "same-origin",
+          signal: controller.signal
+        });
+      } catch (error) {
+        if (error?.name === "AbortError") {
+          throw new Error(`Request timed out after ${Math.round(timeoutMs / 1000)} seconds`);
+        }
+
+        throw error;
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
+    }
+
+    function loadByIframe(source) {
+      return new Promise((resolve) => {
+        const iframe = document.createElement("iframe");
+        iframe.style.position = "absolute";
+        iframe.style.left = "-99999px";
+        iframe.style.top = "-99999px";
+        iframe.style.width = "1px";
+        iframe.style.height = "1px";
+        iframe.setAttribute("aria-hidden", "true");
+
+        const cleanup = () => {
+          if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+        };
+
+        const timer = window.setTimeout(() => {
+          cleanup();
+          resolve([]);
+        }, DATA_LOADING_OPTIONS.iframeTimeoutMs);
+
+        iframe.onload = () => {
+          window.setTimeout(() => {
+            try {
+              const doc = iframe.contentDocument || iframe.contentWindow.document;
+              const rows = parseTablesFromDocument(doc, source);
+              window.clearTimeout(timer);
+              cleanup();
+              resolve(rows);
+            } catch (error) {
+              window.clearTimeout(timer);
+              cleanup();
+              resolve([]);
+            }
+          }, DATA_LOADING_OPTIONS.iframeReadDelayMs);
+        };
+
+        iframe.onerror = () => {
+          window.clearTimeout(timer);
+          cleanup();
+          resolve([]);
+        };
+
+        iframe.src = encodeURI(source.url);
+        document.body.appendChild(iframe);
+      });
+    }
+
+    function getParsedCacheKey(source) {
+      return `${DATA_LOADING_OPTIONS.parsedCacheVersion}:${source.authority}:${source.url}`;
+    }
+
+    function readParsedSourceCache(source) {
+      const cacheKey = getParsedCacheKey(source);
+
+      if (sourceMemoryCache.has(cacheKey)) {
+        return sourceMemoryCache.get(cacheKey);
+      }
+
+      if (!DATA_LOADING_OPTIONS.enableParsedSessionCache) return [];
+
+      try {
+        const raw = sessionStorage.getItem(cacheKey);
+        if (!raw) return [];
+
+        const cached = JSON.parse(raw);
+        const isFresh =
+          cached &&
+          Array.isArray(cached.rows) &&
+          Number.isFinite(cached.savedAt) &&
+          Date.now() - cached.savedAt < DATA_LOADING_OPTIONS.parsedCacheTtlMs;
+
+        if (!isFresh) {
+          sessionStorage.removeItem(cacheKey);
+          return [];
+        }
+
+        sourceMemoryCache.set(cacheKey, cached.rows);
+        return cached.rows;
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function writeParsedSourceCache(source, rows) {
+      if (!Array.isArray(rows) || !rows.length) return;
+
+      const cacheKey = getParsedCacheKey(source);
+      sourceMemoryCache.set(cacheKey, rows);
+
+      if (!DATA_LOADING_OPTIONS.enableParsedSessionCache) return;
+
+      try {
+        sessionStorage.setItem(cacheKey, JSON.stringify({
+          savedAt: Date.now(),
+          rows
+        }));
+      } catch (error) {
+        /* Storage may be unavailable or full. Memory caching still works. */
+      }
+    }
+
+    function removeParsedSourceCache(source) {
+      const cacheKey = getParsedCacheKey(source);
+      sourceMemoryCache.delete(cacheKey);
+
+      if (!DATA_LOADING_OPTIONS.enableParsedSessionCache) return;
+
+      try {
+        sessionStorage.removeItem(cacheKey);
+      } catch (error) {
+        /* Ignore unavailable storage. */
+      }
+    }
+
+    function buildSearchIndex(row) {
+      return [
+        row.authority,
+        row.givenStandard,
+        row.standardNumber,
+        row.status,
+        row.officialTitle,
+        row.productFamily,
+        row.familyBucket,
+        row.sourceUrl
+      ].join(" ").toLowerCase();
+    }
+
+    function parseJsonDataBlock(doc, source) {
+      const block =
+        doc.querySelector("#standards-data") ||
+        doc.querySelector('script[type="application/json"][data-standards]');
+
+      if (!block) return [];
+
+      try {
+        const json = JSON.parse(block.textContent.trim());
+        const array = Array.isArray(json) ? json : json.rows || json.data || [];
+        return array.map(item => standardizeRecord(item, source)).filter(isUsefulRow);
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function parseStandardsDataArrays(html, source) {
+      const rows = [];
+      const patterns = [
+        /(?:const|let|var)\s+standardsData\s*=\s*\[/g,
+        /(?:const|let|var)\s+[A-Za-z0-9_]*StandardsData\s*=\s*\[/g,
+        /(?:const|let|var)\s+[A-Za-z0-9_]*DATA\s*=\s*\[/g
+      ];
+
+      patterns.forEach((pattern) => {
+        let match;
+        while ((match = pattern.exec(html)) !== null) {
+          const openBracketIndex = html.indexOf("[", match.index);
+          const arrayText = extractBracketedArray(html, openBracketIndex);
+          if (!arrayText) continue;
+
+          try {
+            const array = Function(`"use strict"; return (${arrayText});`)();
+            if (Array.isArray(array)) {
+              rows.push(...array.map(item => standardizeRecord(item, source)).filter(isUsefulRow));
+            }
+          } catch (error) {
+            /* Ignore invalid script blocks and continue to the next parsing method. */
+          }
+        }
+      });
+
+      return rows;
+    }
+
+    function extractBracketedArray(text, openBracketIndex) {
+      if (openBracketIndex < 0 || text[openBracketIndex] !== "[") return "";
+
+      let depth = 0;
+      let quote = "";
+      let escaped = false;
+      let inLineComment = false;
+      let inBlockComment = false;
+
+      for (let i = openBracketIndex; i < text.length; i++) {
+        const char = text[i];
+        const next = text[i + 1];
+
+        if (inLineComment) {
+          if (char === "\n") inLineComment = false;
+          continue;
+        }
+
+        if (inBlockComment) {
+          if (char === "*" && next === "/") {
+            inBlockComment = false;
+            i++;
+          }
+          continue;
+        }
+
+        if (quote) {
+          if (escaped) {
+            escaped = false;
+          } else if (char === "\\") {
+            escaped = true;
+          } else if (char === quote) {
+            quote = "";
+          }
+          continue;
+        }
+
+        if (char === "/" && next === "/") {
+          inLineComment = true;
+          i++;
+          continue;
+        }
+
+        if (char === "/" && next === "*") {
+          inBlockComment = true;
+          i++;
+          continue;
+        }
+
+        if (char === "'" || char === '"' || char === "`") {
+          quote = char;
+          continue;
+        }
+
+        if (char === "[") depth++;
+        if (char === "]") {
+          depth--;
+          if (depth === 0) return text.slice(openBracketIndex, i + 1);
+        }
+      }
+
+      return "";
+    }
+
+    function parseRawTsvBlocks(html, source) {
+      const rows = [];
+      const regex = /(?:const|let|var)\s+raw[A-Za-z0-9_]*TSV\s*=\s*`([\s\S]*?)`\s*;/g;
+      let match;
+
+      while ((match = regex.exec(html)) !== null) {
+        rows.push(...parseTsvText(match[1], source));
+      }
+
+      return rows;
+    }
+
+    function parseTsvText(tsv, source) {
+      const lines = String(tsv || "")
+        .replace(/\r\n/g, "\n")
+        .replace(/\r/g, "\n")
+        .split("\n")
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      if (lines.length < 2) return [];
+
+      const headers = lines[0].split("\t").map(header => cleanText(header));
+
+      return lines.slice(1).map((line) => {
+        const cells = line.split("\t");
+        const record = {};
+
+        headers.forEach((header, index) => {
+          const key = detectColumnKey(header);
+          if (!key) return;
+          record[key] = cleanText(cells[index] || "");
+        });
+
+        return standardizeRecord(record, source);
+      }).filter(isUsefulRow);
+    }
+
+    function parseTablesFromDocument(doc, source) {
+      const tables = Array.from(doc.querySelectorAll("table"));
+      const rows = [];
+
+      tables.forEach((table) => {
+        const headerCells = getHeaderCells(table);
+        if (!headerCells.length) return;
+
+        const headerText = headerCells.map(cell => cleanText(cell.textContent));
+        const headerBlob = headerText.join(" ").toLowerCase();
+
+        const looksLikeStandardsTable =
+          headerBlob.includes("standard") ||
+          headerBlob.includes("designation") ||
+          headerBlob.includes("specification") ||
+          headerBlob.includes("title") ||
+          headerBlob.includes("family");
+
+        if (!looksLikeStandardsTable) return;
+
+        const bodyRows = Array.from(table.querySelectorAll("tbody tr"));
+        const fallbackRows = Array.from(table.querySelectorAll("tr")).slice(1);
+        const tableRows = bodyRows.length ? bodyRows : fallbackRows;
+
+        tableRows.forEach((tr) => {
+          const cells = Array.from(tr.querySelectorAll("td"));
+          if (!cells.length) return;
+
+          const record = {};
+          headerText.forEach((header, index) => {
+            const cell = cells[index];
+            if (!cell) return;
+
+            const key = detectColumnKey(header);
+            if (!key) return;
+
+            if (key === "image") {
+              const img = cell.querySelector("img");
+              record.image = img ? img.getAttribute("src") : "";
+            } else {
+              record[key] = cleanText(cell.textContent);
+            }
+          });
+
+          const standardized = standardizeRecord(record, source);
+          if (isUsefulRow(standardized)) rows.push(standardized);
+        });
+      });
+
+      return rows;
+    }
+
+    function getHeaderCells(table) {
+      const theadCells = Array.from(table.querySelectorAll("thead th, thead td"));
+      if (theadCells.length) return theadCells;
+
+      const firstRow = table.querySelector("tr");
+      if (!firstRow) return [];
+
+      return Array.from(firstRow.querySelectorAll("th, td"));
+    }
+
+    function detectColumnKey(header) {
+      const h = normalizeHeader(header);
+
+      if (containsAny(h, ["image", "photo", "picture"])) return "image";
+
+      if (containsAny(h, ["authority", "body", "standard body"])) return "authority";
+
+      if (containsAny(h, [
+        "given standard",
+        "given specification",
+        "given designation",
+        "standard designation",
+        "pkn polish designation",
+        "designation to use"
+      ])) return "givenStandard";
+
+      if (containsAny(h, [
+        "standard code",
+        "standardcode",
+        "standard number with edition",
+        "correct standard number",
+        "standard no with edition",
+        "number with edition",
+        "source en iso standard",
+        "edition publication shown",
+        "standard number",
+        "specification number",
+        "standard"
+      ])) return "standardNumber";
+
+      if (containsAny(h, [
+        "status usage note",
+        "usage note",
+        "status",
+        "remarks",
+        "note"
+      ])) return "status";
+
+      if (containsAny(h, [
+        "official english title",
+        "official original title",
+        "original official title",
+        "official title",
+        "original title",
+        "english title",
+        "title",
+        "name"
+      ])) return "officialTitle";
+
+      if (containsAny(h, [
+        "product family",
+        "product process family",
+        "process family",
+        "family",
+        "category"
+      ])) return "productFamily";
+
+      return "";
+    }
+
+    function standardizeRecord(item, source) {
+      const record = {
+        image: item.image || item.Image || "",
+        authority: item.authority || item.Authority || source.authority,
+        givenStandard:
+          item.givenStandard ||
+          item.given_standard ||
+          item["Given Standard"] ||
+          item["Given standard"] ||
+          item.given ||
+          item.designation ||
+          item.Designation ||
+          item.standardCode ||
+          item.standard_code ||
+          item["Standard Code"] ||
+          item["Standard code"] ||
+          "",
+        standardNumber:
+          item.standardNumber ||
+          item.standard_number ||
+          item.correctStandard ||
+          item.correct_standard ||
+          item["Standard Number With Edition"] ||
+          item["Standard number with edition"] ||
+          item["Correct standard number with edition"] ||
+          item["Correct Standard"] ||
+          item["Correct standard"] ||
+          item.standardCode ||
+          item.standard_code ||
+          item["Standard Code"] ||
+          item["Standard code"] ||
+          item.standard ||
+          item.Standard ||
+          "",
+        status:
+          item.status ||
+          item["Status / Usage Note"] ||
+          item["Status / usage note"] ||
+          item.note ||
+          item.Note ||
+          item.remarks ||
+          "",
+        officialTitle:
+          item.officialTitle ||
+          item.official_title ||
+          item["Official English Title"] ||
+          item["Official english title"] ||
+          item["Official / original title"] ||
+          item["Original / official title"] ||
+          item.title ||
+          item.Title ||
+          "",
+        productFamily:
+          item.productFamily ||
+          item.product_family ||
+          item["Product Family"] ||
+          item["Product family"] ||
+          item.family ||
+          item.Family ||
+          item.category ||
+          ""
+      };
+
+      record.givenStandard = cleanText(record.givenStandard);
+      record.standardNumber = cleanText(record.standardNumber);
+      record.status = cleanText(record.status);
+      record.officialTitle = cleanText(record.officialTitle);
+      record.productFamily = cleanText(record.productFamily);
+
+      if (!record.givenStandard && record.standardNumber) {
+        record.givenStandard = extractShortStandard(record.standardNumber);
+      }
+
+      if (!record.standardNumber && record.givenStandard) {
+        record.standardNumber = record.givenStandard;
+      }
+
+      record.authority = inferAuthority(record, source.authority);
+      record.familyBucket = inferFamilyBucket(record);
+
+      return record;
+    }
+
+    function isUsefulRow(row) {
+      const combined = [
+        row.givenStandard,
+        row.standardNumber,
+        row.officialTitle,
+        row.productFamily
+      ].join(" ").trim();
+
+      if (!combined) return false;
+      if (combined.length < 2) return false;
+      if (/^(image|given standard|standard number|status|official|product family)$/i.test(combined)) return false;
+
+      return true;
+    }
+
+    function inferAuthority(row, fallback) {
+      const text = `${row.givenStandard} ${row.standardNumber}`.toUpperCase();
+
+      const patterns = [
+        "ASTM",
+        "ASME",
+        "ANSI",
+        "ISO",
+        "DIN",
+        "BS",
+        "EN",
+        "NAS",
+        "MIL",
+        "JIS",
+        "IS",
+        "UNI",
+        "PN",
+        "CSN",
+        "DAST",
+        "AS/NZS",
+        "AS ",
+        "NEN",
+        "NF",
+        "SFS",
+        "GOST",
+        "GSO",
+        "SNV",
+        "UNE"
+      ];
+
+      for (const pattern of patterns) {
+        if (text.includes(pattern.trim())) return pattern.trim();
+      }
+
+      return fallback;
+    }
+
+    function inferFamilyBucket(row) {
+      const text = `${row.productFamily} ${row.officialTitle} ${row.givenStandard} ${row.standardNumber}`.toLowerCase();
+
+      if (containsAny(text, ["structural", "hsfg", "hv bolt", "preload", "en 14399", "f3125", "a325", "a490"])) return "Structural Bolts";
+      if (containsAny(text, ["bolt", "stud", "threaded rod", "anchor", "eye bolt", "u bolt", "j bolt"])) return "Bolting";
+      if (containsAny(text, ["screw", "socket", "self tapping", "self-drilling", "machine screw", "wood screw", "set screw", "grub"])) return "Screws";
+      if (containsAny(text, ["nut", "locknut", "prevailing torque", "hexagon nuts", "hex nuts"])) return "Nuts";
+      if (containsAny(text, ["washer", "washers", "plain washer", "spring washer", "f436"])) return "Washers";
+      if (containsAny(text, ["rivet", "rivets", "blind rivet"])) return "Rivets";
+      if (containsAny(text, ["pin", "pins", "key", "keys", "insert", "circlip", "retaining ring"])) return "Pins / Keys / Inserts";
+      if (containsAny(text, ["coating", "plating", "zinc", "galvan", "hot dip", "phosphate", "finish", "surface", "electroplated", "flake", "passivation"])) return "Coating / Plating";
+      if (containsAny(text, ["inspection", "acceptance", "quality", "test", "testing", "sampling", "torque", "hydrogen embrittlement", "salt spray", "assurance"])) return "QA / Testing";
+      if (containsAny(text, ["mechanical properties", "property classes", "tensile", "hardness", "proof load", "strength", "heat treatment"])) return "Mechanical Properties";
+      if (containsAny(text, ["thread", "threads", "tolerance", "gauging", "gauge", "metric thread", "unc", "unf"])) return "Threading / Gauging";
+      if (containsAny(text, ["material", "steel", "stainless", "alloy", "carbon steel", "chemical composition"])) return "Materials";
+
+      return "Other";
+    }
+
+    function applyFilters() {
+      const q = state.search;
+      const family = state.family;
+      const authority = state.authority;
+
+      state.filteredRows = state.allRows.filter((row) => {
+        const haystack = row.searchIndex || buildSearchIndex(row);
+
+        const searchMatch = !q || haystack.includes(q);
+        const familyMatch = !family || row.familyBucket === family || row.productFamily === family;
+        const authorityMatch = !authority || row.authority === authority || row.authority.startsWith(authority);
+
+        return searchMatch && familyMatch && authorityMatch;
+      });
+
+      updateBadges();
+      renderCurrentView();
+    }
+
+    function populateFilters() {
+      const familyValues = unique([
+        ...state.allRows.map(row => row.familyBucket),
+        ...state.allRows.map(row => row.productFamily).filter(Boolean)
+      ]).sort();
+
+      const authorityValues = unique(state.allRows.map(row => row.authority).filter(Boolean)).sort();
+
+      fillSelect("#familyFilter", familyValues, "All Product Families");
+      fillSelect("#authorityFilter", authorityValues, "All Authorities");
+    }
+
+    function fillSelect(selector, values, firstLabel) {
+      const select = $(selector);
+      const current = select.value;
+      select.innerHTML = `<option value="">${firstLabel}</option>`;
+
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+      });
+
+      if (values.includes(current)) select.value = current;
+    }
+
+    function updateBadges() {
+      $("#resultBadge").textContent = `Showing ${state.filteredRows.length} of ${state.allRows.length} standards`;
+      $("#sourceBadge").textContent = `${state.loadedSources} of ${state.totalSources} pages loaded`;
+      $("#columnBadge").textContent = `${state.columns.filter(c => c.visible).length} visible columns`;
+    }
+
+    function switchView() {
+      $$(".tc-view").forEach(view => view.classList.remove("active"));
+      $(`#${state.activeView}View`).classList.add("active");
+      renderCurrentView();
+    }
+
+    function renderCurrentView() {
+      if (state.activeView === "matrix") renderMatrix();
+      if (state.activeView === "table") renderTable();
+      if (state.activeView === "library") renderLibrary();
+      if (state.activeView === "authority") renderAuthority();
+      if (state.activeView === "familyMap") renderFamilyMap();
+    }
+
+    function renderMatrix() {
+      const table = $("#matrixTable");
+      const authoritySet = new Set();
+      const matrixIndex = new Map();
+
+      state.filteredRows.forEach((row) => {
+        authoritySet.add(row.authority);
+        const key = `${row.authority}\u0000${row.familyBucket}`;
+
+        if (!matrixIndex.has(key)) {
+          matrixIndex.set(key, []);
+        }
+
+        matrixIndex.get(key).push(row);
+      });
+
+      const authorities = Array.from(authoritySet).sort();
+
+      if (!state.filteredRows.length) {
+        table.innerHTML = `
+          <tbody>
+            <tr>
+              <td class="tc-empty-cell">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                No standards match the current filters. Clear one or more filters and try again.
+              </td>
+            </tr>
+          </tbody>
+        `;
+        return;
+      }
+
+      let html = `
+        <thead>
+          <tr>
+            <th>Authority</th>
+            ${MATRIX_FAMILIES.map(family => `<th>${escapeHTML(family)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+      `;
+
+      authorities.forEach((authority) => {
+        html += `<tr><td>${escapeHTML(authority)}</td>`;
+
+        MATRIX_FAMILIES.forEach((family) => {
+          const records = (matrixIndex.get(`${authority}\u0000${family}`) || []).slice(0, 60);
+
+          html += `<td>`;
+
+          if (!records.length) {
+            html += `<span class="empty-dash">—</span>`;
+          } else {
+            records.forEach((record) => {
+              const label = getStandardDisplayLabel(record);
+              html += `<button class="std-chip" title="${escapeAttr(getTooltipText(record))}" data-row-id="${escapeAttr(record.id)}">${escapeHTML(label)}</button>`;
+            });
+          }
+
+          html += `</td>`;
+        });
+
+        html += `</tr>`;
+      });
+
+      html += `</tbody>`;
+      table.innerHTML = html;
+
+      $$("#matrixTable .std-chip").forEach(button => {
+        button.addEventListener("click", () => openDetail(button.dataset.rowId));
+      });
+    }
+
+    function renderTable() {
+      const table = $("#standardTable");
+      const visibleColumns = state.columns.filter(column => column.visible);
+
+      if (!state.filteredRows.length) {
+        table.innerHTML = `
+          <tbody>
+            <tr>
+              <td class="tc-empty-cell">
+                <i class="fa-solid fa-filter-circle-xmark"></i>
+                No table records match the current filters.
+              </td>
+            </tr>
+          </tbody>
+        `;
+        return;
+      }
+
+      let html = `
+        <thead>
+          <tr>
+            ${visibleColumns.map(column => `<th>${escapeHTML(column.label)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+      `;
+
+      state.filteredRows.forEach((row) => {
+        html += `<tr data-row-id="${escapeAttr(row.id)}">`;
+
+        visibleColumns.forEach((column) => {
+          html += `<td>${renderTableCell(row, column.key)}</td>`;
+        });
+
+        html += `</tr>`;
+      });
+
+      html += `</tbody>`;
+      table.innerHTML = html;
+
+      $$("#standardTable tbody tr").forEach(tr => {
+        tr.addEventListener("click", () => openDetail(tr.dataset.rowId));
+      });
+    }
+
+    function renderTableCell(row, key) {
+      if (key === "image") {
+        if (row.image) {
+          return `<div class="image-cell"><img src="${escapeAttr(row.image)}" alt="" style="width:150px;height:96px;object-fit:contain;border:1px solid var(--line);border-radius:18px;background:#fff;"></div>`;
+        }
+
+        return `<div class="image-placeholder">Image<br>Coming Soon</div>`;
+      }
+
+      if (key === "authority") {
+        return `<span class="table-chip">${escapeHTML(row.authority || "-")}</span>`;
+      }
+
+      if (key === "status") {
+        return row.status ? `<span class="status-chip">${escapeHTML(row.status)}</span>` : `<span class="empty-dash">—</span>`;
+      }
+
+      if (key === "source") {
+        return `<a class="source-link" href="${escapeAttr(row.sourceUrl)}" target="_blank" rel="noopener">${escapeHTML(row.sourceLabel || row.authority)}</a>`;
+      }
+
+      return escapeHTML(row[key] || "—");
+    }
+
+    function renderLibrary() {
+      const grid = $("#libraryGrid");
+      const groups = groupBy(state.filteredRows, row => row.familyBucket);
+
+      if (!state.filteredRows.length) {
+        grid.innerHTML = createEmptyState("fa-box-open", "No family records found", "Adjust the search, product family or authority filters to restore results.");
+        return;
+      }
+
+      grid.innerHTML = Object.keys(groups).sort().map((family) => {
+        const rows = groups[family];
+        const authorities = unique(rows.map(row => row.authority)).sort();
+
+        return `
+          <article class="tc-card">
+            <small>${rows.length} Standards</small>
+            <h3>${escapeHTML(family)}</h3>
+            <p>${escapeHTML(authorities.slice(0, 8).join(", "))}${authorities.length > 8 ? "..." : ""}</p>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderAuthority() {
+      const grid = $("#authorityGrid");
+      const groups = groupBy(state.filteredRows, row => row.authority);
+
+      if (!state.filteredRows.length) {
+        grid.innerHTML = createEmptyState("fa-landmark", "No authority records found", "Clear or change the active filters to view standards authorities.");
+        return;
+      }
+
+      grid.innerHTML = Object.keys(groups).sort().map((authority) => {
+        const rows = groups[authority];
+        const families = unique(rows.map(row => row.familyBucket)).sort();
+
+        return `
+          <article class="tc-card">
+            <small>${rows.length} Standards</small>
+            <h3>${escapeHTML(authority)}</h3>
+            <p>${escapeHTML(families.slice(0, 7).join(", "))}${families.length > 7 ? "..." : ""}</p>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderFamilyMap() {
+      const wrap = $("#familyMap");
+      const groups = groupBy(state.filteredRows, row => row.familyBucket);
+
+      if (!state.filteredRows.length) {
+        wrap.innerHTML = createEmptyState("fa-diagram-project", "No family map results", "Change the filters to view the relationship between product families and standards.");
+        return;
+      }
+
+      wrap.innerHTML = Object.keys(groups).sort().map((family) => {
+        const rows = groups[family];
+
+        return `
+          <article class="family-block">
+            <button class="family-head" type="button" aria-expanded="false">
+              <span>${escapeHTML(family)} — ${rows.length} Standards</span>
+              <span>+</span>
+            </button>
+            <div class="family-body">
+              <div class="family-list">
+                ${rows.map(row => {
+                  const label = getStandardDisplayLabel(row);
+                  return `<button class="std-chip" title="${escapeAttr(getTooltipText(row))}" data-row-id="${escapeAttr(row.id)}">${escapeHTML(label)}</button>`;
+                }).join("")}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      $$(".family-head").forEach(button => {
+        button.addEventListener("click", () => {
+          const block = button.closest(".family-block");
+          const isOpen = block.classList.toggle("open");
+          button.setAttribute("aria-expanded", String(isOpen));
+        });
+      });
+
+      $$("#familyMap .std-chip").forEach(button => {
+        button.addEventListener("click", () => openDetail(button.dataset.rowId));
+      });
+    }
+
+    function createEmptyState(iconClass, title, message) {
+      return `
+        <div class="tc-empty-state">
+          <div>
+            <i class="fa-solid ${escapeAttr(iconClass)}" aria-hidden="true"></i>
+            <h3>${escapeHTML(title)}</h3>
+            <p>${escapeHTML(message)}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function openDetail(rowId) {
+      const row = state.allRows.find(item => item.id === rowId);
+      if (!row) return;
+
+      $("#modalTitle").textContent = row.givenStandard || row.standardNumber || "Standard Details";
+
+      $("#modalBody").innerHTML = `
+        <div class="detail-grid">
+          <div>Authority</div>
+          <div>${escapeHTML(row.authority || "—")}</div>
+
+          <div>Given Standard</div>
+          <div>${escapeHTML(row.givenStandard || "—")}</div>
+
+          <div>Standard Number With Edition</div>
+          <div>${escapeHTML(row.standardNumber || "—")}</div>
+
+          <div>Status / Usage Note</div>
+          <div>${escapeHTML(row.status || "—")}</div>
+
+          <div>Official English Title</div>
+          <div>${escapeHTML(row.officialTitle || "—")}</div>
+
+          <div>Product Family</div>
+          <div>${escapeHTML(row.productFamily || row.familyBucket || "—")}</div>
+
+          <div>Matrix Family</div>
+          <div>${escapeHTML(row.familyBucket || "—")}</div>
+
+          <div>Source Page</div>
+          <div><a class="source-link" href="${escapeAttr(row.sourceUrl)}" target="_blank" rel="noopener">${escapeHTML(row.sourceUrl)}</a></div>
+        </div>
+      `;
+
+      $("#detailModal").classList.add("open");
+      document.body.classList.add("tc-lock-scroll");
+    }
+
+    function closeModals() {
+      $("#detailModal").classList.remove("open");
+      $("#duplicateModal").classList.remove("open");
+
+      if (!$("#columnPanel").classList.contains("open")) {
+        document.body.classList.remove("tc-lock-scroll");
+      }
+    }
+
+    function renderColumnChecks() {
+      const wrap = $("#columnChecks");
+
+      wrap.innerHTML = state.columns.map((column, index) => `
+        <label class="column-check">
+          <input type="checkbox" data-column-index="${index}" ${column.visible ? "checked" : ""}>
+          <span>${escapeHTML(column.label)}</span>
+        </label>
+      `).join("");
+
+      $$("#columnChecks input").forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const index = Number(checkbox.dataset.columnIndex);
+          state.columns[index].visible = checkbox.checked;
+          updateBadges();
+          renderTable();
+        });
+      });
+    }
+
+    function showDuplicates() {
+      const groups = groupBy(state.allRows, row => duplicateKey(row));
+      const duplicateGroups = Object.values(groups)
+        .filter(group => group.length > 1)
+        .sort((a, b) => b.length - a.length);
+
+      if (!duplicateGroups.length) {
+        $("#duplicateBody").innerHTML = `<p style="font-weight:400;color:var(--muted);line-height:1.7;">No duplicate standards found based on normalized authority + standard number.</p>`;
+      } else {
+        $("#duplicateBody").innerHTML = duplicateGroups.map((group) => {
+          const first = group[0];
+
+          return `
+            <div style="border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;">
+              <h4 style="margin:0 0 12px;color:var(--primary);font-size:18px;">${escapeHTML(first.authority)} — ${escapeHTML(first.givenStandard || first.standardNumber)}</h4>
+              <div class="family-list">
+                ${group.map(row => `<button class="std-chip" data-row-id="${escapeAttr(row.id)}">${escapeHTML(row.sourceLabel || row.sourceUrl)}</button>`).join("")}
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      $("#duplicateModal").classList.add("open");
+      document.body.classList.add("tc-lock-scroll");
+
+      $$("#duplicateBody .std-chip").forEach(button => {
+        button.addEventListener("click", () => {
+          $("#duplicateModal").classList.remove("open");
+          openDetail(button.dataset.rowId);
+        });
+      });
+    }
+
+    function exportCSV() {
+      const columns = state.columns.filter(column => column.visible && column.key !== "image");
+
+      const rows = [
+        columns.map(column => column.label),
+        ...state.filteredRows.map(row => columns.map(column => {
+          if (column.key === "source") return row.sourceUrl;
+          return row[column.key] || "";
+        }))
+      ];
+
+      const csv = rows.map(row =>
+        row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(",")
+      ).join("\n");
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "pradako-technical-charts.csv";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      URL.revokeObjectURL(url);
+    }
+
+    function renderErrors() {
+      if (!state.loadErrors.length) return;
+
+      $("#errorArea").innerHTML = `
+        <div class="error-box">
+          Some pages could not be fetched or did not contain a readable standards table:<br>
+          ${state.loadErrors.map(item => `• ${escapeHTML(item)}`).join("<br>")}
+          <br><br>
+          The available pages were loaded successfully. Check the listed file names in <strong>STANDARD_PAGE_SOURCES</strong> and confirm that the page is running through a local server or the live website.
+        </div>
+      `;
+    }
+
+    function showLoading(show) {
+      $("#loadingBox").style.display = show ? "grid" : "none";
+
+      const reloadButton = $("#reloadBtn");
+      const reloadIcon = reloadButton.querySelector("i");
+      reloadButton.disabled = show;
+      reloadIcon.classList.toggle("tc-is-spinning", show);
+
+      if (!show) {
+        $("#loadingTitle").textContent = "Technical charts ready";
+        $("#loadingText").textContent = "All available sources have been processed.";
+      }
+    }
+
+    function updateLoadingProgress(completed, total) {
+      const title = $("#loadingTitle");
+      const text = $("#loadingText");
+
+      if (!title || !text) return;
+
+      title.textContent = completed === total
+        ? "Organising standards"
+        : "Loading standards in parallel";
+
+      text.textContent = total
+        ? `${completed} of ${total} linked pages processed...`
+        : "Preparing data sources...";
+    }
+
+    function normalizeAndDedupeByRowId(rows) {
+      const seen = new Set();
+      const result = [];
+
+      rows.forEach((row, index) => {
+        const key = [
+          row.sourceUrl,
+          row.authority,
+          row.givenStandard,
+          row.standardNumber,
+          row.officialTitle,
+          index
+        ].join("|");
+
+        if (seen.has(key)) return;
+        seen.add(key);
+        result.push(row);
+      });
+
+      return result;
+    }
+
+    function duplicateKey(row) {
+      return [
+        normalizeForDuplicate(row.authority),
+        normalizeForDuplicate(row.givenStandard || row.standardNumber)
+      ].join("|");
+    }
+
+    function normalizeForDuplicate(value) {
+      return cleanText(value)
+        .toUpperCase()
+        .replace(/\b(19|20)\d{2}[-:\/]?\d{0,2}\b/g, "")
+        .replace(/[:/.\-\s]+/g, "");
+    }
+
+    function getStandardDisplayLabel(row) {
+      const label = cleanText(
+        row.givenStandard ||
+        row.standardNumber ||
+        row.standardCode ||
+        extractShortStandard(row.officialTitle) ||
+        row.productFamily ||
+        "Standard"
+      );
+
+      return label || "Standard";
+    }
+
+    function getTooltipText(row) {
+      return [
+        row.givenStandard || row.standardNumber,
+        row.officialTitle,
+        row.productFamily
+      ].filter(Boolean).join(" | ");
+    }
+
+    function extractShortStandard(value) {
+      const text = cleanText(value);
+      if (!text) return "";
+
+      const beforeSemicolon = text.split(";")[0];
+      const beforeReplacement = beforeSemicolon.split(/replacement|current|legacy/i)[0];
+      return cleanText(beforeReplacement).slice(0, 80);
+    }
+
+    function cleanText(value) {
+      return String(value || "")
+        .replace(/\s+/g, " ")
+        .replace(/\u00a0/g, " ")
+        .trim();
+    }
+
+    function normalizeHeader(value) {
+      return cleanText(value)
+        .toLowerCase()
+        .replace(/[^\w\s/]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function containsAny(text, keywords) {
+      return keywords.some(keyword => text.includes(keyword));
+    }
+
+    function unique(array) {
+      return Array.from(new Set(array.filter(Boolean)));
+    }
+
+    function groupBy(array, getter) {
+      return array.reduce((acc, item) => {
+        const key = getter(item) || "Other";
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(item);
+        return acc;
+      }, {});
+    }
+
+    function escapeHTML(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHTML(value);
+    }
+  </script>
+
+
+  <!-- ======================================================
+      MAIN JS
+  ======================================================= -->
+  <script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

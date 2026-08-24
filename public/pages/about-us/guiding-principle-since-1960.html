@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>PRADAKO | Guiding Principle Since 1960</title>
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/products.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ==========================================================
+   PRADAKO GUIDING PRINCIPLE SINCE 1960
+   User-friendly Premium UI — clean no decorative objects version
+========================================================== */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --gp-ink:#06172c;
+    --gp-navy:#08213f;
+    --gp-blue:#0a3d62;
+    --gp-blue2:#14598c;
+    --gp-gold:#c59a2d;
+    --gp-gold2:#e4bd63;
+    --gp-softgold:rgba(197,154,45,.12);
+    --gp-paper:#ffffff;
+    --gp-bg:#f5f8fc;
+    --gp-mist:#eef4fa;
+    --gp-line:rgba(8,33,63,.11);
+    --gp-muted:#5f6d7f;
+    --gp-muted2:#7e8b99;
+    --gp-green:#1f8a5b;
+    --gp-shadow-sm:0 10px 24px rgba(6,23,44,.06);
+    --gp-shadow-md:0 22px 55px rgba(6,23,44,.12);
+    --gp-shadow-lg:0 34px 90px rgba(6,23,44,.16);
+    --gp-radius-xl:34px;
+    --gp-radius-lg:26px;
+    --gp-radius-md:18px;
+    --gp-max:1380px;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    width:100%;
+    overflow-x:hidden;
+    color:var(--gp-ink);
+    background:linear-gradient(135deg,#fbfdff 0%,#eff5fb 48%,#f8fafc 100%);
+    font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body::selection{
+    background:var(--gp-gold);
+    color:#fff;
+}
+
+.gp-page{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+}
+
+.gp-page::before{
+    content:none;
+    display:none;
+}
+
+.gp-container{
+    width:min(var(--gp-max),calc(100% - 44px));
+    margin-inline:auto;
+}
+
+/* Loader */
+.gp-loader{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:grid;
+    place-items:center;
+    background:#fff;
+    transition:opacity .55s ease,visibility .55s ease;
+}
+
+.gp-loader.is-hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.gp-loader__card{
+    width:min(340px,86vw);
+    padding:30px 26px;
+    text-align:center;
+    border-radius:30px;
+    border:1px solid rgba(197,154,45,.20);
+    background:linear-gradient(145deg,#fff,#fbfdff);
+    box-shadow:var(--gp-shadow-md);
+}
+
+.gp-loader__card i{
+    color:var(--gp-gold);
+    font-size:30px;
+    margin-bottom:14px;
+}
+
+.gp-loader__card strong{
+    display:block;
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--gp-navy);
+    font-size:1.32rem;
+    letter-spacing:.12em;
+}
+
+.gp-loader__card span{
+    display:block;
+    margin-top:8px;
+    color:var(--gp-gold);
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+/* Hero */
+.gp-hero{
+    position:relative;
+    padding:clamp(4.8rem,7vw,7.5rem) 0 clamp(2.8rem,5vw,4.8rem);
+    background:
+        linear-gradient(rgba(6,23,44,.62), rgba(6,23,44,.62)),
+        url("/assets/images/about-us/guiding-principle-hero.png") center / cover no-repeat !important;
+}
+
+.gp-hero::before,
+.gp-hero::after{
+    content:none;
+    display:none;
+}
+
+.gp-hero__grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
+    gap:clamp(1.4rem,4vw,3.6rem);
+    align-items:stretch;
+}
+
+.gp-hero__copy{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:clamp(1.3rem,3vw,2.7rem);
+    border-radius:var(--gp-radius-xl);
+    border:1px solid rgba(255,255,255,.82);
+    background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.62));
+    box-shadow:var(--gp-shadow-md);
+    backdrop-filter:blur(18px);
+}
+
+.gp-eyebrow{
+    display:inline-flex;
+    width:fit-content;
+    align-items:center;
+    gap:10px;
+    padding:.65rem 1rem;
+    border-radius:999px;
+    border:1px solid rgba(197,154,45,.24);
+    background:rgba(255,250,240,.86);
+    color:var(--gp-gold);
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.19em;
+    text-transform:uppercase;
+    box-shadow:0 12px 26px rgba(197,154,45,.08);
+}
+
+.gp-eyebrow::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--gp-green);
+    box-shadow:0 0 0 7px rgba(31,138,91,.12);
+}
+
+.gp-hero h1{
+    margin-top:1.4rem;
+    max-width:790px;
+    color:var(--gp-navy);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(3.15rem,7vw,7rem);
+    line-height:.93;
+    letter-spacing:-.055em;
+}
+
+.gp-hero h1 span{
+    display:block;
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.gp-hero__lead{
+    max-width:720px;
+    margin-top:1.35rem;
+    color:var(--gp-muted);
+    font-size:clamp(.96rem,1.35vw,1.1rem);
+    line-height:1.9;
+}
+
+.gp-hero__actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.85rem;
+    margin-top:1.8rem;
+}
+
+.gp-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    min-height:48px;
+    padding:.85rem 1.15rem;
+    border-radius:999px;
+    border:1px solid rgba(8,33,63,.12);
+    background:#fff;
+    color:var(--gp-navy);
+    font-family:"Montserrat",sans-serif;
+    font-size:.78rem;
+    font-weight:800;
+    text-decoration:none;
+    cursor:pointer;
+    transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+}
+
+.gp-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--gp-shadow-sm);
+}
+
+.gp-btn--primary{
+    border-color:var(--gp-blue);
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue));
+    color:#fff;
+}
+
+.gp-btn--gold{
+    border-color:var(--gp-gold);
+    background:linear-gradient(135deg,var(--gp-gold),var(--gp-gold2));
+    color:#fff;
+}
+
+.gp-feature-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.7rem;
+    margin-top:1.7rem;
+}
+
+.gp-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+    padding:.7rem .9rem;
+    border-radius:999px;
+    border:1px solid rgba(8,33,63,.08);
+    background:#fff;
+    color:var(--gp-navy);
+    box-shadow:var(--gp-shadow-sm);
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:800;
+}
+
+.gp-pill i{
+    color:var(--gp-gold);
+}
+
+.gp-focus-card{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:610px;
+    padding:clamp(1.15rem,2.4vw,2rem);
+    border-radius:var(--gp-radius-xl);
+    border:1px solid rgba(255,255,255,.86);
+    background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(249,252,255,.86));
+    box-shadow:var(--gp-shadow-lg);
+}
+
+.gp-focus-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:7px;
+    background:linear-gradient(180deg,var(--gp-gold),var(--gp-blue));
+}
+
+.gp-focus-card::after{
+    content:none;
+    display:none;
+}
+
+.gp-focus__top{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    align-items:center;
+}
+
+.gp-badge,
+.gp-progress-label{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    width:fit-content;
+    padding:.55rem .8rem;
+    border-radius:999px;
+    border:1px solid rgba(8,33,63,.09);
+    background:rgba(255,255,255,.86);
+    color:var(--gp-muted);
+    font-family:"Montserrat",sans-serif;
+    font-size:.69rem;
+    font-weight:800;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
+
+.gp-badge{
+    color:var(--gp-gold);
+    border-color:rgba(197,154,45,.22);
+    background:rgba(255,250,240,.82);
+}
+
+.gp-year{
+    position:relative;
+    z-index:1;
+    margin-top:auto;
+    color:transparent;
+    background:linear-gradient(135deg,#a87110 0%,#e4bd63 48%,#b58014 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(5rem,10vw,9.5rem);
+    line-height:.88;
+    font-weight:800;
+    letter-spacing:-.07em;
+}
+
+.gp-focus-title{
+    position:relative;
+    z-index:1;
+    margin-top:1.1rem;
+    color:var(--gp-navy);
+    font-family:"Montserrat",sans-serif;
+    font-size:clamp(1.45rem,2.8vw,2.2rem);
+    line-height:1.06;
+    font-weight:800;
+    letter-spacing:-.04em;
+    text-transform:uppercase;
+}
+
+.gp-focus-subtitle{
+    position:relative;
+    z-index:1;
+    margin-top:.7rem;
+    color:#ad7d17;
+    font-family:"Montserrat",sans-serif;
+    font-size:.88rem;
+    line-height:1.6;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.gp-focus-motto{
+    position:relative;
+    z-index:1;
+    margin-top:1rem;
+    color:var(--gp-muted);
+    font-size:1rem;
+    line-height:1.8;
+}
+
+.gp-tags{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.52rem;
+    margin-top:1.25rem;
+}
+
+.gp-tag{
+    display:inline-flex;
+    align-items:center;
+    width:fit-content;
+    padding:.38rem .68rem;
+    border-radius:999px;
+    border:1px solid rgba(197,154,45,.14);
+    background:rgba(197,154,45,.10);
+    color:#a87a16;
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    font-weight:800;
+}
+
+.gp-focus-controls{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:.65rem;
+    margin-top:auto;
+    padding-top:1.4rem;
+}
+
+.gp-control{
+    min-height:46px;
+    border:1px solid rgba(8,33,63,.10);
+    border-radius:16px;
+    background:#fff;
+    color:var(--gp-navy);
+    cursor:pointer;
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:800;
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease, color .22s ease;
+}
+
+.gp-control:hover{
+    transform:translateY(-2px);
+    border-color:rgba(197,154,45,.38);
+    box-shadow:var(--gp-shadow-sm);
+}
+
+.gp-control.is-primary{
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue));
+    color:#fff;
+}
+
+.gp-progressbar{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:5px;
+    background:rgba(8,33,63,.08);
+    overflow:hidden;
+}
+
+.gp-progressbar span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--gp-blue),var(--gp-gold),var(--gp-gold2));
+    transition:width .25s ease;
+}
+
+/* Stats */
+.gp-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1rem;
+    margin-top:clamp(2rem,4vw,3.6rem);
+}
+
+.gp-stat{
+    position:relative;
+    overflow:hidden;
+    min-height:154px;
+    padding:1.35rem;
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,.86);
+    background:rgba(255,255,255,.82);
+    box-shadow:var(--gp-shadow-sm);
+    transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.gp-stat:hover{
+    transform:translateY(-5px);
+    border-color:rgba(197,154,45,.23);
+    box-shadow:var(--gp-shadow-md);
+}
+
+.gp-stat i{
+    color:var(--gp-gold);
+    font-size:1.15rem;
+}
+
+.gp-stat__number{
+    margin-top:1.15rem;
+    color:var(--gp-gold);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(2.2rem,4vw,3.1rem);
+    line-height:1;
+    font-weight:800;
+}
+
+.gp-stat__label{
+    margin-top:.75rem;
+    color:var(--gp-navy);
+    font-family:"Montserrat",sans-serif;
+    font-size:.70rem;
+    line-height:1.55;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+/* Explorer */
+.gp-explorer{
+    margin-top:clamp(2.4rem,5vw,4.6rem);
+    scroll-margin-top:110px;
+}
+
+.gp-section-title{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:1.5rem;
+    margin-bottom:1.2rem;
+}
+
+.gp-section-title small{
+    display:block;
+    margin-bottom:.45rem;
+    color:var(--gp-gold);
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+.gp-section-title h2{
+    max-width:760px;
+    color:var(--gp-navy);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(2.1rem,4.2vw,3.45rem);
+    line-height:1;
+    letter-spacing:-.04em;
+}
+
+.gp-section-title p{
+    max-width:450px;
+    color:var(--gp-muted);
+    font-size:.93rem;
+    line-height:1.85;
+}
+
+.gp-toolbar{
+    position:sticky;
+    top:12px;
+    z-index:55;
+    padding:1rem;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.86);
+    background:rgba(255,255,255,.82);
+    box-shadow:var(--gp-shadow-md);
+    backdrop-filter:blur(18px);
+}
+
+.gp-toolbar__top{
+    display:grid;
+    grid-template-columns:minmax(280px,1fr) auto;
+    gap:1rem;
+    align-items:center;
+}
+
+.gp-search{
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    min-height:58px;
+    padding:.35rem .4rem .35rem 1rem;
+    border:1px solid rgba(8,33,63,.10);
+    border-radius:999px;
+    background:#fff;
+}
+
+.gp-search i{
+    color:var(--gp-gold);
+}
+
+.gp-search input{
+    flex:1;
+    min-width:0;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--gp-navy);
+    font-family:"Poppins",sans-serif;
+    font-size:.92rem;
+}
+
+.gp-search input::placeholder{
+    color:#98a5b4;
+}
+
+.gp-clear{
+    width:38px;
+    height:38px;
+    flex:0 0 auto;
+    display:grid;
+    place-items:center;
+    border:0;
+    border-radius:50%;
+    background:var(--gp-mist);
+    color:var(--gp-muted);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+}
+
+.gp-clear:hover{
+    background:var(--gp-navy);
+    color:#fff;
+}
+
+.gp-result-counter{
+    flex:0 0 auto;
+    padding:.62rem .95rem;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue));
+    color:#fff;
+    font-family:"Montserrat",sans-serif;
+    font-size:.70rem;
+    font-weight:800;
+    letter-spacing:.05em;
+    white-space:nowrap;
+}
+
+.gp-view-toggle{
+    display:flex;
+    gap:.55rem;
+    justify-content:flex-end;
+}
+
+.gp-view-btn{
+    min-height:46px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.52rem;
+    padding:.72rem 1rem;
+    border:1px solid rgba(8,33,63,.10);
+    border-radius:999px;
+    background:#fff;
+    color:var(--gp-navy);
+    cursor:pointer;
+    font-family:"Montserrat",sans-serif;
+    font-size:.74rem;
+    font-weight:800;
+    transition:transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+}
+
+.gp-view-btn:hover{
+    transform:translateY(-2px);
+    border-color:rgba(197,154,45,.4);
+}
+
+.gp-view-btn.active{
+    color:#fff;
+    border-color:var(--gp-gold);
+    background:linear-gradient(135deg,var(--gp-gold),var(--gp-gold2));
+    box-shadow:0 14px 28px rgba(197,154,45,.18);
+}
+
+.gp-decade-filter{
+    display:flex;
+    gap:.68rem;
+    margin-top:.9rem;
+    padding:.1rem 0 .35rem;
+    overflow-x:auto;
+    scrollbar-width:thin;
+}
+
+.gp-decade-btn{
+    flex:0 0 auto;
+    min-height:42px;
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    padding:.7rem .9rem;
+    border:1px solid rgba(8,33,63,.10);
+    border-radius:999px;
+    background:#fff;
+    color:var(--gp-navy);
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(6,23,44,.04);
+    font-family:"Montserrat",sans-serif;
+    font-size:.70rem;
+    font-weight:800;
+    white-space:nowrap;
+    transition:transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+}
+
+.gp-decade-btn:hover,
+.gp-decade-btn.active{
+    transform:translateY(-2px);
+    color:#fff;
+    border-color:var(--gp-blue);
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue));
+}
+
+.gp-results-note{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    margin:1.1rem 0 0;
+    color:var(--gp-muted);
+    font-size:.88rem;
+    line-height:1.7;
+}
+
+.gp-results-note strong{
+    color:var(--gp-navy);
+}
+
+/* Grid */
+.gp-grid-view{
+    padding:clamp(1.2rem,3vw,2rem) 0 clamp(4.5rem,7vw,7rem);
+}
+
+.gp-decade-block{
+    margin-bottom:clamp(2.5rem,5vw,4.6rem);
+    scroll-margin-top:150px;
+}
+
+.gp-decade-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:1.25rem;
+}
+
+.gp-decade-header h3{
+    position:relative;
+    color:var(--gp-navy);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(1.75rem,3vw,2.55rem);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.04em;
+}
+
+.gp-decade-header h3::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-.55rem;
+    width:96px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--gp-gold),transparent);
+}
+
+.gp-decade-count{
+    padding:.5rem .75rem;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid rgba(8,33,63,.08);
+    color:var(--gp-muted);
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
+
+.gp-card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(1rem,2vw,1.35rem);
+}
+
+.gp-year-card{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:235px;
+    padding:clamp(1.25rem,2.2vw,1.7rem);
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.86);
+    background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,255,255,.82));
+    box-shadow:var(--gp-shadow-sm);
+    cursor:pointer;
+    transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+}
+
+.gp-year-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:4px;
+    background:linear-gradient(180deg,var(--gp-gold),var(--gp-blue));
+    opacity:0;
+    transition:opacity .22s ease;
+}
+
+.gp-year-card::after{
+    content:none;
+    display:none;
+}
+
+.gp-year-card:hover,
+.gp-year-card.is-active{
+    transform:translateY(-7px);
+    border-color:rgba(197,154,45,.28);
+    box-shadow:var(--gp-shadow-md);
+}
+
+.gp-year-card:hover::before,
+.gp-year-card.is-active::before{
+    opacity:1;
+}
+
+.gp-year-card.is-active{
+    background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,250,240,.92));
+}
+
+.gp-card-year{
+    position:relative;
+    z-index:1;
+    color:var(--gp-gold);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:2rem;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.04em;
+}
+
+.gp-card-title{
+    position:relative;
+    z-index:1;
+    margin-top:.85rem;
+    color:var(--gp-navy);
+    font-family:"Montserrat",sans-serif;
+    font-size:clamp(1rem,1.35vw,1.12rem);
+    line-height:1.22;
+    font-weight:800;
+    letter-spacing:-.035em;
+    text-transform:uppercase;
+}
+
+.gp-card-subtitle{
+    position:relative;
+    z-index:1;
+    margin-top:.45rem;
+    color:#ad7d17;
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    line-height:1.55;
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.gp-card-motto{
+    position:relative;
+    z-index:1;
+    margin-top:.9rem;
+    color:var(--gp-muted);
+    font-size:.88rem;
+    line-height:1.75;
+}
+
+.gp-card-footer{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-end;
+    margin-top:auto;
+    padding-top:1rem;
+}
+
+.gp-card-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.42rem;
+}
+
+.gp-view-chip{
+    flex:0 0 auto;
+    color:var(--gp-blue);
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    font-weight:800;
+}
+
+/* Timeline */
+.gp-timeline-view{
+    width:min(1040px,calc(100% - 44px));
+    margin-inline:auto;
+    padding:clamp(1.2rem,3vw,2rem) 0 clamp(4.5rem,7vw,7rem);
+    display:none;
+}
+
+.gp-timeline-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:1.4rem;
+    padding-bottom:1.8rem;
+}
+
+.gp-timeline-item::before{
+    content:"";
+    position:absolute;
+    left:64px;
+    top:42px;
+    bottom:-8px;
+    width:2px;
+    background:linear-gradient(180deg,rgba(197,154,45,.40),rgba(10,61,98,.10));
+}
+
+.gp-timeline-item:last-child::before{
+    display:none;
+}
+
+.gp-timeline-year{
+    position:relative;
+    z-index:1;
+    display:grid;
+    place-items:center;
+    width:130px;
+    height:74px;
+    border-radius:999px;
+    border:1px solid rgba(197,154,45,.22);
+    background:#fff;
+    color:var(--gp-gold);
+    box-shadow:var(--gp-shadow-sm);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.7rem;
+    font-weight:800;
+}
+
+.gp-timeline-card{
+    position:relative;
+    overflow:hidden;
+    padding:1.4rem 1.5rem;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.88);
+    background:rgba(255,255,255,.86);
+    box-shadow:var(--gp-shadow-sm);
+}
+
+.gp-timeline-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:5px;
+    background:linear-gradient(180deg,var(--gp-gold),var(--gp-blue));
+}
+
+.gp-timeline-card h3{
+    color:var(--gp-navy);
+    font-family:"Montserrat",sans-serif;
+    font-size:1.12rem;
+    line-height:1.25;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.gp-timeline-card .gp-timeline-sub{
+    margin-top:.42rem;
+    color:var(--gp-gold);
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.gp-timeline-card p{
+    margin-top:.65rem;
+    color:var(--gp-muted);
+    font-size:.9rem;
+    line-height:1.75;
+}
+
+.gp-empty{
+    margin:1.25rem auto 4rem;
+    padding:2rem;
+    border-radius:28px;
+    background:rgba(255,255,255,.84);
+    border:1px dashed rgba(197,154,45,.42);
+    box-shadow:var(--gp-shadow-sm);
+    color:var(--gp-muted);
+    text-align:center;
+}
+
+.gp-empty strong{
+    display:block;
+    margin-bottom:.45rem;
+    color:var(--gp-navy);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.6rem;
+}
+
+.gp-empty button{
+    margin-top:1rem;
+}
+
+/* Responsive */
+@media (max-width:1180px){
+    .gp-hero__grid{
+        grid-template-columns:1fr;
+    }
+
+    .gp-focus-card{
+        min-height:520px;
+    }
+
+    .gp-card-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .gp-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gp-section-title{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .gp-section-title p{
+        max-width:760px;
+    }
+}
+
+@media (max-width:768px){
+    .gp-container,
+    .gp-timeline-view{
+        width:calc(100% - 28px);
+    }
+
+    .gp-hero{
+        padding:4.2rem 0 2.2rem;
+    }
+
+    .gp-hero__copy,
+    .gp-focus-card{
+        border-radius:28px;
+        padding:1rem;
+    }
+
+    .gp-hero h1{
+        font-size:clamp(2.65rem,16vw,4.5rem);
+    }
+
+    .gp-hero__lead{
+        font-size:.92rem;
+        line-height:1.75;
+    }
+
+    .gp-hero__actions{
+        flex-direction:column;
+    }
+
+    .gp-btn{
+        width:100%;
+    }
+
+    .gp-feature-pills{
+        gap:.5rem;
+    }
+
+    .gp-pill{
+        padding:.62rem .78rem;
+        font-size:.68rem;
+    }
+
+    .gp-focus-card{
+        min-height:500px;
+    }
+
+    .gp-year{
+        font-size:clamp(4.6rem,23vw,7rem);
+    }
+
+    .gp-focus-title{
+        font-size:1.38rem;
+    }
+
+    .gp-focus-controls{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gp-stats{
+        grid-template-columns:1fr;
+        gap:.8rem;
+    }
+
+    .gp-stat{
+        min-height:128px;
+    }
+
+    .gp-toolbar{
+        position:relative;
+        top:auto;
+        border-radius:24px;
+        padding:.85rem;
+    }
+
+    .gp-toolbar__top{
+        grid-template-columns:1fr;
+    }
+
+    .gp-search{
+        flex-wrap:wrap;
+        align-items:stretch;
+        min-height:auto;
+        border-radius:22px;
+        padding:.85rem;
+    }
+
+    .gp-search input{
+        flex-basis:calc(100% - 92px);
+        font-size:.88rem;
+    }
+
+    .gp-result-counter{
+        width:100%;
+        text-align:center;
+    }
+
+    .gp-view-toggle{
+        flex-direction:column;
+    }
+
+    .gp-view-btn{
+        width:100%;
+    }
+
+    .gp-results-note{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .gp-card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gp-decade-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .gp-year-card{
+        min-height:215px;
+        border-radius:24px;
+    }
+
+    .gp-timeline-item{
+        grid-template-columns:1fr;
+        gap:.8rem;
+        padding-left:.8rem;
+    }
+
+    .gp-timeline-item::before{
+        left:22px;
+        top:68px;
+    }
+
+    .gp-timeline-year{
+        width:112px;
+        height:58px;
+        font-size:1.42rem;
+    }
+
+}
+
+@media (max-width:420px){
+    .gp-eyebrow{
+        font-size:.62rem;
+        letter-spacing:.14em;
+        padding:.55rem .78rem;
+    }
+
+    .gp-hero h1{
+        font-size:2.55rem;
+    }
+
+    .gp-focus-card{
+        min-height:460px;
+    }
+
+    .gp-year{
+        font-size:4.55rem;
+    }
+
+    .gp-section-title h2{
+        font-size:2.05rem;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        animation-duration:.001ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.001ms!important;
+        scroll-behavior:auto!important;
+    }
+}
+
+/* ==========================================================
+   USER-FRIENDLY REFINEMENT
+   - One play/pause button only
+   - Lighter font weight
+   - Reduced text density
+   - FontAwesome icon micro animations
+========================================================== */
+:root{
+    --gp-font-body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --gp-font-heading:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+.gp-page,
+.gp-page button,
+.gp-page input{
+    font-family:var(--gp-font-body);
+    font-weight:400;
+}
+
+.gp-eyebrow,
+.gp-badge,
+.gp-progress-label,
+.gp-pill,
+.gp-result-counter,
+.gp-decade-btn,
+.gp-view-btn,
+.gp-tag,
+.gp-view-chip{
+    font-weight:500!important;
+}
+
+.gp-hero h1{
+    font-family:var(--gp-font-heading);
+    font-weight:600!important;
+    letter-spacing:-.055em;
+    line-height:.96;
+}
+
+.gp-hero h1 span{
+    font-weight:600!important;
+}
+
+.gp-hero__lead{
+    max-width:560px;
+    font-size:clamp(.95rem,1.2vw,1.08rem)!important;
+    line-height:1.7!important;
+    font-weight:300!important;
+    color:rgba(11,30,50,.74)!important;
+}
+
+.gp-btn,
+.gp-control,
+.gp-view-btn,
+.gp-decade-btn{
+    font-weight:500!important;
+}
+
+.gp-focus-title{
+    font-weight:600!important;
+    letter-spacing:-.025em!important;
+}
+
+.gp-focus-subtitle,
+.gp-focus-motto{
+    font-weight:400!important;
+}
+
+.gp-focus-motto{
+    max-width:460px;
+    margin-left:auto;
+    margin-right:auto;
+    color:rgba(88,101,117,.86)!important;
+}
+
+.gp-single-play{
+    position:relative;
+    overflow:hidden;
+}
+
+.gp-single-play::after{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background:radial-gradient(circle,rgba(255,255,255,.34),transparent 58%);
+    transform:scale(0);
+    opacity:0;
+    transition:.38s ease;
+}
+
+.gp-single-play:hover::after{
+    transform:scale(1);
+    opacity:1;
+}
+
+.gp-single-play.is-playing i{
+    animation:gpIconPulse 1.15s ease-in-out infinite;
+}
+
+.gp-control i,
+.gp-btn i,
+.gp-pill i,
+.gp-view-btn i,
+.gp-decade-btn i,
+.gp-stat i,
+.gp-card-icon i,
+.gp-timeline-heading i{
+    transition:transform .28s ease, color .28s ease, opacity .28s ease;
+}
+
+.gp-control:hover i,
+.gp-btn:hover i,
+.gp-view-btn:hover i,
+.gp-decade-btn:hover i{
+    transform:translateY(-1px) scale(1.08);
+}
+
+.gp-pill:hover i{
+    transform:rotate(-8deg) scale(1.12);
+}
+
+.gp-card-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1rem;
+    margin-bottom:.9rem;
+}
+
+.gp-card-icon{
+    width:42px;
+    height:42px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,rgba(197,160,59,.14),rgba(30,79,138,.08));
+    color:#c79a22;
+    border:1px solid rgba(197,160,59,.18);
+    flex:0 0 auto;
+}
+
+.gp-year-card{
+    padding:1.45rem!important;
+    min-height:auto!important;
+}
+
+.gp-year-card:hover .gp-card-icon i,
+.gp-year-card.is-active .gp-card-icon i{
+    transform:rotate(-10deg) scale(1.16);
+    animation:gpIconFloat 1.4s ease-in-out infinite;
+}
+
+.gp-card-year{
+    font-size:1.55rem!important;
+    font-weight:600!important;
+}
+
+.gp-card-title{
+    font-size:1rem!important;
+    line-height:1.32!important;
+    font-weight:600!important;
+    letter-spacing:-.018em!important;
+    margin:.15rem 0 .45rem!important;
+}
+
+.gp-card-subtitle{
+    font-size:.72rem!important;
+    letter-spacing:.12em!important;
+    line-height:1.5!important;
+    font-weight:500!important;
+}
+
+.gp-card-motto{
+    display:none!important;
+}
+
+.gp-card-footer{
+    margin-top:1rem!important;
+    align-items:center!important;
+}
+
+.gp-card-tags{
+    gap:.38rem!important;
+}
+
+.gp-tag{
+    font-size:.66rem!important;
+    padding:.27rem .58rem!important;
+}
+
+.gp-view-chip{
+    width:34px;
+    height:34px;
+    border-radius:999px;
+    display:grid!important;
+    place-items:center;
+    padding:0!important;
+    font-size:.72rem!important;
+}
+
+.gp-year-card:hover .gp-view-chip i{
+    transform:translate(2px,-2px);
+}
+
+.gp-section-title h2,
+.gp-decade-header h3{
+    font-weight:600!important;
+    letter-spacing:-.035em!important;
+}
+
+.gp-section-title p,
+.gp-results-note{
+    font-weight:300!important;
+    color:rgba(88,101,117,.82)!important;
+}
+
+.gp-stat{
+    padding:1.65rem!important;
+}
+
+.gp-stat i{
+    animation:gpIconFloat 2.8s ease-in-out infinite;
+}
+
+.gp-stat__number{
+    font-weight:600!important;
+}
+
+.gp-stat__label{
+    font-weight:500!important;
+    letter-spacing:.1em!important;
+}
+
+.gp-timeline-heading{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+}
+
+.gp-timeline-heading i{
+    width:36px;
+    height:36px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(197,160,59,.1);
+    color:#c79a22;
+    flex:0 0 auto;
+}
+
+.gp-timeline-card:hover .gp-timeline-heading i{
+    transform:rotate(-8deg) scale(1.1);
+}
+
+.gp-timeline-card h3{
+    font-weight:600!important;
+}
+
+@keyframes gpIconPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.16);}
+}
+
+@keyframes gpIconFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-3px);}
+}
+
+@media(max-width:768px){
+    .gp-hero__lead{
+        max-width:100%;
+    }
+    .gp-focus-controls{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    }
+    .gp-control{
+        min-height:46px;
+    }
+    .gp-year-card{
+        padding:1.25rem!important;
+    }
+}
+
+/* ==========================================================
+   FINAL CLEAN USER-FRIENDLY FIX
+   - Removed hero info pills
+   - Improved icon/text spacing
+   - Lively green manufacturing dot
+========================================================== */
+.gp-feature-pills{
+    display:none!important;
+}
+
+.gp-eyebrow{
+    position:relative!important;
+    overflow:visible!important;
+    gap:14px!important;
+    padding:.68rem 1.05rem .68rem .72rem!important;
+}
+
+.gp-eyebrow::before{
+    flex:0 0 auto;
+    width:11px!important;
+    height:11px!important;
+    background:var(--gp-gold)!important;
+    box-shadow:0 0 0 0 #8a731f6b!important;
+    animation:gpLiveDot 1.55s ease-out infinite;
+}
+
+.gp-eyebrow::after{
+    content:"";
+    position:absolute;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#7f8a1f2e;
+    left:.72rem;
+    animation:gpLiveDotHalo 1.55s ease-out infinite;
+    pointer-events:none;
+}
+
+.gp-btn,
+.gp-control,
+.gp-view-btn,
+.gp-decade-btn,
+.gp-pill,
+.gp-badge,
+.gp-progress-label,
+.gp-result-counter,
+.gp-clear{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:.68rem!important;
+}
+
+.gp-control{
+    gap:.62rem!important;
+    padding-inline:1rem!important;
+}
+
+.gp-control span,
+.gp-btn span,
+.gp-view-btn span,
+.gp-decade-btn span{
+    display:inline-block;
+}
+
+.gp-focus-controls{
+    gap:.8rem!important;
+}
+
+.gp-search{
+    gap:.9rem!important;
+}
+
+.gp-card-head{
+    gap:1.1rem!important;
+}
+
+@keyframes gpLiveDot{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(31,138,91,.42), 0 0 0 7px rgba(31,138,91,.10);
+    }
+    50%{
+        transform:scale(1.14);
+        box-shadow:0 0 0 8px rgba(31,138,91,.14), 0 0 18px rgba(31,138,91,.35);
+    }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 0 16px rgba(31,138,91,0), 0 0 0 7px rgba(31,138,91,.08);
+    }
+}
+
+@keyframes gpLiveDotHalo{
+    0%{
+        transform:scale(.7);
+        opacity:.72;
+    }
+    70%{
+        transform:scale(2.7);
+        opacity:0;
+    }
+    100%{
+        transform:scale(2.7);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+    .gp-focus-controls{
+        gap:.65rem!important;
+    }
+    .gp-control{
+        gap:.5rem!important;
+        padding-inline:.8rem!important;
+    }
+    .gp-eyebrow{
+        gap:12px!important;
+    }
+}
+
+
+
+/* ==========================================================
+   FINAL RESPONSIVE FIX — HERO LEFT CARD + BUTTON FIT
+   Keeps the same UI, only improves small-screen containment.
+========================================================== */
+.gp-hero__copy{
+    overflow:hidden;
+}
+
+.gp-hero__actions{
+    width:100%;
+}
+
+.gp-hero__actions .gp-btn{
+    max-width:100%;
+    white-space:normal;
+    text-align:center;
+}
+
+@media (max-width:1180px){
+    .gp-hero__copy{
+        min-height:auto;
+    }
+}
+
+@media (max-width:768px){
+    .gp-hero__copy{
+        padding:clamp(1.15rem,5vw,1.65rem)!important;
+        border-radius:26px!important;
+    }
+
+    .gp-hero h1{
+        font-size:clamp(2.25rem,12.2vw,4rem)!important;
+        line-height:1.02!important;
+        letter-spacing:-.045em!important;
+        max-width:100%!important;
+    }
+
+    .gp-hero__lead{
+        margin-top:1rem!important;
+        font-size:.88rem!important;
+        line-height:1.65!important;
+    }
+
+    .gp-hero__actions{
+        margin-top:1.35rem!important;
+        padding-bottom:.15rem!important;
+    }
+
+    .gp-hero__actions .gp-btn{
+        width:100%!important;
+        min-height:48px!important;
+        padding:.85rem 1rem!important;
+        border-radius:18px!important;
+        gap:.55rem!important;
+        line-height:1.25!important;
+    }
+}
+
+@media (max-width:520px){
+    .gp-hero__copy{
+        padding:1.05rem!important;
+        border-radius:24px!important;
+    }
+
+    .gp-hero h1{
+        font-size:clamp(2.05rem,12vw,3.15rem)!important;
+        line-height:1.04!important;
+    }
+
+    .gp-eyebrow{
+        max-width:100%!important;
+        font-size:.58rem!important;
+        line-height:1.35!important;
+        letter-spacing:.12em!important;
+    }
+
+    .gp-hero__lead{
+        font-size:.84rem!important;
+    }
+
+    .gp-hero__actions .gp-btn{
+        min-height:46px!important;
+        font-size:.76rem!important;
+        border-radius:16px!important;
+    }
+}
+
+@media (max-width:380px){
+    .gp-hero h1{
+        font-size:2rem!important;
+        letter-spacing:-.035em!important;
+    }
+
+    .gp-hero__lead{
+        font-size:.8rem!important;
+    }
+
+    .gp-hero__actions .gp-btn{
+        font-size:.72rem!important;
+        padding:.78rem .85rem!important;
+    }
+}
+
+
+
+/* ==========================================================
+   FINAL HERO UPDATE
+   - Removed left intro card from HTML
+   - Focus card now uses full hero width
+   - Timeline starts automatically; Play/Pause button remains active
+========================================================== */
+.gp-hero{
+    min-height:auto!important;
+}
+
+.gp-hero__grid{
+    grid-template-columns:1fr!important;
+    align-items:center!important;
+}
+
+.gp-focus-card{
+    width:100%!important;
+    max-width:100%!important;
+    min-height:min(650px,calc(100vh - 180px))!important;
+    padding:clamp(1.25rem,3vw,3rem)!important;
+}
+
+.gp-focus-card::before{
+    width:8px!important;
+}
+
+.gp-focus__top{
+    margin-bottom:clamp(1rem,2vw,2rem);
+}
+
+.gp-year,
+.gp-focus-title,
+.gp-focus-subtitle,
+.gp-focus-motto,
+.gp-tags{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.gp-year{
+    margin-top:auto!important;
+    font-size:clamp(5.8rem,14vw,13rem)!important;
+}
+
+.gp-focus-title{
+    max-width:980px;
+    font-size:clamp(1.65rem,3.2vw,3.1rem)!important;
+}
+
+.gp-focus-subtitle{
+    max-width:760px;
+}
+
+.gp-focus-motto{
+    max-width:760px!important;
+}
+
+.gp-tags{
+    justify-content:center;
+}
+
+.gp-focus-controls{
+    width:min(940px,100%);
+    margin-left:auto!important;
+    margin-right:auto!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+
+@media (max-width:768px){
+    .gp-hero{
+        padding:3.6rem 0 2.2rem!important;
+    }
+
+    .gp-focus-card{
+        min-height:560px!important;
+        border-radius:28px!important;
+        padding:1.15rem!important;
+    }
+
+    .gp-year{
+        font-size:clamp(4.2rem,22vw,7rem)!important;
+    }
+
+    .gp-focus-title{
+        font-size:clamp(1.25rem,6vw,1.85rem)!important;
+        line-height:1.12!important;
+    }
+
+    .gp-focus-controls{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:.65rem!important;
+    }
+}
+
+@media (max-width:420px){
+    .gp-focus-card{
+        min-height:520px!important;
+        border-radius:24px!important;
+    }
+
+    .gp-year{
+        font-size:4.4rem!important;
+    }
+
+    .gp-focus-title{
+        font-size:1.22rem!important;
+    }
+
+    .gp-focus-motto{
+        font-size:.9rem!important;
+    }
+}
+
+
+
+/* ==========================================================
+   SIMPLE HERO UPDATE
+   - Removed visible focus card styling
+   - Timeline appears directly on hero section
+   - Autoplay remains active with same Play/Pause button
+========================================================== */
+.gp-hero{
+    min-height:calc(100vh - 72px)!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:clamp(4.2rem,7vw,7rem) 0 clamp(3rem,5vw,5rem)!important;
+    background:
+        linear-gradient(135deg,rgba(6,23,44,.78),rgba(6,23,44,.58)),
+        url("/assets/images/about-us/guiding-principle-hero.png") center / cover no-repeat!important;
+}
+
+.gp-hero__grid{
+    width:min(1320px,calc(100% - 44px))!important;
+    display:block!important;
+    margin-inline:auto!important;
+}
+
+.gp-focus-card{
+    width:100%!important;
+    max-width:100%!important;
+    min-height:auto!important;
+    overflow:visible!important;
+    padding:clamp(1rem,3vw,2rem)!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+}
+
+.gp-focus-card::before,
+.gp-focus-card::after{
+    content:none!important;
+    display:none!important;
+}
+
+.gp-focus__top{
+    width:min(1080px,100%)!important;
+    margin:0 auto clamp(2rem,5vw,4.5rem)!important;
+}
+
+.gp-badge,
+.gp-progress-label{
+    border-color:rgba(255,255,255,.22)!important;
+    background:rgba(255,255,255,.12)!important;
+    color:rgba(255,255,255,.86)!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.08)!important;
+    backdrop-filter:blur(14px)!important;
+}
+
+.gp-badge{
+    color:#f0c76b!important;
+}
+
+.gp-year{
+    margin-top:0!important;
+    color:transparent!important;
+    background:linear-gradient(135deg,#f0c76b 0%,#fff1bf 50%,#c8951d 100%)!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    text-shadow:none!important;
+    font-size:clamp(6.4rem,15vw,14rem)!important;
+}
+
+.gp-focus-title{
+    max-width:1120px!important;
+    color:#ffffff!important;
+    font-size:clamp(1.9rem,4vw,4.2rem)!important;
+    line-height:1.02!important;
+    text-shadow:0 18px 46px rgba(0,0,0,.18)!important;
+}
+
+.gp-focus-subtitle{
+    margin-top:.95rem!important;
+    color:#e8bd5f!important;
+    letter-spacing:.22em!important;
+}
+
+.gp-focus-motto{
+    max-width:720px!important;
+    color:rgba(255,255,255,.78)!important;
+    font-size:clamp(.95rem,1.3vw,1.15rem)!important;
+}
+
+.gp-tags{
+    justify-content:center!important;
+    margin-top:1.15rem!important;
+}
+
+.gp-tag{
+    border-color:rgba(197,154,45,.34)!important;
+    background:rgba(197,154,45,.16)!important;
+    color:#7a520c!important;
+    text-shadow:none!important;
+    backdrop-filter:blur(12px)!important;
+    font-weight:600!important;
+}
+
+.gp-focus-controls{
+    width:min(860px,100%)!important;
+    margin:clamp(2.2rem,5vw,4rem) auto 0!important;
+    padding-top:0!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+
+.gp-control{
+    min-height:52px!important;
+    border-color:rgba(255,255,255,.20)!important;
+    background:rgba(255,255,255,.92)!important;
+    color:var(--gp-navy)!important;
+    box-shadow:0 14px 34px rgba(0,0,0,.10)!important;
+}
+
+.gp-control:hover{
+    border-color:rgba(232,189,95,.55)!important;
+    background:#ffffff!important;
+    box-shadow:0 20px 42px rgba(0,0,0,.16)!important;
+}
+
+.gp-control.is-primary{
+    border-color:rgba(255,255,255,.28)!important;
+    background:linear-gradient(135deg,var(--gp-navy),var(--gp-blue))!important;
+    color:#ffffff!important;
+}
+
+.gp-progressbar{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:min(860px,100%)!important;
+    height:4px!important;
+    margin:1.45rem auto 0!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.20)!important;
+}
+
+.gp-progressbar span{
+    border-radius:999px!important;
+    background:linear-gradient(90deg,#ffffff,#e8bd5f,#0a7eb8)!important;
+}
+
+@media (max-width:768px){
+    .gp-hero{
+        min-height:auto!important;
+        padding:3.4rem 0 3rem!important;
+    }
+
+    .gp-hero__grid{
+        width:calc(100% - 28px)!important;
+    }
+
+    .gp-focus-card{
+        padding:.4rem!important;
+    }
+
+    .gp-focus__top{
+        margin-bottom:2.2rem!important;
+    }
+
+    .gp-year{
+        font-size:clamp(4.7rem,24vw,7.2rem)!important;
+    }
+
+    .gp-focus-title{
+        font-size:clamp(1.35rem,7vw,2.2rem)!important;
+        line-height:1.12!important;
+    }
+
+    .gp-focus-subtitle{
+        font-size:.72rem!important;
+        letter-spacing:.16em!important;
+    }
+
+    .gp-focus-controls{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:.7rem!important;
+        margin-top:2rem!important;
+    }
+
+    .gp-control{
+        min-height:48px!important;
+        border-radius:16px!important;
+    }
+}
+
+@media (max-width:420px){
+    .gp-year{
+        font-size:4.3rem!important;
+    }
+
+    .gp-focus-title{
+        font-size:1.28rem!important;
+    }
+
+    .gp-badge,
+    .gp-progress-label{
+        font-size:.62rem!important;
+        padding:.48rem .66rem!important;
+    }
+}
+
+
+
+/* ==========================================================
+   FINAL TAG READABILITY FIX
+   Keeps grid-card tags readable on white cards
+   Makes hero tags readable on dark/blue background
+========================================================== */
+.gp-hero .gp-tags .gp-tag,
+.gp-focus-card .gp-tags .gp-tag{
+    color:#ffffff!important;
+    background:rgba(8,33,63,.52)!important;
+    border-color:rgba(228,189,99,.72)!important;
+    text-shadow:0 1px 2px rgba(0,0,0,.28)!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.10)!important;
+}
+
+.gp-hero .gp-tags .gp-tag:hover,
+.gp-focus-card .gp-tags .gp-tag:hover{
+    color:#ffffff!important;
+    background:rgba(197,154,45,.92)!important;
+    border-color:rgba(255,255,255,.55)!important;
+    transform:translateY(-1px);
+}
+
+.gp-year-card .gp-tag,
+.gp-timeline-card .gp-tag{
+    color:#8a5d0f!important;
+    background:rgba(197,154,45,.12)!important;
+    border-color:rgba(197,154,45,.28)!important;
+    text-shadow:none!important;
+}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="PRADAKO | Guiding Principle Since 1960 from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support sin.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/guiding-principle-since-1960.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PRADAKO | Guiding Principle Since 1960">
+    <meta property="og:description" content="PRADAKO | Guiding Principle Since 1960 from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support sin.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/guiding-principle-since-1960.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PRADAKO | Guiding Principle Since 1960">
+    <meta name="twitter:description" content="PRADAKO | Guiding Principle Since 1960 from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support sin.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PRADAKO | Guiding Principle Since 1960",
+  "url": "https://www.pradako.co/pages/about-us/guiding-principle-since-1960.html",
+  "description": "PRADAKO | Guiding Principle Since 1960 from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support sin.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+<div class="gp-loader" id="gpLoader" aria-hidden="true">
+    <div class="gp-loader__card">
+        <i class="fa-solid fa-gem"></i>
+        <strong>PRADAKO</strong>
+        <span>Guiding Principles Since 1960</span>
+    </div>
+</div>
+
+<!-- NAVIGATION BAR - MEGA DROPDOWN MENU -->
+<div id="navbar-container"></div>
+
+<main class="gp-page">
+    <section class="gp-hero" aria-label="Pradako guiding principles hero">
+        <div class="gp-container gp-hero__grid">
+            <article class="gp-focus-card" aria-live="polite">
+                <div class="gp-focus__top">
+                    <span class="gp-badge" id="decadeBadge">1960s</span>
+                    <span class="gp-progress-label" id="progressLabel">1 / 66</span>
+                </div>
+
+                <div class="gp-year" id="yearDisplay">1960</div>
+                <h2 class="gp-focus-title" id="titleDisplay">FORGING THE FUTURE</h2>
+                <div class="gp-focus-subtitle" id="subtitleDisplay">One Fastener at a Time</div>
+                <p class="gp-focus-motto" id="mottoDisplay">Precision · Purpose · Beginnings</p>
+                <div class="gp-tags" id="tagsContainer"></div>
+
+                <div class="gp-focus-controls" aria-label="Timeline controls">
+                    <button class="gp-control" id="prevBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Prev</span></button>
+                    <button class="gp-control is-primary gp-single-play" id="playPauseBtn" type="button" aria-label="Play or pause timeline"><i class="fa-solid fa-play"></i><span>Play</span></button>
+                    <button class="gp-control" id="nextBtn" type="button"><span>Next</span><i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="gp-control" id="resetBtn" type="button"><i class="fa-solid fa-rotate-left"></i><span>Reset</span></button>
+                </div>
+
+                <div class="gp-progressbar" aria-hidden="true"><span id="progressBar"></span></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="gp-container gp-stats" aria-label="Pradako achievement statistics">
+        <article class="gp-stat">
+            <i class="fa-solid fa-industry"></i>
+            <div class="gp-stat__number" id="stat1">0</div>
+            <div class="gp-stat__label">Fasteners Delivered (Billion)</div>
+        </article>
+        <article class="gp-stat">
+            <i class="fa-solid fa-handshake"></i>
+            <div class="gp-stat__number" id="stat2">0</div>
+            <div class="gp-stat__label">Global Partners</div>
+        </article>
+        <article class="gp-stat">
+            <i class="fa-solid fa-earth-asia"></i>
+            <div class="gp-stat__number" id="stat3">0</div>
+            <div class="gp-stat__label">Countries Served</div>
+        </article>
+        <article class="gp-stat">
+            <i class="fa-solid fa-certificate"></i>
+            <div class="gp-stat__number" id="stat4">0</div>
+            <div class="gp-stat__label">Industry Certifications</div>
+        </article>
+    </section>
+
+    <section class="gp-container gp-explorer" id="principleExplorer" aria-label="Guiding principles explorer">
+        <div class="gp-section-title">
+            <div>
+                <small>Principles Through Time</small>
+                <h2>Explore by year.</h2>
+            </div>
+            <p>
+                Search, filter by decade, or switch views without scrolling through heavy content.
+            </p>
+        </div>
+
+        <div class="gp-toolbar">
+            <div class="gp-toolbar__top">
+                <div class="gp-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="text" id="searchInput" placeholder="Search year, title, motto, tag... e.g. 1995, quality, resilience" aria-label="Search timeline">
+                    <button class="gp-clear" id="clearSearchBtn" type="button" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="gp-result-counter" id="resultCounter">Showing 66 of 66</div>
+                </div>
+
+                <div class="gp-view-toggle" aria-label="View toggle">
+                    <button class="gp-view-btn active" type="button" data-view="grid"><i class="fa-solid fa-grip"></i> Grid</button>
+                    <button class="gp-view-btn" type="button" data-view="timeline"><i class="fa-solid fa-timeline"></i> Timeline</button>
+                </div>
+            </div>
+
+            <div class="gp-decade-filter" id="decadeFilter" aria-label="Decade filter"></div>
+        </div>
+
+        <div class="gp-results-note" id="resultsNote">
+            <span><strong>Tip:</strong> Click any card to preview it above.</span>
+            <span id="activeFilterLabel">All decades selected</span>
+        </div>
+    </section>
+
+    <section id="gridView" class="gp-container gp-grid-view" aria-label="Decade grid view"></section>
+    <section id="timelineView" class="gp-timeline-view" aria-label="Continuous timeline view"></section>
+
+</main>
+
+<!-- FOOTER SECTION -->
+<div id="footer-container"></div>
+
+    <script src="/assets/js/pradako-global-animations.js"></script>
+
+<script>
+const milestones = [
+    { year: 1960, title: "FORGING THE FUTURE", subtitle: "One Fastener at a Time", motto: "Precision · Purpose · Beginnings", tags: ["Precision", "Purpose", "Beginnings"], decade: "1960s" },
+    { year: 1961, title: "THE STRENGTH BEHIND", subtitle: "Every Structure", motto: "Reliability · Load · Trust", tags: ["Reliability", "Load", "Trust"], decade: "1960s" },
+    { year: 1962, title: "BUILDING TRUST", subtitle: "Through Every Thread", motto: "Integrity · Consistency · Assurance", tags: ["Integrity", "Consistency"], decade: "1960s" },
+    { year: 1963, title: "SHAPING INDUSTRY", subtitle: "Securing Tomorrow", motto: "Vision · Responsibility · Growth", tags: ["Vision", "Growth"], decade: "1960s" },
+    { year: 1964, title: "CRAFTED WITH PRECISION", subtitle: "Built to Endure", motto: "Accuracy · Longevity · Discipline", tags: ["Precision", "Longevity"], decade: "1960s" },
+    { year: 1965, title: "HOLDING THE WORLD TOGETHER", subtitle: "With Excellence", motto: "Global Thinking · Quality · Unity", tags: ["Global", "Quality"], decade: "1960s" },
+    { year: 1966, title: "INNOVATION THAT CONNECTS", subtitle: "Generations", motto: "Continuity · Evolution · Learning", tags: ["Innovation", "Continuity"], decade: "1960s" },
+    { year: 1967, title: "AT THE CORE OF", subtitle: "Every Great Build", motto: "Fundamentals · Engineering · Strength", tags: ["Engineering", "Strength"], decade: "1960s" },
+    { year: 1968, title: "STRENGTH IN DESIGN", subtitle: "Trust in Performance", motto: "Validation · Testing · Confidence", tags: ["Design", "Trust"], decade: "1960s" },
+    { year: 1969, title: "FASTENING THE FUTURE", subtitle: "Of Engineering", motto: "Progress · Technology · Direction", tags: ["Future", "Technology"], decade: "1960s" },
+    { year: 1970, title: "ANCHORING PROGRESS", subtitle: "With Innovation", motto: "Stability · Advancement · R&D", tags: ["Innovation", "R&D"], decade: "1970s" },
+    { year: 1971, title: "SOLUTIONS THAT SECURE", subtitle: "A Growing World", motto: "Scale · Safety · Capability", tags: ["Scale", "Safety"], decade: "1970s" },
+    { year: 1972, title: "DRIVEN BY PRECISION", subtitle: "Trusted by Industry", motto: "Consistency · Acceptance · OEM Trust", tags: ["Precision", "Industry"], decade: "1970s" },
+    { year: 1973, title: "ENGINEERING EXCELLENCE", subtitle: "One Fastener at a Time", motto: "Detail · Process · Discipline", tags: ["Excellence"], decade: "1970s" },
+    { year: 1974, title: "STRENGTHENING CONNECTIONS", subtitle: "Strengthening Bonds", motto: "Relationships · Reliability · Continuity", tags: ["Connections"], decade: "1970s" },
+    { year: 1975, title: "BUILT TO LAST", subtitle: "Engineered for Tomorrow", motto: "Durability · Foresight · Design Life", tags: ["Durability"], decade: "1970s" },
+    { year: 1976, title: "INNOVATION FORGED", subtitle: "In Every Fastener", motto: "Process Control · Improvement · Skill", tags: ["Innovation"], decade: "1970s" },
+    { year: 1977, title: "WHERE CRAFTSMANSHIP MEETS", subtitle: "Durability", motto: "Human Skill · Robustness · Finish", tags: ["Craftsmanship"], decade: "1970s" },
+    { year: 1978, title: "DRIVING PROGRESS", subtitle: "With Every Turn", motto: "Motion · Performance · Application", tags: ["Progress"], decade: "1970s" },
+    { year: 1979, title: "TRUSTED BY INDUSTRY", subtitle: "Proven by Time", motto: "Track Record · Legacy · Proof", tags: ["Trust", "Legacy"], decade: "1970s" },
+    { year: 1980, title: "THE BACKBONE OF", subtitle: "Global Engineering", motto: "Infrastructure · Scale · Dependability", tags: ["Global"], decade: "1980s" },
+    { year: 1981, title: "WHERE PRECISION MEETS", subtitle: "Strength", motto: "Balance · Engineering Accuracy · Load", tags: ["Precision"], decade: "1980s" },
+    { year: 1982, title: "BUILDING THE WORLD", subtitle: "One Connection at a Time", motto: "Systems · Integration · Reliability", tags: ["Reliability"], decade: "1980s" },
+    { year: 1983, title: "STRENGTH THAT PAVES", subtitle: "The Way Forward", motto: "Momentum · Development · Direction", tags: ["Strength"], decade: "1980s" },
+    { year: 1984, title: "A WORLD HELD TOGETHER", subtitle: "By Innovation", motto: "Ideas · Engineering · Unity", tags: ["Innovation"], decade: "1980s" },
+    { year: 1985, title: "THE THREAD THAT CONNECTS", subtitle: "Industries", motto: "Interoperability · Standards · Reach", tags: ["Standards"], decade: "1980s" },
+    { year: 1986, title: "QUALITY YOU CAN FEEL", subtitle: "Strength You Can Trust", motto: "Assurance · Tactile Quality · Confidence", tags: ["Quality"], decade: "1980s" },
+    { year: 1987, title: "FASTENERS THAT SHAPE", subtitle: "The World", motto: "Impact · Infrastructure · Scale", tags: ["Scale"], decade: "1980s" },
+    { year: 1988, title: "PRECISION IN MOTION", subtitle: "Strength in Every Bolt", motto: "Dynamics · Load Paths · Accuracy", tags: ["Motion"], decade: "1980s" },
+    { year: 1989, title: "THE FOUNDATION OF", subtitle: "Every Great Project", motto: "Base Engineering · Reliability · Start", tags: ["Foundation"], decade: "1980s" },
+    { year: 1990, title: "HOLDING TOGETHER INNOVATION", subtitle: "Securing Progress", motto: "Change · Control · Advancement", tags: ["Innovation"], decade: "1990s" },
+    { year: 1991, title: "FORGING PARTNERSHIPS", subtitle: "One Fastener at a Time", motto: "Collaboration · Trust · Long Term", tags: ["Partnerships"], decade: "1990s" },
+    { year: 1992, title: "CRAFTING CONNECTIONS", subtitle: "That Inspire Confidence", motto: "Assurance · Design Intent · Reliability", tags: ["Confidence"], decade: "1990s" },
+    { year: 1993, title: "WHERE INNOVATION LOCKS IN", subtitle: "Reliability", motto: "Process Lock · Validation · Control", tags: ["Reliability"], decade: "1990s" },
+    { year: 1994, title: "FASTENERS FOR EVERY VISION", subtitle: "Strength for Every Future", motto: "Customization · Growth · Support", tags: ["Vision"], decade: "1990s" },
+    { year: 1995, title: "FORGING STRENGTH", subtitle: "Securing Excellence", motto: "Quality Systems · Discipline · Results", tags: ["Excellence", "Quality"], decade: "1990s" },
+    { year: 1996, title: "FASTENERS THAT KEEP", subtitle: "The World Moving", motto: "Motion · Supply Chains · Continuity", tags: ["Motion"], decade: "1990s" },
+    { year: 1997, title: "ENGINEERING QUALITY INTO", subtitle: "Every Connection", motto: "Standards · PPAP Mindset · Assurance", tags: ["Quality"], decade: "1990s" },
+    { year: 1998, title: "CRAFTED WITH PURPOSE", subtitle: "Designed for the Future", motto: "Intent · Design Life · Sustainability", tags: ["Sustainability"], decade: "1990s" },
+    { year: 1999, title: "CONNECTING IDEAS", subtitle: "Strengthening Foundations", motto: "Knowledge · Engineering Base · Growth", tags: ["Ideas"], decade: "1990s" },
+    { year: 2000, title: "A NEW MILLENNIUM OF", subtitle: "Innovation in Every Fastener", motto: "Technology · Expansion · Modernization", tags: ["Millennium"], decade: "2000s" },
+    { year: 2001, title: "SECURING THE WORLD'S MOST", subtitle: "Ambitious Projects", motto: "Capability · Confidence · Complexity", tags: ["Ambitious"], decade: "2000s" },
+    { year: 2002, title: "STRENGTH FOR TODAY", subtitle: "Solutions for Tomorrow", motto: "Dual Focus · Reliability · Future Readiness", tags: ["Future"], decade: "2000s" },
+    { year: 2003, title: "INNOVATION IN EVERY", subtitle: "Nut, Bolt, and Thread", motto: "Detail Engineering · Coverage · Range", tags: ["Innovation"], decade: "2000s" },
+    { year: 2004, title: "FASTENING THE WORLD'S", subtitle: "Potential", motto: "Opportunity · Growth · Enablement", tags: ["Potential"], decade: "2000s" },
+    { year: 2005, title: "BUILDING BRIDGES BETWEEN", subtitle: "Vision and Reality", motto: "Execution · Alignment · Delivery", tags: ["Vision"], decade: "2000s" },
+    { year: 2006, title: "EMPOWERING INDUSTRY", subtitle: "With Every Connection", motto: "Enablement · Scale · Reliability", tags: ["Empower"], decade: "2000s" },
+    { year: 2007, title: "SHAPING THE FUTURE", subtitle: "One Fastener at a Time", motto: "Continuity · Vision · Execution", tags: ["Future"], decade: "2000s" },
+    { year: 2008, title: "RELIABILITY IN EVERY REVOLUTION", subtitle: "Strength in Every Solution", motto: "Stability · Engineering · Change", tags: ["Reliability"], decade: "2000s" },
+    { year: 2009, title: "BUILT FOR RESILIENCE", subtitle: "Designed for Progress", motto: "Recovery · Robustness · Momentum", tags: ["Resilience"], decade: "2000s" },
+    { year: 2010, title: "50 YEARS OF SECURING", subtitle: "The World's Ambitions", motto: "Legacy · Trust · Milestone", tags: ["Legacy"], decade: "2010s" },
+    { year: 2011, title: "ENGINEERING TOMORROW", subtitle: "With Today's Precision", motto: "Forward Engineering · Accuracy", tags: ["Precision"], decade: "2010s" },
+    { year: 2012, title: "GLOBAL SOLUTIONS", subtitle: "Rooted in Precision", motto: "Reach · Consistency · Standards", tags: ["Global"], decade: "2010s" },
+    { year: 2013, title: "FASTENING A WORLD OF", subtitle: "Possibilities", motto: "Opportunity · Innovation · Scale", tags: ["Possibilities"], decade: "2010s" },
+    { year: 2014, title: "BUILDING INDUSTRY'S FUTURE", subtitle: "One Fastener at a Time", motto: "Continuity · Manufacturing Depth", tags: ["Future"], decade: "2010s" },
+    { year: 2015, title: "INNOVATION THAT SECURES", subtitle: "Strength That Lasts", motto: "Longevity · Protection · Design Life", tags: ["Innovation"], decade: "2010s" },
+    { year: 2016, title: "FASTENERS THAT POWER", subtitle: "The World Forward", motto: "Energy · Infrastructure · Motion", tags: ["Power"], decade: "2010s" },
+    { year: 2017, title: "PRECISION IN EVERY CONNECTION", subtitle: "Trust in Every Turn", motto: "Accuracy · Reliability · Control", tags: ["Precision"], decade: "2010s" },
+    { year: 2018, title: "CRAFTING THE FUTURE OF ENGINEERING", subtitle: "With Strength", motto: "Capability · Design Leadership", tags: ["Engineering"], decade: "2010s" },
+    { year: 2019, title: "INNOVATING CONNECTIONS", subtitle: "Strengthening Futures", motto: "Growth · Engineering Vision", tags: ["Innovation"], decade: "2010s" },
+    { year: 2020, title: "IN EVERY CRISIS", subtitle: "We Hold Strong", motto: "Stability · Commitment · Continuity", tags: ["Resilience"], decade: "2020s" },
+    { year: 2021, title: "RESILIENCE BUILT INTO", subtitle: "Every Fastener", motto: "Robust Design · Reliability", tags: ["Resilience"], decade: "2020s" },
+    { year: 2022, title: "CONNECTING INNOVATION", subtitle: "To a New World", motto: "Transition · Technology · Adaptation", tags: ["Innovation"], decade: "2020s" },
+    { year: 2023, title: "THE FASTENERS THAT DRIVE", subtitle: "Global Change", motto: "Impact · Sustainability · Scale", tags: ["Sustainability"], decade: "2020s" },
+    { year: 2024, title: "ENGINEERING THE FUTURE", subtitle: "Securing It with Precision", motto: "Accuracy · Protection · Trust", tags: ["Future"], decade: "2020s" },
+    { year: 2025, title: "EXPANDING HORIZONS", subtitle: "Strengthening Bonds", motto: "Growth · Partnerships · Global Reach", tags: ["Growth", "Global"], decade: "2020s" }
+];
+
+let currentIndex = 0;
+let currentDataset = [...milestones];
+let activeView = "grid";
+let activeDecade = "all";
+let isPlaying = false;
+let animationInterval = null;
+const animationSpeed = 1250;
+
+const $ = (selector, scope = document) => scope.querySelector(selector);
+const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+
+function safeText(value){
+    return String(value ?? "");
+}
+
+function groupByDecade(data){
+    return data.reduce((acc, item) => {
+        const decade = Math.floor(Number(item.year) / 10) * 10;
+        if(!acc[decade]) acc[decade] = [];
+        acc[decade].push(item);
+        return acc;
+    }, {});
+}
+
+function getDecadeLabel(decade, items){
+    const years = items.map(item => Number(item.year)).filter(Boolean);
+    const endYear = Math.max(...years);
+    return `${decade}–${endYear}`;
+}
+
+function allDecades(){
+    return Object.keys(groupByDecade(milestones)).map(Number).sort((a,b) => a-b);
+}
+
+function getMilestoneIcon(item){
+    const text = `${item.title} ${item.subtitle} ${item.motto} ${item.tags.join(" ")}`.toLowerCase();
+    if(text.includes("quality") || text.includes("assurance")) return "fa-award";
+    if(text.includes("global") || text.includes("world")) return "fa-earth-asia";
+    if(text.includes("innovation") || text.includes("future")) return "fa-lightbulb";
+    if(text.includes("trust") || text.includes("reliability")) return "fa-shield-halved";
+    if(text.includes("precision") || text.includes("accuracy")) return "fa-bullseye";
+    if(text.includes("strength") || text.includes("built")) return "fa-screwdriver-wrench";
+    if(text.includes("partnership") || text.includes("connection")) return "fa-link";
+    return "fa-bolt";
+}
+
+function setButtonPlayState(){
+    const button = $("#playPauseBtn");
+    if(!button) return;
+
+    button.innerHTML = isPlaying
+        ? '<i class="fa-solid fa-pause"></i><span>Pause</span>'
+        : '<i class="fa-solid fa-play"></i><span>Play</span>';
+
+    button.classList.toggle("is-playing", isPlaying);
+    button.setAttribute("aria-label", isPlaying ? "Pause timeline" : "Play timeline");
+}
+
+function highlightActiveCard(){
+    $$(".gp-year-card").forEach(card => {
+        card.classList.toggle("is-active", Number(card.dataset.year) === milestones[currentIndex]?.year);
+    });
+}
+
+function updateDisplay(index){
+    const item = milestones[index];
+    if(!item) return;
+
+    const yearDisplay = $("#yearDisplay");
+    const titleDisplay = $("#titleDisplay");
+    const subtitleDisplay = $("#subtitleDisplay");
+    const mottoDisplay = $("#mottoDisplay");
+    const decadeBadge = $("#decadeBadge");
+    const progressLabel = $("#progressLabel");
+    const tagsContainer = $("#tagsContainer");
+    const progressBar = $("#progressBar");
+
+    const applyContent = () => {
+        yearDisplay.textContent = item.year;
+        titleDisplay.textContent = item.title;
+        subtitleDisplay.textContent = item.subtitle;
+        mottoDisplay.textContent = item.motto;
+        decadeBadge.textContent = item.decade;
+        progressLabel.textContent = `${index + 1} / ${milestones.length}`;
+        tagsContainer.innerHTML = item.tags.map(tag => `<span class="gp-tag">#${safeText(tag)}</span>`).join("");
+    };
+
+    if(window.gsap){
+        gsap.to([yearDisplay,titleDisplay,subtitleDisplay,mottoDisplay,tagsContainer], {
+            opacity:0,
+            y:12,
+            duration:.16,
+            stagger:.015,
+            onComplete:() => {
+                applyContent();
+                gsap.to([yearDisplay,titleDisplay,subtitleDisplay,mottoDisplay,tagsContainer], {
+                    opacity:1,
+                    y:0,
+                    duration:.28,
+                    stagger:.025,
+                    ease:"power2.out"
+                });
+            }
+        });
+    }else{
+        applyContent();
+    }
+
+    if(progressBar){
+        progressBar.style.width = `${((index + 1) / milestones.length) * 100}%`;
+    }
+
+    highlightActiveCard();
+}
+
+function setCurrentYear(year, shouldScrollHero = false){
+    const index = milestones.findIndex(item => Number(item.year) === Number(year));
+    if(index === -1) return;
+    currentIndex = index;
+    updateDisplay(index);
+    pauseTimeline();
+
+    if(shouldScrollHero){
+        $(".gp-hero")?.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+}
+
+function nextYear(){
+    currentIndex = currentIndex >= milestones.length - 1 ? 0 : currentIndex + 1;
+    updateDisplay(currentIndex);
+}
+
+function previousYear(){
+    currentIndex = currentIndex <= 0 ? milestones.length - 1 : currentIndex - 1;
+    updateDisplay(currentIndex);
+}
+
+function playTimeline(){
+    if(animationInterval) clearInterval(animationInterval);
+    isPlaying = true;
+    setButtonPlayState();
+    animationInterval = setInterval(nextYear, animationSpeed);
+}
+
+function pauseTimeline(){
+    isPlaying = false;
+    setButtonPlayState();
+    if(animationInterval) clearInterval(animationInterval);
+}
+
+function toggleTimeline(){
+    isPlaying ? pauseTimeline() : playTimeline();
+}
+
+function resetTimeline(){
+    pauseTimeline();
+    currentIndex = 0;
+    updateDisplay(0);
+}
+
+function getFilteredData(){
+    const searchTerm = $("#searchInput")?.value.trim().toLowerCase() || "";
+
+    return milestones.filter(item => {
+        const matchesDecade = activeDecade === "all" || Number(item.year) >= Number(activeDecade) && Number(item.year) <= Number(activeDecade) + 9;
+        const matchesSearch = !searchTerm ||
+            String(item.year).includes(searchTerm) ||
+            item.title.toLowerCase().includes(searchTerm) ||
+            item.subtitle.toLowerCase().includes(searchTerm) ||
+            item.motto.toLowerCase().includes(searchTerm) ||
+            item.decade.toLowerCase().includes(searchTerm) ||
+            item.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+
+        return matchesDecade && matchesSearch;
+    });
+}
+
+function updateCounter(){
+    const counter = $("#resultCounter");
+    const label = $("#activeFilterLabel");
+
+    if(counter) counter.textContent = `Showing ${currentDataset.length} of ${milestones.length}`;
+    if(label){
+        const filterText = activeDecade === "all" ? "All decades selected" : `${activeDecade}s selected`;
+        label.textContent = filterText;
+    }
+}
+
+function renderDecadeFilter(){
+    const wrap = $("#decadeFilter");
+    if(!wrap) return;
+
+    const decadeButtons = allDecades().map(decade => {
+        return `<button class="gp-decade-btn ${String(activeDecade) === String(decade) ? "active" : ""}" type="button" data-decade="${decade}">
+                    <i class="fa-solid fa-clock-rotate-left"></i>${decade}s
+                </button>`;
+    }).join("");
+
+    wrap.innerHTML = `
+        <button class="gp-decade-btn ${activeDecade === "all" ? "active" : ""}" type="button" data-decade="all">
+            <i class="fa-solid fa-layer-group"></i>All Years
+        </button>
+        ${decadeButtons}
+    `;
+
+    $$(".gp-decade-btn", wrap).forEach(btn => {
+        btn.addEventListener("click", () => {
+            activeDecade = btn.dataset.decade;
+            applyFilters();
+        });
+    });
+}
+
+function renderGrid(data){
+    const gridView = $("#gridView");
+    if(!gridView) return;
+
+    if(!data.length){
+        gridView.innerHTML = emptyStateHTML();
+        return;
+    }
+
+    const grouped = groupByDecade(data);
+    const decades = Object.keys(grouped).map(Number).sort((a,b) => a-b);
+
+    gridView.innerHTML = decades.map(decade => {
+        const items = grouped[decade].sort((a,b) => Number(a.year) - Number(b.year));
+        const label = getDecadeLabel(decade, items);
+
+        return `
+            <article class="gp-decade-block" id="decade-${decade}">
+                <div class="gp-decade-header">
+                    <h3>${label}</h3>
+                    <span class="gp-decade-count">${items.length} principles</span>
+                </div>
+
+                <div class="gp-card-grid">
+                    ${items.map(item => `
+                        <article class="gp-year-card" data-year="${item.year}" tabindex="0" role="button" aria-label="Preview ${item.year} guiding principle">
+                            <div class="gp-card-head">
+                                <div class="gp-card-year">${item.year}</div>
+                                <div class="gp-card-icon"><i class="fa-solid ${getMilestoneIcon(item)}"></i></div>
+                            </div>
+                            <h4 class="gp-card-title">${safeText(item.title)}</h4>
+                            <div class="gp-card-subtitle">${safeText(item.subtitle)}</div>
+                            <div class="gp-card-footer">
+                                <div class="gp-card-tags">${item.tags.slice(0,2).map(tag => `<span class="gp-tag">#${safeText(tag)}</span>`).join("")}</div>
+                                <span class="gp-view-chip"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                            </div>
+                        </article>
+                    `).join("")}
+                </div>
+            </article>
+        `;
+    }).join("");
+
+    $$(".gp-year-card", gridView).forEach(card => {
+        card.addEventListener("click", () => setCurrentYear(card.dataset.year, true));
+        card.addEventListener("keydown", event => {
+            if(event.key === "Enter" || event.key === " "){
+                event.preventDefault();
+                setCurrentYear(card.dataset.year, true);
+            }
+        });
+    });
+
+    highlightActiveCard();
+    animateCards(".gp-year-card");
+}
+
+function renderTimeline(data){
+    const timelineView = $("#timelineView");
+    if(!timelineView) return;
+
+    if(!data.length){
+        timelineView.innerHTML = emptyStateHTML();
+        return;
+    }
+
+    timelineView.innerHTML = data
+        .sort((a,b) => Number(a.year) - Number(b.year))
+        .map(item => `
+            <article class="gp-timeline-item">
+                <button class="gp-timeline-year" type="button" data-year="${item.year}" aria-label="Preview ${item.year}">${item.year}</button>
+                <div class="gp-timeline-card">
+                    <div class="gp-timeline-heading"><i class="fa-solid ${getMilestoneIcon(item)}"></i><h3>${safeText(item.title)}</h3></div>
+                    <div class="gp-timeline-sub">${safeText(item.subtitle)}</div>
+                    <p>${safeText(item.motto)}</p>
+                    <div class="gp-tags">${item.tags.slice(0,3).map(tag => `<span class="gp-tag">#${safeText(tag)}</span>`).join("")}</div>
+                </div>
+            </article>
+        `).join("");
+
+    $$(".gp-timeline-year", timelineView).forEach(btn => {
+        btn.addEventListener("click", () => setCurrentYear(btn.dataset.year, true));
+    });
+
+    animateCards(".gp-timeline-item");
+}
+
+function emptyStateHTML(){
+    return `
+        <div class="gp-empty">
+            <strong>No matching principle found.</strong>
+            <span>Try another keyword, clear the search, or select all decades.</span><br>
+            <button class="gp-btn gp-btn--primary" type="button" onclick="clearAllFilters()"><i class="fa-solid fa-rotate-left"></i> Clear Filters</button>
+        </div>
+    `;
+}
+
+function applyFilters(){
+    currentDataset = getFilteredData();
+    updateCounter();
+    renderDecadeFilter();
+
+    if(activeView === "grid"){
+        $("#gridView").style.display = "block";
+        $("#timelineView").style.display = "none";
+        renderGrid(currentDataset);
+    }else{
+        $("#gridView").style.display = "none";
+        $("#timelineView").style.display = "block";
+        renderTimeline(currentDataset);
+    }
+}
+
+function clearAllFilters(){
+    if($("#searchInput")) $("#searchInput").value = "";
+    activeDecade = "all";
+    applyFilters();
+}
+
+function animateCards(selector){
+    if(!window.gsap || !window.ScrollTrigger) return;
+
+    $$(selector).forEach((el,index) => {
+        gsap.fromTo(el,
+            {opacity:0, y:26},
+            {
+                opacity:1,
+                y:0,
+                duration:.48,
+                delay:Math.min(index * .018,.22),
+                ease:"power2.out",
+                scrollTrigger:{
+                    trigger:el,
+                    start:"top 94%"
+                }
+            }
+        );
+    });
+
+    ScrollTrigger.refresh();
+}
+
+function animateStats(){
+    const stats = $(".gp-stats");
+    if(!stats) return;
+
+    let started = false;
+    const run = () => {
+        if(started) return;
+        started = true;
+
+        if(window.gsap){
+            gsap.to("#stat1", {duration:1.6, innerText:2.8, snap:{innerText:.1}, ease:"power2.out"});
+            gsap.to("#stat2", {duration:1.6, innerText:87, snap:{innerText:1}, ease:"power2.out"});
+            gsap.to("#stat3", {duration:1.6, innerText:48, snap:{innerText:1}, ease:"power2.out"});
+            gsap.to("#stat4", {duration:1.6, innerText:15, snap:{innerText:1}, ease:"power2.out"});
+        }else{
+            $("#stat1").textContent = "2.8";
+            $("#stat2").textContent = "87";
+            $("#stat3").textContent = "48";
+            $("#stat4").textContent = "15";
+        }
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        if(entries[0].isIntersecting) run();
+    }, {threshold:.25});
+
+    observer.observe(stats);
+}
+
+function setupViewToggle(){
+    $$(".gp-view-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            $$(".gp-view-btn").forEach(item => item.classList.remove("active"));
+            btn.classList.add("active");
+            activeView = btn.dataset.view;
+            applyFilters();
+        });
+    });
+}
+
+function setupHeroAnimations(){
+    if(!window.gsap) return;
+    gsap.from(".gp-focus-card", {opacity:0, scale:.965, y:28, duration:.82, delay:.18, ease:"power3.out"});
+}
+
+function hideLoader(){
+    const loader = $("#gpLoader");
+    if(!loader) return;
+    setTimeout(() => loader.classList.add("is-hidden"), 420);
+}
+
+function initPage(){
+    $("#prevBtn")?.addEventListener("click", previousYear);
+    $("#nextBtn")?.addEventListener("click", nextYear);
+    $("#playPauseBtn")?.addEventListener("click", toggleTimeline);
+    $("#resetBtn")?.addEventListener("click", resetTimeline);
+
+    $("#searchInput")?.addEventListener("input", applyFilters);
+    $("#clearSearchBtn")?.addEventListener("click", clearAllFilters);
+
+    setupViewToggle();
+    renderDecadeFilter();
+    updateDisplay(0);
+    applyFilters();
+    animateStats();
+    setupHeroAnimations();
+    playTimeline();
+    hideLoader();
+
+    if(window.ScrollTrigger) ScrollTrigger.refresh();
+}
+
+if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", initPage);
+}else{
+    initPage();
+}
+</script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

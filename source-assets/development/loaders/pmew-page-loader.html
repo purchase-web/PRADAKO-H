@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>PMEW — Premium Thread Rolling Loader</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --ink:#111315;
+  --muted:#7b8288;
+  --line:#d9dee2;
+  --accent:#f08080;
+
+  --steel-hi:#f7f9fa;
+  --steel-1:#dfe3e6;
+  --steel-2:#aab1b7;
+  --steel-3:#727b82;
+  --steel-4:#3d444a;
+  --steel-5:#202428;
+
+  --die-hi:#f5f7f8;
+  --die-mid:#cfd5d9;
+  --die-dark:#8f989f;
+
+  --cycle:1.78s;
+  --fade:360ms;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  width:100%;
+  min-height:100%;
+  background:var(--bg);
+}
+
+html.pmew-loader-lock,
+html.pmew-loader-lock body{
+  overflow:hidden !important;
+}
+
+body{
+  min-height:100vh;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* =========================================================
+   FULL-SCREEN LOADER
+========================================================= */
+
+#pmew-loader{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+
+  display:grid;
+  place-items:center;
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 50% 44%,
+      #ffffff 0%,
+      #ffffff 58%,
+      #fbfbfb 80%,
+      #f7f7f7 100%);
+
+  opacity:1;
+  visibility:visible;
+
+  transition:
+    opacity var(--fade) cubic-bezier(.22,.61,.36,1),
+    visibility var(--fade) linear;
+}
+
+#pmew-loader::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:49%;
+
+  width:min(70vw,620px);
+  aspect-ratio:1;
+
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(17,19,21,.025) 0%,
+      rgba(17,19,21,.012) 34%,
+      transparent 70%);
+
+  pointer-events:none;
+}
+
+#pmew-loader.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.pmew-loader__inner{
+  position:relative;
+
+  width:min(92vw,560px);
+
+  display:grid;
+  justify-items:center;
+
+  transform:translateY(-8px);
+}
+
+.pmew-loader__visual{
+  position:relative;
+
+  width:100%;
+  min-height:230px;
+}
+
+.pmew-loader__svg{
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  width:min(96%,500px);
+  height:auto;
+
+  overflow:visible;
+
+  transform:translate(-50%,-50%);
+}
+
+/* =========================================================
+   SIMPLE LOADING COPY
+========================================================= */
+
+.pmew-loader__label{
+  margin-top:-4px;
+
+  color:#747b81;
+
+  font-size:10px;
+  font-weight:650;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+
+  opacity:.72;
+
+  animation:
+    pmewLoadingPulse
+    1.25s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   REALISTIC MECHANICAL MOTION
+========================================================= */
+
+.pmew-loader__die,
+.pmew-loader__blank,
+.pmew-loader__socket,
+.pmew-loader__thread,
+.pmew-loader__sheen,
+.pmew-loader__part-shadow,
+.pmew-loader__contact-line{
+  transform-box:fill-box;
+}
+
+.pmew-loader__die{
+  transform-origin:center;
+}
+
+.pmew-loader__die--top{
+  transform:translate3d(0,0,0);
+}
+
+.pmew-loader__die--bottom{
+  animation:
+    pmewDieStroke
+    var(--cycle)
+    cubic-bezier(.42,0,.22,1)
+    infinite;
+}
+
+.pmew-loader__blank{
+  transform-origin:center;
+
+  animation:
+    pmewBlankAdvance
+    var(--cycle)
+    cubic-bezier(.42,0,.22,1)
+    infinite;
+}
+
+.pmew-loader__socket{
+  transform-origin:center;
+
+  animation:
+    pmewSocketTurn
+    var(--cycle)
+    cubic-bezier(.42,0,.22,1)
+    infinite;
+}
+
+.pmew-loader__thread{
+  transform-origin:left center;
+
+  opacity:0;
+
+  animation:
+    pmewThreadForm
+    var(--cycle)
+    cubic-bezier(.18,.76,.22,1)
+    infinite;
+}
+
+.pmew-loader__sheen{
+  transform-origin:center;
+
+  opacity:0;
+
+  animation:
+    pmewThreadSheen
+    var(--cycle)
+    cubic-bezier(.4,0,.2,1)
+    infinite;
+}
+
+.pmew-loader__part-shadow{
+  transform-origin:center;
+
+  animation:
+    pmewShadowBreath
+    var(--cycle)
+    ease-in-out
+    infinite;
+}
+
+.pmew-loader__contact-line{
+  transform-origin:center;
+
+  animation:
+    pmewContactPulse
+    var(--cycle)
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes pmewDieStroke{
+  0%,
+  12%{
+    transform:translate3d(-12px,0,0);
+  }
+
+  62%{
+    transform:translate3d(12px,0,0);
+  }
+
+  82%{
+    transform:translate3d(12px,0,0);
+  }
+
+  100%{
+    transform:translate3d(-12px,0,0);
+  }
+}
+
+@keyframes pmewBlankAdvance{
+  0%,
+  12%{
+    transform:translate3d(-2px,0,0);
+  }
+
+  62%{
+    transform:translate3d(4px,0,0);
+  }
+
+  82%{
+    transform:translate3d(5px,0,0);
+  }
+
+  100%{
+    transform:translate3d(-2px,0,0);
+  }
+}
+
+@keyframes pmewSocketTurn{
+  0%,
+  12%{
+    transform:rotate(0deg);
+  }
+
+  62%{
+    transform:rotate(14deg);
+  }
+
+  82%{
+    transform:rotate(18deg);
+  }
+
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+@keyframes pmewThreadForm{
+  0%,
+  15%{
+    opacity:0;
+    clip-path:inset(0 100% 0 0);
+  }
+
+  31%{
+    opacity:.6;
+    clip-path:inset(0 82% 0 0);
+  }
+
+  50%{
+    opacity:1;
+    clip-path:inset(0 48% 0 0);
+  }
+
+  69%,
+  88%{
+    opacity:1;
+    clip-path:inset(0 0 0 0);
+  }
+
+  100%{
+    opacity:0;
+    clip-path:inset(0 0 0 0);
+  }
+}
+
+@keyframes pmewThreadSheen{
+  0%,
+  37%{
+    opacity:0;
+    transform:translate3d(-34px,0,0);
+  }
+
+  48%{
+    opacity:.42;
+  }
+
+  72%{
+    opacity:.08;
+    transform:translate3d(132px,0,0);
+  }
+
+  100%{
+    opacity:0;
+    transform:translate3d(132px,0,0);
+  }
+}
+
+@keyframes pmewShadowBreath{
+  0%,
+  100%{
+    opacity:.075;
+    transform:scaleX(.985);
+  }
+
+  60%{
+    opacity:.12;
+    transform:scaleX(1.015);
+  }
+}
+
+@keyframes pmewContactPulse{
+  0%,
+  17%,
+  100%{
+    opacity:.12;
+  }
+
+  48%,
+  68%{
+    opacity:.42;
+  }
+}
+
+@keyframes pmewLoadingPulse{
+  0%,
+  100%{
+    opacity:.42;
+  }
+
+  50%{
+    opacity:.86;
+  }
+}
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
+#site-content{
+  min-height:100vh;
+
+  opacity:0;
+
+  transition:
+    opacity .42s cubic-bezier(.22,.61,.36,1);
+}
+
+body.pmew-page-ready #site-content{
+  opacity:1;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:600px){
+  .pmew-loader__inner{
+    width:96vw;
+    transform:translateY(-4px);
+  }
+
+  .pmew-loader__visual{
+    min-height:195px;
+  }
+
+  .pmew-loader__svg{
+    width:min(95%,420px);
+  }
+
+  .pmew-loader__label{
+    margin-top:-8px;
+    font-size:9px;
+  }
+}
+
+@media (max-width:420px){
+  .pmew-loader__visual{
+    min-height:176px;
+  }
+
+  .pmew-loader__svg{
+    width:min(96%,360px);
+  }
+}
+
+@media (max-height:620px){
+  .pmew-loader__inner{
+    transform:scale(.9) translateY(-3px);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+  .pmew-loader__die--bottom,
+  .pmew-loader__blank,
+  .pmew-loader__socket,
+  .pmew-loader__thread,
+  .pmew-loader__sheen,
+  .pmew-loader__part-shadow,
+  .pmew-loader__contact-line,
+  .pmew-loader__label{
+    animation:none !important;
+  }
+
+  .pmew-loader__thread{
+    opacity:1;
+    clip-path:inset(0 0 0 0);
+  }
+
+  .pmew-loader__label{
+    opacity:.68;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div
+  id="pmew-loader"
+  role="status"
+  aria-live="polite"
+  aria-label="Loading"
+>
+  <div class="pmew-loader__inner">
+
+    <div class="pmew-loader__visual" aria-hidden="true">
+
+      <svg
+        class="pmew-loader__svg"
+        viewBox="0 0 520 245"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+
+          <!-- Screw body: restrained brushed steel -->
+          <linearGradient id="steelBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f8fafb"/>
+            <stop offset="14%" stop-color="#dfe3e6"/>
+            <stop offset="46%" stop-color="#9da5ab"/>
+            <stop offset="73%" stop-color="#747d84"/>
+            <stop offset="100%" stop-color="#4a5157"/>
+          </linearGradient>
+
+          <linearGradient id="steelBodyDark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a4abb0"/>
+            <stop offset="42%" stop-color="#596168"/>
+            <stop offset="100%" stop-color="#262b2f"/>
+          </linearGradient>
+
+          <radialGradient id="headFace" cx="35%" cy="30%" r="76%">
+            <stop offset="0%" stop-color="#969ea4"/>
+            <stop offset="50%" stop-color="#596066"/>
+            <stop offset="100%" stop-color="#24292d"/>
+          </radialGradient>
+
+          <!-- Dies -->
+          <linearGradient id="dieSteel" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fafbfc"/>
+            <stop offset="52%" stop-color="#e1e5e8"/>
+            <stop offset="100%" stop-color="#c3c9cd"/>
+          </linearGradient>
+
+          <linearGradient id="dieEdge" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a7b0b6"/>
+            <stop offset="50%" stop-color="#6f7880"/>
+            <stop offset="100%" stop-color="#a7b0b6"/>
+          </linearGradient>
+
+          <linearGradient id="threadSheen" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="45%" stop-color="#ffffff" stop-opacity=".8"/>
+            <stop offset="55%" stop-color="#ffffff" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+
+          <pattern
+            id="dieTexture"
+            width="9"
+            height="9"
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(31)"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="9"
+              stroke="#667078"
+              stroke-opacity=".17"
+              stroke-width="1.3"
+            />
+          </pattern>
+
+          <filter
+            id="partShadow"
+            x="-20%"
+            y="-50%"
+            width="140%"
+            height="200%"
+          >
+            <feDropShadow
+              dx="0"
+              dy="4"
+              stdDeviation="3"
+              flood-color="#111315"
+              flood-opacity=".12"
+            />
+          </filter>
+
+          <filter
+            id="dieShadow"
+            x="-10%"
+            y="-50%"
+            width="120%"
+            height="200%"
+          >
+            <feDropShadow
+              dx="0"
+              dy="3"
+              stdDeviation="2.2"
+              flood-color="#111315"
+              flood-opacity=".08"
+            />
+          </filter>
+
+          <clipPath id="threadWindow">
+            <rect x="252" y="104" width="173" height="38" rx="2"/>
+          </clipPath>
+
+        </defs>
+
+        <!-- Soft table shadow -->
+        <ellipse
+          cx="278"
+          cy="180"
+          rx="188"
+          ry="8"
+          fill="#111315"
+          opacity=".035"
+        />
+
+        <!-- =====================================================
+             TOP DIE — FIXED
+        ====================================================== -->
+
+        <g
+          class="pmew-loader__die pmew-loader__die--top"
+          filter="url(#dieShadow)"
+        >
+          <rect
+            x="234"
+            y="61"
+            width="214"
+            height="34"
+            rx="3"
+            fill="url(#dieSteel)"
+            stroke="#aeb6bc"
+            stroke-width="1"
+          />
+
+          <rect
+            x="234"
+            y="61"
+            width="214"
+            height="34"
+            rx="3"
+            fill="url(#dieTexture)"
+          />
+
+          <rect
+            x="234"
+            y="90"
+            width="214"
+            height="5"
+            fill="url(#dieEdge)"
+            opacity=".42"
+          />
+
+          <!-- Serrated working face -->
+          <path
+            d="
+              M242 95
+              l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5
+              l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5
+              l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5
+              l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5
+              l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5
+              l5 5 l5 -5 l5 5
+            "
+            fill="none"
+            stroke="#767f86"
+            stroke-width="1"
+            opacity=".62"
+          />
+        </g>
+
+        <!-- =====================================================
+             BOTTOM DIE — TRAVELLING
+        ====================================================== -->
+
+        <g
+          class="pmew-loader__die pmew-loader__die--bottom"
+          filter="url(#dieShadow)"
+        >
+          <rect
+            x="234"
+            y="148"
+            width="214"
+            height="34"
+            rx="3"
+            fill="url(#dieSteel)"
+            stroke="#aeb6bc"
+            stroke-width="1"
+          />
+
+          <rect
+            x="234"
+            y="148"
+            width="214"
+            height="34"
+            rx="3"
+            fill="url(#dieTexture)"
+          />
+
+          <rect
+            x="234"
+            y="148"
+            width="214"
+            height="5"
+            fill="url(#dieEdge)"
+            opacity=".42"
+          />
+
+          <path
+            d="
+              M242 148
+              l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5
+              l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5
+              l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5
+              l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5
+              l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5 l5 -5 l5 5
+              l5 -5 l5 5 l5 -5
+            "
+            fill="none"
+            stroke="#767f86"
+            stroke-width="1"
+            opacity=".62"
+          />
+        </g>
+
+        <!-- Contact zone cue -->
+        <line
+          class="pmew-loader__contact-line"
+          x1="244"
+          y1="100"
+          x2="434"
+          y2="100"
+          stroke="#f08080"
+          stroke-width=".8"
+          opacity=".14"
+        />
+
+        <!-- =====================================================
+             FASTENER BLANK / FORMED SCREW
+        ====================================================== -->
+
+        <g
+          class="pmew-loader__blank"
+          filter="url(#partShadow)"
+        >
+
+          <ellipse
+            class="pmew-loader__part-shadow"
+            cx="244"
+            cy="160"
+            rx="176"
+            ry="5"
+            fill="#111315"
+            opacity=".08"
+          />
+
+          <!-- Socket head -->
+          <rect
+            x="60"
+            y="96"
+            width="46"
+            height="53"
+            rx="4"
+            fill="url(#steelBodyDark)"
+            stroke="#2b3034"
+            stroke-width="1.2"
+          />
+
+          <!-- Head face -->
+          <ellipse
+            cx="60"
+            cy="122.5"
+            rx="11"
+            ry="26.5"
+            fill="url(#headFace)"
+            stroke="#2b3034"
+            stroke-width="1.2"
+          />
+
+          <!-- Rear edge -->
+          <ellipse
+            cx="103"
+            cy="122.5"
+            rx="3"
+            ry="23"
+            fill="#202428"
+            opacity=".24"
+          />
+
+          <!-- Hex socket / axial rotation cue -->
+          <polygon
+            class="pmew-loader__socket"
+            points="53,112 64,112 70,122.5 64,133 53,133 47,122.5"
+            fill="#15181a"
+            stroke="#b6bdc2"
+            stroke-opacity=".42"
+            stroke-width=".9"
+          />
+
+          <!-- Machining highlight -->
+          <path
+            d="M57 102 C72 99 91 100 101 105"
+            fill="none"
+            stroke="#e8ebed"
+            stroke-opacity=".26"
+            stroke-width="1.4"
+          />
+
+          <!-- Under-head fillet + smooth blank shank -->
+          <path
+            d="
+              M106 111
+              Q111 113 117 113
+              H256
+              V132
+              H117
+              Q111 132 106 135
+              Z
+            "
+            fill="url(#steelBody)"
+            stroke="#555d64"
+            stroke-width="1"
+          />
+
+          <!-- Brushed highlight -->
+          <line
+            x1="120"
+            y1="117"
+            x2="251"
+            y2="117"
+            stroke="#ffffff"
+            stroke-opacity=".32"
+            stroke-width="1.4"
+          />
+
+          <line
+            x1="121"
+            y1="128"
+            x2="252"
+            y2="128"
+            stroke="#353b40"
+            stroke-opacity=".18"
+            stroke-width=".8"
+          />
+
+          <!-- Rolled thread: revealed progressively -->
+          <g class="pmew-loader__thread">
+
+            <rect
+              x="252"
+              y="113"
+              width="172"
+              height="19"
+              fill="url(#steelBody)"
+              stroke="#50585e"
+              stroke-width=".9"
+            />
+
+            <!-- Thread crests -->
+            <g
+              fill="url(#steelBody)"
+              stroke="#444b51"
+              stroke-width=".75"
+            >
+              <path d="
+                M252 113 L257 107 L262 113 Z
+                M262 113 L267 107 L272 113 Z
+                M272 113 L277 107 L282 113 Z
+                M282 113 L287 107 L292 113 Z
+                M292 113 L297 107 L302 113 Z
+                M302 113 L307 107 L312 113 Z
+                M312 113 L317 107 L322 113 Z
+                M322 113 L327 107 L332 113 Z
+                M332 113 L337 107 L342 113 Z
+                M342 113 L347 107 L352 113 Z
+                M352 113 L357 107 L362 113 Z
+                M362 113 L367 107 L372 113 Z
+                M372 113 L377 107 L382 113 Z
+                M382 113 L387 107 L392 113 Z
+                M392 113 L397 107 L402 113 Z
+                M402 113 L407 107 L412 113 Z
+                M412 113 L417 107 L422 113 Z
+              "/>
+
+              <path d="
+                M252 132 L257 138 L262 132 Z
+                M262 132 L267 138 L272 132 Z
+                M272 132 L277 138 L282 132 Z
+                M282 132 L287 138 L292 132 Z
+                M292 132 L297 138 L302 132 Z
+                M302 132 L307 138 L312 132 Z
+                M312 132 L317 138 L322 132 Z
+                M322 132 L327 138 L332 132 Z
+                M332 132 L337 138 L342 132 Z
+                M342 132 L347 138 L352 132 Z
+                M352 132 L357 138 L362 132 Z
+                M362 132 L367 138 L372 132 Z
+                M372 132 L377 138 L382 132 Z
+                M382 132 L387 138 L392 132 Z
+                M392 132 L397 138 L402 132 Z
+                M402 132 L407 138 L412 132 Z
+                M412 132 L417 138 L422 132 Z
+              "/>
+            </g>
+
+            <!-- Helix cues -->
+            <g
+              stroke="#eef1f3"
+              stroke-opacity=".55"
+              stroke-width=".75"
+            >
+              <line x1="254" y1="111" x2="263" y2="134"/>
+              <line x1="264" y1="111" x2="273" y2="134"/>
+              <line x1="274" y1="111" x2="283" y2="134"/>
+              <line x1="284" y1="111" x2="293" y2="134"/>
+              <line x1="294" y1="111" x2="303" y2="134"/>
+              <line x1="304" y1="111" x2="313" y2="134"/>
+              <line x1="314" y1="111" x2="323" y2="134"/>
+              <line x1="324" y1="111" x2="333" y2="134"/>
+              <line x1="334" y1="111" x2="343" y2="134"/>
+              <line x1="344" y1="111" x2="353" y2="134"/>
+              <line x1="354" y1="111" x2="363" y2="134"/>
+              <line x1="364" y1="111" x2="373" y2="134"/>
+              <line x1="374" y1="111" x2="383" y2="134"/>
+              <line x1="384" y1="111" x2="393" y2="134"/>
+              <line x1="394" y1="111" x2="403" y2="134"/>
+              <line x1="404" y1="111" x2="413" y2="134"/>
+              <line x1="414" y1="111" x2="423" y2="134"/>
+            </g>
+
+            <!-- Moving steel sheen -->
+            <g clip-path="url(#threadWindow)">
+              <rect
+                class="pmew-loader__sheen"
+                x="252"
+                y="104"
+                width="30"
+                height="38"
+                fill="url(#threadSheen)"
+              />
+            </g>
+
+          </g>
+
+          <!-- Tip -->
+          <path
+            d="M424 113 L441 118 V127 L424 132 Z"
+            fill="url(#steelBody)"
+            stroke="#50585e"
+            stroke-width=".9"
+          />
+
+        </g>
+      </svg>
+
+    </div>
+
+    <div class="pmew-loader__label">Loading</div>
+
+  </div>
+</div>
+
+<div id="site-content">
+  <!-- Insert the actual PMEW page here. -->
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const loader = document.getElementById("pmew-loader");
+  const root = document.documentElement;
+  const body = document.body;
+
+  if (!loader) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  /*
+   * Production defaults:
+   * - enough time for the loader to read as intentional
+   * - no fake progress percentage
+   * - hard safety release
+   */
+  const MINIMUM_VISIBLE = reducedMotion ? 180 : 1400;
+  const MAXIMUM_WAIT = 5000;
+  const FADE_MS = 420;
+
+  let ready =
+    document.readyState === "interactive" ||
+    document.readyState === "complete";
+
+  let minimumDone = false;
+  let closed = false;
+
+  function setBusy(isBusy){
+    root.setAttribute("aria-busy", isBusy ? "true" : "false");
+    root.classList.toggle("pmew-loader-lock", isBusy);
+  }
+
+  function finish(){
+    if (closed) return;
+    closed = true;
+
+    body.classList.add("pmew-page-ready");
+    setBusy(false);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        loader.classList.add("is-hidden");
+      });
+    });
+
+    window.setTimeout(() => {
+      if (loader.parentNode) loader.remove();
+    }, FADE_MS + 80);
+  }
+
+  function evaluate(){
+    if (ready && minimumDone){
+      finish();
+    }
+  }
+
+  function show(){
+    if (!loader) return;
+
+    closed = false;
+    loader.classList.remove("is-hidden");
+    setBusy(true);
+  }
+
+  function hide(){
+    finish();
+  }
+
+  /*
+   * Initial page load
+   */
+  show();
+
+  if (!ready){
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        ready = true;
+        evaluate();
+      },
+      { once:true }
+    );
+  }
+
+  window.setTimeout(() => {
+    minimumDone = true;
+    evaluate();
+  }, MINIMUM_VISIBLE);
+
+  /*
+   * Never allow the loader to trap the visitor.
+   */
+  window.setTimeout(finish, MAXIMUM_WAIT);
+
+  /*
+   * bfcache restore
+   */
+  window.addEventListener(
+    "pageshow",
+    event => {
+      if (event.persisted){
+        finish();
+      }
+    },
+    { once:true }
+  );
+
+  /*
+   * Optional public API for future internal-navigation use.
+   */
+  window.PMEWPageLoader = {
+    show,
+    hide
+  };
+})();
+</script>
+
+</body>
+</html>

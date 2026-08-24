@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Career Application | Pradako Mechanical & Engineering Works</title>
+
+    <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+    <!-- GOOGLE FONTS --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <style>
+        :root {
+            --caf-white: #ffffff;
+            --caf-off: #f7fbff;
+            --caf-ice: #edf6ff;
+            --caf-sky: #dff0ff;
+            --caf-blue: #0a3d62;
+            --caf-blue-2: #07558f;
+            --caf-cyan: #28a7df;
+            --caf-ink: #0f2135;
+            --caf-muted: #637083;
+            --caf-soft: #8793a3;
+            --caf-light: #a5b0bf;
+            --caf-line: rgba(10, 61, 98, 0.14);
+            --caf-line-strong: rgba(10, 61, 98, 0.24);
+            --caf-success: #16a34a;
+            --caf-danger: #b42318;
+            --caf-shadow: 0 24px 70px rgba(10, 61, 98, 0.12);
+            --caf-shadow-soft: 0 16px 42px rgba(10, 61, 98, 0.08);
+            --caf-container: 1320px;
+            --caf-radius-xl: 34px;
+            --caf-radius-lg: 24px;
+            --caf-radius-md: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            min-width: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--caf-ink);
+            background: var(--caf-white);
+            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .caf-page,
+        .caf-page * {
+            box-sizing: border-box;
+        }
+
+        .caf-page {
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+            color: var(--caf-ink);
+            background:
+                radial-gradient(circle at 8% 4%, rgba(40, 167, 223, 0.08), transparent 27%),
+                radial-gradient(circle at 88% 12%, rgba(10, 61, 98, 0.07), transparent 32%),
+                linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            line-height: 1.75;
+            isolation: isolate;
+        }
+
+        .caf-container {
+            width: min(var(--caf-container), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .caf-page h1,
+        .caf-page h2,
+        .caf-page h3,
+        .caf-page h4,
+        .caf-page p,
+        .caf-page span,
+        .caf-page strong,
+        .caf-page a,
+        .caf-page label {
+            overflow-wrap: anywhere;
+        }
+
+        /* ================= HERO — PEOPLE PAGE STYLE ================= */
+
+        .caf-hero {
+            position: relative;
+            min-height: 82vh;
+            display: grid;
+            align-items: center;
+            padding: clamp(92px, 8vw, 136px) 0 clamp(54px, 6vw, 86px);
+            background:
+                linear-gradient(90deg, rgba(10, 61, 98, 0.045) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(10, 61, 98, 0.04) 1px, transparent 1px),
+                var(--caf-white);
+            background-size: 72px 72px;
+            isolation: isolate;
+        }
+
+        .caf-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 78% 32%, rgba(40, 167, 223, 0.18), transparent 25%),
+                radial-gradient(circle at 18% 74%, rgba(10, 61, 98, 0.09), transparent 28%),
+                linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.82) 78%, #ffffff 100%);
+            z-index: -2;
+        }
+
+        .caf-hero::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: min(var(--caf-container), calc(100% - 40px));
+            height: 1px;
+            transform: translateX(-50%);
+            background: var(--caf-line);
+        }
+
+        .caf-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(380px, 0.78fr);
+            gap: clamp(36px, 6vw, 86px);
+            align-items: center;
+        }
+
+        .caf-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 9px 13px 9px 10px;
+            border: 1px solid var(--caf-line);
+            border-radius: 999px;
+            color: var(--caf-blue);
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 12px 30px rgba(10, 61, 98, 0.06);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .caf-kicker i {
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--caf-white);
+            background: var(--caf-blue);
+            font-size: 0.78rem;
+        }
+
+        .caf-hero-title {
+            max-width: 780px;
+            margin: 0;
+            color: var(--caf-ink);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3.9rem, 9vw, 7.2rem);
+            line-height: 0.9;
+            letter-spacing: -0.07em;
+        }
+
+        .caf-hero-title span {
+            display: block;
+            color: var(--caf-blue);
+        }
+
+        .caf-hero-text {
+            max-width: 690px;
+            margin: 28px 0 0;
+            color: var(--caf-muted);
+            font-size: clamp(1.03rem, 2vw, 1.18rem);
+            line-height: 1.82;
+            font-weight: 400;
+        }
+
+        .caf-hero-card {
+            position: relative;
+            padding: clamp(28px, 4vw, 42px);
+            border: 1px solid var(--caf-line);
+            border-radius: var(--caf-radius-xl);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 251, 255, 0.92)),
+                var(--caf-white);
+            box-shadow: var(--caf-shadow-soft);
+            overflow: hidden;
+            animation: cafFloatIn 0.85s ease both;
+        }
+
+        .caf-hero-card::before {
+            content: "";
+            position: absolute;
+            right: -92px;
+            top: -92px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(40, 167, 223, 0.18);
+        }
+
+        .caf-hero-card::after {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 24px;
+            pointer-events: none;
+        }
+
+        .caf-hero-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .caf-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            border: 1px solid rgba(22, 163, 74, 0.18);
+            border-radius: 999px;
+            color: #15803d;
+            background: rgba(22, 163, 74, 0.08);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .caf-live span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--caf-success);
+            box-shadow: 0 0 0 7px rgba(22, 163, 74, 0.11);
+        }
+
+        .caf-hero-card h2 {
+            margin: 20px 0 12px;
+            color: var(--caf-blue);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3.35rem);
+            line-height: 1.04;
+            letter-spacing: -0.055em;
+        }
+
+        .caf-hero-card p {
+            margin: 0;
+            color: var(--caf-muted);
+            font-size: 0.96rem;
+            line-height: 1.82;
+            font-weight: 400;
+        }
+
+        .caf-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1px;
+            margin-top: 28px;
+            overflow: hidden;
+            border: 1px solid var(--caf-line);
+            border-radius: 24px;
+            background: var(--caf-line);
+        }
+
+        .caf-mini {
+            min-height: 118px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .caf-mini strong {
+            display: block;
+            color: var(--caf-blue);
+            font-size: clamp(1.35rem, 3vw, 2.05rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+
+        .caf-mini span {
+            display: block;
+            margin-top: 8px;
+            color: var(--caf-muted);
+            font-size: 0.72rem;
+            font-weight: 800;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ================= FORM WRAPPER ================= */
+
+        .caf-form-section {
+            position: relative;
+            padding: clamp(72px, 8vw, 120px) 0;
+            background: linear-gradient(180deg, var(--caf-off), #ffffff);
+            scroll-margin-top: 96px;
+        }
+
+        .caf-form-shell {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(24px, 4vw, 38px);
+            align-items: start;
+        }
+
+        .caf-side-card {
+            position: relative;
+            top: auto;
+            display: grid;
+            grid-template-columns: minmax(250px, 0.3fr) minmax(0, 1fr);
+            gap: clamp(22px, 4vw, 44px);
+            align-items: start;
+            padding: clamp(24px, 3.5vw, 34px);
+            border: 1px solid var(--caf-line);
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(40, 167, 223, 0.12), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 251, 255, 0.92)),
+                var(--caf-white);
+            box-shadow: var(--caf-shadow-soft);
+        }
+
+        .caf-side-card h3 {
+            grid-column: 1;
+            grid-row: 1;
+            margin: 0;
+            color: var(--caf-blue);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.9rem, 3vw, 2.65rem);
+            line-height: 1.02;
+            letter-spacing: -0.045em;
+        }
+
+        .caf-side-card p {
+            grid-column: 1;
+            grid-row: 2;
+            margin: 14px 0 0;
+            color: var(--caf-muted);
+            font-size: 0.96rem;
+            line-height: 1.78;
+        }
+
+        .caf-step-list {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            margin-top: 0;
+            border: 1px solid var(--caf-line);
+            border-radius: 24px;
+            background: var(--caf-line);
+            overflow: hidden;
+        }
+
+        .caf-step {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            align-items: start;
+            min-height: 178px;
+            padding: 22px;
+            border-bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .caf-step:hover {
+            background: var(--caf-white);
+            transform: translateY(-2px);
+        }
+
+        .caf-step i {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--caf-blue);
+            background: var(--caf-ice);
+            font-size: 0.98rem;
+        }
+
+        .caf-step strong {
+            display: block;
+            margin: 0;
+            color: var(--caf-ink);
+            font-size: 0.88rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .caf-step span {
+            display: block;
+            margin-top: 6px;
+            color: var(--caf-muted);
+            font-size: 0.82rem;
+            line-height: 1.58;
+            font-weight: 400;
+        }
+
+        .caf-form-card {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid var(--caf-line);
+            border-radius: var(--caf-radius-xl);
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: var(--caf-shadow-soft);
+        }
+
+        .caf-form-head {
+            position: relative;
+            padding: clamp(28px, 5vw, 46px);
+            border-bottom: 1px solid var(--caf-line);
+            background:
+                radial-gradient(circle at 90% 14%, rgba(40, 167, 223, 0.18), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(237, 246, 255, 0.58));
+        }
+
+        .caf-form-head p {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            margin: 0 0 15px;
+            color: var(--caf-blue);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .caf-form-head p::before {
+            content: "";
+            width: 36px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--caf-blue), var(--caf-cyan));
+        }
+
+        .caf-form-head h2 {
+            max-width: 760px;
+            margin: 0;
+            color: var(--caf-ink);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 4.4vw, 3.75rem);
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+        }
+
+        .caf-form {
+            padding: clamp(24px, 4vw, 42px);
+        }
+
+        .caf-section-title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 0 0 18px;
+            padding-top: 8px;
+            color: var(--caf-blue);
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .caf-section-title:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        .caf-section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--caf-line);
+        }
+
+        .caf-section-title i {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--caf-white);
+            background: linear-gradient(135deg, var(--caf-blue), var(--caf-cyan));
+            font-size: 0.88rem;
+            box-shadow: 0 14px 32px rgba(10, 61, 98, 0.14);
+        }
+
+        .caf-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 34px;
+            align-items: start;
+        }
+
+        .caf-grid--full {
+            grid-template-columns: 1fr;
+        }
+
+        .caf-field {
+            display: grid;
+            gap: 8px;
+            align-self: start;
+            align-content: start;
+        }
+
+        .caf-field label {
+            color: var(--caf-blue);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .caf-required {
+            color: var(--caf-danger);
+        }
+
+        .caf-field input,
+        .caf-field select,
+        .caf-field textarea {
+            width: 100%;
+            min-height: 52px;
+            border: 1px solid var(--caf-line);
+            border-radius: 18px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--caf-ink);
+            padding: 0 16px;
+            font-size: 0.91rem;
+            font-weight: 500;
+            transition: border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, transform 0.24s ease;
+        }
+
+        .caf-field input[readonly] {
+            color: var(--caf-soft);
+            background: var(--caf-off);
+        }
+
+        .caf-field input:disabled,
+        .caf-field select:disabled,
+        .caf-field textarea:disabled {
+            color: var(--caf-soft);
+            cursor: not-allowed;
+            background: #f5f9fd;
+        }
+
+        .caf-field textarea {
+            min-height: 126px;
+            resize: vertical;
+            padding: 15px 16px;
+            line-height: 1.72;
+        }
+
+        .caf-field input::placeholder,
+        .caf-field textarea::placeholder {
+            color: #aab7c7;
+        }
+
+        .caf-field select {
+            color: var(--caf-muted);
+            cursor: pointer;
+            appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, var(--caf-blue) 50%),
+                linear-gradient(135deg, var(--caf-blue) 50%, transparent 50%);
+            background-position:
+                calc(100% - 20px) 22px,
+                calc(100% - 14px) 22px;
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+            padding-right: 42px;
+        }
+
+        .caf-field select,
+        .caf-field input {
+            height: 52px;
+            min-height: 52px;
+        }
+
+        .caf-field input:hover,
+        .caf-field select:hover,
+        .caf-field textarea:hover {
+            border-color: var(--caf-line-strong);
+            background: var(--caf-white);
+        }
+
+        .caf-field input:focus,
+        .caf-field select:focus,
+        .caf-field textarea:focus {
+            border-color: rgba(10, 61, 98, 0.38);
+            background: var(--caf-white);
+            box-shadow: 0 0 0 4px rgba(40, 167, 223, 0.11);
+            transform: translateY(-1px);
+        }
+
+        /* ================= PREMIUM FILE UPLOAD ================= */
+
+        .caf-file-box {
+            position: relative;
+            padding: 18px;
+            border: 1px dashed var(--caf-line-strong);
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 96% 10%, rgba(40, 167, 223, 0.09), transparent 34%),
+                linear-gradient(180deg, #ffffff 0%, var(--caf-off) 100%);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
+        }
+
+        .caf-file-box:hover {
+            border-color: rgba(10, 61, 98, 0.34);
+            box-shadow: 0 18px 46px rgba(10, 61, 98, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .caf-file-input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .caf-file-upload-ui {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 16px;
+            min-height: 86px;
+            padding: 16px;
+            border: 1px solid var(--caf-line);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .caf-file-upload-ui:hover {
+            border-color: var(--caf-line-strong);
+            background: var(--caf-white);
+            transform: translateY(-1px);
+        }
+
+        .caf-file-icon {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--caf-white);
+            background: linear-gradient(135deg, var(--caf-blue), var(--caf-cyan));
+            box-shadow: 0 16px 32px rgba(10, 61, 98, 0.18);
+            font-size: 1.08rem;
+        }
+
+        .caf-file-copy {
+            min-width: 0;
+        }
+
+        .caf-file-copy strong {
+            display: block;
+            color: var(--caf-ink);
+            font-size: 0.96rem;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .caf-file-copy span {
+            display: block;
+            margin-top: 5px;
+            color: var(--caf-muted);
+            font-size: 0.84rem;
+            font-weight: 500;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .caf-file-button {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 17px;
+            border: 1px solid var(--caf-line-strong);
+            border-radius: 999px;
+            color: var(--caf-blue);
+            background: var(--caf-white);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .caf-file-upload-ui:hover .caf-file-button {
+            color: var(--caf-white);
+            background: var(--caf-blue);
+            border-color: var(--caf-blue);
+            transform: translateX(2px);
+        }
+
+        .caf-file-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .caf-file-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 11px;
+            border: 1px solid var(--caf-line);
+            border-radius: 999px;
+            color: var(--caf-muted);
+            background: rgba(237, 246, 255, 0.82);
+            font-size: 0.74rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .caf-file-meta i {
+            color: var(--caf-blue);
+        }
+
+        .caf-file-box.is-file-selected {
+            border-color: rgba(22, 163, 74, 0.34);
+            background:
+                radial-gradient(circle at 96% 10%, rgba(22, 163, 74, 0.08), transparent 34%),
+                linear-gradient(180deg, #ffffff 0%, #f6fff9 100%);
+        }
+
+        .caf-file-box.is-file-selected .caf-file-icon {
+            background: linear-gradient(135deg, #15803d, #16a34a);
+            box-shadow: 0 16px 32px rgba(22, 163, 74, 0.18);
+        }
+
+        .caf-file-box.is-file-selected .caf-file-copy span {
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        .caf-consent {
+            display: grid;
+            grid-template-columns: 20px minmax(0, 1fr);
+            gap: 12px;
+            align-items: flex-start;
+            padding: 18px;
+            border: 1px solid var(--caf-line);
+            border-radius: 22px;
+            background: var(--caf-off);
+            margin-bottom: 24px;
+        }
+
+        .caf-consent input {
+            width: 18px;
+            height: 18px;
+            margin: 4px 0 0;
+            accent-color: var(--caf-blue);
+        }
+
+        .caf-consent label {
+            color: var(--caf-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .caf-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 8px;
+        }
+
+        .caf-btn {
+            min-height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 11px;
+            padding: 13px 22px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease, color 0.28s ease;
+        }
+
+        .caf-btn--primary {
+            color: var(--caf-white);
+            background: linear-gradient(135deg, var(--caf-blue), var(--caf-blue-2));
+            box-shadow: 0 18px 38px rgba(10, 61, 98, 0.22);
+        }
+
+        .caf-btn--primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 48px rgba(10, 61, 98, 0.16);
+        }
+
+        .caf-btn--light {
+            color: var(--caf-blue);
+            background: rgba(255, 255, 255, 0.88);
+            border-color: var(--caf-line-strong);
+        }
+
+        .caf-btn--light:hover {
+            border-color: rgba(10, 61, 98, 0.34);
+            background: var(--caf-ice);
+            transform: translateY(-3px);
+            box-shadow: 0 22px 48px rgba(10, 61, 98, 0.10);
+        }
+
+        .caf-status {
+            display: none;
+            margin-top: 20px;
+            padding: 15px 17px;
+            border-radius: 18px;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .caf-status.is-visible {
+            display: block;
+        }
+
+        .caf-status--success {
+            background: rgba(22, 163, 74, 0.10);
+            color: #166534;
+            border: 1px solid rgba(22, 163, 74, 0.18);
+        }
+
+        .caf-status--error {
+            background: rgba(180, 35, 24, 0.08);
+            color: #9f1b1b;
+            border: 1px solid rgba(180, 35, 24, 0.16);
+        }
+
+        #relocateTravel,
+        #source,
+        #preferredWorkType,
+        #shiftFlexibility,
+        #openingType,
+        #roleApplied,
+        #preferredLocation,
+        #totalExperience,
+        #availableToJoin {
+            height: 52px !important;
+            min-height: 52px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        @keyframes cafFloatIn {
+            from {
+                opacity: 0;
+                transform: translateY(26px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1180px) {
+            .caf-container {
+                width: min(100% - 40px, 980px);
+            }
+
+            .caf-hero {
+                min-height: auto;
+            }
+
+            .caf-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .caf-hero-card {
+                max-width: 720px;
+            }
+
+            .caf-side-card {
+                grid-template-columns: 1fr;
+            }
+
+            .caf-side-card h3,
+            .caf-side-card p,
+            .caf-step-list {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .caf-step-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .caf-form-section {
+                padding: 78px 0;
+            }
+
+            .caf-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .caf-container {
+                width: min(100% - 28px, var(--caf-container));
+            }
+
+            .caf-hero {
+                padding: 72px 0 42px;
+                background-size: 52px 52px;
+            }
+
+            .caf-hero-grid {
+                gap: 30px;
+            }
+
+            .caf-hero-title {
+                font-size: clamp(3rem, 16vw, 5rem);
+                letter-spacing: -0.06em;
+            }
+
+            .caf-hero-text {
+                margin-top: 20px;
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+
+            .caf-mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .caf-form-section {
+                padding: 66px 0;
+            }
+
+            .caf-side-card,
+            .caf-form-card {
+                border-radius: 26px;
+            }
+
+            .caf-side-card,
+            .caf-form,
+            .caf-form-head {
+                padding: 24px;
+            }
+
+            .caf-step-list {
+                grid-template-columns: 1fr;
+            }
+
+            .caf-step {
+                min-height: auto;
+                grid-template-columns: 44px minmax(0, 1fr);
+                padding: 18px;
+            }
+
+            .caf-file-upload-ui {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+                padding: 18px 14px;
+            }
+
+            .caf-file-button,
+            .caf-btn {
+                width: 100%;
+            }
+
+            .caf-file-meta {
+                justify-content: center;
+            }
+
+            .caf-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .caf-container {
+                width: min(100% - 24px, var(--caf-container));
+            }
+
+            .caf-kicker {
+                gap: 8px;
+                padding: 8px 11px 8px 8px;
+                font-size: 0.64rem;
+                letter-spacing: 0.09em;
+            }
+
+            .caf-kicker i {
+                width: 28px;
+                height: 28px;
+            }
+
+            .caf-hero-title {
+                font-size: clamp(2.72rem, 18vw, 4.4rem);
+            }
+
+            .caf-form-section {
+                padding: 58px 0;
+            }
+
+            .caf-form-head h2 {
+                font-size: clamp(1.8rem, 10vw, 2.55rem);
+            }
+
+            .caf-section-title {
+                align-items: flex-start;
+                font-size: 0.76rem;
+                letter-spacing: 0.08em;
+            }
+
+            .caf-section-title::after {
+                margin-top: 19px;
+            }
+
+            .caf-field input,
+            .caf-field select,
+            .caf-field textarea,
+            #relocateTravel,
+            #source,
+            #preferredWorkType,
+            #shiftFlexibility,
+            #openingType,
+            #roleApplied,
+            #preferredLocation,
+            #totalExperience,
+            #availableToJoin {
+                font-size: 0.88rem;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .caf-container {
+                width: min(100% - 20px, var(--caf-container));
+            }
+
+            .caf-hero {
+                padding-top: 58px;
+            }
+
+            .caf-hero-title {
+                font-size: clamp(2.45rem, 18vw, 3.55rem);
+            }
+
+            .caf-hero-text,
+            .caf-side-card p,
+            .caf-hero-card p,
+            .caf-consent label {
+                font-size: 0.9rem;
+            }
+
+            .caf-side-card,
+            .caf-form,
+            .caf-form-head {
+                padding: 20px;
+            }
+
+            .caf-step {
+                grid-template-columns: 40px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .caf-step i,
+            .caf-section-title i {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.001ms !important;
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <meta name="description" content="Career Application from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/people/career-application.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Career Application | Pradako Mechanical &amp; Engineering Works">
+    <meta property="og:description" content="Career Application from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta property="og:url" content="https://www.pradako.co/pages/people/career-application.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Career Application | Pradako Mechanical &amp; Engineering Works">
+    <meta name="twitter:description" content="Career Application from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Career Application | Pradako Mechanical & Engineering Works",
+  "url": "https://www.pradako.co/pages/people/career-application.html",
+  "description": "Career Application from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== NAVBAR CONTAINER ========== -->
+    <div id="navbar-container"></div>
+
+    <main class="caf-page">
+
+        <!-- ================= HERO ================= -->
+        <section class="caf-hero">
+            <div class="caf-container">
+                <div class="caf-hero-grid">
+
+                    <div>
+                        <div class="caf-kicker">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Career Application
+                        </div>
+
+                        <h1 class="caf-hero-title">
+                            Apply
+                            <span>at Pradako</span>
+                        </h1>
+
+                        <p class="caf-hero-text">
+                            Submit your profile for current opportunities or spontaneous opportunities at Pradako Mechanical & Engineering Works.
+                        </p>
+                    </div>
+
+                    <aside class="caf-hero-card">
+                        <!-- <div class="caf-live">
+                            <span></span>
+                            Common Form
+                        </div> -->
+
+                        <h2>One application form for every role.</h2>
+
+                        <p>
+                            Select the role, upload your resume, and submit your details through one common application form.
+                        </p>
+
+                        <div class="caf-mini-grid">
+                            <div class="caf-mini">
+                                <strong>22</strong>
+                                <span>Roles</span>
+                            </div>
+
+                            <div class="caf-mini">
+                                <strong>1</strong>
+                                <span>Form</span>
+                            </div>
+
+                            <div class="caf-mini">
+                                <strong>CV</strong>
+                                <span>Upload</span>
+                            </div>
+
+                            <div class="caf-mini">
+                                <strong>PMEW</strong>
+                                <span>Careers</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FORM ================= -->
+        <section class="caf-form-section" id="application-form">
+            <div class="caf-container">
+
+                <div class="caf-form-shell">
+
+                    <aside class="caf-side-card">
+                        <h3>Application Checklist</h3>
+                        <p>
+                            Keep your resume ready before submitting the form.
+                        </p>
+
+                        <div class="caf-step-list">
+                            <div class="caf-step">
+                                <i class="fa-solid fa-user"></i>
+                                <div>
+                                    <strong>Candidate Details</strong>
+                                    <span>Name, email, phone, location and profile information.</span>
+                                </div>
+                            </div>
+
+                            <div class="caf-step">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <div>
+                                    <strong>Role Selection</strong>
+                                    <span>Select current opportunity or spontaneous opportunity.</span>
+                                </div>
+                            </div>
+
+                            <div class="caf-step">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <div>
+                                    <strong>Professional Fit</strong>
+                                    <span>Add skills, availability, relocation and referral details.</span>
+                                </div>
+                            </div>
+
+                            <div class="caf-step">
+                                <i class="fa-solid fa-file-arrow-up"></i>
+                                <div>
+                                    <strong>Resume Upload</strong>
+                                    <span>Upload PDF, DOC, or DOCX resume file.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="caf-form-card">
+                        <div class="caf-form-head">
+                            <p>Common Career Form</p>
+                            <h2>Submit your application</h2>
+                        </div>
+
+                        <form class="caf-form" id="careerApplicationForm" action="#" method="POST" enctype="multipart/form-data">
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-briefcase"></i>
+                                Role Information
+                            </h3>
+
+                            <div class="caf-grid">
+                                <div class="caf-field">
+                                    <label for="openingType">Opening Type <span class="caf-required">*</span></label>
+                                    <select id="openingType" name="opening_type" required>
+                                        <option value="">Select opening type</option>
+                                        <option value="Current Opportunities">Current Opportunities</option>
+                                        <option value="Spontaneous Opportunities">Spontaneous Opportunities</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="roleApplied">Role Applied For <span class="caf-required">*</span></label>
+                                    <select id="roleApplied" name="role_applied" required disabled>
+                                        <option value="">Select opening type first</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="department">Department</label>
+                                    <input type="text" id="department" name="department" placeholder="Auto-filled after role selection" readonly />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="preferredLocation">Preferred Location</label>
+                                    <select id="preferredLocation" name="preferred_location">
+                                        <option value="">Select preferred location</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Gujarat Units">Gujarat Units</option>
+                                        <option value="Faridabad">Faridabad</option>
+                                        <option value="Any Location">Any Location</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-user"></i>
+                                Candidate Details
+                            </h3>
+
+                            <div class="caf-grid">
+                                <div class="caf-field">
+                                    <label for="candidateName">Full Name <span class="caf-required">*</span></label>
+                                    <input type="text" id="candidateName" name="candidate_name" placeholder="Enter your full name" required />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="candidateEmail">Email Address <span class="caf-required">*</span></label>
+                                    <input type="email" id="candidateEmail" name="candidate_email" placeholder="name@example.com" required />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="candidatePhone">Mobile Number <span class="caf-required">*</span></label>
+                                    <input type="tel" id="candidatePhone" name="candidate_phone" placeholder="+91 98765 43210" required />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="alternatePhone">Alternate Number</label>
+                                    <input type="tel" id="alternatePhone" name="alternate_phone" placeholder="Optional" />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="currentCity">Current City <span class="caf-required">*</span></label>
+                                    <input type="text" id="currentCity" name="current_city" placeholder="Mumbai, Pune, Ahmedabad..." required />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="linkedinProfile">LinkedIn / Portfolio</label>
+                                    <input type="url" id="linkedinProfile" name="linkedin_profile" placeholder="https://..." />
+                                </div>
+                            </div>
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Education & Experience
+                            </h3>
+
+                            <div class="caf-grid">
+                                <div class="caf-field">
+                                    <label for="highestQualification">Highest Qualification <span class="caf-required">*</span></label>
+                                    <input type="text" id="highestQualification" name="highest_qualification" placeholder="B.E., B.Com, ITI, MBA..." required />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="totalExperience">Total Experience <span class="caf-required">*</span></label>
+                                    <select id="totalExperience" name="total_experience" required>
+                                        <option value="">Select experience</option>
+                                        <option value="Fresher">Fresher</option>
+                                        <option value="0-1 Years">0-1 Years</option>
+                                        <option value="1-2 Years">1-2 Years</option>
+                                        <option value="2-3 Years">2-3 Years</option>
+                                        <option value="3-5 Years">3-5 Years</option>
+                                        <option value="5-8 Years">5-8 Years</option>
+                                        <option value="8-10 Years">8-10 Years</option>
+                                        <option value="10+ Years">10+ Years</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="currentCompany">Current / Last Company</label>
+                                    <input type="text" id="currentCompany" name="current_company" placeholder="Company name" />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="currentDesignation">Current / Last Designation</label>
+                                    <input type="text" id="currentDesignation" name="current_designation" placeholder="Designation" />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="currentIndustry">Current Industry</label>
+                                    <input type="text" id="currentIndustry" name="current_industry" placeholder="Fasteners, Automotive, Engineering..." />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="availableToJoin">Available to Join</label>
+                                    <select id="availableToJoin" name="available_to_join">
+                                        <option value="">Select availability</option>
+                                        <option value="Immediate">Immediate</option>
+                                        <option value="15 Days">15 Days</option>
+                                        <option value="30 Days">30 Days</option>
+                                        <option value="45 Days">45 Days</option>
+                                        <option value="60 Days">60 Days</option>
+                                        <option value="90 Days">90 Days</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                                Compensation Details
+                            </h3>
+
+                            <div class="caf-grid">
+                                <div class="caf-field">
+                                    <label for="currentCtc">Current CTC</label>
+                                    <input type="text" id="currentCtc" name="current_ctc" placeholder="Example: 5 LPA" />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="expectedCtc">Expected CTC</label>
+                                    <input type="text" id="expectedCtc" name="expected_ctc" placeholder="Example: 7 LPA" />
+                                </div>
+                            </div>
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                Professional Fit
+                            </h3>
+
+                            <div class="caf-grid">
+                                <div class="caf-field">
+                                    <label for="keySkills">Relevant Skills / Keywords</label>
+                                    <textarea id="keySkills" name="key_skills" placeholder="Example: Export documentation, DGFT, ICEGATE, CHA coordination, Incoterms"></textarea>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="relocateTravel">Willing to Relocate / Travel</label>
+                                    <select id="relocateTravel" name="relocate_travel">
+                                        <option value="">Select option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="Open to Discuss">Open to Discuss</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="source">How Did You Hear About Us?</label>
+                                    <select id="source" name="source">
+                                        <option value="">Select source</option>
+                                        <option value="Company Website">Company Website</option>
+                                        <option value="LinkedIn">LinkedIn</option>
+                                        <option value="Naukri">Naukri</option>
+                                        <option value="Indeed">Indeed</option>
+                                        <option value="Employee Referral">Employee Referral</option>
+                                        <option value="WhatsApp">WhatsApp</option>
+                                        <option value="Recruitment Agency">Recruitment Agency</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="referralName">Referral Name / Contact</label>
+                                    <input type="text" id="referralName" name="referral_name" placeholder="Employee name or contact, if any" />
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="preferredWorkType">Preferred Work Type</label>
+                                    <select id="preferredWorkType" name="preferred_work_type">
+                                        <option value="">Select work type</option>
+                                        <option value="Office">Office</option>
+                                        <option value="Plant">Plant</option>
+                                        <option value="Field / Customer Visit">Field / Customer Visit</option>
+                                        <option value="Any">Any</option>
+                                    </select>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="shiftFlexibility">Shift Flexibility</label>
+                                    <select id="shiftFlexibility" name="shift_flexibility">
+                                        <option value="">Select shift preference</option>
+                                        <option value="General Shift">General Shift</option>
+                                        <option value="Rotational Shift">Rotational Shift</option>
+                                        <option value="Night Shift">Night Shift</option>
+                                        <option value="Open to Any Shift">Open to Any Shift</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3 class="caf-section-title">
+                                <i class="fa-solid fa-file-arrow-up"></i>
+                                Resume & Message
+                            </h3>
+
+                            <div class="caf-grid caf-grid--full">
+                                <div class="caf-field">
+                                    <label for="resumeFile">Upload Resume <span class="caf-required">*</span></label>
+
+                                    <div class="caf-file-box" id="resumeFileBox">
+                                        <input class="caf-file-input" type="file" id="resumeFile" name="resume_file" accept=".pdf,.doc,.docx" required />
+
+                                        <label class="caf-file-upload-ui" for="resumeFile">
+                                            <span class="caf-file-icon">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            </span>
+
+                                            <span class="caf-file-copy">
+                                                <strong>Upload your resume</strong>
+                                                <span id="resumeFileName">No file selected yet</span>
+                                            </span>
+
+                                            <span class="caf-file-button">
+                                                Browse File
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            </span>
+                                        </label>
+
+                                        <div class="caf-file-meta">
+                                            <span>
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                                PDF
+                                            </span>
+                                            <span>
+                                                <i class="fa-solid fa-file-word"></i>
+                                                DOC / DOCX
+                                            </span>
+                                            <span>
+                                                <i class="fa-solid fa-weight-hanging"></i>
+                                                Max 5 MB
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="caf-field">
+                                    <label for="coverMessage">Short Message</label>
+                                    <textarea id="coverMessage" name="cover_message" placeholder="Briefly tell us why you are suitable for this role."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="caf-consent">
+                                <input type="checkbox" id="candidateConsent" name="candidate_consent" required />
+                                <label for="candidateConsent">
+                                    I confirm that the information provided above is accurate. I consent to Pradako Mechanical & Engineering Works storing and reviewing my application for recruitment purposes.
+                                    <span class="caf-required">*</span>
+                                </label>
+                            </div>
+
+                            <div class="caf-actions">
+                                <button type="submit" class="caf-btn caf-btn--primary">
+                                    Submit Application
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+
+                                <button type="reset" class="caf-btn caf-btn--light">
+                                    Reset Form
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                </button>
+                            </div>
+
+                            <div class="caf-status caf-status--success" id="cafSuccessMessage">
+                                Thank you. Your application details are ready. Connect this form to your backend or form handler to receive submissions with resume attachments.
+                            </div>
+
+                            <div class="caf-status caf-status--error" id="cafErrorMessage">
+                                Please complete all required fields before submitting.
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================
+        FOOTER
+    ======================================================= -->
+    <div id="footer-container"></div>
+
+    <!-- ======================================================
+        MAIN JS
+    ======================================================= -->
+    <script src="/assets/js/pradako-global-animations.js" defer></script>
+
+    <!-- ======================================================
+        CAREER APPLICATION JS
+    ======================================================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("careerApplicationForm");
+            const openingType = document.getElementById("openingType");
+            const roleApplied = document.getElementById("roleApplied");
+            const department = document.getElementById("department");
+            const successMessage = document.getElementById("cafSuccessMessage");
+            const errorMessage = document.getElementById("cafErrorMessage");
+
+            const resumeFile = document.getElementById("resumeFile");
+            const resumeFileName = document.getElementById("resumeFileName");
+            const resumeFileBox = document.getElementById("resumeFileBox");
+
+            const roles = [
+                {
+                    slug: "international-marketing-manager",
+                    title: "International Marketing Manager",
+                    group: "current",
+                    department: "International Business"
+                },
+                {
+                    slug: "marketing-manager",
+                    title: "Marketing Manager",
+                    group: "current",
+                    department: "Marketing"
+                },
+                {
+                    slug: "export-documentation-executive",
+                    title: "Export Documentation Executive",
+                    group: "current",
+                    department: "Exports"
+                },
+                {
+                    slug: "admin-executive-assistant",
+                    title: "Admin Executive / Assistant",
+                    group: "current",
+                    department: "Administration"
+                },
+                {
+                    slug: "quality-engineer-construction-fasteners",
+                    title: "Quality Engineer – Construction Fasteners",
+                    group: "current",
+                    department: "Quality"
+                },
+
+                {
+                    slug: "packing-dispatch-executive",
+                    title: "Packing & Dispatch Executive",
+                    group: "spontaneous",
+                    department: "Dispatch"
+                },
+                {
+                    slug: "stores-warehousing-executive-operator",
+                    title: "Stores & Warehousing Executive / Operator",
+                    group: "spontaneous",
+                    department: "Stores"
+                },
+                {
+                    slug: "logistics-executive-coordinator",
+                    title: "Logistics Executive / Coordinator",
+                    group: "spontaneous",
+                    department: "Logistics"
+                },
+                {
+                    slug: "hr-assistant",
+                    title: "HR Assistant",
+                    group: "spontaneous",
+                    department: "Human Resources"
+                },
+                {
+                    slug: "it-executive-assistant",
+                    title: "IT Executive / Assistant – Infrastructure & Support",
+                    group: "spontaneous",
+                    department: "Information Technology"
+                },
+                {
+                    slug: "tool-room-technician-engineer",
+                    title: "Tool Room Technician / Engineer",
+                    group: "spontaneous",
+                    department: "Tool Room"
+                },
+                {
+                    slug: "production-ppc-control-executive-engineer",
+                    title: "Production & PPC Control Executive / Engineer",
+                    group: "spontaneous",
+                    department: "PPC"
+                },
+                {
+                    slug: "vendor-development-executive-engineer",
+                    title: "Vendor Development Executive / Engineer",
+                    group: "spontaneous",
+                    department: "Vendor Development"
+                },
+                {
+                    slug: "heat-treatment-assistant-manager-executive",
+                    title: "Heat Treatment – Assistant Manager / Executive",
+                    group: "spontaneous",
+                    department: "Heat Treatment"
+                },
+                {
+                    slug: "quality-engineer",
+                    title: "Quality Engineer",
+                    group: "spontaneous",
+                    department: "Quality"
+                },
+                {
+                    slug: "import-documentation-executive",
+                    title: "Import Documentation Executive",
+                    group: "spontaneous",
+                    department: "Imports"
+                },
+                {
+                    slug: "manager-accounts-receivable",
+                    title: "Manager – Accounts Receivable",
+                    group: "spontaneous",
+                    department: "Accounts"
+                },
+                {
+                    slug: "assistant-manager-accounts-payable",
+                    title: "Assistant Manager – Accounts Payable",
+                    group: "spontaneous",
+                    department: "Accounts"
+                },
+                {
+                    slug: "tax-accountant",
+                    title: "Tax Accountant",
+                    group: "spontaneous",
+                    department: "Accounts"
+                },
+                {
+                    slug: "production-engineer-cold-forging-hot-forging",
+                    title: "Production Engineer – Cold Forging / Hot Forging / Warm Forming Manufacturing",
+                    group: "spontaneous",
+                    department: "Production"
+                },
+                {
+                    slug: "machine-operators-cold-forging-fastener-manufacturing",
+                    title: "Machine Operators – Cold Forging & Fastener Manufacturing",
+                    group: "spontaneous",
+                    department: "Operators"
+                },
+                {
+                    slug: "lab-technician-quality-testing",
+                    title: "Lab Technician – Quality & Testing",
+                    group: "spontaneous",
+                    department: "Lab / Testing"
+                }
+            ];
+
+            function getURLParam(name) {
+                const params = new URLSearchParams(window.location.search);
+                return params.get(name);
+            }
+
+            function hideMessages() {
+                successMessage.classList.remove("is-visible");
+                errorMessage.classList.remove("is-visible");
+            }
+
+            function getGroupFromOpeningType() {
+                if (openingType.value === "Current Opportunities") return "current";
+                if (openingType.value === "Spontaneous Opportunities") return "spontaneous";
+                return "";
+            }
+
+            function renderRoleOptions(selectedSlug = "") {
+                const selectedGroup = getGroupFromOpeningType();
+
+                roleApplied.innerHTML = "";
+                department.value = "";
+
+                if (!selectedGroup) {
+                    roleApplied.disabled = true;
+                    roleApplied.innerHTML = `<option value="">Select opening type first</option>`;
+                    return;
+                }
+
+                const filteredRoles = roles.filter(role => role.group === selectedGroup);
+
+                roleApplied.disabled = false;
+
+                roleApplied.innerHTML = `
+                    <option value="">Select role</option>
+                    ${filteredRoles.map(role => `
+                        <option 
+                            value="${role.title}" 
+                            data-slug="${role.slug}" 
+                            data-group="${role.group}" 
+                            data-department="${role.department}"
+                            ${role.slug === selectedSlug ? "selected" : ""}
+                        >
+                            ${role.title}
+                        </option>
+                    `).join("")}
+                `;
+
+                updateDepartmentFromRole();
+            }
+
+            function updateDepartmentFromRole() {
+                const selectedOption = roleApplied.options[roleApplied.selectedIndex];
+
+                if (!selectedOption || !selectedOption.value) {
+                    department.value = "";
+                    return;
+                }
+
+                department.value = selectedOption.dataset.department || "";
+            }
+
+            function setRoleFromURL() {
+                const roleSlug = getURLParam("role");
+                const groupParam = getURLParam("group");
+
+                if (groupParam === "current") {
+                    openingType.value = "Current Opportunities";
+                }
+
+                if (groupParam === "spontaneous" || groupParam === "apply") {
+                    openingType.value = "Spontaneous Opportunities";
+                }
+
+                renderRoleOptions(roleSlug || "");
+            }
+
+            function updateResumeFileUI() {
+                const file = resumeFile.files && resumeFile.files[0];
+
+                resumeFileBox.classList.remove("is-file-selected");
+
+                if (!file) {
+                    resumeFileName.textContent = "No file selected yet";
+                    return;
+                }
+
+                const maxSizeMB = 5;
+                const maxSizeBytes = maxSizeMB * 1024 * 1024;
+
+                if (file.size > maxSizeBytes) {
+                    resumeFile.value = "";
+                    resumeFileName.textContent = "File is too large. Please upload below 5 MB.";
+                    resumeFileBox.classList.remove("is-file-selected");
+                    return;
+                }
+
+                resumeFileName.textContent = file.name;
+                resumeFileBox.classList.add("is-file-selected");
+                hideMessages();
+            }
+
+            openingType.addEventListener("change", function () {
+                renderRoleOptions();
+                hideMessages();
+            });
+
+            roleApplied.addEventListener("change", function () {
+                updateDepartmentFromRole();
+                hideMessages();
+            });
+
+            resumeFile.addEventListener("change", updateResumeFileUI);
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                hideMessages();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    errorMessage.classList.add("is-visible");
+                    return;
+                }
+
+                successMessage.classList.add("is-visible");
+
+                successMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            });
+
+            form.addEventListener("reset", function () {
+                setTimeout(function () {
+                    department.value = "";
+                    roleApplied.disabled = true;
+                    roleApplied.innerHTML = `<option value="">Select opening type first</option>`;
+                    resumeFileName.textContent = "No file selected yet";
+                    resumeFileBox.classList.remove("is-file-selected");
+                    hideMessages();
+                }, 0);
+            });
+
+            setRoleFromURL();
+        });
+    </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

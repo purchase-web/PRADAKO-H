@@ -1,0 +1,780 @@
+/* ==========================================================
+   PRADAKO SUSTAINABILITY ROADMAP
+   New roadmap section only.
+   Does NOT affect old .sustainability-section framework.
+========================================================== */
+
+.pmew-sr {
+    --pmew-sr-green: #9fdf22;
+    --pmew-sr-white: #ffffff;
+    --pmew-sr-soft-white: rgba(255, 255, 255, 0.86);
+    --pmew-sr-line: rgba(159, 223, 34, 0.55);
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 820px;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+    background-color: #102014;
+    background-image: url("/assets/images/sustainability/bg-winding-road.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+
+.pmew-sr__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(circle at 16% 18%, rgba(159, 223, 34, 0.07), transparent 28%),
+        radial-gradient(circle at 82% 24%, rgba(159, 223, 34, 0.055), transparent 30%),
+        linear-gradient(
+            90deg,
+            rgba(4, 17, 8, 0.42) 0%,
+            rgba(4, 17, 8, 0.15) 42%,
+            rgba(4, 17, 8, 0.28) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.02) 0%,
+            rgba(0, 0, 0, 0.11) 100%
+        );
+    pointer-events: none;
+}
+
+/* ==========================================================
+   INTERNAL RESET
+========================================================== */
+
+.pmew-sr *,
+.pmew-sr *::before,
+.pmew-sr *::after {
+    box-sizing: border-box;
+}
+
+.pmew-sr h2,
+.pmew-sr h3,
+.pmew-sr p {
+    margin-top: 0;
+}
+
+/* ==========================================================
+   LEFT INTRO
+========================================================== */
+
+.pmew-sr__intro {
+    position: absolute;
+    z-index: 5;
+    top: 7%;
+    left: 2.8%;
+    width: min(390px, 22vw);
+    color: var(--pmew-sr-white);
+    animation: pmewSrIntroIn 0.9s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.pmew-sr__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 18px;
+    padding: 8px 13px;
+    border: 1px solid rgba(159, 223, 34, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 26, 10, 0.22);
+    color: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(6px);
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.pmew-sr__badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--pmew-sr-green);
+    box-shadow: 0 0 16px rgba(159, 223, 34, 0.8);
+}
+
+.pmew-sr__intro h2 {
+    margin: 0;
+    color: var(--pmew-sr-white);
+    font-size: clamp(36px, 2.85vw, 56px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.35px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.pmew-sr__intro h2 span {
+    color: var(--pmew-sr-green);
+}
+
+.pmew-sr__title-line {
+    width: 150px;
+    height: 5px;
+    margin: 22px 0 34px;
+    border-radius: 999px;
+    background: var(--pmew-sr-green);
+    box-shadow: 0 0 20px rgba(159, 223, 34, 0.28);
+}
+
+.pmew-sr__intro p {
+    margin: 0;
+    color: var(--pmew-sr-soft-white);
+    font-size: clamp(18px, 1.26vw, 24px);
+    line-height: 1.46;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    text-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.pmew-sr__intro p strong {
+    color: var(--pmew-sr-green);
+    font-weight: 500;
+}
+
+/* ==========================================================
+   CURVED ROADMAP FLOW LINE
+========================================================== */
+
+.pmew-sr__flow {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.68;
+}
+
+.pmew-sr__flow-shadow,
+.pmew-sr__flow-line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pmew-sr__flow-shadow {
+    stroke: rgba(159, 223, 34, 0.16);
+    stroke-width: 22;
+    filter: blur(12px);
+}
+
+.pmew-sr__flow-line {
+    stroke: rgba(159, 223, 34, 0.28);
+    stroke-width: 2;
+    stroke-dasharray: 10 12;
+    animation: pmewSrFlowDash 18s linear infinite;
+}
+
+/* ==========================================================
+   ROADMAP STAGE
+========================================================== */
+
+.pmew-sr__stage {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+/* ==========================================================
+   ROADMAP NODE
+========================================================== */
+
+.pmew-sr__node {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: clamp(160px, 10vw, 198px);
+    color: var(--pmew-sr-white);
+    text-align: left;
+    transform: translate(-50%, -50%);
+    animation: pmewSrNodeIn 0.85s cubic-bezier(.16, 1, .3, 1) both;
+    animation-delay: var(--delay);
+}
+
+.pmew-sr__copy {
+    position: relative;
+    padding: 10px 12px 12px;
+    border-radius: 16px;
+    background: rgba(0, 22, 9, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(2px);
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.pmew-sr__copy span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--pmew-sr-green);
+    font-size: clamp(18px, 1.05vw, 22px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
+}
+
+.pmew-sr__copy h3 {
+    margin: 0 0 8px;
+    color: var(--pmew-sr-white);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(13px, 0.78vw, 16px);
+    line-height: 1.22;
+    font-weight: 800;
+    letter-spacing: 0.05px;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.26);
+}
+
+.pmew-sr__copy p {
+    margin: 0;
+    color: var(--pmew-sr-soft-white);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(12px, 0.72vw, 14px);
+    line-height: 1.52;
+    font-weight: 500;
+    letter-spacing: 0.02px;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+/* ==========================================================
+   ICON + DOT
+   Top row: info -> dot -> icon
+   Bottom row: icon -> dot -> info
+========================================================== */
+
+.pmew-sr__icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-top: 46px;
+    border: 2px solid var(--pmew-sr-line);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--pmew-sr-white);
+    font-size: 21px;
+    background: rgba(0, 30, 12, 0.14);
+    backdrop-filter: blur(3px);
+    box-shadow:
+        inset 0 0 14px rgba(255, 255, 255, 0.055),
+        0 0 18px rgba(159, 223, 34, 0.12);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Default top-row dot above icon */
+.pmew-sr__icon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -43px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--pmew-sr-green);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    transform: translateX(-50%);
+    box-shadow: 0 0 18px rgba(159, 223, 34, 0.74);
+    animation: pmewSrPulse 2.4s ease-in-out infinite;
+}
+
+/* Default top-row connector upward */
+.pmew-sr__icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(
+        0deg,
+        rgba(159, 223, 34, 0.56),
+        rgba(159, 223, 34, 0.08)
+    );
+    transform: translateX(-50%);
+}
+
+/* Bottom row reversed layout */
+@media (min-width: 1201px) {
+    .pmew-sr__node--bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pmew-sr__node--bottom .pmew-sr__icon {
+        order: 1;
+        margin-top: 0;
+        margin-bottom: 48px;
+    }
+
+    .pmew-sr__node--bottom .pmew-sr__copy {
+        order: 2;
+    }
+
+    .pmew-sr__node--bottom .pmew-sr__icon::before {
+        top: auto;
+        bottom: -43px;
+    }
+
+    .pmew-sr__node--bottom .pmew-sr__icon::after {
+        top: 100%;
+        bottom: auto;
+        height: 32px;
+        background: linear-gradient(
+            180deg,
+            rgba(159, 223, 34, 0.56),
+            rgba(159, 223, 34, 0.08)
+        );
+    }
+}
+
+/* Hover state */
+.pmew-sr__node:hover .pmew-sr__copy {
+    transform: translateY(-4px);
+    background: rgba(0, 28, 11, 0.26);
+    border-color: rgba(159, 223, 34, 0.20);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.pmew-sr__node:hover .pmew-sr__icon {
+    transform: translateY(-5px) scale(1.04);
+    border-color: var(--pmew-sr-green);
+    background: rgba(0, 40, 16, 0.22);
+    box-shadow: 0 0 26px rgba(159, 223, 34, 0.24);
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes pmewSrPulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 14px rgba(159, 223, 34, 0.62);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.14);
+        box-shadow: 0 0 26px rgba(159, 223, 34, 0.86);
+    }
+}
+
+@keyframes pmewSrIntroIn {
+    from {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pmewSrNodeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+@keyframes pmewSrFlowDash {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -220;
+    }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .pmew-sr {
+        height: auto;
+        min-height: auto;
+        padding: 90px 24px;
+    }
+
+    .pmew-sr__intro {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: min(720px, 100%);
+        margin-bottom: 46px;
+    }
+
+    .pmew-sr__intro h2 {
+        font-size: clamp(38px, 6vw, 58px);
+    }
+
+    .pmew-sr__flow {
+        display: none;
+    }
+
+    .pmew-sr__stage {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .pmew-sr__node {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        width: auto;
+        transform: none;
+        animation: pmewSrCardIn .75s ease both;
+
+        padding: 24px;
+        border-radius: 24px;
+
+        display: flex;
+        flex-direction: column;
+
+        border: 1px solid rgba(159,223,34,.20);
+
+        background: rgba(0,24,12,.38);
+        backdrop-filter: blur(8px);
+    }
+
+    .pmew-sr__copy {
+        order: 1;
+
+        padding: 0;
+        background: transparent;
+        border: 0;
+        backdrop-filter: none;
+    }
+
+    .pmew-sr__icon {
+        order: 2;
+
+        margin-top: 24px;
+        margin-bottom: 0;
+    }
+
+    .pmew-sr__icon::before,
+    .pmew-sr__icon::after {
+        display: none;
+    }
+
+    @keyframes pmewSrCardIn {
+
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 680px) {
+
+    .pmew-sr {
+        padding: 70px 18px;
+    }
+
+    .pmew-sr__intro {
+        margin-bottom: 34px;
+    }
+
+    .pmew-sr__badge {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+
+    .pmew-sr__intro h2 {
+        font-size: 38px;
+        line-height: 1.1;
+    }
+
+    .pmew-sr__title-line {
+        width: 120px;
+        height: 4px;
+        margin: 18px 0 26px;
+    }
+
+    .pmew-sr__intro p {
+        font-size: 18px;
+    }
+
+    .pmew-sr__stage {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .pmew-sr__node {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .pmew-sr__copy span {
+        font-size: 18px;
+    }
+
+    .pmew-sr__copy h3 {
+        font-size: 17px;
+        line-height: 1.3;
+    }
+
+    .pmew-sr__copy p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .pmew-sr__icon {
+        width: 60px;
+        height: 60px;
+        margin-top: 22px;
+        font-size: 20px;
+    }
+}
+
+/* ==========================================================
+   MIGRATED RESPONSIVE RULES
+   Consolidated from the retired responsive.css file.
+   ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .pmew-sr {
+    overflow: hidden;
+  }
+  .pmew-sr__stage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    min-height: auto;
+    padding: 42px 20px;
+  }
+  .pmew-sr__node {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    min-height: 230px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: center;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(10, 61, 98, 0.08);
+    box-shadow: 0 20px 50px rgba(10, 61, 98, 0.08);
+  }
+  .pmew-sr__node--top {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    min-height: 230px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: center;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(10, 61, 98, 0.08);
+    box-shadow: 0 20px 50px rgba(10, 61, 98, 0.08);
+  }
+  .pmew-sr__node--bottom {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    min-height: 230px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: center;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(10, 61, 98, 0.08);
+    box-shadow: 0 20px 50px rgba(10, 61, 98, 0.08);
+  }
+  .pmew-sr__copy {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+  .pmew-sr__copy span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .pmew-sr__copy h3 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+  .pmew-sr__copy p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .pmew-sr__icon {
+    order: 1;
+    position: relative;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================
+   SUSTAINABILITY FRAMEWORK COMPATIBILITY
+   Retains the original horizontally scrolling framework cards.
+   Responsive rules are included here with the roadmap styles.
+   ========================================================== */
+.sustainability-section {
+    padding: var(--space-4xl) 0;
+    background: linear-gradient(180deg, #f0fdf4, #dcfce7);
+    overflow: hidden;
+}
+
+.framework-scroll {
+    position: relative;
+    margin-top: var(--space-2xl);
+    overflow: hidden;
+}
+
+.framework-track {
+    display: flex;
+    gap: var(--space-xl);
+    animation: scrollFramework 35s linear infinite;
+}
+
+.framework-track:hover {
+    animation-play-state: paused;
+}
+
+.framework-box {
+    min-width: 260px;
+    padding: 25px;
+    background: var(--color-white);
+    border-left: 6px solid var(--color-success);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--ease-default), box-shadow var(--ease-default);
+}
+
+.framework-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(16, 185, 129, 0.25);
+}
+
+.framework-box h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-navy);
+    font-size: var(--text-lg);
+}
+
+.framework-box ul {
+    padding-left: var(--space-lg);
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    list-style: disc;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sustainability-section {
+        padding: 64px 0;
+    }
+
+    .framework-box {
+        min-width: 220px;
+        padding: 22px;
+    }
+
+    .framework-box h3 {
+        font-size: 16px;
+    }
+
+    .framework-box ul {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sustainability-section {
+        padding: 40px 0;
+    }
+
+    .framework-box {
+        min-width: 200px;
+        padding: 20px;
+    }
+
+    .framework-box h3 {
+        font-size: 16px;
+    }
+
+    .framework-box ul {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .framework-box {
+        min-width: 160px;
+        padding: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .framework-track {
+        animation: none;
+    }
+}

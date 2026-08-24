@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pradako video media hub — production, people, customers, quality, logistics, sustainability and more. Filming soon." />
+  <title>Video Media | Pradako</title>
+
+  <!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+
+  <!-- PMEW global styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- CSS FILES -->
+    <link rel="stylesheet" href="/assets/css/page-style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <style>
+    .pmew-video-media-page {
+      --pmew-video-media-white: #ffffff;
+      --pmew-video-media-off-white: #fafafa;
+      --pmew-video-media-surface: #f5f5f3;
+      --pmew-video-media-ink: #111111;
+      --pmew-video-media-muted: #686868;
+      --pmew-video-media-line: #e8e8e5;
+      --pmew-video-media-accent: #a8dcd9;
+      --pmew-video-media-accent-dark: #5f9995;
+      --pmew-video-media-teal: #5f9995;
+      --pmew-video-media-max-width: 1400px;
+      --pmew-video-media-radius-sm: 14px;
+      --pmew-video-media-radius-md: 24px;
+      --pmew-video-media-radius-lg: 38px;
+      --pmew-video-media-transition: 350ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .pmew-video-media-page,
+    .pmew-video-media-page *,
+    .pmew-video-media-page *::before,
+    .pmew-video-media-page *::after {
+      box-sizing: border-box;
+    }
+
+    .pmew-video-media-page * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.pmew-video-media-body {
+      min-height: 100vh;
+      color: #111111; /* INK / BLACK: global page text fallback */
+      background: #ffffff;
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .pmew-video-media-page a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .pmew-video-media-page button,
+    .pmew-video-media-page input {
+      font: inherit;
+    }
+
+    .pmew-video-media-page img,
+    .pmew-video-media-page svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    /*
+      INK / BLACK TEXT (#111111)
+      The selectors below are intentionally fixed to the page ink colour so
+      PMEW global styles or styles from another page cannot recolour them.
+    */
+    .pmew-video-media-page,
+    .pmew-video-media-section-heading,
+    .pmew-video-media-hero-title,
+    .pmew-video-media-btn,
+    .pmew-video-media-floating-chip,
+    .pmew-video-media-marquee-item,
+    .pmew-video-media-story-icon,
+    .pmew-video-media-story-card h3,
+    .pmew-video-media-status,
+    .pmew-video-media-process-step h3,
+    .pmew-video-media-cta-content h2,
+    .pmew-video-media-notify-form input {
+      color: var(--pmew-video-media-ink);
+    }
+
+    .pmew-video-media-notify-form input::placeholder {
+      color: var(--pmew-video-media-muted);
+      opacity: 1;
+    }
+
+    .pmew-video-media-container {
+      width: min(calc(100% - 48px), var(--pmew-video-media-max-width));
+      margin-inline: auto;
+    }
+
+    .pmew-video-media-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--pmew-video-media-accent-dark);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--pmew-video-media-accent);
+    }
+
+    .pmew-video-media-section-heading {
+      max-width: 860px;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      margin-top: 22px;
+      font-size: clamp(2.1rem, 4.8vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-section-copy {
+      max-width: 730px;
+      margin-top: 28px;
+      color: var(--pmew-video-media-muted);
+      font-size: clamp(1rem, 1.25vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    /* Video media hero */
+    .pmew-video-media-hero {
+      min-height: 100vh;
+      padding: 150px 0 70px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 82% 36%, rgba(168,220,217,0.30), transparent 25%),
+        linear-gradient(180deg, #fff 0%, #fff 76%, #fafafa 100%);
+    }
+
+    .pmew-video-media-hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      opacity: 0.4;
+      background-image:
+        linear-gradient(var(--pmew-video-media-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--pmew-video-media-line) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 28%, transparent 92%);
+    }
+
+    .pmew-video-media-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(430px, 0.9fr);
+      align-items: center;
+      gap: clamp(50px, 7vw, 110px);
+    }
+
+    .pmew-video-media-hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      color: var(--pmew-video-media-muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--pmew-video-media-accent);
+      box-shadow: 0 0 0 0 rgba(168,220,217,0.58);
+      animation: pmew-video-media-pulse 2s infinite;
+    }
+
+    @keyframes pmew-video-media-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(168,220,217,0.58); }
+      70% { box-shadow: 0 0 0 12px rgba(168,220,217,0); }
+      100% { box-shadow: 0 0 0 0 rgba(168,220,217,0); }
+    }
+
+    .pmew-video-media-hero-title {
+      max-width: 840px;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      margin-top: 26px;
+      font-size: clamp(3.6rem, 8vw, 8.4rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.83;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-hero-title .pmew-video-media-outline {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--pmew-video-media-ink);
+    }
+
+    .pmew-video-media-hero-title .pmew-video-media-accent {
+      color: var(--pmew-video-media-accent);
+    }
+
+    .pmew-video-media-hero-description {
+      max-width: 720px;
+      margin-top: 34px;
+      color: var(--pmew-video-media-muted);
+      font-size: clamp(1.02rem, 1.4vw, 1.27rem);
+      line-height: 1.75;
+    }
+
+    .pmew-video-media-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .pmew-video-media-btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 23px;
+      border: 1px solid var(--pmew-video-media-ink);
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: var(--pmew-video-media-transition);
+    }
+
+    .pmew-video-media-btn-primary,
+    .pmew-video-media-btn-primary:link,
+    .pmew-video-media-btn-primary:visited {
+      position: relative;
+      isolation: isolate;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      background: var(--pmew-video-media-ink);
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .pmew-video-media-btn-primary::before,
+    .pmew-video-media-btn-primary::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .pmew-video-media-btn-primary .pmew-video-media-btn-text,
+    .pmew-video-media-btn-primary .pmew-video-media-btn-icon {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .pmew-video-media-btn-primary:hover,
+    .pmew-video-media-btn-primary:focus-visible {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      border-color: var(--pmew-video-media-accent-dark);
+      background: var(--pmew-video-media-accent-dark);
+      transform: translateY(-3px);
+    }
+
+    .pmew-video-media-btn-secondary,
+    .pmew-video-media-btn-secondary:link,
+    .pmew-video-media-btn-secondary:visited {
+      color: var(--pmew-video-media-ink) !important; /* INK / BLACK */
+      -webkit-text-fill-color: var(--pmew-video-media-ink) !important;
+      background: var(--pmew-video-media-white);
+    }
+
+    .pmew-video-media-btn-secondary:hover {
+      background: var(--pmew-video-media-surface);
+      transform: translateY(-3px);
+    }
+
+    .pmew-video-media-hero-note {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--pmew-video-media-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .pmew-video-media-hero-note svg {
+      width: 18px;
+      color: var(--pmew-video-media-accent-dark);
+    }
+
+    .pmew-video-media-camera-stage {
+      min-height: 590px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .pmew-video-media-film-frame {
+      width: min(100%, 560px);
+      aspect-ratio: 4 / 5;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: var(--pmew-video-media-radius-lg);
+      background: var(--pmew-video-media-accent);
+      box-shadow: 0 40px 100px rgba(168,220,217,0.12);
+      transform: rotate(2.2deg);
+    }
+
+    .pmew-video-media-film-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(95,153,149,0.88), transparent 13%),
+        radial-gradient(circle at 25% 75%, rgba(255,255,255,0.22), transparent 22%),
+        linear-gradient(145deg, var(--pmew-video-media-accent) 0%, #79bcb8 65%, #4f8581 100%);
+    }
+
+    .pmew-video-media-film-frame::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .pmew-video-media-frame-top,
+    .pmew-video-media-frame-bottom {
+      position: absolute;
+      z-index: 2;
+      left: 42px;
+      right: 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-frame-top { top: 42px; }
+    .pmew-video-media-frame-bottom { bottom: 42px; }
+
+    .pmew-video-media-record {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pmew-video-media-record::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pmew-video-media-accent);
+    }
+
+    .pmew-video-media-play-core {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .pmew-video-media-play-button {
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+      color: var(--pmew-video-media-white);
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(12px);
+      animation: pmew-video-media-float 4s ease-in-out infinite;
+    }
+
+    .pmew-video-media-play-button svg {
+      width: 34px;
+      margin-left: 6px;
+    }
+
+    @keyframes pmew-video-media-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .pmew-video-media-frame-caption {
+      position: absolute;
+      z-index: 2;
+      left: 42px;
+      bottom: 82px;
+      color: var(--pmew-video-media-white);
+    }
+
+    .pmew-video-media-frame-caption small {
+      display: block;
+      color: rgba(255,255,255,0.62);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-frame-caption strong {
+      display: block;
+      max-width: 340px;
+      margin-top: 9px;
+      font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-floating-chip {
+      position: absolute;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 18px;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.91);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 22px 55px rgba(168,220,217,0.08);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-floating-chip svg {
+      width: 20px;
+      color: var(--pmew-video-media-accent-dark);
+    }
+
+    .pmew-video-media-chip-one { top: 9%; left: -6%; }
+    .pmew-video-media-chip-two { right: -7%; bottom: 18%; }
+
+    /* Marquee */
+    .pmew-video-media-marquee {
+      overflow: hidden;
+      border-top: 1px solid var(--pmew-video-media-line);
+      border-bottom: 1px solid var(--pmew-video-media-line);
+      background: var(--pmew-video-media-white);
+    }
+
+    .pmew-video-media-marquee-track {
+      width: max-content;
+      display: flex;
+      animation: pmew-video-media-marquee 27s linear infinite;
+    }
+
+    .pmew-video-media-marquee-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .pmew-video-media-marquee-item {
+      display: flex;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      align-items: center;
+      gap: 24px;
+      padding: 23px 34px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pmew-video-media-marquee-item::after {
+      content: "✦";
+      color: var(--pmew-video-media-accent);
+      font-size: 0.72rem;
+    }
+
+    @keyframes pmew-video-media-marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* Stories */
+    .pmew-video-media-stories {
+      padding: 130px 0;
+    }
+
+    .pmew-video-media-stories-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .pmew-video-media-stories-count {
+      flex: 0 0 auto;
+      color: var(--pmew-video-media-muted);
+      font-family: "Playfair Display", serif;
+      font-size: 1.08rem;
+      font-style: italic;
+    }
+
+    .pmew-video-media-story-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      margin-top: 72px;
+    }
+
+    .pmew-video-media-story-card {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: var(--pmew-video-media-radius-md);
+      background: var(--pmew-video-media-off-white);
+      transition: transform var(--pmew-video-media-transition), border-color var(--pmew-video-media-transition), background var(--pmew-video-media-transition);
+    }
+
+    .pmew-video-media-story-card:hover {
+      border-color: rgba(168,220,217,0.90);
+      background: var(--pmew-video-media-white);
+      transform: translateY(-8px);
+    }
+
+    .pmew-video-media-story-card:nth-child(1),
+    .pmew-video-media-story-card:nth-child(6) { grid-column: span 7; }
+
+    .pmew-video-media-story-card:nth-child(2),
+    .pmew-video-media-story-card:nth-child(5) { grid-column: span 5; }
+
+    .pmew-video-media-story-card:nth-child(3),
+    .pmew-video-media-story-card:nth-child(4),
+    .pmew-video-media-story-card:nth-child(7),
+    .pmew-video-media-story-card:nth-child(8),
+    .pmew-video-media-story-card:nth-child(9) { grid-column: span 4; }
+
+    .pmew-video-media-story-card::after {
+      content: attr(data-number);
+      position: absolute;
+      right: 16px;
+      bottom: -16px;
+      color: rgba(168,220,217,0.035);
+      font-size: 9rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.09em;
+      pointer-events: none;
+    }
+
+    .pmew-video-media-story-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--pmew-video-media-ink);
+      background: var(--pmew-video-media-white);
+      border: 1px solid var(--pmew-video-media-line);
+    }
+
+    .pmew-video-media-story-icon svg {
+      width: 24px;
+    }
+
+    .pmew-video-media-story-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .pmew-video-media-story-label {
+      color: var(--pmew-video-media-accent-dark);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-story-card h3 {
+      max-width: 520px;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      margin-top: 14px;
+      font-size: clamp(1.5rem, 2.5vw, 2.55rem);
+      font-weight: 850;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-story-card p {
+      max-width: 560px;
+      margin-top: 17px;
+      color: var(--pmew-video-media-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .pmew-video-media-story-meta {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 28px;
+      margin-top: 24px;
+      border-top: 1px solid var(--pmew-video-media-line);
+      color: var(--pmew-video-media-muted);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--pmew-video-media-ink);
+    }
+
+    .pmew-video-media-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pmew-video-media-accent);
+    }
+
+    /* Featured concept */
+    .pmew-video-media-feature {
+      padding: 120px 0;
+      color: var(--pmew-video-media-white);
+      background: var(--pmew-video-media-ink);
+    }
+
+    .pmew-video-media-feature-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: clamp(60px, 9vw, 140px);
+    }
+
+    .pmew-video-media-feature .pmew-video-media-eyebrow {
+      color: #d8f0ee;
+    }
+
+    .pmew-video-media-feature-copy h2 {
+      max-width: 700px;
+      margin-top: 22px;
+      color: var(--pmew-video-media-white) !important;
+      -webkit-text-fill-color: var(--pmew-video-media-white) !important;
+      font-size: clamp(2.5rem, 5.7vw, 6.4rem);
+      font-weight: 900;
+      letter-spacing: -0.065em;
+      line-height: 0.94;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-feature-copy p {
+      max-width: 650px;
+      margin-top: 30px;
+      color: rgba(255,255,255,0.62);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .pmew-video-media-feature-quote {
+      margin-top: 36px;
+      padding-left: 24px;
+      border-left: 2px solid var(--pmew-video-media-accent);
+      color: rgba(255,255,255,0.9);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .pmew-video-media-shoot-board {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .pmew-video-media-shoot-row {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 86px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      transition: var(--pmew-video-media-transition);
+    }
+
+    .pmew-video-media-shoot-row:hover {
+      border-color: rgba(168,220,217,0.70);
+      background: rgba(255,255,255,0.075);
+      transform: translateX(8px);
+    }
+
+    .pmew-video-media-shoot-row-number {
+      color: rgba(255,255,255,0.38);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+    }
+
+    .pmew-video-media-shoot-row h3 {
+      color: var(--pmew-video-media-white) !important;
+      -webkit-text-fill-color: var(--pmew-video-media-white) !important;
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-shoot-row p {
+      margin-top: 7px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .pmew-video-media-shoot-tag {
+      padding: 8px 11px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.64);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Process */
+    .pmew-video-media-process {
+      padding: 130px 0;
+      background: var(--pmew-video-media-off-white);
+    }
+
+    .pmew-video-media-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 70px;
+    }
+
+    .pmew-video-media-process-step {
+      min-height: 310px;
+      padding: 28px;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: var(--pmew-video-media-radius-md);
+      background: var(--pmew-video-media-white);
+    }
+
+    .pmew-video-media-step-number {
+      color: var(--pmew-video-media-accent-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    .pmew-video-media-process-step h3 {
+      margin-top: 68px;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      font-size: 1.35rem;
+      font-weight: 850;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-process-step p {
+      margin-top: 18px;
+      color: var(--pmew-video-media-muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .pmew-video-media-cta-section {
+      padding: 120px 0;
+    }
+
+    .pmew-video-media-cta-box {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(42px, 7vw, 92px);
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: var(--pmew-video-media-radius-lg);
+      background:
+        radial-gradient(circle at 90% 30%, rgba(168,220,217,0.34), transparent 22%),
+        var(--pmew-video-media-off-white);
+    }
+
+    .pmew-video-media-cta-box::after {
+      content: "MEDIA";
+      position: absolute;
+      right: -25px;
+      bottom: -55px;
+      color: rgba(168,220,217,0.035);
+      font-size: clamp(6rem, 17vw, 15rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      pointer-events: none;
+    }
+
+    .pmew-video-media-cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+    }
+
+    .pmew-video-media-cta-content h2 {
+      margin-top: 20px;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      font-size: clamp(2.4rem, 5vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 0.96;
+      text-transform: uppercase;
+    }
+
+    .pmew-video-media-cta-content p {
+      max-width: 700px;
+      margin-top: 26px;
+      color: var(--pmew-video-media-muted);
+      line-height: 1.75;
+    }
+
+    .pmew-video-media-notify-form {
+      max-width: 620px;
+      display: flex;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .pmew-video-media-notify-form input {
+      min-width: 0;
+      color: var(--pmew-video-media-ink); /* INK / BLACK */
+      flex: 1;
+      height: 56px;
+      padding: 0 20px;
+      border: 1px solid var(--pmew-video-media-line);
+      border-radius: 999px;
+      outline: none;
+      background: var(--pmew-video-media-white);
+      transition: border-color var(--pmew-video-media-transition), box-shadow var(--pmew-video-media-transition);
+    }
+
+    .pmew-video-media-notify-form input:focus {
+      border-color: var(--pmew-video-media-accent);
+      box-shadow: 0 0 0 4px rgba(168,220,217,0.30);
+    }
+
+    .pmew-video-media-notify-form button {
+      height: 56px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--pmew-video-media-white);
+      background: var(--pmew-video-media-ink);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--pmew-video-media-transition);
+    }
+
+    .pmew-video-media-notify-form button:hover {
+      background: var(--pmew-video-media-accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .pmew-video-media-form-message {
+      min-height: 20px;
+      margin-top: 12px;
+      color: var(--pmew-video-media-teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    /* Reveal animations */
+    .pmew-video-media-reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 800ms ease, transform 800ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .pmew-video-media-reveal.pmew-video-media-is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pmew-video-media-page,
+      .pmew-video-media-page *,
+      .pmew-video-media-page *::before,
+      .pmew-video-media-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .pmew-video-media-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+
+      .pmew-video-media-hero-grid,
+      .pmew-video-media-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pmew-video-media-hero-copy {
+        max-width: 900px;
+      }
+
+      .pmew-video-media-camera-stage {
+        min-height: auto;
+        padding: 30px 50px 0;
+      }
+
+      .pmew-video-media-film-frame {
+        max-width: 600px;
+      }
+
+      .pmew-video-media-story-card:nth-child(n) {
+        grid-column: span 6;
+      }
+
+      .pmew-video-media-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .pmew-video-media-container {
+        width: min(calc(100% - 30px), var(--pmew-video-media-max-width));
+      }
+
+      .pmew-video-media-hero {
+        min-height: auto;
+        padding: 118px 0 70px;
+      }
+
+      .pmew-video-media-hero-title {
+        font-size: clamp(3.3rem, 17vw, 5.4rem);
+      }
+
+      .pmew-video-media-hero-actions,
+      .pmew-video-media-notify-form {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .pmew-video-media-btn,
+      .pmew-video-media-notify-form button {
+        width: 100%;
+      }
+
+      .pmew-video-media-camera-stage {
+        padding-inline: 0;
+      }
+
+      .pmew-video-media-film-frame {
+        width: 94%;
+        transform: none;
+      }
+
+      .pmew-video-media-chip-one {
+        top: 3%;
+        left: -1%;
+      }
+
+      .pmew-video-media-chip-two {
+        right: -1%;
+        bottom: 12%;
+      }
+
+      .pmew-video-media-floating-chip {
+        padding: 12px 14px;
+        font-size: 0.59rem;
+      }
+
+      .pmew-video-media-stories,
+      .pmew-video-media-process,
+      .pmew-video-media-cta-section,
+      .pmew-video-media-feature {
+        padding: 88px 0;
+      }
+
+      .pmew-video-media-stories-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .pmew-video-media-story-grid {
+        margin-top: 45px;
+      }
+
+      .pmew-video-media-story-card:nth-child(n) {
+        grid-column: 1 / -1;
+      }
+
+      .pmew-video-media-story-card {
+        min-height: 350px;
+      }
+
+      .pmew-video-media-shoot-row {
+        grid-template-columns: 48px 1fr;
+      }
+
+      .pmew-video-media-shoot-tag {
+        display: none;
+      }
+
+      .pmew-video-media-process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pmew-video-media-process-step {
+        min-height: auto;
+      }
+
+      .pmew-video-media-process-step h3 {
+        margin-top: 40px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .pmew-video-media-hero-kicker {
+        font-size: 0.58rem;
+      }
+
+      .pmew-video-media-frame-top,
+      .pmew-video-media-frame-bottom {
+        left: 26px;
+        right: 26px;
+      }
+
+      .pmew-video-media-frame-caption {
+        left: 26px;
+        bottom: 72px;
+      }
+
+      .pmew-video-media-film-frame::after {
+        inset: 14px;
+      }
+
+      .pmew-video-media-floating-chip {
+        display: none;
+      }
+
+      .pmew-video-media-story-card {
+        padding: 24px;
+      }
+    }
+  </style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/about-us/video-media.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Video Media | Pradako">
+    <meta property="og:description" content="Pradako video media hub — production, people, customers, quality, logistics, sustainability and more. Filming soon.">
+    <meta property="og:url" content="https://www.pradako.co/pages/about-us/video-media.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Video Media | Pradako">
+    <meta name="twitter:description" content="Pradako video media hub — production, people, customers, quality, logistics, sustainability and more. Filming soon.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Video Media | Pradako",
+  "url": "https://www.pradako.co/pages/about-us/video-media.html",
+  "description": "Pradako video media hub — production, people, customers, quality, logistics, sustainability and more. Filming soon.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head>
+<body class="pmew-video-media-body">
+  <!-- PMEW shared navbar -->
+  <div id="navbar-container"></div>
+
+  <main id="pmew-video-media-top" class="pmew-video-media-page">
+    <section class="pmew-video-media-hero">
+      <div class="pmew-video-media-container pmew-video-media-hero-grid">
+        <div class="pmew-video-media-hero-copy pmew-video-media-reveal">
+          <div class="pmew-video-media-hero-kicker">
+            <span class="pmew-video-media-live-dot" aria-hidden="true"></span>
+            Video Media Hub — Coming Soon
+          </div>
+
+          <h1 class="pmew-video-media-hero-title">
+            We Will Be<br />
+            <span class="pmew-video-media-outline">Filming</span>
+            <span class="pmew-video-media-accent">Soon.</span>
+          </h1>
+
+          <p class="pmew-video-media-hero-description">
+            We are preparing an original video series that takes audiences inside Pradako—our production capabilities, customer partnerships, people, quality systems, logistics, sustainability initiatives and the stories that have shaped us since 1960.
+          </p>
+
+          <div class="pmew-video-media-hero-actions">
+            <a class="pmew-video-media-btn pmew-video-media-btn-primary" href="#pmew-video-media-stories-section">
+              <span class="pmew-video-media-btn-text">Explore Upcoming Stories</span>
+              <span class="pmew-video-media-btn-icon" aria-hidden="true">↓</span>
+            </a>
+            <a class="pmew-video-media-btn pmew-video-media-btn-secondary" href="#pmew-video-media-notify-section">
+              <span class="pmew-video-media-btn-text">Notify Me</span>
+            </a>
+          </div>
+
+          <div class="pmew-video-media-hero-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 3v18M3 12h18" />
+            </svg>
+            Authentic stories. Real operations. Real people.
+          </div>
+        </div>
+
+        <div class="pmew-video-media-camera-stage pmew-video-media-reveal" aria-label="Video production coming soon visual">
+          <div class="pmew-video-media-floating-chip pmew-video-media-chip-one">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="3" y="6" width="13" height="12" rx="2" />
+              <path d="m16 10 5-3v10l-5-3" />
+            </svg>
+            In Production
+          </div>
+
+          <div class="pmew-video-media-film-frame">
+            <div class="pmew-video-media-frame-top">
+              <span class="pmew-video-media-record">Rec</span>
+              <span>00:00:00</span>
+            </div>
+
+            <div class="pmew-video-media-play-core">
+              <div class="pmew-video-media-play-button" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="pmew-video-media-frame-caption">
+              <small>Pradako Originals</small>
+              <strong>Behind the engineering. Beyond the product.</strong>
+            </div>
+
+            <div class="pmew-video-media-frame-bottom">
+              <span>4K / 60 FPS</span>
+              <span>PMEW Studio</span>
+            </div>
+          </div>
+
+          <div class="pmew-video-media-floating-chip pmew-video-media-chip-two">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 19V9m5 10V5m5 14v-7m5 7V3" />
+            </svg>
+            Stories in Motion
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pmew-video-media-marquee" aria-label="Upcoming video topics">
+      <div class="pmew-video-media-marquee-track">
+        <div class="pmew-video-media-marquee-group">
+          <span class="pmew-video-media-marquee-item">Production</span>
+          <span class="pmew-video-media-marquee-item">Customers</span>
+          <span class="pmew-video-media-marquee-item">Employees</span>
+          <span class="pmew-video-media-marquee-item">Quality</span>
+          <span class="pmew-video-media-marquee-item">Innovation</span>
+          <span class="pmew-video-media-marquee-item">Sustainability</span>
+          <span class="pmew-video-media-marquee-item">Logistics</span>
+          <span class="pmew-video-media-marquee-item">Heritage</span>
+        </div>
+        <div class="pmew-video-media-marquee-group" aria-hidden="true">
+          <span class="pmew-video-media-marquee-item">Production</span>
+          <span class="pmew-video-media-marquee-item">Customers</span>
+          <span class="pmew-video-media-marquee-item">Employees</span>
+          <span class="pmew-video-media-marquee-item">Quality</span>
+          <span class="pmew-video-media-marquee-item">Innovation</span>
+          <span class="pmew-video-media-marquee-item">Sustainability</span>
+          <span class="pmew-video-media-marquee-item">Logistics</span>
+          <span class="pmew-video-media-marquee-item">Heritage</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pmew-video-media-stories" id="pmew-video-media-stories-section">
+      <div class="pmew-video-media-container">
+        <div class="pmew-video-media-stories-head pmew-video-media-reveal">
+          <div>
+            <span class="pmew-video-media-eyebrow">Upcoming Video Categories</span>
+            <h2 class="pmew-video-media-section-heading">The Stories We Plan To Film</h2>
+            <p class="pmew-video-media-section-copy">
+              Each film will focus on the systems, relationships and people behind dependable manufacturing—presented with clarity, authenticity and premium industrial storytelling.
+            </p>
+          </div>
+          <p class="pmew-video-media-stories-count">Nine original story formats</p>
+        </div>
+
+        <div class="pmew-video-media-story-grid">
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="01">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M3 21V9l6 3V7l6 3V3h6v18H3Z" />
+                <path d="M7 21v-4h4v4m4-6h2m-2-4h2m-2-4h2" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Inside Manufacturing</span>
+              <h3>Production & Plant Capabilities</h3>
+              <p>From raw material and forming to threading, heat treatment, plating, coating, inspection, packing and dispatch—see how precision fasteners are made.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Factory documentary</span><span class="pmew-video-media-status">Filming soon</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="02">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M8 12h8M12 8v8" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Partnership Stories</span>
+              <h3>Customers & Long-Term Collaboration</h3>
+              <p>Customer perspectives on engineering support, delivery reliability, programme development and the value of a manufacturing partnership built for the long term.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Customer interviews</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="03">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <circle cx="9" cy="8" r="3" />
+                <circle cx="17" cy="9" r="2" />
+                <path d="M3 20c.5-4 2.5-6 6-6s5.5 2 6 6M15 14c3 0 5 2 5.5 5" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">People of Pradako</span>
+              <h3>Employees, Skills & Culture</h3>
+              <p>Real voices from across departments—showing the skills, discipline, teamwork and shared purpose that keep manufacturing moving every day.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>People profiles</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="04">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="m12 3 7 3v5c0 4.5-2.8 8-7 10-4.2-2-7-5.5-7-10V6l7-3Z" />
+                <path d="m9 12 2 2 4-5" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Zero Defect Mindset</span>
+              <h3>Quality, Testing & Traceability</h3>
+              <p>A closer look at inspection systems, laboratory testing, SPC, MSA, PPAP, poka-yoke, documentation and product traceability.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Technical explainer</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="05">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M4 17 10 7l4 7 2-3 4 6H4Z" />
+                <path d="M6 17c2 1.5 4 2 6 2s4-.5 6-2" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Responsible Manufacturing</span>
+              <h3>Sustainability & Resource Efficiency</h3>
+              <p>Energy management, waste reduction, water responsibility, safer coatings, emissions measurement and the journey toward more sustainable manufacturing.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Impact film</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="06">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z" />
+                <circle cx="7" cy="18" r="2" />
+                <circle cx="18" cy="18" r="2" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">From Plant to Port</span>
+              <h3>Packaging, Logistics & Global Delivery</h3>
+              <p>Follow an export order from final inspection and protective packing through palletisation, documentation, container loading and international dispatch.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Journey film</span><span class="pmew-video-media-status">Filming soon</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="07">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M4 19V5h16v14H4Z" />
+                <path d="m8 15 3-3 2 2 4-5" />
+                <path d="M8 8h.01" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Engineering Tomorrow</span>
+              <h3>Innovation & New Product Development</h3>
+              <p>How teams convert application requirements into manufacturable products through engineering review, trials, validation and controlled production launch.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Innovation series</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="08">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M12 3v18M3 12h18" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Since 1960</span>
+              <h3>Heritage, Leadership & Milestones</h3>
+              <p>Stories from four generations of enterprise—covering early manufacturing, growth, resilience, leadership philosophy and the road ahead.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Heritage documentary</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+
+          <article class="pmew-video-media-story-card pmew-video-media-reveal" data-number="09">
+            <div class="pmew-video-media-story-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+                <path d="M8 13c1 1 2 1.5 4 1.5s3-.5 4-1.5M9 9h.01M15 9h.01" />
+              </svg>
+            </div>
+            <div class="pmew-video-media-story-content">
+              <span class="pmew-video-media-story-label">Beyond Business</span>
+              <h3>Community, Learning & Social Impact</h3>
+              <p>Industrial visits, internships, institutional partnerships, employee development and community initiatives that extend our responsibility beyond the factory.</p>
+            </div>
+            <div class="pmew-video-media-story-meta"><span>Community stories</span><span class="pmew-video-media-status">Planned</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pmew-video-media-feature" id="pmew-video-media-shoot-plan-section">
+      <div class="pmew-video-media-container pmew-video-media-feature-grid">
+        <div class="pmew-video-media-feature-copy pmew-video-media-reveal">
+          <span class="pmew-video-media-eyebrow">Editorial Direction</span>
+          <h2>Real Work. Real Voices. Real Progress.</h2>
+          <p>
+            The series will avoid generic corporate footage. It will focus on genuine operations, meaningful details and clear explanations—so customers, employees, students and partners can understand how Pradako works.
+          </p>
+          <blockquote class="pmew-video-media-feature-quote">
+            “Every product has a process. Every process has people. Every partnership has a story.”
+          </blockquote>
+        </div>
+
+        <div class="pmew-video-media-shoot-board pmew-video-media-reveal" aria-label="Video production approach">
+          <div class="pmew-video-media-shoot-row">
+            <span class="pmew-video-media-shoot-row-number">01</span>
+            <div>
+              <h3>Cinematic Plant Coverage</h3>
+              <p>Wide establishing shots, close-up process details and accurate industrial environments.</p>
+            </div>
+            <span class="pmew-video-media-shoot-tag">Visual</span>
+          </div>
+
+          <div class="pmew-video-media-shoot-row">
+            <span class="pmew-video-media-shoot-row-number">02</span>
+            <div>
+              <h3>Expert Explanations</h3>
+              <p>Simple, credible explanations from the people responsible for each process and system.</p>
+            </div>
+            <span class="pmew-video-media-shoot-tag">Technical</span>
+          </div>
+
+          <div class="pmew-video-media-shoot-row">
+            <span class="pmew-video-media-shoot-row-number">03</span>
+            <div>
+              <h3>Customer Perspectives</h3>
+              <p>Partnership stories focused on solutions, reliability, responsiveness and long-term value.</p>
+            </div>
+            <span class="pmew-video-media-shoot-tag">Trust</span>
+          </div>
+
+          <div class="pmew-video-media-shoot-row">
+            <span class="pmew-video-media-shoot-row-number">04</span>
+            <div>
+              <h3>Short & Long Formats</h3>
+              <p>Full documentaries, process explainers, interviews, reels and focused website videos.</p>
+            </div>
+            <span class="pmew-video-media-shoot-tag">Multi-format</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pmew-video-media-process" id="pmew-video-media-process-section">
+      <div class="pmew-video-media-container">
+        <div class="pmew-video-media-reveal">
+          <span class="pmew-video-media-eyebrow">Production Roadmap</span>
+          <h2 class="pmew-video-media-section-heading">From Story Selection To Release</h2>
+          <p class="pmew-video-media-section-copy">
+            Our video library will be developed in carefully planned stages to protect operational accuracy, customer confidentiality and visual quality.
+          </p>
+        </div>
+
+        <div class="pmew-video-media-process-grid">
+          <article class="pmew-video-media-process-step pmew-video-media-reveal">
+            <span class="pmew-video-media-step-number">STEP 01</span>
+            <h3>Plan</h3>
+            <p>Select stories, locations, speakers, processes and approvals for each production.</p>
+          </article>
+          <article class="pmew-video-media-process-step pmew-video-media-reveal">
+            <span class="pmew-video-media-step-number">STEP 02</span>
+            <h3>Film</h3>
+            <p>Capture authentic plant operations, interviews, technical details and supporting footage.</p>
+          </article>
+          <article class="pmew-video-media-process-step pmew-video-media-reveal">
+            <span class="pmew-video-media-step-number">STEP 03</span>
+            <h3>Craft</h3>
+            <p>Edit the story with clear structure, premium sound, graphics, captions and colour treatment.</p>
+          </article>
+          <article class="pmew-video-media-process-step pmew-video-media-reveal">
+            <span class="pmew-video-media-step-number">STEP 04</span>
+            <h3>Publish</h3>
+            <p>Release approved films across the website, presentations, customer communication and social channels.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pmew-video-media-cta-section" id="pmew-video-media-notify-section">
+      <div class="pmew-video-media-container">
+        <div class="pmew-video-media-cta-box pmew-video-media-reveal">
+          <div class="pmew-video-media-cta-content">
+            <span class="pmew-video-media-eyebrow">Stay Connected</span>
+            <h2>Our Cameras Will Start Rolling Soon.</h2>
+            <p>
+              Join the update list to be informed when the first Pradako production, people and partnership films are released.
+            </p>
+
+            <form class="pmew-video-media-notify-form" id="pmewVideoMediaNotifyForm" novalidate>
+              <input id="pmewVideoMediaEmailInput" type="email" name="email" placeholder="Enter your email address" aria-label="Email address" required />
+              <button type="submit">Notify Me</button>
+            </form>
+            <p class="pmew-video-media-form-message" id="pmewVideoMediaFormMessage" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- PMEW shared footer -->
+  <div id="footer-container"></div>
+  <!-- PMEW shared scripts -->
+    <script src="/assets/js/pradako-global-animations.js"></script>>
+
+  <!-- Video media page interactions -->
+  <script>
+    (() => {
+      const revealElements = document.querySelectorAll('.pmew-video-media-reveal');
+      const notifyForm = document.getElementById('pmewVideoMediaNotifyForm');
+      const emailInput = document.getElementById('pmewVideoMediaEmailInput');
+      const formMessage = document.getElementById('pmewVideoMediaFormMessage');
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('pmew-video-media-is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach((element) => revealObserver.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add('pmew-video-media-is-visible'));
+      }
+
+      if (notifyForm && emailInput && formMessage) {
+        notifyForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const email = emailInput.value.trim();
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!emailPattern.test(email)) {
+            formMessage.textContent = 'Please enter a valid email address.';
+            formMessage.style.color = '#5f9995';
+            emailInput.focus();
+            return;
+          }
+
+          formMessage.textContent = 'Thank you. You will be notified when our first films are released.';
+          formMessage.style.color = '#5f9995';
+          notifyForm.reset();
+        });
+      }
+    })();
+  </script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>

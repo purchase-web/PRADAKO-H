@@ -1,0 +1,950 @@
+@import url("./leadership.css");
+
+/* ===================================================== */
+/* DESIGN SYSTEM TYPOGRAPHY */
+/* ===================================================== */
+
+.section-eyebrow {
+    margin-bottom: 22px;
+    color: var(--color-accent);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* ===================================================== */
+/* GLOBAL SECTION SYSTEM */
+/* ===================================================== */
+
+section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chairman-container {
+    width: 100%;
+    max-width: 1480px;
+    margin: auto;
+    padding: 0 6%;
+}
+
+.section-heading {
+    margin-bottom: 32px;
+    color: var(--color-navy-dark);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    font-weight: 950;
+    letter-spacing: -0.07em;
+}
+
+.section-heading-highlight {
+    color: var(--color-accent);
+}
+
+.section-description {
+    color: var(--color-muted);
+    font-size: clamp(18px, 1.4vw, 24px);
+    line-height: 1.75;
+}
+
+.section-large-text {
+    font-size: clamp(26px, 3vw, 32px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.section-divider {
+    width: 120px;
+    height: 5px;
+    margin: 30px 0;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        var(--color-accent),
+        var(--color-gold)
+    );
+}
+
+/* ===================================================== */
+/* CHAIRMAN HERO */
+/* ===================================================== */
+
+.chairman-hero-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 78px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 16, 31, 0.95),
+            rgba(3, 16, 31, 0.35)
+        ),
+        url("/assets/images/about-us/chairman-dharmesh-trivedi.png");
+
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.chairman-hero-section::before {
+    content: none;
+}
+
+.chairman-hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.chairman-hero-content {
+    width: 100%;
+    max-width: 850px;
+}
+
+.chairman-hero-title {
+    margin: 0;
+    color: var(--color-white);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(60px, 8vw, 126px);
+    font-weight: 800;
+    font-synthesis: none;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+}
+
+.chairman-hero-title span {
+    display: block;
+    color: var(--color-accent);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-synthesis: none;
+}
+
+.chairman-hero-subtitle {
+    margin-bottom: 40px;
+    color: var(--color-white);
+    font-size: clamp(24px, 2.5vw, 42px);
+    line-height: 1.2;
+}
+
+.chairman-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* ===================================================== */
+/* INTRODUCTION */
+/* ===================================================== */
+
+.chairman-introduction-section {
+    padding: 120px 0;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f4f8fc
+    );
+}
+
+.chairman-intro-card {
+    max-width: 1200px;
+    padding: clamp(40px, 5vw, 80px);
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 30px 90px rgba(7, 27, 53, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+.chairman-highlights {
+    display: grid;
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.chairman-highlight-item {
+    padding: 25px 30px;
+    border: 1px solid rgba(7, 27, 53, 0.08);
+    border-radius: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eef6ff
+    );
+
+    font-size: clamp(26px, 3vw, 50px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.chairman-highlight-item span {
+    color: var(--color-accent);
+}
+
+/* ===================================================== */
+/* QUOTE */
+/* ===================================================== */
+
+.chairman-quote-section {
+    padding: 120px 0;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #03101f,
+        #071b35
+    );
+}
+
+.chairman-quote-section .chairman-container {
+    max-width: 1200px;
+}
+
+.chairman-quote-icon {
+    color: var(--color-accent);
+    font-size: 120px;
+    line-height: 0.7;
+}
+
+.chairman-quote-text {
+    color: #ffffff;
+    font-size: clamp(46px, 6vw, 100px);
+    font-weight: 950;
+    line-height: 1.05;
+    letter-spacing: -0.07em;
+}
+
+.chairman-quote-caption {
+    margin-top: 25px;
+    color: #cbd8e6;
+    font-size: 20px;
+}
+
+/* ===================================================== */
+/* STORY SECTION */
+/* ===================================================== */
+
+.chairman-story-section {
+    padding: 120px 0;
+
+    background: linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef5fb
+    );
+}
+
+/* ===================================================== */
+/* TIMELINE SECTION */
+/* ===================================================== */
+
+.chairman-timeline-section {
+    padding: 120px 0;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f4f8fc
+    );
+}
+
+.chairman-timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.chairman-timeline-card {
+    padding: 35px;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.chairman-timeline-card h3 {
+    margin-bottom: 15px;
+    color: var(--color-navy-dark);
+}
+
+.chairman-timeline-card p {
+    color: var(--color-muted);
+    line-height: 1.8;
+}
+
+.chairman-timeline-number {
+    width: auto;
+    height: auto;
+    margin-bottom: 15px;
+    color: var(--color-accent);
+    background: none;
+    font-size: 70px;
+    font-weight: 900;
+}
+
+/* ===================================================== */
+/* VALUES SECTION */
+/* ===================================================== */
+
+.chairman-values-section {
+    padding: 120px 0;
+
+    background: linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef5fb
+    );
+}
+
+.chairman-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.chairman-value-card {
+    padding: 40px;
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.chairman-value-card h3 {
+    margin-bottom: 20px;
+    color: var(--color-navy-dark);
+    font-size: clamp(28px, 3vw, 42px);
+}
+
+.chairman-value-card p {
+    color: var(--color-muted);
+    line-height: 1.8;
+}
+
+/* ===================================================== */
+/* LEGACY SECTION */
+/* ===================================================== */
+
+.chairman-legacy-section {
+    padding: 120px 0;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eef6ff
+    );
+}
+
+.chairman-signature {
+    margin-top: 40px;
+    color: var(--color-accent);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* ===================================================== */
+/* BUTTONS */
+/* ===================================================== */
+
+.chairman-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.chairman-btn-primary {
+    color: #ffffff;
+    background: var(--color-accent);
+}
+
+.chairman-btn-secondary {
+    border: 1px solid rgba(7, 27, 53, 0.15);
+    color: var(--color-navy-dark);
+    background: #ffffff;
+}
+
+.chairman-btn-collaboration {
+    color: #111111;
+    background: var(--color-accent);
+}
+
+.chairman-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===================================================== */
+/* REVEAL ANIMATIONS */
+/* ===================================================== */
+
+.reveal {
+    
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+
+/* ===================================================== */
+/* LEADERSHIP CTA COLOR SYSTEM */
+/* ===================================================== */
+
+:root {
+    --leadership-blue: var(--color-navy-dark);
+    --leadership-blue-dark: #03101f;
+    --leadership-gold: var(--color-accent);
+    --leadership-white: var(--color-white);
+    --leadership-light: #f8fbff;
+    --leadership-border: rgba(7, 27, 53, 0.12);
+    --leadership-text: var(--color-navy-dark);
+    --leadership-muted: var(--color-muted);
+}
+
+/* ===================================================== */
+/* LEADERSHIP & COLLABORATION CTA */
+/* ===================================================== */
+
+.pradako-leadership-footer {
+    
+    
+    
+    
+    
+    
+    font-family: "Montserrat", "Poppins", Arial, sans-serif;
+}
+
+.pradako-leadership-footer-inner {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    background: var(--leadership-blue);
+    box-shadow: 0 28px 70px rgba(7, 27, 53, 0.22);
+}
+
+.pradako-leadership-footer-inner::before {
+    
+    
+    
+    
+    
+    
+    
+    background: var(--leadership-gold);
+}
+
+.pradako-leadership-kicker {
+    
+    color: var(--leadership-gold);
+    
+    
+    
+    
+}
+
+
+
+
+
+.pradako-leadership-quote {
+    
+    
+    
+    border-left: 5px solid var(--leadership-gold);
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+.pradako-leadership-btn-gold {
+    
+    color: #111111;
+    
+}
+
+
+
+
+
+
+
+
+
+.pradako-leadership-contact-line span {
+    color: var(--leadership-gold);
+}
+
+
+
+.pradako-leadership-contact-line a:hover {
+    color: var(--leadership-gold);
+}
+
+/* ===================================================== */
+/* LEADERSHIP FORM CARD */
+/* ===================================================== */
+
+
+
+
+
+
+
+
+
+.pradako-leadership-form input,
+.pradako-leadership-form select,
+.pradako-leadership-form textarea {
+    
+    
+    
+    
+    
+    
+    
+    font-family: "Montserrat", "Poppins", Arial, sans-serif;
+    
+    
+    
+}
+
+
+
+.pradako-leadership-form input:focus,
+.pradako-leadership-form select:focus,
+.pradako-leadership-form textarea:focus {
+    border-color: var(--leadership-gold);
+    box-shadow: 0 0 0 3px rgba(216, 165, 20, 0.14);
+}
+
+.pradako-leadership-form button {
+    
+    
+    
+    color: var(--leadership-white);
+    background: var(--leadership-blue);
+    font-family: "Montserrat", "Poppins", Arial, sans-serif;
+    
+    
+    
+    
+    
+    
+}
+
+.pradako-leadership-form button:hover {
+    background: var(--leadership-blue-dark);
+    
+}
+
+/* ===================================================== */
+/* FLOATING CTA */
+/* ===================================================== */
+
+.pradako-leadership-floating-cta {
+    min-width: 150px;
+    height: 58px;
+    position: absolute;
+    right: 34px;
+    bottom: 20px;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 26px;
+    border-radius: 999px;
+    color: #111111;
+    background: var(--leadership-gold);
+    box-shadow: 0 16px 36px rgba(216, 165, 20, 0.34);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.pradako-leadership-floating-cta:hover {
+    transform: translateY(-4px);
+}
+
+/* ===================================================== */
+/* FORM VALIDATION */
+/* ===================================================== */
+
+.leadership-field-error {
+    border-color: #d93025 !important;
+    box-shadow: 0 0 0 4px rgba(217, 48, 37, 0.12) !important;
+}
+
+/* ===================================================== */
+/* RESPONSIVE — LARGE TABLET */
+/* ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .chairman-timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chairman-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    
+
+    
+}
+
+/* ===================================================== */
+/* RESPONSIVE CHAIRMAN HERO */
+/* SAME CONNECTED STYLE AS CHAIRWOMAN PAGE */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+
+    section {
+        min-height: auto;
+    }
+
+    /*
+       The hero becomes one continuous mobile panel:
+       image at the top and content directly attached below.
+    */
+    .chairman-hero-section {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+        display: block;
+        padding: 0;
+        overflow: hidden;
+        background: #03101f;
+    }
+
+    /*
+       Full-width photograph.
+       No margin, no radius and no white space.
+    */
+    .chairman-hero-section::before {
+        content: "";
+        width: 100%;
+        height: clamp(430px, 112vw, 580px);
+        display: block;
+
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(3, 16, 31, 0) 0%,
+                rgba(3, 16, 31, 0) 58%,
+                rgba(3, 16, 31, 0.16) 70%,
+                rgba(3, 16, 31, 0.62) 86%,
+                #03101f 100%
+            ),
+            url("/assets/images/about-us/chairman-dharmesh-trivedi.png");
+
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        /*
+           The horizontal percentage moves the chairman
+           into the visual centre of the mobile crop.
+        */
+        background-position:
+            center center,
+            68% center;
+
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .chairman-hero-section .chairman-container {
+        width: 100%;
+        max-width: none;
+        position: relative;
+        z-index: 2;
+        margin: -2px 0 0;
+        padding: 34px 22px 72px;
+        background: #03101f;
+    }
+
+    .chairman-hero-layout {
+        width: 100%;
+        display: block;
+    }
+
+    .chairman-hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .chairman-hero-section .section-eyebrow {
+        margin: 0 0 22px;
+        color: var(--color-accent);
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.4;
+        letter-spacing: 0.17em;
+    }
+
+    .chairman-hero-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(46px, 12vw, 70px);
+        font-weight: 800;
+        line-height: 0.94;
+        letter-spacing: -0.06em;
+    }
+
+    .chairman-hero-title span {
+        display: block;
+        color: var(--color-accent);
+    }
+
+    .chairman-hero-section .section-divider {
+        width: 84px;
+        height: 4px;
+        margin: 26px 0;
+        border-radius: 999px;
+    }
+
+    .chairman-hero-subtitle {
+        max-width: 620px;
+        margin: 0 0 30px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(17px, 4.4vw, 22px);
+        line-height: 1.55;
+    }
+
+    .chairman-hero-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .chairman-hero-actions .chairman-btn {
+        width: 100%;
+        min-height: 56px;
+        padding: 16px 24px;
+        text-align: center;
+    }
+
+    /* Other page sections */
+
+    .chairman-timeline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chairman-intro-card {
+        padding: 35px 25px;
+    }
+
+    .chairman-value-card {
+        padding: 30px;
+    }
+
+    /* Leadership CTA */
+
+    .pradako-leadership-footer {
+        padding: 0 14px 86px;
+    }
+
+    .pradako-leadership-footer-inner {
+        padding: 42px 22px 34px;
+        border-radius: 24px;
+    }
+
+    .pradako-leadership-kicker {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .pradako-leadership-footer-content h2 {
+        font-size: 44px;
+        letter-spacing: 1px;
+    }
+
+    .pradako-leadership-footer-content p {
+        font-size: 15px;
+    }
+
+    .pradako-leadership-quote {
+        padding: 16px 18px;
+        font-size: 17px;
+    }
+
+    .pradako-leadership-actions {
+        flex-direction: column;
+    }
+
+    .pradako-leadership-btn {
+        width: 100%;
+    }
+
+    .pradako-leadership-form-card {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .pradako-leadership-contact-line {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .pradako-leadership-floating-cta {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 999;
+    }
+}
+
+/* ===================================================== */
+/* RESPONSIVE — SMALL MOBILE */
+/* ===================================================== */
+
+@media (max-width: 576px) {
+
+    .chairman-hero-section::before {
+        width: 100%;
+        height: clamp(420px, 112vw, 520px);
+
+        background-position:
+            center center,
+            68% center;
+    }
+
+    .chairman-hero-section .chairman-container {
+        margin-top: -2px;
+        padding: 30px 18px 62px;
+    }
+
+    .chairman-hero-section .section-eyebrow {
+        margin-bottom: 20px;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+    }
+
+    .chairman-hero-title {
+        font-size: clamp(42px, 12.5vw, 58px);
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+    }
+
+    .chairman-hero-section .section-divider {
+        margin: 24px 0;
+    }
+
+    .chairman-hero-subtitle {
+        margin-bottom: 28px;
+        font-size: 17px;
+        line-height: 1.55;
+    }
+
+    .chairman-value-card {
+        padding: 24px;
+    }
+
+    .chairman-timeline-card {
+        padding: 24px;
+    }
+
+    .pradako-leadership-footer-content h2 {
+        font-size: 38px;
+    }
+
+    .pradako-leadership-form-card h3 {
+        font-size: 24px;
+    }
+
+    .pradako-leadership-form input,
+    .pradako-leadership-form select,
+    .pradako-leadership-form textarea {
+        padding: 14px 15px;
+        font-size: 14px;
+    }
+}
+
+/* ===================================================== */
+/* RESPONSIVE — EXTRA SMALL MOBILE */
+/* ===================================================== */
+
+@media (max-width: 390px) {
+
+    .chairman-hero-section::before {
+        height: 430px;
+
+        background-position:
+            center center,
+            69% center;
+    }
+
+    .chairman-hero-section .chairman-container {
+        padding: 28px 16px 58px;
+    }
+
+    .chairman-hero-title {
+        font-size: 42px;
+    }
+
+    .chairman-hero-subtitle {
+        font-size: 16px;
+    }
+}
+
+/* ===================================================== */
+/* ACCESSIBILITY */
+/* ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .reveal.show {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .chairman-btn,
+    .pradako-leadership-btn,
+    .pradako-leadership-form button,
+    .pradako-leadership-floating-cta {
+        transition: none;
+    }
+}

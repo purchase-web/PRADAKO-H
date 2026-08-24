@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Container &amp; Pallet Load Calculator | Pradako Engineering Tools</title>
+<meta name="description" content="Convert fastener quantity into cartons, pallets and 20ft/40ft container loads. Shows whether weight or volume is the limiting constraint, with Euro, ISO, Asia and US pallet options.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PMEW FAVICON/TABICON/BROWSE ICON -->
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+  
+<!-- PMEW GLOBAL STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/page-style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" >
+<style>
+.fastener-tool-page{--tk-white:#fff;--tk-off:#f4f5f7;--tk-ink:#0E2033;--tk-ink-deep:#081522;--tk-muted:#5f6875;--tk-line:#dde1e7;
+ --tk-ac:#C2540C;--tk-ac-bright:#FF8A2B;--tk-ac-soft:#fdf1e7;--tk-ok:#0B7A4B;--tk-ok-soft:#e9f7f0;--tk-warn:#B3261E;--tk-warn-soft:#fdf3f2;
+ --tk-d:"Montserrat",Arial,sans-serif;--tk-b:"Space Grotesk",Arial,sans-serif;--tk-m:"JetBrains Mono",ui-monospace,monospace;
+ --tk-max:1320px;--tk-e:cubic-bezier(.2,.8,.2,1)}
+.fastener-tool-page,.fastener-tool-page *{margin:0;padding:0;box-sizing:border-box}
+.fastener-tool-page{background:var(--tk-white);color:#30363f;font-family:var(--tk-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.fastener-tool-page ::selection{background:var(--tk-ac);color:#fff}
+.fastener-tool-page a{color:inherit;text-decoration:none}
+.fastener-tool-page :focus-visible{outline:3px solid var(--tk-ac);outline-offset:3px}
+.fastener-tool-page .tk-wrap{max-width:var(--tk-max);margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+.fastener-tool-page .tk-sec{padding:clamp(38px,4.4vw,64px) 0}
+.fastener-tool-page .tk-paper{background:var(--tk-off);border-top:1px solid var(--tk-line);border-bottom:1px solid var(--tk-line)}
+
+.fastener-tool-page .tk-bar{background:var(--tk-ink);position:sticky;top:0;z-index:20}
+.fastener-tool-page .tk-bar__in{display:flex;align-items:center;gap:18px;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.fastener-tool-page .tk-bar__in::-webkit-scrollbar{display:none}
+.fastener-tool-page .tk-bar__id{font-family:var(--tk-d);font-weight:900;color:#fff;font-size:14px;letter-spacing:-.01em;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.16)}
+.fastener-tool-page .tk-bar__id span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar a{font-family:var(--tk-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.fastener-tool-page .tk-bar a:hover,.fastener-tool-page .tk-bar a.on{color:var(--tk-ac-bright);border-bottom-color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-bar__sp{flex:1}
+.fastener-tool-page .tk-units{display:inline-flex;border:1.5px solid rgba(255,255,255,.28)}
+.fastener-tool-page .tk-units button{font-family:var(--tk-m);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer}
+.fastener-tool-page .tk-units button.on{background:var(--tk-ac);color:#fff!important;border-color:var(--tk-ac)!important}
+
+.fastener-tool-page .tk-hero{padding:clamp(34px,4vw,58px) 0 clamp(20px,2.4vw,32px);position:relative;overflow:hidden;background:var(--tk-white)}
+.fastener-tool-page .tk-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(194,84,12,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(194,84,12,.07) 1px,transparent 1px);background-size:44px 44px;
+ mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 40% 30%,#000 8%,transparent 74%)}
+.fastener-tool-page .tk-hero .tk-wrap{position:relative;z-index:2}
+.fastener-tool-page .tk-eyebrow{font-family:var(--tk-m);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-ac);display:inline-flex;align-items:center;gap:11px;margin-bottom:14px}
+.fastener-tool-page .tk-eyebrow::before{content:"";width:26px;border-top:3px double var(--tk-ac)}
+.fastener-tool-page h1{font-family:var(--tk-d);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;font-size:clamp(32px,5.4vw,68px);color:var(--tk-ink)}
+.fastener-tool-page h1 em{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-sub{margin-top:14px;font-size:15.5px;color:var(--tk-muted);max-width:720px}
+
+.fastener-tool-page .tk-panel{border:2px solid var(--tk-ink);background:var(--tk-white)}
+.fastener-tool-page .tk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--tk-ink)}
+@media(max-width:900px){.fastener-tool-page .tk-grid2{grid-template-columns:1fr}}
+.fastener-tool-page .tk-in{padding:clamp(20px,2.6vw,34px);border-right:1px solid var(--tk-line)}
+@media(max-width:900px){.fastener-tool-page .tk-in{border-right:none;border-bottom:1px solid var(--tk-line)}}
+.fastener-tool-page .tk-out{padding:clamp(20px,2.6vw,34px);background:var(--tk-ink);color:#fff}
+.fastener-tool-page .tk-field{margin-bottom:15px}
+.fastener-tool-page .tk-field label{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tk-muted);font-weight:700;margin-bottom:6px}
+.fastener-tool-page .tk-field label i{font-style:normal;color:var(--tk-ac)}
+.fastener-tool-page .tk-field select,.fastener-tool-page .tk-field input{width:100%;font-family:var(--tk-b);font-size:15px;color:var(--tk-ink);padding:11px 13px;border:2px solid var(--tk-line);background:var(--tk-white);outline:none;transition:border-color .16s}
+.fastener-tool-page .tk-field select:focus,.fastener-tool-page .tk-field input:focus{border-color:var(--tk-ac)}
+.fastener-tool-page .tk-r2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fastener-tool-page .tk-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:560px){.fastener-tool-page .tk-r2,.fastener-tool-page .tk-r3{grid-template-columns:1fr}}
+.fastener-tool-page .tk-res{margin-bottom:20px}
+.fastener-tool-page .tk-res b{display:block;font-family:var(--tk-m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:700}
+.fastener-tool-page .tk-res span{font-family:var(--tk-d);font-weight:900;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.045em;line-height:.95;display:block}
+.fastener-tool-page .tk-res span em{font-style:normal;font-size:.42em;color:var(--tk-ac-bright);margin-left:6px}
+.fastener-tool-page .tk-res--hi span{color:var(--tk-ac-bright)}
+.fastener-tool-page .tk-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-top:18px}
+.fastener-tool-page .tk-mini div{background:var(--tk-ink);padding:11px 13px}
+.fastener-tool-page .tk-mini b{display:block;font-family:var(--tk-m);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;font-weight:700}
+.fastener-tool-page .tk-mini span{font-family:var(--tk-m);font-size:13px;font-weight:700;color:#fff}
+.fastener-tool-page .tk-note{font-family:var(--tk-m);font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;border-top:1px solid rgba(255,255,255,.16);padding-top:13px;margin-top:16px}
+
+.fastener-tool-page .tk-warn{border-left:4px solid var(--tk-warn);background:var(--tk-warn-soft);padding:14px 16px;margin-top:22px}
+.fastener-tool-page .tk-warn b{font-family:var(--tk-d);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--tk-warn);letter-spacing:.02em;display:block;margin-bottom:5px}
+.fastener-tool-page .tk-warn p{font-size:13px;color:#5a4340;line-height:1.6}
+
+.fastener-tool-page .tk-tblwrap{margin-top:22px;border:2px solid var(--tk-ink);overflow:hidden}
+.fastener-tool-page .tk-tblscroll{overflow-x:auto}
+.fastener-tool-page table.tk-tbl{border-collapse:collapse;width:100%;font-family:var(--tk-m);font-size:12.5px}
+.fastener-tool-page table.tk-tbl th,.fastener-tool-page table.tk-tbl td{padding:9px 12px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--tk-line);border-right:1px solid var(--tk-line)}
+.fastener-tool-page table.tk-tbl thead th{background:var(--tk-ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;position:sticky;top:0;z-index:3}
+.fastener-tool-page table.tk-tbl td:first-child,.fastener-tool-page table.tk-tbl thead th:first-child{position:sticky;left:0;background:var(--tk-off);font-weight:700;color:var(--tk-ink);text-align:left;z-index:2}
+.fastener-tool-page table.tk-tbl thead th:first-child{background:var(--tk-ink);color:#fff;z-index:4}
+.fastener-tool-page table.tk-tbl tbody tr:hover td{background:var(--tk-ac-soft)}
+.fastener-tool-page table.tk-tbl tbody tr.hl td{background:var(--tk-ac-soft);color:var(--tk-ac);font-weight:700}
+.fastener-tool-page .tk-filter{display:flex;align-items:center;gap:10px;border:2px solid var(--tk-line);padding:0 14px;background:var(--tk-white);max-width:380px;margin-top:20px}
+.fastener-tool-page .tk-filter input{flex:1;border:none;outline:none;font-family:var(--tk-b);font-size:14.5px;padding:11px 0;background:transparent}
+.fastener-tool-page .tk-filter svg{width:17px;height:17px;color:var(--tk-muted)}
+.fastener-tool-page .tk-btn{font-family:var(--tk-d);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:800;padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;transition:transform .16s var(--tk-e),background .16s,color .16s}
+.fastener-tool-page .tk-btn--ac{background:var(--tk-ac);color:#fff;border-color:var(--tk-ac)}
+.fastener-tool-page .tk-btn--ac:hover{transform:translateY(-2px)}
+.fastener-tool-page .tk-btn--line{background:transparent;border-color:var(--tk-line);color:var(--tk-ink)}
+.fastener-tool-page .tk-btn--line:hover{border-color:var(--tk-ac);color:var(--tk-ac)}
+.fastener-tool-page .tk-foot{background:var(--tk-ink);color:rgba(255,255,255,.6);padding:26px 0;font-family:var(--tk-m);font-size:11px;letter-spacing:.06em}
+.fastener-tool-page .tk-foot a{color:var(--tk-ac-bright)}
+@media print{.fastener-tool-page .tk-bar,.fastener-tool-page .tk-btn{display:none!important}}
+@media(prefers-reduced-motion:reduce){.fastener-tool-page,.fastener-tool-page *{transition:none!important;animation:none!important}}
+
+/* ==========================================================
+   LIGHT ENGINEERING-TOOLS SUB-NAVIGATION
+   Keeps the utility bar distinct without a heavy dark strip.
+   ========================================================== */
+.fastener-tool-page .tk-bar {
+    background: #ffffff;
+    border-top: 1px solid #e8edf1;
+    border-bottom: 1px solid #dfe5ea;
+    box-shadow: 0 5px 16px rgba(20, 39, 55, 0.045);
+}
+.fastener-tool-page .tk-bar__in {
+    gap: clamp(14px, 1.35vw, 24px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fastener-tool-page .tk-bar__id {
+    color: #24394a;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-right-color: #dce3e8;
+}
+.fastener-tool-page .tk-bar__id span {
+    color: #c75b18;
+}
+.fastener-tool-page .tk-bar a {
+    color: #647481;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-bottom-color: transparent;
+}
+.fastener-tool-page .tk-bar a:hover,
+.fastener-tool-page .tk-bar a.on {
+    color: #c2540c;
+    border-bottom-color: #c2540c;
+}
+.fastener-tool-page .tk-units {
+    border-color: #ccd5dc;
+    background: #f8fafb;
+}
+.fastener-tool-page .tk-units button {
+    color: #61717e;
+    font-weight: 600;
+}
+.fastener-tool-page .tk-units button.on {
+    color: #b64e0e !important;
+    background: #fff2e9;
+    border-color: #f0c7ab !important;
+}
+@media (max-width: 760px) {
+    .fastener-tool-page .tk-bar__in {
+        gap: 16px;
+    }
+    .fastener-tool-page .tk-bar__id {
+        font-size: 12px;
+        padding-right: 13px;
+    }
+    .fastener-tool-page .tk-bar a {
+        font-size: 9.5px;
+    }
+}
+
+
+
+/* ==========================================================
+   PMEW PAGE-LOCAL NAVIGATION LAYER SAFEGUARD
+   Kept in every tool page to prevent stale cached CSS from
+   allowing the sticky tools bar to cover a mega dropdown.
+   ========================================================== */
+#navbar-container{position:relative;z-index:50000;isolation:isolate;overflow:visible!important}
+#navbar-container .main-header{position:relative;z-index:50000!important;isolation:isolate;overflow:visible!important}
+#navbar-container .navbar{position:relative;z-index:50001!important;overflow:visible!important}
+#navbar-container .dropdown .mega-menu{top:calc(100% - 1px)!important;z-index:50010!important}
+.pmew-main{position:relative;z-index:1;isolation:isolate}
+.fastener-tool-page .tk-bar{z-index:20!important}
+body.pmew-mega-open .fastener-tool-page .tk-bar{z-index:0!important;pointer-events:none}
+@media(max-width:768px){#navbar-container{z-index:60000}#navbar-container .mobile-menu-overlay{z-index:60010!important}#navbar-container .mobile-menu-container{z-index:60020!important}}
+
+</style>
+
+    <!-- PMEW GLOBAL COMPONENT CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- PMEW SEO PRODUCTION LAYER V12 -->
+    <link rel="canonical" href="https://www.pradako.co/pages/resources/container-load.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Container &amp; Pallet Load Calculator | Pradako Engineering Tools">
+    <meta property="og:description" content="Convert fastener quantity into cartons, pallets and 20ft/40ft container loads. Shows whether weight or volume is the limiting constraint, with Euro, ISO, Asia and US pallet options.">
+    <meta property="og:url" content="https://www.pradako.co/pages/resources/container-load.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Container &amp; Pallet Load Calculator | Pradako Engineering Tools">
+    <meta name="twitter:description" content="Convert fastener quantity into cartons, pallets and 20ft/40ft container loads. Shows whether weight or volume is the limiting constraint, with Euro, ISO, Asia and US pallet options.">
+    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Container & Pallet Load Calculator | Pradako Engineering Tools",
+  "url": "https://www.pradako.co/pages/resources/container-load.html",
+  "description": "Convert fastener quantity into cartons, pallets and 20ft/40ft container loads. Shows whether weight or volume is the limiting constraint, with Euro, ISO, Asia and US pallet options.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Pradako",
+    "url": "https://www.pradako.co/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pradako Mechanical & Engineering Works",
+    "url": "https://www.pradako.co/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
+    }
+  }
+}
+    </script>
+</head><body class="page-products page-fastener-tools">
+<!-- PMEW GLOBAL NAVBAR: injected by /js/navbar.js -->
+<div id="navbar-container"></div>
+
+<main class="pmew-main" id="main-content">
+<div class="fastener-tool-page">
+  <div class="tk-bar">
+    <div class="tk-wrap tk-bar__in">
+      <div class="tk-bar__id">PRADAKO <span>TOOLS</span></div>
+        <a href="/pages/resources/torque-calculator.html">Torque &amp; Preload</a>
+        <a href="/pages/resources/thread-tap-drill.html">Thread &amp; Tap Drill</a>
+        <a href="/pages/resources/weight-calculator.html">Weight Calculator</a>
+        <a href="/pages/resources/container-load.html"  class="on">Container Load</a>
+        <a href="/pages/resources/head-marking.html">Head Marking</a>
+        <a href="/pages/resources/galvanic-compatibility.html">Galvanic</a>
+        <a href="/pages/resources/unit-converter.html">Unit Converter</a>
+        <span class="tk-bar__sp"></span>
+      </div>
+    </div>
+<header class="tk-hero"><div class="tk-hero__grid"></div><div class="tk-wrap">
+<div class="tk-eyebrow">Engineering tool 05</div>
+<h1>Container &amp; <em>pallet load</em> calculator</h1>
+<p class="tk-sub">Pieces to cartons to pallets to containers — and, more usefully, <b>which constraint is actually limiting the load</b>. For cartonised fasteners at normal load heights it is almost always <b>floor space, not payload</b>: a single-tier 20&nbsp;ft of 1100&nbsp;mm pallets typically uses under a third of the permitted weight. The lever is stacking height and double-tiering, not lighter packing.</p>
+</div></header>
+
+<section class="tk-sec"><div class="tk-wrap">
+<div class="tk-grid2">
+ <div class="tk-in">
+  <div class="tk-r3">
+   <div class="tk-field"><label for="qty">Quantity (pcs)</label><input id="qty" type="number" value="500000" min="1" step="1000"></div>
+   <div class="tk-field"><label for="per1000">Weight per 1000 pcs (kg)</label><input id="per1000" type="number" value="17.66" min="0.001" step="0.01"></div>
+   <div class="tk-field"><label for="netKg">Carton net weight (kg)</label><input id="netKg" type="number" value="25" min="0.1" step="0.5"></div>
+  </div>
+  <div class="tk-r3">
+   <div class="tk-field"><label for="cL">Carton L (mm)</label><input id="cL" type="number" value="400" min="10"></div>
+   <div class="tk-field"><label for="cW">Carton W (mm)</label><input id="cW" type="number" value="300" min="10"></div>
+   <div class="tk-field"><label for="cH">Carton H (mm)</label><input id="cH" type="number" value="200" min="10"></div>
+  </div>
+  <div class="tk-r2">
+   <div class="tk-field"><label for="pal">Pallet</label><select id="pal"></select></div>
+   <div class="tk-field"><label for="con">Container</label><select id="con"></select></div>
+  </div>
+  <div class="tk-r3">
+   <div class="tk-field"><label for="maxH">Max load height (mm)</label><input id="maxH" type="number" value="1100" min="100"></div>
+   <div class="tk-field"><label for="tare">Carton tare (%)</label><input id="tare" type="number" value="4" min="0" max="30" step="0.5"></div>
+   <div class="tk-field"><label for="dbl">Double stack pallets</label><select id="dbl"><option value="0">No</option><option value="1">Yes, if height allows</option></select></div>
+  </div>
+  <p style="font-family:var(--tk-m);font-size:10.5px;color:var(--tk-muted);line-height:1.65">
+   Defaults assume M8 × 40 hex in 25&nbsp;kg cartons on a Euro pallet, 1100&nbsp;mm load height. Carton tare adds packaging weight on top of net product.</p>
+  <div class="tk-warn">
+   <b>Planning figure, not a stowage plan</b>
+   <p>Assumes a single carton size stacked in a regular block pattern, even weight distribution and no mixed-SKU consolidation. Real loading is affected by pallet overhang rules, stacking strength of the carton, IMO/road axle limits at destination, and whether the port applies a lower VGM cap. Confirm with your freight forwarder before booking.</p>
+  </div>
+ </div>
+
+ <div class="tk-out">
+  <div class="tk-res tk-res--hi"><b>Containers required</b><span id="oCon">—</span></div>
+  <div class="tk-res"><b>Limiting constraint</b><span id="oLimit" style="font-size:clamp(16px,1.9vw,26px)">—</span></div>
+  <div class="tk-mini">
+   <div><b>Cartons total</b><span id="oCart">—</span></div>
+   <div><b>Pcs per carton</b><span id="oPcsC">—</span></div>
+   <div><b>Cartons per pallet</b><span id="oCPP">—</span></div>
+   <div><b>Pattern per layer × layers</b><span id="oPat">—</span></div>
+   <div><b>Pallets total</b><span id="oPal">—</span></div>
+   <div><b>Pallets per container</b><span id="oPPC">—</span></div>
+   <div><b>Gross weight per pallet</b><span id="oPalKg">—</span></div>
+   <div><b>Payload per container</b><span id="oPay">—</span></div>
+   <div><b>Weight utilisation</b><span id="oUw">—</span></div>
+   <div><b>Floor utilisation</b><span id="oUv">—</span></div>
+   <div><b>Total gross weight</b><span id="oTot">—</span></div>
+   <div><b>Last container fill</b><span id="oLast">—</span></div>
+  </div>
+  <p class="tk-note" id="oBasis">—</p>
+ </div>
+</div>
+</div></section>
+
+<script>
+(function(){
+"use strict";
+var PAL=[["Euro EUR1 \u00b7 1200 \u00d7 800", 1200, 800, 144, 25, 1500], ["Euro EUR2 / Industrial \u00b7 1200 \u00d7 1000", 1200, 1000, 144, 33, 1500], ["Asia / ISO \u00b7 1100 \u00d7 1100", 1100, 1100, 140, 28, 1000], ["US GMA \u00b7 1219 \u00d7 1016 (48\" \u00d7 40\")", 1219, 1016, 140, 30, 1360], ["Half Euro \u00b7 800 \u00d7 600", 800, 600, 144, 15, 750]], CON=[["20 ft General Purpose", 5898, 2352, 2393, 2340, 2280, 28200], ["40 ft General Purpose", 12032, 2352, 2393, 2340, 2280, 26700], ["40 ft High Cube", 12032, 2352, 2698, 2340, 2585, 26460], ["45 ft High Cube", 13556, 2352, 2698, 2340, 2585, 27600], ["LCL / groupage (no container limit)", 0, 0, 0, 0, 0, 0]], $=function(i){return document.getElementById(i);}, imp=false;
+var LB=2.2046226;
+$('pal').innerHTML=PAL.map(function(p,i){return '<option value="'+i+'">'+p[0]+'</option>';}).join('');
+$('con').innerHTML=CON.map(function(c,i){return '<option value="'+i+'">'+c[0]+'</option>';}).join('');
+
+/* best block-pattern fit of a rectangle into a rectangle, both orientations,
+   plus a simple mixed-orientation split which often beats a single grid */
+function fit(L,W,l,w){
+  var a=Math.floor(L/l)*Math.floor(W/w);
+  var b=Math.floor(L/w)*Math.floor(W/l);
+  var best=Math.max(a,b), how=(a>=b)?'grid':'rotated';
+  // mixed: fill a strip lengthwise, remainder crosswise
+  [[l,w],[w,l]].forEach(function(o){
+    var nl=Math.floor(L/o[0]), rem=L-nl*o[0];
+    if(nl>0 && rem>0){
+      var m=nl*Math.floor(W/o[1]) + Math.floor(rem/o[1])*Math.floor(W/o[0]);
+      if(m>best){ best=m; how='mixed'; }
+    }
+  });
+  return {n:best,how:how};
+}
+function fmt(n,d){ return isFinite(n)?(+n.toFixed(d==null?0:d)).toLocaleString('en-IN'):'—'; }
+function kg(v){ return imp ? fmt(v*LB)+' lb' : fmt(v)+' kg'; }
+
+function calc(){
+  var qty=+$('qty').value||0, per1000=+$('per1000').value||0.001, netKg=+$('netKg').value||1;
+  var cL=+$('cL').value||1, cW=+$('cW').value||1, cH=+$('cH').value||1;
+  var P=PAL[+$('pal').value], C=CON[+$('con').value];
+  var maxH=+$('maxH').value||1000, tarePct=(+$('tare').value||0)/100, dbl=$('dbl').value==='1';
+
+  var perPc=per1000/1000;
+  var pcsPerCarton=Math.floor(netKg/perPc);
+  var cartons=Math.ceil(qty/Math.max(pcsPerCarton,1));
+  var cartonGross=netKg*(1+tarePct);
+
+  var f=fit(P[1],P[2],cL,cW);
+  var usableH=Math.max(maxH-P[3],0);
+  var layers=Math.floor(usableH/cH);
+  var cartonsPerPalletVol=f.n*layers;
+  var cartonsPerPalletWt=Math.floor(P[5]/cartonGross);
+  var cartonsPerPallet=Math.max(Math.min(cartonsPerPalletVol,cartonsPerPalletWt),0);
+  var palletLimit = cartonsPerPalletWt<cartonsPerPalletVol ? 'pallet weight limit' : 'stack height';
+  var pallets=cartonsPerPallet>0?Math.ceil(cartons/cartonsPerPallet):0;
+  var palletGross=cartonsPerPallet*cartonGross+P[4];
+  var totalGross=cartons*cartonGross+pallets*P[4];
+
+  if(C[1]===0){  /* LCL */
+    $('oCon').textContent='LCL';
+    $('oLimit').textContent='Groupage — no container limit';
+    $('oPPC').textContent='—'; $('oPay').textContent='—';
+    $('oUw').textContent='—'; $('oUv').textContent='—'; $('oLast').textContent='—';
+  } else {
+    var pf=fit(C[1],C[2],P[1],P[2]);
+    var stackH=maxH; var tiers=(dbl && Math.floor(C[3]/stackH)>=2)?2:1;
+    var palletsPerConVol=pf.n*tiers;
+    var palletsPerConWt=palletGross>0?Math.floor(C[6]/palletGross):0;
+    var palletsPerCon=Math.max(Math.min(palletsPerConVol,palletsPerConWt),1);
+    var containers=palletsPerCon>0?Math.ceil(pallets/palletsPerCon):0;
+    var binding = palletsPerConWt<palletsPerConVol ? 'WEIGHT' : 'VOLUME';
+    $('oCon').textContent=fmt(containers)+' × '+C[0].replace(' General Purpose',' GP').replace(' High Cube',' HC');
+    $('oLimit').innerHTML=binding==='WEIGHT'
+      ? 'WEIGHT — payload caps at '+fmt(palletsPerConWt)+' pallets ('+fmt(palletsPerConVol)+' would fit by floor space)'
+      : 'VOLUME — floor caps at '+fmt(palletsPerConVol)+' pallets ('+fmt(palletsPerConWt)+' allowed by weight)';
+    $('oPPC').textContent=fmt(palletsPerCon)+(tiers>1?' (2 tiers)':'');
+    $('oPay').textContent=kg(C[6]);
+    $('oUw').textContent=fmt(palletsPerCon*palletGross/C[6]*100,1)+'%';
+    $('oUv').textContent=fmt(pf.n*P[1]*P[2]/(C[1]*C[2])*100,1)+'% floor';
+    var wu=palletsPerCon*palletGross/C[6]*100;
+    if(binding==='VOLUME' && wu<60){
+      var head=Math.floor(C[3]/maxH);
+      $('oLimit').innerHTML+='<br><span style="font-size:.62em;color:rgba(255,255,255,.72);font-family:var(--tk-m);letter-spacing:0">'+
+        'Only '+fmt(wu,0)+'% of payload used. '+
+        (head>=2 && !dbl ? 'Double-stacking would fit '+fmt(palletsPerConVol*2)+' pallets within the weight limit.'
+                         : 'Raising load height toward '+fmt(C[3]-200)+' mm would carry more per pallet.')+'</span>';
+    }
+    var last=pallets-(containers-1)*palletsPerCon;
+    $('oLast').textContent=containers>0?fmt(last)+' of '+fmt(palletsPerCon)+' pallets':'—';
+    $('oBasis').textContent='Carton '+cL+'×'+cW+'×'+cH+' mm at '+netKg+' kg net ('+fmt(cartonGross,1)+
+      ' kg gross incl. '+(tarePct*100)+'% packaging). Pallet fit '+f.n+' per layer ('+f.how+') × '+layers+
+      ' layers, capped by '+palletLimit+'. Container floor fits '+pf.n+' pallets ('+pf.how+')'+(tiers>1?' × 2 tiers':'')+
+      '. Payload limit '+fmt(C[6])+' kg. Pallet count uses straight (guillotine) rows; forwarders often quote 1-2 more per container using pinwheel patterns or permitted overhang.';
+  }
+  $('oCart').textContent=fmt(cartons);
+  $('oPcsC').textContent=fmt(pcsPerCarton);
+  $('oCPP').textContent=fmt(cartonsPerPallet);
+  $('oPat').textContent=f.n+' × '+layers+' ('+f.how+')';
+  $('oPal').textContent=fmt(pallets);
+  $('oPalKg').textContent=kg(palletGross);
+  $('oTot').textContent=kg(totalGross);
+  if(C[1]===0) $('oBasis').textContent='LCL groupage: '+fmt(pallets)+' pallets, '+kg(totalGross)+' gross. Pallet fit '+f.n+' per layer × '+layers+' layers.';
+}
+['qty','per1000','netKg','cL','cW','cH','pal','con','maxH','tare','dbl'].forEach(function(id){
+  $(id).addEventListener('input',calc); $(id).addEventListener('change',calc); });
+document.querySelectorAll('#unitToggle button').forEach(function(b){
+  b.addEventListener('click',function(){imp=b.dataset.u==='imp';
+    document.querySelectorAll('#unitToggle button').forEach(function(x){x.classList.toggle('on',x===b);});calc();});
+});
+calc();
+})();
+</script>
+
+</div>
+</main>
+
+<!-- PMEW GLOBAL FOOTER: injected by /js/footer.js -->
+<div id="footer-container"></div>
+
+<!-- PMEW GLOBAL SCRIPTS -->
+<script ></script>
+<script src="/assets/js/pradako-global-animations.js"></script>
+
+    <!-- PMEW GLOBAL SITE SHELL / INTERACTIONS -->
+    <script src="/assets/js/pradako-site-shell.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/footer-newsletter.js" defer></script>
+</body>
+</html>
