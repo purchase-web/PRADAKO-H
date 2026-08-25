@@ -5873,6 +5873,26 @@
         hero.dataset.mode = item.type;
       }
 
+      /*
+       * The colour showcase is one physical outer slide containing ten
+       * virtual slides (continuous banner numbers 09-18). Keep the outer
+       * carousel informed so its single visible counter remains accurate.
+       */
+      function notifyHostCarousel() {
+        if (!hostCarousel) return;
+
+        var continuousNumber = CONTINUOUS_START + index;
+        hostCarousel.dataset.pmewVirtualCurrent = String(continuousNumber);
+        hostCarousel.dispatchEvent(new CustomEvent("pmew:virtual-slide-change", {
+          detail: {
+            current: continuousNumber,
+            total: CONTINUOUS_TOTAL,
+            innerIndex: index,
+            innerCount: slides.length
+          }
+        }));
+      }
+
       function runProgress() {
         hero.style.setProperty("--pcf-active-duration", currentHold() + "ms");
         hero.classList.toggle("pcf-paused", paused || !hostIsActive);
@@ -5889,7 +5909,16 @@
         window.clearTimeout(timer);
         if (!paused && hostIsActive) {
           timer = window.setTimeout(function () {
-            show((index + 1) % slides.length, false);
+            /* Banner 18 returns control to the outer carousel, which then
+             * advances to Banner 01. This prevents the inner and outer
+             * timers from racing each other at the end of the sequence. */
+            if (hostCarousel && index === slides.length - 1) {
+              hostCarousel.dispatchEvent(new CustomEvent("pmew:virtual-boundary", {
+                detail: { direction: 1 }
+              }));
+            } else {
+              show(index + 1, false);
+            }
           }, currentHold());
         }
       }
@@ -5905,6 +5934,7 @@
           element.classList.toggle("pcf-active", elementIndex === index);
         });
         setTheme(slides[index]);
+        notifyHostCarousel();
         runProgress();
         schedule();
         if (userInitiated && paused) setPaused(false);
@@ -5941,6 +5971,35 @@
       if (previousButton) previousButton.addEventListener("click", function () { show(index - 1, true); });
       if (nextButton) nextButton.addEventListener("click", function () { show(index + 1, true); });
       pauseButton.addEventListener("click", function () { setPaused(!paused); });
+
+      /* Commands from the single, always-visible outer control deck. */
+      if (hostCarousel) {
+        hostCarousel.addEventListener("pmew:virtual-command", function (event) {
+          if (!hostIsActive || !event.detail) return;
+
+          if (event.detail.action === "next") {
+            if (index < slides.length - 1) {
+              show(index + 1, true);
+            } else {
+              hostCarousel.dispatchEvent(new CustomEvent("pmew:virtual-boundary", {
+                detail: { direction: 1 }
+              }));
+            }
+          } else if (event.detail.action === "previous") {
+            if (index > 0) {
+              show(index - 1, true);
+            } else {
+              hostCarousel.dispatchEvent(new CustomEvent("pmew:virtual-boundary", {
+                detail: { direction: -1 }
+              }));
+            }
+          } else if (event.detail.action === "pause") {
+            setPaused(true);
+          } else if (event.detail.action === "play") {
+            setPaused(false);
+          }
+        });
+      }
 
       hero.addEventListener("keydown", function (event) {
         if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === " " || event.key === "Spacebar") {
@@ -6067,6 +6126,33 @@
                 return String(number).padStart(2, "0");
             }
 
+            function getVirtualCount(slide) {
+                var virtualCount = Number(slide && slide.dataset.virtualCount);
+                return Number.isFinite(virtualCount) && virtualCount > 0
+                    ? virtualCount
+                    : 1;
+            }
+
+            function getDisplayStart(index) {
+                var start = 1;
+
+                for (var slideIndex = 0; slideIndex < index; slideIndex += 1) {
+                    start += getVirtualCount(slides[slideIndex]);
+                }
+
+                return start;
+            }
+
+            function activeSlideIsVirtual() {
+                return getVirtualCount(slides[activeIndex]) > 1;
+            }
+
+            function sendVirtualCommand(action) {
+                root.dispatchEvent(new CustomEvent("pmew:virtual-command", {
+                    detail: { action: action }
+                }));
+            }
+
             function getSlideDuration(index) {
                 var value = Number(slides[index] && slides[index].dataset.duration);
                 return Number.isFinite(value) && value >= 1200 ? value : 3200;
@@ -6086,7 +6172,8 @@
                     isPaused ||
                     reducedMotionQuery.matches ||
                     document.hidden ||
-                    slides.length < 2
+                    slides.length < 2 ||
+                    activeSlideIsVirtual()
                 ) {
                     return;
                 }
@@ -6161,13 +6248,17 @@
                     }
                 });
 
+                var displayCurrent = activeSlideIsVirtual()
+                    ? Number(root.dataset.pmewVirtualCurrent) || getDisplayStart(activeIndex)
+                    : getDisplayStart(activeIndex);
+
                 if (currentLabel) {
-                    currentLabel.textContent = padNumber(activeIndex + 1);
+                    currentLabel.textContent = padNumber(displayCurrent);
                 }
 
                 if (status) {
                     status.textContent =
-                        "Showing banner " + (activeIndex + 1) + " of " + displayTotal;
+                        "Showing banner " + displayCurrent + " of " + displayTotal;
                 }
 
                 if (userInitiated && isPaused) {
@@ -6207,13 +6298,21 @@
 
             if (previousButton) {
                 previousButton.addEventListener("click", function () {
-                    showSlide(activeIndex - 1, true);
+                    if (activeSlideIsVirtual()) {
+                        sendVirtualCommand("previous");
+                    } else {
+                        showSlide(activeIndex - 1, true);
+                    }
                 });
             }
 
             if (nextButton) {
                 nextButton.addEventListener("click", function () {
-                    showSlide(activeIndex + 1, true);
+                    if (activeSlideIsVirtual()) {
+                        sendVirtualCommand("next");
+                    } else {
+                        showSlide(activeIndex + 1, true);
+                    }
                 });
             }
 
@@ -6227,22 +6326,61 @@
                     } else {
                         startTimer();
                     }
+
+                    if (activeSlideIsVirtual()) {
+                        sendVirtualCommand(isPaused ? "pause" : "play");
+                    }
                 });
             }
+
+            /* Receive the live 09-18 index from the nested colour carousel. */
+            root.addEventListener("pmew:virtual-slide-change", function (event) {
+                if (!activeSlideIsVirtual() || !event.detail) return;
+
+                var current = Number(event.detail.current);
+                if (!Number.isFinite(current)) return;
+
+                root.dataset.pmewVirtualCurrent = String(current);
+                if (currentLabel) currentLabel.textContent = padNumber(current);
+                if (status) {
+                    status.textContent =
+                        "Showing banner " + current + " of " + displayTotal;
+                }
+            });
+
+            /* The inner carousel owns timing for 09-18. At either edge it
+             * hands navigation back to the outer carousel. */
+            root.addEventListener("pmew:virtual-boundary", function (event) {
+                if (!activeSlideIsVirtual() || !event.detail) return;
+
+                var direction = Number(event.detail.direction) < 0 ? -1 : 1;
+                showSlide(activeIndex + direction, false);
+            });
 
             root.addEventListener("keydown", function (event) {
                 if (event.key === "ArrowLeft") {
                     event.preventDefault();
-                    showSlide(activeIndex - 1, true);
+                    if (activeSlideIsVirtual()) {
+                        sendVirtualCommand("previous");
+                    } else {
+                        showSlide(activeIndex - 1, true);
+                    }
                 } else if (event.key === "ArrowRight") {
                     event.preventDefault();
-                    showSlide(activeIndex + 1, true);
+                    if (activeSlideIsVirtual()) {
+                        sendVirtualCommand("next");
+                    } else {
+                        showSlide(activeIndex + 1, true);
+                    }
                 } else if (event.key === " " || event.key === "Spacebar") {
                     if (event.target === root) {
                         event.preventDefault();
                         isPaused = !isPaused;
                         updatePauseButton();
                         isPaused ? stopTimer() : startTimer();
+                        if (activeSlideIsVirtual()) {
+                            sendVirtualCommand(isPaused ? "pause" : "play");
+                        }
                     }
                 }
             });
@@ -6261,7 +6399,11 @@
                     var distance = event.changedTouches[0].clientX - touchStartX;
 
                     if (Math.abs(distance) > 55) {
-                        showSlide(activeIndex + (distance < 0 ? 1 : -1), true);
+                        if (activeSlideIsVirtual()) {
+                            sendVirtualCommand(distance < 0 ? "next" : "previous");
+                        } else {
+                            showSlide(activeIndex + (distance < 0 ? 1 : -1), true);
+                        }
                     }
                 },
                 { passive: true }

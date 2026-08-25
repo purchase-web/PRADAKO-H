@@ -5308,6 +5308,15 @@
         font-size: inherit;
       }
 
+      /*
+       * The outer carousel now owns the one visible Previous / Counter /
+       * Pause / Next deck for all 18 banners. The colour showcase keeps its
+       * finish-selection strip, but its duplicate control group is hidden.
+       */
+      .pmew-home-hero__colour-slide .pcf-control-group {
+        display: none !important;
+      }
+
       .pmew-home-hero__colour-slide .pcf-counter .pcf-total {
         color: #73777e;
       }
