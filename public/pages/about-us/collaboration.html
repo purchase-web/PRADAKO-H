@@ -652,8 +652,261 @@
   background:var(--paper);color:var(--ink);width:100%;transition:border-color .2s}
 .pmew-indcollab-field input:focus,.pmew-indcollab-field select:focus,.pmew-indcollab-field textarea:focus{
   outline:none;border-color:var(--acc)}
-.pmew-indcollab-upload-note,.pmew-indcollab-captcha-note{font-size:12.5px;color:var(--ink-60);
-  border:1px dashed var(--rule);padding:14px 16px;margin-bottom:16px}
+/* Premium project-file uploader — deliberately isolated from shared/global label/span rules */
+.pmew-indcollab-page .pmew-indcollab-upload-shell{
+  width:100%;
+  margin-top:4px;
+  border:1px solid #d9d9d6;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(18,20,22,.035);
+  overflow:hidden;
+}
+.pmew-indcollab-page .pmew-indcollab-upload{
+  position:relative;
+  isolation:isolate;
+  width:auto;
+  min-height:188px;
+  margin:10px;
+  padding:28px 30px;
+  border:1px dashed #bfc1be;
+  background:
+    linear-gradient(135deg,rgba(240,128,128,.055),transparent 38%),
+    linear-gradient(180deg,#fff 0%,#fbfbfa 100%);
+  display:grid!important;
+  grid-template-columns:64px minmax(0,1fr) auto;
+  align-items:center;
+  gap:24px;
+  text-align:left!important;
+  cursor:pointer;
+  overflow:hidden;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.pmew-indcollab-page .pmew-indcollab-upload:hover,
+.pmew-indcollab-page .pmew-indcollab-upload:focus-visible,
+.pmew-indcollab-page .pmew-indcollab-upload.pmew-indcollab-drag{
+  outline:none;
+  border-color:var(--acc);
+  background:
+    linear-gradient(135deg,rgba(240,128,128,.085),transparent 42%),
+    #fff;
+  box-shadow:0 14px 34px rgba(18,20,22,.06);
+}
+.pmew-indcollab-page .pmew-indcollab-upload:hover::before,
+.pmew-indcollab-page .pmew-indcollab-upload:focus-visible::before,
+.pmew-indcollab-page .pmew-indcollab-upload.pmew-indcollab-drag::before{
+  opacity:1;
+  transform:scaleY(1);
+}
+.pmew-indcollab-page .pmew-indcollab-upload.pmew-indcollab-drag{
+  transform:translateY(-1px);
+}
+.pmew-indcollab-page .pmew-indcollab-upload input{
+  position:absolute!important;
+  inline-size:1px!important;
+  block-size:1px!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  clip:rect(0 0 0 0);
+  clip-path:inset(50%);
+  overflow:hidden;
+  white-space:nowrap;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-icon{
+  width:64px;
+  height:64px;
+  margin:0!important;
+  border:1px solid #cfd0cd;
+  background:#fff;
+  display:grid!important;
+  place-items:center;
+  color:var(--ink);
+  box-shadow:0 8px 20px rgba(18,20,22,.05);
+}
+.pmew-indcollab-page .pmew-indcollab-upload-icon svg{
+  display:block;
+  width:25px;
+  height:25px;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-copy{
+  min-width:0;
+  display:block!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-kicker{
+  display:block!important;
+  margin:0 0 8px!important;
+  font-family:var(--font-display);
+  font-size:10.5px!important;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--acc)!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-title{
+  display:block!important;
+  margin:0!important;
+  font-family:var(--font-display);
+  font-size:16px!important;
+  font-weight:750;
+  line-height:1.35;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+  color:var(--ink)!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-help{
+  display:block!important;
+  max-width:580px;
+  margin:8px 0 0!important;
+  font-size:13px!important;
+  line-height:1.55;
+  color:var(--ink-60)!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-formats{
+  display:flex!important;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:13px 0 0!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-formats > span{
+  display:inline-flex!important;
+  align-items:center;
+  min-height:24px;
+  margin:0!important;
+  padding:4px 8px;
+  border:1px solid #dedfdb;
+  background:#fff;
+  font-family:var(--font-display);
+  font-size:9.5px!important;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.08em;
+  color:#62666a!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-browse{
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  min-width:132px;
+  min-height:46px;
+  margin:0!important;
+  padding:12px 18px;
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:#fff!important;
+  font-family:var(--font-display);
+  font-size:11px!important;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.pmew-indcollab-page .pmew-indcollab-upload:hover .pmew-indcollab-upload-browse,
+.pmew-indcollab-page .pmew-indcollab-upload:focus-visible .pmew-indcollab-upload-browse,
+.pmew-indcollab-page .pmew-indcollab-upload.pmew-indcollab-drag .pmew-indcollab-upload-browse{
+  background:var(--acc);
+  border-color:var(--acc);
+  color:#fff!important;
+}
+.pmew-indcollab-page .pmew-indcollab-file-list{
+  display:grid;
+  gap:8px;
+  margin:0;
+  padding:0 20px;
+}
+.pmew-indcollab-page .pmew-indcollab-file-list:not(:empty){
+  padding-top:8px;
+  padding-bottom:10px;
+}
+.pmew-indcollab-page .pmew-indcollab-file{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  border:1px solid #dedfdb;
+  padding:12px 14px;
+  background:#fafaf9;
+  text-align:left;
+}
+.pmew-indcollab-page .pmew-indcollab-file b{
+  font-size:12.5px;
+  overflow-wrap:anywhere;
+}
+.pmew-indcollab-page .pmew-indcollab-file small{
+  display:block;
+  color:var(--ink-60);
+  margin-top:3px;
+}
+.pmew-indcollab-page .pmew-indcollab-file button{
+  width:32px;
+  height:32px;
+  border:1px solid #e0d4d4;
+  background:#fff;
+  color:#9c2929;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  padding:0;
+  display:grid;
+  place-items:center;
+  transition:background .2s ease,border-color .2s ease;
+}
+.pmew-indcollab-page .pmew-indcollab-file button:hover{
+  background:#fff4f4;
+  border-color:#d2a9a9;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-meta{
+  min-height:54px;
+  padding:12px 20px 14px;
+  border-top:1px solid #ecece9;
+  display:flex!important;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  background:#fcfcfb;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-limits{
+  display:flex!important;
+  align-items:center;
+  gap:9px;
+  margin:0!important;
+  font-size:11.5px!important;
+  line-height:1.4;
+  color:var(--ink-60)!important;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-limits::before{
+  content:"i";
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  border:1px solid #cfd0cd;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:Georgia,serif;
+  font-size:11px;
+  font-style:italic;
+  color:#62666a;
+  background:#fff;
+}
+.pmew-indcollab-page .pmew-indcollab-upload-total{
+  display:inline-flex!important;
+  align-items:center;
+  min-height:30px;
+  margin:0!important;
+  padding:6px 10px;
+  border:1px solid #d8d9d6;
+  background:#fff;
+  font-family:var(--font-display);
+  font-size:10.5px!important;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink)!important;
+}
+.pmew-indcollab-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 .pmew-indcollab-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pmew-indcollab-check-item{display:flex;align-items:center;gap:12px;font-family:var(--font-display);
   font-weight:600;font-size:13.5px;border:1px solid var(--rule);padding:14px 16px;
@@ -708,6 +961,15 @@
   outline:3px solid rgba(168,123,45,.35);
   outline-offset:4px;
 }
+.pmew-indcollab-page .pmew-indcollab-form-submit:disabled{opacity:.58!important;cursor:wait}
+.pmew-indcollab-submit-status{display:none;margin-top:22px;padding:22px;border:1px solid var(--rule);align-items:flex-start;gap:15px}
+.pmew-indcollab-submit-status.pmew-indcollab-show{display:flex}
+.pmew-indcollab-submit-status.pmew-indcollab-success{border-color:#34755c;background:#f2faf6}
+.pmew-indcollab-submit-status.pmew-indcollab-error{border-color:#a13f3f;background:#fff5f5}
+.pmew-indcollab-status-icon{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-weight:800}
+.pmew-indcollab-success .pmew-indcollab-status-icon{background:#34755c}.pmew-indcollab-error .pmew-indcollab-status-icon{background:#a13f3f}
+.pmew-indcollab-submit-status strong{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+.pmew-indcollab-submit-status p{font-size:13px;color:var(--ink-60);margin-top:6px}.pmew-indcollab-ref{font-weight:800;color:var(--ink)}
 .pmew-indcollab-form-result{display:none;margin-top:26px;border-top:1px solid var(--rule);padding-top:24px}
 .pmew-indcollab-form-result.pmew-indcollab-show{display:block}
 .pmew-indcollab-form-result-head{display:flex;justify-content:space-between;align-items:baseline;
@@ -777,6 +1039,25 @@
   .pmew-indcollab-trust{grid-template-columns:1fr;gap:6px}
   .pmew-indcollab-form{padding:30px 22px}
   .pmew-indcollab-cluster-head{flex-direction:column;gap:10px}
+  .pmew-indcollab-page .pmew-indcollab-upload{
+    min-height:0;
+    grid-template-columns:52px minmax(0,1fr);
+    gap:16px;
+    margin:8px;
+    padding:22px 18px;
+  }
+  .pmew-indcollab-page .pmew-indcollab-upload-icon{width:52px;height:52px}
+  .pmew-indcollab-page .pmew-indcollab-upload-browse{
+    grid-column:1/-1;
+    width:100%;
+    min-height:44px;
+  }
+  .pmew-indcollab-page .pmew-indcollab-upload-title{font-size:13px!important}
+  .pmew-indcollab-page .pmew-indcollab-upload-help{font-size:12px!important}
+  .pmew-indcollab-page .pmew-indcollab-upload-meta{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 @media(max-width:1280px){
   .pmew-indcollab-ecosystem-hint{display:block}
@@ -813,40 +1094,25 @@
     <link rel="stylesheet" href="/assets/css/navbar.css">
     <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
-    <meta name="description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since th.">
+    <meta name="description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
 
-    <!-- PMEW SEO PRODUCTION LAYER V12 -->
-    <link rel="canonical" href="https://www.pradako.co/pages/about-us/collaboration.html">
+    <!-- PMEW SEO DOMAIN NOTE: canonical, og:url, social image URL and URL-bearing JSON-LD are intentionally deferred until the final production domain is confirmed. -->
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Strategic Industry Collaborations | Pradako - Quality Fasteners Since 1960">
-    <meta property="og:description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since th.">
-    <meta property="og:url" content="https://www.pradako.co/pages/about-us/collaboration.html">
+    <meta property="og:description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Strategic Industry Collaborations | Pradako - Quality Fasteners Since 1960">
-    <meta name="twitter:description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since th.">
-    <meta name="twitter:image" content="https://www.pradako.co/assets/images/home/banners/banner-1.png">
+    <meta name="twitter:description" content="Strategic Industry Collaborations from Pradako Mechanical &amp; Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Strategic Industry Collaborations | Pradako - Quality Fasteners Since 1960",
-  "url": "https://www.pradako.co/pages/about-us/collaboration.html",
-  "description": "Strategic Industry Collaborations from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since th.",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Pradako",
-    "url": "https://www.pradako.co/"
-  },
+  "description": "Strategic Industry Collaborations from Pradako Mechanical & Engineering Works — precision fasteners, engineering capability and manufacturing support since the 1960s.",
   "publisher": {
     "@type": "Organization",
-    "name": "Pradako Mechanical & Engineering Works",
-    "url": "https://www.pradako.co/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.pradako.co/assets/images/brand/pradako-logo.png"
-    }
+    "name": "Pradako Mechanical & Engineering Works"
   }
 }
     </script>
@@ -1537,23 +1803,25 @@
     <h2 class="pmew-indcollab-h2 pmew-indcollab-rv">Let's Build The <em>Next Opportunity.</em></h2>
     <p class="pmew-indcollab-form-intro pmew-indcollab-rv">Whether you are developing a new product, expanding your supplier network, seeking dependable manufacturing or exploring a long-term strategic industrial collaboration, the Pradako team is ready to begin the conversation.</p>
 
-    <form class="pmew-indcollab-form pmew-indcollab-rv" id="pmewIndCollabForm">
+    <form class="pmew-indcollab-form pmew-indcollab-rv" id="pmewIndCollabForm" action="/api/collaboration/submit.php" method="post" enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="form_started_at" id="formStartedAt" value="">
+      <div class="pmew-indcollab-hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website_confirm" tabindex="-1" autocomplete="off"></label></div>
       <!-- CONTACT INFORMATION -->
       <div class="pmew-indcollab-fgroup">
         <h3>Contact Information</h3>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fName">Full Name <b>*</b></label><input id="fName" type="text" required></div>
-          <div class="pmew-indcollab-field"><label for="fDesig">Designation</label><input id="fDesig" type="text"></div>
+          <div class="pmew-indcollab-field"><label for="fName">Full Name <b>*</b></label><input id="fName" name="full_name" type="text" maxlength="120" autocomplete="name" required></div>
+          <div class="pmew-indcollab-field"><label for="fDesig">Designation</label><input id="fDesig" name="designation" type="text" maxlength="120"></div>
         </div>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fCompany">Company <b>*</b></label><input id="fCompany" type="text" required></div>
-          <div class="pmew-indcollab-field"><label for="fWebsite">Website</label><input id="fWebsite" type="text"></div>
+          <div class="pmew-indcollab-field"><label for="fCompany">Company <b>*</b></label><input id="fCompany" name="company" type="text" maxlength="160" required></div>
+          <div class="pmew-indcollab-field"><label for="fWebsite">Website</label><input id="fWebsite" name="website" type="url" maxlength="240" placeholder="https://"></div>
         </div>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fCountry">Country <b>*</b></label><input id="fCountry" type="text" required></div>
-          <div class="pmew-indcollab-field"><label for="fEmail">Business Email <b>*</b></label><input id="fEmail" type="email" required></div>
+          <div class="pmew-indcollab-field"><label for="fCountry">Country <b>*</b></label><input id="fCountry" name="country" type="text" maxlength="100" autocomplete="country-name" required></div>
+          <div class="pmew-indcollab-field"><label for="fEmail">Business Email <b>*</b></label><input id="fEmail" name="business_email" type="email" maxlength="190" autocomplete="email" required></div>
         </div>
-        <div class="pmew-indcollab-field"><label for="fPhone">Contact Number</label><input id="fPhone" type="text"></div>
+        <div class="pmew-indcollab-field"><label for="fPhone">Contact Number</label><input id="fPhone" name="contact_number" type="tel" maxlength="50" autocomplete="tel"></div>
       </div>
 
       <!-- PARTNERSHIP INFORMATION -->
@@ -1562,7 +1830,7 @@
         <div class="pmew-indcollab-frow">
           <div class="pmew-indcollab-field">
             <label for="fCategory">Partnership Category <b>*</b></label>
-            <select id="fCategory" required>
+            <select id="fCategory" name="partnership_category" required>
               <option value="">Select a category</option>
               <option>Engineering &amp; Product Development</option>
               <option>Manufacturing Collaboration</option>
@@ -1580,7 +1848,7 @@
           </div>
           <div class="pmew-indcollab-field">
             <label for="fIndustry">Industry <b>*</b></label>
-            <select id="fIndustry" required>
+            <select id="fIndustry" name="industry" required>
               <option value="">Select an industry</option>
               <option>Automotive</option><option>Aerospace</option><option>Defence</option>
               <option>Electronics</option><option>Renewable Energy</option><option>Heavy Engineering</option>
@@ -1591,14 +1859,14 @@
           </div>
         </div>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fProduct">Product / Fastener Category</label><input id="fProduct" type="text"></div>
-          <div class="pmew-indcollab-field"><label for="fVolume">Estimated Annual Requirement</label><input id="fVolume" type="text"></div>
+          <div class="pmew-indcollab-field"><label for="fProduct">Product / Fastener Category</label><input id="fProduct" name="product_category" type="text" maxlength="200"></div>
+          <div class="pmew-indcollab-field"><label for="fVolume">Estimated Annual Requirement</label><input id="fVolume" name="annual_requirement" type="text" maxlength="120"></div>
         </div>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fMarket">Target Market</label><input id="fMarket" type="text"></div>
+          <div class="pmew-indcollab-field"><label for="fMarket">Target Market</label><input id="fMarket" name="target_market" type="text" maxlength="160"></div>
           <div class="pmew-indcollab-field">
             <label for="fStage">Current Project Stage</label>
-            <select id="fStage">
+            <select id="fStage" name="project_stage">
               <option value="">Select current stage</option>
               <option>Initial exploration</option>
               <option>Technical development</option>
@@ -1610,41 +1878,81 @@
             </select>
           </div>
         </div>
-        <div class="pmew-indcollab-field"><label for="fTimeline">Preferred Engagement Timeline</label><input id="fTimeline" type="text"></div>
+        <div class="pmew-indcollab-field"><label for="fTimeline">Preferred Engagement Timeline</label><input id="fTimeline" name="timeline" type="text" maxlength="160"></div>
       </div>
 
       <!-- PROJECT INFORMATION -->
       <div class="pmew-indcollab-fgroup">
         <h3>Project Information</h3>
-        <div class="pmew-indcollab-field"><label for="fSummary">Requirement Summary <b>*</b></label><textarea id="fSummary" rows="5" required></textarea></div>
+        <div class="pmew-indcollab-field"><label for="fSummary">Requirement Summary <b>*</b></label><textarea id="fSummary" name="requirement_summary" rows="5" maxlength="5000" required></textarea></div>
         <div class="pmew-indcollab-frow">
-          <div class="pmew-indcollab-field"><label for="fStandards">Required Standards</label><input id="fStandards" type="text"></div>
-          <div class="pmew-indcollab-field"><label for="fMaterials">Required Materials</label><input id="fMaterials" type="text"></div>
+          <div class="pmew-indcollab-field"><label for="fStandards">Required Standards</label><input id="fStandards" name="required_standards" type="text" maxlength="500"></div>
+          <div class="pmew-indcollab-field"><label for="fMaterials">Required Materials</label><input id="fMaterials" name="required_materials" type="text" maxlength="500"></div>
         </div>
-        <div class="pmew-indcollab-field"><label for="fCoating">Coating / Surface Treatment</label><input id="fCoating" type="text"></div>
-        <div class="pmew-indcollab-upload-note"><strong>Upload Files:</strong> Configure file size, storage and security on your server.</div>
+        <div class="pmew-indcollab-field"><label for="fCoating">Coating / Surface Treatment</label><input id="fCoating" name="coating" type="text" maxlength="500"></div>
+        <div class="pmew-indcollab-upload-shell">
+          <label
+            class="pmew-indcollab-upload"
+            id="pmewIndCollabDropzone"
+            for="fFiles"
+            tabindex="0"
+            role="button"
+            aria-describedby="pmewIndCollabFileLimits"
+          >
+            <input id="fFiles" name="attachments[]" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.docx,.xlsx,.zip">
+
+            <span class="pmew-indcollab-upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 14.5V18.5C5 19.3284 5.67157 20 6.5 20H17.5C18.3284 20 19 19.3284 19 18.5V14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+
+            <span class="pmew-indcollab-upload-copy">
+              <span class="pmew-indcollab-upload-kicker">Project documents</span>
+              <strong class="pmew-indcollab-upload-title">Drop files here or select from your device</strong>
+              <span class="pmew-indcollab-upload-help">Attach drawings, specifications, reference images, requirement sheets or supporting project documents.</span>
+              <span class="pmew-indcollab-upload-formats" aria-label="Accepted file formats">
+                <span>PDF</span><span>JPG</span><span>PNG</span><span>DOCX</span><span>XLSX</span><span>ZIP</span>
+              </span>
+            </span>
+
+            <span class="pmew-indcollab-upload-browse">Browse files</span>
+          </label>
+
+          <div class="pmew-indcollab-file-list" id="pmewIndCollabFileList" aria-live="polite"></div>
+
+          <div class="pmew-indcollab-upload-meta">
+            <span class="pmew-indcollab-upload-limits" id="pmewIndCollabFileLimits">Maximum 10 MB per file · 30 MB total · up to 8 files</span>
+            <span class="pmew-indcollab-upload-total" id="pmewIndCollabFileTotal">0 files · 0 MB</span>
+          </div>
+        </div>
       </div>
 
       <!-- CONFIDENTIALITY & PROGRAM REQUIREMENTS -->
       <div class="pmew-indcollab-fgroup">
         <h3>Confidentiality &amp; Program Requirements</h3>
         <div class="pmew-indcollab-checks">
-          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cNda"> NDA required</label>
-          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cPrivate"> Private-label project</label>
-          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cTooling"> Customer-specific tooling</label>
-          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cSample"> Physical sample available</label>
+          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cNda" name="nda_required" value="1"> NDA required</label>
+          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cPrivate" name="private_label" value="1"> Private-label project</label>
+          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cTooling" name="customer_tooling" value="1"> Customer-specific tooling</label>
+          <label class="pmew-indcollab-check-item"><input type="checkbox" id="cSample" name="physical_sample" value="1"> Physical sample available</label>
         </div>
       </div>
 
-      <!-- CAPTCHA + CONSENT -->
-      <div class="pmew-indcollab-captcha-note"><strong>Captcha / Human Verification:</strong> Replace this placeholder with Google reCAPTCHA, Cloudflare Turnstile or your preferred service.</div>
+      <!-- CONSENT -->
       <label class="pmew-indcollab-consent">
-        <input type="checkbox" id="fConsent" required>
+        <input type="checkbox" id="fConsent" name="consent" value="1" required>
         <span>I consent to Pradako processing this information for partnership evaluation and communication. <b style="color:var(--sp1)">*</b></span>
       </label>
       <p class="pmew-indcollab-fine">By submitting this form, you confirm that the information is accurate and that you are authorised to share the uploaded documents. Sensitive project information should be submitted only after an appropriate confidentiality framework is established.</p>
 
-      <button type="submit" class="pmew-indcollab-form-submit">Submit Partnership Opportunity</button>
+      <button type="submit" class="pmew-indcollab-form-submit" id="pmewIndCollabSubmit"><span>Submit Partnership Opportunity</span><span aria-hidden="true">→</span></button>
+
+      <div class="pmew-indcollab-submit-status" id="pmewIndCollabSubmitStatus" role="status" aria-live="polite">
+        <span class="pmew-indcollab-status-icon" id="pmewIndCollabStatusIcon">✓</span>
+        <div><strong id="pmewIndCollabStatusTitle"></strong><p id="pmewIndCollabStatusText"></p></div>
+      </div>
 
       <!-- GENERATED BRIEF (front-end preview; wire to backend on server) -->
       <div class="pmew-indcollab-form-result" id="pmewIndCollabFormResult">
@@ -1820,12 +2128,27 @@ pageRoot.querySelectorAll('a[href^="#"]:not(.pmew-indcollab-pagenav a)').forEach
   });
 })();
 
-/* ---------- PARTNERSHIP FORM — brief generator (front-end only) ---------- */
+/* ---------- PARTNERSHIP FORM — uploader, preview and secure submission ---------- */
 (function(){
   var form = document.getElementById("pmewIndCollabForm");
   if (!form) return;
   var result = document.getElementById("pmewIndCollabFormResult");
   var out = document.getElementById("pmewIndCollabFormOut");
+  var fileInput = document.getElementById("fFiles");
+  var dropzone = document.getElementById("pmewIndCollabDropzone");
+  var fileList = document.getElementById("pmewIndCollabFileList");
+  var fileTotal = document.getElementById("pmewIndCollabFileTotal");
+  var submitBtn = document.getElementById("pmewIndCollabSubmit");
+  var status = document.getElementById("pmewIndCollabSubmitStatus");
+  var statusIcon = document.getElementById("pmewIndCollabStatusIcon");
+  var statusTitle = document.getElementById("pmewIndCollabStatusTitle");
+  var statusText = document.getElementById("pmewIndCollabStatusText");
+  var selectedFiles = [];
+
+  /* Keep these values aligned with /server/config/collaboration.php. */
+  var limits = { perFile: 10 * 1024 * 1024, total: 30 * 1024 * 1024, count: 8 };
+  var allowedExtensions = ["pdf","jpg","jpeg","png","docx","xlsx","zip"];
+  document.getElementById("formStartedAt").value = String(Date.now());
 
   function v(id){ var el = document.getElementById(id); return (el && el.value || "").trim() || "—"; }
   function c(id){ var el = document.getElementById(id); return el && el.checked; }
@@ -1867,17 +2190,91 @@ pageRoot.querySelectorAll('a[href^="#"]:not(.pmew-indcollab-pagenav a)').forEach
       "",
       "Program Requirements: " + (flags.length ? flags.join(" · ") : "—"),
       "",
-      "Attachments to follow: drawings / standards / samples (as applicable).",
-      "Submitted via pradakogroup.com — Strategic Industry Collaborations"
+      "Attachments   : " + (selectedFiles.length ? selectedFiles.map(function(f){ return f.name; }).join(", ") : "—"),
+      "Submitted via PMEW website — Strategic Industry Collaborations"
     ].join("\n");
   }
 
-  form.addEventListener("submit", function(ev){
+  function bytes(value){ return (value / 1024 / 1024).toFixed(value ? 2 : 0) + " MB"; }
+  function key(file){ return [file.name,file.size,file.lastModified].join("|"); }
+
+  function showStatus(type, title, message){
+    status.className = "pmew-indcollab-submit-status pmew-indcollab-show pmew-indcollab-" + type;
+    statusIcon.textContent = type === "success" ? "✓" : "!";
+    statusTitle.textContent = title;
+    statusText.innerHTML = message;
+    status.scrollIntoView({behavior:reduceMotion ? "auto" : "smooth",block:"nearest"});
+  }
+
+  function validateAndAdd(files){
+    var next = selectedFiles.slice();
+    var errors = [];
+    Array.prototype.forEach.call(files, function(file){
+      var ext = (file.name.split(".").pop() || "").toLowerCase();
+      if (allowedExtensions.indexOf(ext) === -1){ errors.push(file.name + " is not an allowed file type."); return; }
+      if (file.size > limits.perFile){ errors.push(file.name + " exceeds the " + bytes(limits.perFile) + " per-file limit."); return; }
+      if (next.some(function(existing){ return key(existing) === key(file); })) return;
+      next.push(file);
+    });
+    if (next.length > limits.count) errors.push("A maximum of " + limits.count + " files is allowed.");
+    var total = next.reduce(function(sum,file){ return sum + file.size; },0);
+    if (total > limits.total) errors.push("The combined files exceed the " + bytes(limits.total) + " total limit.");
+    if (errors.length){ showStatus("error","Files not added",errors.join("<br>")); fileInput.value = ""; return; }
+    selectedFiles = next;
+    fileInput.value = "";
+    renderFiles();
+  }
+
+  function renderFiles(){
+    fileList.innerHTML = "";
+    selectedFiles.forEach(function(file,index){
+      var row = document.createElement("div"); row.className = "pmew-indcollab-file";
+      var info = document.createElement("div");
+      var name = document.createElement("b"); name.textContent = file.name;
+      var size = document.createElement("small"); size.textContent = bytes(file.size);
+      var remove = document.createElement("button"); remove.type = "button"; remove.setAttribute("aria-label","Remove " + file.name); remove.textContent = "×";
+      remove.addEventListener("click",function(){ selectedFiles.splice(index,1); renderFiles(); });
+      info.appendChild(name); info.appendChild(size); row.appendChild(info); row.appendChild(remove); fileList.appendChild(row);
+    });
+    var total = selectedFiles.reduce(function(sum,file){ return sum + file.size; },0);
+    fileTotal.textContent = selectedFiles.length + (selectedFiles.length === 1 ? " file · " : " files · ") + bytes(total);
+  }
+
+  fileInput.addEventListener("change",function(){ validateAndAdd(fileInput.files); });
+  ["dragenter","dragover"].forEach(function(type){ dropzone.addEventListener(type,function(ev){ ev.preventDefault(); dropzone.classList.add("pmew-indcollab-drag"); }); });
+  ["dragleave","drop"].forEach(function(type){ dropzone.addEventListener(type,function(ev){ ev.preventDefault(); dropzone.classList.remove("pmew-indcollab-drag"); }); });
+  dropzone.addEventListener("drop",function(ev){ validateAndAdd(ev.dataTransfer.files); });
+  dropzone.addEventListener("keydown",function(ev){
+    if(ev.key === "Enter" || ev.key === " "){
+      ev.preventDefault();
+      input.click();
+    }
+  });
+
+  form.addEventListener("submit", async function(ev){
     ev.preventDefault();
-    if (!form.reportValidity()) return;
+    status.className = "pmew-indcollab-submit-status";
+    if (!form.reportValidity()){ showStatus("error","Please check the form","Complete all marked fields and correct any invalid entries."); return; }
     out.textContent = buildBrief();
     result.classList.add("pmew-indcollab-show");
-    result.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block:"nearest"});
+    var data = new FormData(form);
+    data.delete("attachments[]");
+    selectedFiles.forEach(function(file){ data.append("attachments[]",file,file.name); });
+    data.append("partnership_brief",out.textContent);
+    submitBtn.disabled = true;
+    submitBtn.querySelector("span").textContent = "Submitting securely…";
+    try {
+      var response = await fetch(form.action,{method:"POST",body:data,headers:{"Accept":"application/json","X-Requested-With":"XMLHttpRequest"},credentials:"same-origin"});
+      var payload = await response.json().catch(function(){ return {success:false,message:"The server returned an unreadable response."}; });
+      if (!response.ok || !payload.success) throw new Error(payload.message || "Submission could not be completed.");
+      var deliveryNote = payload.email_sent ? " A confirmation has been sent to your business email." : " Your submission is securely saved; the website email service still needs to be enabled on the server.";
+      showStatus("success","Opportunity submitted","Thank you. Your submission reference is <span class=\"pmew-indcollab-ref\">" + payload.reference + "</span>." + deliveryNote);
+      form.reset(); selectedFiles = []; renderFiles(); document.getElementById("formStartedAt").value = String(Date.now());
+    } catch (error){
+      showStatus("error","Submission not completed",String(error.message || "Please try again or email info@pradakomechanicals.com."));
+    } finally {
+      submitBtn.disabled = false; submitBtn.querySelector("span").textContent = "Submit Partnership Opportunity";
+    }
   });
 
   var copyBtn = document.getElementById("pmewIndCollabFormCopy");

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastener Manufacturing Range — Cold Forming & Hot Forging | PRADAKO</title>
+<meta name="description" content="Engineering reference for screws, bolts, nuts, washers, studs and threaded rods across metric and inch ranges, with cold forming, hot forging and primary manufacturing routes.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pradako.co/pages/quality-manufacturing/cold-forming-hot-forging.html">
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/pradako-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/pradako-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/pradako-apple-touch-icon.png">
+    <!-- PMEW CANONICAL SHARED CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/navbar-product-slider.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/pmew-page-integration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --white:#ffffff;
+    --ink:#07111f;
+    --navy:#0b2341;
+    --blue:#155eef;
+    --blue-2:#0b4acb;
+    --teal:#087f8c;
+    --steel:#607086;
+    --muted:#7d8a9b;
+    --line:#dce4ec;
+    --line-2:#edf2f7;
+    --surface:#f7faff;
+    --surface-2:#f1f6fb;
+    --cold:#155eef;
+    --hot:#d9480f;
+    --other:#087f8c;
+    --success:#137a4f;
+    --shadow:0 18px 55px rgba(10,35,65,.10);
+    --radius:20px;
+    --max:1480px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:Montserrat,Inter,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  button,select,input{font:inherit}
+  .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:720px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    isolation:isolate;
+    background:
+      radial-gradient(circle at 72% 24%,rgba(21,94,239,.08),transparent 30%),
+      radial-gradient(circle at 15% 75%,rgba(8,127,140,.06),transparent 30%),
+      #fff;
+  }
+  .hero:before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(11,35,65,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(11,35,65,.045) 1px,transparent 1px);
+    background-size:54px 54px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+    z-index:-2;
+  }
+  .hero:after{
+    content:"";
+    position:absolute;
+    width:700px;height:700px;border:1px solid rgba(21,94,239,.14);
+    border-radius:50%;
+    right:-260px;top:-210px;
+    box-shadow:
+      0 0 0 95px rgba(21,94,239,.025),
+      0 0 0 190px rgba(21,94,239,.018);
+    z-index:-1;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:70px;
+    align-items:center;
+    padding:100px 0 76px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--blue);font-weight:900;font-size:12px;
+    letter-spacing:1.8px;text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .eyebrow:before{content:"";width:34px;height:2px;background:var(--blue)}
+  h1{
+    margin:0;
+    color:var(--navy);
+    font-size:clamp(50px,6.1vw,96px);
+    line-height:.93;
+    letter-spacing:-4px;
+    font-weight:950;
+    text-transform:uppercase;
+    max-width:1000px;
+  }
+  .hero-kicker{
+    margin:24px 0 0;
+    font-size:clamp(20px,2vw,31px);
+    line-height:1.25;
+    color:#2b3d52;
+    max-width:900px;
+    font-weight:650;
+  }
+  .hero-copy{
+    margin:22px 0 0;
+    max-width:830px;
+    font-size:16px;line-height:1.8;color:var(--steel);
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    min-height:48px;padding:0 19px;border-radius:10px;border:1px solid var(--line);
+    background:#fff;color:var(--navy);font-weight:850;font-size:13px;
+    letter-spacing:.3px;cursor:pointer;text-decoration:none;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    transition:.2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(10,35,65,.1)}
+  .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn svg{width:17px;height:17px}
+
+  .forge-visual{
+    position:relative;
+    min-height:460px;
+    display:grid;
+    place-items:center;
+  }
+  .ring{
+    position:absolute;border:1px solid rgba(11,35,65,.14);border-radius:50%;
+  }
+  .ring.r1{width:390px;height:390px}
+  .ring.r2{width:305px;height:305px}
+  .ring.r3{width:220px;height:220px}
+  .core{
+    width:150px;height:150px;border-radius:50%;
+    display:grid;place-items:center;
+    color:#fff;background:var(--navy);box-shadow:var(--shadow);
+    text-align:center;padding:20px;
+  }
+  .core strong{font-size:25px;line-height:1}
+  .core span{font-size:10px;line-height:1.4;letter-spacing:1.2px;text-transform:uppercase;margin-top:8px}
+  .orbit{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:390px;height:390px;animation:spin 24s linear infinite;
+  }
+  .orbit .tag{
+    position:absolute;min-width:124px;padding:12px 14px;border-radius:12px;
+    border:1px solid var(--line);background:#fff;box-shadow:0 9px 28px rgba(10,35,65,.08);
+    font-size:11px;text-transform:uppercase;letter-spacing:.7px;font-weight:900;color:var(--navy);
+    text-align:center;
+  }
+  .tag.t1{top:-18px;left:133px}
+  .tag.t2{right:-57px;top:165px}
+  .tag.t3{bottom:-18px;left:133px}
+  .tag.t4{left:-55px;top:165px}
+  .orbit .tag span{display:block;color:var(--muted);font-size:9px;margin-top:4px;font-weight:750}
+  @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .orbit .tag{animation:counter 24s linear infinite}
+  @keyframes counter{to{transform:rotate(-360deg)}}
+
+  .stats{
+    border-bottom:1px solid var(--line);
+    background:#fff;
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:28px 28px;border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-size:30px;color:var(--navy);letter-spacing:-1px}
+  .stat span{display:block;margin-top:6px;color:var(--muted);font-size:11px;font-weight:850;letter-spacing:.8px;text-transform:uppercase;line-height:1.5}
+
+  /* general */
+  section{padding:90px 0}
+  .section-head{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:end;
+    margin-bottom:38px;
+  }
+  .section-no{font-size:11px;font-weight:950;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
+  h2{margin:8px 0 0;font-size:clamp(35px,4vw,62px);line-height:1;letter-spacing:-2.2px;text-transform:uppercase;color:var(--navy)}
+  .lead{margin:0;color:var(--steel);font-size:16px;line-height:1.75;max-width:780px}
+  .note{
+    border:1px solid #cbd8e7;border-left:4px solid var(--blue);
+    background:#f8fbff;border-radius:12px;padding:16px 18px;
+    color:#405269;font-size:13px;line-height:1.65;
+  }
+  .note strong{color:var(--navy)}
+
+  /* PROCESS BAND */
+  .process-band{background:var(--navy);color:#fff}
+  .process-band h2{color:#fff}
+  .process-band .section-no{color:#85a9ff}
+  .process-band .lead{color:#c5d2e2}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .process-card{
+    border:1px solid rgba(255,255,255,.14);border-radius:18px;
+    padding:28px;background:rgba(255,255,255,.035);min-height:285px;
+  }
+  .process-card .icon{
+    width:42px;height:42px;border-radius:11px;
+    border:1px solid rgba(255,255,255,.16);
+    display:grid;place-items:center;margin-bottom:25px;
+  }
+  .process-card .icon svg{width:21px;height:21px}
+  .process-card h3{margin:0;font-size:22px;text-transform:uppercase;letter-spacing:-.5px}
+  .process-card p{color:#bfccdc;line-height:1.7;font-size:13px}
+  .process-card ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px}
+  .process-card li{font-size:12px;color:#e1e8f1;display:flex;gap:8px}
+  .process-card li:before{content:"•";color:#8ab0ff}
+
+  /* FILTER */
+  .explorer{background:#fff}
+  .filterbar{
+    position:sticky;top:12px;z-index:8;
+    display:grid;grid-template-columns:1.2fr repeat(3,.7fr) auto;
+    gap:10px;padding:12px;border:1px solid var(--line);
+    border-radius:16px;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);box-shadow:0 15px 35px rgba(9,34,65,.08);
+    margin-bottom:26px;
+  }
+  .control{
+    min-height:46px;border:1px solid var(--line);border-radius:10px;
+    padding:0 13px;background:#fff;color:var(--navy);font-weight:800;font-size:12px;
+    outline:none;
+  }
+  .control:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,94,239,.10)}
+  .reset{min-width:94px;background:var(--surface);cursor:pointer}
+  .resultline{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    margin:16px 2px;color:var(--muted);font-size:12px;font-weight:750;
+  }
+
+  .range-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .range-card{
+    border:1px solid var(--line);border-radius:18px;background:#fff;
+    overflow:hidden;transition:.2s ease;box-shadow:0 4px 18px rgba(9,34,65,.035);
+  }
+  .range-card:hover{border-color:#b8c9dc;transform:translateY(-2px);box-shadow:0 15px 35px rgba(9,34,65,.08)}
+  .range-top{padding:24px 24px 17px;border-bottom:1px solid var(--line-2)}
+  .range-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+  .range-title h3{margin:0;color:var(--navy);font-size:24px;text-transform:uppercase;letter-spacing:-.5px}
+  .range-title small{display:block;margin-top:5px;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.85px;text-transform:uppercase}
+  .badge{
+    border-radius:999px;padding:7px 10px;font-size:9px;letter-spacing:.7px;text-transform:uppercase;font-weight:950;white-space:nowrap;border:1px solid;
+  }
+  .badge.cold{color:var(--cold);background:#f1f6ff;border-color:#c6d8ff}
+  .badge.hot{color:var(--hot);background:#fff5f0;border-color:#ffd1bd}
+  .badge.other{color:var(--other);background:#effbfb;border-color:#bce4e5}
+  .range-main{
+    padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .measure{
+    border:1px solid var(--line-2);background:var(--surface);border-radius:12px;padding:14px;
+  }
+  .measure span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:900}
+  .measure strong{display:block;margin-top:7px;color:var(--navy);font-size:19px;letter-spacing:-.4px}
+  .measure em{display:block;margin-top:3px;color:var(--steel);font-style:normal;font-size:10px;line-height:1.4}
+  .size-series{padding:0 24px 20px}
+  .size-series label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:900;margin-bottom:7px}
+  .size-list{font-family:"Space Mono","Courier New",monospace;color:#34485f;font-size:11px;line-height:1.75}
+  .route{
+    border-top:1px solid var(--line-2);padding:16px 24px;background:#fbfdff;
+    font-size:11px;color:#52657a;line-height:1.6;
+  }
+  .route b{color:var(--navy)}
+  .empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:18px;padding:50px;text-align:center;color:var(--muted)}
+
+  /* SPECTRUM */
+  .spectrum{background:var(--surface)}
+  .spectrum-wrap{border:1px solid var(--line);border-radius:20px;background:#fff;padding:26px;box-shadow:var(--shadow)}
+  .axis-head{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;padding:0 5px 9px}
+  .axis{
+    height:10px;border-radius:999px;
+    background:linear-gradient(90deg,#155eef 0 42%,#7c93aa 42% 48%,#d9480f 48% 100%);
+    position:relative;margin-bottom:26px;
+  }
+  .axis:after{
+    content:"Typical overlap / warm-forming decision zone";
+    position:absolute;left:44%;top:18px;transform:translateX(-20%);
+    font-size:9px;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.6px;font-weight:800;
+  }
+  .spectrum-table{width:100%;border-collapse:collapse;margin-top:40px}
+  .spectrum-table th,.spectrum-table td{padding:14px 10px;border-top:1px solid var(--line-2);text-align:left;font-size:12px}
+  .spectrum-table th{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.7px}
+  .spectrum-table td:first-child{font-weight:900;color:var(--navy)}
+  .pill{display:inline-flex;align-items:center;min-height:26px;padding:0 9px;border-radius:999px;background:var(--surface);font-size:10px;font-weight:850;color:#405269}
+
+  /* matrix */
+  .matrix-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
+  .matrix{width:100%;min-width:1050px;border-collapse:collapse;background:#fff}
+  .matrix th,.matrix td{padding:15px 16px;border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2);text-align:left;vertical-align:top}
+  .matrix th{font-size:9px;text-transform:uppercase;letter-spacing:.75px;color:var(--muted);background:#f8fbff;position:sticky;top:0}
+  .matrix td{font-size:11px;line-height:1.55;color:#41556c}
+  .matrix td:first-child{font-weight:950;color:var(--navy);font-size:12px}
+  .yes{color:var(--success);font-weight:900}
+  .conditional{color:#9a5b00;font-weight:900}
+  .no{color:#8794a5;font-weight:900}
+
+  /* application */
+  .decision-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .decision{
+    border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff;
+  }
+  .decision .num{font:900 11px "Courier New",monospace;color:var(--blue)}
+  .decision h3{margin:14px 0 8px;color:var(--navy);font-size:17px;text-transform:uppercase}
+  .decision p{margin:0;color:var(--steel);font-size:12px;line-height:1.65}
+
+  /* source */
+  .sources{background:#07111f;color:#fff}
+  .sources h2{color:#fff}
+  .sources .lead{color:#bcc8d8}
+  .source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .source{
+    display:block;text-decoration:none;border:1px solid rgba(255,255,255,.12);
+    border-radius:13px;padding:16px 18px;background:rgba(255,255,255,.025);
+    transition:.2s;
+  }
+  .source:hover{background:rgba(255,255,255,.055);transform:translateY(-1px)}
+  .source b{font-size:12px}
+  .source span{display:block;margin-top:5px;color:#9cafc5;font-size:10px;line-height:1.5}
+  .disclaimer{
+    margin-top:24px;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:18px;
+    color:#c5d1df;font-size:11px;line-height:1.75;
+  }
+
+  footer{
+    background:#030911;color:#91a0b2;border-top:1px solid rgba(255,255,255,.08);
+    padding:28px 0;font-size:10px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer b{color:#fff;letter-spacing:.8px}
+
+  @media(max-width:1100px){
+    .hero-grid,.section-head{grid-template-columns:1fr}
+    .forge-visual{min-height:380px}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}
+    .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .process-grid{grid-template-columns:1fr}
+    .filterbar{grid-template-columns:1fr 1fr}
+    .filterbar input{grid-column:1/-1}
+    .range-grid{grid-template-columns:1fr}
+    .decision-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:680px){
+    .wrap{width:min(100% - 24px,var(--max))}
+    .hero{min-height:auto}
+    .hero-grid{padding:74px 0 60px;gap:25px}
+    h1{letter-spacing:-2.5px}
+    .forge-visual{display:none}
+    section{padding:65px 0}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:0!important;border-bottom:1px solid var(--line)!important}
+    .stat:last-child{border-bottom:0!important}
+    .section-head{gap:20px}
+    .filterbar{position:relative;top:auto;grid-template-columns:1fr}
+    .filterbar input{grid-column:auto}
+    .range-main{grid-template-columns:1fr}
+    .decision-grid,.source-grid{grid-template-columns:1fr}
+    .spectrum-wrap{padding:18px}
+    .axis:after{white-space:normal;width:160px}
+    .hero-actions{display:grid}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .orbit,.orbit .tag{animation:none}
+    *{transition:none!important}
+  }
+</style>
+    <script src="/assets/js/pmew-page-integration.js" defer></script>
+</head>
+<body data-pmew-section="Integrated Quality Manufacturing" data-pmew-section-url="/pages/quality-manufacturing/quality-overview.html" data-pmew-page="Cold Forming &amp; Hot Forging">
+<div id="navbar-container"></div>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Fastener Manufacturing Range · Engineering Reference</div>
+      <h1>From Micro<br>to Heavy Forged.</h1>
+      <p class="hero-kicker">Screws · Bolts · Nuts · Washers · Studs · Threaded Rods</p>
+      <p class="hero-copy">
+        A practical manufacturing map covering metric and inch fasteners from the smallest commonly producible sizes
+        through large cold-formed and heavy hot-forged ranges — while separating true forging operations from stamping,
+        thread rolling and bar-based production.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#range-explorer">
+          Explore full range
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn" href="#process-map">Understand process selection</a>
+      </div>
+    </div>
+
+    <div class="forge-visual" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="orbit">
+        <div class="tag t1">Cold Forming<span>micro → large</span></div>
+        <div class="tag t2">Hot Forging<span>heavy sections</span></div>
+        <div class="tag t3">Thread Rolling<span>studs & rods</span></div>
+        <div class="tag t4">Stamping<span>washers</span></div>
+      </div>
+      <div class="core"><div><strong>0.6 → 180</strong><span>mm reference manufacturing envelope*</span></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>0.6 mm</b><span>OEM-demonstrated micro cold-forming wire</span></div>
+    <div class="stat"><b>≈51 mm</b><span>Large cold-former cutoff capability example</span></div>
+    <div class="stat"><b>90 mm</b><span>Hot-former steel bar input example</span></div>
+    <div class="stat"><b>≈180 mm</b><span>Hot-formed external part diameter example</span></div>
+  </div>
+</div>
+
+<section id="process-map" class="process-band">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">01 · Process map</div>
+        <h2>First choose<br>the right route.</h2>
+      </div>
+      <p class="lead">“Fastener size” and “forging machine cutoff diameter” are not the same specification. Material, strength, upset ratio, head geometry, die stations, transfer, billet length, forming load and tooling determine the real boundary.</p>
+    </div>
+
+    <div class="process-grid">
+      <article class="process-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+        </div>
+        <h3>Cold Forming</h3>
+        <p>Preferred for high-volume fasteners when the material can be formed at or near room temperature.</p>
+        <ul>
+          <li>Excellent material utilisation</li>
+          <li>High production rates</li>
+          <li>Good surface finish and dimensional repeatability</li>
+          <li>Common route for screws, bolts and many nuts</li>
+        </ul>
+      </article>
+      <article class="process-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2s4 4 4 8c0 2-1 3-2 4 3-1 6 1 6 4 0 2-2 4-4 4H8c-2 0-4-2-4-4 0-4 4-6 6-8 2-2 2-5 2-8z"/></svg>
+        </div>
+        <h3>Hot Forging</h3>
+        <p>Used when section size, material strength, deformation severity or geometry makes cold forming inefficient or impractical.</p>
+        <ul>
+          <li>Large bolts, heavy nuts and special forgings</li>
+          <li>Lower forming loads for heavy deformation</li>
+          <li>Suited to large bar/billet feed</li>
+          <li>Usually requires scale, heat and post-forge control</li>
+        </ul>
+      </article>
+      <article class="process-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16M7 4v16M17 4v16"/></svg>
+        </div>
+        <h3>Adjacent Processes</h3>
+        <p>Some products in a fastener catalogue are normally manufactured by other processes and should not be mislabeled as forged.</p>
+        <ul>
+          <li>Washers: blanking / stamping / ring rolling</li>
+          <li>Studs: cut + chamfer + thread rolling</li>
+          <li>Threaded rod: bar/wire + continuous thread rolling</li>
+          <li>Special collars or ends may be upset/forged</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="range-explorer" class="explorer">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">02 · Full range explorer</div>
+        <h2>Smallest to<br>largest.</h2>
+      </div>
+      <div>
+        <p class="lead">Filter by product, process and unit system. The ranges are an engineering catalogue framework — not a claim that every size is covered by one standard or one machine.</p>
+        <div class="note" style="margin-top:18px"><strong>Read ranges correctly:</strong> “Mainstream” means commercially practical/common for the route. “Extended” means technically achievable on suitably sized/specified equipment and must be validated against material, geometry and tooling.</div>
+      </div>
+    </div>
+
+    <div class="filterbar">
+      <input id="search" class="control" type="search" placeholder="Search: bolt, M64, 2 inch, washer, hot...">
+      <select id="productFilter" class="control" aria-label="Product filter">
+        <option value="all">All products</option>
+        <option>Screws</option><option>Bolts</option><option>Nuts</option><option>Washers</option><option>Studs</option><option>Threaded Rods</option>
+      </select>
+      <select id="processFilter" class="control" aria-label="Process filter">
+        <option value="all">All processes</option>
+        <option value="cold">Cold forming</option>
+        <option value="hot">Hot forging</option>
+        <option value="other">Other primary route</option>
+      </select>
+      <select id="unitFilter" class="control" aria-label="Unit system filter">
+        <option value="all">Metric + Inch</option>
+        <option value="metric">Metric</option>
+        <option value="inch">Inch</option>
+      </select>
+      <button id="reset" class="control reset" type="button">Reset</button>
+    </div>
+
+    <div class="resultline"><span id="resultCount">Showing all ranges</span><span>Metric = nominal M diameter · Inch = nominal unified / fractional diameter</span></div>
+    <div id="rangeGrid" class="range-grid"></div>
+  </div>
+</section>
+
+<section class="spectrum">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">03 · Manufacturing spectrum</div>
+        <h2>Where cold ends<br>and hot begins.</h2>
+      </div>
+      <p class="lead">There is no universal changeover diameter. The overlap is deliberate: large cold forming and smaller hot forging coexist, and warm forming may bridge difficult materials or geometries.</p>
+    </div>
+
+    <div class="spectrum-wrap">
+      <div class="axis-head"><span>Micro / small</span><span>Medium</span><span>Large / heavy</span></div>
+      <div class="axis"></div>
+      <table class="spectrum-table">
+        <thead><tr><th>Zone</th><th>Indicative metric fastener scale</th><th>Typical choice</th><th>Engineering note</th></tr></thead>
+        <tbody>
+          <tr><td>Micro</td><td>M0.6 – M3</td><td><span class="pill">Cold heading / micro forming</span></td><td>Small screws, pins and precision formed parts; thread standard and tooling availability still control actual minimum.</td></tr>
+          <tr><td>Small / medium</td><td>M3 – M20</td><td><span class="pill">Cold forming dominant</span></td><td>High-volume screw, bolt and nut production sweet spot.</td></tr>
+          <tr><td>Medium / large overlap</td><td>M20 – M48</td><td><span class="pill">Cold / warm / hot decision</span></td><td>Material grade, head volume, reduction/extrusion and press tonnage become decisive.</td></tr>
+          <tr><td>Large</td><td>M48 – M90</td><td><span class="pill">Hot forging increasingly common</span></td><td>Large bar-fed or billet-fed fasteners; large cold formers can still overlap at the lower end.</td></tr>
+          <tr><td>Heavy special</td><td>M90 – M150+</td><td><span class="pill">Hot / upset / open-die / machining</span></td><td>Project-specific heavy fasteners; dimensions and standards must be checked individually.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">04 · Product × process matrix</div>
+        <h2>What is actually<br>forged?</h2>
+      </div>
+      <p class="lead">This matrix prevents one of the most common catalogue errors: classifying every threaded or circular product as a “forging”.</p>
+    </div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr><th>Product</th><th>Cold forming / heading</th><th>Hot forging</th><th>Thread rolling</th><th>Stamping / blanking</th><th>Machining / bar route</th><th>Practical note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Screws</td><td><span class="yes">Primary</span></td><td><span class="conditional">Large / special</span></td><td><span class="yes">Primary for threads</span></td><td><span class="no">No</span></td><td><span class="conditional">Special</span></td><td>Head formed first; threads typically rolled after heading/forming.</td></tr>
+          <tr><td>Bolts</td><td><span class="yes">Primary</span></td><td><span class="yes">Primary for large sizes</span></td><td><span class="yes">Primary for threads</span></td><td><span class="no">No</span></td><td><span class="conditional">Special / low volume</span></td><td>Cold and hot routes overlap significantly in medium-large diameters.</td></tr>
+          <tr><td>Nuts</td><td><span class="yes">Primary</span></td><td><span class="yes">Primary for heavy sizes</span></td><td><span class="no">Internal thread tapped/form-tapped</span></td><td><span class="conditional">Thin/simple forms</span></td><td><span class="conditional">Heavy / special</span></td><td>Nut former route depends strongly on across-flats, height and hole extrusion/piercing.</td></tr>
+          <tr><td>Washers</td><td><span class="no">Usually no</span></td><td><span class="conditional">Heavy rings / specials</span></td><td><span class="no">No</span></td><td><span class="yes">Primary</span></td><td><span class="conditional">Thick / special</span></td><td>Standard flat washers are normally punched/blanked, not cold forged.</td></tr>
+          <tr><td>Studs</td><td><span class="conditional">Headed/collared studs</span></td><td><span class="conditional">Heavy upset-end studs</span></td><td><span class="yes">Primary for threads</span></td><td><span class="no">No</span></td><td><span class="yes">Primary bar route</span></td><td>Ordinary double-end/full-thread studs do not require body forging.</td></tr>
+          <tr><td>Threaded Rods</td><td><span class="no">Not body forging</span></td><td><span class="no">Not normal route</span></td><td><span class="yes">Primary where rolled</span></td><td><span class="no">No</span></td><td><span class="yes">Bar + cut/thread route</span></td><td>Describe as thread-rolled/cut rod; forge only special ends/features if required.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fbff">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">05 · Engineering decision</div>
+        <h2>Diameter alone<br>is not enough.</h2>
+      </div>
+      <p class="lead">Before publishing a PMEW capability, validate the part against the actual machine and tooling envelope rather than copying the broad industry range.</p>
+    </div>
+    <div class="decision-grid">
+      <article class="decision"><span class="num">01</span><h3>Material</h3><p>Carbon steel, alloy steel, stainless, titanium and nickel alloys can shift the feasible cold/hot boundary significantly.</p></article>
+      <article class="decision"><span class="num">02</span><h3>Geometry</h3><p>Head-to-shank volume, flange size, recess depth, extrusion and reductions can be more limiting than nominal thread diameter.</p></article>
+      <article class="decision"><span class="num">03</span><h3>Machine</h3><p>Cutoff diameter, cutoff length, forging load, station count, die space, transfer and ejector stroke must all fit.</p></article>
+      <article class="decision"><span class="num">04</span><h3>Economics</h3><p>Annual quantity, tooling cost, cycle rate, heat treatment, machining allowance and material yield determine the best route.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-no">06 · Technical basis</div>
+        <h2>Machine-maker<br>reference points.</h2>
+      </div>
+      <p class="lead">The extreme manufacturing envelope shown on this page is anchored to published equipment examples. These values are machine inputs/part envelopes — they are not automatically equivalent to thread nominal diameter.</p>
+    </div>
+    <div class="source-grid">
+      <a class="source" target="_blank" rel="noopener" href="https://www.hatebur.com/en/machines-accessories/detail/product/detail/cs-001/"><b>Carlo Salvi / Hatebur — CS 001</b><span>Published cold-forming wire range down to 0.6 mm.</span></a>
+      <a class="source" target="_blank" rel="noopener" href="https://www.nationalmachinery.com/cold-forming-principals"><b>National Machinery — Cold Forming Principles</b><span>General cold-forming machinery examples covering cutoff diameters up to the high-40-mm class.</span></a>
+      <a class="source" target="_blank" rel="noopener" href="https://www.sakamura.org/eng/products/prod01_cool/pf1/"><b>Sakamura — PF Cold Former Series</b><span>Published maximum cutoff diameter up to 51 mm on the referenced series.</span></a>
+      <a class="source" target="_blank" rel="noopener" href="https://www.hatebur.com/en/company/news/details/news/heading-to-new-shores-with-the-hotmatic-hm-75-xl/"><b>Hatebur — HOTmatic HM 75 XL</b><span>Published bar input up to 90 mm and formed-part external diameter up to 180 mm.</span></a>
+      <a class="source" target="_blank" rel="noopener" href="https://www.sakamura.org/eng/products/prod02_heat/hnp/"><b>Sakamura — HNP Hot Former Series</b><span>Examples of automatic hot-former cutoff diameters in the 25–46 mm class.</span></a>
+      <a class="source" target="_blank" rel="noopener" href="https://www.sakamura.org/eng/products/prod02_heat/hbp/"><b>Sakamura — HBP Hot Former Series</b><span>Examples extending automatic hot-former cutoff diameter to 60 mm.</span></a>
+    </div>
+    <div class="disclaimer">
+      <strong style="color:#fff">Important:</strong> This page is an engineering reference and UI framework, not a standards compliance certificate, quotation, or declaration of PMEW installed capacity. Nominal metric and inch ranges are intentionally presented as practical catalogue bands. Before converting them into a commercial “we manufacture” claim, replace the range limits with validated PMEW machine-by-machine data: material grade, maximum cutoff diameter/length, tonnage, station count, die diameter, KO stroke, induction/heating range, thread rolling capacity and quality approvals.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b>PRADAKO / PMEW</b> · Fastener Manufacturing Range Reference</span>
+    <span>Ultra-white engineering UI · Metric + Inch · Cold + Hot + Adjacent Processes</span>
+  </div>
+</footer>
+<div id="footer-container"></div>
+
+<script>
+const ranges = [
+  {
+    product:"Screws", process:"cold", processLabel:"Cold forming",
+    metricMain:"M1 – M12", metricExtended:"M0.6 – M24+",
+    inchMain:"#0 – 1/2 in", inchExtended:"micro sizes – 1 in+",
+    metricSeries:"M0.6 · M0.8 · M1 · M1.2 · M1.4 · M1.6 · M2 · M2.5 · M3 · M3.5 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24",
+    inchSeries:"#0 · #1 · #2 · #3 · #4 · #5 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1",
+    route:"Wire → cutoff → heading/multi-station forming → recess/drive forming as required → thread rolling → heat treatment/coating as specified."
+  },
+  {
+    product:"Screws", process:"hot", processLabel:"Hot forging",
+    metricMain:"M16 – M48", metricExtended:"M12 – M64+ special",
+    inchMain:"5/8 – 2 in", inchExtended:"1/2 – 2-1/2 in+ special",
+    metricSeries:"M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64",
+    inchSeries:"1/2 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2 · 1-5/8 · 1-3/4 · 1-7/8 · 2 · 2-1/4 · 2-1/2",
+    route:"Bar/billet → heating → upset/forging → trim/size → machine or roll thread where feasible → heat treatment/finishing. Usually reserved for large/special screw-type fasteners."
+  },
+  {
+    product:"Bolts", process:"cold", processLabel:"Cold forming",
+    metricMain:"M3 – M24", metricExtended:"M2 – M48 class",
+    inchMain:"1/8 – 1 in", inchExtended:"#8 – 1-7/8 in class",
+    metricSeries:"M2 · M2.5 · M3 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48",
+    inchSeries:"#8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2 · 1-5/8 · 1-3/4 · 1-7/8",
+    route:"Wire/rod → cutoff → multi-die cold forming/extrusion → heading → thread rolling. Upper end requires specialised high-tonnage large-part cold formers."
+  },
+  {
+    product:"Bolts", process:"hot", processLabel:"Hot forging",
+    metricMain:"M16 – M100", metricExtended:"M12 – M150+ heavy",
+    inchMain:"5/8 – 4 in", inchExtended:"1/2 – 6 in+ heavy",
+    metricSeries:"M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M85 · M90 · M95 · M100 · M105 · M110 · M115 · M120 · M125 · M130 · M140 · M150+",
+    inchSeries:"1/2 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2 · 1-5/8 · 1-3/4 · 1-7/8 · 2 · 2-1/4 · 2-1/2 · 2-3/4 · 3 · 3-1/4 · 3-1/2 · 3-3/4 · 4 · 4-1/2 · 5 · 5-1/2 · 6+",
+    route:"Bar/billet → controlled heating → upsetting/closed-die forging → trimming/descaling → thread rolling or machining → heat treatment → inspection."
+  },
+  {
+    product:"Nuts", process:"cold", processLabel:"Cold forming",
+    metricMain:"M3 – M24", metricExtended:"M2 – M42/M48 class",
+    inchMain:"#4 – 1 in", inchExtended:"#2 – 1-1/2 in class",
+    metricSeries:"M2 · M2.5 · M3 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48",
+    inchSeries:"#2 · #4 · #5 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2",
+    route:"Wire/rod → cutoff → upset/extrude → pierce → form across-flats/chamfers → tap/form internal thread → heat treatment/finish as required."
+  },
+  {
+    product:"Nuts", process:"hot", processLabel:"Hot forging",
+    metricMain:"M16 – M100", metricExtended:"M12 – M150+ heavy",
+    inchMain:"5/8 – 4 in", inchExtended:"1/2 – 6 in+ heavy",
+    metricSeries:"M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M85 · M90 · M95 · M100 · M110 · M120 · M130 · M140 · M150+",
+    inchSeries:"1/2 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2 · 1-5/8 · 1-3/4 · 1-7/8 · 2 · 2-1/4 · 2-1/2 · 2-3/4 · 3 · 3-1/4 · 3-1/2 · 3-3/4 · 4 · 4-1/2 · 5 · 5-1/2 · 6+",
+    route:"Heated bar/billet → upset/forge → pierce → trim/size → machine/tap thread → heat treatment. Large across-flats and nut height drive billet/press size."
+  },
+  {
+    product:"Washers", process:"other", processLabel:"Stamping / blanking",
+    metricMain:"M1.6 – M36", metricExtended:"M1 – M100+ depending design",
+    inchMain:"#0 – 1-1/2 in", inchExtended:"micro – 4 in+ depending design",
+    metricSeries:"M1 · M1.2 · M1.4 · M1.6 · M2 · M2.5 · M3 · M3.5 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M72 · M80 · M90 · M100+",
+    inchSeries:"#0 · #2 · #4 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-3/8 · 1-1/2 · 1-3/4 · 2 · 2-1/2 · 3 · 4+",
+    route:"Sheet/strip → piercing + blanking → flattening/deburring → heat treatment/coating if specified. This is the normal route for standard flat washers."
+  },
+  {
+    product:"Washers", process:"hot", processLabel:"Hot forged / ring route",
+    metricMain:"M24 – M100", metricExtended:"M16 – M150+ special",
+    inchMain:"1 – 4 in", inchExtended:"5/8 – 6 in+ special",
+    metricSeries:"M16 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M90 · M100 · M110 · M120 · M130 · M140 · M150+",
+    inchSeries:"5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-1/2 · 1-3/4 · 2 · 2-1/4 · 2-1/2 · 3 · 3-1/2 · 4 · 4-1/2 · 5 · 6+",
+    route:"Only for heavy-section rings, spherical/structural specials or profiles where ordinary stamping is unsuitable. Do not describe standard flat washers as hot forged."
+  },
+  {
+    product:"Studs", process:"other", processLabel:"Bar + thread rolling",
+    metricMain:"M3 – M36", metricExtended:"M2 – M100+",
+    inchMain:"#8 – 1-1/2 in", inchExtended:"#4 – 4 in+",
+    metricSeries:"M2 · M2.5 · M3 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M90 · M100+",
+    inchSeries:"#4 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-1/2 · 1-3/4 · 2 · 2-1/2 · 3 · 4+",
+    route:"Straightened wire/bar → cutoff → end preparation → thread rolling/cutting → heat treatment/finish. This is the primary route for ordinary studs."
+  },
+  {
+    product:"Studs", process:"cold", processLabel:"Cold upset / formed stud",
+    metricMain:"M3 – M20", metricExtended:"M2 – M30+ special",
+    inchMain:"#8 – 3/4 in", inchExtended:"#4 – 1-1/4 in+ special",
+    metricSeries:"M2 · M2.5 · M3 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30+",
+    inchSeries:"#4 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 5/8 · 3/4 · 7/8 · 1 · 1-1/4+",
+    route:"Applies to headed, weld, collared, grooved or other formed studs. Wire → cutoff → cold upset/form → thread roll."
+  },
+  {
+    product:"Studs", process:"hot", processLabel:"Hot upset / forged-end stud",
+    metricMain:"M20 – M80", metricExtended:"M16 – M150+ special",
+    inchMain:"3/4 – 3 in", inchExtended:"5/8 – 6 in+ special",
+    metricSeries:"M16 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M90 · M100 · M120 · M150+",
+    inchSeries:"5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-1/2 · 1-3/4 · 2 · 2-1/4 · 2-1/2 · 3 · 3-1/2 · 4 · 5 · 6+",
+    route:"For heavy special studs with upset ends, collars, shoulders or forged features. Ordinary full-body stud stock is not normally hot forged."
+  },
+  {
+    product:"Threaded Rods", process:"other", processLabel:"Bar/wire + thread rolling",
+    metricMain:"M2 – M36", metricExtended:"M1.6 – M100+",
+    inchMain:"#8 – 1-1/2 in", inchExtended:"#4 – 4 in+",
+    metricSeries:"M1.6 · M2 · M2.5 · M3 · M4 · M5 · M6 · M8 · M10 · M12 · M14 · M16 · M18 · M20 · M22 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M68 · M72 · M76 · M80 · M90 · M100+",
+    inchSeries:"#4 · #6 · #8 · #10 · #12 · 1/4 · 5/16 · 3/8 · 7/16 · 1/2 · 9/16 · 5/8 · 3/4 · 7/8 · 1 · 1-1/8 · 1-1/4 · 1-1/2 · 1-3/4 · 2 · 2-1/2 · 3 · 4+",
+    route:"Coil/bar → straighten/cut as required → continuous/in-feed thread rolling or thread cutting → straightness correction → finish. Not a forged body product."
+  },
+  {
+    product:"Threaded Rods", process:"hot", processLabel:"Special forged ends only",
+    metricMain:"M24 – M80 feature ends", metricExtended:"M16 – M150+ project-specific",
+    inchMain:"1 – 3 in feature ends", inchExtended:"5/8 – 6 in+ project-specific",
+    metricSeries:"M16 · M20 · M24 · M27 · M30 · M33 · M36 · M39 · M42 · M45 · M48 · M52 · M56 · M60 · M64 · M72 · M80 · M90 · M100 · M120 · M150+",
+    inchSeries:"5/8 · 3/4 · 7/8 · 1 · 1-1/4 · 1-1/2 · 1-3/4 · 2 · 2-1/2 · 3 · 3-1/2 · 4 · 5 · 6+",
+    route:"Use only when rod ends require hot-upset eyes, collars, shoulders or special forged geometries. The threaded length itself is normally rolled or machined."
+  }
+];
+
+const grid = document.getElementById('rangeGrid');
+const search = document.getElementById('search');
+const productFilter = document.getElementById('productFilter');
+const processFilter = document.getElementById('processFilter');
+const unitFilter = document.getElementById('unitFilter');
+const resultCount = document.getElementById('resultCount');
+const reset = document.getElementById('reset');
+
+function card(r, unit){
+  const badge = r.process === 'cold' ? 'cold' : r.process === 'hot' ? 'hot' : 'other';
+  const metricBlock = unit !== 'inch' ? `
+    <div class="measure">
+      <span>Metric · mainstream</span><strong>${r.metricMain}</strong>
+      <em>practical catalogue band</em>
+    </div>
+    <div class="measure">
+      <span>Metric · extended</span><strong>${r.metricExtended}</strong>
+      <em>validate machine + geometry</em>
+    </div>` : '';
+  const inchBlock = unit !== 'metric' ? `
+    <div class="measure">
+      <span>Inch · mainstream</span><strong>${r.inchMain}</strong>
+      <em>practical catalogue band</em>
+    </div>
+    <div class="measure">
+      <span>Inch · extended</span><strong>${r.inchExtended}</strong>
+      <em>validate machine + geometry</em>
+    </div>` : '';
+  const metricSeries = unit !== 'inch' ? `<label>Metric nominal series covered by this reference</label><div class="size-list">${r.metricSeries}</div>` : '';
+  const inchSeries = unit !== 'metric' ? `<label style="${unit==='all'?'margin-top:10px':''}">Inch nominal series covered by this reference</label><div class="size-list">${r.inchSeries}</div>` : '';
+  return `<article class="range-card">
+    <div class="range-top">
+      <div class="range-title-row">
+        <div class="range-title"><h3>${r.product}</h3><small>Manufacturing route</small></div>
+        <span class="badge ${badge}">${r.processLabel}</span>
+      </div>
+    </div>
+    <div class="range-main">${metricBlock}${inchBlock}</div>
+    <div class="size-series">${metricSeries}${inchSeries}</div>
+    <div class="route"><b>Typical route:</b> ${r.route}</div>
+  </article>`;
+}
+
+function render(){
+  const q = search.value.trim().toLowerCase();
+  const p = productFilter.value;
+  const pr = processFilter.value;
+  const u = unitFilter.value;
+  const filtered = ranges.filter(r=>{
+    const hay = Object.values(r).join(' ').toLowerCase();
+    return (p==='all'||r.product===p) && (pr==='all'||r.process===pr) && (!q||hay.includes(q));
+  });
+  grid.innerHTML = filtered.length ? filtered.map(r=>card(r,u)).join('') : `<div class="empty">No range matches the selected filters.</div>`;
+  resultCount.textContent = `Showing ${filtered.length} of ${ranges.length} manufacturing range blocks`;
+}
+
+[search,productFilter,processFilter,unitFilter].forEach(el=>el.addEventListener(el===search?'input':'change',render));
+reset.addEventListener('click',()=>{
+  search.value='';productFilter.value='all';processFilter.value='all';unitFilter.value='all';render();
+});
+render();
+</script>
+</body>
+</html>

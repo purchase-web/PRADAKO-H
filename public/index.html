@@ -1347,6 +1347,622 @@
   }
 }
     </script>
+
+    <style id="pmew-home-brand-reveal-final">
+
+/* =====================================================================
+   PMEW HOME HERO — FINAL BRAND REVEAL + RESPONSIVE BANNERS
+   Integrated: animated world map + PRADAKO logo + country line.
+   Mobile: compact 16:9 hero, no excessive whitespace, responsive copy.
+   ===================================================================== */
+
+.hero.pmew-home-hero {
+    --pmew-brand-reveal-duration: 5200ms;
+}
+
+/* ------------------------------
+   BANNER 01 — BRAND REVEAL
+   ------------------------------ */
+
+.pmew-home-hero__logo-slide {
+    position: relative !important;
+    display: grid !important;
+    place-items: center !important;
+    overflow: hidden !important;
+    isolation: isolate;
+    background: #ffffff !important;
+}
+
+/* Smooth decorative world map behind the logo. */
+.pmew-home-hero__logo-slide::before {
+    content: "";
+    position: absolute;
+    inset: 5% 4%;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+    opacity: 0;
+    filter: grayscale(1) contrast(1.02);
+    transform: translate3d(0, 10px, 0) scale(1.045);
+    transform-origin: center center;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.pmew-home-hero__logo-safe-area {
+    position: relative;
+    z-index: 1;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 1.45vw, 22px);
+
+    width: 100%;
+    height: 100%;
+    padding: clamp(34px, 5vw, 112px) clamp(36px, 6vw, 142px);
+}
+
+.pmew-home-hero__logo {
+    display: block;
+    flex: 0 0 auto;
+
+    width: min(90vw, 1840px);
+    height: auto !important;
+    max-width: 100%;
+    max-height: none !important;
+    aspect-ratio: 8 / 1;
+
+    object-fit: contain !important;
+    object-position: center center;
+
+    transform-origin: center center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    image-rendering: auto;
+
+    opacity: 0;
+    transform: translateZ(0) scale(0.06);
+    will-change: transform, opacity;
+}
+
+/* Simple market line — same visual treatment as approved reference. */
+.pmew-home-hero__markets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0;
+
+    max-width: min(94vw, 1500px);
+    margin: 0;
+    padding: 0;
+
+    color: #303030;
+    font-family: var(--font-primary, "Montserrat", Arial, sans-serif);
+    white-space: nowrap;
+
+    opacity: 0;
+    transform: translateY(10px);
+    will-change: opacity, transform;
+}
+
+.pmew-home-hero__markets::before,
+.pmew-home-hero__markets::after {
+    content: "";
+    width: clamp(30px, 4vw, 62px);
+    height: 1px;
+    margin-inline: clamp(12px, 1.6vw, 22px);
+    background: rgba(48, 48, 48, 0.22);
+    flex: 0 0 auto;
+}
+
+.pmew-home-hero__markets span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    color: #303030;
+    font-size: clamp(0.56rem, 0.70vw, 0.78rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: clamp(0.16em, 0.22vw, 0.25em);
+    text-transform: uppercase;
+}
+
+.pmew-home-hero__markets span + span::before {
+    content: "•";
+    margin-inline: clamp(8px, 1vw, 14px);
+    color: #f08080;
+    font-size: 0.70em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Logo, map and market line stay synchronized with Banner 01. */
+.pmew-home-hero__logo-slide.is-active .pmew-home-hero__logo {
+    animation:
+        pmewHomeLogoExpandIntegrated
+        var(--pmew-brand-reveal-duration)
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both !important;
+}
+
+.pmew-home-hero__logo-slide.is-active::before {
+    animation:
+        pmewHomeWorldMapRevealIntegrated
+        var(--pmew-brand-reveal-duration)
+        linear
+        both !important;
+}
+
+.pmew-home-hero__logo-slide.is-active .pmew-home-hero__markets {
+    animation:
+        pmewHomeMarketsRevealIntegrated
+        var(--pmew-brand-reveal-duration)
+        ease
+        both !important;
+}
+
+.hero.pmew-home-hero.is-paused
+.pmew-home-hero__logo-slide.is-active .pmew-home-hero__logo,
+.hero.pmew-home-hero.is-paused
+.pmew-home-hero__logo-slide.is-active::before,
+.hero.pmew-home-hero.is-paused
+.pmew-home-hero__logo-slide.is-active .pmew-home-hero__markets {
+    animation-play-state: paused !important;
+}
+
+@keyframes pmewHomeLogoExpandIntegrated {
+    0% {
+        transform: translateZ(0) scale(0.06);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    72%,
+    90% {
+        transform: translateZ(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateZ(0) scale(0.06);
+        opacity: 0;
+    }
+}
+
+/* Deliberately restrained map movement:
+   one slow settle/zoom, no horizontal wobble and no blur pulse. */
+@keyframes pmewHomeWorldMapRevealIntegrated {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 10px, 0) scale(1.045);
+    }
+
+    16% {
+        opacity: 0.035;
+    }
+
+    30% {
+        opacity: 0.105;
+        transform: translate3d(0, 5px, 0) scale(1.028);
+    }
+
+    52% {
+        opacity: 0.135;
+        transform: translate3d(0, 1px, 0) scale(1.016);
+    }
+
+    82% {
+        opacity: 0.125;
+        transform: translate3d(0, 0, 0) scale(1.008);
+    }
+
+    92% {
+        opacity: 0.09;
+        transform: translate3d(0, -1px, 0) scale(1.004);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -2px, 0) scale(1);
+    }
+}
+
+@keyframes pmewHomeMarketsRevealIntegrated {
+    0%,
+    24% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    38%,
+    88% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    97%,
+    100% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+/* ------------------------------
+   MOBILE / TABLET HERO
+   ------------------------------ */
+
+@media (max-width: 768px) {
+
+    /* Critical whitespace fix:
+       use the artwork's real 16:9 proportion instead of 100svh. */
+    .hero.pmew-home-hero {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        aspect-ratio: 16 / 9 !important;
+
+        overflow: hidden !important;
+        background: #ffffff !important;
+    }
+
+    /* Banner 01 remains balanced inside the compact mobile hero. */
+    .pmew-home-hero__logo-safe-area {
+        gap: clamp(5px, 1.5vw, 9px);
+        padding:
+            clamp(9px, 2.8vw, 17px)
+            clamp(7px, 2.7vw, 15px)
+            clamp(34px, 8vw, 48px);
+    }
+
+    .pmew-home-hero__logo {
+        width: min(92vw, 650px) !important;
+        max-width: 92vw !important;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: 8 / 1;
+    }
+
+    .pmew-home-hero__logo-slide::before {
+        inset: 4% 1.5% 6% !important;
+        background-position: center center !important;
+        background-size: contain !important;
+    }
+
+    .pmew-home-hero__markets {
+        max-width: 97vw;
+    }
+
+    .pmew-home-hero__markets::before,
+    .pmew-home-hero__markets::after {
+        width: clamp(8px, 3vw, 18px);
+        margin-inline: clamp(4px, 1vw, 7px);
+    }
+
+    .pmew-home-hero__markets span {
+        font-size: clamp(0.38rem, 1.45vw, 0.52rem);
+        letter-spacing: 0.07em;
+    }
+
+    .pmew-home-hero__markets span + span::before {
+        margin-inline: clamp(2px, 0.9vw, 5px);
+    }
+
+    /* Banners 02–08:
+       preserve the complete artwork and align it upward.
+       Because the mobile hero is also 16:9, there is no large
+       top/bottom whitespace and embedded artwork text is not cropped. */
+    .hero.pmew-home-hero > .hero-bg.pmew-home-hero__slide {
+        background-color: #ffffff !important;
+        background-size: contain !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* Banners 09–18 — responsive colour-finishes experience. */
+    .pmew-home-hero__colour-slide > .pcf-hero,
+    .pcf-hero {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    .pcf-slide > img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    .pcf-brand {
+        top: 9px !important;
+        left: 11px !important;
+        max-width: 62%;
+        gap: 6px !important;
+
+        font-size: 5.5px !important;
+        line-height: 1.25;
+        letter-spacing: 0.13em !important;
+        white-space: normal !important;
+    }
+
+    .pcf-brand::before {
+        width: 14px !important;
+        height: 1px !important;
+    }
+
+    .pcf-counter {
+        top: 9px !important;
+        right: 11px !important;
+    }
+
+    .pcf-copy {
+        top: 44% !important;
+        width: calc(100% - 22px) !important;
+        max-width: 100% !important;
+    }
+
+    .pcf-eyebrow {
+        margin-bottom: 5px !important;
+        font-size: clamp(5.5px, 1.45vw, 7.5px) !important;
+        letter-spacing: 0.14em !important;
+    }
+
+    .pcf-headline {
+        max-width: 100% !important;
+        margin-inline: auto !important;
+
+        font-size: clamp(24px, 8.6vw, 41px) !important;
+        line-height: 0.86 !important;
+        letter-spacing: -0.045em !important;
+
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    .pcf-subline {
+        max-width: 90vw !important;
+        margin: 7px auto 0 !important;
+
+        font-size: clamp(6.5px, 1.9vw, 9px) !important;
+        line-height: 1.18 !important;
+        letter-spacing: 0.065em !important;
+    }
+
+    .pcf-current {
+        margin-top: 6px !important;
+        gap: 5px !important;
+
+        font-size: 5.5px !important;
+        letter-spacing: 0.11em !important;
+    }
+
+    .pcf-current::before {
+        width: 4px !important;
+        height: 4px !important;
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 13%, transparent) !important;
+    }
+
+    .pcf-copy-halo {
+        background:
+            radial-gradient(
+                ellipse 74% 43% at 50% 46%,
+                rgba(255,255,255,.98) 0%,
+                rgba(255,255,255,.92) 42%,
+                rgba(255,255,255,.48) 72%,
+                transparent 100%
+            ) !important;
+    }
+
+    .pcf-merge-canvas {
+        padding: 24px 7px 34px !important;
+    }
+
+    .pcf-merge-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+        gap: 3px !important;
+        border-radius: 7px !important;
+    }
+
+    .pcf-special-copy {
+        top: 44% !important;
+        width: calc(100% - 22px) !important;
+    }
+
+    .pcf-special-copy--collage,
+    .pcf-special-copy--contact {
+        width: calc(100% - 22px) !important;
+    }
+
+    .pcf-special-kicker {
+        margin-bottom: 5px !important;
+        font-size: 5.5px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.13em !important;
+    }
+
+    .pcf-special-title {
+        font-size: clamp(23px, 8.2vw, 39px) !important;
+        line-height: 0.87 !important;
+        letter-spacing: -0.045em !important;
+    }
+
+    .pcf-special-text {
+        max-width: 300px !important;
+        margin-top: 7px !important;
+
+        font-size: clamp(6px, 1.75vw, 8.5px) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .pcf-contact-title {
+        font-size: clamp(24px, 8.4vw, 40px) !important;
+        line-height: 0.87 !important;
+        letter-spacing: -0.05em !important;
+    }
+
+    .pcf-contact-title .pcf-outline {
+        -webkit-text-stroke-width: 1px !important;
+    }
+
+    .pcf-contact-description {
+        max-width: 300px !important;
+        margin-top: 7px !important;
+
+        font-size: clamp(6px, 1.8vw, 8.5px) !important;
+        line-height: 1.35 !important;
+    }
+
+    .pcf-contact-actions {
+        margin-top: 8px !important;
+        gap: 5px !important;
+    }
+
+    .pcf-contact-button {
+        min-width: 104px !important;
+        min-height: 30px !important;
+        padding: 6px 9px !important;
+
+        font-size: 5.5px !important;
+        letter-spacing: 0.10em !important;
+    }
+
+    .pcf-contact-orbit {
+        width: min(82vw, 390px) !important;
+    }
+
+    /* Main 18-banner control card remains compact and overlaid. */
+    .hero.pmew-home-hero > .pmew-home-hero__controls {
+        right: 7px !important;
+        bottom: 6px !important;
+        left: auto !important;
+    }
+
+    .hero.pmew-home-hero .pmew-home-hero__control-group {
+        min-height: 33px !important;
+        padding: 2px 4px !important;
+        gap: 0 !important;
+    }
+
+    .hero.pmew-home-hero .pmew-home-hero__control {
+        width: 29px !important;
+        height: 29px !important;
+    }
+
+    .hero.pmew-home-hero .pmew-home-hero__counter {
+        min-width: 52px !important;
+        font-size: 0.60rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pmew-home-hero__logo-safe-area {
+        padding: 8px 6px 32px !important;
+    }
+
+    .pmew-home-hero__logo {
+        width: 94vw !important;
+        max-width: 94vw !important;
+    }
+
+    .pmew-home-hero__logo-slide::before {
+        inset: 3% 1% 5% !important;
+    }
+
+    /* Remove decorative side rules only on the narrowest phones so
+       all six country names remain on one clean line. */
+    .pmew-home-hero__markets::before,
+    .pmew-home-hero__markets::after {
+        display: none !important;
+    }
+
+    .pmew-home-hero__markets span {
+        font-size: clamp(0.33rem, 1.40vw, 0.43rem);
+        letter-spacing: 0.045em;
+    }
+
+    .pmew-home-hero__markets span + span::before {
+        margin-inline: 2px;
+    }
+
+    .pcf-headline {
+        font-size: clamp(22px, 8.2vw, 37px) !important;
+    }
+
+    .pcf-special-title {
+        font-size: clamp(21px, 7.9vw, 36px) !important;
+    }
+
+    .pcf-contact-title {
+        font-size: clamp(22px, 8vw, 37px) !important;
+    }
+}
+
+/* Landscape phones also retain the compact banner shape. */
+@media (max-width: 900px) and (max-height: 560px) and (orientation: landscape) {
+    .hero.pmew-home-hero {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .pmew-home-hero__logo-safe-area {
+        gap: 5px !important;
+        padding: 7px 12px 31px !important;
+    }
+
+    .pmew-home-hero__logo {
+        width: min(76vw, 690px) !important;
+    }
+}
+
+/* Accessibility: stable static state for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+    .pmew-home-hero__logo-slide.is-active .pmew-home-hero__logo {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .pmew-home-hero__logo-slide.is-active::before {
+        animation: none !important;
+        opacity: 0.115 !important;
+        transform: none !important;
+    }
+
+    .pmew-home-hero__logo-slide.is-active .pmew-home-hero__markets {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+    </style>
 </head>
 
     <body>
@@ -1385,6 +2001,17 @@
                     decoding="async"
                     fetchpriority="high"
                 >
+                <div
+                    class="pmew-home-hero__markets"
+                    aria-label="Global markets: USA, Canada, Mexico, Dubai, Russia, Australia"
+                >
+                    <span>USA</span>
+                    <span>Canada</span>
+                    <span>Mexico</span>
+                    <span>Dubai</span>
+                    <span>Russia</span>
+                    <span>Australia</span>
+                </div>
             </div>
         </div>
 
